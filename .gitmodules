@@ -1,0 +1,3 @@
+[submodule "F22/Research/python/eVtolGUI/Evtol-GUI"]
+	path = F22/Research/python/eVtolGUI/Evtol-GUI
+	url = git@github.com:wbuz24/Evtol-GUI.git

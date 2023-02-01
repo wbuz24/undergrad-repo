@@ -1,0 +1,45 @@
+# This file is a template, and might need editing before it works on your project.
+# use the official gcc image, based on debian
+# can use verions as well, like gcc:5.2
+image: omalaspinas/palabos:latest
+
+before_script:
+  - mkdir -p ccache
+  - export CCACHE_BASEDIR=${PWD}
+  - export CCACHE_DIR=${PWD}/ccache
+  - ccache --set-config=compression=true
+  - ccache --set-config=max_size=500M
+    
+cache:
+    untracked: false
+    key: "$CI_PROJECT_ID"
+    paths:
+        - ccache/
+    
+stages:
+    - build_cmake
+    - deploy
+
+## Test compilation with CMake, everything in examples & utility directory
+cmake:
+    stage: build_cmake
+    
+    script: 
+        - pwd
+        - cd build
+        - cmake ..
+        - make -j4
+
+pages:
+    stage: deploy
+    script:
+        - pwd
+        - mkdir -p public/docs
+        - doxygen Doxyfile
+    artifacts:
+        paths:
+        - public
+    only:
+        - master
+
+

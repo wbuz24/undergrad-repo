@@ -1,0 +1,3 @@
+{
+   "cmake.sourceDirectory": "${workspaceFolder}/Research/palabos-v2.2.1/palabos-v2.2.1/examples/codesByTopic/boundaryCondition"
+}

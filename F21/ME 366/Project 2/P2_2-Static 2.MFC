@@ -1,0 +1,16 @@
+[StartTime]
+P2_2-Static 2.MFC=1s
+[SolverState]
+P2_2-Static 2.MFC=2
+[MainFrame]
+P2_2-Static 2.MFC=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPMMBAAAAAHCBAAAAAEDDAAAAAKPBAAAAA
+[ShowMin]
+P2_2-Static 2.MFC=No
+[SolverType]
+P2_2-Static 2.MFC=Linear Analysis
+[StudyType]
+P2_2-Static 2.MFC=0
+[StudyName]
+P2_2-Static 2.MFC=Static 2
+[Solver]
+P2_2-Static 2.MFC=Iterative
