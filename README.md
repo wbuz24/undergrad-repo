@@ -10,5 +10,4 @@ This repository holds the course work for Will Buziak's Undergraduate degree in 
 ## Contact Information:
 ```
 willbuziak@gmail.com
-
 ```
