@@ -1,0 +1,331 @@
+<title> CS202 -- Lab 2</title>
+
+<h1> CS202 -- Lab 2</h1>
+
+<UL> <LI> CS202 -- Data Structures & Algorithms I
+<LI> <a href=http://web.eecs.utk.edu/~jplank>James S. Plank</a>
+<LI> Spring, 2023
+<LI> Directory for files, makefile, executables and gradescript:
+<b>/home/jplank/cs202/Labs/Lab2</b>
+<LI> 
+This file: <a href=http://web.eecs.utk.edu/~jplank/plank/classes/cs202/Labs/Lab2/>
+<b>http://web.eecs.utk.edu/~jplank/plank/classes/cs202/Labs/Lab2/</b></a>
+</UL>
+
+<hr>
+<h2>What you are to submit with this lab</h2>
+
+This lab is broken into five parts on canvas.  Here's what you are to submit:
+
+<UL>
+<LI> Lab 2A: <b>pgminfo.cpp</b>
+<LI> Lab 2B: <b>graycard.cpp</b>
+<LI> Lab 2C: <b>neg.cpp</b>
+<LI> Lab 2D: <b>hflip.cpp</b>
+<LI> Lab 2E: <b>vflip.cpp</b>
+</UL>
+
+You can submit each one when you're done (with comments, obviously).  Late points
+will apply only to the parts that you submit late.
+
+<hr>
+<h2>Executables, Formatting and Vector Functions</h2>
+<p>
+As always, there are executables for each part of the lab in the lab
+directory.  In the first part (<b>pgminfo</b>) your program's output needs to
+match mine exactly.
+<p>
+In the rest of the parts, your program needs to match mine exactly when there
+is an error.  If there is not an error, then your program's PGM must be
+equivalent to mine, but the formatting may be different.
+<p>
+In the places where your program has to match mine exactly, if you have questions about what
+the output should be, try checking the executable first rather than
+asking the TA.  Often, the answer is there.
+<p>
+For my PGM output files, I often just print a pixel on each line.  That simplified
+my programs.
+<p>
+You may not use the vector function <b>reverse()</b>.  Part of the goal of this lab is
+for you to manipulate vectors directly.
+
+<hr>
+<h2>Starting Out</h2>
+
+<UL>
+<LI> Make your <b>lab2</b> directory.
+<LI> Make a <b>bin</b> and <b>src</b> directory.
+<LI> Copy <b>/home/jplank/cs202/Labs/Lab2/makefile</b>.
+</UL>
+
+I know y'all get confused about what to copy, and your tendency is to copy everything, so here is
+some text on what to copy:
+<p>
+Whether you copy <b>gradescript/gradeall</b> is up to you, because you can call it from the lab directory.  The <b>Gradescript-Examples</b> directory is useless to you, because the gradescript uses it from the lab directory.  Whether or not you copy the pgm files is up to you.  It's probably more convenient to do so, but certainly not necessary.   The jpg files and index.html are also useless.
+
+<hr>
+<h2>PGM Files</h2>
+
+This lab lets you create and manipulate PGM files.  
+PGM stands for <i>portable gray-map</i>, and is file format for 
+non-color digital pictures.  PGM files are nice because they
+are ASCII files that you can view with text editor like <b>vi</b>,
+and that you can also view with certain software.
+<p>
+Unfortunately, most web browsers do not have support for PGM files.
+However, every environment has many ways of dealing with them.
+For example, Photoshop, Open Office and Gimp all support them as image
+types.  I would guess that iphoto and whatever photo editor
+comes with Windows handles them as well.  
+<p>
+Most Unix environments have a program called <b>convert</b>
+(from <a href=https://imagemagick.org/>https://imagemagick.org</a>), which
+will convert pgm's to jpgs for easy viewing.  For example, on 
+our labs:
+<p>
+<pre>
+UNIX> <font color=darkred><b>cp /home/jplank/cs202/Labs/Lab2/pgm/Nigel.pgm .</b></font>
+UNIX> <font color=darkred><b>convert Nigel.pgm Nigel.jpg</b></font>
+</pre>
+You may now view <b>Nigel.jpg</b> with a web browser.  Test it out.
+It should look like:
+<p>
+<center>
+<img src=jpg/Nigel.jpg>
+</center>
+<p>
+
+Here are a bunch of sample PGM files that you can use with this lab.
+They contain some of my most important role models (well, as of
+around 2007).
+Unfortunately, you shouldn't try to create your own PGM files with the above
+software, as most PGM converters convert to a different format, or they include
+comments, which I'm not requiring you to handle in this lab.
+<p>
+Also, the sizes of the JPG pictures below do not match the PGM files.  I've shrunk
+some of them to make them display better.
+
+<p>
+<center>
+<table border=3>
+<tr><td align=center valign=top><IMG src=jpg/Red.jpg><br><a href=pgm/Red.pgm<b>pgm/Red.pgm</b></a><br>
+        Red Forman - Role model for being a father and husband.</td>
+<td align=center valign=top><IMG src=jpg/Phil.jpg><br><a href=pgm/Phil.pgm<b>pgm/Phil.pgm</b></a><br>
+        Phil Dunphy - Ditto</td> </td>
+<td align=center valign=top><IMG src=jpg/Hand.jpg><br><a href=pgm/Hand.pgm<b>pgm/Hand.pgm</b></a><br>
+        Mr. Hand - Pedagogical role model</td>
+</tr><tr><td align=center valign=top><IMG src=jpg/Schalk.jpg><br><a href=pgm/Schalk.pgm<b>pgm/Schalk.pgm</b></a><br>
+        Schalk Burger - Sportsmanship</td>
+<td align=center valign=top><IMG src=jpg/Frank.jpg><br><a href=pgm/Frank.pgm<b>pgm/Frank.pgm</b></a><br>
+        Frank Slade - Dealing with children</td>
+<td align=center valign=top><IMG src=jpg/Kai.jpg><br><a href=pgm/Kai.pgm<b>pgm/Kai.pgm</b></a><br>
+        Kai Li - Motivational</td></tr>
+<tr><td align=center valign=top><IMG src=jpg/Nigel.jpg><br><a href=pgm/Nigel.pgm<b>pgm/Nigel.pgm</b></a><br>
+        Nigel Tufnel - Artistic</td>
+<td align=center valign=top><IMG src=jpg/Paris.jpg><br><a href=pgm/Paris.pgm<b>pgm/Paris.pgm</b></a><br>
+        Paris Gellar - People skills</td>
+<td align=center valign=top><IMG src=jpg/Pike.jpg><br><a href=pgm/Pike.pgm<b>pgm/Pike.pgm</b></a><br>
+        Rob Pike - Role model for answering questions during talks</td></tr>
+<tr><td align=center valign=top><IMG src=jpg/Reggie-Mike.jpg><br><a href=pgm/Reggie-Mike.pgm<b>pgm/Reggie-Mike.pgm</b></a><br>
+        Reggie and Mike - Parental</td>
+<td align=center valign=top><IMG src=jpg/Rodney.jpg><br><a href=pgm/Rodney.pgm<b>pgm/Rodney.pgm</b></a><br>
+        Rodney Farva -  People skills</td>
+<td align=center valign=top><IMG src=jpg/Sheldon.jpg><br><a href=pgm/Sheldon.pgm<b>pgm/Sheldon.pgm</b></a><br>
+        Sheldon Cooper - For what is Sheldon not a role model?</td></tr>
+</table>
+</center>
+<p>
+
+A picture is simply a two-dimensional array of <i>pixels</i>.  In
+a PGM file, a pixel is a gray value between 0 and 255.  Zero
+is black, and 255 is white.  Everything in between is a different
+shade of gray.
+<p>
+PGM files have a specific format.  (Actually, they are more
+robust than this -- I've removed comments to make them easier for
+you).  A PGM file is composed of
+words.  The first word is ``<b>P2</b>''.  Then the next two words
+define the number of pixels in the picture -- first is the number of
+columns in the two-dimensional array, and then the number of rows.
+The next word is the number 255.  So, if you look at the beginning of
+<b>pgm/Red.pgm</b>, you'll see:
+<pre>
+UNIX> <font color=darkred><b>head pgm/Red.pgm</b></font>
+P2
+235 183
+255
+ 67  74  76  80  76  77  70  67  75  82 102 119 129 133 130 127 128 
+130 134 131 130 129 130 133 132 125 116 109 101 102 105 105 113 119 
+128 133 138 137 137 137 141 143 143 144 140 143 146 144 140 138 128 
+122 118 107 106 104 106 107 115 124 127 121 114 108 103  98  97 108 
+122 138 140 140 139 129 123 125 127 141 145 147 147 146 147 147 147 
+149 150 150 150 155 168 185 195 198 202 201 201 200 200 199 201 199 
+200 201 207 205 206 203 204 205 206 206 205 206 207 207 207 207 207 
+UNIX>
+</pre>
+This means that <b>pgm/Red.pgm</b> is a 183 * 235 array of pixels.  After
+the 255 come all the pixels.  First, the pixels in the top row, then
+the pixels in the next row, etc.  Note that the ASCII formatting of
+the file doesn't mean anything -- there could be one pixel per line
+and the file would still be a legal PGM file.  In <b>pgm/Red.pgm</b>
+above, the first 235 pixels are those in the top row, then the next
+235 are in the second row, and so on.  There will be a total of
+183*235 = 43005 pixels.  After the last pixel, the file ends.
+<p>
+Before you go any further, create a PGM file of your own -- make
+it 10x10 and give the pixels any value you want.  Take a look 
+at it.  Something like:
+<p>
+<center>
+<table border=4>
+<td><pre>
+P2
+10 10
+255
+0 10 20 30 40 50 60 70 80 90
+10 20 30 40 50 60 70 80 90 100
+20 30 40 50 60 70 80 90 100 110
+30 40 50 60 70 80 90 100 110 120
+40 50 60 70 80 90 100 110 120 130
+50 60 70 80 90 100 110 120 130 140
+60 70 80 90 100 110 120 130 140 150
+70 80 90 100 110 120 130 140 150 160
+80 90 100 110 120 130 140 150 160 170
+90 100 110 120 130 140 150 160 170 180
+</pre></td></table></center><p>
+This should look like:
+<p>
+<center>
+<img src=jpg/small.jpg>
+</center>
+<p>
+Cool, no?
+<p>
+<hr>
+<h2>Program #1: Pgminfo</h2>
+
+Your first PGM program should take a PGM file
+on standard input and report the number of rows, the number of 
+columns, the total number of pixels, and the average value of all
+the pixels, padded to three decimal places.  Your program should
+work on all valid PGM files, and should print out an error (using <b>cerr</b>)
+on any invalid PGM file.  Examples of invalid PGM files are:
+<UL>
+<LI> Those that don't begin with P2.
+<LI> Those that don't have non-negative integers after the P2.
+<LI> Those that don't have the number 255 after the number of
+rows and columns.
+<LI> Those that contain the wrong number of pixels after the P2.
+This includes having too many pixels.
+<LI> Those that contain pixels whose values are not numbers between
+0 and 255.
+</UL>
+<p>
+Here is an example of <b>pgminfo</b> running on some of the PGM
+files.  Note, I have a few bad PGM files in <b>pgm/Bad-1.pgm</b>, etc.
+You need to make sure that your output matches mine <i>exactly</i>.
+And I mean exactly, meaning the same punctuation, same number of 
+spaces, and same capitalization.  Use <b>printf()</b>, not <b>cout</b>.
+<pre>
+UNIX> <font color=darkred><b>bin/pgminfo < pgmRed.pgm</b></font>
+# Rows:         183
+# Columns:      235
+# Pixels:     43005
+Avg Pixel:  120.142
+UNIX> <font color=darkred><b>bin/pgminfo < pgmPike.pgm</b></font>
+# Rows:         235
+# Columns:      197
+# Pixels:     46295
+Avg Pixel:   99.932
+UNIX> <font color=darkred><b>bin/pgminfo < pgmBad-2.pgm</b></font>
+Bad PGM file -- No column specification
+UNIX> <font color=darkred><b>bin/pgminfo < pgmBad-5.pgm</b></font>
+Bad PGM file -- pixel 99 is not a number between 0 and 255
+UNIX> <font color=darkred><b>bin/pgminfo < pgmBad-6.pgm</b></font>
+Bad PGM file -- Extra stuff after the pixels
+UNIX> <font color=darkred><b></b></font>
+</pre>
+When I print a pixel number, it is zero-indexed.  So the first
+pixel is pixel zero.
+<hr>
+
+<h2>Program #2: Graycard</h2>
+
+Professional photographers use a "gray card" to help them set the metering
+for their light conditions.  A tri-color gray card is partitioned vertically
+into the three colors: black on top, "18% gray" in the middle (with a pixel value
+of 209), and white on the
+bottom.   
+
+The graycard program takes two numbers as its command line arguments -- the
+number of rows and the number of columns.  It then writes a PGM
+file on standard output which contains a graycard with the given number of
+rows and columns.
+Again, you should error check to make sure that
+the proper number of command line arguments are given, that they are
+integers and in the proper range.  You should also print an error if the number
+of rows is not a multiple of three.  On an error, print the error statement
+to <b>stderr</b>.  As an example, try:
+<p>
+<pre>
+UNIX> <font color=darkred><b>bin/graycard 99 100 > graycard.pgm</b></font>
+UNIX> <font color=darkred><b>convert graycard.pgm graycard.jpg</b></font>
+</pre>
+Here's graycard.jpg:
+
+<p><center><table border=3><td><img src=jpg/graycard.jpg></td></table></center><p>
+<p>
+Your output in this and the next three programs should match mine exactly
+when there is an error.  Otherwise, the PGM files that it emits should
+be equivalent to mine (they should make the same picture), 
+but do not have to have the same output exactly.  
+
+<hr>
+<h2>Program #3: Neg</h2>
+
+<b>Neg</b> takes a PGM file on standard input, and prints a PGM
+file on standard output that is the negative of the input file.
+If the PGM file is not valid (same parameters as <b>pgminfo</b>),
+print an error to standard error.
+<p>
+For example, here is the negative of <b>pgm/Red.pgm</b>:
+<p>
+<center>
+<img src=jpg/RedNeg.jpg>
+</center>
+<p>
+
+<hr>
+<h2>Program #4: Hflip </h2>
+
+<b>Hflip</b> reads a PGM file on standard input, and prints a
+PGM file on standard output.  The output file should be the
+horizontal reflection of the input file -- in other words, left is
+right and right is left.  
+<p>
+You'll have to use  a vector for this program.  
+<p>
+Here's the <b>hflip</b> of <b>pgm/Red.pgm</b>:
+
+<p>
+<center>
+<img src=jpg/RedFlip.jpg>
+</center>
+<p>
+<hr>
+<h2>Program #5: Vflip </h2>
+
+<b>Vflip</b> is just like <b>hflip</b>, only it flips the file vertically:
+
+<p>
+<center>
+<img src=jpg/Red-VFlip.jpg>
+</center>
+<p>
+<hr>
+<h2>Just a little about the gradescript</h2>
+
+For all parts but part one, I use the program <b>bin/pgm_compare</b> to compare
+your output with mine.  This program takes two command line arguments, which 
+should each be PGM files, and compares them to make sure that they are equivalent,
+even if their formatting is different.

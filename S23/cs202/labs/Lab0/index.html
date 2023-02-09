@@ -1,0 +1,266 @@
+<title> CS202 -- Lab 0</title>
+
+<h1> CS202 -- Lab 0</h1>
+<h3>
+<UL> <LI> CS202 -- Data Structures and Algorithms I
+<LI> Spring, 2023
+<LI> <a href=http://web.eecs.utk.edu/~jplank>James S. Plank</a>
+<LI> <a href=http://web.eecs.utk.edu/~jplank/plank/classes/cs202/Labs/Lab0>
+     <b>http://web.eecs.utk.edu/~jplank/plank/classes/cs202/Labs/Lab0</b></a>
+<LI> Lab Directory: <b>/home/jplank/cs202/Labs/Lab0</b>
+</UL>
+</h3>
+
+The purpose of this lab is to give you practice using the
+grading scripts that you will use in your homeworks, and submitting
+labs on Canvas.
+
+<p>
+The intent is for you to 
+finish it in lab; however, if you don't you have time to finish it in lab, 
+then finish it on your own, and submit it on your own.  The due date will be
+midnight on the day after lab.
+<p>
+After this in-class lab, you'll be doing topcoder in lab.
+
+<hr>
+<h3>Video</h3>
+
+<a href=https://youtu.be/iv0mTY8mjUo>Here's a video that talks about how I go about
+doing lab 0 and about using the gradescript.</a>
+
+<hr>
+<h3>The program that you should write: How much gold -- src/gold.cpp</h3>
+
+This program reads a "map" on standard input.  It's really a text file in 
+the following format: 
+
+<UL>
+<LI> A period stands for dirt
+<LI> A dash stands for a rock with nothing under it
+<LI> An upper case letter stands for rock with gold hidden under it.  The amount 
+     of gold represented by the letter: A stands for one ounce, B stands for two ounces,
+     etc.
+<LI> There are no other characters on the map.
+</UL>
+
+For example, the following map in 
+<b><a href=data/map1.txt>data/map1.txt</a></b> 
+contains a lot of dirt, but it also contains one rock with nothing under it, and 
+three rocks with gold: one ounce (A), three ounces (C) and 26 ounces (Z).
+
+<p><center><table border=3 cellpadding=3><td><pre>
+...............
+..-............
+.........A.....
+..Z.........C..
+</pre></td></table></center><p>
+
+Your job is to write a program called <b>src/gold.cpp</b>, which reads a map on standard input
+and prints the total ounces of gold on the map.
+<p>
+There is an example executable in the lab directory, in <b>bin/gold</b>.  Try it out:
+
+<pre>
+UNIX> <font color=darkred><b>cd /home/jplank/cs202/Lab0</b></font>
+UNIX> <font color=darkred><b>bin/gold < data/map1.txt</b></font>
+30
+UNIX> <font color=darkred><b>cat data/map2.txt</b></font>
+ABCDE.
+.F----.
+--...........G
+UNIX> <font color=darkred><b>bin/gold < data/map2.txt</b></font>
+28
+UNIX> <font color=darkred><b></b></font>
+</pre>
+
+<hr>
+<h3>Starting on your lab</h3>
+
+You should make a fresh directory to work in.
+What I would do is create a directory for the class and then make subdirectories for each lab.
+Here's what you should do to start lab-0:
+
+<pre>
+UNIX> <font color=darkred><b>cd                                <font color=blue> # Go to your home directory</b></font></font>
+UNIX> <font color=darkred><b>mkdir cs202                       <font color=blue> # Make a directory for your class work</b></font></font>
+UNIX> <font color=darkred><b>chmod 0700 cs202                  <font color=blue> # Protect the directory so others can't see it. </b></font></font>
+UNIX> <font color=darkred><b>cd cs202                          <font color=blue> # Enter the directory</b></font></font>
+UNIX> <font color=darkred><b>mkdir lab0                        <font color=blue> # Make a directory for the lab</b></font></font>
+UNIX> <font color=darkred><b>cd lab0                           <font color=blue> # Enter the directory</b></font></font>
+UNIX> <font color=darkred><b>mkdir src                         <font color=blue> # Make a directory for code</b></font></font>
+UNIX> <font color=darkred><b>mkdir bin                         <font color=blue> # Make a directory for executables</b></font></font>
+UNIX> <font color=darkred><b>cp ~jplank/cs202/Lab0/makefile .  <font color=blue> # Copy the lab's makefile</b></font></font>
+UNIX> <font color=darkred><b>touch src/gold.cpp                <font color=blue> # Create the file src/gold.cpp</b></font></font>
+</pre>
+
+Implement your program in <b>src/gold.cpp</b>.  You can compile with <b>make</b>.  Let's say you
+try it right now without implementing anything.  You'll get an error like the following:
+
+<pre>
+UNIX> <font color=darkred><b>make</b></font>
+g++ -Wall -Wextra -std=c++11 -o bin/gold src/gold.cpp
+Undefined symbols for architecture x86_64:
+  "_main", referenced from:
+     implicit entry/start for main executable
+ld: symbol(s) not found for architecture x86_64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+make: *** [bin/gold] Error 1
+UNIX> <font color=darkred><b></b></font>
+</pre>
+
+Ok -- go ahead and implement <b>src/gold.cpp</b>.  Suppose you're done.  Now it should
+compile:
+
+<pre>
+UNIX> <font color=darkred><b>make</b></font>
+g++ -Wall -Wextra -std=c++11 -o bin/gold src/gold.cpp
+UNIX> <font color=darkred><b></b></font>
+</pre>
+
+Test it a little with some simple "maps" -- here are some I'd try:
+
+<pre>
+UNIX> <font color=darkred><b>echo . | bin/gold</b></font>
+0
+UNIX> <font color=darkred><b>echo - | bin/gold</b></font>
+0
+UNIX> <font color=darkred><b>echo A | bin/gold</b></font>
+1
+UNIX> <font color=darkred><b>echo Z | bin/gold</b></font>
+26
+UNIX> <font color=darkred><b>echo AZ-..-A-...----.. | bin/gold</b></font>
+28
+UNIX> <font color=darkred><b>( echo ABC... ; echo .....Z )</b></font>
+ABC...
+.....Z
+UNIX> <font color=darkred><b>( echo ABC... ; echo .....Z ) | bin/gold</b></font>
+32
+UNIX> <font color=darkred><b></b></font>
+</pre>
+
+Those all look good to me.  Time to test using the gradescript!
+
+<hr>
+<h3>Testing and Grading for Correctness</h3>
+
+There are two programs that you should use for testing and grading.  The first
+is <b>gradescript</b>.  You can call it from the lab
+directory, and you call it with a number between 1 and 100.  This
+will execute your <b>gold</b> program.  
+You need to have your <b>gold</b> executable 
+in the current directory, and call the gradescript as follows:
+
+<pre>
+UNIX> <font color=darkred><b>/home/jplank/cs202/Labs/Lab0/gradescript 1</b></font>
+Problem 001 is correct.
+
+Test: ./bin/gold < /home/jplank/cs202/Labs/Lab0/Gradescript-Examples/001.txt
+UNIX> <font color=darkred><b></b></font>
+</pre>
+
+The gradescript is saying that test #1 worked correctly.  The test that it ran
+was: 
+
+<pre>
+UNIX> <font color=darkred><b>./bin/gold < /home/jplank/cs202/Labs/Lab0/Gradescript-Examples/001.txt</b></font>
+1
+UNIX> <font color=darkred><b></b></font>
+</pre>
+
+You can examine the input file with <b>cat</b> or <b>more</b>, or even <b>vi</b>:
+
+<pre>
+UNIX> <font color=darkred><b>cat /home/jplank/cs202/Labs/Lab0/Gradescript-Examples/001.txt</b></font>
+A
+UNIX> <font color=darkred><b></b></font>
+</pre>
+
+Let us suppose that you made a mistake writing <b>bin/gold</b>, and that instead it is a program that
+always prints "1":
+
+<pre>
+UNIX> <font color=darkred><b>cat src/retone.cpp</b></font>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main()
+{
+  cout << "1\n";
+  return 0;
+}
+UNIX> <font color=darkred><b>g++ -o bin/gold src/retone.cpp</b></font>
+UNIX> <font color=darkred><b></b></font>
+</pre>
+
+When you run problem one on it, it works fine, because "1" is the proper output for
+the first problem.  However, it fails on problem 2:
+
+<pre>
+UNIX> <font color=darkred><b>/home/jplank/cs202/Labs/Lab0/gradescript 1</b></font>
+Problem 001 is correct.
+
+Test: bin/gold < /home/jplank/cs202/Labs/Lab0/Gradescript-Examples/001.txt
+UNIX> <font color=darkred><b>/home/jplank/cs202/Labs/Lab0/gradescript 2</b></font>
+Problem 002 is incorrect.
+
+Your standard output does not match the correct one.
+
+TEST:
+
+bin/gold < /home/jplank/cs202/Labs/Lab0/Gradescript-Examples/002.txt
+
+FILES:
+
+Your standard output is in tmp-002-test-stdout.txt.
+Your standard error  is in tmp-002-test-stderr.txt.
+
+The correct standard output is in tmp-002-correct-stdout.txt.
+The correct standard error  is in tmp-002-correct-stderr.txt.
+
+Look at correct files and your files, perhaps run 'diff -y' on them, and figure out your mistake.
+Please remember to delete this files when you are finished.
+UNIX> <font color=darkred><b></b></font>
+</pre>
+
+You can examine your output and the proper output in the files listed:
+
+<pre>
+UNIX> <font color=darkred><b>cat tmp-002-test-stdout.txt</b></font>
+1
+UNIX> <font color=darkred><b>cat tmp-002-correct-stdout.txt</b></font>
+30
+UNIX> <font color=darkred><b>cat /home/jplank/cs202/Labs/Lab0/Gradescript-Examples/002.txt</b></font>
+...............
+..-............
+.........A.....
+..Z.........C..
+UNIX> <font color=darkred><b></b></font>
+</pre>
+
+That way, you can try to find your errors.  In most cases, your output must match mine
+<i>exactly</i>.  That can be a challenge.
+
+<p>
+The script <b>gradeall</b> checks your programs in 100 test cases:
+
+<pre>
+UNIX> <font color=darkred><b>/home/jplank/cs202/Labs/Lab0/gradeall</b></font>   <font color=blue> # This is with the correct bin/gold.</font>
+Problem 001 is correct.
+Problem 002 is correct.
+Problem 003 is correct.
+
+...
+
+Problem 099 is correct.
+Problem 100 is correct.
+
+100 Correct out of 100
+UNIX> <font color=darkred><b></b></font>
+</pre>
+
+When you have written <b>src/gold.cpp</b> correctly, you may submit it.  Go into Canvas and
+submit <b>src/gold.cpp</b>.  Before you do this, the TA's will tell you what comments and
+header info you need to put into your program.  For this one, you must put in the proper
+header information, but I don't care about commenting for the rest of the program -- it's too
+simple.

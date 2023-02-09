@@ -1,0 +1,4 @@
+NAME Baby-Daisy
+AVERAGE 3 4 5 6
+AVERAGE 7 8 9
+Where's Starrlite!!

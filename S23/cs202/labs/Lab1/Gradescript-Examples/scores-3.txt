@@ -1,0 +1,83 @@
+           2 .5 .5 ENDMP
+          -480 -1010 -1010  ENDSCORE
+
+2 .5 .5          ENDMP
+          -420  -450  -450  ENDSCORE
+
+1.5 1.5 0          ENDMP
+           -50   -50  -170  ENDSCORE
+
+2 0 1          ENDMP
+           200  -110   100  ENDSCORE
+
+2 1 0          ENDMP
+         170     140   110  ENDSCORE
+
+0 1 2          ENDMP
+        -110     -50   100  ENDSCORE
+
+2 1 0          ENDMP
+         650     150   140  ENDSCORE
+
+2 0 1          ENDMP
+         400    -100   -50  ENDSCORE
+
+0 1.5 1.5          ENDMP
+        -680   100     100  ENDSCORE
+
+0 2 1          ENDMP
+        -110   200    PASS  ENDSCORE
+
+2 1 0          ENDMP
+         480   460     450  ENDSCORE
+
+1 2 0          ENDMP
+         150   600    -200  ENDSCORE
+
+0 2 1          ENDMP
+        -200   300   120    ENDSCORE
+
+0 2 1          ENDMP
+          50   480   100    ENDSCORE
+
+2 .5 .5          ENDMP
+         110  -100  -100    
+
+0 1 2          ENDMP
+        -110   -50   200   ENDSCORE
+
+2 1 0          ENDMP
+         150   140   130   ENDSCORE
+
+0 1 2          ENDMP
+        -450  -200   250  ENDSCORE
+
+1 2 0          ENDMP
+        -130   100  -150  ENDSCORE
+
+2 0 1          ENDMP
+         100  -650  -140  ENDSCORE
+
+0 2 1          ENDMP
+        -500   600   110  ENDSCORE
+
+0 1 2          ENDMP
+        -150  -130   200  ENDSCORE
+
+0 2 1          ENDMP
+        -170   100  -140  ENDSCORE
+
+0 2 1          ENDMP
+         PASS   400   100 ENDSCORE
+
+0 1 2          ENDMP
+        -100   170   420  ENDSCORE
+
+2 1 0          ENDMP
+        -170  -690  -790  ENDSCORE
+
+1 2 0          ENDMP
+         100   150   PASS ENDSCORE
+
+0 2 1          ENDMP
+        -200    50  -100  ENDSCORE
