@@ -10,6 +10,8 @@ This repository holds the course work for Will Buziak's Undergraduate degree in 
 ## Contact Information:
 A pdf of my resume can be found in the [S23](https://github.com/wbuz24/Undergrad-Repo/blob/master/S23/will-buziak-resume.pdf) directory
 
+Email:
+
 ```
 willbuziak@gmail.com
 ```
