@@ -21,7 +21,7 @@ bin/neg: src/neg.cpp
 	g++ $(CFLAGS) -o bin/neg src/neg.cpp
 
 bin/hflip: src/hflip.cpp
-	g++ $(CFLAGS) -g -o bin/hflip src/hflip.cpp
+	g++ $(CFLAGS) -o bin/hflip src/hflip.cpp
 
 bin/vflip: src/vflip.cpp
 	g++ $(CFLAGS) -o bin/vflip src/vflip.cpp

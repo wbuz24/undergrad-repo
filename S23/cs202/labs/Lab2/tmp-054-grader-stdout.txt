@@ -1,1 +1,0 @@
-Pixel in row 1 col 3 differs.  116 != 115
