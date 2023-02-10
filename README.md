@@ -8,6 +8,8 @@ This repository holds the course work for Will Buziak's Undergraduate degree in 
 - The repo begins in Fall 2021 (Junior year), as I got a new laptop and lost the files from my freshman and sophomore years.
 
 ## Contact Information:
+A pdf of my resume can be found in the [S23](https://github.com/wbuz24/Undergrad-Repo/blob/master/S23/will-buziak-resume.pdf) directory
+
 ```
 willbuziak@gmail.com
 ```
