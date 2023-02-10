@@ -96,9 +96,10 @@ int main() {
 
         else { // track pixels and row/col
             curr_row.push_back(curr_val); // append vector with current pixel
-            
-            if ((pixel % (col - 1)) == 0) {
+
+            if ((pixel % (col - 1)) == 0 && pixel != 0) {
                 rev_row = reversePGM(curr_row); // reverse current column
+                
                 hflip.push_back(rev_row); // append 2d vector with reversed column
                 curr_row.clear(); // clear row vectors
                 rev_row.clear();

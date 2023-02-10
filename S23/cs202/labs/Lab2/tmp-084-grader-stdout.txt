@@ -1,0 +1,1 @@
+Bad PGM file tmp-084-test-stdout.txt

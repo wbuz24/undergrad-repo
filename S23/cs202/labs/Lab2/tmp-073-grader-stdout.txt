@@ -1,0 +1,1 @@
+Pixel in row 1 col 0 differs.  0 != 4

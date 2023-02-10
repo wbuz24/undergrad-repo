@@ -1,0 +1,1 @@
+Pixel in row 1 col 1 differs.  137 != 254
