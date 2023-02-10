@@ -3,7 +3,7 @@
  * Graycard.cpp
  * 02/09/2023
  * read two command line arguments and generate a gray card
-*/
+ */
 #include <iostream>
 #include <cmath>
 using namespace std;
@@ -11,23 +11,25 @@ using namespace std;
 int main(int argc, char** argv) {
     int row, row1, col, i, j, num = 0, row_calc;
 
-    if (argc != 3) {
-        cerr << "usage: graycard row cols" << endl;
+    col = atoi(argv[2]); // read row and column from command line
+    row = atoi(argv[1]);
+
+
+    if (argc != 3 || row <= 0 || col <= 0) { // error check proper inputs
+        cerr << "usage: graycard rows cols" << endl;
     } 
 
     else {
-        cout << "P2" << endl;
-        row = atoi(argv[1]);
-        col = atoi(argv[2]);
         row1 = row / 3;
         row_calc = (2 * row) / 3;
 
-        if ((row % 3) != 0) {
+        if ((row % 3) != 0) { // error check proper row #
             cerr << "rows must be a multiple of three" << endl;
             return 0;
         }
 
-        else {
+        else { // print PGM grey card
+            cout << "P2" << endl;
             cout << col << "\n" << row << endl;
             cout << 255 << endl;
             for (i = 0 ; i < row; i++) {
@@ -48,6 +50,7 @@ int main(int argc, char** argv) {
                 }
             }
         }
+
     }
 }
 

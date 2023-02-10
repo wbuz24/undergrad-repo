@@ -57,7 +57,7 @@ int main() {
             return 0;
         }
         
-        if (pixel > (row * col) && !cin.eof()) { // check size of file
+        if (pixel > (row * col)) { // check size of file
             cerr << "Bad PGM file -- Extra stuff after the pixels" << endl;
             os = 0;
             return 0;
