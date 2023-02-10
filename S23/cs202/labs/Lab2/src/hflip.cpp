@@ -20,14 +20,12 @@ vector <int> reversePGM(vector <int> curr_col) { // return reverse of a vector
     return result;
 } 
 
-void printPGM(vector < vector < int > > hflipped, int row, int col) { // prints flipped PGM
+void printPGM(vector <int> hflipped, int row, int col) { // prints flipped PGM
     cout << "P2" << endl << col << " " << row << endl << 255 << endl;
     
     // print 2d vector
-    for (int i = 0; i < row; i++) {
-        for (int j = 0; j < col; j++) {
-            cout << hflipped[i][j] << endl;
-        }
+    for (int i = 0; i < col; i++) {
+     	cout << hflipped[i];   
     }
 }
 
@@ -36,7 +34,7 @@ int main() {
     string p2;
     bool os = 1;
     int pixel = 0, col, row, curr_val, two55;
-    vector < vector < int > > hflip;
+    //vector < vector < int > > hflip;
     vector <int> curr_row, rev_row;
 
 
@@ -78,7 +76,7 @@ int main() {
 
         if (cin.eof()) { // check for end of file
             os = 0;
-            printPGM(hflip, row, col); // print PGM
+            //printPGM(hflip, row, col); // print PGM
             return 0;
         }
 
@@ -99,8 +97,8 @@ int main() {
 
             if ((pixel % (col - 1)) == 0 && pixel != 0) {
                 rev_row = reversePGM(curr_row); // reverse current column
-                
-                hflip.push_back(rev_row); // append 2d vector with reversed column
+                printPGM(rev_row, row, col); 
+		//hflip.push_back(rev_row); // append 2d vector with reversed column
                 curr_row.clear(); // clear row vectors
                 rev_row.clear();
             }
