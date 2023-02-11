@@ -17,7 +17,7 @@ int main() {
 
     cin >> p2;
 
-    if (p2 != "P2") { // read and check P2 as starting word
+    if (p2 != "P2") { // read and error check P2 as starting word
         os = 0;
         cerr << ("Bad PGM file -- first word is not P2") << endl;
         return 0;
@@ -25,7 +25,7 @@ int main() {
 
     cin >> col;
 
-    if (cin.fail() || col < 0) { // read columns
+    if (cin.fail() || col < 0) { // error read columns
         cerr << "Bad PGM file -- No column specification" << endl;
         os = 0;
         return 0;
@@ -57,7 +57,7 @@ int main() {
             return 0;
         }
         
-        if (pixel > (row * col) && !cin.eof()) { // check size of file
+        if (pixel > (row * col) && !cin.eof()) { // error check size of file
             cerr << "Bad PGM file -- Extra stuff after the pixels" << endl;
             os = 0;
             return 0;

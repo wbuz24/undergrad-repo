@@ -32,8 +32,8 @@ int main(int argc, char** argv) {
             cout << "P2" << endl;
             cout << col << "\n" << row << endl;
             cout << 255 << endl;
-            for (i = 0 ; i < row; i++) {
-                for (j = 0 ; j < col; j++) {
+            for (i = 0 ; i < row; i++) { // row loop
+                for (j = 0 ; j < col; j++) { // column loop
                     if (i < row1) {
                         cout << 0;
                     }

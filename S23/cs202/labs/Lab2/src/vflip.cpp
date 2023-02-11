@@ -1,44 +1,30 @@
 /* Will Buziak
  * cs202
- * hflip.cpp
+ * vflip.cpp
  * lab 2
- * read a pgm file and print the horizontal flip
+ * read a pgm file and print the vertical flip
  */ 
 
 #include <iostream>
 #include <vector>
 using namespace std;
 
-vector <int> reversePGM(vector <int> curr_col) { // return reverse of a vector
-    vector <int> result;
-    int i = curr_col.size() - 1;
-
-    for (; i >= 0; i--) {
-        result.push_back(curr_col[i]);
-    } 
-
-    return result;
-} 
-
-void printPGM(vector < vector < int > > hflipped, int row, int col) { // prints flipped PGM
+void printPGM(vector < vector < int> > curr_vec, int row, int col) { // print vertical flip of 2d vector
     cout << "P2" << endl << col << " " << row << endl << 255 << endl;
-    
-    // print 2d vector
-    for (int i = 0; i < row; i++) {
-        for (int j = 0; j < col; j++) {
-            cout << hflipped[i][j] << endl;
+
+    for (int i = row - 1; i >= 0; i--) {
+        for ( int j = 0; j < col; j++) {
+            cout << curr_vec[i][j] << endl;
         }
     }
 }
-
 
 int main() {
     string p2;
     bool os = 1;
     int pixel = 0, col, row, curr_val, two55;
-    vector < vector < int > > hflip;
-    vector <int> curr_row, rev_row;
-
+    vector <int> curr_row;
+    vector < vector < int > > vflip;
 
     cin >> p2;
     if (p2 != "P2") { // read and check P2 as starting word
@@ -49,7 +35,7 @@ int main() {
 
     cin >> col;
 
-    if (cin.fail() || col < 0) { // error check to read columns
+    if (cin.fail() || col <= 0) { // error check to read columns
         cerr << "Bad PGM file -- No column specification" << endl;
         os = 0;
         return 0;
@@ -57,7 +43,7 @@ int main() {
 
     cin >> row;
 
-    if (cin.fail() || row < 0) { // error check for rows
+    if (cin.fail() || row <= 0) { // error check for rows
         cerr << "Bad PGM file -- No row specification" << endl;
         os = 0;
         return 0;
@@ -71,14 +57,12 @@ int main() {
         return 0;
     }
 
-    //hflip.resize(row); // resize the new picture to (row, col) elements
-
     while (os) {
         cin >> curr_val; // read current pixel
 
         if (cin.eof()) { // check for end of file
             os = 0;
-            printPGM(hflip, row, col); // print PGM
+            printPGM(vflip, row, col); // print PGM
             return 0;
         }
 
@@ -94,16 +78,14 @@ int main() {
             return 0;
         }
 
-        else { // track pixels and row/col
+        else { // the magic happens here
             curr_row.push_back(curr_val); // append vector with current pixel
-            
-            if ((pixel % (col - 1)) == 0) {
-                rev_row = reversePGM(curr_row); // reverse current column
-                hflip.push_back(rev_row); // append 2d vector with reversed column
-                curr_row.clear(); // clear row vectors
-                rev_row.clear();
-            }
             pixel++;
+
+            if ((pixel % (col)) == 0) { // if end of row
+                vflip.push_back(curr_row); // append 2d vector with current row
+                curr_row.clear(); // clear row vector
+            }
         }
     }
 }

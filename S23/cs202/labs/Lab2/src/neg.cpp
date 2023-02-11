@@ -71,7 +71,7 @@ int main() {
         else{ // print "negative" version of the current pixel
              neg_val = curr_val - 255;
 
-             neg_val = neg_val * -1;
+             neg_val = neg_val * -1; // if statement not necessary, (0 * -1 = 0)
              pixel++;
              cout << neg_val << endl;
         }
