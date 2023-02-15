@@ -1,0 +1,221 @@
+<title>SRM 604, D2, 250-Pointer (FoxAndWord)</title>
+<h3>SRM 604, D2, 250-Pointer (FoxAndWord)</h3>
+<h3>James S. Plank</h3>
+Sat Jan 18 09:54:26 EST 2014 
+<hr>
+
+<UL>
+<LI><a href=https://community.topcoder.com/stat?c=problem_statement&pm=12953&rd=15837>Problem Statement</a>.
+<LI> <a href=main.cpp>A <b>main()</b> with the examples compiled in.</a>
+<LI> <a href=FoxAndWord.cpp>A skeleton that compiles with <b>main.cpp</b>.</a>
+<p>
+<LI> <b>Problem Given in Topcoder</b>: September, 2014
+<LI> <b>Competitors who opened the problem</b>: 1426
+<LI> <b>Competitors who submitted a solution</b>: 1208
+<LI> <b>Number of correct solutions</b>: 976
+<LI> <b>Accuracy (percentage correct vs those who opened)</b>: 68.4%
+<LI> <b>Average Correct Time</b>: 20 minutes, 23 seconds.
+</UL>
+
+<hr>
+<h3>In case Topcoder's servers are down</h3>
+
+Here is a summary of the problem:
+
+<UL>
+<LI> You are given a vector of strings named <b>words</b>.  It has at most 50 words.
+     Each words is composed of lower case letters and is at most 50 characters in size.
+<LI> Two words <i>a</i> and <i>b</i> are considered "interesting", if you can split word
+     <i>a</i> into two parts, reverse the parts, and end up with string <i>b</i>.  For
+     example, the strings "tokyo" and "kyoto" are interesting, because you can split "tokyo"
+     into "to" and "kyo", and when you reverse them, you get "kyoto".
+<LI> Return the number of pairs of interesting words in <b>words</b>.
+</UL>
+<hr>
+<h3>The examples</h3>
+
+<center>
+<table border=3 cellpadding=3>
+<tr><td align=center>Example</td>
+    <td align=center>Input</td>
+    <td align=center>Answer</td></tr>
+<tr><td align=center valign=center>0</td>
+    <td align=center valign=center><pre>{"tokyo", "kyoto"}</pre></td>
+    <td align=center valign=center><pre>1</pre></td>
+<tr><td align=center valign=center>1</td>
+    <td align=center valign=center><pre>{"aaaaa", "bbbbb"}</pre></td>
+    <td align=center valign=center><pre>0</pre></td>
+<tr><td align=center valign=center>2</td>
+    <td align=center valign=center><pre>{"ababab","bababa","aaabbb"}</pre></td>
+    <td align=center valign=center><pre>1</pre></td>
+<tr><td align=center valign=center>3</td>
+    <td align=center valign=center><pre>{"eel", "ele", "lee"}</pre></td>
+    <td align=center valign=center><pre>3</pre></td>
+<tr><td align=center valign=center>4</td>
+    <td align=center valign=center><pre>{"aaa", "aab", "aba", "abb", "baa", "bab", "bba", "bbb"}</pre></td>
+    <td align=center valign=center><pre>6</pre></td>
+<tr><td align=center valign=center>5</td>
+    <td align=center valign=center><pre>{"top","coder"}</pre></td>
+    <td align=center valign=center><pre>0</pre></td>
+</table></center><p>
+<hr>
+<h3>Testing yourself</h3>
+
+Like the <a href=../../2010/Cryptography/index.html>Cryptography Problem</a>, 
+I have a shell script 
+<b><a href=tests.sh>tests.sh</a></b>, that you can use to test your program.  When you 
+run <b>tests.sh</b>, your answer should be identical to 
+<b><a href=answers.txt>answers.txt</a></b>.
+
+<hr>
+<h3>Hints</h3>
+Give this one a try, and if you want help, then scroll down and read below.
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+There are two parts to this problem.  
+First, you need to write a loop that allows you to compare every pair of words in <b>words</b>.
+For example, in Example 2, you will check:
+<UL>
+<LI> "ababab" and "bababa"
+<LI> "ababab" and "aaabbb"
+<LI> "bababa" and "aaabbb"
+</UL>
+Go ahead and make that your first job -- write a nested loop which simply prints out each 
+pair of words.  Here's mine on examples 2, 3 and 4.  Yours doesn't have to work in the same
+order, but it does need to generate the same pairs.
+
+<p><center><table border=3 cellpadding=3><td valign=top>
+<b> Example 2:</b><pre>
+bababa ababab
+aaabbb ababab
+aaabbb bababa</pre></td>
+<td valign=top>
+<b> Example 3:</b><pre>
+ele eel
+lee eel
+lee ele
+</pre></td>
+<td valign=top>
+<b> Example 4:</b><pre>
+aab aaa
+aba aaa
+aba aab
+abb aaa
+abb aab
+abb aba
+baa aaa
+baa aab
+baa aba
+baa abb
+bab aaa
+bab aab
+bab aba
+bab abb
+bab baa
+bba aaa
+bba aab
+bba aba
+bba abb
+bba baa
+bba bab
+bbb aaa
+bbb aab
+bbb aba
+bbb abb
+bbb baa
+bbb bab
+bbb bba</pre></td></table></center><p>
+
+Now, given a pair of words, like "tokyo" and "kyoto", how do we determine that they are
+interesting?  One simple way is to break up the first word into every combination of two
+substrings (which we'll call A and B below), 
+concatenate the substrings in reverse order, and see if they equal the second word.  For example:
+
+<p><center>
+<table border=3 cellpadding=3>
+<tr><td align=center>A</td>
+    <td align=center>B</td>
+    <td align=center>B + A</td>
+    <td align=center>Does it equal "kyoto"?</td></tr>
+<tr><td align=center>t</td>
+    <td align=center>okyo</td>
+    <td align=center>okyot</td>
+    <td align=center>No</td></tr>
+<tr><td align=center>to</td>
+    <td align=center>kyo</td>
+    <td align=center>kyoto</td>
+    <td align=center>Yes</td></tr>
+<tr><td align=center>tok</td>
+    <td align=center>yo</td>
+    <td align=center>yotok</td>
+    <td align=center>No</td></tr>
+<tr><td align=center>toky</td>
+    <td align=center>o</td>
+    <td align=center>otoky</td>
+    <td align=center>No</td></tr>
+</table>
+</center><p>
+
+To break up strings into substrings, see the <b>substr()</b> method.  I provide
+examples in <a href=http://web.eecs.utk.edu/~jplank/plank/classes/cs140/Notes/String/index.html>the 
+string lecture notes for CS140</a>.  
+<hr>
+<h3>Running Time</h3>
+
+One of the skills of a computer scientist is being able to determine the running time
+of his or her program.  In this instance, we ask the question -- if the size of <b>words</b>
+is <i>W</i> and the maximum size of a word is <i>S</i>, then how does the performance of
+our program scale with <i>W</i> and <i>S</i>.
+<p>
+In this instance, you are generating all pairs of words of <b>words</b>, and there are
+<i>(W(W+1))/2</i> of these.  For each pair of words, you are calculating <i>S-1</i> 
+values of A and B, and the work required to compute A+B is roughly <i>S</i>.
+Therefore, your program scales with <i>W</i> and <i>S</i> roughly as:
+<center>
+<p>
+<i>W<sup>2</sup>S<sup>2</sup></i>
+</center>
+<p>
+With topcoder, the maximum <i>W</i> is 50, and the maximum <i>S</i> is also 50, so the equation
+above gives you 6,250,000.  That's going to be pushing topcoder's time limits, but it is fast
+enough.  Later in the semester, when we study maps, you'll be able to see how to make this
+program faster.
+
