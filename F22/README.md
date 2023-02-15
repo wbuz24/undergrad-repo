@@ -13,4 +13,9 @@ MATH 411 (Mathematical Modeling)
 
 ## Note:
 
-It was in this semester (Fall of senior year) that I decided to officially push off my expected graduation date (May 2023 to May 2024) to pick up a Computer Science minor
+During this semester, I was involved as an undergraduate research assistant in the UTK's:
+
+Electrochemical Energy Storage and Conversion Lab [EESCL](https://ecpower.utk.edu/)
+
+
+- It was in this semester (Fall of senior year) that I decided to officially push off my expected graduation date (May 2023 to May 2024) to pick up a Computer Science minor
