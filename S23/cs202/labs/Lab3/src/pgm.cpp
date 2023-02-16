@@ -39,7 +39,7 @@ bool Pgm::Read(const std::string &file)
 bool Pgm::Write(const std::string &file) const {
     ofstream ofile;
     ofile.open("file");
-    ofile << "P2\n" << 
+    ofile << "P2\n"; 
     return 0;
 };
 
