@@ -40,10 +40,14 @@ bool Pgm::Write(const std::string &file) const {
     size_t rows = Pgm::Pixels.size(), cols = Pgm::Pixels[0].size();
     ofstream ofile;
     ofile.open("file");
+<<<<<<< HEAD
     ofile << "P2\n" << cols << " " << rows << endl; 
     ofile << "255\n";
 
 
+=======
+    ofile << "P2\n"; 
+>>>>>>> 17876dfcb9d7e78475a80d26b84382c3c0ade14e
     return 0;
 };
 
