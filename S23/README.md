@@ -9,7 +9,7 @@ ME 460 (Senior Design)
 
 ```
 
-During this semester, I was involved as an undergraduate research assistant in the UTK's:
+During this semester, I was involved as an undergraduate research assistant in the University of Tennessee, Knoxville's:
 
 Electrochemical Energy Storage and Conversion Lab [EESCL](https://ecpower.utk.edu/)
 
