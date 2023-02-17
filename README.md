@@ -1,4 +1,4 @@
-# Undergrad-Repo
+# Will Buziak's Undergraduate Repository
 This repository holds the course work for Will Buziak's Undergraduate degree in Mechanical Engineering with a minor in Computer Science from the University of Tennessee, Knoxville.
 
 ## Note:
