@@ -1,0 +1,6 @@
+READ input.pgm
+CCW
+CCW
+CCW
+PAD 3 87
+WRITE output.pgm

@@ -1,0 +1,7 @@
+READ input.pgm
+PAD 9 90
+CW
+CCW
+CROP 35 21 240 231
+CW
+WRITE output.pgm

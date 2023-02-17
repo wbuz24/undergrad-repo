@@ -1,0 +1,3 @@
+READ input.pgm
+CROP 2 2 8 17000
+WRITE output.pgm

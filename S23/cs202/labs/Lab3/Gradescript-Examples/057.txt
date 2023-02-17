@@ -1,0 +1,9 @@
+READ input.pgm
+PANEL 1 2
+PANEL 1 4
+PANEL 4 1
+CW
+PANEL 3 1
+CW
+CCW
+WRITE output.pgm

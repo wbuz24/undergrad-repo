@@ -1,0 +1,4 @@
+READ input.pgm
+PAD 10 46
+PAD 9 85
+WRITE output.pgm

@@ -1,0 +1,2 @@
+CREATE 61 45 27
+WRITE output.pgm

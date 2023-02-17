@@ -1,0 +1,6 @@
+READ input.pgm
+CW
+CCW
+CROP 201 11 243 224
+CCW
+WRITE output.pgm

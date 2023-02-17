@@ -1,0 +1,10 @@
+READ input.pgm
+PAD 8 236
+PAD 2 221
+CROP 5 41 210 200
+CW
+CCW
+PANEL 3 2
+CW
+CW
+WRITE output.pgm

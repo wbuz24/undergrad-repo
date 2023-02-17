@@ -1,0 +1,3 @@
+READ input.pgm
+PAD 2 234
+WRITE output.pgm

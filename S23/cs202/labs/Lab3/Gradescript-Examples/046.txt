@@ -1,0 +1,5 @@
+READ input.pgm
+CW
+CW
+CCW
+WRITE output.pgm

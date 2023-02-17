@@ -1,0 +1,8 @@
+READ input.pgm
+PANEL 1 1
+PANEL 3 2
+CROP 95 73 582 423
+PAD 7 56
+PAD 12 157
+CCW
+WRITE output.pgm

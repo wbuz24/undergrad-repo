@@ -1,0 +1,5 @@
+READ input.pgm
+CCW
+PAD 3 122
+PANEL 4 1
+WRITE output.pgm

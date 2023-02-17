@@ -1,0 +1,4 @@
+READ input.pgm
+CW
+PAD 7 192
+WRITE output.pgm

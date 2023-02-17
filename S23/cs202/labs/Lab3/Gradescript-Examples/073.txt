@@ -1,0 +1,9 @@
+READ input.pgm
+CW
+CW
+PANEL 3 3
+PANEL 4 4
+CW
+CROP 222 673 2333 3583
+CCW
+WRITE output.pgm

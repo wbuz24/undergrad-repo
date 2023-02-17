@@ -1,0 +1,32 @@
+#!/bin/sh 
+
+dir=/home/jplank/cs202/Labs/Lab3
+ge="$dir/Gradescript-Examples"
+
+if [ $# -ne 0 ]; then
+  echo 'usage: gradeall' >&2
+  exit 1
+fi
+
+enum=1
+n=0
+while [ $enum -le 100 ]; do
+  out=`$dir/gradescript $enum  | head -n 1`
+  echo $out
+  n=`echo $n $out | awk '{ print $1 + ($NF == "correct.") }'`
+
+  fw=`echo $enum | awk '{ printf "%03d\n", $1 }'`
+  rm -f tmp-$fw-test-stdout.txt \
+      tmp-$fw-test-stderr.txt \
+      tmp-$fw-correct-stdout.txt \
+      tmp-$fw-correct-stderr.txt \
+      tmp-$fw-test-output.pgm \
+      input.pgm \
+      tmp-$fw-correct-output.pgm
+
+  enum=`echo $enum | awk '{ print $1+1 }'`
+done
+
+echo ""
+
+echo "$n Correct out of 100"

@@ -1,0 +1,5 @@
+READ input.pgm
+CROP 1 50 216 312
+CCW
+CROP 32 38 267 191
+WRITE output.pgm

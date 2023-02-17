@@ -1,0 +1,6 @@
+READ input.pgm
+CROP 9 20 143 110
+PANEL 2 2
+PAD 3 60
+PAD 7 112
+WRITE output.pgm

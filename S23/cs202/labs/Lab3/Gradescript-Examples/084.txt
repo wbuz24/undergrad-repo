@@ -1,0 +1,4 @@
+READ input.pgm
+CROP 4 8 16 16
+PAD 14 244
+WRITE output.pgm

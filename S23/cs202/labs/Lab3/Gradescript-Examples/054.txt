@@ -1,0 +1,5 @@
+READ input.pgm
+PAD 14 2
+PANEL 2 2
+PANEL 1 2
+WRITE output.pgm

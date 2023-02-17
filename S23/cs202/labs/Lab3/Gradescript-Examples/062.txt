@@ -1,0 +1,3 @@
+READ input.pgm
+PANEL 8 1
+WRITE output.pgm
