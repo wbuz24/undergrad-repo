@@ -29,5 +29,6 @@ jal   zero, 1b    # Jump back to start
 
 1: 
   
-  mv a0, t1  
-  ret            # returns a0 
+  mv  a0, t1
+  sw  t2, 0(a2)   # save value of t2 
+  ret             # returns a0  
