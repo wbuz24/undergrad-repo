@@ -1,3 +1,8 @@
+#  Will Buziak
+#  First Assembly Program
+#  Calculate the sum and product of an array of values
+#  Return the sum and product
+
 .section .text 
 .global sum_prod
 sum_prod:
