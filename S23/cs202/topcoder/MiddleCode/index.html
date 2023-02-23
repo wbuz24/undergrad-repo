@@ -1,0 +1,185 @@
+<title>SRM 603, D2, 250-Pointer (MiddleCode)</title>
+<h3>SRM 603, D2, 250-Pointer (MiddleCode)</h3>
+<h3>James S. Plank</h3>
+Sun Jul  7 10:36:33 EDT 2019
+<p>
+I'm going to walk you through two solutions to a rather simple problem.  This is the kind
+of thing that interviewers like to do on a job interview -- see you evaluate a simple-but-bad,
+and a harder-but-good solution to a problem.   So walk through every detail of this one
+so that you could do this on a whiteboard in front of some job interviewers!
+<hr>
+
+<UL>
+<LI><a href=https://community.topcoder.com/stat?c=problem_statement&pm=12940&rd=15836>Problem Statement</a>.
+<LI> <a href=main.cpp>A <b>main()</b> with the examples compiled in.</a>
+<LI> <a href=MiddleCode.cpp>A skeleton that compiles with <b>main.cpp</b>.</a>
+<p>
+<LI> <b>Problem Given in Topcoder</b>: 2014
+<LI> <b>Competitors who opened the problem</b>: 876 
+<LI> <b>Competitors who submitted a solution</b>: 803
+<LI> <b>Number of correct solutions</b>: 781
+<LI> <b>Accuracy (percentage correct vs those who opened)</b>: 89.2
+<LI> <b>Average Correct Time</b>: 15 minutes, 47 seconds.
+</UL>
+
+<hr>
+<h3>In case Topcoder's servers are down</h3>
+
+Here is a summary of the problem:
+
+<UL>
+<LI> You are given a string <b>s</b>, whose size is 50 characters or less.
+<LI> Your job is create a new string <b>t</b>, from <b>s</b>. You start with <b>t</b> 
+     being empty, and then you repeat the following, until <b>s</b> is empty:
+<UL>
+<p>
+<LI> If the size of <b>s</b> is odd, then remove the middle character from <b>s</b>, and
+     append it to <b>t</b>.
+<LI> If the size of <b>s</b> is even, then look at the two middle characters of <b>s</b>.
+     Whichever of these is smaller than the other, remove it from <b>s</b> and append it
+     to <b>t</b>.  (If they are equal, simply remove one of them and add it to <b>t</b>).
+</UL>
+</UL>
+<hr>
+<h3>The examples</h3>
+
+<center>
+<table border=3 cellpadding=3>
+<tr><td align=center>Example</td>
+    <td align=center><b>s</b></td>
+    <td align=center><b>t</b></td></tr>
+<tr><td align=center valign=center>0</td>
+    <td align=center valign=center><pre>"word"</pre></td>
+    <td align=center valign=center><pre>"ordw"</pre></td></tr>
+<tr><td align=center valign=center>1</td>
+    <td align=center valign=center><pre>"aaaaa"</pre></td>
+    <td align=center valign=center><pre>"aaaaa"</pre></td></tr>
+<tr><td align=center valign=center>2</td>
+    <td align=center valign=center><pre>"abacaba"</pre></td>
+    <td align=center valign=center><pre>"caabbaa"</pre></td></tr>
+<tr><td align=center valign=center>3</td>
+    <td align=center valign=center><pre>"shjegr"</pre></td>
+    <td align=center valign=center><pre>"ejghrs"</pre></td></tr>
+<tr><td align=center valign=center>4</td>
+    <td align=center valign=center><pre>"adafaaaadafawafwfasdaa"</pre></td>
+    <td align=center valign=center><pre>"afawadafawafaafsadadaa"</pre></td></tr>
+</table></center><p>
+
+Let's walk through the first example:
+
+<UL>
+<LI> <b>s</b> is <tt>"word"</tt>.  It is even, and the two middle characters are <tt>'o'</tt>
+and <tt>'r'</tt>.  Since <tt>'o'</tt> is the smaller of these, add it to <b>t</b> and 
+remove it from <b>s</b>.
+<LI> <b>s</b> is now <tt>"wrd"</tt> and <b>t</b> is <tt>"o"</tt>.  Because <b>s</b> is odd,
+remove the middle character -- <tt>'r'</tt> and add it to <b>t</b>.
+<LI> <b>s</b> is now <tt>"wd"</tt> and <b>t</b> is <tt>"or"</tt>.  <b>s</b> is even, and
+the two middle characters are <tt>'w'</tt>
+and <tt>'d'</tt>.  Since <tt>'d'</tt> is the smaller of these, add it to <b>t</b> and 
+remove it from <b>s</b>.
+<LI> <b>s</b> is now <tt>"w"</tt> and <b>t</b> is <tt>"ord"</tt>.  Remove the 
+<tt>'w'</tt> from <b>s</b>, add it to <b>t</b>, and you're done: <b>t</b> is <tt>"ordw"</tt>.
+</UL>
+<hr>
+
+<h3>Testing yourself</h3>
+
+Like the <a href=../../2010/Cryptography/index.html>Cryptography Problem</a>, 
+I have a shell script 
+<b><a href=tests.sh>tests.sh</a></b>, that you can use to test your program.  When you 
+run <b>tests.sh</b>, your answer should be identical to 
+<b><a href=answers.txt>answers.txt</a></b>.
+
+<hr>
+<h3>An Expedient Solution</h3>
+
+Because the constraints on this one are so low, you can solve it with an expedient
+solution that follows the algorithm above very closely:
+
+<UL>
+<LI> Find the index of the character you will remove in <b>s</b>.
+<LI> Add that character to <b>t</b>.
+<LI> "Remove" it from <b>s</b> by recreating <b>s</b> with two <b>s.substr()</b> calls.
+</UL>
+
+Go ahead and write that one -- it will be fast enough to pass Topcoder's system test (or 
+<b>test.sh</b> if Topcoder's servers are down).
+
+<hr>
+<h3>Evaluating the Expedient Solution</h3>
+
+As is often the case, the expedient solution is easy to write, but is not the best
+solution.  In this case, think about how you "delete" the character from <b>s</b>, 
+when it has <i>n</i> characters.  The two <b>s.substr()</b> calls create a new
+string of size <i>n-1</i>, which means that they take <i>n-1</i> operations, and
+you are left with a new <b>s</b>, whose size is <i>n-1</i>.
+<p>
+Let's add up the number of operations:
+
+<p><center>
+<table border=3 cellpadding=10>
+<tr><td align=center><b>Size of s</b></td>
+    <td align=center><b>Operations to "delete" the character</b></td></tr>
+<tr><td align=center><i>n</i></td><td align=center><i>n-1</i></td></tr>
+<tr><td align=center><i>n-1</i></td><td align=center><i>n-2</i></td></tr>
+<tr><td align=center><i>n-2</i></td><td align=center><i>n-3</i></td></tr>
+<tr><td align=center><i>...</i></td><td align=center><i>...</i></td></tr>
+<tr><td align=center><i>2</i></td><td align=center><i>1</i></td></tr>
+<tr><td align=center><i>1</i></td><td align=center><i>0</i></td></tr>
+</table>
+</center><p>
+
+That's the sum of <i>i</i> for <i>i = 0</i> to <i>n-1</i>, which is <i>(n-1)*(n-2)/2</i> =
+<i>(n<sup>2</sup> - 3n + 2) / 2</i>.  That's a quadratic equation (later in the semester,
+we will call it <i>O(n<sup>2</sup>)</i>), which means it blows up as you increase <i>n</i>.
+For example, if the size of <b>x</b> is 500,000, then this solution takes 
+250,001,500,002 operations.  
+<p>
+In the shell script <b>test-harder.sh</b>, I include some larger tests, the last of which
+uses a string with 500,000 characters as input.  On my Macintosh (in 2019), it took three
+minutes and 51 seconds.
+
+<hr>
+<h3>A Better Solution</h3>
+
+The culprit here is how you "delete" the character from <b>s</b>. If you think about the
+problem some more, you'll see that you don't need to delete the character from <b>s</b>.  You
+can simply keep track of the middle characters without deleting them.  
+<p>
+Go ahead and try to write a solution that doesn't delete any characters of <b>s</b>.  I'll
+outline it below, but give it a try on your own before reading further.
+<p>
+My solution relies on the observation that when <b>s</b> is even, you add one of the middle
+characters to <b>t</b>, and then you add the other one (because <b>s</b> is now odd, and 
+that character is the middle one).  In the example above, when you're considering 
+<tt>'o'</tt> and 
+<tt>'r'</tt>, you first add the 
+<tt>'o'</tt> and then you add the 
+<tt>'r'</tt>.  So, I did the following:
+
+<UL>
+<LI> If <b>s</b> is odd, then let <i>i</i> be the index of the middle character.  Add that
+character to <i>t</i> and then set <i>j</i> to <i>(i+1)</i> and <i>i</i> to <i>(i-1)</i>
+<LI> If <b>s</b> is even, then 
+set <i>i</i> to be the smaller index of the two middle characters, and 
+<i>i</i> to be the larger index.
+<LI> Then repeat until you're done: add the smaller of <tt>s[i]</tt> and 
+<tt>s[j]</tt> to <b>t</b>, and then the larger.  Then increment <i>j</i> and decrement <i>i</i>.
+</UL>
+
+If you evaluate this solution, it does a handful of operations at each iteration, and
+there are <i>n/2</i> iterations.  
+Call it 10 operations.  That means a total of <i>5n</i> operations, which is linear rather
+than quadratic.  Compare 5*500,000 = 2,500,000 operations to the
+250,001,500,002 operations for the quadratic solution!
+<p>
+Try your new answer on <b>test-harder.sh</b> (check your correctness with <b>test.sh</b> first), and
+it should be much faster.  You can check your timing as follows:
+
+<pre>
+UNIX> <font color=darkred><b>time sh -c 'sh test-harder.sh > /dev/null'</b></font>
+0.921u 0.068s 0:00.90 108.8%	0+0k 0+0io 0pf+0w
+UNIX> <font color=darkred><b></b></font>
+</pre>
+
+Under a second for all of the tests!
