@@ -1,0 +1,182 @@
+<title>SRM 350  D2, 250-Pointer (DistanceBetweenStrings)</title>
+<h3>SRM 350, D2, 250-Pointer (DistanceBetweenStrings)</h3>
+<h3>James S. Plank</h3>
+Original notes: January, 2014<br>
+Latest revision: Sun Jan 27 13:31:37 EST 2019
+<hr>
+
+
+<UL>
+<LI><a href=http://community.topcoder.com/stat?c=problem_statement&pm=7625&rd=10668>Problem Statement</a>.
+<LI> <a href=main.cpp>A <b>main()</b> with the examples compiled in.</a>
+<LI> <a href=SimpleRotationDecoder.cpp>A skeleton that compiles with <b>main.cpp</b>.</a>
+<LI> <a href=Solution.cpp>My Solution.cpp</b>.</a>
+<p>
+<LI> <b>Problem Given in Topcoder</b>: 2007
+<LI> <b>Competitors who opened the problem</b>: 523
+<LI> <b>Competitors who submitted a solution</b>: 503
+<LI> <b>Number of correct solutions</b>: 303
+<LI> <b>Accuracy (percentage correct vs those who opened)</b>: 57.9%
+<LI> <b>Average Correct Time</b>: 13 minutes, 54 seconds.
+</UL>
+
+<hr>
+<h3>In case Topcoder's servers are down</h3>
+
+Here is a summary of the problem:
+
+<UL>
+<LI> You are given two strings, <b>a</b> and <b>b</b>, composed of lower and uppercase letters.
+<LI> The "difference" between 
+<b>a</b> and <b>b</b> with respect to a letter <b>c</b> is:
+<p>
+<center>
+<i> (number_of_occurences_of_<b>c</b>_in_<b>a</b> -
+     number_of_occurences_of_<b>c</b>_in_<b>b</b>)<sup>2</sup></i>
+</center>
+<p>
+<LI> You ignore case in this problem -- in other words, you treat upper and lower case
+versions of a letter identically.
+<LI> You are given a third string, <b>letterSet</b>.
+<LI> Calculate and return the sum of 
+     the differences betwen <b>a</b> and <b>b</b> with respect to all of the letters
+     in <b>letterSet</b>.
+<LI> All strings are between 1 and 50 characters long.
+</UL>
+<hr>
+<h3>The examples</h3>
+
+<center>
+<table border=3 cellpadding=3>
+<tr><td align=center>Example</td>
+    <td align=center>Input</td>
+    <td align=center>Answer</td></tr>
+
+<tr><td align=center valign=center>0</td>
+    <td align=left valign=center><tt>a =         "topcoder"<br>
+      b =       "contest"<br>
+      letterSet = "tcp"</tt></td>
+    <td align=center valign=center>2</td></tr>
+
+<tr><td align=center valign=center>1</td>
+    <td align=left valign=center><tt>
+a = "abcdef"<br>
+b = "fedcba"<br>
+letterSet = "fed"</tt>
+</tt></td>
+    <td align=center valign=center>0</td></tr>
+
+<tr><td align=center valign=center>2</td>
+    <td align=left valign=center><tt>
+a = "aaaaa"<br>
+b = "bbbbb"<br>
+letterSet = "a"
+</tt></td>
+    <td align=center valign=center>25</td></tr>
+
+<tr><td align=center valign=center>3</td>
+    <td align=left valign=center><tt>
+a = "aaAaB"<br>
+b = "BbaAa"<br>
+letterSet = "ab"
+</tt></td>
+    <td align=center valign=center>2</td></tr>
+
+<tr><td align=center valign=center>4</td>
+    <td align=left valign=center><tt>
+a = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"<br>
+b = "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"<br>
+letterSet = "ba"
+</tt></td>
+    <td align=center valign=center>5000</td></tr>
+
+<tr><td align=center valign=center>5</td>
+    <td align=left valign=center><tt>
+a = "ToPcOdEr"<br>
+b = "tOpCoDeR"<br>
+letterSet = "wxyz"
+</tt></td>
+    <td align=center valign=center>0</td></tr>
+
+</table>
+</center>
+<p>
+
+<hr>
+
+<h3>Testing yourself</h3>
+
+I have a shell script 
+<b><a href=tests.sh>tests.sh</a></b>
+, that you can use to test your program.  When you
+run <b>tests.sh</b>, your answer should be identical to
+<b><a href=answers.txt>answers.txt</a></b>.
+
+<hr>
+<h3>Hints</h3>
+
+
+First, read the problem description and make sure
+that you understand what it's asking.  Go through each example, and make sure that you 
+know why each answer is correct.  With example 4, use math rather than 
+counting digits:
+<p>
+The answer is 5000, and the first string is all a's, while the second string is all b's.
+And the strings are the same size.  So, let that size be <i>s</i>.  You know that the
+distance between the two strings with respect to the character 'a' is <i>s<sup>2</sup></i>.
+And the
+distance between the two strings with respect to the character 'b' is also 
+<i>s<sup>2</sup></i>.  So, you need to find an <i>s</i> such that 
+<i>2s<sup>2</sup></i> equals 5000.   That means <i>s<sup>2</sup></i> equals 2500.   
+So <i>s</i> is 50: the first string is 50 a's, and the second is 50 b's.  Excellent.
+<hr>
+Now, let's start programming a solution.  Your first job is to set up the <b>DistanceBetweenStrings</b> class, which has a public method called <b>getDistance()</b>.  <b>getDistance()</b>
+should take three strings as parameters, and return an integer.  
+<p>
+Now, implement <b>getDistance()</b> so that it simply returns zero.  Get that to compile
+and test it.  You'll see that it gives the right answer for examples 1 and 5.  Ha ha.  
+<hr>
+Now, update your program so that it goes through <b>a</b> and <b>b</b> and converts upper
+case to lower case.  Have it print out <b>a</b> and <b>b</b>, but still have it return 0.
+It won't be correct, but you can now test whether you did it correctly by looking at the
+output, especially for examples 3 and 5.  Remember from class -- you can test whether a
+character is uppercase by testing it against the characters 'A' and 'Z'.  Then you can 
+convert uppercase to lowercase by subtracting 'A' and adding 'a'.
+<hr>
+Now, go through every character in <b>letterSet</b>, and
+count the occurrences of that character in <b>a</b> and in <b>b</b>.
+Print that out.  You should still return 0 -- you just want to make sure you have 
+your code running correctly.  Here it is on all of the examples:
+
+<p><center><table border=3 cellpadding=3>
+<td align=center valign=top><u>Example 0</u><pre>
+t 1 2
+c 1 1
+p 1 0
+</pre></td>
+<td align=center valign=top><u>Example 1</u><pre>
+f 1 1
+e 1 1
+d 1 1
+</pre></td>
+<td align=center valign=top><u>Example 2</u><pre>
+a 5 0
+</pre></td>
+<td align=center valign=top><u>Example 3</u><pre>
+a 4 3
+b 1 2
+</pre></td>
+<td align=center valign=top><u>Example 4</u><pre>
+b 0 50
+a 50 0
+</pre></td>
+<td align=center valign=top><u>Example 5</u><pre>
+w 0 0
+x 0 0
+y 0 0
+z 0 0
+</pre></td>
+</table></center><p>
+<hr>
+Now finish your program by calculating the distances and returning the total.
+

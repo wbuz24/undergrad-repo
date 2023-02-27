@@ -1,0 +1,165 @@
+<title>SRM 587, D2, 250-Pointer (InsertZ)</title>
+<h3>SRM 587, D2, 250-Pointer (InsertZ)</h3>
+<h3>James S. Plank</h3>
+Sat Jul 20 11:11:41 EDT 2019
+<hr>
+
+<UL>
+<LI><a href=https://community.topcoder.com/stat?c=problem_statement&pm=12700&rd=15699>Problem Statement</a>.
+<LI> <a href=main.cpp>A <b>main()</b> with the examples compiled in.</a>
+<LI> <a href=InsertZ.cpp>A skeleton that compiles with <b>main.cpp</b>.</a>
+<p>
+<LI> <b>Problem Given in Topcoder</b>: 2013
+<LI> <b>Competitors who opened the problem</b>: 627
+<LI> <b>Competitors who submitted a solution</b>: 606
+<LI> <b>Number of correct solutions</b>: 403
+<LI> <b>Accuracy (percentage correct vs those who opened)</b>: 64.3%
+<LI> <b>Average Correct Time</b>: 9 minutes, 33 seconds.
+</UL>
+
+<hr>
+<h3>In case Topcoder's servers are down</h3>
+
+(Please use the workflow in the problem <a href=http://web.eecs.utk.edu/~plank/topcoder-writeups/2010/Cryptography/index.html>Cryptography</a>).
+<p>
+
+Here is a summary of the problem:
+
+<UL>
+<LI> You are given two strings, <i>init</i> and <i>goal</i>.
+<LI> <i>init</i> does not contain the character <tt>'z'</tt>
+<LI> Your goal is to transform <i>init</i> into <i>goal</i>, and the only thing that you 
+     are allowed to do is insert the character <tt>'z'</tt> into <i>init</i>.  You are 
+     allowed to do that as many times as you want.
+<LI> Return <tt>"Yes"</tt> if it is possible to transform 
+<i>init</i> into <i>goal</i> in this manner, and 
+<tt>"No"</tt> if it is impossible.
+<LI> Topcoder constrains the strings to be between 1 and 50 characters, but I am going
+     to constrain them to be between 1 and 100,000 characters.
+</UL>
+
+<hr>
+
+<h3>The examples</h3>
+
+<center>
+<table border=3 cellpadding=3>
+<tr><td align=center>Example</td>
+<td align=center><i>init</i></td>
+<td align=center><i>goal</i></td>
+<td align=center>Answer</td></tr>
+
+<tr><td align=center valign=center>0</td>
+<td align=center valign=center><tt>"fox"</tt></td>
+<td align=center valign=center><tt>"foxz"</tt></td>
+<td align=center valign=center><tt>"Yes"</td></tr>
+
+<tr><td align=center valign=center>1</td>
+<td align=center valign=center><tt>"fox"</tt></td>
+<td align=center valign=center><tt>"zfzoxzz"</tt></td>
+<td align=center valign=center><tt>"Yes"</td></tr>
+
+<tr><td align=center valign=center>2</td>
+<td align=center valign=center><tt>"foon"</tt></td>
+<td align=center valign=center><tt>"foon"</tt></td>
+<td align=center valign=center><tt>"Yes"</td></tr>
+
+<tr><td align=center valign=center>3</td>
+<td align=center valign=center><tt>"topcoder"</tt></td>
+<td align=center valign=center><tt>"zopzoder"</tt></td>
+<td align=center valign=center><tt>"No"</td></tr>
+
+<tr><td align=center valign=center>4</td>
+<td align=center valign=center><tt>"aaaaaaaaaa"</tt></td>
+<td align=center valign=center><tt>"a"</tt></td>
+<td align=center valign=center><tt>"No"</td></tr>
+
+<tr><td align=center valign=center>5</td>
+<td align=center valign=center><tt>"mvixrdnrpxowkasufnvxaq"</tt></td>
+<td align=center valign=center><tt>"mvizzxzzzrdzznzrpxozzwzzkazzzszzuzzfnvxzzzazzq"</tt></td>
+<td align=center valign=center><tt>"Yes"</td></tr>
+
+<tr><td align=center valign=center>6</td>
+<td align=center valign=center><tt>"opdlfmvuicjsierjowdvnx"</tt></td>
+<td align=center valign=center><tt>"zzopzdlfmvzuicjzzsizzeijzowvznxzz"</tt></td>
+<td align=center valign=center><tt>"No"</td></tr>
+
+</table>
+</center><p>
+
+<hr>
+<h3>Testing yourself</h3>
+
+I have a shell script
+<b><a href=tests.sh>tests.sh</a></b>, that you can use to test your program.  When you
+run <b>tests.sh</b>, your answer should be identical to
+<b><a href=answers.txt>answers.txt</a></b>.  The shell script should take under a second.
+
+<hr>
+<h3>Hints</h3>
+Try this on your own before reading further.
+
+
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+
+The low success rate to this problem most likely comes from being lured into thinking
+about it in the way that the problem is described -- trying to insert z's into <i>init</i>
+so that it matches <i>goal</i>.
+<p>
+Since <i>init</i> doesn't contain any z's initially, you can solve the problem by removing
+z's from <i>goal</i>, and then seeing if it matches <i>init</i>.  
+<p>
+Now, you don't want to actually remove z's from <i>goal</i> (for example, by using
+the <tt>erase()</tt> method on the string).  That would make your 
+solution <i>O(n<sup>2</sup>)</i>.  Instead, create a new string by traversing <i>goal</i>,
+and calling <tt>push_back()</tt> on the new string whenever you encounter a non-z 
+character in <i>goal</i>.  There's a nice, simple, two-line, <i>O(n)</i> solution!

@@ -17,10 +17,10 @@ clean:
 # Object files
 
 obj/hash_202.o: src/hash_202.cpp include/hash_202.hpp
-	g++ $(CFLAGS) -c -o obj/hash_202.o src/hash_202.cpp
+	g++ $(CFLAGS) -g -c -o obj/hash_202.o src/hash_202.cpp
 
 obj/hash_tester.o: src/hash_tester.cpp include/hash_202.hpp
-	g++ $(CFLAGS) -c -o obj/hash_tester.o src/hash_tester.cpp
+	g++ $(CFLAGS) -g -c -o obj/hash_tester.o src/hash_tester.cpp
 
 # -------------------------
 # Executables
