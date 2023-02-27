@@ -1,3 +1,10 @@
+/* Will Buziak
+ * Lab 4
+ * Hashing lab
+ * cs202
+*/
+
+
 #include <vector>
 #include <string>
 #include <sstream>
