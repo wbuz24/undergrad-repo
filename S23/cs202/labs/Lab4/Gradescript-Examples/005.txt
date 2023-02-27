@@ -1,0 +1,7 @@
+A 0 Fred-1
+A 6 Fred-2
+A c Fred-3
+A 3 Fred-4
+A 9 Fred-5
+A f Fred-6
+P
