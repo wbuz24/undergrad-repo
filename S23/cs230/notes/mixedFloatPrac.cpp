@@ -1,7 +1,7 @@
 /* Class notes March 1, 2023
  * Mixing float and double data types
  * Similar to exam question
- *
+ * adds two floating point registers
 */
 
 #include <cstdio>
