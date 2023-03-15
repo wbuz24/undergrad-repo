@@ -13,6 +13,13 @@ During this semester, I was involved as an undergraduate research assistant in t
 
 Electrochemical Energy Storage and Conversion Lab [EESCL](https://ecpower.utk.edu/)
 
+ - Assisting with CFD simulations for hydrogen elextrolyzer applications
+ - Writing a GUI in Python as a visualization tool in a lineup for an Evtol Army funded project
+ - Assist in data collection and analyzation
+
 and
 
 Neuromorphic Computing Lab [TENNLAB](https://neuromorphic.eecs.utk.edu/)
+
+ - Assist a senior design project aiming to control a mini drone with an embedded neuromorphic spiking neural network
+ - Learn and work on implimenting the 'Izhikevich" neuron model as a processor within the TENNLab framework
