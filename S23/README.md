@@ -22,4 +22,4 @@ and
 Neuromorphic Computing Lab [TENNLAB](https://neuromorphic.eecs.utk.edu/)
 
  - Assist a senior design project aiming to control a mini drone with an embedded neuromorphic spiking neural network
- - Learn and work on implimenting the 'Izhikevich" neuron model as a processor within the TENNLab framework
+ - Learn and work on implimenting the 'Izhikevich' neuron model as a processor within the TENNLab framework
