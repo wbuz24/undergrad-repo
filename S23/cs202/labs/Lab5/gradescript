@@ -1,0 +1,114 @@
+#!/bin/sh 
+
+dir=/home/jplank/cs202/Labs/Lab5
+dir2=/home/jplank/cs202/Labs/Lab2
+ge="$dir/Gradescript-Examples"
+
+if [ $# -ne 1 ]; then
+  echo 'usage: gradescript problem_number (1-200)' >&2
+  exit 1
+fi
+
+if [ "$1" -gt 0 -a "$1" -le 200 ]; then
+  enum=`echo $1 | awk '{ printf "%03d\n", $1 }'`
+else
+  echo 'usage: gradescript problem_number (1-200)' >&2
+  exit 1
+fi
+  
+program=bin/bitmatrix_editor
+
+if [ ! -f $program ]; then
+  echo "Problem $enum is incorrect."
+  echo ""
+  echo "Your program $program does not exist."
+  exit 0
+fi
+
+rm -rf tmp-$enum-grader-stdout.txt tmp-$enum-grader-stderr.txt tmp-$enum-test-stdout.txt tmp-$enum-test-stderr.txt tmp-$enum-correct-stdout.txt tmp-$enum-correct-stderr.txt correct_dir your_dir
+
+$dir/$program < $ge/$enum.txt > tmp-$enum-correct-stdout.txt 2> tmp-$enum-correct-stderr.txt
+mkdir correct_dir
+grep WRITE $ge/$enum.txt | sed 's/WRITE \(.*\)/mv \1 correct_dir/' | sh
+grep PGM $ge/$enum.txt | awk  '{ print "mv", $2, "correct_dir" }' | sh
+
+./$program < $ge/$enum.txt > tmp-$enum-test-stdout.txt 2> tmp-$enum-test-stderr.txt
+mkdir your_dir
+grep WRITE $ge/$enum.txt | sed 's/WRITE \(.*\)/mv \1 your_dir/' | sh > /dev/null 2>&1
+grep PGM $ge/$enum.txt | awk  '{ print "mv", $2, "your_dir" }' | sh > /dev/null 2>&1
+
+call="./$program < $ge/$enum.txt"
+
+out=`diff tmp-$enum-correct-stdout.txt tmp-$enum-test-stdout.txt | wc | awk '{ print $1 }'`
+err=`diff tmp-$enum-correct-stderr.txt tmp-$enum-test-stderr.txt | wc | awk '{ print $1 }'`
+
+pf=0
+for i in `ls correct_dir | grep 'txt$'` ; do
+  if [ `diff correct_dir/$i your_dir/$i 2>&1 | wc | awk '{ print $1 }'` != 0 ]; then
+    if [ "$pf" = 0 ]; then
+      pf=$i
+    else 
+      pf="$pf $i"
+    fi
+  fi
+done
+
+for i in `ls correct_dir | grep 'pgm$'` ; do
+  if [ `$dir2/bin/pgm_compare correct_dir/$i your_dir/$i 2>&1 | wc | awk '{ print $1 }'` != 0 ]; then
+    if [ "$pf" = 0 ]; then
+      pf=$i
+    else 
+      pf="$pf $i"
+    fi
+  fi
+done
+
+if [ $out != 0 -o $err != 0 -o "$pf" != 0 ]; then
+  echo "Problem $enum is incorrect."
+  echo ""
+  if [ $out != 0 ]; then
+    echo "Your standard output does not match the correct one."
+  fi
+  if [ $err != 0 ]; then
+    echo "Your standard error does not match the correct one."
+  fi
+  if [ "$pf" != 0 ]; then
+    echo "The following files are in correct_dir, and either they don't"
+    echo "match yours in your_dir, or they were never created by your program."
+    echo "If they are pgm files, I ran $dir2/bin/pgm_compare on them."
+    echo ""
+    echo "$pf"
+  fi
+  echo ""
+  echo "TEST:"
+  echo ""
+  echo "$call"
+  if [ `ls correct_dir | wc | awk '{ print $1 }'` -ne 0 ]; then
+    echo "mkdir your_dir"
+  fi
+  grep WRITE $ge/$enum.txt | sed 's/WRITE \(.*\)/mv \1 your_dir/'
+  grep PGM $ge/$enum.txt | awk  '{ print "mv", $2, "your_dir" }'
+  echo ""
+  echo "FILES:"
+  echo ""
+  echo "Your standard output is in tmp-$enum-test-stdout.txt."
+  echo "Your standard error  is in tmp-$enum-test-stderr.txt."
+  echo ""
+  echo "The correct standard output is in tmp-$enum-correct-stdout.txt."
+  echo "The correct standard error  is in tmp-$enum-correct-stderr.txt."
+  echo ""
+  echo "Look at correct files and your files, perhaps run 'diff -y' on them, and figure out your mistake."
+  echo "Please remember to delete these files, correct_dir and you_dir  when you are finished."
+else 
+  echo "Problem $enum is correct."
+  echo ""
+  echo "Test:" 
+  echo ""
+  echo "$call" 
+  if [ `ls correct_dir | wc | awk '{ print $1 }'` -ne 0 ]; then
+    echo "mkdir your_dir"
+  fi
+  grep WRITE $ge/$enum.txt | sed 's/WRITE \(.*\)/mv \1 your_dir/'
+  grep PGM $ge/$enum.txt | awk  '{ print "mv", $2, "your_dir" }'
+rm -rf tmp-$enum-grader-stdout.txt tmp-$enum-grader-stderr.txt tmp-$enum-test-stdout.txt tmp-$enum-test-stderr.txt tmp-$enum-correct-stdout.txt tmp-$enum-correct-stderr.txt correct_dir your_dir
+fi

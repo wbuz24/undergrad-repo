@@ -1,0 +1,24 @@
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-11-02-4-0.txt
+STORE Phoneme
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-06-03-4-4.txt
+STORE Silver
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-09-06-4-3.txt
+STORE Greenwich
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-04-10-4-4.txt
+STORE Transom
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-11-02-4-4.txt
+STORE Aloft
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-08-05-4-3.txt
+STORE Culbertson
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-09-02-4-2.txt
+STORE Dogma
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-03-08-4-3.txt
+STORE Blackberry
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-06-05-4-3.txt
+STORE Handline
+PRODUCT Handline Greenwich
+PRINT 8
+PRODUCT Silver Greenwich
+PRINT 3
+PRODUCT Handline Greenwich
+PRINT 12

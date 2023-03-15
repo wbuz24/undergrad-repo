@@ -1,0 +1,28 @@
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-04-12-4-2.txt
+STORE Sobriquet
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-06-06-4-1.txt
+STORE Balletomane
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-07-06-4-3.txt
+STORE Gambol
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-07-03-4-3.txt
+STORE Allotropic
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-09-05-4-2.txt
+STORE Orchis
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-04-05-4-0.txt
+STORE Thorny
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-07-04-4-3.txt
+STORE Hued
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-10-04-4-3.txt
+STORE Segregant
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-03-07-4-2.txt
+STORE Snap
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-07-03-4-0.txt
+STORE Crap
+SUM Allotropic Crap
+PRINT 14
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-03-07-4-2.txt
+STORE Fay
+SUM Snap Fay
+PRINT 10
+SUM Crap Allotropic
+PRINT 18

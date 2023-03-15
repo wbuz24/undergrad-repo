@@ -1,0 +1,26 @@
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-03-03-3-3.txt
+STORE Dalhousie
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-03-10-4-2.txt
+STORE Secretarial
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-09-03-4-3.txt
+STORE Humboldt
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-06-08-4-1.txt
+STORE Isochronous
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-04-11-4-0.txt
+STORE Ambassador
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-03-05-3-0.txt
+STORE Telemeter
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-05-03-3-1.txt
+STORE Bandgap
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-04-06-4-3.txt
+STORE Protuberant
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-09-07-4-1.txt
+STORE Homeland
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-07-09-4-4.txt
+STORE Jimenez
+PRODUCT Humboldt Jimenez
+PRINT 4
+PRODUCT Homeland Jimenez
+PRINT 16
+PRODUCT Humboldt Jimenez
+PRINT 16

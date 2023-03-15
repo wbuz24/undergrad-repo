@@ -1,0 +1,26 @@
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-09-06-4-1.txt
+STORE Onrushing
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-10-06-4-0.txt
+STORE Aldrich
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-10-03-4-2.txt
+STORE Urania
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-03-05-3-1.txt
+STORE Market
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-06-06-4-4.txt
+STORE Magnanimous
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-05-09-4-2.txt
+STORE Danish
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-04-04-3-4.txt
+STORE Jockey
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-11-03-4-2.txt
+STORE Pantheist
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-04-04-4-1.txt
+STORE Curia
+PRODUCT Jockey Pantheist
+PRINT 5
+PRODUCT Magnanimous Aldrich
+PRINT 9
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-05-11-4-1.txt
+STORE Anharmonic
+PRODUCT Pantheist Anharmonic
+PRINT 9

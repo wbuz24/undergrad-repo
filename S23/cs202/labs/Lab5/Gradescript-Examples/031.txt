@@ -1,0 +1,30 @@
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-04-05-4-4.txt
+STORE Memoir
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-11-03-4-3.txt
+STORE Sapient
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-07-09-4-3.txt
+STORE Teach
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-05-03-3-1.txt
+STORE Bane
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-05-09-4-1.txt
+STORE Shasta
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-11-03-4-1.txt
+STORE Seminary
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-03-05-4-4.txt
+STORE Pullover
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-08-04-4-3.txt
+STORE Malraux
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-08-07-4-4.txt
+STORE Sammy
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-04-05-4-1.txt
+STORE Ito
+SUM Memoir Ito
+PRINT 10
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-07-09-4-4.txt
+STORE Syrinx
+SUM Teach Syrinx
+PRINT 17
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-03-05-4-4.txt
+STORE Springe
+SUM Pullover Springe
+PRINT 14

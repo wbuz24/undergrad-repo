@@ -1,0 +1,1174 @@
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-11-03-4-0.txt
+STORE Opt
+RECALL Opt
+PGM Expel.pgm 4 2
+RECALL Furrow
+RECALL Opt
+PRINT 17
+EMPTY 5 12
+STORE Solicitor
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-04-05-4-4.txt
+STORE Employing
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-05-02-3-2.txt
+STORE Accommodate
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-07-09-4-4.txt
+STORE Grayson
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-08-07-4-0.txt
+STORE Barkeep
+VAL 14 25
+EMPTY 13 10
+SET 0 0 1
+SET 0 1 1
+SET 0 3 1
+SET 0 4 1
+SET 0 9 1
+SET 1 0 1
+SET 1 3 1
+SET 1 6 1
+SET 1 7 1
+SET 1 8 1
+SET 2 1 1
+SET 2 2 1
+SET 2 4 1
+SET 2 7 1
+SET 2 8 1
+SET 3 1 1
+SET 3 2 1
+SET 3 3 1
+SET 3 5 1
+SET 3 6 1
+SET 4 0 1
+SET 4 1 1
+SET 4 6 1
+SET 4 9 1
+SET 5 2 1
+SET 5 3 1
+SET 5 4 1
+SET 5 5 1
+SET 5 6 1
+SET 5 8 1
+SET 6 3 1
+SET 6 4 1
+SET 6 8 1
+SET 7 2 1
+SET 7 3 1
+SET 7 4 1
+SET 7 5 1
+SET 7 6 1
+SET 7 7 1
+SET 7 8 1
+SET 7 9 1
+SET 8 0 1
+SET 8 1 1
+SET 8 5 1
+SET 8 6 1
+SET 8 8 1
+SET 8 9 1
+SET 9 0 1
+SET 9 1 1
+SET 9 3 1
+SET 9 5 1
+SET 9 7 1
+SET 10 2 1
+SET 10 3 1
+SET 10 5 1
+SET 10 8 1
+SET 11 1 1
+SET 11 4 1
+SET 11 6 1
+SET 12 0 1
+SET 12 4 1
+SET 12 5 1
+SET 12 6 1
+SET 12 8 1
+SET 12 9 1
+STORE Depose
+SET 0 0 0
+SET 0 2 1
+SET 0 3 0
+SET 0 4 0
+SET 0 6 1
+SET 0 9 0
+SET 1 0 0
+SET 1 1 1
+SET 1 2 1
+SET 1 3 0
+SET 1 8 0
+SET 1 9 1
+SET 2 2 0
+SET 2 4 0
+SET 2 5 1
+SET 2 7 0
+SET 3 2 0
+SET 3 3 0
+SET 3 4 1
+SET 3 5 0
+SET 3 6 0
+SET 3 7 1
+SET 4 2 1
+SET 4 6 0
+SET 4 9 0
+SET 5 0 1
+SET 5 4 0
+SET 5 5 0
+SET 6 0 1
+SET 6 3 0
+SET 6 4 0
+SET 6 7 1
+SET 6 8 0
+SET 6 9 1
+SET 7 0 1
+SET 7 1 1
+SET 7 2 0
+SET 7 4 0
+SET 7 6 0
+SET 7 7 0
+SET 7 8 0
+SET 8 2 1
+SET 8 4 1
+SET 8 5 0
+SET 8 6 0
+SET 8 7 1
+SET 9 0 0
+SET 9 6 1
+SET 9 8 1
+SET 9 9 1
+SET 10 0 1
+SET 10 1 1
+SET 10 2 0
+SET 10 3 0
+SET 10 4 1
+SET 10 6 1
+SET 10 9 1
+SET 11 0 1
+SET 11 1 0
+SET 11 8 1
+SET 12 0 0
+SET 12 4 0
+SET 12 6 0
+STORE Navajo
+EMPTY 6 22
+SET 0 1 1
+SET 0 2 1
+SET 0 3 1
+SET 0 4 1
+SET 0 5 1
+SET 0 6 1
+SET 0 7 1
+SET 0 11 1
+SET 0 12 1
+SET 0 13 1
+SET 0 17 1
+SET 0 20 1
+SET 0 21 1
+SET 1 0 1
+SET 1 3 1
+SET 1 4 1
+SET 1 5 1
+SET 1 7 1
+SET 1 9 1
+SET 1 10 1
+SET 1 14 1
+SET 1 15 1
+SET 1 19 1
+SET 1 20 1
+SET 2 1 1
+SET 2 3 1
+SET 2 6 1
+SET 2 9 1
+SET 2 10 1
+SET 2 11 1
+SET 2 12 1
+SET 2 15 1
+SET 2 17 1
+SET 2 20 1
+SET 3 0 1
+SET 3 2 1
+SET 3 3 1
+SET 3 5 1
+SET 3 6 1
+SET 3 8 1
+SET 3 10 1
+SET 3 11 1
+SET 3 12 1
+SET 3 13 1
+SET 3 14 1
+SET 3 15 1
+SET 3 16 1
+SET 3 18 1
+SET 3 19 1
+SET 4 2 1
+SET 4 4 1
+SET 4 6 1
+SET 4 8 1
+SET 4 10 1
+SET 4 12 1
+SET 4 13 1
+SET 4 17 1
+SET 4 18 1
+SET 4 21 1
+SET 5 0 1
+SET 5 3 1
+SET 5 4 1
+SET 5 5 1
+SET 5 6 1
+SET 5 8 1
+SET 5 11 1
+SET 5 12 1
+SET 5 13 1
+SET 5 15 1
+SET 5 16 1
+SET 5 17 1
+SET 5 18 1
+SET 5 19 1
+SET 5 20 1
+SET 5 21 1
+STORE Jewel
+SET 0 2 0
+SET 0 3 0
+SET 0 4 0
+SET 0 5 0
+SET 0 6 0
+SET 0 9 1
+SET 0 10 1
+SET 0 14 1
+SET 0 15 1
+SET 0 16 1
+SET 0 19 1
+SET 0 20 0
+SET 0 21 0
+SET 1 2 1
+SET 1 3 0
+SET 1 5 0
+SET 1 7 0
+SET 1 9 0
+SET 1 11 1
+SET 1 13 1
+SET 1 14 0
+SET 1 18 1
+SET 1 19 0
+SET 1 20 0
+SET 2 0 1
+SET 2 3 0
+SET 2 4 1
+SET 2 5 1
+SET 2 9 0
+SET 2 11 0
+SET 2 12 0
+SET 2 13 1
+SET 2 17 0
+SET 2 18 1
+SET 2 20 0
+SET 2 21 1
+SET 3 4 1
+SET 3 11 0
+SET 3 14 0
+SET 3 15 0
+SET 3 17 1
+SET 3 21 1
+SET 4 0 1
+SET 4 2 0
+SET 4 3 1
+SET 4 4 0
+SET 4 6 0
+SET 4 8 0
+SET 4 9 1
+SET 4 12 0
+SET 4 13 0
+SET 4 14 1
+SET 4 18 0
+SET 4 19 1
+SET 4 20 1
+SET 5 4 0
+SET 5 5 0
+SET 5 6 0
+SET 5 11 0
+SET 5 12 0
+SET 5 13 0
+SET 5 17 0
+SET 5 20 0
+STORE Toni
+RECALL Submittal
+RECALL Grayson
+PGM Potassium.pgm 10 0
+RECALL Opt
+PRINT 16
+EMPTY 1 1
+SET 0 0 1
+STORE Rope
+SET 0 0 0
+STORE Carey
+EMPTY 1 23
+SET 0 0 1
+SET 0 1 1
+SET 0 4 1
+SET 0 6 1
+SET 0 7 1
+SET 0 10 1
+SET 0 11 1
+SET 0 16 1
+SET 0 18 1
+SET 0 20 1
+SET 0 21 1
+SET 0 22 1
+STORE Flamboyant
+SET 0 1 0
+SET 0 4 0
+SET 0 9 1
+SET 0 10 0
+SET 0 13 1
+SET 0 16 0
+SET 0 19 1
+SET 0 20 0
+STORE Amputate
+RECALL Accommodate
+PRINT 6
+RECALL Accommodate
+SWAP 1 0
+STORE Ethel
+PGM Hydroxyl.pgm 9 3
+EMPTY 15 5
+SET 0 0 1
+SET 0 1 1
+SET 0 3 1
+SET 0 4 1
+SET 1 1 1
+SET 1 2 1
+SET 1 4 1
+SET 2 0 1
+SET 2 1 1
+SET 3 0 1
+SET 3 2 1
+SET 4 0 1
+SET 4 2 1
+SET 4 4 1
+SET 5 0 1
+SET 5 1 1
+SET 5 4 1
+SET 6 1 1
+SET 6 3 1
+SET 7 0 1
+SET 7 1 1
+SET 7 3 1
+SET 7 4 1
+SET 8 2 1
+SET 9 0 1
+SET 9 1 1
+SET 9 3 1
+SET 10 3 1
+SET 10 4 1
+SET 11 1 1
+SET 11 2 1
+SET 11 3 1
+SET 11 4 1
+SET 12 1 1
+SET 12 2 1
+SET 12 4 1
+SET 13 0 1
+SET 13 2 1
+SET 13 3 1
+SET 14 1 1
+SET 14 3 1
+SET 14 4 1
+STORE Disparage
+SET 0 3 0
+SET 1 1 0
+SET 1 2 0
+SET 1 3 1
+SET 2 2 1
+SET 2 3 1
+SET 4 1 1
+SET 4 4 0
+SET 5 2 1
+SET 5 3 1
+SET 5 4 0
+SET 6 0 1
+SET 6 1 0
+SET 6 4 1
+SET 7 0 0
+SET 7 2 1
+SET 7 3 0
+SET 8 1 1
+SET 8 2 0
+SET 8 3 1
+SET 9 0 0
+SET 9 1 0
+SET 9 2 1
+SET 9 3 0
+SET 9 4 1
+SET 10 1 1
+SET 10 3 0
+SET 10 4 0
+SET 11 0 1
+SET 11 1 0
+SET 11 4 0
+SET 12 3 1
+SET 13 0 0
+SET 13 1 1
+SET 13 2 0
+SET 14 0 1
+SET 14 2 1
+SET 14 3 0
+SET 14 4 0
+STORE Housekeep
+EMPTY 10 7
+SET 0 3 1
+SET 0 4 1
+SET 1 0 1
+SET 1 1 1
+SET 1 3 1
+SET 1 4 1
+SET 1 5 1
+SET 2 1 1
+SET 2 3 1
+SET 2 5 1
+SET 2 6 1
+SET 3 1 1
+SET 3 5 1
+SET 4 3 1
+SET 5 0 1
+SET 5 1 1
+SET 5 2 1
+SET 5 5 1
+SET 6 2 1
+SET 6 3 1
+SET 6 5 1
+SET 7 0 1
+SET 7 2 1
+SET 7 4 1
+SET 7 5 1
+SET 8 2 1
+SET 8 3 1
+SET 9 1 1
+SET 9 2 1
+SET 9 3 1
+SET 9 5 1
+SET 9 6 1
+STORE Retrofitted
+SET 0 4 0
+SET 0 5 1
+SET 1 0 0
+SET 1 1 0
+SET 1 4 0
+SET 1 6 1
+SET 2 0 1
+SET 2 1 0
+SET 2 2 1
+SET 2 4 1
+SET 2 6 0
+SET 3 0 1
+SET 3 1 0
+SET 3 2 1
+SET 3 4 1
+SET 3 5 0
+SET 4 0 1
+SET 4 1 1
+SET 4 2 1
+SET 4 6 1
+SET 5 0 0
+SET 5 2 0
+SET 6 4 1
+SET 7 0 0
+SET 7 2 0
+SET 7 5 0
+SET 7 6 1
+SET 8 0 1
+SET 8 2 0
+SET 8 3 0
+SET 8 5 1
+SET 8 6 1
+SET 9 5 0
+SET 9 6 0
+STORE Andover
+EMPTY 10 4
+SET 0 0 1
+SET 0 3 1
+SET 2 0 1
+SET 2 1 1
+SET 2 2 1
+SET 2 3 1
+SET 3 1 1
+SET 3 2 1
+SET 3 3 1
+SET 4 2 1
+SET 6 1 1
+SET 6 2 1
+SET 7 0 1
+SET 7 1 1
+SET 8 1 1
+SET 8 2 1
+SET 8 3 1
+STORE Goldenseal
+SET 0 1 1
+SET 0 2 1
+SET 1 2 1
+SET 1 3 1
+SET 2 1 0
+SET 3 0 1
+SET 3 1 0
+SET 3 3 0
+SET 4 3 1
+SET 5 0 1
+SET 5 2 1
+SET 5 3 1
+SET 6 0 1
+SET 6 2 0
+SET 6 3 1
+SET 7 0 0
+SET 7 1 0
+SET 7 2 1
+SET 7 3 1
+SET 8 3 0
+SET 9 0 1
+SET 9 3 1
+STORE Barefaced
+EMPTY 4 17
+SET 0 0 1
+SET 0 8 1
+SET 0 10 1
+SET 0 14 1
+SET 1 0 1
+SET 1 5 1
+SET 1 6 1
+SET 1 7 1
+SET 1 8 1
+SET 1 10 1
+SET 1 11 1
+SET 1 12 1
+SET 1 13 1
+SET 1 14 1
+SET 1 16 1
+SET 2 0 1
+SET 2 1 1
+SET 2 4 1
+SET 2 11 1
+SET 2 15 1
+SET 3 1 1
+SET 3 3 1
+SET 3 5 1
+SET 3 6 1
+SET 3 10 1
+SET 3 13 1
+SET 3 16 1
+STORE Led
+SET 0 0 0
+SET 0 1 1
+SET 0 2 1
+SET 0 3 1
+SET 0 5 1
+SET 0 6 1
+SET 0 7 1
+SET 0 10 0
+SET 0 11 1
+SET 0 15 1
+SET 1 1 1
+SET 1 4 1
+SET 1 6 0
+SET 1 9 1
+SET 1 10 0
+SET 1 12 0
+SET 1 13 0
+SET 1 14 0
+SET 1 15 1
+SET 2 1 0
+SET 2 2 1
+SET 2 4 0
+SET 2 6 1
+SET 2 7 1
+SET 2 8 1
+SET 2 9 1
+SET 3 1 0
+SET 3 3 0
+SET 3 4 1
+SET 3 5 0
+SET 3 7 1
+SET 3 8 1
+SET 3 14 1
+SET 3 15 1
+SET 3 16 0
+STORE Lens
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-05-06-4-3.txt
+STORE Sofia
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-07-04-4-1.txt
+STORE Classify
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-05-08-4-2.txt
+STORE Embezzle
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-03-08-4-3.txt
+STORE Kuwait
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-07-06-4-3.txt
+STORE Roundabout
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-07-06-4-4.txt
+STORE Usurious
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-08-03-4-3.txt
+STORE Hangar
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-03-11-4-0.txt
+STORE Harpoon
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-04-03-4-3.txt
+STORE Move
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-03-02-3-3.txt
+STORE Croydon
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-04-05-4-1.txt
+STORE Reciprocal
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-09-04-4-2.txt
+STORE Pinhole
+VAL 2 9
+EMPTY 7 18
+SET 0 0 1
+SET 0 1 1
+SET 0 2 1
+SET 0 3 1
+SET 0 5 1
+SET 0 6 1
+SET 0 7 1
+SET 0 8 1
+SET 0 9 1
+SET 0 13 1
+SET 0 14 1
+SET 0 15 1
+SET 0 16 1
+SET 0 17 1
+SET 1 0 1
+SET 1 2 1
+SET 1 3 1
+SET 1 6 1
+SET 1 7 1
+SET 1 8 1
+SET 1 10 1
+SET 1 13 1
+SET 1 14 1
+SET 1 15 1
+SET 1 17 1
+SET 2 1 1
+SET 2 2 1
+SET 2 3 1
+SET 2 4 1
+SET 2 5 1
+SET 2 6 1
+SET 2 7 1
+SET 2 9 1
+SET 2 10 1
+SET 2 11 1
+SET 2 14 1
+SET 2 16 1
+SET 3 0 1
+SET 3 1 1
+SET 3 2 1
+SET 3 7 1
+SET 3 8 1
+SET 3 11 1
+SET 3 12 1
+SET 3 13 1
+SET 3 14 1
+SET 3 17 1
+SET 4 1 1
+SET 4 2 1
+SET 4 3 1
+SET 4 5 1
+SET 4 6 1
+SET 4 8 1
+SET 4 9 1
+SET 4 10 1
+SET 4 11 1
+SET 4 14 1
+SET 4 17 1
+SET 5 1 1
+SET 5 2 1
+SET 5 3 1
+SET 5 5 1
+SET 5 8 1
+SET 5 9 1
+SET 5 10 1
+SET 5 11 1
+SET 5 12 1
+SET 5 14 1
+SET 6 1 1
+SET 6 2 1
+SET 6 3 1
+SET 6 7 1
+SET 6 11 1
+SET 6 12 1
+SET 6 13 1
+SET 6 14 1
+SET 6 16 1
+STORE Wooster
+SET 0 0 0
+SET 0 5 0
+SET 0 7 0
+SET 0 8 0
+SET 0 10 1
+SET 0 11 1
+SET 0 12 1
+SET 0 14 0
+SET 0 16 0
+SET 1 0 0
+SET 1 1 1
+SET 1 2 0
+SET 1 3 0
+SET 1 4 1
+SET 1 7 0
+SET 1 9 1
+SET 1 10 0
+SET 1 11 1
+SET 1 13 0
+SET 1 15 0
+SET 1 16 1
+SET 2 0 1
+SET 2 2 0
+SET 2 3 0
+SET 2 4 0
+SET 2 5 0
+SET 2 6 0
+SET 2 11 0
+SET 2 12 1
+SET 2 13 1
+SET 2 14 0
+SET 2 15 1
+SET 2 16 0
+SET 3 0 0
+SET 3 4 1
+SET 3 5 1
+SET 3 6 1
+SET 3 7 0
+SET 3 8 0
+SET 3 9 1
+SET 3 11 0
+SET 3 12 0
+SET 4 0 1
+SET 4 8 0
+SET 4 11 0
+SET 4 13 1
+SET 4 15 1
+SET 4 17 0
+SET 5 0 1
+SET 5 2 0
+SET 5 3 0
+SET 5 4 1
+SET 5 6 1
+SET 5 8 0
+SET 5 9 0
+SET 5 15 1
+SET 5 16 1
+SET 6 1 0
+SET 6 2 0
+SET 6 3 0
+SET 6 4 1
+SET 6 5 1
+SET 6 6 1
+SET 6 7 0
+SET 6 8 1
+SET 6 11 0
+SET 6 12 0
+SET 6 14 0
+SET 6 17 1
+STORE Mixup
+EMPTY 4 20
+SET 0 1 1
+SET 0 2 1
+SET 0 6 1
+SET 0 7 1
+SET 0 9 1
+SET 0 11 1
+SET 0 12 1
+SET 0 13 1
+SET 0 14 1
+SET 0 16 1
+SET 0 17 1
+SET 1 0 1
+SET 1 1 1
+SET 1 2 1
+SET 1 3 1
+SET 1 5 1
+SET 1 6 1
+SET 1 10 1
+SET 1 11 1
+SET 1 12 1
+SET 1 14 1
+SET 1 19 1
+SET 2 2 1
+SET 2 3 1
+SET 2 9 1
+SET 2 11 1
+SET 2 12 1
+SET 2 14 1
+SET 3 2 1
+SET 3 5 1
+SET 3 6 1
+SET 3 7 1
+SET 3 10 1
+SET 3 14 1
+SET 3 15 1
+SET 3 16 1
+SET 3 18 1
+SET 3 19 1
+STORE Wept
+SET 0 0 1
+SET 0 5 1
+SET 0 6 0
+SET 0 7 0
+SET 0 8 1
+SET 0 9 0
+SET 0 16 0
+SET 0 17 0
+SET 1 0 0
+SET 1 1 0
+SET 1 3 0
+SET 1 6 0
+SET 1 8 1
+SET 1 9 1
+SET 1 14 0
+SET 1 17 1
+SET 2 1 1
+SET 2 2 0
+SET 2 5 1
+SET 2 8 1
+SET 2 12 0
+SET 2 14 0
+SET 2 15 1
+SET 2 16 1
+SET 2 18 1
+SET 2 19 1
+SET 3 1 1
+SET 3 2 0
+SET 3 3 1
+SET 3 5 0
+SET 3 6 0
+SET 3 8 1
+SET 3 9 1
+SET 3 10 0
+SET 3 11 1
+SET 3 12 1
+SET 3 13 1
+SET 3 16 0
+SET 3 18 0
+SET 3 19 0
+STORE Revelation
+PRODUCT Opt Harpoon
+STORE Conservatism
+PRINT 8
+RECALL Retrofitted
+PGM Taskmaster.pgm 5 2
+RECALL Disparage
++= 5 4
+STORE Tendon
+PGM Cave.pgm 5 0
+EMPTY 4 2
+SET 1 1 1
+SET 2 1 1
+STORE Tamarind
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-08-03-4-4.txt
+STORE Goer
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-09-07-4-0.txt
+STORE Willowy
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-04-03-4-3.txt
+STORE Foxhall
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-04-03-4-4.txt
+STORE Geneva
+VAL 7 7
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-04-08-4-4.txt
+STORE Hostelry
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-03-05-4-1.txt
+STORE Philology
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-07-03-4-0.txt
+STORE Bowie
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-09-04-4-0.txt
+STORE Glued
+EMPTY 5 18
+SET 0 0 1
+SET 0 3 1
+SET 0 5 1
+SET 0 8 1
+SET 0 10 1
+SET 0 11 1
+SET 0 12 1
+SET 0 16 1
+SET 1 0 1
+SET 1 1 1
+SET 1 5 1
+SET 1 6 1
+SET 1 9 1
+SET 1 10 1
+SET 1 13 1
+SET 1 14 1
+SET 1 15 1
+SET 1 16 1
+SET 1 17 1
+SET 2 0 1
+SET 2 1 1
+SET 2 4 1
+SET 2 5 1
+SET 2 6 1
+SET 2 8 1
+SET 2 10 1
+SET 2 11 1
+SET 2 12 1
+SET 2 13 1
+SET 2 14 1
+SET 2 17 1
+SET 3 0 1
+SET 3 3 1
+SET 3 4 1
+SET 3 5 1
+SET 3 7 1
+SET 3 12 1
+SET 3 15 1
+SET 3 16 1
+SET 4 1 1
+SET 4 3 1
+SET 4 6 1
+SET 4 7 1
+SET 4 8 1
+SET 4 9 1
+SET 4 11 1
+SET 4 12 1
+SET 4 13 1
+SET 4 14 1
+SET 4 15 1
+SET 4 16 1
+STORE Torpor
+EMPTY 12 4
+SET 0 3 1
+SET 1 0 1
+SET 1 2 1
+SET 2 0 1
+SET 2 1 1
+SET 2 2 1
+SET 2 3 1
+SET 4 3 1
+SET 5 0 1
+SET 5 1 1
+SET 5 2 1
+SET 6 2 1
+SET 6 3 1
+SET 7 1 1
+SET 7 2 1
+SET 7 3 1
+SET 8 0 1
+SET 9 0 1
+SET 9 1 1
+SET 9 3 1
+SET 10 0 1
+SET 10 1 1
+SET 11 0 1
+SET 11 1 1
+SET 11 3 1
+STORE Lamarck
+SET 1 2 0
+SET 1 3 1
+SET 3 3 1
+SET 4 1 1
+SET 4 3 0
+SET 5 0 0
+SET 5 1 0
+SET 6 0 1
+SET 6 2 0
+SET 6 3 0
+SET 7 2 0
+SET 7 3 0
+SET 8 2 1
+SET 9 3 0
+SET 10 1 0
+SET 10 3 1
+SET 11 1 0
+SET 11 2 1
+SET 11 3 0
+STORE Emanuel
+EMPTY 3 8
+SET 0 4 1
+SET 0 6 1
+SET 1 3 1
+SET 1 4 1
+SET 1 6 1
+SET 2 0 1
+SET 2 1 1
+SET 2 2 1
+SET 2 4 1
+SET 2 6 1
+SET 2 7 1
+STORE Assassin
+SET 0 2 1
+SET 0 4 0
+SET 0 5 1
+SET 1 4 0
+SET 1 5 1
+SET 1 7 1
+SET 2 0 0
+SET 2 1 0
+SET 2 4 0
+SET 2 6 0
+STORE Memphis
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-08-07-4-3.txt
+STORE Rhetorician
+SUM Barkeep Rhetorician
+STORE Crux
+PRINT 1
+SUM Wept Revelation
+STORE Oboist
+PGM Beehive.pgm 8 4
+RECALL Wept
+SWAP 3 1
+STORE Magnate
+PRINT 2
+ALL
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-04-03-4-0.txt
+STORE Labradorite
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-07-09-4-3.txt
+STORE Hummingbird
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-03-11-4-3.txt
+STORE Warmup
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-03-04-3-1.txt
+STORE Realisable
+PRODUCT Lamarck Magnate
+STORE Proud
+PGM Illume.pgm 4 0
+EMPTY 5 8
+SET 0 3 1
+SET 0 4 1
+SET 0 5 1
+SET 1 1 1
+SET 1 3 1
+SET 1 4 1
+SET 1 6 1
+SET 2 0 1
+SET 2 1 1
+SET 2 6 1
+SET 2 7 1
+SET 3 1 1
+SET 3 2 1
+SET 3 5 1
+SET 4 1 1
+SET 4 2 1
+SET 4 4 1
+SET 4 6 1
+STORE Duke
+SET 0 0 1
+SET 0 4 0
+SET 0 6 1
+SET 1 4 0
+SET 1 5 1
+SET 2 1 0
+SET 2 2 1
+SET 2 5 1
+SET 2 6 0
+SET 2 7 0
+SET 3 0 1
+SET 3 1 0
+SET 3 2 0
+SET 3 3 1
+SET 3 5 0
+SET 3 7 1
+SET 4 2 0
+SET 4 4 0
+SET 4 5 1
+SET 4 6 0
+SET 4 7 1
+STORE Conciliate
+EMPTY 1 15
+SET 0 1 1
+SET 0 2 1
+SET 0 3 1
+SET 0 5 1
+SET 0 8 1
+SET 0 9 1
+SET 0 13 1
+STORE Cambodia
+SET 0 0 1
+SET 0 1 0
+SET 0 3 0
+SET 0 4 1
+SET 0 5 0
+SET 0 7 1
+SET 0 10 1
+STORE Commentary
+VAL 0 5
+RECALL Hostelry
++= 3 1
+STORE Char
+PRINT 6
+RECALL Warmup
+PRINT 11
+EMPTY 4 4
+SET 0 1 1
+SET 0 2 1
+SET 2 0 1
+SET 2 1 1
+SET 2 2 1
+SET 3 2 1
+SET 3 3 1
+STORE Coat
+SET 0 1 0
+SET 1 3 1
+SET 2 0 0
+STORE Excellent
+EMPTY 2 14
+SET 0 0 1
+SET 0 2 1
+SET 0 3 1
+SET 0 4 1
+SET 0 6 1
+SET 0 7 1
+SET 0 9 1
+SET 0 10 1
+SET 0 12 1
+SET 0 13 1
+SET 1 7 1
+SET 1 9 1
+SET 1 12 1
+SET 1 13 1
+STORE Demarcate
+SET 0 1 1
+SET 0 2 0
+SET 0 3 0
+SET 0 6 0
+SET 0 8 1
+SET 0 9 0
+SET 0 11 1
+SET 1 0 1
+SET 1 1 1
+SET 1 2 1
+SET 1 3 1
+SET 1 5 1
+SET 1 7 0
+SET 1 12 0
+STORE Siesta
+VAL 0 10
+VAL 0 2
+RECALL Tendon
+PGM Runnymede.pgm 7 3
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-07-05-4-3.txt
+STORE Besmirch
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-05-08-4-0.txt
+STORE Fig
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-03-02-3-4.txt
+STORE Statute
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-03-05-3-0.txt
+STORE Millenarian
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-07-08-4-0.txt
+STORE Adjoin
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-05-10-4-4.txt
+STORE Iodate
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-11-04-4-2.txt
+STORE Allegiant
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-04-03-4-0.txt
+STORE Slothful
+RECALL Opt
+PRINT 15
+ALL
+RECALL Siesta
+SUB 1
+PGM Cripple.pgm 5 3
+RECALL Realisable
+SUB 0 1 2 3 4 7 9 10 11
+PRINT 11
+VAL 0 3
+RECALL Led
+PGM Negroid.pgm 2 4
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-09-05-4-4.txt
+STORE Decade
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-05-02-4-2.txt
+STORE Premium
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-04-08-4-1.txt
+STORE Don
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-10-05-4-2.txt
+STORE Neuron
+ALL
+ALL

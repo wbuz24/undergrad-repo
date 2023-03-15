@@ -1,0 +1,28 @@
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-03-07-4-2.txt
+STORE Stable
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-08-04-4-1.txt
+STORE Shire
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-08-07-4-4.txt
+STORE Gauze
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-09-06-4-1.txt
+STORE Astral
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-07-09-4-0.txt
+STORE Dulse
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-05-02-3-3.txt
+STORE Abhorrent
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/Binky.txt
+STORE Astral
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-05-06-4-4.txt
+STORE College
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-03-13-4-1.txt
+STORE Glorious
+PRODUCT Dulse Gauze
+PRINT 19
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-05-08-4-2.txt
+STORE Toby
+PRODUCT Shire Toby
+PRINT 10
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-03-05-3-2.txt
+STORE Million
+PRODUCT Abhorrent Million
+PRINT 19

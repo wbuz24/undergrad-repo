@@ -1,0 +1,26 @@
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-04-02-3-0.txt
+STORE Gear
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-04-12-4-4.txt
+STORE Pursuit
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-08-04-4-2.txt
+STORE Booby
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-03-08-4-3.txt
+STORE Switchgear
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-03-06-4-1.txt
+STORE Handlebar
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-07-05-4-0.txt
+STORE Gamecock
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-06-02-4-3.txt
+STORE Holden
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-06-08-4-2.txt
+STORE Sting
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-05-10-4-4.txt
+STORE Lepidolite
+READ /home/jplank/cs140/Labs/Lab5/Test-Matrices/CM-06-08-4-1.txt
+STORE Grumman
+SUM Sting Grumman
+PRINT 15
+SUM Grumman Sting
+PRINT 3
+SUM Grumman Sting
+PRINT 11
