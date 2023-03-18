@@ -1,3 +1,9 @@
 [submodule "F22/Research/python/eVtolGUI/Evtol-GUI"]
 	path = F22/Research/python/eVtolGUI/Evtol-GUI
 	url = git@github.com:wbuz24/Evtol-GUI.git
+[submodule "S23/EESCL/S23/EESCL/Li-Ion-Visualizer"]
+	path = S23/EESCL/S23/EESCL/Li-Ion-Visualizer
+	url = git@github.com:wbuz24/Li-Ion-Visualizer.git
+[submodule "S23/EESCL/Li-ion-viz"]
+	path = S23/EESCL/Li-ion-viz
+	url = git@github.com:wbuz24/Li-Ion-Visualizer.git
