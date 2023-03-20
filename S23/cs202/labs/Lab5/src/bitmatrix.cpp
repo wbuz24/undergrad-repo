@@ -256,8 +256,29 @@ Bitmatrix *Sub_Matrix(const Bitmatrix *a1, const vector <int> &rows)
 
 Bitmatrix *Inverse(const Bitmatrix *m)
 {
-    (void) m;
-    return NULL;
+    if (m->Rows() != m->Cols()) return NULL;
+    Bitmatrix *Inv = new Bitmatrix(m->Rows(), m->Cols());
+    Bitmatrix *copy = m->Copy();
+
+    for (int i = 0; i < m->Rows(); i++) {
+      for (int j = 0; j < m->Cols(); j++) {
+        if (i == j) Inv->Set(i, j, 1);
+        if (m->Val(i, j) != '1' && i == j) {
+          bool s = 1;
+          for (int k = 0; k < m->Rows(); k++) {
+            if (m->Val(k, j) == '1') {
+                Inv->Swap_Rows(i, k);
+                copy->Swap_Rows(i, k);
+                s = 0;
+            }
+          }
+          if (s) return NULL; // return null if no row is found where M[i][i] == 1
+        }
+      }
+    }
+
+
+    return Inv;
 }
 
 
@@ -275,7 +296,7 @@ bool BM_Hash::Store(const string &key, Bitmatrix *bm)
     unsigned int hash = djb_hash(key) % Table.size(); // find hash index
     if (Table[hash].size() != 0 ) { // see if hash index has any contents
         for (size_t i = 0; i < Table[hash].size(); i++) { // check if key is already stored
-            if (Table[hash][i].key.compare(key)) return false;
+            if (Table[hash][i].key.compare(key) == 0) return false;
         }
     }
     // store entry in hash table
@@ -292,7 +313,7 @@ Bitmatrix *BM_Hash::Recall(const string &key) const
     unsigned int hash = djb_hash(key) % Table.size();
     if (Table[hash].size() == 0) return NULL; // no entries at hash index
     for (size_t i = 0; i < Table[hash].size(); i++) { // search for key
-        if (Table[hash][i].key.compare(key)) return Table[hash][i].bm;
+        if (Table[hash][i].key.compare(key) == 0) return Table[hash][i].bm;
     }
     return NULL; // cannot find the bitmatrix
 }

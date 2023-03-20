@@ -1,0 +1,89 @@
+<title>SRM 719, D2, 250-Pointer (LongLiveZhangzj)</title>
+<h3>SRM 719, D2, 250-Pointer (LongLiveZhangzj)</h3>
+<h3>James S. Plank</h3>
+Thu Sep 14 11:21:29 EDT 2017
+<hr>
+
+<UL>
+<LI><a href=https://community.topcoder.com/stat?c=problem_statement&pm=14675&rd=16956>Problem Statement</a>.
+<LI> <a href=main.cpp>A <b>main()</b> with the examples compiled in.</a>
+<LI> <a href=LongLiveZhangzj.cpp>A skeleton that compiles with <b>main.cpp</b>.</a>
+<p>
+<LI> <b>Problem Given in Topcoder</b>: August, 2017
+<LI> <b>Competitors who opened the problem</b>: 195
+<LI> <b>Competitors who submitted a solution</b>: 185
+<LI> <b>Number of correct solutions</b>: 180
+<LI> <b>Accuracy (percentage correct vs those who opened)</b>: 92.3
+<LI> <b>Average Correct Time</b>: 8 minutes, 3 seconds.
+</UL>
+
+<h3>In case Topcoder's servers are down</h3>
+
+Here is a summary of the problem:
+
+<UL>
+<LI> You are given two vectors of string, <b>speech</b> and <b>words</b>.
+<LI> All strings are composed solely of lower case letters.
+<LI> Although the topcoder constraints say that each vector is limited to 
+     50 strings in size, I am increasing those constraints to 10000.
+<LI> The strings in <b>words</b> are unique.
+<LI> Return the number of strings in <b>speech</b> that are also in <b>words</b>.
+</UL>
+<hr>
+<h3>The examples</h3>
+
+<UL>
+<LI> <b>Example 0</b>:<br>
+<pre>
+speech = {"make", "topcoder", "great", "again"}
+words  = {"make", "america", "great", "again"}
+return value: 3
+</pre>
+<p>
+<LI> <b>Example 1</b>:<br>
+<pre>
+speech = {"toads"}
+words  = {"toad"}
+return value: 0
+</pre>
+<p>
+<LI> <b>Example 2</b>:<br>
+<pre>
+speech = {"a", "a"}
+words = {"a"}
+return value: 2
+</pre>
+<p>
+<LI> <b>Example 3</b>:<br>
+<pre>
+speech = {"je", "le", "ai", "deja", "vu", "et", "je", "le", "veux", "encore"}
+words  = {"i", "am", "having", "deja", "vu", "please", "stop", "the", "encore"}
+return value: 3
+</pre>
+</UL>
+<p>
+
+<hr>
+<h3>Testing yourself</h3>
+
+Like the <a href=../../2010/Cryptography/index.html>Cryptography Problem</a>,
+I have a shell script <b>tests.sh</b>, that you can use to test your program.  When you
+run <b>tests.sh</b>, your answer should be identical to
+<b><a href=answers.txt>answers.txt</a></b>, and the running time should be well less than
+a second, total.
+
+<hr>
+<h3>Hints</h3>
+With the topcoder constraints being so low, a simply double-nested <b>for</b> loop will work.
+However, being the good computer scientist that you, dear reader, are, (and given the 
+fact that my testing script increases those constraints), you will naturally
+take offense at writing an <i>O(n<sup>2</sup>)</i> solution to this problem.
+<p>
+Instead, insert the words in <b>words</b> into a set, and then for each word in 
+<b>speech()</b>, try to find it in the set.  
+Now your solution is <i>O(n log n)</i>, and all is alsmost right with the
+universe.
+<p>
+Instead, substitute an <b>unordered_set</b> for the set, and your solution is <i>O(n)</i>.
+Now all is indeed right with the universe.
+<hr>
