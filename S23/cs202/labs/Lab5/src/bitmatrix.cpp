@@ -31,26 +31,25 @@ unsigned int djb_hash(const string &s) { // djb hash function from Dr. Plank's c
 
 
 Bitmatrix::Bitmatrix(int rows, int cols)
-{  
+{   // constructor passing rows and columns  
     int i = 0, j = 0;
     string str = "";
 
     if (rows <= 0) throw ((string) "Bad rows"); 
     if (cols <= 0) throw ((string) "Bad cols");
 
-    for (; i < cols; i++) {
+    for (; i < cols; i++) { // create an empty string of zeros
         str += "0";
     }
 
-    for (; j < rows; j++) {
+    for (; j < rows; j++) { // create a matrix of rows size with the string
         M.push_back(str);
     }
-    str += '1';
 
 }
 
 Bitmatrix::Bitmatrix(const string &fn)
-{
+{ // constructor passing a file name
     ifstream fin;
     fin.open(fn.c_str());
     string line, str = "";
@@ -92,7 +91,7 @@ bool Bitmatrix::Write(const string &fn) const
 
     for (size_t i = 0; i < M.size(); i++) {
         for (size_t j = 0; j < M[i].size(); j++) { // return zero if not 0 or 1
-            if (M[i][j] != '0' && M[i][j] != '1') {
+            if (M[i][j] != '0' && M[i][j] != '1' && M[i][j] != 0 && M[i][j] != 1) {
                 j = M[i].size();
                 i = M.size();
                 ret = 0;
@@ -108,12 +107,12 @@ bool Bitmatrix::Write(const string &fn) const
 
 void Bitmatrix::Print(size_t w) const 
 {
-    if (w <= 0) {
+    if (w <= 0) { // print with no spaces or empty lines
         for (size_t k = 0; k < M.size(); k++) {
             cout << M[k] << endl;
         }
     }
-    else {
+    else { // print according to format
         for (size_t i = 0; i < M.size(); i++) {
             for (size_t j = 0; j < M[i].size(); j++) {
                 cout << M[i][j];
@@ -221,16 +220,38 @@ Bitmatrix *Sum(const Bitmatrix *a1, const Bitmatrix *a2)
 
 Bitmatrix *Product(const Bitmatrix *a1, const Bitmatrix *a2)
 {
-    (void) a1;
-    (void) a2;
-    return NULL;
+    if (a1->Cols() != a2->Rows()) return NULL;
+    Bitmatrix *result = new Bitmatrix(a1->Rows(), a2->Cols());
+    int a, b, sum;
+    for (int i = 0; i < a1->Rows(); i++) {
+      sum = 0;
+      for (int j = 0; j < a2->Cols(); j++) {
+        a = 0;
+        b = 0;
+        if (a1->Val(i, j) == '1') a = 1;
+        if (a2->Val(i, j) == '1') b = 1;
+        sum += a * b;
+        result->Set(i, j, sum % 2);
+      } 
+    }
+    return result;
 }
 
 Bitmatrix *Sub_Matrix(const Bitmatrix *a1, const vector <int> &rows)
 {
-    (void) a1;
-    (void) rows;
-    return NULL;
+    if (rows.size() == 0) return NULL;
+    for (size_t i = 0; i < rows.size(); i++) {
+      if (rows[i] > a1->Rows()) return NULL;
+    }
+
+    Bitmatrix *result = new Bitmatrix(rows.size(), a1->Cols());
+
+    for (size_t i = 0; i < rows.size(); i++) {
+      for (int j = 0; j < a1->Cols(); j++) {
+        result->Set(i, j, a1->Val(rows[i], j));
+      } 
+    }
+    return result;
 }
 
 Bitmatrix *Inverse(const Bitmatrix *m)
@@ -250,7 +271,7 @@ BM_Hash::BM_Hash(int size)
 bool BM_Hash::Store(const string &key, Bitmatrix *bm)
 {
     // djb_hash() and separate chaining as conflict resolution
-    if (Table.size() == 0) return false;
+    //if (Table.size() == 0) return false;
     unsigned int hash = djb_hash(key) % Table.size(); // find hash index
     if (Table[hash].size() != 0 ) { // see if hash index has any contents
         for (size_t i = 0; i < Table[hash].size(); i++) { // check if key is already stored
@@ -267,7 +288,7 @@ bool BM_Hash::Store(const string &key, Bitmatrix *bm)
 
 Bitmatrix *BM_Hash::Recall(const string &key) const
 {
-    if (Table.size() == 0) return NULL; // table has not been set up yet;
+    //if (Table.size() == 0) return NULL; // table has not been set up yet;
     unsigned int hash = djb_hash(key) % Table.size();
     if (Table[hash].size() == 0) return NULL; // no entries at hash index
     for (size_t i = 0; i < Table[hash].size(); i++) { // search for key
