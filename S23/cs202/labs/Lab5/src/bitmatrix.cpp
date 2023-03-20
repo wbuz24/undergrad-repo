@@ -1,3 +1,9 @@
+/* Will Buziak
+ * Lab 5
+ * Bitmatrix.cpp
+ * implement the bitmatrix methods, a hash table and a PGM
+ */ 
+
 #include <fstream>
 #include <vector>
 #include <sstream>
@@ -6,8 +12,23 @@
 #include <cstdio>
 #include <string>
 #include <algorithm>
+#include <bitset>
 #include "bitmatrix.hpp"
 using namespace std;
+
+unsigned int djb_hash(const string &s) { // djb hash function from Dr. Plank's class notes
+    size_t i;
+    unsigned int h;
+
+    h = 5381;
+
+    for (i = 0; i < s.size(); i++) {
+        h = (h << 5) + h + s[i];
+    }
+    return h;
+}
+
+
 
 Bitmatrix::Bitmatrix(int rows, int cols)
 {  
@@ -24,6 +45,7 @@ Bitmatrix::Bitmatrix(int rows, int cols)
     for (; j < rows; j++) {
         M.push_back(str);
     }
+    str += '1';
 
 }
 
@@ -35,23 +57,23 @@ Bitmatrix::Bitmatrix(const string &fn)
 
     if (fin.fail()) throw ((string) "Can't open file");
     while (getline(fin, line)) { // read each line of the file
-        
-        for (size_t i = 0; i < line.size(); i++) { // check each character to be whitespace, 0 or 1
-            if (line[i] != '0'&& line[i] != '1' && isspace(line[i]) == 0){
-                throw ((string) "Bad file format");
-                break;
+        if (!line.empty()) {
+            for (size_t i = 0; i < line.size(); i++) { // check each character to be whitespace, 0 or 1
+                if (line[i] != '0'&& line[i] != '1' && isspace(line[i]) == 0){
+                    throw ((string) "Bad file format");
+                    break;
+                }
             }
-        }
 
-        for (size_t i = 0; i < line.size(); i++) {
-            if (isspace(line[i]) == 0 && isblank(line[i]) == 0) { // if line[i] is not a string
-                str += line[i];
+            for (size_t i = 0; i < line.size(); i++) {
+                if (!isspace(line[i])) { // if line[i] is not a string
+                    str += line[i];
+                }
             }
+            M.push_back(str); // push vector with the string
+            str = "";
         }
-        M.push_back(str); // push vector with the string
-        str = "";
     }
-
     fin.close();
 }
 
@@ -67,7 +89,7 @@ bool Bitmatrix::Write(const string &fn) const
     ofstream ofile;
     ofile.open(fn.c_str());
     bool ret = 1;
-    
+
     for (size_t i = 0; i < M.size(); i++) {
         for (size_t j = 0; j < M[i].size(); j++) { // return zero if not 0 or 1
             if (M[i][j] != '0' && M[i][j] != '1') {
@@ -95,10 +117,10 @@ void Bitmatrix::Print(size_t w) const
         for (size_t i = 0; i < M.size(); i++) {
             for (size_t j = 0; j < M[i].size(); j++) {
                 cout << M[i][j];
-                if ((j + 1) % w == 0) cout << " ";
+                if ((j + 1) % w == 0 && j != (M[i].size() - 1)) cout << " ";
 
             }
-            if ((i + 1) % w == 0) cout << endl;
+            if ((i + 1) % w == 0 && i != (M.size() - 1)) cout << endl;
 
             cout << endl;
         } 
@@ -131,6 +153,8 @@ char Bitmatrix::Val(int row, int col) const
 
 bool Bitmatrix::Set(int row, int col, char val)
 {
+    if (val == 0) val = '0';
+    if (val == 1) val = '1';
     if (val != '0' && val != '1') return false;  
     else if (row >= (int) M.size() || col >= (int) M[0].size()) return false;
 
@@ -154,18 +178,45 @@ bool Bitmatrix::Swap_Rows(int r1, int r2)
 }
 
 bool Bitmatrix::R1_Plus_Equals_R2(int r1, int r2)
-{
-    (void) r1;
-    (void) r2;
-    return false;
+{   
+    string str = "";
+    int re;
+
+    if (r1 >= (int) M.size() || r2 >= (int) M.size()) return false;
+    else {
+        for (int i = 0; i < (int) M[r1].size(); i++) { // add two binary strings
+            re = 0;
+            if (M[r1][i] == '1') re++;
+            if (M[r2][i] == '1') re++;
+            if (re == 2 || re == 0) str += '0';
+            else str += '1';
+        }
+
+        M[r1] = str;
+
+        return true;        
+    }
 }
 
 
 Bitmatrix *Sum(const Bitmatrix *a1, const Bitmatrix *a2)
 {
-    (void) a1;
-    (void) a2;
-    return NULL;
+    //    Bitmatrix *result = new Bitmatrix;
+    if (a1->Rows() != a2->Rows()) return NULL;
+    else {
+      Bitmatrix *result = new Bitmatrix(a1->Rows(), a1->Cols());
+      int re;
+      for (int i = 0; i < a1->Rows(); i++) {
+        for (int j = 0; j < a1->Cols(); j++) {
+          re = 0;
+          if (a1->Val(i, j) == '1') re++;
+          if (a2->Val(i, j) == '1') re++;
+          if (re % 2 == 0) result->Set(i, j, '0');
+          else result->Set(i, j, '1');
+        }
+      }
+      return result;
+    }
 }
 
 Bitmatrix *Product(const Bitmatrix *a1, const Bitmatrix *a2)
@@ -192,25 +243,46 @@ Bitmatrix *Inverse(const Bitmatrix *m)
 
 BM_Hash::BM_Hash(int size)
 {
-    (void) size;
+    if (size <= 0) throw ((string) "Bad size");
+    else Table.resize(size); // create a hash table
 }
 
 bool BM_Hash::Store(const string &key, Bitmatrix *bm)
 {
-    (void) key;
-    (void) bm;
-    return false;
+    // djb_hash() and separate chaining as conflict resolution
+    if (Table.size() == 0) return false;
+    unsigned int hash = djb_hash(key) % Table.size(); // find hash index
+    if (Table[hash].size() != 0 ) { // see if hash index has any contents
+        for (size_t i = 0; i < Table[hash].size(); i++) { // check if key is already stored
+            if (Table[hash][i].key.compare(key)) return false;
+        }
+    }
+    // store entry in hash table
+    HTE *entry = new HTE; 
+    entry->key = key;
+    entry->bm = bm;
+    Table[hash].push_back(*entry);
+    return true;
 }
 
 Bitmatrix *BM_Hash::Recall(const string &key) const
 {
-    (void) key;
-    return NULL;
+    if (Table.size() == 0) return NULL; // table has not been set up yet;
+    unsigned int hash = djb_hash(key) % Table.size();
+    if (Table[hash].size() == 0) return NULL; // no entries at hash index
+    for (size_t i = 0; i < Table[hash].size(); i++) { // search for key
+        if (Table[hash][i].key.compare(key)) return Table[hash][i].bm;
+    }
+    return NULL; // cannot find the bitmatrix
 }
 
 vector <HTE> BM_Hash::All() const
 {
     vector <HTE> rv;
-
+    for (size_t i = 0; i < Table.size(); i++) {
+        if (Table[i].size() != 0) {
+            for (size_t j = 0; j < Table[i].size(); j++) rv.push_back(Table[i][j]);
+        } 
+    }
     return rv;
 }
