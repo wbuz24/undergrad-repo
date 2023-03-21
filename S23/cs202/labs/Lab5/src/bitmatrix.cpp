@@ -79,7 +79,7 @@ Bitmatrix::Bitmatrix(const string &fn)
 Bitmatrix *Bitmatrix::Copy() const
 {
     Bitmatrix *copy = new Bitmatrix(M.size(), M[0].size()); // construct a new empty matrix
-    *copy = *this; // copy matrix
+    copy->M = this->M;
     return copy;
 }
 
@@ -107,14 +107,15 @@ bool Bitmatrix::Write(const string &fn) const
 
 void Bitmatrix::Print(size_t w) const 
 {
+    size_t i = 0, k = 0, j;
     if (w <= 0) { // print with no spaces or empty lines
-        for (size_t k = 0; k < M.size(); k++) {
+        for (; k < M.size(); k++) {
             cout << M[k] << endl;
         }
     }
     else { // print according to format
-        for (size_t i = 0; i < M.size(); i++) {
-            for (size_t j = 0; j < M[i].size(); j++) {
+        for (; i < M.size(); i++) {
+            for (j = 0; j < M[i].size(); j++) {
                 cout << M[i][j];
                 if ((j + 1) % w == 0 && j != (M[i].size() - 1)) cout << " ";
 
@@ -127,10 +128,58 @@ void Bitmatrix::Print(size_t w) const
 }
 bool Bitmatrix::PGM(const string &fn, int p, int border) const
 {
-    (void) fn;
-    (void) p;
-    (void) border;
-    return false;
+    ofstream ofile;
+    ofile.open(fn.c_str());
+    int rows, cols, curr_pix, i, j , k, b;
+
+    if (M.size() == 0 || M[0].size() == 0) return false;
+    if (p <= 0) return false;
+    if ((border * M.size()) > (255 - M.size() * p) || (border * M[0].size()) > (255 - M[0].size() * p)) return false; 
+    if (border < 0) border = 0;
+
+    cols = M[0].size() * p + border * (M[0].size() + 1);
+    rows = M.size() * p + border * (M.size() + 1);
+    ofile << "P2\n" << cols << " " << rows << "\n" << "255\n"; // PGM header
+
+    for (i = 0; i < (int) M.size(); i++) { // loop through bitmatrix vector
+        if (i == 0) {
+            for (j = 0; j < border; j++) { // produce a border on the top
+                for (k = 0; k < (int) (border * (M[0].size() + 1) + (p * M[0].size())); k++) {
+                    ofile << "0 ";
+                } 
+                ofile << endl;
+            }
+            //ofile << endl;
+        }
+
+        for (j = 0; j < p; j++) {
+            for (k = 0; k < (int) M[0].size(); k++) {
+                    for (b = 0; b < border; b++) { // margin border
+                        ofile << "0 ";
+                    }
+                for (b = 0; b < p; b++) { // print M[i][kk] p times
+                    if (M[i][k] == '1') curr_pix = 100; // set value
+                    else curr_pix = 255;
+                    ofile << curr_pix << " ";
+                }
+                for (b = 0; b < border; b++) { // border
+                    ofile << "0 ";
+                }
+                ofile << endl;
+            } 
+        
+        }
+        //ofile << endl;
+    }
+
+    for (i = 0; i < border; i++) { // bottom border
+        for (j = 0; j < (int) (border * (M[0].size() + 1) + (p * M[0].size())); j++) {
+            ofile << "0 ";
+            } 
+        ofile << endl;
+        }
+    ofile.close();
+    return true;
 }
 
 int Bitmatrix::Rows() const
@@ -155,6 +204,7 @@ bool Bitmatrix::Set(int row, int col, char val)
     if (val == 0) val = '0';
     if (val == 1) val = '1';
     if (val != '0' && val != '1') return false;  
+    if (row < 0 || col < 0) return false;
     else if (row >= (int) M.size() || col >= (int) M[0].size()) return false;
 
     else {
@@ -203,18 +253,18 @@ Bitmatrix *Sum(const Bitmatrix *a1, const Bitmatrix *a2)
     //    Bitmatrix *result = new Bitmatrix;
     if (a1->Rows() != a2->Rows()) return NULL;
     else {
-      Bitmatrix *result = new Bitmatrix(a1->Rows(), a1->Cols());
-      int re;
-      for (int i = 0; i < a1->Rows(); i++) {
-        for (int j = 0; j < a1->Cols(); j++) {
-          re = 0;
-          if (a1->Val(i, j) == '1') re++;
-          if (a2->Val(i, j) == '1') re++;
-          if (re % 2 == 0) result->Set(i, j, '0');
-          else result->Set(i, j, '1');
+        Bitmatrix *result = new Bitmatrix(a1->Rows(), a1->Cols());
+        int re;
+        for (int i = 0; i < a1->Rows(); i++) {
+            for (int j = 0; j < a1->Cols(); j++) {
+                re = 0;
+                if (a1->Val(i, j) == '1') re++;
+                if (a2->Val(i, j) == '1') re++;
+                if (re % 2 == 0) result->Set(i, j, '0');
+                else result->Set(i, j, '1');
+            }
         }
-      }
-      return result;
+        return result;
     }
 }
 
@@ -224,15 +274,17 @@ Bitmatrix *Product(const Bitmatrix *a1, const Bitmatrix *a2)
     Bitmatrix *result = new Bitmatrix(a1->Rows(), a2->Cols());
     int a, b, sum;
     for (int i = 0; i < a1->Rows(); i++) {
-      sum = 0;
-      for (int j = 0; j < a2->Cols(); j++) {
-        a = 0;
-        b = 0;
-        if (a1->Val(i, j) == '1') a = 1;
-        if (a2->Val(i, j) == '1') b = 1;
-        sum += a * b;
-        result->Set(i, j, sum % 2);
-      } 
+        for (int j = 0; j < a2->Cols(); j++) {
+            sum = 0;
+            for (int k = 0; k < a2->Rows(); k++) {
+                a = 0;
+                b = 0;
+                if (a1->Val(i, k) == '1') a = 1;
+                if (a2->Val(k, j) == '1') b = 1;
+                sum += a * b;
+            }
+            result->Set(i, j, sum % 2);
+        }
     }
     return result;
 }
@@ -241,15 +293,15 @@ Bitmatrix *Sub_Matrix(const Bitmatrix *a1, const vector <int> &rows)
 {
     if (rows.size() == 0) return NULL;
     for (size_t i = 0; i < rows.size(); i++) {
-      if (rows[i] > a1->Rows()) return NULL;
+        if (rows[i] > a1->Rows()) return NULL;
     }
 
     Bitmatrix *result = new Bitmatrix(rows.size(), a1->Cols());
 
     for (size_t i = 0; i < rows.size(); i++) {
-      for (int j = 0; j < a1->Cols(); j++) {
-        result->Set(i, j, a1->Val(rows[i], j));
-      } 
+        for (int j = 0; j < a1->Cols(); j++) {
+            result->Set(i, j, a1->Val(rows[i], j));
+        } 
     }
     return result;
 }
@@ -259,29 +311,39 @@ Bitmatrix *Inverse(const Bitmatrix *m)
     if (m->Rows() != m->Cols()) return NULL;
     Bitmatrix *Inv = new Bitmatrix(m->Rows(), m->Cols());
     Bitmatrix *copy = m->Copy();
+    bool s = 1;
 
+    for (int i = 0; i < m->Rows(); i++)  Inv->Set(i, i, '1'); // create an identity matrix
     for (int i = 0; i < m->Rows(); i++) {
-      for (int j = 0; j < m->Cols(); j++) {
-        if (i == j) Inv->Set(i, j, 1);
-        if (m->Val(i, j) != '1' && i == j) {
-          bool s = 1;
-          for (int k = 0; k < m->Rows(); k++) {
-            if (m->Val(k, j) == '1') {
-                Inv->Swap_Rows(i, k);
-                copy->Swap_Rows(i, k);
-                s = 0;
+        if (copy->Val(i, i) != '1') {
+            for (int j = i + 1; j < m->Rows(); j++) {
+                if (copy->Val(j, i) == '1') { // set diagonals
+                    Inv->Swap_Rows(i, j);
+                    copy->Swap_Rows(i, j);
+                    s = 0;
+                    break;
+                }
             }
-          }
-          if (s) return NULL; // return null if no row is found where M[i][i] == 1
+            if (s) return NULL;
         }
-      }
+        for (int j = i + 1; j < m->Rows(); j++) { // upper triangular matrix 
+            if (copy->Val(j, i) == '1') {
+                Inv->R1_Plus_Equals_R2(j, i);
+                copy->R1_Plus_Equals_R2(j, i);
+            }
+        }
     }
 
-
+    for (int i = m->Rows() - 2; i >= 0; i--) { // lower triangular matrix
+        for (int j = i + 1; j < m->Rows(); j++) {
+            if (copy->Val(i, j) == '1') {
+                Inv->R1_Plus_Equals_R2(i, j);
+                copy->R1_Plus_Equals_R2(i, j);
+            }
+        }
+    }
     return Inv;
 }
-
-
 
 BM_Hash::BM_Hash(int size)
 {
