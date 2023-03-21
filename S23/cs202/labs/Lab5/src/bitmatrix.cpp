@@ -133,7 +133,7 @@ bool Bitmatrix::PGM(const string &fn, int p, int border) const
 
     if (M.size() == 0 || M[0].size() == 0) return false;
     if (p <= 0) return false;
-    if ((border * M.size()) > (255 - M.size() * p) || (border * M[0].size()) > (255 - M[0].size() * p)) return false; 
+    //if ((border * M.size()) > (255 - M.size() * p) || (border * M[0].size()) > (255 - M[0].size() * p)) return false; 
     if (border < 0) border = 0;
 
     cols = M[0].size() * p + border * (M[0].size() + 1);
