@@ -45,7 +45,6 @@ Bitmatrix::Bitmatrix(int rows, int cols)
     for (; j < rows; j++) { // create a matrix of rows size with the string
         M.push_back(str);
     }
-
 }
 
 Bitmatrix::Bitmatrix(const string &fn)
@@ -141,43 +140,53 @@ bool Bitmatrix::PGM(const string &fn, int p, int border) const
     rows = M.size() * p + border * (M.size() + 1);
     ofile << "P2\n" << cols << " " << rows << "\n" << "255\n"; // PGM header
 
-    for (i = 0; i < (int) M.size(); i++) { // loop through bitmatrix vector
-        if (i == 0) {
-            for (j = 0; j < border; j++) { // produce a border on the top
-                for (k = 0; k < (int) (border * (M[0].size() + 1) + (p * M[0].size())); k++) {
-                    ofile << "0 ";
-                } 
-                ofile << endl;
-            }
-            //ofile << endl;
+    for (j = 0; j < border; j++) { // produce a border on the top
+        for (k = 0; k < (int)(border * (M[0].size() + 1) + (p * M[0].size())); k++) {
+            ofile << "0 ";
         }
+        ofile << endl;
+    }
+    ofile << endl;
 
-        for (j = 0; j < p; j++) {
-            for (k = 0; k < (int) M[0].size(); k++) {
-                    for (b = 0; b < border; b++) { // margin border
-                        ofile << "0 ";
-                    }
+    for (i = 0; i < (int) M.size(); i++) { // loop through bitmatrix vector
+        for (j = 0; j < p; j++) { // repeat for p rows
+            for (k = 0; k < (int) M[0].size(); k++) { // produce a row
+                //ofile << endl;
+                for (b = 0; b < border; b++) { // margin border
+                    ofile << "0 ";
+
+                }
                 for (b = 0; b < p; b++) { // print M[i][kk] p times
                     if (M[i][k] == '1') curr_pix = 100; // set value
                     else curr_pix = 255;
                     ofile << curr_pix << " ";
                 }
-                for (b = 0; b < border; b++) { // border
-                    ofile << "0 ";
+                if (k == (2 * p - 1)) ofile << endl;
+                if (k == (int)M[0].size() - 1) {
+                    for (b = 0; b < border; b++) { // border
+                        ofile << "0 ";
+                    }
+                    ofile << endl;
                 }
-                ofile << endl;
+                
             } 
-        
+            //if (i == p - 1) ofile << endl; 
         }
-        //ofile << endl;
-    }
+        for (int z = 0; z < border; z++) { // bottom border
+            for (j = 0; j < (int)(border * (M[0].size() + 1) + (p * M[0].size())); j++) {
+                ofile << "0 ";
+            }
+            ofile << endl;
+        }
 
-    for (i = 0; i < border; i++) { // bottom border
-        for (j = 0; j < (int) (border * (M[0].size() + 1) + (p * M[0].size())); j++) {
-            ofile << "0 ";
-            } 
-        ofile << endl;
-        }
+    }
+    /*
+       for (i = 0; i < border; i++) { // bottom border
+       for (j = 0; j < (int)(border * (M[0].size() + 1) + (p * M[0].size())); j++) {
+       ofile << "0 ";
+       } 
+       ofile << endl;
+       }*/
     ofile.close();
     return true;
 }
