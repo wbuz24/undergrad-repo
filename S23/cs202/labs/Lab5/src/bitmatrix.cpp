@@ -286,13 +286,13 @@ Bitmatrix *Product(const Bitmatrix *a1, const Bitmatrix *a2)
         for (int j = 0; j < a2->Cols(); j++) {
             sum = 0;
             for (int k = 0; k < a2->Rows(); k++) {
-                a = 0;
+                a = 0; 
                 b = 0;
-                if (a1->Val(i, k) == '1') a = 1;
+                if (a1->Val(i, k) == '1') a = 1; // test if each value is 1 or 0
                 if (a2->Val(k, j) == '1') b = 1;
-                sum += a * b;
+                sum += a * b; // sum of products
             }
-            result->Set(i, j, sum % 2);
+            result->Set(i, j, sum % 2); // set the result
         }
     }
     return result;
@@ -309,7 +309,7 @@ Bitmatrix *Sub_Matrix(const Bitmatrix *a1, const vector <int> &rows)
 
     for (size_t i = 0; i < rows.size(); i++) {
         for (int j = 0; j < a1->Cols(); j++) {
-            result->Set(i, j, a1->Val(rows[i], j));
+            result->Set(i, j, a1->Val(rows[i], j)); // create a new bitmatrix consisting only of the specified rows
         } 
     }
     return result;
@@ -334,13 +334,17 @@ Bitmatrix *Inverse(const Bitmatrix *m)
                 }
             }
             if (s) return NULL;
-        }
+	}
+
         for (int j = i + 1; j < m->Rows(); j++) { // upper triangular matrix 
             if (copy->Val(j, i) == '1') {
                 Inv->R1_Plus_Equals_R2(j, i);
                 copy->R1_Plus_Equals_R2(j, i);
+		s = 0;
             }
         }
+	if (s) return NULL;
+      
     }
 
     for (int i = m->Rows() - 2; i >= 0; i--) { // lower triangular matrix
