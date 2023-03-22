@@ -168,7 +168,7 @@ bool Bitmatrix::PGM(const string &fn, int p, int border) const
                     }
                     ofile << endl;
                 }
-                
+
             } 
             //if (i == p - 1) ofile << endl; 
         }
@@ -333,18 +333,17 @@ Bitmatrix *Inverse(const Bitmatrix *m)
                     break;
                 }
             }
-            if (s) return NULL;
-	}
-
+                if (s) return NULL;
+        }
+        s = 1;
         for (int j = i + 1; j < m->Rows(); j++) { // upper triangular matrix 
             if (copy->Val(j, i) == '1') {
                 Inv->R1_Plus_Equals_R2(j, i);
                 copy->R1_Plus_Equals_R2(j, i);
-		s = 0;
+                s = 0;
             }
-        }
-	if (s) return NULL;
-      
+         }
+
     }
 
     for (int i = m->Rows() - 2; i >= 0; i--) { // lower triangular matrix
