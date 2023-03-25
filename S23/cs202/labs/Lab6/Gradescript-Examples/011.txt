@@ -1,0 +1,2 @@
+DIV_FACT 5
+PRINT

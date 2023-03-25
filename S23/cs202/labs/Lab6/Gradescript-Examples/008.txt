@@ -1,0 +1,2 @@
+DIVIDE 8
+PRINT

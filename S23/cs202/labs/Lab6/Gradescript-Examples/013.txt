@@ -1,0 +1,2 @@
+DIV_FACT 0
+PRINT

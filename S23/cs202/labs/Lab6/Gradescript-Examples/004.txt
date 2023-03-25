@@ -1,0 +1,2 @@
+DIVIDE 5
+PRINT
