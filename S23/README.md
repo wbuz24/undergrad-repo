@@ -13,7 +13,7 @@ During this semester, I was involved as an undergraduate research assistant in t
 
 Electrochemical Energy Storage and Conversion Lab [EESCL](https://ecpower.utk.edu/)
 
- - Assisting with CFD simulations for hydrogen elextrolyzer applications
+ - Assisting with CFD simulations for hydrogen electrolyzer applications
  - Writing a GUI in Python as a visualization tool in a lineup for an Evtol Army funded project
  - Assist in data collection and analyzation
 
