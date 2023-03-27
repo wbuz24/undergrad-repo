@@ -9,13 +9,36 @@ make_triangle:
 
 # fa0 - float side0
 # fa1 - float side1
-# rightTriangle structure:
+# a0 - rightTriangle structure:
+
 # Name   Offset    Size (bytes)
-# s0     0         8
-# s1     8         8
-# hypo   16        8
-# theta0 24        8
-# theta1 32        8
-# total size = 40 bytes -> 48 bytes from the stack just for struct
+# s0     0         4
+# s1     4         4
+# hypo   8         4
+# theta0 12        4
+# theta1 16        4
+# total size = 20 bytes
+
+addi sp, sp -32
+
+# store save registers onto stack
+
+sw  s0, 0(sp)
+sw  s1, 4(sp)
+sw  s2. 8(sp)
+
+# compute the hypotenuse by calling sqrt
 
 
+# compute theta0 & theta1 by calling asinf
+
+# store everying into a0 -> return RightTriangle struct
+
+
+# load values from stack back into save registers
+
+lw  s0, 0(sp)
+lw  sw, 4(sp)
+lw  s2, 8(sp)
+
+ret

@@ -22,7 +22,7 @@ bool Fraction::Multiply_Number(int n){
         }
         else {
            multiset <int>::const_iterator nit = denominator.find(n);
-           denominator.erase(*nit); // if n is in the numerator, remove from both
+           denominator.erase(nit); // if n is in the numerator, remove from both
            //numerator.erase(*numerator.find(n));
         }
     }
@@ -38,10 +38,11 @@ bool Fraction::Divide_Number(int n)
         }
         else {
             multiset <int>::const_iterator nit = numerator.find(n);
-           // denominator.erase(*denominator.find(n)); // if n is in the numerator, remove from both
-            numerator.erase(*nit);
+            // if n is in the numerator, remove from both
+            numerator.erase(nit);
         }
     }
+
     return true;
 };
 bool Fraction::Multiply_Factorial(int n)
@@ -67,9 +68,9 @@ bool Fraction::Divide_Factorial(int n)
 bool Fraction::Multiply_Binom(int n, int k)
 {
     if (n <= 0 || k < 0) return false;
-    if (!Multiply_Factorial(n)) return false;
-    if (!Divide_Factorial(k)) return false;
-    if (!Divide_Factorial(n - k)) return false;
+    Multiply_Factorial(n);
+    Divide_Factorial(k);
+    Divide_Factorial(n - k);
     return true;
     
 };
@@ -77,9 +78,9 @@ bool Fraction::Multiply_Binom(int n, int k)
 bool Fraction::Divide_Binom(int n, int k)
 {
     if (n <= 0 || k < 0) return false;
-    if (!Divide_Factorial(n)) return false;
-    if (!Multiply_Factorial(k)) return false;
-    if (!Multiply_Factorial(n - k)) return false;
+    Divide_Factorial(n);
+    Multiply_Factorial(k);
+    Multiply_Factorial(n - k);
     return true;
 };
 
@@ -102,6 +103,7 @@ void Fraction::Invert()
       denominator.insert(*nit);
     }
     swap.clear();
+
 };
 
 void Fraction::Print() const 
