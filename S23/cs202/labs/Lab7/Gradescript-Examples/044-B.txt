@@ -1,0 +1,11 @@
+TEXT_CODE 082-034-5515 BYB4O8wLkc2Pyu
+ADD_PHONE JFourte00 131-701-3450
+WRITE f1.txt
+BALANCE ANutshe19
+PRIZE ovis 50 3 Ovis Rent a Car Single Upgrade Coupon
+WRITE f2.txt
+ADD_PHONE SPromis80 191-626-0064
+SHOW_PHONES LBrookl91
+WRITE f3.txt
+REDEEM AThereb54 plush
+WRITE f4.txt

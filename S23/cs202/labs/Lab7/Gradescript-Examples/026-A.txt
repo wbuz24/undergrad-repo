@@ -1,0 +1,3 @@
+ADD_USER MSuff 26 Madelyn Suffer
+ADD_USER AGoli 7 Alex Goliath
+BALANCE Agoli

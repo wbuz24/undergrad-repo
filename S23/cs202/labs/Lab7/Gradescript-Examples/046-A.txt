@@ -1,0 +1,43 @@
+PRIZE     dogo         570      3 Club Dogo 12-Month Subscription
+PRIZE     habitat       35    100 Donation to Habitat for Humanity
+PRIZE     maze           1     20 Memory Collector Maze Downloadable Game
+PRIZE     ovis          50      3 Ovis Rent a Car Single Upgrade Coupon
+PRIZE     plush        600      4 Boca-Cola Plush Polar Bear
+PRIZE     silver      1100      2 Two DMC Theatres Silver Experience movie tickets
+PRIZE     special       35    100 Bronze level donation to Special Olympics
+PRIZE     spinner      750      4 Multi-Function Salad Spinner and Chopper
+PRIZE     swarokski     75      7 $30 Swarokski Gift Certificate
+PRIZE     visasweep      1   1000 $500 VISA(r) Gift Card Sweepstakes Entry
+ADD_USER  ACharlo22     41 Avery Charlotte Allied
+ADD_PHONE ACharlo22  351-165-5586
+ADD_USER  AViscos27     26 Allison Viscosity
+ADD_PHONE AViscos27  057-159-7932
+ADD_PHONE AViscos27  837-415-9477
+ADD_PHONE AViscos27  931-966-5193
+ADD_USER  BOccur80    4389 Benjamin Occur
+ADD_PHONE BOccur80   495-620-5649
+ADD_PHONE BOccur80   922-015-5265
+ADD_USER  CCarson77   1782 Cooper Carson Participate
+ADD_PHONE CCarson77  473-934-5871
+ADD_PHONE CCarson77  733-349-3791
+ADD_PHONE CCarson77  760-048-6238
+ADD_USER  JDecoup11     13 Jordan Decouple
+ADD_PHONE JDecoup11  854-286-2120
+ADD_PHONE JDecoup11  977-391-6344
+ADD_USER  JErbium32      1 John Erbium Jr
+ADD_USER  KInjury12   2377 Kate Injury
+ADD_PHONE KInjury12  032-696-0319
+ADD_PHONE KInjury12  544-916-0321
+ADD_USER  MScorec30    310 Makayla Scorecard
+ADD_PHONE MScorec30  307-032-5316
+ADD_PHONE MScorec30  342-363-1225
+ADD_USER  NGuiana46     20 Nathan Guiana
+ADD_PHONE NGuiana46  096-361-0282
+ADD_PHONE NGuiana46  436-693-2667
+ADD_PHONE NGuiana46  886-417-6166
+ADD_USER  ZShuck56   13644 Zachary Shuck III
+ADD_PHONE ZShuck56   371-027-7328
+ADD_PHONE ZShuck56   587-540-9671
+ADD_PHONE ZShuck56   787-696-4221
+MARK_USED 9Li3k6y3Dd8VJm AKXca85dQyejyP E9Xh723UzZmaV4 KLqpjYMta3vtSI Ub6uxy3Yf1NU3N VaYWFKnrdbAZZ5 f5mPt8xHbwqvxU l2KH5hKdsyrFzZ
+MARK_USED r4JxlJHa9Yk49v wY4ByAWBHfXeTU

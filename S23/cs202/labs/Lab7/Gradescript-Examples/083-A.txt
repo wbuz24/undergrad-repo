@@ -1,0 +1,44 @@
+PRIZE     dogo         570      3 Club Dogo 12-Month Subscription
+PRIZE     downloads    700      8 10 MP3 Downloads from Babster
+PRIZE     habitat       35    100 Donation to Habitat for Humanity
+PRIZE     ovis          50      3 Ovis Rent a Car Single Upgrade Coupon
+PRIZE     special       35    100 Bronze level donation to Special Olympics
+ADD_USER  AConsul66    790 Addison Consultative
+ADD_USER  AGretch75   1733 Austin Gretchen
+ADD_PHONE AGretch75  305-495-8264
+ADD_PHONE AGretch75  574-550-5272
+ADD_USER  AMemori33     95 Aiden Memorial
+ADD_PHONE AMemori33  767-608-1296
+ADD_PHONE AMemori33  804-449-6350
+ADD_PHONE AMemori33  966-645-2437
+ADD_USER  AMercil81   5353 Arianna Mercilessly
+ADD_USER  AProtec81  27633 Anthony Protector
+ADD_PHONE AProtec81  142-291-0416
+ADD_PHONE AProtec81  232-043-1175
+ADD_PHONE AProtec81  732-305-7002
+ADD_USER  EEpheme35     80 Evelyn Ephemeris
+ADD_PHONE EEpheme35  369-421-3247
+ADD_PHONE EEpheme35  564-833-4357
+ADD_PHONE EEpheme35  775-397-2665
+ADD_USER  KIllegi55    587 Kaitlyn Illegitimate
+ADD_PHONE KIllegi55  655-979-5896
+ADD_USER  KPlymou66     10 Kylie Plymouth
+ADD_PHONE KPlymou66  795-090-7502
+ADD_PHONE KPlymou66  805-523-6415
+ADD_USER  LCaryat08   7015 Lillian Caryatid
+ADD_USER  LPee98       153 Leah Pee
+ADD_USER  MAll94       612 Michael All MD
+ADD_PHONE MAll94     492-345-5751
+ADD_PHONE MAll94     680-273-4756
+ADD_USER  MPertin58     85 Makayla Pertinent
+ADD_PHONE MPertin58  703-701-9986
+ADD_USER  OIndivi80   5072 Olivia Individualism
+ADD_PHONE OIndivi80  395-743-1888
+ADD_PHONE OIndivi80  579-630-9447
+ADD_USER  XRegret51     50 Xavier Regretted
+ADD_PHONE XRegret51  853-526-9607
+ADD_PHONE XRegret51  942-067-9255
+ADD_USER  ZDiopte66    118 Zachary Diopter IV
+ADD_PHONE ZDiopte66  318-051-8361
+ADD_PHONE ZDiopte66  515-816-9604
+MARK_USED 3iI2wWE4kvNORJ E758Z3coYf5etg WDg0WVdl4dVKjr ovlXa7EO5jpF1t sBrol0IfKJhgKj

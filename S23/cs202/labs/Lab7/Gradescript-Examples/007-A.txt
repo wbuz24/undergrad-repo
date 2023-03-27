@@ -1,0 +1,5 @@
+PRIZE dogo 570 3 Club Dogo 12-Month Subscription
+ADD_USER CAnti 2800 Christopher Antipasto
+WRITE f1.txt
+REDEEM CAnti dogo
+WRITE f2.txt

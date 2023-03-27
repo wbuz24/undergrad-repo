@@ -1,0 +1,37 @@
+PRIZE     dogo         570      3 Club Dogo 12-Month Subscription
+PRIZE     downloads    700      8 10 MP3 Downloads from Babster
+PRIZE     habitat       35    100 Donation to Habitat for Humanity
+PRIZE     spinner      750      4 Multi-Function Salad Spinner and Chopper
+PRIZE     visasweep      1   1000 $500 VISA(r) Gift Card Sweepstakes Entry
+ADD_USER  APicket98    193 Austin Pickett PhD
+ADD_PHONE APicket98  029-075-9930
+ADD_PHONE APicket98  428-307-4409
+ADD_PHONE APicket98  533-705-8338
+ADD_USER  ASteepl03   4647 Amelia Steeplechase
+ADD_PHONE ASteepl03  035-993-8965
+ADD_PHONE ASteepl03  408-741-3749
+ADD_PHONE ASteepl03  494-023-7614
+ADD_USER  BRadioc88   8203 Brooke Radiocarbon
+ADD_PHONE BRadioc88  116-837-6616
+ADD_USER  DCantil49  28155 Dylan Cantilever
+ADD_PHONE DCantil49  506-184-0513
+ADD_USER  EAruba22       5 Emily Aruba
+ADD_USER  EHendri60    813 Evan Hendrick
+ADD_USER  EInsolv00     68 Ellie Insolvable
+ADD_USER  ESimult29      0 Emily Simultaneous
+ADD_PHONE ESimult29  028-032-1891
+ADD_PHONE ESimult29  672-822-0358
+ADD_USER  LCovera90   7234 Layla Coverage
+ADD_PHONE LCovera90  195-172-9482
+ADD_PHONE LCovera90  810-496-8145
+ADD_USER  LExpans67    478 Lucy Expansion
+ADD_PHONE LExpans67  064-786-0795
+ADD_PHONE LExpans67  663-969-6851
+ADD_USER  LNoisem15     72 Lillian Noisemake
+ADD_USER  MFilet46      74 Maya Filet
+ADD_USER  SBegrud71    416 Sophie Begrudge
+ADD_PHONE SBegrud71  115-292-2557
+ADD_USER  TEdith78     616 Taylor Edith
+ADD_PHONE TEdith78   607-742-6724
+ADD_USER  TEffect68  47601 Thomas Effectual
+MARK_USED FSzWmBDO0BZ1fH GlmciFS9RXQToC ft82wqKupuyZQw oNF2jbN2GHyQ10 xtyh23QbWtvR0Z

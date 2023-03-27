@@ -1,0 +1,39 @@
+PRIZE     habitat       35    100 Donation to Habitat for Humanity
+PRIZE     hat         2222      2 Ninja Warrior Mount Midoriyama T-Shirt
+PRIZE     maze           1     20 Memory Collector Maze Downloadable Game
+PRIZE     ovis          50      3 Ovis Rent a Car Single Upgrade Coupon
+PRIZE     visasweep      1   1000 $500 VISA(r) Gift Card Sweepstakes Entry
+ADD_USER  ALeg69     22395 Aaron Leg
+ADD_USER  AMadely99   9609 Audrey Madelyn Compose
+ADD_PHONE AMadely99  178-881-1350
+ADD_USER  AMax13        32 Adam Max Exclusion
+ADD_USER  ANoah82       75 Aidan Noah Impresario
+ADD_PHONE ANoah82    148-863-1811
+ADD_PHONE ANoah82    784-067-0740
+ADD_USER  DThimbl58  41216 Dylan Thimble
+ADD_PHONE DThimbl58  810-866-7732
+ADD_USER  EMacint45   6385 Evelyn Macintosh
+ADD_PHONE EMacint45  248-202-4824
+ADD_USER  JBeige24    7027 Julia Beige
+ADD_PHONE JBeige24   042-619-0041
+ADD_PHONE JBeige24   785-565-4691
+ADD_USER  KMargin50  45231 Kaylee Margin
+ADD_PHONE KMargin50  320-325-6173
+ADD_PHONE KMargin50  467-665-4445
+ADD_PHONE KMargin50  702-919-4534
+ADD_USER  LCamelb00   8505 Leah Camelback
+ADD_USER  LChrist64    576 Lucas Christian Facsimile PhD
+ADD_PHONE LChrist64  383-804-7305
+ADD_PHONE LChrist64  494-148-5360
+ADD_PHONE LChrist64  637-087-8810
+ADD_USER  LIsabel63     90 Lily Isabella Entrant
+ADD_PHONE LIsabel63  385-008-2008
+ADD_USER  MHausdo39    638 Makayla Hausdorff
+ADD_PHONE MHausdo39  064-906-8483
+ADD_PHONE MHausdo39  999-137-3723
+ADD_USER  SAnonym52    359 Sofia Anonymous
+ADD_PHONE SAnonym52  821-735-8043
+ADD_USER  SCockle76   4957 Sofia Cockle
+ADD_USER  TBluff63      32 Thomas Bluff Esq
+ADD_PHONE TBluff63   672-000-7548
+MARK_USED PPFlU84p4XGG7w RS6DQ6ob1RtWFC djH6LoA27COKUd eRzdRxshzV8mFX rTMh4CygQuxXPP

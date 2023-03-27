@@ -1,0 +1,4 @@
+PRIZE rest 500 5 Restaurant Gift Card from E-Restaurants.com
+ADD_USER OMack 638 Oliver Mackinaw
+REDEEM OMack rest
+WRITE f1.txt

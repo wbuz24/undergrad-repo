@@ -1,0 +1,37 @@
+PRIZE     cancun     10000      1 All Expense-Paid trip to Cancun
+PRIZE     habitat       35    100 Donation to Habitat for Humanity
+PRIZE     hat         2222      2 Ninja Warrior Mount Midoriyama T-Shirt
+PRIZE     maze           1     20 Memory Collector Maze Downloadable Game
+PRIZE     plush        600      4 Boca-Cola Plush Polar Bear
+PRIZE     pudget        50      5 pudget Rent A Car Single Upgrade Coupon
+PRIZE     silver      1100      2 Two DMC Theatres Silver Experience movie tickets
+PRIZE     special       35    100 Bronze level donation to Special Olympics
+PRIZE     swarokski     75      7 $30 Swarokski Gift Certificate
+PRIZE     visasweep      1   1000 $500 VISA(r) Gift Card Sweepstakes Entry
+ADD_USER  CAnger58     877 Christian Anger
+ADD_PHONE CAnger58   022-896-9600
+ADD_PHONE CAnger58   976-173-5275
+ADD_USER  EDiluti72     10 Emma Dilution
+ADD_PHONE EDiluti72  005-302-8643
+ADD_USER  EKnives51    972 Emma Knives
+ADD_PHONE EKnives51  780-304-5014
+ADD_PHONE EKnives51  943-005-9703
+ADD_USER  JShrill66   6795 Jacob Shrill
+ADD_PHONE JShrill66  857-150-9313
+ADD_USER  KGrace95     590 Kate Grace
+ADD_PHONE KGrace95   147-172-1616
+ADD_PHONE KGrace95   677-954-0653
+ADD_USER  LTherea55   2859 Logan Thereafter
+ADD_PHONE LTherea55  658-020-0086
+ADD_USER  MBushel86     81 Maya Bushel
+ADD_PHONE MBushel86  875-730-7339
+ADD_USER  MPolite99    836 Max Polite
+ADD_USER  MQuaver36   8347 Madeline Quaver
+ADD_PHONE MQuaver36  531-948-1751
+ADD_PHONE MQuaver36  904-137-1967
+ADD_USER  WAidan06    7424 Wyatt Aidan Polytechnic
+ADD_PHONE WAidan06   079-212-6513
+ADD_PHONE WAidan06   143-255-9732
+ADD_PHONE WAidan06   479-128-7467
+MARK_USED 27mewlOhOcwaHl 8xExzpZYvj5Ccp BLQrWwQ3Uvnxt2 BVGrpaUUTDOfig GORrp10aEseYoq OhjxMtW4Gat0qN ip6eFpNfTqlnmG pwKLXGtkG4L34h
+MARK_USED uJGeLP2PGP0NNu uL3n0IxJno1eMT

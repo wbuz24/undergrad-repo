@@ -1,0 +1,2 @@
+PRIZE spinner 750 4 Multi-Function Salad Spinner and Chopper
+WRITE f1.txt

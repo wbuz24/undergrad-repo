@@ -1,0 +1,40 @@
+PRIZE     cancun     10000      1 All Expense-Paid trip to Cancun
+PRIZE     downloads    700      8 10 MP3 Downloads from Babster
+PRIZE     hat         2222      2 Ninja Warrior Mount Midoriyama T-Shirt
+PRIZE     plush        600      4 Boca-Cola Plush Polar Bear
+PRIZE     visasweep      1   1000 $500 VISA(r) Gift Card Sweepstakes Entry
+ADD_USER  ABlindf02  39113 Anthony Blindfold
+ADD_USER  AHoudin10   7435 Abigail Houdini
+ADD_PHONE AHoudin10  396-102-2344
+ADD_USER  ASplutt60    441 Anthony Splutter
+ADD_PHONE ASplutt60  688-737-4696
+ADD_USER  ATemeri49   7723 Aiden Temerity
+ADD_PHONE ATemeri49  039-081-4870
+ADD_PHONE ATemeri49  331-983-0681
+ADD_PHONE ATemeri49  964-361-3059
+ADD_USER  CAbdica42  28297 Cameron Abdicate
+ADD_PHONE CAbdica42  871-193-4302
+ADD_USER  EKruger24    162 Ellie Kruger
+ADD_PHONE EKruger24  067-439-8091
+ADD_USER  GCupboa55    805 Gabriel Cupboard Esq
+ADD_PHONE GCupboa55  256-235-6725
+ADD_PHONE GCupboa55  504-885-7850
+ADD_USER  JDeride09    753 Jack Deride
+ADD_PHONE JDeride09  788-718-8951
+ADD_USER  JHenry67   39290 Jackson Henry Suntanned
+ADD_PHONE JHenry67   472-602-9586
+ADD_USER  KDefini06     21 Katelyn Definitive
+ADD_USER  KPupate63    851 Kayla Pupate
+ADD_USER  LBiblio10     65 Lucas Bibliophile
+ADD_PHONE LBiblio10  135-709-5662
+ADD_USER  VSubsid45  43281 Victoria Subsidiary
+ADD_PHONE VSubsid45  072-607-5095
+ADD_USER  WQuinti12     15 William Quintillion
+ADD_PHONE WQuinti12  436-000-6034
+ADD_PHONE WQuinti12  436-290-6272
+ADD_PHONE WQuinti12  777-055-2356
+ADD_USER  ZMuskox91  17632 Zoey Muskoxen
+ADD_PHONE ZMuskox91  131-534-2182
+ADD_PHONE ZMuskox91  710-726-2264
+ADD_PHONE ZMuskox91  723-209-9668
+MARK_USED FMk9wBYfB7msg7 MJiyx5fvpex704 QhFPCefDzWP2kN T99jKJ17bkiLC2 nEhacM5H4jbWaK

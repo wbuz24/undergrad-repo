@@ -1,0 +1,42 @@
+PRIZE     maze           1     20 Memory Collector Maze Downloadable Game
+PRIZE     ovis          50      3 Ovis Rent a Car Single Upgrade Coupon
+PRIZE     pudget        50      5 pudget Rent A Car Single Upgrade Coupon
+PRIZE     silver      1100      2 Two DMC Theatres Silver Experience movie tickets
+PRIZE     spinner      750      4 Multi-Function Salad Spinner and Chopper
+ADD_USER  ASchool57  46214 Addison Schoolmarm PhD
+ADD_PHONE ASchool57  806-139-7922
+ADD_USER  CPlacen12     58 Charlotte Placenta
+ADD_PHONE CPlacen12  928-936-6792
+ADD_USER  CSullen34     51 Chloe Sullen
+ADD_PHONE CSullen34  780-047-0147
+ADD_PHONE CSullen34  976-683-5796
+ADD_USER  EAdam07     9325 Evan Adam Hannah
+ADD_PHONE EAdam07    170-324-9787
+ADD_USER  EBroach68  39834 Ella Broach
+ADD_PHONE EBroach68  038-691-9391
+ADD_PHONE EBroach68  380-537-2429
+ADD_PHONE EBroach68  797-446-0863
+ADD_USER  HLeer41       93 Hannah Leer
+ADD_PHONE HLeer41    206-734-4998
+ADD_PHONE HLeer41    472-325-8655
+ADD_PHONE HLeer41    592-859-0640
+ADD_USER  IGlauco55   6269 Ian Glaucoma
+ADD_USER  KLiquor97     37 Kaylee Liquor
+ADD_USER  MBona96     4508 Mia Bona
+ADD_PHONE MBona96    484-605-8448
+ADD_PHONE MBona96    632-882-6314
+ADD_PHONE MBona96    783-862-4220
+ADD_USER  MConfid94  20697 Mackenzie Confidante Esq
+ADD_USER  MCroydo28   6217 Madison Croydon
+ADD_USER  OImagin91    982 Owen Imaginary
+ADD_PHONE OImagin91  064-258-6691
+ADD_PHONE OImagin91  991-241-2475
+ADD_USER  RAttenu54     39 Riley Attenuate
+ADD_PHONE RAttenu54  476-693-6288
+ADD_USER  SAli11       830 Sofia Ali
+ADD_PHONE SAli11     139-081-8243
+ADD_USER  SDelect93   6208 Sofia Delectate
+ADD_PHONE SDelect93  193-334-4928
+ADD_PHONE SDelect93  328-213-6084
+ADD_PHONE SDelect93  809-374-5699
+MARK_USED FjgzwOP4wxwtjs SgIKr8IuOIa2i0 jawaC3Ku2KHQSa mrmEj7WXVHf9mQ r26TBpQGxiNzOI

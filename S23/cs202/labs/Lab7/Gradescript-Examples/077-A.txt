@@ -1,0 +1,54 @@
+PRIZE     cancun     10000      1 All Expense-Paid trip to Cancun
+PRIZE     habitat       35    100 Donation to Habitat for Humanity
+PRIZE     hat         2222      2 Ninja Warrior Mount Midoriyama T-Shirt
+PRIZE     ovis          50      3 Ovis Rent a Car Single Upgrade Coupon
+PRIZE     swarokski     75      7 $30 Swarokski Gift Certificate
+ADD_USER  AEsquir92  28752 Aidan Esquire
+ADD_PHONE AEsquir92  000-667-1021
+ADD_PHONE AEsquir92  032-157-9750
+ADD_USER  AImitab79    653 Adam Imitable Esq
+ADD_PHONE AImitab79  261-244-6924
+ADD_PHONE AImitab79  608-914-7912
+ADD_PHONE AImitab79  926-906-9169
+ADD_USER  APillar85      6 Andrew Pillar
+ADD_PHONE APillar85  212-081-3700
+ADD_PHONE APillar85  868-505-8548
+ADD_USER  BChrist15   2186 Brandon Christian Blitz
+ADD_PHONE BChrist15  088-383-1124
+ADD_PHONE BChrist15  224-524-9265
+ADD_PHONE BChrist15  570-641-3601
+ADD_USER  BEradic57      8 Blake Eradicable
+ADD_PHONE BEradic57  434-007-2134
+ADD_PHONE BEradic57  740-263-7491
+ADD_PHONE BEradic57  837-597-6941
+ADD_USER  CRibald84  13647 Caroline Ribald
+ADD_PHONE CRibald84  228-153-8289
+ADD_PHONE CRibald84  644-325-3207
+ADD_USER  GPetrol53  10777 Gabriel Petrology
+ADD_PHONE GPetrol53  169-868-6274
+ADD_USER  HLaunde67   9225 Hailey Launder PhD
+ADD_PHONE HLaunde67  564-630-6242
+ADD_PHONE HLaunde67  946-897-6467
+ADD_USER  JHathaw84   9025 Joshua Hathaway
+ADD_PHONE JHathaw84  555-266-3657
+ADD_PHONE JHathaw84  922-348-0850
+ADD_PHONE JHathaw84  990-135-8237
+ADD_USER  JHunter77  20043 Jayden Hunter Abelson
+ADD_PHONE JHunter77  600-179-5255
+ADD_PHONE JHunter77  602-071-9536
+ADD_PHONE JHunter77  888-152-2932
+ADD_USER  JSweene21    896 Jacob Sweeney
+ADD_USER  MCoup31     4406 Mackenzie Coup
+ADD_PHONE MCoup31    109-923-4476
+ADD_PHONE MCoup31    134-083-7660
+ADD_PHONE MCoup31    255-694-4372
+ADD_USER  MHyster03  46176 Morgan Hysteresis
+ADD_PHONE MHyster03  123-119-0679
+ADD_PHONE MHyster03  153-423-5645
+ADD_PHONE MHyster03  690-279-8086
+ADD_USER  MPitchf41     80 Mackenzie Pitchfork
+ADD_PHONE MPitchf41  208-199-7389
+ADD_PHONE MPitchf41  923-440-9933
+ADD_USER  OParkla69    231 Olivia Parkland
+ADD_PHONE OParkla69  457-449-5040
+MARK_USED T7JzoA4O19yljT XWvpDiekDuTSEz gYbqqt9zB7x9nH owjarJwDEybEKG qdxGkLXFMTTcMC

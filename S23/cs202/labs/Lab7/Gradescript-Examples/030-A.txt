@@ -1,0 +1,10 @@
+ADD_USER EExpo 45 Ellie Export
+ADD_USER MAlis 19 Madison Alison
+ADD_USER JFung 6 Joseph Fungible
+BALANCE MAlis
+ADD_USER BDats 24 Bella Datsun
+ADD_USER XMig 11 Xavier Mig
+BALANCE XMig
+BALANCE BDats
+BALANCE EExpo
+BALANCE JFung

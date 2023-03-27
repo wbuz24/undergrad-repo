@@ -1,0 +1,4 @@
+ADD_USER kbaron 35 Kate Baron
+ADD_PHONE kbaron 392-429-0455 
+TEXT_CODE 392-429-0455  y7D1x745Foie8k
+WRITE f1.txt

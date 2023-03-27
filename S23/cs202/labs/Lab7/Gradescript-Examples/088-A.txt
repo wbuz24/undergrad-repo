@@ -1,0 +1,44 @@
+PRIZE     habitat       35    100 Donation to Habitat for Humanity
+PRIZE     plush        600      4 Boca-Cola Plush Polar Bear
+PRIZE     quest          1     10 Memory Quest Downloadable Game
+PRIZE     rest         500      5 Restaurant Gift Card from E-Restaurants.com
+PRIZE     special       35    100 Bronze level donation to Special Olympics
+ADD_USER  ARespon21     39 Alyssa Respond
+ADD_USER  BUnifor18     84 Brianna Uniform
+ADD_PHONE BUnifor18  223-488-8594
+ADD_PHONE BUnifor18  521-071-2203
+ADD_PHONE BUnifor18  913-472-4505
+ADD_USER  CEtholo63    164 Cameron Ethology III
+ADD_PHONE CEtholo63  906-062-1137
+ADD_PHONE CEtholo63  909-504-1964
+ADD_USER  CMelind33  44350 Charlotte Melinda
+ADD_PHONE CMelind33  062-975-5160
+ADD_USER  CSwizzl66  42187 Chase Swizzle
+ADD_PHONE CSwizzl66  484-002-2721
+ADD_PHONE CSwizzl66  691-742-6477
+ADD_USER  DMasoni22   8580 Dontonio Masonic
+ADD_PHONE DMasoni22  037-865-5903
+ADD_USER  GCodify19  12887 Gavin Codify
+ADD_USER  HViolet50     12 Henry Violet IV
+ADD_PHONE HViolet50  823-532-5718
+ADD_USER  JBaboon10    680 Jayden Baboon
+ADD_USER  LMadeli65      3 Layla Madeline Composition
+ADD_PHONE LMadeli65  031-331-6278
+ADD_PHONE LMadeli65  470-723-1122
+ADD_PHONE LMadeli65  857-702-0681
+ADD_USER  LMorpho29  21978 Liam Morphophonemic
+ADD_PHONE LMorpho29  513-990-8848
+ADD_PHONE LMorpho29  697-408-4524
+ADD_USER  LShortc99  31306 Lilly Shortcoming
+ADD_PHONE LShortc99  277-995-4244
+ADD_USER  SMatiss63     73 Samantha Matisse
+ADD_PHONE SMatiss63  054-943-9329
+ADD_PHONE SMatiss63  487-661-8014
+ADD_PHONE SMatiss63  624-014-2999
+ADD_USER  SWop67      5552 Sophie Wop
+ADD_PHONE SWop67     346-205-6025
+ADD_PHONE SWop67     704-977-4969
+ADD_USER  ZTang35    26558 Zoey Tang
+ADD_PHONE ZTang35    742-238-0735
+ADD_PHONE ZTang35    872-594-7119
+MARK_USED 0xFbOjRWGosg9C AuEm1dAsUjzBXy Q9OMDHMH6zM8mr bqbxxP0iKr67Mi lmv3sB1FEF8nl1

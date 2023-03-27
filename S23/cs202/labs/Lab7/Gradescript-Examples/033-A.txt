@@ -1,0 +1,5 @@
+ADD_USER KStri 38 Katelyn Stripy
+ADD_USER ARach 6 Alex Rachmaninoff
+ENTER_CODE ARach TbM7VBsDT6nucE
+ENTER_CODE KStri TbM7VBsDT6nucE
+WRITE f1.txt

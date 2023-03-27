@@ -1,0 +1,39 @@
+PRIZE     downloads    700      8 10 MP3 Downloads from Babster
+PRIZE     pudget        50      5 pudget Rent A Car Single Upgrade Coupon
+PRIZE     quest          1     10 Memory Quest Downloadable Game
+PRIZE     swarokski     75      7 $30 Swarokski Gift Certificate
+PRIZE     visasweep      1   1000 $500 VISA(r) Gift Card Sweepstakes Entry
+ADD_USER  AColomb64  32832 Anna Colombo
+ADD_USER  BFields85   5343 Blake Fields
+ADD_PHONE BFields85  461-191-8779
+ADD_USER  DRefrac80     83 Dontonio Refract
+ADD_USER  EEvocab54    153 Evelyn Evocable
+ADD_PHONE EEvocab54  052-723-7169
+ADD_PHONE EEvocab54  749-179-8994
+ADD_PHONE EEvocab54  997-913-0218
+ADD_USER  EGuano48      96 Elijah Guano
+ADD_PHONE EGuano48   053-663-3114
+ADD_PHONE EGuano48   071-652-8137
+ADD_PHONE EGuano48   974-956-3248
+ADD_USER  EIllegi50     76 Eva Illegitimacy
+ADD_PHONE EIllegi50  306-136-5666
+ADD_PHONE EIllegi50  496-121-0786
+ADD_USER  EShin58       30 Emma Shin
+ADD_PHONE EShin58    561-653-0104
+ADD_PHONE EShin58    595-712-5827
+ADD_PHONE EShin58    789-621-1862
+ADD_USER  GCaryat15   3955 Gabriella Caryatid
+ADD_PHONE GCaryat15  698-560-7529
+ADD_USER  IDenude78  12204 Ian Denude
+ADD_PHONE IDenude78  139-186-6323
+ADD_PHONE IDenude78  628-532-0495
+ADD_PHONE IDenude78  907-400-6187
+ADD_USER  NAmity81     945 Natalie Amity
+ADD_USER  NBedspr76     81 Natalie Bedspread
+ADD_USER  PCaroli35    132 Parker Carolina
+ADD_PHONE PCaroli35  202-067-0258
+ADD_PHONE PCaroli35  929-867-0064
+ADD_USER  RAbsurd70     90 Ryan Absurd
+ADD_USER  TAllegh34   9384 Taylor Allegheny
+ADD_USER  TEscape91  23273 Thomas Escape
+MARK_USED NHJWmiRSNqWRcp WPuNPC8ZC4CvyA WaSRnFmGHKFJ6l oTOvlxYnNZAY4Z uSa47oZXCcn79W

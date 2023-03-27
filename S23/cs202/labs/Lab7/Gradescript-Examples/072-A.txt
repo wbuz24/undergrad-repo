@@ -1,0 +1,46 @@
+PRIZE     habitat       35    100 Donation to Habitat for Humanity
+PRIZE     maze           1     20 Memory Collector Maze Downloadable Game
+PRIZE     quest          1     10 Memory Quest Downloadable Game
+PRIZE     special       35    100 Bronze level donation to Special Olympics
+PRIZE     spinner      750      4 Multi-Function Salad Spinner and Chopper
+ADD_USER  AAdair91    3826 Alex Adair
+ADD_PHONE AAdair91   670-210-8369
+ADD_PHONE AAdair91   883-542-1570
+ADD_USER  ADespis05     72 Arianna Despise
+ADD_PHONE ADespis05  001-069-5996
+ADD_PHONE ADespis05  686-295-1509
+ADD_PHONE ADespis05  979-389-8374
+ADD_USER  APasteu82  49035 Avery Pasteur
+ADD_PHONE APasteu82  922-773-1120
+ADD_USER  GAmplif03  14498 Gavin Amplify
+ADD_PHONE GAmplif03  354-513-5035
+ADD_PHONE GAmplif03  544-046-0325
+ADD_PHONE GAmplif03  686-797-2537
+ADD_USER  JCliffo62  32842 Jordan Clifford
+ADD_PHONE JCliffo62  605-763-9227
+ADD_PHONE JCliffo62  748-456-9312
+ADD_PHONE JCliffo62  895-258-3648
+ADD_USER  JThreef80   6156 Jayden Threefold
+ADD_PHONE JThreef80  393-309-2877
+ADD_USER  KDelinq37      6 Kylie Delinquent
+ADD_PHONE KDelinq37  250-982-6961
+ADD_PHONE KDelinq37  581-511-2988
+ADD_USER  LFlexib97    125 Lillian Flexible
+ADD_PHONE LFlexib97  065-563-2396
+ADD_PHONE LFlexib97  427-510-4915
+ADD_USER  MDelici98    329 Makayla Delicious
+ADD_USER  MPretex38   6283 Molly Pretext
+ADD_PHONE MPretex38  198-080-9257
+ADD_PHONE MPretex38  392-569-3884
+ADD_USER  NCanoga06   9170 Noah Canoga
+ADD_USER  SConsti23  25609 Sophia Constituent
+ADD_USER  XRape48    10636 Xavier Rape
+ADD_PHONE XRape48    214-892-7299
+ADD_PHONE XRape48    428-788-5685
+ADD_PHONE XRape48    758-850-0345
+ADD_USER  ZCompon00  26579 Zoe Componentry
+ADD_USER  ZDeadhe81  35683 Zoe Deadhead
+ADD_PHONE ZDeadhe81  104-617-1750
+ADD_PHONE ZDeadhe81  293-724-2252
+ADD_PHONE ZDeadhe81  386-006-8434
+MARK_USED 7P3iU1EHLLJSIx FGbqTTrt1JM4tO N8cRLOCv3ln4wM b4dARMf1Gc0g4E eamRDfxbJ2MJqD

@@ -1,0 +1,4 @@
+ADD_USER EOffi 18 Elijah Officialdom
+ADD_USER MWoma 5 Molly Womanhood
+ADD_USER EOffi 28 Ryan Decline
+WRITE f1.txt

@@ -1,0 +1,35 @@
+PRIZE     cancun     10000      1 All Expense-Paid trip to Cancun
+PRIZE     hat         2222      2 Ninja Warrior Mount Midoriyama T-Shirt
+PRIZE     ovis          50      3 Ovis Rent a Car Single Upgrade Coupon
+PRIZE     plush        600      4 Boca-Cola Plush Polar Bear
+PRIZE     pudget        50      5 pudget Rent A Car Single Upgrade Coupon
+PRIZE     rest         500      5 Restaurant Gift Card from E-Restaurants.com
+PRIZE     special       35    100 Bronze level donation to Special Olympics
+PRIZE     spinner      750      4 Multi-Function Salad Spinner and Chopper
+PRIZE     swarokski     75      7 $30 Swarokski Gift Certificate
+PRIZE     visasweep      1   1000 $500 VISA(r) Gift Card Sweepstakes Entry
+ADD_USER  AFreshw48    643 Austin Freshwater
+ADD_PHONE AFreshw48  064-717-1214
+ADD_USER  AMortga84   4816 Addison Mortgagee
+ADD_PHONE AMortga84  968-815-0537
+ADD_USER  APretex96     35 Alexander Pretext
+ADD_USER  BArmame55  31516 Brayden Armament IV
+ADD_PHONE BArmame55  331-427-3923
+ADD_PHONE BArmame55  590-462-0164
+ADD_PHONE BArmame55  946-802-9658
+ADD_USER  BIrrepr44    371 Brianna Irreproducible
+ADD_USER  EBlest78    7361 Elijah Blest IV
+ADD_USER  HChick52   43904 Hunter Chick
+ADD_PHONE HChick52   322-744-1356
+ADD_PHONE HChick52   553-833-7150
+ADD_PHONE HChick52   791-376-5334
+ADD_USER  JNoneth29  41596 Jake Nonetheless
+ADD_PHONE JNoneth29  138-363-5965
+ADD_PHONE JNoneth29  802-681-5378
+ADD_USER  KPerfor46   6217 Kylie Perforce
+ADD_PHONE KPerfor46  307-727-3351
+ADD_PHONE KPerfor46  344-203-9406
+ADD_PHONE KPerfor46  504-179-0432
+ADD_USER  ZQuinn57      86 Zoey Quinn
+MARK_USED 0nrsQWiIRKE2mN AoYyfdkgKiqWp0 D8zWbfxlNDVGJ3 H5G4ga73eoWXwg MqTpgyTHpMnHGv OYAR99oZxFwCKc PPBsTqdgZRixwl TDhcZKBC6XYlf9
+MARK_USED ZiH28zas9M6YUd mBlpDBos9n0pat

@@ -1,0 +1,46 @@
+PRIZE     cancun     10000      1 All Expense-Paid trip to Cancun
+PRIZE     maze           1     20 Memory Collector Maze Downloadable Game
+PRIZE     rest         500      5 Restaurant Gift Card from E-Restaurants.com
+PRIZE     silver      1100      2 Two DMC Theatres Silver Experience movie tickets
+PRIZE     visasweep      1   1000 $500 VISA(r) Gift Card Sweepstakes Entry
+ADD_USER  AIrania23   8409 Audrey Iranian
+ADD_PHONE AIrania23  434-307-1802
+ADD_PHONE AIrania23  738-942-5547
+ADD_USER  AMatern11   1838 Adam Maternity
+ADD_PHONE AMatern11  225-535-1619
+ADD_PHONE AMatern11  480-340-1467
+ADD_PHONE AMatern11  930-940-9434
+ADD_USER  ASmithf91     16 Alexandra Smithfield
+ADD_USER  CRectan31  40069 Cole Rectangular
+ADD_PHONE CRectan31  150-887-1305
+ADD_PHONE CRectan31  218-632-6177
+ADD_PHONE CRectan31  356-625-5053
+ADD_USER  DGrandn95   8083 Dontonio Grandnephew MD
+ADD_PHONE DGrandn95  630-180-3280
+ADD_PHONE DGrandn95  710-766-3515
+ADD_PHONE DGrandn95  835-964-0520
+ADD_USER  EAdopt03     201 Ella Adopt
+ADD_PHONE EAdopt03   456-737-7449
+ADD_PHONE EAdopt03   475-073-5076
+ADD_PHONE EAdopt03   883-331-9722
+ADD_USER  EMantic75     71 Ella Mantic
+ADD_PHONE EMantic75  083-375-2555
+ADD_PHONE EMantic75  086-649-6333
+ADD_PHONE EMantic75  780-745-6344
+ADD_USER  GKidnap60     59 Gianna Kidnapped
+ADD_PHONE GKidnap60  212-674-7113
+ADD_PHONE GKidnap60  522-433-1399
+ADD_PHONE GKidnap60  989-074-1679
+ADD_USER  JSubver03  46315 Jordan Subvert
+ADD_PHONE JSubver03  905-693-7437
+ADD_USER  KDevout43   9262 Kylie Devout
+ADD_USER  KOrbit73     654 Kayla Orbit
+ADD_PHONE KOrbit73   384-830-5495
+ADD_USER  MAftern85     28 Molly Afternoon
+ADD_USER  MAim37       418 Mia Aim
+ADD_PHONE MAim37     393-108-4441
+ADD_PHONE MAim37     708-974-6020
+ADD_USER  MRub61       124 Michael Rub
+ADD_USER  ZFungib44     56 Zoey Fungible
+ADD_PHONE ZFungib44  104-877-4509
+MARK_USED 5tr7iqIcuqa5ST 9nJ1HT53q6SA7L bwafQNyRokvvvH nWIufK0NpYK2Aw om7XRcBnDQuAx2

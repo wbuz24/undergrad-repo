@@ -1,0 +1,4 @@
+ADD_USER BDyla 8 Brody Dylan Rastus
+PRIZE pudget 50 5 pudget Rent A Car Single Upgrade Coupon
+REDEEM BDyla pudget
+WRITE f1.txt

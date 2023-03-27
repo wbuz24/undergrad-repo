@@ -1,0 +1,8 @@
+ADD_USER ASpec 31 Anthony Spectroscopic
+ADD_USER ILith 5 Isaac Lithium
+ADD_USER STad 42 Sydney Tad Esq
+WRITE f1.txt
+DELETE_USER ILith
+ADD_USER ESegm 21 Ellie Segment
+ADD_USER ILith 45 Madison Jamaica
+WRITE f2.txt

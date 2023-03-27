@@ -1,0 +1,38 @@
+PRIZE     habitat       35    100 Donation to Habitat for Humanity
+PRIZE     hat         2222      2 Ninja Warrior Mount Midoriyama T-Shirt
+PRIZE     maze           1     20 Memory Collector Maze Downloadable Game
+PRIZE     pudget        50      5 pudget Rent A Car Single Upgrade Coupon
+PRIZE     swarokski     75      7 $30 Swarokski Gift Certificate
+ADD_USER  ACooky39       3 Austin Cooky
+ADD_PHONE ACooky39   434-837-3560
+ADD_USER  ADoctri12   3264 Alexander Doctrinal
+ADD_PHONE ADoctri12  074-861-6847
+ADD_PHONE ADoctri12  192-860-8034
+ADD_PHONE ADoctri12  382-694-5004
+ADD_USER  BDowney40  33193 Brianna Downey
+ADD_PHONE BDowney40  635-312-6974
+ADD_PHONE BDowney40  653-910-6942
+ADD_PHONE BDowney40  863-464-8628
+ADD_USER  BVolcan49   3512 Brayden Volcano
+ADD_USER  CBirefr15  43719 Chloe Birefringent
+ADD_USER  CChase79      80 Christopher Chase Wilmington
+ADD_PHONE CChase79   222-718-2714
+ADD_PHONE CChase79   519-615-7238
+ADD_USER  CEmerit69    264 Charlie Emeriti
+ADD_PHONE CEmerit69  120-300-3363
+ADD_USER  GAudrey44     84 Gabriella Audrey
+ADD_PHONE GAudrey44  342-560-1282
+ADD_PHONE GAudrey44  441-436-5487
+ADD_PHONE GAudrey44  452-354-2867
+ADD_USER  HGonzal37     99 Henry Gonzalez
+ADD_USER  MCochra24     34 Max Cochrane
+ADD_USER  NCalori96     95 Noah Caloric
+ADD_USER  PIsabel57  49436 Paige Isabella Vermiculite
+ADD_PHONE PIsabel57  292-027-8917
+ADD_USER  SBudwei55   9090 Sophie Budweiser
+ADD_PHONE SBudwei55  023-945-2610
+ADD_USER  SPliabl43    969 Sofia Pliable
+ADD_PHONE SPliabl43  326-360-7992
+ADD_USER  SSophie35    786 Sydney Sophie Deferrable
+ADD_PHONE SSophie35  020-894-2013
+MARK_USED 3U2FdrGMrzUcjx RrfDoieq5jbgjH erpSTYKd2xdwl9 f3RJuVt1X1tVMN j7UqFt4aK7FtKC

@@ -1,0 +1,39 @@
+PRIZE     maze           1     20 Memory Collector Maze Downloadable Game
+PRIZE     ovis          50      3 Ovis Rent a Car Single Upgrade Coupon
+PRIZE     special       35    100 Bronze level donation to Special Olympics
+PRIZE     spinner      750      4 Multi-Function Salad Spinner and Chopper
+PRIZE     swarokski     75      7 $30 Swarokski Gift Certificate
+ADD_USER  APaige30    2498 Abigail Paige Slick
+ADD_PHONE APaige30   652-180-9722
+ADD_USER  APsycho43    810 Andrew Psychotherapeutic Jr
+ADD_PHONE APsycho43  126-251-1643
+ADD_PHONE APsycho43  378-558-9549
+ADD_PHONE APsycho43  421-903-3951
+ADD_USER  BBangui10   6670 Brooke Bangui
+ADD_USER  EConviv68    566 Evan Convivial
+ADD_PHONE EConviv68  109-518-8649
+ADD_PHONE EConviv68  324-533-6327
+ADD_USER  EOctoge37     38 Evelyn Octogenarian
+ADD_USER  IGenoa02    9482 Isaiah Genoa
+ADD_PHONE IGenoa02   767-615-5886
+ADD_USER  JVerne74   32264 Julian Verne
+ADD_PHONE JVerne74   410-197-7697
+ADD_PHONE JVerne74   558-967-7569
+ADD_PHONE JVerne74   748-238-8790
+ADD_USER  JVolta55   19375 Jacob Volta
+ADD_PHONE JVolta55   218-996-0383
+ADD_PHONE JVolta55   617-579-3032
+ADD_USER  KConfed38   7141 Katelyn Confederate
+ADD_USER  KCounte29   7192 Katelyn Counteract
+ADD_PHONE KCounte29  905-830-0812
+ADD_USER  NThwart95  37435 Natalie Thwart
+ADD_PHONE NThwart95  416-962-4243
+ADD_USER  OResist16  25167 Oliver Resistible
+ADD_USER  PSnip88       73 Paige Snip
+ADD_PHONE PSnip88    052-777-6637
+ADD_USER  RCoplan69     39 Riley Coplanar
+ADD_PHONE RCoplan69  979-603-6062
+ADD_USER  RShown26     862 Riley Shown
+ADD_PHONE RShown26   032-320-3126
+ADD_PHONE RShown26   468-959-9745
+MARK_USED 0fKWoqzIezvNk5 Bi6xlyvJ4rJvmN D9JP4OZtkqCbAk Ztf5gK1bSSkDTl dbxoq8yndtr6Ir

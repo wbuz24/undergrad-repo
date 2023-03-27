@@ -1,0 +1,39 @@
+PRIZE     cancun     10000      1 All Expense-Paid trip to Cancun
+PRIZE     hat         2222      2 Ninja Warrior Mount Midoriyama T-Shirt
+PRIZE     ovis          50      3 Ovis Rent a Car Single Upgrade Coupon
+PRIZE     spinner      750      4 Multi-Function Salad Spinner and Chopper
+PRIZE     swarokski     75      7 $30 Swarokski Gift Certificate
+ADD_USER  ALauren16   6241 Ava Lauren Heterodyne
+ADD_PHONE ALauren16  516-985-8517
+ADD_USER  BBundy14     519 Brooklyn Bundy
+ADD_PHONE BBundy14   563-714-1254
+ADD_USER  DChrist40    602 Dontonio Christopher Kim
+ADD_PHONE DChrist40  545-962-1470
+ADD_USER  EWheats19   2489 Elijah Wheatstone
+ADD_PHONE EWheats19  425-666-3029
+ADD_PHONE EWheats19  574-033-3383
+ADD_PHONE EWheats19  977-688-3530
+ADD_USER  GSolsti82    192 Gabriel Solstice
+ADD_PHONE GSolsti82  355-868-5175
+ADD_USER  HBoor43     4495 Hunter Boor
+ADD_PHONE HBoor43    513-229-6894
+ADD_USER  HDrake70     797 Hannah Drake
+ADD_USER  HWipe71      128 Hannah Wipe
+ADD_PHONE HWipe71    204-958-2878
+ADD_PHONE HWipe71    834-277-8713
+ADD_PHONE HWipe71    926-967-3545
+ADD_USER  IBrookl19    578 Ian Brooklyn
+ADD_PHONE IBrookl19  429-085-3038
+ADD_PHONE IBrookl19  737-516-2909
+ADD_PHONE IBrookl19  977-542-5417
+ADD_USER  JPicnic06    372 Jackson Picnicked
+ADD_USER  LProspe10  26976 Logan Prosperous
+ADD_USER  MMarshm90     73 Madeline Marshmallow
+ADD_USER  MSphinx14     91 Michael Sphinx
+ADD_PHONE MSphinx14  737-067-3216
+ADD_PHONE MSphinx14  898-588-9495
+ADD_USER  RPrompt37   9552 Riley Promptitude Esq
+ADD_PHONE RPrompt37  665-510-1636
+ADD_USER  VOffici54  38790 Victoria Officialdom
+ADD_PHONE VOffici54  509-262-2060
+MARK_USED XONXHv2cVd0uKH YwHDSMsWDLtvI6 hYe5b5uTUPG3sl hlgV5TuNNFUBoV iK4OTbVsNntYWY

@@ -1,0 +1,9 @@
+#!/bin/sh
+
+rn=`( echo "" ; echo "" ) | randnum`
+
+un=`random_names 1`
+
+key=`echo $un | sed 's/\(.\)[a-z]* \([A-Za-z]*\).*/\1\2/' | sed 's/\(.....\).*/\1/'`
+sp=`echo $rn | awk '{ printf "%.0d\n", $1*50 }'`
+echo ADD_USER $key $sp $un

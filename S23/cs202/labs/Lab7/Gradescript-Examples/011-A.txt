@@ -1,0 +1,4 @@
+ADD_USER CNews 36 Carter Newsweek
+ADD_USER ESome 41 Ellie Somebody
+ADD_PHONE Binky 145-238-2823
+WRITE f1.txt

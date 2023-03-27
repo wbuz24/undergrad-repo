@@ -1,0 +1,258 @@
+PRIZE     cancun     10000      1 All Expense-Paid trip to Cancun
+PRIZE     dogo         570      3 Club Dogo 12-Month Subscription
+PRIZE     habitat       35    100 Donation to Habitat for Humanity
+PRIZE     hat         2222      2 Ninja Warrior Mount Midoriyama T-Shirt
+PRIZE     maze           1     20 Memory Collector Maze Downloadable Game
+PRIZE     plush        600      4 Boca-Cola Plush Polar Bear
+PRIZE     pudget        50      5 pudget Rent A Car Single Upgrade Coupon
+PRIZE     rest         500      5 Restaurant Gift Card from E-Restaurants.com
+PRIZE     silver      1100      2 Two DMC Theatres Silver Experience movie tickets
+PRIZE     special       35    100 Bronze level donation to Special Olympics
+ADD_USER  ABookis86    245 Anna Bookish
+ADD_PHONE ABookis86  760-695-8791
+ADD_PHONE ABookis86  880-755-6797
+ADD_PHONE ABookis86  907-892-3076
+ADD_USER  ADecisi34     23 Aidan Decisive
+ADD_PHONE ADecisi34  697-991-8568
+ADD_PHONE ADecisi34  932-877-7919
+ADD_USER  ADecode03     87 Aidan Decode
+ADD_PHONE ADecode03  079-904-0382
+ADD_PHONE ADecode03  341-479-3452
+ADD_PHONE ADecode03  638-224-9730
+ADD_USER  AEvalua73      3 Avery Evaluable
+ADD_PHONE AEvalua73  540-724-7164
+ADD_USER  AFrankf64     79 Austin Frankfort
+ADD_USER  AGable50      30 Aaron Gable
+ADD_USER  AHalfba05    360 Alyssa Halfback
+ADD_PHONE AHalfba05  527-217-9476
+ADD_PHONE AHalfba05  579-830-4801
+ADD_PHONE AHalfba05  682-998-3125
+ADD_USER  ALesson41  46093 Addison Lesson
+ADD_PHONE ALesson41  307-064-3426
+ADD_PHONE ALesson41  870-152-4238
+ADD_PHONE ALesson41  897-774-3181
+ADD_USER  AOre96        98 Austin Ore
+ADD_USER  APermea20  10127 Ava Permeate
+ADD_PHONE APermea20  355-856-0026
+ADD_USER  APostor86    882 Arianna Postorder
+ADD_USER  ARoil54       49 Alex Roil
+ADD_PHONE ARoil54    703-997-3570
+ADD_USER  ASamant17   8842 Alyssa Samantha Salve
+ADD_PHONE ASamant17  667-416-2219
+ADD_PHONE ASamant17  697-498-7204
+ADD_PHONE ASamant17  995-404-1222
+ADD_USER  ATransa03     95 Alex Transact
+ADD_USER  ATroglo84    786 Alexis Troglodyte
+ADD_PHONE ATroglo84  318-583-0870
+ADD_USER  BAirway51   7326 Benjamin Airway
+ADD_PHONE BAirway51  187-758-2877
+ADD_PHONE BAirway51  459-949-5827
+ADD_USER  BAngela82     98 Brody Angela Esq
+ADD_PHONE BAngela82  229-630-7036
+ADD_USER  BElan96    39533 Brooklyn Elan
+ADD_PHONE BElan96    410-095-6988
+ADD_USER  BGavin49   24575 Bella Gavin
+ADD_PHONE BGavin49   562-191-1073
+ADD_USER  BMadiso00  32294 Brooke Madison Insular
+ADD_PHONE BMadiso00  683-482-8279
+ADD_USER  BMainst94   7220 Brayden Mainstay
+ADD_PHONE BMainst94  394-021-1188
+ADD_PHONE BMainst94  432-397-5546
+ADD_PHONE BMainst94  503-375-6197
+ADD_USER  BNnw19        55 Benjamin Nnw IV
+ADD_PHONE BNnw19     629-401-7471
+ADD_PHONE BNnw19     717-521-1929
+ADD_PHONE BNnw19     905-600-6418
+ADD_USER  CAdulth53    963 Christian Adulthood
+ADD_PHONE CAdulth53  178-290-0092
+ADD_PHONE CAdulth53  928-878-9739
+ADD_USER  CDieldr61    155 Claire Dieldrin
+ADD_PHONE CDieldr61  829-874-7307
+ADD_USER  CGasoho52    321 Chloe Gasohol
+ADD_PHONE CGasoho52  147-081-8493
+ADD_PHONE CGasoho52  311-235-6812
+ADD_PHONE CGasoho52  985-396-8091
+ADD_USER  CIrresp36  36841 Charlotte Irrespective
+ADD_PHONE CIrresp36  208-831-6085
+ADD_PHONE CIrresp36  665-124-1690
+ADD_USER  CJolt55       95 Connor Jolt
+ADD_USER  CKatie37   40095 Caleb Katie
+ADD_USER  COzone13    6395 Caroline Ozone
+ADD_PHONE COzone13   841-100-1688
+ADD_USER  CPatrol53   6419 Cameron Patrol
+ADD_USER  CPawn99    42450 Carson Pawn
+ADD_PHONE CPawn99    438-208-9384
+ADD_PHONE CPawn99    507-179-7188
+ADD_USER  CTender02  28745 Chase Tenderloin
+ADD_USER  DAbnorm25    587 Dylan Abnormal
+ADD_PHONE DAbnorm25  408-688-7753
+ADD_USER  DCartha62    639 Dylan Carthaginian
+ADD_PHONE DCartha62  158-424-6081
+ADD_PHONE DCartha62  167-838-6509
+ADD_PHONE DCartha62  374-223-8062
+ADD_USER  DGold06       98 David Gold
+ADD_PHONE DGold06    008-649-0481
+ADD_USER  DProsth60    652 David Prostheses
+ADD_USER  EBeefst22      5 Evan Beefsteak
+ADD_PHONE EBeefst22  256-446-6032
+ADD_USER  EDivers51     91 Evelyn Diversion
+ADD_USER  EJulia62    9455 Eva Julia Hermeneutic
+ADD_USER  ERoundh19  30444 Emma Roundhead
+ADD_PHONE ERoundh19  066-288-3424
+ADD_USER  ESou44        64 Emma Sou
+ADD_USER  GJewett94  48866 Gianna Jewett
+ADD_USER  HAriann32   7191 Hailey Arianna Marino
+ADD_PHONE HAriann32  293-639-5022
+ADD_PHONE HAriann32  433-305-7501
+ADD_USER  HHaloge68   7753 Henry Halogen
+ADD_PHONE HHaloge68  968-472-9103
+ADD_PHONE HHaloge68  992-060-9313
+ADD_USER  HInduce81     42 Hannah Induce
+ADD_PHONE HInduce81  132-624-4081
+ADD_PHONE HInduce81  529-024-5260
+ADD_USER  HShipbu64     77 Henry Shipbuilding
+ADD_USER  HTibia19      99 Henry Tibia MD
+ADD_PHONE HTibia19   638-494-7521
+ADD_USER  Hannah02    6402 Hannah
+ADD_PHONE Hannah02   765-051-6565
+ADD_USER  IBacill55   3102 Isabelle Bacilli
+ADD_PHONE IBacill55  381-565-2494
+ADD_USER  IYuck22      532 Isabella Yuck
+ADD_PHONE IYuck22    061-893-7978
+ADD_PHONE IYuck22    576-329-3332
+ADD_PHONE IYuck22    907-549-1176
+ADD_USER  JLandon80    949 Jack Landon Oceania
+ADD_PHONE JLandon80  581-604-5356
+ADD_USER  JMaster80     66 James Mastermind
+ADD_PHONE JMaster80  225-906-3394
+ADD_PHONE JMaster80  798-761-2308
+ADD_USER  JOsteop50  22443 Jackson Osteopathy
+ADD_PHONE JOsteop50  407-062-2511
+ADD_PHONE JOsteop50  718-851-0090
+ADD_USER  JSedime13     46 Jackson Sediment IV
+ADD_PHONE JSedime13  657-038-5967
+ADD_PHONE JSedime13  792-064-4542
+ADD_PHONE JSedime13  949-565-1375
+ADD_USER  JSweeps76    449 Joshua Sweepstake
+ADD_PHONE JSweeps76  311-644-7998
+ADD_PHONE JSweeps76  651-614-7403
+ADD_PHONE JSweeps76  888-193-7311
+ADD_USER  KCohn62     1744 Katelyn Cohn
+ADD_PHONE KCohn62    731-857-7251
+ADD_PHONE KCohn62    960-052-6946
+ADD_USER  KMagnol27    510 Kaitlyn Magnolia
+ADD_PHONE KMagnol27  122-965-4050
+ADD_PHONE KMagnol27  669-237-1065
+ADD_USER  KModula37     26 Kaitlyn Modular
+ADD_PHONE KModula37  593-908-3912
+ADD_USER  KRappor54    727 Kaylee Rapport
+ADD_PHONE KRappor54  629-385-2128
+ADD_USER  KScrupu16  13182 Katelyn Scrupulosity
+ADD_PHONE KScrupu16  417-439-7548
+ADD_PHONE KScrupu16  549-111-9253
+ADD_PHONE KScrupu16  723-958-7209
+ADD_USER  LAdams86      76 Lilly Adams
+ADD_PHONE LAdams86   236-477-0187
+ADD_PHONE LAdams86   838-521-2518
+ADD_PHONE LAdams86   896-801-1850
+ADD_USER  LLeonar51     37 Lauren Leonard
+ADD_PHONE LLeonar51  021-771-7085
+ADD_PHONE LLeonar51  455-133-3798
+ADD_PHONE LLeonar51  623-777-0304
+ADD_USER  LPontif16     71 Liam Pontificate MD
+ADD_USER  MAnnoya35   1031 Makayla Annoyance
+ADD_PHONE MAnnoya35  328-530-4212
+ADD_USER  MAriann45  28584 Mia Arianna Pussy
+ADD_USER  MBefit72    6183 Makayla Befit
+ADD_PHONE MBefit72   070-901-6269
+ADD_PHONE MBefit72   309-091-5886
+ADD_PHONE MBefit72   572-208-5024
+ADD_USER  MBleeke77  19408 Maya Bleeker
+ADD_USER  MBoxcar82    793 Mackenzie Boxcar
+ADD_USER  MDue30      6555 Madison Due
+ADD_USER  MHypocr61     16 Mackenzie Hypocrite
+ADD_PHONE MHypocr61  867-026-6414
+ADD_PHONE MHypocr61  914-656-0130
+ADD_USER  MJackso95  43258 Mason Jackson Suicide
+ADD_USER  MNatali09     79 Madison Natalie Flagrant
+ADD_USER  MOscar15     770 Michael Oscar
+ADD_PHONE MOscar15   674-125-2093
+ADD_PHONE MOscar15   682-588-6286
+ADD_USER  MPartoo23   3113 Mason Partook
+ADD_USER  MZoe37       237 Molly Zoe Wier
+ADD_PHONE MZoe37     050-131-2453
+ADD_USER  NHer96       465 Noah Her MD
+ADD_PHONE NHer96     570-830-1094
+ADD_PHONE NHer96     883-703-1547
+ADD_USER  NPiece01   28144 Nathan Piece
+ADD_PHONE NPiece01   470-064-6693
+ADD_USER  OKodach09     64 Oliver Kodachrome
+ADD_PHONE OKodach09  031-076-5001
+ADD_PHONE OKodach09  313-556-2600
+ADD_USER  PAbalon59    308 Parker Abalone PhD
+ADD_PHONE PAbalon59  331-482-9572
+ADD_USER  PBenjam58  42297 Parker Benjamin Bricklayer
+ADD_USER  PInflic14   2883 Paige Inflicter
+ADD_PHONE PInflic14  043-782-0390
+ADD_USER  PPatrol64     58 Paige Patrolman
+ADD_PHONE PPatrol64  425-930-4623
+ADD_USER  PRuin90      803 Peyton Ruin
+ADD_PHONE PRuin90    711-270-8267
+ADD_PHONE PRuin90    743-279-7154
+ADD_USER  PSalesm83      9 Paige Salesmen
+ADD_PHONE PSalesm83  041-692-8172
+ADD_PHONE PSalesm83  424-004-6370
+ADD_USER  SDisney88    933 Savannah Disney
+ADD_PHONE SDisney88  467-363-4820
+ADD_PHONE SDisney88  555-132-7183
+ADD_PHONE SDisney88  977-956-7489
+ADD_USER  SMichel51    952 Samuel Michel
+ADD_PHONE SMichel51  039-937-2149
+ADD_PHONE SMichel51  159-901-0408
+ADD_PHONE SMichel51  948-644-3363
+ADD_USER  SPropos52  30363 Sofia Propose
+ADD_USER  SPutnam86   8454 Sofia Putnam
+ADD_PHONE SPutnam86  884-889-0147
+ADD_USER  STablea80    931 Savannah Tableaux
+ADD_PHONE STablea80  046-590-8253
+ADD_PHONE STablea80  158-505-7496
+ADD_PHONE STablea80  385-575-7536
+ADD_USER  STypify51  36086 Sydney Typify
+ADD_PHONE STypify51  169-213-3644
+ADD_PHONE STypify51  352-190-1566
+ADD_PHONE STypify51  834-965-0031
+ADD_USER  Samuel19   12190 Samuel
+ADD_USER  TFollow40     38 Tyler Followeth
+ADD_PHONE TFollow40  155-095-3023
+ADD_PHONE TFollow40  183-194-9273
+ADD_PHONE TFollow40  733-912-0787
+ADD_USER  TPeriph18     26 Thomas Peripheral
+ADD_PHONE TPeriph18  332-481-0273
+ADD_USER  VPropri02     76 Victoria Proprioception
+ADD_PHONE VPropri02  378-940-6301
+ADD_PHONE VPropri02  650-414-5301
+ADD_PHONE VPropri02  919-222-8002
+ADD_USER  WInexac92    872 William Inexact
+ADD_PHONE WInexac92  416-620-0050
+ADD_USER  WRatty51    8668 William Ratty
+ADD_PHONE WRatty51   048-435-0670
+ADD_PHONE WRatty51   068-972-4213
+ADD_USER  WWetlan08     84 William Wetland
+ADD_PHONE WWetlan08  135-729-3542
+ADD_PHONE WWetlan08  448-331-1837
+ADD_PHONE WWetlan08  717-623-7151
+ADD_USER  XPartic03      2 Xavier Participate Jr
+ADD_PHONE XPartic03  253-909-8933
+ADD_PHONE XPartic03  413-336-8735
+ADD_PHONE XPartic03  980-032-9354
+ADD_USER  XRoster73  10062 Xavier Roster
+ADD_PHONE XRoster73  166-924-9487
+ADD_PHONE XRoster73  736-736-5152
+ADD_USER  ZTug29        65 Zoe Tug
+ADD_PHONE ZTug29     164-904-1168
+ADD_PHONE ZTug29     220-099-2426
+ADD_PHONE ZTug29     803-769-0219
+MARK_USED 2kqBM345qWRHSy 6byZUgZoWNS4QR A6oyOF8qJ3dNea CCO5NfO5r0BJ7q CyT1Jj4hvqte9Z EGDrhuM1u0QHYM HhRiPfYG9S6Uvh I3bs4sUvFhu4Bf
+MARK_USED IvPquzAP9YiZLn LsSFnjYHwJGtNH OMfUDMa1a7ugpn P4VEkjC22tFz3R PpJqW87Y6skoW9 Q76m9Y8BktQw4y QBOCwVHSPiPEOR VnHItYEbbYKp5O
+MARK_USED WGefSU7GWpflFn WjjBEhJT2E4GcQ an9QJ2lnsbP89Y hP0hkDzuQDIUov iuUVBcSWeOovJu oDPwxf4z7erQgQ p1tpB6keiUIQlE pXI1b1CAG9r2pi
+MARK_USED t74HNKbFV0aBoa u47LCK28vUUG4R ywm5K63tpIO3JM yxHxq1vcpTtxbw zJme9BCSyzfUdf zNy2fKul3iajvJ

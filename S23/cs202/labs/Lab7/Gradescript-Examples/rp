@@ -1,0 +1,5 @@
+#!/bin/sh
+
+
+rn=`( echo "" ; echo "" ; echo "" ) | randnum`
+echo $rn | awk '{ printf "%03.0lf-%03.0lf-%04.0lf\n", $1*1000, $2*1000, $3*10000 }'

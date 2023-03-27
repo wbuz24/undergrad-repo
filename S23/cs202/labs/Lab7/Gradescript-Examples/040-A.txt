@@ -1,0 +1,43 @@
+PRIZE     cancun     10000      1 All Expense-Paid trip to Cancun
+PRIZE     habitat       35    100 Donation to Habitat for Humanity
+PRIZE     hat         2222      2 Ninja Warrior Mount Midoriyama T-Shirt
+PRIZE     ovis          50      3 Ovis Rent a Car Single Upgrade Coupon
+PRIZE     pudget        50      5 pudget Rent A Car Single Upgrade Coupon
+PRIZE     quest          1     10 Memory Quest Downloadable Game
+PRIZE     silver      1100      2 Two DMC Theatres Silver Experience movie tickets
+PRIZE     special       35    100 Bronze level donation to Special Olympics
+PRIZE     spinner      750      4 Multi-Function Salad Spinner and Chopper
+PRIZE     visasweep      1   1000 $500 VISA(r) Gift Card Sweepstakes Entry
+ADD_USER  CHomebu93   1108 Caroline Homebuilding
+ADD_PHONE CHomebu93  041-936-2976
+ADD_PHONE CHomebu93  172-001-3888
+ADD_PHONE CHomebu93  767-017-9696
+ADD_USER  CSubver36   9070 Charlotte Subversive
+ADD_PHONE CSubver36  380-241-8628
+ADD_PHONE CSubver36  994-694-3561
+ADD_USER  CWindso99    412 Caroline Windsor
+ADD_PHONE CWindso99  408-509-8268
+ADD_PHONE CWindso99  476-703-8053
+ADD_USER  EPintai02  33361 Elizabeth Pintail
+ADD_PHONE EPintai02  008-902-0351
+ADD_PHONE EPintai02  077-993-2158
+ADD_USER  JRubbis81   2860 Jonathan Rubbish
+ADD_PHONE JRubbis81  209-080-2997
+ADD_PHONE JRubbis81  511-727-6457
+ADD_PHONE JRubbis81  911-298-9254
+ADD_USER  JVoyage32   4633 Julian Voyage Jr
+ADD_PHONE JVoyage32  372-464-6571
+ADD_PHONE JVoyage32  776-160-6488
+ADD_PHONE JVoyage32  887-755-2779
+ADD_USER  LRepeti59      7 Lily Repetitive
+ADD_PHONE LRepeti59  023-614-5844
+ADD_PHONE LRepeti59  669-985-5938
+ADD_PHONE LRepeti59  978-161-4457
+ADD_USER  MYellow59     20 Madison Yellowknife
+ADD_PHONE MYellow59  773-524-2105
+ADD_USER  SCanist62    265 Sarah Canister
+ADD_PHONE SCanist62  291-064-8182
+ADD_PHONE SCanist62  663-509-1651
+ADD_USER  SElsewh58  18821 Sophie Elsewhere
+MARK_USED 06zq5JMs0oLv68 5Apf1oCkO6pl62 ArvBYsr2ev7zqf ELcbIh869OtnSj MbkkAxIrrMtd0t l9vfJtRRDngYCK oPsctbbhkyp55B rlTrEfyOKUJqOB
+MARK_USED suOOonrorkhh4x yYgPxNrssKT4eQ

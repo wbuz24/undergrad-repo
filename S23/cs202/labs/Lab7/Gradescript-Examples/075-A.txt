@@ -1,0 +1,47 @@
+PRIZE     dogo         570      3 Club Dogo 12-Month Subscription
+PRIZE     plush        600      4 Boca-Cola Plush Polar Bear
+PRIZE     quest          1     10 Memory Quest Downloadable Game
+PRIZE     silver      1100      2 Two DMC Theatres Silver Experience movie tickets
+PRIZE     spinner      750      4 Multi-Function Salad Spinner and Chopper
+ADD_USER  ACortex62     87 Aaron Cortex
+ADD_PHONE ACortex62  282-747-3238
+ADD_PHONE ACortex62  865-779-6032
+ADD_USER  AVocate08     86 Alyssa Vocate
+ADD_PHONE AVocate08  504-886-1053
+ADD_PHONE AVocate08  904-044-7995
+ADD_USER  BShiver29   4024 Brianna Shiver
+ADD_PHONE BShiver29  243-575-6033
+ADD_PHONE BShiver29  804-572-7656
+ADD_USER  CJack79       35 Charlie Jack Compound
+ADD_USER  EBabyho90   5941 Ella Babyhood
+ADD_PHONE EBabyho90  311-307-8915
+ADD_PHONE EBabyho90  916-767-4746
+ADD_PHONE EBabyho90  980-663-9612
+ADD_USER  GPlacid18  18371 Gianna Placid PhD
+ADD_PHONE GPlacid18  802-437-2392
+ADD_USER  IInexpe09  31100 Ian Inexpert
+ADD_PHONE IInexpe09  956-187-0613
+ADD_USER  KDip28     36796 Kylie Dip
+ADD_PHONE KDip28     317-533-1994
+ADD_PHONE KDip28     750-596-6184
+ADD_PHONE KDip28     803-676-8770
+ADD_USER  MSmitte11     76 Makayla Smitten
+ADD_PHONE MSmitte11  534-862-4236
+ADD_PHONE MSmitte11  610-653-8159
+ADD_PHONE MSmitte11  616-556-1906
+ADD_USER  OFulsom05   2975 Oliver Fulsome
+ADD_PHONE OFulsom05  639-878-9664
+ADD_USER  PKather87    255 Peyton Katherine
+ADD_USER  PTonal86    2734 Peyton Tonal
+ADD_PHONE PTonal86   682-743-8939
+ADD_PHONE PTonal86   871-247-4879
+ADD_USER  SMutate66   8436 Sarah Mutate
+ADD_PHONE SMutate66  094-776-4642
+ADD_PHONE SMutate66  321-548-1103
+ADD_PHONE SMutate66  820-026-0995
+ADD_USER  SVenal53   23911 Samuel Venal
+ADD_PHONE SVenal53   490-929-2900
+ADD_PHONE SVenal53   645-142-8810
+ADD_USER  VConfid41    104 Victoria Confide
+ADD_PHONE VConfid41  264-516-9251
+MARK_USED OAQYisOss08ZXD bJ9IiCupzDj75x uM20U0nfgGK9x4 ufh7qHJI7OiPOS zFeHqhOXg7ad4V

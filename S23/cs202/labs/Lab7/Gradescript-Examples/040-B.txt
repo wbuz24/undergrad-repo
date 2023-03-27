@@ -1,0 +1,11 @@
+WRITE f1.txt
+ENTER_CODE LRepeti59 Q4vvpPbjLszDfJ
+REDEEM EPintai02 pudget
+REDEEM CSubver36 silver
+REMOVE_PHONE LRepeti59 023-614-5844
+MARK_USED rlTrEfyOKUJqOB
+REDEEM SElsewh58 ovis
+SHOW_PHONES LRepeti59
+WRITE f2.txt
+REDEEM JVoyage32 habitat
+WRITE f3.txt

@@ -1,0 +1,47 @@
+PRIZE     downloads    700      8 10 MP3 Downloads from Babster
+PRIZE     habitat       35    100 Donation to Habitat for Humanity
+PRIZE     quest          1     10 Memory Quest Downloadable Game
+PRIZE     silver      1100      2 Two DMC Theatres Silver Experience movie tickets
+PRIZE     special       35    100 Bronze level donation to Special Olympics
+ADD_USER  ABrideg66   1122 Andrew Bridegroom
+ADD_PHONE ABrideg66  383-583-9270
+ADD_USER  AGurkha82    569 Alex Gurkha
+ADD_PHONE AGurkha82  777-821-5333
+ADD_PHONE AGurkha82  998-841-5862
+ADD_USER  BTeet73    39374 Blake Teet
+ADD_PHONE BTeet73    623-473-8628
+ADD_PHONE BTeet73    708-581-0182
+ADD_USER  CWreak09      84 Claire Wreak
+ADD_PHONE CWreak09   085-924-6077
+ADD_PHONE CWreak09   592-555-8589
+ADD_USER  EBriar38   21066 Emma Briar
+ADD_PHONE EBriar38   302-496-3207
+ADD_PHONE EBriar38   695-740-3232
+ADD_USER  EMace90      505 Elizabeth Mace
+ADD_PHONE EMace90    176-284-5796
+ADD_PHONE EMace90    953-712-8384
+ADD_USER  HPal62       957 Hunter Pal
+ADD_USER  JBurgun04     66 Joseph Burgundian
+ADD_PHONE JBurgun04  104-433-6371
+ADD_PHONE JBurgun04  344-450-0316
+ADD_PHONE JBurgun04  984-479-7552
+ADD_USER  LDilemm86  13309 Lillian Dilemma
+ADD_USER  LWearie87    762 Landon Wearied IV
+ADD_PHONE LWearie87  117-215-4871
+ADD_PHONE LWearie87  534-179-2867
+ADD_PHONE LWearie87  754-430-3077
+ADD_USER  MKayla62      71 Morgan Kayla Doggone
+ADD_PHONE MKayla62   332-836-1339
+ADD_PHONE MKayla62   350-020-0065
+ADD_PHONE MKayla62   632-343-4680
+ADD_USER  OBoom49     7593 Olivia Boom
+ADD_PHONE OBoom49    321-323-1824
+ADD_PHONE OBoom49    363-278-4105
+ADD_PHONE OBoom49    818-898-6091
+ADD_USER  RLimest86   5350 Riley Limestone MD
+ADD_PHONE RLimest86  348-863-8505
+ADD_PHONE RLimest86  568-704-9230
+ADD_USER  SContra63  16387 Sydney Contradistinction
+ADD_PHONE SContra63  648-522-7323
+ADD_USER  VMessia05   8177 Victoria Messiah
+MARK_USED HuGDlT1XNmDdzR Jy27ZpJFgLRmu2 eJY2hc2KSNAbea pHcak8T79DbHhy sw9FZ1aqAmxCnZ

@@ -1,0 +1,48 @@
+PRIZE     habitat       35    100 Donation to Habitat for Humanity
+PRIZE     hat         2222      2 Ninja Warrior Mount Midoriyama T-Shirt
+PRIZE     plush        600      4 Boca-Cola Plush Polar Bear
+PRIZE     pudget        50      5 pudget Rent A Car Single Upgrade Coupon
+PRIZE     visasweep      1   1000 $500 VISA(r) Gift Card Sweepstakes Entry
+ADD_USER  ADecort03     55 Avery Decorticate MD
+ADD_PHONE ADecort03  696-393-3571
+ADD_PHONE ADecort03  864-509-2605
+ADD_USER  AHave64    17084 Anna Have
+ADD_PHONE AHave64    156-967-2361
+ADD_PHONE AHave64    884-833-1938
+ADD_USER  CMerced25  42623 Caroline Mercedes
+ADD_PHONE CMerced25  067-858-7712
+ADD_PHONE CMerced25  086-909-7285
+ADD_PHONE CMerced25  817-133-0062
+ADD_USER  EBistab04   7050 Evan Bistable IV
+ADD_PHONE EBistab04  422-370-6197
+ADD_PHONE EBistab04  664-877-6352
+ADD_USER  GBig57       331 Grace Big
+ADD_PHONE GBig57     957-037-2092
+ADD_USER  HAgway19     952 Hailey Agway
+ADD_PHONE HAgway19   548-177-4136
+ADD_PHONE HAgway19   784-555-7697
+ADD_USER  JMultip83   3736 Jordan Multiplex PhD
+ADD_USER  JStrang33    790 Joshua Strangle
+ADD_PHONE JStrang33  261-807-2952
+ADD_PHONE JStrang33  279-371-4878
+ADD_USER  KCortic80   9301 Kaylee Cortical
+ADD_PHONE KCortic80  192-420-5031
+ADD_PHONE KCortic80  660-796-1028
+ADD_PHONE KCortic80  819-215-0727
+ADD_USER  KLucy03      307 Kayla Lucy Clean
+ADD_PHONE KLucy03    576-758-7629
+ADD_USER  LTownsm88     59 Lilly Townsman
+ADD_PHONE LTownsm88  121-895-8598
+ADD_PHONE LTownsm88  893-814-8088
+ADD_USER  Liam60        81 Liam
+ADD_PHONE Liam60     297-046-4628
+ADD_PHONE Liam60     585-799-3764
+ADD_PHONE Liam60     751-004-0131
+ADD_USER  MPyroly41  47906 Madelyn Pyrolyse
+ADD_PHONE MPyroly41  697-027-4288
+ADD_USER  RMonotr51    191 Riley Monotreme MD
+ADD_PHONE RMonotr51  505-919-0376
+ADD_PHONE RMonotr51  835-026-6704
+ADD_USER  VPhobic34    370 Victoria Phobic
+ADD_PHONE VPhobic34  074-587-6169
+MARK_USED 53ns6oCNdoHbhS 6ltBaEwaCjtUg9 GXgjLm4MsLlu0L QL6TL8BAIVI6Kc wUf3qA2IUraeNq

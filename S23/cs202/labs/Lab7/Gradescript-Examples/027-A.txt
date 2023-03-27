@@ -1,0 +1,5 @@
+ADD_USER SFall 39 Sydney Fallen
+ADD_USER KStar 19 Kaitlyn Star
+ENTER_CODE KStar Y9MzxheiSpQGtP
+ENTER_CODE SFall asbX9tNIpNPDAq
+WRITE f1.txt

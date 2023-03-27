@@ -1,0 +1,3 @@
+#!/bin/sh
+
+codes | grep '^X' | head -n 1 | awk '{ print $2 }'

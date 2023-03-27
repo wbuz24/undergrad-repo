@@ -1,0 +1,12 @@
+ADD_USER OSixg 34 Olivia Sixgun
+ADD_USER CFilm 15 Carter Filmy
+ADD_USER LPlia 2 Lily Pliancy
+ADD_USER MCorp 32 Maya Corpus
+WRITE f1.txt
+DELETE_USER CFilm
+DELETE_USER OSixg
+DELETE_USER LPlia
+DELETE_USER MCorp
+ADD_USER OSixg 47 Maya Demiscible
+ADD_USER CFilm 34 Evan Monsanto
+WRITE f2.txt

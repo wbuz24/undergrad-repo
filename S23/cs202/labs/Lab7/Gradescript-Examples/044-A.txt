@@ -1,0 +1,40 @@
+PRIZE     cancun     10000      1 All Expense-Paid trip to Cancun
+PRIZE     downloads    700      8 10 MP3 Downloads from Babster
+PRIZE     habitat       35    100 Donation to Habitat for Humanity
+PRIZE     hat         2222      2 Ninja Warrior Mount Midoriyama T-Shirt
+PRIZE     plush        600      4 Boca-Cola Plush Polar Bear
+PRIZE     rest         500      5 Restaurant Gift Card from E-Restaurants.com
+PRIZE     silver      1100      2 Two DMC Theatres Silver Experience movie tickets
+PRIZE     spinner      750      4 Multi-Function Salad Spinner and Chopper
+PRIZE     swarokski     75      7 $30 Swarokski Gift Certificate
+PRIZE     visasweep      1   1000 $500 VISA(r) Gift Card Sweepstakes Entry
+ADD_USER  AIsaac45      58 Alexander Isaac Quiet
+ADD_PHONE AIsaac45   026-786-8982
+ADD_PHONE AIsaac45   082-034-5515
+ADD_PHONE AIsaac45   956-486-1563
+ADD_USER  ANutshe19     79 Andrew Nutshell
+ADD_PHONE ANutshe19  054-365-2490
+ADD_USER  JFlanne46  37822 Jayden Flannel
+ADD_USER  JFourte00  21207 Joseph Fourteenth
+ADD_PHONE JFourte00  004-366-6261
+ADD_PHONE JFourte00  157-108-4627
+ADD_PHONE JFourte00  664-143-1435
+ADD_USER  LGorge72     565 Luke Gorge PhD
+ADD_PHONE LGorge72   042-588-3258
+ADD_PHONE LGorge72   381-795-4129
+ADD_PHONE LGorge72   403-475-8701
+ADD_USER  LInaudi10     47 Lilly Inaudible
+ADD_PHONE LInaudi10  040-521-1368
+ADD_PHONE LInaudi10  893-921-4015
+ADD_PHONE LInaudi10  992-001-8790
+ADD_USER  NMetall81   3478 Nathan Metallurgist
+ADD_USER  SIbex17       95 Sofia Ibex
+ADD_PHONE SIbex17    096-112-2728
+ADD_PHONE SIbex17    794-381-4666
+ADD_USER  SLillia59    947 Sydney Lillian Anomie
+ADD_PHONE SLillia59  013-827-1968
+ADD_USER  SPromis80    755 Samuel Promiscuous
+ADD_PHONE SPromis80  439-763-2186
+ADD_PHONE SPromis80  454-749-9510
+MARK_USED 04pICLtiCoRYZB 2Lntr0ZahTMDNn 9Faao2RbpOIA2R BwuaQJMCam70US H9BBkF9M0QAEQe JlZrvv2eHyCHLx VSMvuDBDK5eeIZ gyNM1HzGI5NYAQ
+MARK_USED pWCC8fBsZREAdc tIS6HzzqBFC6IK

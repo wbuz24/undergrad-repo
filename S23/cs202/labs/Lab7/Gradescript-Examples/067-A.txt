@@ -1,0 +1,35 @@
+PRIZE     downloads    700      8 10 MP3 Downloads from Babster
+PRIZE     habitat       35    100 Donation to Habitat for Humanity
+PRIZE     ovis          50      3 Ovis Rent a Car Single Upgrade Coupon
+PRIZE     plush        600      4 Boca-Cola Plush Polar Bear
+PRIZE     special       35    100 Bronze level donation to Special Olympics
+ADD_USER  ABunny26     758 Avery Bunny
+ADD_USER  ADodeca69     48 Avery Dodecahedra
+ADD_PHONE ADodeca69  727-095-4307
+ADD_USER  AExamin99  49412 Andrew Examination
+ADD_USER  AExorci98   9575 Addison Exorcise
+ADD_PHONE AExorci98  084-154-7491
+ADD_USER  ASyenit21     43 Arianna Syenite
+ADD_USER  BLegend35    572 Blake Legendary
+ADD_USER  BTwelve51     29 Brooke Twelve
+ADD_USER  BUrugua91   7306 Bailey Uruguay
+ADD_PHONE BUrugua91  062-957-6653
+ADD_PHONE BUrugua91  745-941-8966
+ADD_PHONE BUrugua91  821-037-7576
+ADD_USER  JRitchi32   8867 Jordan Ritchie
+ADD_PHONE JRitchi32  323-137-3478
+ADD_PHONE JRitchi32  440-582-7099
+ADD_USER  JXylem33     827 James Xylem
+ADD_PHONE JXylem33   957-213-6196
+ADD_USER  MShred79     931 Michael Shred
+ADD_PHONE MShred79   480-134-5605
+ADD_USER  PDirect01     54 Parker Directorate
+ADD_USER  SBlush33      82 Sarah Blush Esq
+ADD_PHONE SBlush33   171-248-8201
+ADD_PHONE SBlush33   681-881-0209
+ADD_USER  ZLawgiv04    878 Zoe Lawgive
+ADD_USER  ZWrite97      73 Zachary Write IV
+ADD_PHONE ZWrite97   038-724-4083
+ADD_PHONE ZWrite97   220-636-3282
+ADD_PHONE ZWrite97   521-181-7357
+MARK_USED Coxq6cBzZR42Kq CraAKDE5IbspaD GYGj7atFAr4oQh MjgFGe1qrfjcsY W1NmEyaKrSup9p

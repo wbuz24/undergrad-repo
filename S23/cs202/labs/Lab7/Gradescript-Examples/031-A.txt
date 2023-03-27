@@ -1,0 +1,4 @@
+PRIZE cancun 10000 1 All Expense-Paid trip to Cancun
+ADD_USER HImpr 29 Henry Imprimatur
+REDEEM HImpr dogo
+WRITE f1.txt

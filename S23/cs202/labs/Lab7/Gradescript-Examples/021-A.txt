@@ -1,0 +1,5 @@
+ADD_USER JNige 49 John Niger
+ADD_USER LWave 36 Lilly Wavefront
+ADD_USER AEthe 23 Alex Ethel
+DELETE_USER JNIGE
+WRITE f1.txt

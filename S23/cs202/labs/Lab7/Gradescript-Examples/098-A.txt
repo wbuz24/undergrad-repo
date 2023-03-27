@@ -1,0 +1,45 @@
+PRIZE     habitat       35    100 Donation to Habitat for Humanity
+PRIZE     maze           1     20 Memory Collector Maze Downloadable Game
+PRIZE     silver      1100      2 Two DMC Theatres Silver Experience movie tickets
+PRIZE     special       35    100 Bronze level donation to Special Olympics
+PRIZE     swarokski     75      7 $30 Swarokski Gift Certificate
+ADD_USER  AFather58   1035 Anna Father MD
+ADD_PHONE AFather58  305-259-5922
+ADD_PHONE AFather58  987-090-2346
+ADD_USER  ATarpap19    511 Anthony Tarpaper
+ADD_PHONE ATarpap19  507-800-0548
+ADD_PHONE ATarpap19  763-506-6676
+ADD_USER  CLobo84       19 Caleb Lobo
+ADD_PHONE CLobo84    265-656-7294
+ADD_PHONE CLobo84    567-707-8948
+ADD_PHONE CLobo84    921-581-9455
+ADD_USER  CSaint75    7862 Christopher Saint
+ADD_PHONE CSaint75   454-371-0214
+ADD_PHONE CSaint75   460-208-4339
+ADD_PHONE CSaint75   828-216-9187
+ADD_USER  DCooper70    932 Daniel Cooper Synchrotron
+ADD_PHONE DCooper70  067-934-1423
+ADD_USER  ENyu40        80 Emma Nyu
+ADD_PHONE ENyu40     872-445-7709
+ADD_USER  ETenney63     34 Evan Tenney
+ADD_PHONE ETenney63  204-746-1689
+ADD_PHONE ETenney63  967-715-4171
+ADD_USER  IJeres13    1888 Isabella Jeres
+ADD_PHONE IJeres13   450-001-9640
+ADD_PHONE IJeres13   958-391-1253
+ADD_USER  JOrdina23     57 Jacob Ordinance
+ADD_PHONE JOrdina23  084-932-8819
+ADD_PHONE JOrdina23  578-539-8277
+ADD_USER  KSicken95   1422 Kayla Sicken MD
+ADD_PHONE KSicken95  275-746-1271
+ADD_USER  LInfiel61    114 Layla Infield
+ADD_PHONE LInfiel61  169-164-8905
+ADD_PHONE LInfiel61  244-046-5140
+ADD_USER  LMarrie96     76 Lily Marrietta
+ADD_PHONE LMarrie96  328-049-9927
+ADD_USER  LRan11     28999 Liam Ran
+ADD_USER  OCalist30   4811 Olivia Calisthenic
+ADD_PHONE OCalist30  137-269-6525
+ADD_USER  SDonnel83    268 Sydney Donnelly
+ADD_PHONE SDonnel83  620-067-6891
+MARK_USED 0QVOVx6vYcpSf8 6qigSNEfVrE73v G4eGBxeUDVWqQJ Ye3bWIljIMJc3L m4GK7OUZAzMMUQ

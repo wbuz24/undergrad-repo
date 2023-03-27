@@ -1,0 +1,36 @@
+PRIZE     dogo         570      3 Club Dogo 12-Month Subscription
+PRIZE     downloads    700      8 10 MP3 Downloads from Babster
+PRIZE     maze           1     20 Memory Collector Maze Downloadable Game
+PRIZE     ovis          50      3 Ovis Rent a Car Single Upgrade Coupon
+PRIZE     visasweep      1   1000 $500 VISA(r) Gift Card Sweepstakes Entry
+ADD_USER  ALeukem89     23 Amelia Leukemia
+ADD_PHONE ALeukem89  647-567-5386
+ADD_USER  ASoccer67     17 Allison Soccer
+ADD_PHONE ASoccer67  070-461-3089
+ADD_PHONE ASoccer67  928-846-6013
+ADD_USER  ASparky74   2865 Aidan Sparky
+ADD_USER  ASus46       529 Amelia Sus
+ADD_USER  BSycoph34    859 Brianna Sycophant
+ADD_PHONE BSycoph34  479-942-7690
+ADD_USER  CInstep46    188 Carson Instep III
+ADD_PHONE CInstep46  559-936-4139
+ADD_USER  EIverso86    929 Eva Iverson
+ADD_USER  HZoe53     20121 Hunter Zoe III
+ADD_PHONE HZoe53     269-698-6173
+ADD_USER  JFord87    37998 Joseph Ford
+ADD_PHONE JFord87    005-118-8130
+ADD_USER  JRakish34  33428 Joshua Rakish
+ADD_PHONE JRakish34  568-178-9666
+ADD_PHONE JRakish34  694-537-8957
+ADD_PHONE JRakish34  818-627-0925
+ADD_USER  LRid78      2170 Lauren Rid
+ADD_USER  MEvergr00    781 Michael Evergreen
+ADD_PHONE MEvergr00  053-561-7413
+ADD_USER  SStopba28  44331 Sarah Stopband
+ADD_USER  SThresh04   2215 Savannah Threshold
+ADD_PHONE SThresh04  764-126-8863
+ADD_USER  TBestir30   9545 Thomas Bestirring
+ADD_PHONE TBestir30  328-739-1630
+ADD_PHONE TBestir30  415-324-0918
+ADD_PHONE TBestir30  844-900-5517
+MARK_USED B3IJU0pS0vaEYc HaVb4UGwa9KaCq JFR2TlHvDSQyKW ntVDSJqxaF7I1M tzyzLTaVhV4hyX

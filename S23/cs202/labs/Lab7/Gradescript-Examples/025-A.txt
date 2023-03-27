@@ -1,0 +1,8 @@
+ADD_USER LLucr 41 Lilly Lucretia
+ADD_USER JHast 9 Jayden Haste
+ADD_PHONE JHast 184-754-2670
+ADD_PHONE JHast 797-868-4824
+DELETE_USER JHast
+ADD_USER JHast 9 Jayden Hasterectomy
+REMOVE_PHONE JHast 797-868-4824
+WRITE f1.txt

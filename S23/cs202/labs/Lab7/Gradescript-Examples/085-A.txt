@@ -1,0 +1,43 @@
+PRIZE     hat         2222      2 Ninja Warrior Mount Midoriyama T-Shirt
+PRIZE     plush        600      4 Boca-Cola Plush Polar Bear
+PRIZE     rest         500      5 Restaurant Gift Card from E-Restaurants.com
+PRIZE     spinner      750      4 Multi-Function Salad Spinner and Chopper
+PRIZE     visasweep      1   1000 $500 VISA(r) Gift Card Sweepstakes Entry
+ADD_USER  AColise37   3533 Aiden Coliseum
+ADD_PHONE AColise37  245-590-2795
+ADD_PHONE AColise37  372-018-3767
+ADD_USER  AConfer01   7418 Abigail Conferrable
+ADD_PHONE AConfer01  039-748-3111
+ADD_PHONE AConfer01  497-409-7434
+ADD_PHONE AConfer01  725-737-8972
+ADD_USER  ALeafy47    6305 Alexandra Leafy
+ADD_PHONE ALeafy47   942-032-3151
+ADD_USER  ARonald49     49 Allison Ronald
+ADD_PHONE ARonald49  084-983-2644
+ADD_PHONE ARonald49  092-265-3395
+ADD_PHONE ARonald49  906-898-4202
+ADD_USER  EBrimfu19   6691 Elijah Brimful
+ADD_USER  EMedic96      97 Eli Medic
+ADD_PHONE EMedic96   930-931-3496
+ADD_USER  ETetraf47     45 Ella Tetrafluoride
+ADD_PHONE ETetraf47  372-350-7564
+ADD_USER  GBest72     8889 Gavin Best
+ADD_USER  LExtens13  48990 Lucas Extension
+ADD_PHONE LExtens13  508-684-0732
+ADD_USER  LWashbu44    698 Lilly Washburn
+ADD_PHONE LWashbu44  405-098-5511
+ADD_USER  MInlay93      29 Mackenzie Inlay
+ADD_PHONE MInlay93   139-551-9886
+ADD_USER  MStreet17    260 Michael Street
+ADD_PHONE MStreet17  832-214-2918
+ADD_PHONE MStreet17  836-765-5318
+ADD_USER  NPorto99     760 Nathan Porto
+ADD_PHONE NPorto99   021-783-4564
+ADD_PHONE NPorto99   966-223-0390
+ADD_USER  TEndoth15     12 Thomas Endothermic
+ADD_PHONE TEndoth15  332-684-4800
+ADD_USER  TEnoch91    6391 Taylor Enoch
+ADD_PHONE TEnoch91   223-744-5520
+ADD_PHONE TEnoch91   498-076-8455
+ADD_PHONE TEnoch91   506-383-1044
+MARK_USED 0hLEMcnhBzDSIy T6F1NWnOmj6Wds bSATdEYp3zzz52 eReeiNlSGyzCzd r1WXsUCe77JXeE

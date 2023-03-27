@@ -1,0 +1,38 @@
+PRIZE     cancun     10000      1 All Expense-Paid trip to Cancun
+PRIZE     downloads    700      8 10 MP3 Downloads from Babster
+PRIZE     habitat       35    100 Donation to Habitat for Humanity
+PRIZE     ovis          50      3 Ovis Rent a Car Single Upgrade Coupon
+PRIZE     plush        600      4 Boca-Cola Plush Polar Bear
+PRIZE     pudget        50      5 pudget Rent A Car Single Upgrade Coupon
+PRIZE     quest          1     10 Memory Quest Downloadable Game
+PRIZE     rest         500      5 Restaurant Gift Card from E-Restaurants.com
+PRIZE     silver      1100      2 Two DMC Theatres Silver Experience movie tickets
+PRIZE     spinner      750      4 Multi-Function Salad Spinner and Chopper
+ADD_USER  AMadely81  39294 Avery Madelyn Capetown
+ADD_PHONE AMadely81  036-581-0839
+ADD_PHONE AMadely81  444-435-9524
+ADD_PHONE AMadely81  476-654-4064
+ADD_USER  BAudrey82     60 Bailey Audrey Indicter
+ADD_PHONE BAudrey82  003-144-2404
+ADD_PHONE BAudrey82  170-886-2265
+ADD_USER  EOmitti03  37066 Elijah Omitting
+ADD_PHONE EOmitti03  335-878-6474
+ADD_PHONE EOmitti03  617-611-7918
+ADD_USER  IChink66    8986 Isaac Chink
+ADD_PHONE IChink66   008-371-4157
+ADD_PHONE IChink66   140-204-8450
+ADD_USER  IChurch45    487 Ian Churchill
+ADD_PHONE IChurch45  260-998-5167
+ADD_USER  JBrando34   6998 Jordan Brandon Crave
+ADD_PHONE JBrando34  411-675-9770
+ADD_USER  JDarry48    5844 Jayden Darry
+ADD_PHONE JDarry48   849-893-6149
+ADD_USER  LMolly99      89 Landon Molly
+ADD_PHONE LMolly99   704-302-7053
+ADD_PHONE LMolly99   846-069-7505
+ADD_USER  MBridge91    123 Morgan Bridge
+ADD_PHONE MBridge91  690-845-6680
+ADD_USER  TContra69   9674 Tyler Contradistinction
+ADD_PHONE TContra69  139-452-1594
+MARK_USED 68EwyHO6c8LIJM 6ElBWDLmiYo2Xy 7fhQTPFbPN9w90 E67FvEmV5kIdFl EQ8ToWxR10Le5a RQfprVVS23sF4e aPsJ8Jsn31cazB imr2axWXB59SeZ
+MARK_USED lg5cJmw5CIbFBR uA15iOrgbA2BRB

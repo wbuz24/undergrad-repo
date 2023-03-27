@@ -1,0 +1,45 @@
+PRIZE     hat         2222      2 Ninja Warrior Mount Midoriyama T-Shirt
+PRIZE     ovis          50      3 Ovis Rent a Car Single Upgrade Coupon
+PRIZE     silver      1100      2 Two DMC Theatres Silver Experience movie tickets
+PRIZE     special       35    100 Bronze level donation to Special Olympics
+PRIZE     visasweep      1   1000 $500 VISA(r) Gift Card Sweepstakes Entry
+ADD_USER  AFollic91   1207 Avery Follicular
+ADD_PHONE AFollic91  054-841-0640
+ADD_PHONE AFollic91  077-117-1088
+ADD_PHONE AFollic91  985-387-3710
+ADD_USER  AKatie88    4899 Adam Katie
+ADD_USER  CMantel57   9780 Carson Mantel
+ADD_USER  EPaw75      4158 Elizabeth Paw
+ADD_PHONE EPaw75     212-531-0216
+ADD_PHONE EPaw75     278-701-9765
+ADD_PHONE EPaw75     860-112-7317
+ADD_USER  GDenver74     62 Gabriella Denver PhD
+ADD_USER  GStrom05    6045 Gianna Strom
+ADD_USER  IEideti06   1299 Isaac Eidetic MD
+ADD_PHONE IEideti06  423-097-1457
+ADD_USER  JMason65      40 Jake Mason Impertinent
+ADD_PHONE JMason65   172-891-7761
+ADD_PHONE JMason65   191-116-7169
+ADD_USER  LBessel47     58 Lillian Bessel
+ADD_PHONE LBessel47  675-990-7077
+ADD_PHONE LBessel47  711-680-2954
+ADD_USER  LSonant79     12 Lilly Sonant
+ADD_PHONE LSonant79  330-768-5777
+ADD_PHONE LSonant79  591-920-1730
+ADD_PHONE LSonant79  671-428-9707
+ADD_USER  MMichae88    828 Matthew Michael Pontificate
+ADD_PHONE MMichae88  653-706-6630
+ADD_USER  MPeyton07  23514 Madison Peyton Vice
+ADD_PHONE MPeyton07  089-709-4294
+ADD_PHONE MPeyton07  510-117-9181
+ADD_PHONE MPeyton07  677-821-1688
+ADD_USER  WSchust08     39 William Schuster
+ADD_PHONE WSchust08  169-855-7310
+ADD_PHONE WSchust08  181-814-4000
+ADD_USER  XTeleth49     35 Xavier Telethon
+ADD_PHONE XTeleth49  275-564-4644
+ADD_PHONE XTeleth49  446-931-4670
+ADD_PHONE XTeleth49  716-984-5796
+ADD_USER  ZOffpri29    491 Zoe Offprint
+ADD_PHONE ZOffpri29  957-509-9780
+MARK_USED BOzqqAggRfGQZh sXYJaAnk1NabSn seep9AoRIC5ve2 tTirH6S20CNmbf xdVZLMxs5qI59d

@@ -1,0 +1,44 @@
+PRIZE     cancun     10000      1 All Expense-Paid trip to Cancun
+PRIZE     downloads    700      8 10 MP3 Downloads from Babster
+PRIZE     hat         2222      2 Ninja Warrior Mount Midoriyama T-Shirt
+PRIZE     special       35    100 Bronze level donation to Special Olympics
+PRIZE     spinner      750      4 Multi-Function Salad Spinner and Chopper
+ADD_USER  AActini20  34648 Aiden Actinide
+ADD_PHONE AActini20  063-503-4812
+ADD_PHONE AActini20  679-852-6201
+ADD_PHONE AActini20  695-184-3027
+ADD_USER  AJack00     8897 Anthony Jack Dedicate
+ADD_PHONE AJack00    163-488-0605
+ADD_PHONE AJack00    774-659-3581
+ADD_USER  BDin98     21850 Brooke Din
+ADD_USER  CGrieva82  31802 Christian Grievance
+ADD_PHONE CGrieva82  062-584-5089
+ADD_PHONE CGrieva82  114-420-3029
+ADD_PHONE CGrieva82  599-019-2444
+ADD_USER  DZachar23     61 Dontonio Zachary Slugging
+ADD_PHONE DZachar23  029-667-0820
+ADD_PHONE DZachar23  914-370-3140
+ADD_USER  ECoulte67   7751 Evan Coulter
+ADD_PHONE ECoulte67  059-752-0815
+ADD_PHONE ECoulte67  706-437-5055
+ADD_USER  EScandi14  13589 Emma Scandinavia
+ADD_USER  EStamp01      85 Evelyn Stamp
+ADD_USER  GAdjudg69   4690 Grace Adjudge
+ADD_PHONE GAdjudg69  069-450-0075
+ADD_PHONE GAdjudg69  425-769-3467
+ADD_PHONE GAdjudg69  676-036-2106
+ADD_USER  KAlyssa79  29341 Kylie Alyssa Maneuver
+ADD_PHONE KAlyssa79  101-970-7406
+ADD_PHONE KAlyssa79  235-834-5170
+ADD_PHONE KAlyssa79  347-138-7711
+ADD_USER  MFormul54     37 Morgan Formulate
+ADD_USER  OBarn98       25 Olivia Barn
+ADD_PHONE OBarn98    851-641-5246
+ADD_USER  PCherok25  40792 Peyton Cherokee
+ADD_USER  Tristan06    354 Tristan
+ADD_PHONE Tristan06  423-756-4544
+ADD_PHONE Tristan06  914-927-6565
+ADD_USER  WSchnab08   3525 William Schnabel
+ADD_PHONE WSchnab08  012-324-2667
+ADD_PHONE WSchnab08  060-376-7421
+MARK_USED 55iH3q9rPmOfNZ KgcgBu94E7wYug hl2ELcI7Z9rCy8 jQx6U78TaIv7YT xzHSPLXztJxhJM

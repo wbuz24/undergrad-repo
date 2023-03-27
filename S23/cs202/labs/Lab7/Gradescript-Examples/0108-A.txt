@@ -1,0 +1,273 @@
+PRIZE     dogo         570      3 Club Dogo 12-Month Subscription
+PRIZE     downloads    700      8 10 MP3 Downloads from Babster
+PRIZE     habitat       35    100 Donation to Habitat for Humanity
+PRIZE     ovis          50      3 Ovis Rent a Car Single Upgrade Coupon
+PRIZE     rest         500      5 Restaurant Gift Card from E-Restaurants.com
+PRIZE     silver      1100      2 Two DMC Theatres Silver Experience movie tickets
+PRIZE     special       35    100 Bronze level donation to Special Olympics
+PRIZE     spinner      750      4 Multi-Function Salad Spinner and Chopper
+PRIZE     swarokski     75      7 $30 Swarokski Gift Certificate
+PRIZE     visasweep      1   1000 $500 VISA(r) Gift Card Sweepstakes Entry
+ADD_USER  ACatnip99    120 Alexander Catnip
+ADD_USER  ACerami50     82 Amelia Ceramium
+ADD_PHONE ACerami50  062-167-2366
+ADD_PHONE ACerami50  256-989-8511
+ADD_USER  ADendri05  39168 Amelia Dendritic
+ADD_PHONE ADendri05  088-399-6876
+ADD_PHONE ADendri05  831-191-5864
+ADD_USER  ADiaton83   6828 Arianna Diatonic
+ADD_USER  AFig63      7480 Alyssa Fig
+ADD_PHONE AFig63     214-173-9377
+ADD_PHONE AFig63     340-393-4979
+ADD_PHONE AFig63     686-533-8586
+ADD_USER  AFurthe81    291 Alexis Furthest
+ADD_USER  AGroin07     857 Avery Groin
+ADD_PHONE AGroin07   456-271-6975
+ADD_PHONE AGroin07   788-138-0514
+ADD_PHONE AGroin07   802-953-2768
+ADD_USER  AHomoph76     99 Amelia Homophobia
+ADD_PHONE AHomoph76  776-525-4531
+ADD_USER  AInfatu55   8728 Alyssa Infatuate
+ADD_PHONE AInfatu55  102-386-9004
+ADD_PHONE AInfatu55  689-926-6953
+ADD_USER  AIsabel85    800 Addison Isabella Triangle
+ADD_PHONE AIsabel85  235-754-3949
+ADD_PHONE AIsabel85  362-745-5794
+ADD_PHONE AIsabel85  680-939-4538
+ADD_USER  ALaughl08    542 Arianna Laughlin
+ADD_PHONE ALaughl08  163-248-0298
+ADD_PHONE ALaughl08  693-601-7499
+ADD_USER  ALillip31     36 Anthony Lilliputian
+ADD_PHONE ALillip31  662-880-0538
+ADD_USER  BBurial09    191 Bella Burial
+ADD_PHONE BBurial09  428-142-0477
+ADD_PHONE BBurial09  442-944-6091
+ADD_PHONE BBurial09  778-859-7456
+ADD_USER  BCompre56  36329 Benjamin Compressive
+ADD_PHONE BCompre56  102-756-9779
+ADD_PHONE BCompre56  526-622-4944
+ADD_PHONE BCompre56  682-106-9108
+ADD_USER  BKwashi85   9396 Benjamin Kwashiorkor
+ADD_PHONE BKwashi85  441-219-7846
+ADD_PHONE BKwashi85  717-945-9390
+ADD_PHONE BKwashi85  825-825-6478
+ADD_USER  BMuong83   12800 Blake Muong
+ADD_PHONE BMuong83   022-753-7847
+ADD_PHONE BMuong83   434-625-7521
+ADD_USER  BOlefin16    682 Bella Olefin
+ADD_PHONE BOlefin16  573-225-4126
+ADD_PHONE BOlefin16  862-760-0308
+ADD_PHONE BOlefin16  989-545-4783
+ADD_USER  BOtter12    5898 Brianna Otter
+ADD_PHONE BOtter12   197-045-6269
+ADD_PHONE BOtter12   205-861-1493
+ADD_PHONE BOtter12   989-643-8957
+ADD_USER  BSpecul00   3968 Brandon Speculate
+ADD_USER  CAdam87       67 Christopher Adam Humid
+ADD_PHONE CAdam87    520-648-9027
+ADD_USER  CBefell58   3420 Connor Befell
+ADD_PHONE CBefell58  082-225-1287
+ADD_PHONE CBefell58  187-608-2050
+ADD_USER  CCarson49  32978 Christopher Carson Bromley PhD
+ADD_PHONE CCarson49  109-806-4222
+ADD_PHONE CCarson49  224-821-5584
+ADD_USER  CDisper53  11015 Chloe Dispersal
+ADD_USER  CFifty88     232 Chloe Fifty
+ADD_USER  CFoyer00      63 Connor Foyer
+ADD_PHONE CFoyer00   061-114-9653
+ADD_PHONE CFoyer00   294-538-5801
+ADD_USER  CIonosp51    925 Connor Ionosphere
+ADD_PHONE CIonosp51  593-872-5445
+ADD_PHONE CIonosp51  715-381-9312
+ADD_PHONE CIonosp51  936-330-6118
+ADD_USER  CJoshua95  46474 Cooper Joshua Diagnostician
+ADD_PHONE CJoshua95  603-076-7640
+ADD_PHONE CJoshua95  865-715-1995
+ADD_PHONE CJoshua95  939-581-9226
+ADD_USER  CShaggy22    321 Charlotte Shaggy
+ADD_PHONE CShaggy22  006-299-6112
+ADD_PHONE CShaggy22  621-738-9029
+ADD_USER  CValue68     602 Cooper Value
+ADD_PHONE CValue68   925-762-9917
+ADD_PHONE CValue68   986-098-0319
+ADD_USER  CVegeta36   1898 Claire Vegetate
+ADD_USER  CWaco77     7298 Caleb Waco
+ADD_PHONE CWaco77    548-459-1658
+ADD_USER  DDetect88     32 David Detect
+ADD_PHONE DDetect88  354-411-4921
+ADD_PHONE DDetect88  886-453-5276
+ADD_USER  DSoulfu23    671 David Soulful
+ADD_USER  EAbstra11   3306 Emma Abstractor
+ADD_PHONE EAbstra11  135-770-8250
+ADD_PHONE EAbstra11  317-313-3105
+ADD_PHONE EAbstra11  773-135-8586
+ADD_USER  EFluori71   3213 Ella Fluoridate
+ADD_PHONE EFluori71  517-258-4670
+ADD_PHONE EFluori71  551-591-0793
+ADD_PHONE EFluori71  732-188-1295
+ADD_USER  EFootba27    236 Eva Football
+ADD_USER  EInconv65   4108 Eva Inconvenient
+ADD_PHONE EInconv65  188-173-5195
+ADD_PHONE EInconv65  735-963-4617
+ADD_USER  EMaltes92    498 Elizabeth Maltese
+ADD_PHONE EMaltes92  616-371-8828
+ADD_PHONE EMaltes92  621-580-1720
+ADD_PHONE EMaltes92  857-002-5078
+ADD_USER  EMolly84    2849 Eva Molly Konrad
+ADD_PHONE EMolly84   611-972-1351
+ADD_PHONE EMolly84   921-161-2912
+ADD_USER  ESidewa70    567 Ella Sidewall
+ADD_PHONE ESidewa70  734-451-1046
+ADD_USER  GAbsent86    993 Grace Absentia
+ADD_PHONE GAbsent86  064-237-3713
+ADD_PHONE GAbsent86  238-604-6005
+ADD_PHONE GAbsent86  378-083-5117
+ADD_USER  GProng44      49 Gabriel Prong
+ADD_PHONE GProng44   556-716-9633
+ADD_USER  HLatera49    303 Hailey Lateral
+ADD_PHONE HLatera49  156-272-4095
+ADD_PHONE HLatera49  402-869-6851
+ADD_USER  HNoah60      684 Hunter Noah Beware
+ADD_PHONE HNoah60    196-622-1963
+ADD_PHONE HNoah60    446-054-6757
+ADD_PHONE HNoah60    966-510-5054
+ADD_USER  IBoast70      66 Isaac Boast
+ADD_USER  ICubic62   12874 Isabella Cubic
+ADD_USER  JAccred55   4610 Jonathan Accreditate
+ADD_PHONE JAccred55  335-486-8619
+ADD_USER  JAcrony09  46280 Julia Acronym
+ADD_PHONE JAcrony09  152-505-7809
+ADD_PHONE JAcrony09  437-917-2315
+ADD_PHONE JAcrony09  501-689-0283
+ADD_USER  JAmoeba65     40 Jacob Amoebae
+ADD_PHONE JAmoeba65  027-692-1703
+ADD_PHONE JAmoeba65  581-720-3494
+ADD_USER  JBirmin82   9348 Jake Birmingham
+ADD_PHONE JBirmin82  460-552-9785
+ADD_PHONE JBirmin82  738-221-9238
+ADD_USER  JCohere81  33436 Joseph Cohere
+ADD_PHONE JCohere81  360-769-4474
+ADD_PHONE JCohere81  456-167-2766
+ADD_PHONE JCohere81  639-445-5230
+ADD_USER  JDamnat10  37836 Jordan Damnation
+ADD_PHONE JDamnat10  301-136-6384
+ADD_PHONE JDamnat10  360-806-8569
+ADD_PHONE JDamnat10  826-359-7835
+ADD_USER  JInduce13   5301 Jayden Induce
+ADD_USER  JInhibi50    164 Joseph Inhibition
+ADD_PHONE JInhibi50  441-601-4925
+ADD_PHONE JInhibi50  624-159-9913
+ADD_USER  JJoggin78   8062 James Jogging
+ADD_USER  JJohn84       54 Joshua John Benthic
+ADD_PHONE JJohn84    721-080-5330
+ADD_USER  JPasse97   25436 Joshua Passe
+ADD_PHONE JPasse97   108-962-1863
+ADD_PHONE JPasse97   134-694-1744
+ADD_PHONE JPasse97   637-243-5588
+ADD_USER  JSkipja38     87 John Skipjack
+ADD_PHONE JSkipja38  011-363-3321
+ADD_PHONE JSkipja38  029-727-5652
+ADD_PHONE JSkipja38  344-295-5745
+ADD_USER  JSteen94     290 Jake Steen
+ADD_PHONE JSteen94   478-700-8157
+ADD_PHONE JSteen94   987-305-5979
+ADD_USER  JTenaci28     78 Jacob Tenacious
+ADD_PHONE JTenaci28  098-283-7043
+ADD_PHONE JTenaci28  217-277-0676
+ADD_USER  KEmboss76     37 Kaitlyn Emboss
+ADD_PHONE KEmboss76  259-994-9119
+ADD_PHONE KEmboss76  880-429-8229
+ADD_USER  KGlare50    5941 Kaylee Glare
+ADD_USER  KHinter93  29127 Kaylee Hinterland
+ADD_USER  KSen95     47858 Kylie Sen
+ADD_PHONE KSen95     850-718-3972
+ADD_USER  KVoiceb47    511 Kaylee Voiceband
+ADD_PHONE KVoiceb47  169-725-3410
+ADD_PHONE KVoiceb47  912-154-0452
+ADD_USER  LAlfred02     62 Liam Alfredo
+ADD_PHONE LAlfred02  168-142-5875
+ADD_PHONE LAlfred02  272-303-0374
+ADD_USER  LFilled15     49 Landon Filled
+ADD_PHONE LFilled15  379-343-6316
+ADD_PHONE LFilled15  934-943-0409
+ADD_PHONE LFilled15  984-408-0989
+ADD_USER  LJoyous31  27010 Logan Joyous
+ADD_USER  LOcclus63  39611 Lilly Occlusive
+ADD_PHONE LOcclus63  287-308-1939
+ADD_USER  LTablea25    146 Lilly Tableaux
+ADD_PHONE LTablea25  499-110-2985
+ADD_PHONE LTablea25  989-094-4665
+ADD_USER  MCopper78   3296 Mason Copperhead
+ADD_PHONE MCopper78  298-861-0961
+ADD_PHONE MCopper78  676-875-3712
+ADD_USER  MDye84      2444 Mackenzie Dye
+ADD_PHONE MDye84     085-943-6374
+ADD_USER  MHawkin00   4016 Mason Hawkins
+ADD_PHONE MHawkin00  988-568-0169
+ADD_USER  MInvest96  32441 Mia Investigatory
+ADD_PHONE MInvest96  566-770-0394
+ADD_USER  MLandma91  29928 Madelyn Landmark
+ADD_USER  MSoftba90    343 Mia Softball
+ADD_PHONE MSoftba90  956-374-6235
+ADD_USER  NMakeup80     88 Nicholas Makeup
+ADD_PHONE NMakeup80  006-037-0867
+ADD_PHONE NMakeup80  175-743-7358
+ADD_USER  NSchlie72     71 Noah Schlieren
+ADD_PHONE NSchlie72  471-857-0822
+ADD_USER  NSlew29       29 Noah Slew
+ADD_USER  OBodlei66    292 Olivia Bodleian
+ADD_PHONE OBodlei66  284-230-3792
+ADD_PHONE OBodlei66  652-298-4774
+ADD_PHONE OBodlei66  999-783-1583
+ADD_USER  OLangle91   7036 Olivia Langley
+ADD_USER  OOrbit52    4730 Olivia Orbit
+ADD_PHONE OOrbit52   617-337-0094
+ADD_PHONE OOrbit52   876-077-1902
+ADD_USER  OOvertu18    659 Owen Overture
+ADD_PHONE OOvertu18  064-150-6292
+ADD_PHONE OOvertu18  865-640-4715
+ADD_USER  OUSC75       625 Olivia USC
+ADD_PHONE OUSC75     164-094-5956
+ADD_PHONE OUSC75     199-955-5902
+ADD_PHONE OUSC75     779-755-4079
+ADD_USER  RBravur65      8 Ryan Bravura Jr
+ADD_PHONE RBravur65  191-279-3451
+ADD_PHONE RBravur65  472-276-1479
+ADD_PHONE RBravur65  559-682-3552
+ADD_USER  RBrushw28  13809 Ryan Brushwork
+ADD_USER  SBriber52   1880 Samuel Bribery
+ADD_PHONE SBriber52  540-740-5852
+ADD_PHONE SBriber52  828-159-5595
+ADD_USER  SChinoo49   9450 Savannah Chinook
+ADD_PHONE SChinoo49  261-382-9618
+ADD_PHONE SChinoo49  385-701-8496
+ADD_USER  SCommis51     90 Samuel Commiserate
+ADD_PHONE SCommis51  061-419-0760
+ADD_USER  SDine80    36293 Sophie Dine
+ADD_PHONE SDine80    602-669-8289
+ADD_PHONE SDine80    741-847-7903
+ADD_PHONE SDine80    971-243-1712
+ADD_USER  SNugget76  47155 Sofia Nugget
+ADD_PHONE SNugget76  103-530-3886
+ADD_PHONE SNugget76  243-187-6000
+ADD_PHONE SNugget76  340-181-5473
+ADD_USER  SStrate88    115 Sarah Strategist
+ADD_USER  TCellul93    550 Tristan Cellular
+ADD_USER  TConnoi49   5277 Taylor Connoisseur
+ADD_USER  TModula25     50 Tyler Modulate
+ADD_PHONE TModula25  393-882-5386
+ADD_PHONE TModula25  424-667-5074
+ADD_PHONE TModula25  704-384-7273
+ADD_USER  TWendy27      55 Thomas Wendy
+ADD_PHONE TWendy27   264-135-8138
+ADD_USER  XBarefa69   4199 Xavier Barefaced
+ADD_PHONE XBarefa69  749-445-3122
+ADD_PHONE XBarefa69  802-137-7204
+ADD_PHONE XBarefa69  971-738-9579
+ADD_USER  ZLuke07      516 Zachary Luke Earthmove
+ADD_USER  ZPaige55   29491 Zoey Paige Mustard
+ADD_USER  ZStink43   22352 Zoey Stink
+MARK_USED 0EqOdbNfW86VOq 1HUefzF7AIPqYk 2DvNa8tjH8F34I 2oa05zmgj5riqa 2wbqXtZa49ZVfp 4iJuf28mFEXIAl 6tuUPDEcxLL5Yo 8JV2ZkvHaytJ3E
+MARK_USED BCGug2h3hhvfQg EmPP2SDKWFBr8I FV8q7p6f6Z3rOD GZz9UwoL2juElf KrzAP6DQUcoG6z LxKRBvmzQCL0Ru MmwM4bNc9ZnJjz NYWXwWA8P3KV0Q
+MARK_USED PRRlNnPveKesCl RbxctnOV5hmttl Tct9m6xYgpKyn3 UFsCVVsu01udJA a2hpQ5MdUWq0la bWJxKehfYFsgVv pnyUQI3Yr34Sjp q3IloyzFilDSy3
+MARK_USED qdYpN4ra4DTelW qdlCVHnwcaJ4sA qoki0SjrFjNJtd trrkCkfX3cgB7g veASvlK1PWzCiz x0h1Lc8e8IOG5M

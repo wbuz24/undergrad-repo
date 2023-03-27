@@ -1,0 +1,43 @@
+PRIZE     dogo         570      3 Club Dogo 12-Month Subscription
+PRIZE     habitat       35    100 Donation to Habitat for Humanity
+PRIZE     quest          1     10 Memory Quest Downloadable Game
+PRIZE     rest         500      5 Restaurant Gift Card from E-Restaurants.com
+PRIZE     visasweep      1   1000 $500 VISA(r) Gift Card Sweepstakes Entry
+ADD_USER  ABrody61      79 Alex Brody Appertain
+ADD_PHONE ABrody61   054-737-2606
+ADD_PHONE ABrody61   564-028-5212
+ADD_USER  ACutwor38    920 Andrew Cutworm
+ADD_PHONE ACutwor38  144-816-5670
+ADD_PHONE ACutwor38  743-712-9920
+ADD_USER  AInters66     58 Alexandra Interstice
+ADD_USER  ALawren32  11859 Arianna Lawrencium
+ADD_PHONE ALawren32  465-335-2371
+ADD_PHONE ALawren32  842-929-3198
+ADD_USER  CHrothg66    107 Carson Hrothgar
+ADD_USER  EQua37       852 Eva Qua
+ADD_USER  ESubtra91   5812 Ella Subtracter
+ADD_PHONE ESubtra91  033-544-5417
+ADD_PHONE ESubtra91  303-388-1457
+ADD_PHONE ESubtra91  937-319-0779
+ADD_USER  GAppeas34   9914 Grace Appeasable
+ADD_PHONE GAppeas34  149-596-6682
+ADD_USER  IAlista18  27872 Ian Alistair
+ADD_PHONE IAlista18  682-247-9123
+ADD_USER  IBogy10     5720 Ian Bogy
+ADD_PHONE IBogy10    618-946-3757
+ADD_USER  JLuke21     4769 Jordan Luke Tel Esq
+ADD_PHONE JLuke21    607-983-5457
+ADD_PHONE JLuke21    649-111-5493
+ADD_PHONE JLuke21    846-880-6734
+ADD_USER  KMongol73  30369 Kate Mongolia
+ADD_PHONE KMongol73  026-299-7374
+ADD_PHONE KMongol73  295-790-9694
+ADD_PHONE KMongol73  959-296-4594
+ADD_USER  LJealou81    977 Leah Jealousy
+ADD_PHONE LJealou81  121-567-1308
+ADD_PHONE LJealou81  571-881-6759
+ADD_USER  NClever89  43475 Nicholas Clever
+ADD_PHONE NClever89  453-596-4113
+ADD_USER  NMezzan63    990 Nicholas Mezzanine
+ADD_PHONE NMezzan63  222-271-9832
+MARK_USED JBccFNol8wahFV UXtd4V7y6M53lz VYDb4cwq6evOyJ eyOp9VSxnqiigS h0Byd2K58Ohvxr

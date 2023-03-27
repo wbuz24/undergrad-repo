@@ -1,0 +1,155 @@
+#!/bin/sh 
+
+dir=/home/jplank/cs202/Labs/Lab7
+ge="$dir/Gradescript-Examples"
+
+if [ $# -ne 1 ]; then
+  echo 'usage: gradescript problem_number (1-120)' >&2
+  exit 1
+fi
+
+if [ "$1" -gt 0 -a "$1" -le 120 ]; then
+  enum=`echo $1 | awk '{ printf "%03d\n", $1 }'`
+else
+  echo 'usage: gradescript problem_number (1-120)' >&2
+  exit 1
+fi
+  
+program=bin/cp_tester
+
+if [ ! -f $program ]; then
+  echo "Problem $enum is incorrect."
+  echo ""
+  echo "Your program $program does not exist."
+  exit 0
+fi
+
+rm -rf tmp-$enum-grader-stdout.txt tmp-$enum-grader-stderr.txt tmp-$enum-test-stdout.txt tmp-$enum-test-stderr.txt tmp-$enum-correct-stdout.txt tmp-$enum-correct-stderr.txt correct_dir your_dir f1.txt f2.txt f3.txt f4.txt f5.txt f6.txt f7.txt f8.txt f9.txt f0.txt
+
+$dir/$program $ge/$enum-*.txt > tmp-$enum-correct-stdout.txt 2> tmp-$enum-correct-stderr.txt
+
+flist=`grep WRITE $ge/$enum-*.txt | sed 's/.*WRITE //'`
+
+mkdir correct_dir
+if [ "a$flist" != a ]; then
+  mv $flist correct_dir
+fi
+
+./$program $ge/$enum-*.txt > tmp-$enum-test-stdout.txt 2> tmp-$enum-test-stderr.txt
+call="./$program $ge/$enum-*.txt "
+
+mkdir your_dir
+
+# Count up the files which don't have legal lines in them.
+
+bd=0
+if [ "a$flist" != a ]; then
+  for i in $flist ; do
+    if [ ! -f $i ]; then
+      w=1
+    else
+      w=`sed -f $dir/legal.sed < $i | wc | awk '{ print $1 }'`
+    fi
+    if [ $w -ne 0 ]; then
+      if [ "$bd" = 0 ]; then
+        bd=$i
+      else 
+        bd="$bd $i"
+      fi
+    fi
+  done
+  
+  for i in $flist ; do
+    echo "WRITE your_dir/$i" >> $i
+    $dir/bin/cp_tester $i > /dev/null 2>&1
+  done
+fi
+
+out=`diff tmp-$enum-correct-stdout.txt tmp-$enum-test-stdout.txt | wc | awk '{ print $1 }'`
+err=`diff tmp-$enum-correct-stderr.txt tmp-$enum-test-stderr.txt | wc | awk '{ print $1 }'`
+
+# Count up the files that differ from mine.
+
+pf=0
+if [ "a$flist" != a ]; then
+  for i in $flist ; do
+    if [ `diff correct_dir/$i your_dir/$i 2>&1 | wc | awk '{ print $1 }'` != 0 ]; then
+      if [ "$pf" = 0 ]; then
+        pf=$i
+      else 
+        pf="$pf $i"
+      fi
+    fi
+  done
+fi
+
+if [ $out != 0 -o $err != 0 -o "$pf" != 0 -o "$bd" != 0 ]; then
+  echo "Problem $enum is incorrect."
+  echo ""
+  if [ $out != 0 ]; then
+    echo "Your standard output does not match the correct one."
+  fi
+  if [ $err != 0 ]; then
+    echo "Your standard error does not match the correct one."
+  fi
+  if [ "$bd" != 0 ]; then
+    echo "The following files either were not created, or they had more than "
+    echo "the commands ADD_USER, PRIZE, ADD_PHONE or MARK_USED."
+    echo ""
+    echo "$bd"
+    echo ""
+  fi
+  if [ "$pf" != 0 ]; then
+    echo "The following files in your_dir don't match the ones in correct_dir."
+    echo ""
+    echo "$pf"
+  fi
+  echo ""
+  echo "TEST:"
+  echo ""
+  echo "$call"
+  if [ `ls correct_dir | wc | awk '{ print $1 }'` -ne 0 ]; then
+    echo "mkdir your_dir"
+  fi
+  for i in $flist ; do
+    echo "echo WRITE your_dir/$i >> $i"
+    echo "$dir/bin/cp_tester $i"
+  done
+  echo ""
+  echo "FILES:"
+  echo ""
+  echo "Your standard output is in tmp-$enum-test-stdout.txt."
+  echo "Your standard error  is in tmp-$enum-test-stderr.txt."
+  echo ""
+  echo "The correct standard output is in tmp-$enum-correct-stdout.txt."
+  echo "The correct standard error  is in tmp-$enum-correct-stderr.txt."
+  echo ""
+  if [ "a$flist" != a ]; then
+    echo "The following files should have been created: $flist"
+    echo ""
+    echo "The correct versions are in correct_dir."
+    echo "Your versions are in the current directory."
+    echo "Your versions run through my cp_tester are in your_dir."
+    echo ""
+  fi
+  echo "Look at correct files and your files, perhaps run 'diff -y' on them, and figure out your mistake."
+  echo "Please remember to delete these files, correct_dir and you_dir  when you are finished."
+else 
+  echo "Problem $enum is correct."
+  echo ""
+  echo "TEST:"
+  echo ""
+  echo "$call"
+  if [ `ls correct_dir | wc | awk '{ print $1 }'` -ne 0 ]; then
+    echo "mkdir your_dir"
+  fi
+   
+  if [ "a$flist" != a ]; then
+    for i in $flist ; do
+      echo "echo WRITE your_dir/$i >> $i"
+      echo "$dir/bin/cp_tester $i"
+    done
+  fi
+  echo ""
+rm -rf tmp-$enum-grader-stdout.txt tmp-$enum-grader-stderr.txt tmp-$enum-test-stdout.txt tmp-$enum-test-stderr.txt tmp-$enum-correct-stdout.txt tmp-$enum-correct-stderr.txt correct_dir your_dir f1.txt f2.txt f3.txt f4.txt f5.txt f6.txt f7.txt f8.txt f9.txt f0.txt
+fi

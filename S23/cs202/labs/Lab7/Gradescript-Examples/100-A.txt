@@ -1,0 +1,245 @@
+PRIZE     cancun     10000      1 All Expense-Paid trip to Cancun
+PRIZE     downloads    700      8 10 MP3 Downloads from Babster
+PRIZE     maze           1     20 Memory Collector Maze Downloadable Game
+PRIZE     ovis          50      3 Ovis Rent a Car Single Upgrade Coupon
+PRIZE     plush        600      4 Boca-Cola Plush Polar Bear
+PRIZE     pudget        50      5 pudget Rent A Car Single Upgrade Coupon
+PRIZE     rest         500      5 Restaurant Gift Card from E-Restaurants.com
+PRIZE     spinner      750      4 Multi-Function Salad Spinner and Chopper
+PRIZE     swarokski     75      7 $30 Swarokski Gift Certificate
+PRIZE     visasweep      1   1000 $500 VISA(r) Gift Card Sweepstakes Entry
+ADD_USER  ABalsa57    9706 Aiden Balsa
+ADD_PHONE ABalsa57   327-715-9847
+ADD_PHONE ABalsa57   449-305-7409
+ADD_USER  ACorbel67    137 Austin Corbel
+ADD_PHONE ACorbel67  206-465-8480
+ADD_PHONE ACorbel67  343-949-4190
+ADD_USER  AEmplac28     87 Alexis Emplace
+ADD_PHONE AEmplac28  814-967-4412
+ADD_USER  AGranul75   4280 Arianna Granular
+ADD_PHONE AGranul75  014-903-5889
+ADD_PHONE AGranul75  578-453-8291
+ADD_PHONE AGranul75  861-261-0735
+ADD_USER  AHareli14    888 Amelia Harelip
+ADD_PHONE AHareli14  712-504-2080
+ADD_USER  AHereaf37   5204 Ava Hereafter
+ADD_PHONE AHereaf37  485-280-7717
+ADD_USER  AKately50  27463 Amelia Katelyn Commission
+ADD_PHONE AKately50  407-471-1777
+ADD_PHONE AKately50  765-732-6663
+ADD_PHONE AKately50  794-627-6642
+ADD_USER  ALizard94     82 Austin Lizard
+ADD_USER  ALosabl24   7177 Audrey Losable
+ADD_PHONE ALosabl24  040-244-1739
+ADD_PHONE ALosabl24  615-533-8996
+ADD_USER  ARiot99      583 Amelia Riot
+ADD_PHONE ARiot99    176-894-1856
+ADD_PHONE ARiot99    345-824-0806
+ADD_USER  AShipla03  33719 Arianna Shiplap
+ADD_USER  AThousa26   8671 Alyssa Thousandth
+ADD_PHONE AThousa26  182-584-4543
+ADD_PHONE AThousa26  879-060-3178
+ADD_PHONE AThousa26  932-500-2516
+ADD_USER  ATraito98    775 Ava Traitor
+ADD_PHONE ATraito98  047-518-4836
+ADD_USER  BAlex43      526 Brandon Alex Paramount
+ADD_USER  BDisrup03     60 Brody Disruption
+ADD_PHONE BDisrup03  474-257-8093
+ADD_PHONE BDisrup03  839-734-6957
+ADD_USER  BJoshua49    433 Benjamin Joshua Verdant
+ADD_PHONE BJoshua49  018-295-3705
+ADD_PHONE BJoshua49  141-660-1824
+ADD_PHONE BJoshua49  463-426-1403
+ADD_USER  BMelvil79   4174 Brooke Melville
+ADD_PHONE BMelvil79  248-250-1331
+ADD_PHONE BMelvil79  265-171-7309
+ADD_USER  CAxes47     2753 Caleb Axes
+ADD_PHONE CAxes47    566-426-3069
+ADD_USER  CCrunch90     84 Cole Crunch MD
+ADD_PHONE CCrunch90  371-888-4077
+ADD_PHONE CCrunch90  963-180-7874
+ADD_USER  CDeplor26    837 Cooper Deplore
+ADD_PHONE CDeplor26  266-199-9710
+ADD_USER  CDionys64   1351 Chase Dionysian
+ADD_USER  CExclai36   7631 Cooper Exclaim
+ADD_PHONE CExclai36  498-534-7985
+ADD_USER  CFool82     9855 Cameron Fool
+ADD_PHONE CFool82    229-702-0061
+ADD_USER  CMax53        43 Christian Max Chambers
+ADD_USER  COffloa02    390 Claire Offload
+ADD_PHONE COffloa02  616-242-8368
+ADD_PHONE COffloa02  996-118-1536
+ADD_USER  COnce54        4 Christian Once
+ADD_PHONE COnce54    549-770-5946
+ADD_PHONE COnce54    697-227-4484
+ADD_PHONE COnce54    919-955-1409
+ADD_USER  CRuinou16    327 Claire Ruinous
+ADD_USER  CSnowmo23    418 Cooper Snowmobile
+ADD_PHONE CSnowmo23  242-525-8778
+ADD_PHONE CSnowmo23  399-243-0541
+ADD_PHONE CSnowmo23  517-025-9316
+ADD_USER  DAnthon62  37968 Dontonio Anthony Facile
+ADD_PHONE DAnthon62  383-262-1991
+ADD_PHONE DAnthon62  479-468-1375
+ADD_PHONE DAnthon62  576-920-6243
+ADD_USER  DBel71        67 Dylan Bel
+ADD_USER  DBrando98   6129 David Brandon Old
+ADD_USER  DPrompt94  45612 David Promptitude
+ADD_USER  EOilmen70   1621 Emma Oilmen
+ADD_PHONE EOilmen70  326-238-5441
+ADD_PHONE EOilmen70  753-618-2659
+ADD_PHONE EOilmen70  808-750-1374
+ADD_USER  ETelevi58  47135 Evelyn Televise
+ADD_PHONE ETelevi58  494-946-5143
+ADD_PHONE ETelevi58  625-774-7776
+ADD_USER  ETrigon46    128 Emily Trigonal
+ADD_USER  GMidshi00   7198 Gabriel Midshipmen
+ADD_PHONE GMidshi00  191-068-6858
+ADD_USER  GNorway33    637 Gavin Norway
+ADD_USER  GTennys57   2859 Gianna Tennyson
+ADD_PHONE GTennys57  036-918-0332
+ADD_USER  HBeech07     614 Henry Beech
+ADD_USER  HCeres70     329 Hannah Ceres
+ADD_USER  HInvoke66    380 Hailey Invoke
+ADD_PHONE HInvoke66  971-418-6896
+ADD_USER  HNarcis53   2400 Hannah Narcissism
+ADD_USER  IBiplan75     16 Isabelle Biplane
+ADD_PHONE IBiplan75  073-799-5455
+ADD_PHONE IBiplan75  471-509-1109
+ADD_PHONE IBiplan75  481-588-4156
+ADD_USER  IFairfi78      8 Isabella Fairfield
+ADD_PHONE IFairfi78  126-116-4518
+ADD_PHONE IFairfi78  828-189-9894
+ADD_USER  IGray42    36803 Isaiah Gray
+ADD_PHONE IGray42    140-885-4103
+ADD_USER  IProfes20    739 Isabelle Professorial
+ADD_USER  JAngst59     594 Jackson Angst
+ADD_PHONE JAngst59   305-896-7765
+ADD_USER  JBlare25    3049 Jonathan Blare
+ADD_USER  JDartmo97      4 James Dartmouth
+ADD_PHONE JDartmo97  111-083-4873
+ADD_PHONE JDartmo97  614-479-8511
+ADD_USER  JEpitax54    301 Jacob Epitaxial
+ADD_USER  JErotic92    450 Jacob Erotica
+ADD_PHONE JErotic92  324-725-8618
+ADD_PHONE JErotic92  497-910-5039
+ADD_PHONE JErotic92  666-143-9991
+ADD_USER  JPotato35    447 Jack Potato
+ADD_PHONE JPotato35  043-289-7428
+ADD_PHONE JPotato35  806-014-6345
+ADD_USER  JRoadst71    396 Julia Roadster
+ADD_PHONE JRoadst71  101-037-1278
+ADD_USER  JSpume94     649 Jack Spume
+ADD_PHONE JSpume94   059-148-5075
+ADD_PHONE JSpume94   564-729-3765
+ADD_USER  JStyle28    1518 Jack Style
+ADD_PHONE JStyle28   145-614-5600
+ADD_PHONE JStyle28   221-079-2771
+ADD_PHONE JStyle28   726-156-9660
+ADD_USER  JUniroy25     27 Joshua Uniroyal
+ADD_PHONE JUniroy25  042-871-2566
+ADD_PHONE JUniroy25  157-638-6602
+ADD_PHONE JUniroy25  161-598-3375
+ADD_USER  JWillia57   1569 Jordan William Kingston
+ADD_PHONE JWillia57  268-049-0234
+ADD_PHONE JWillia57  658-741-1858
+ADD_PHONE JWillia57  830-322-2615
+ADD_USER  KBlack95    2249 Kylie Black
+ADD_PHONE KBlack95   320-855-9954
+ADD_PHONE KBlack95   512-904-6428
+ADD_USER  KBuchen95    783 Katelyn Buchenwald
+ADD_USER  KCharlo52   7169 Katelyn Charlotte Tideland
+ADD_PHONE KCharlo52  869-706-4627
+ADD_USER  KCorpor76   8739 Kaylee Corporate
+ADD_PHONE KCorpor76  112-806-4481
+ADD_PHONE KCorpor76  584-270-1540
+ADD_USER  KLeer46     4682 Katelyn Leer
+ADD_PHONE KLeer46    661-293-0224
+ADD_USER  KSarace90   8634 Kaitlyn Saracen
+ADD_USER  LAsteri87  25420 Lily Asterisk
+ADD_PHONE LAsteri87  766-069-7919
+ADD_USER  LByline42     10 Luke Byline
+ADD_PHONE LByline42  421-049-7148
+ADD_PHONE LByline42  615-252-3975
+ADD_PHONE LByline42  665-257-1498
+ADD_USER  LEchelo75  18631 Lucy Echelon
+ADD_PHONE LEchelo75  042-192-8062
+ADD_PHONE LEchelo75  770-692-7551
+ADD_PHONE LEchelo75  809-560-6305
+ADD_USER  LSquawb38  36221 Luke Squawbush
+ADD_PHONE LSquawb38  066-344-5585
+ADD_USER  LUnivac74   5348 Layla Univac
+ADD_USER  MConrai42  26506 Madeline Conrail
+ADD_USER  MPaige21     452 Madison Paige Madmen
+ADD_USER  MPawnsh40    315 Matthew Pawnshop
+ADD_PHONE MPawnsh40  076-243-4112
+ADD_USER  MPhilha17   2910 Maya Philharmonic
+ADD_PHONE MPhilha17  804-883-1204
+ADD_USER  MProtru61     85 Mason Protrusion Jr
+ADD_USER  MRingsi59     17 Madeline Ringside
+ADD_USER  MSchlit44     95 Makayla Schlitz
+ADD_PHONE MSchlit44  585-197-2485
+ADD_USER  MSimpso65     94 Madison Simpson
+ADD_PHONE MSimpso65  154-687-4513
+ADD_USER  MVaccin93   7147 Mason Vaccinate
+ADD_PHONE MVaccin93  224-717-8302
+ADD_USER  MVenera43      7 Mackenzie Venerable
+ADD_USER  PParley38    344 Peyton Parley
+ADD_PHONE PParley38  065-449-0218
+ADD_PHONE PParley38  151-094-8978
+ADD_PHONE PParley38  504-893-4693
+ADD_USER  RLogari76     55 Ryan Logarithmic
+ADD_PHONE RLogari76  099-828-1872
+ADD_PHONE RLogari76  828-626-9977
+ADD_USER  SAmesla95  33647 Savannah Ameslan
+ADD_USER  SBombar45   4573 Sarah Bombard
+ADD_PHONE SBombar45  613-158-9590
+ADD_PHONE SBombar45  846-900-6653
+ADD_USER  SChrist81   7529 Samuel Christopher Sundew
+ADD_PHONE SChrist81  035-422-4244
+ADD_USER  SCorral06     76 Sofia Corral
+ADD_USER  SIngers12     88 Savannah Ingersoll
+ADD_USER  SInhabi94  49080 Samuel Inhabit MD
+ADD_PHONE SInhabi94  584-438-1937
+ADD_PHONE SInhabi94  886-398-8398
+ADD_PHONE SInhabi94  897-042-4066
+ADD_USER  SLacros09  16178 Sydney Lacrosse
+ADD_USER  SMorgan14  41708 Sarah Morgan Sue
+ADD_PHONE SMorgan14  149-167-9549
+ADD_PHONE SMorgan14  793-169-1895
+ADD_USER  SMorgan15   1821 Savannah Morgan Palmyra
+ADD_PHONE SMorgan15  416-081-7002
+ADD_USER  SParlia23   5073 Sophia Parliamentary
+ADD_PHONE SParlia23  429-164-1806
+ADD_PHONE SParlia23  909-427-3340
+ADD_PHONE SParlia23  945-075-6904
+ADD_USER  SStatio91     10 Sydney Stationmaster
+ADD_PHONE SStatio91  959-549-9256
+ADD_USER  TCleava91    570 Tristan Cleavage
+ADD_PHONE TCleava91  371-357-0175
+ADD_PHONE TCleava91  564-910-8599
+ADD_USER  TDeconv18   5300 Tristan Deconvolution
+ADD_PHONE TDeconv18  985-667-4239
+ADD_USER  TEnchan03    273 Tristan Enchantress
+ADD_PHONE TEnchan03  132-250-4220
+ADD_PHONE TEnchan03  420-932-4785
+ADD_PHONE TEnchan03  607-655-0360
+ADD_USER  TParque85     40 Thomas Parquet
+ADD_PHONE TParque85  747-820-6053
+ADD_USER  TTokyo31   34784 Tyler Tokyo
+ADD_PHONE TTokyo31   139-120-3837
+ADD_PHONE TTokyo31   521-811-6014
+ADD_USER  VGunpow07    582 Victoria Gunpowder
+ADD_PHONE VGunpow07  025-979-8951
+ADD_PHONE VGunpow07  430-622-2521
+ADD_PHONE VGunpow07  615-998-2888
+ADD_USER  WTulane24   2308 William Tulane
+ADD_PHONE WTulane24  014-935-6749
+ADD_PHONE WTulane24  594-143-6957
+ADD_USER  ZConsta42    390 Zoe Constance
+ADD_USER  ZJaw08       386 Zachary Jaw
+ADD_PHONE ZJaw08     005-938-3530
+MARK_USED 1SZVMPjfQsjuLV 1debjKQGxB1a9D 2J2bPyBiazvkw6 2U5j9s03vVXIF6 38Dlk0tKzYRnFS 3bs8K4UgB3sahr 4fWBmMjMmLODNn 9mg5e0Y3HkTLgb
+MARK_USED AnN0znrpPee3o9 AnSrwb7XQbeOCS CafN5pGnJd9gDp HZH15zAtCGGT9S HosxFBDLNGyiSI I0NMNiyXGNCPTV IzHljs4taxFfoe JGilWuIr0CSJNe
+MARK_USED LREkxCH1aZTkPT Lumm7kQiXpnpKF RF19Zp4iHB3pzF SP3S3oqnLkw4lZ SSaedsDrBZBQDr ZKh24PcXZjwEq4 o2tv83dETgCjiD oEUTh5dxR7srnJ
+MARK_USED qPs1LZs7MMyO7f qfGfaikrc4W5jG vCX8Ky8f9JWOo4 vdyTmacXYxNiDi yyB8BfJbpBCY6X zKEPBuwoC3R468

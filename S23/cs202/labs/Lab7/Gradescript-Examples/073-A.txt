@@ -1,0 +1,43 @@
+PRIZE     cancun     10000      1 All Expense-Paid trip to Cancun
+PRIZE     dogo         570      3 Club Dogo 12-Month Subscription
+PRIZE     hat         2222      2 Ninja Warrior Mount Midoriyama T-Shirt
+PRIZE     maze           1     20 Memory Collector Maze Downloadable Game
+PRIZE     rest         500      5 Restaurant Gift Card from E-Restaurants.com
+ADD_USER  AKately68   6903 Alexandra Katelyn Elite
+ADD_USER  ALatex99     479 Anna Latex
+ADD_PHONE ALatex99   290-175-4714
+ADD_PHONE ALatex99   385-165-8439
+ADD_USER  BJalopy48     23 Bella Jalopy
+ADD_USER  CConver02   3989 Cole Conversion
+ADD_PHONE CConver02  016-392-9519
+ADD_PHONE CConver02  190-791-2033
+ADD_USER  EExoske01    721 Emma Exoskeleton
+ADD_PHONE EExoske01  250-556-6137
+ADD_PHONE EExoske01  538-307-5921
+ADD_USER  GSignor86   2356 Gavin Signora
+ADD_USER  JDanger00     37 James Dangerous
+ADD_PHONE JDanger00  230-219-9514
+ADD_PHONE JDanger00  791-310-6624
+ADD_USER  KOctahe49   8510 Kylie Octahedron
+ADD_PHONE KOctahe49  598-342-9590
+ADD_PHONE KOctahe49  925-960-4645
+ADD_USER  KRabat59    1109 Kaylee Rabat
+ADD_PHONE KRabat59   390-306-6919
+ADD_PHONE KRabat59   718-815-9286
+ADD_USER  LCalcul02     95 Landon Calculable
+ADD_PHONE LCalcul02  939-872-8678
+ADD_USER  LRegime35    368 Layla Regiment
+ADD_PHONE LRegime35  118-468-9469
+ADD_PHONE LRegime35  176-501-9737
+ADD_PHONE LRegime35  179-049-4256
+ADD_USER  NAngle13      55 Natalie Angle
+ADD_PHONE NAngle13   060-568-3299
+ADD_PHONE NAngle13   829-298-1739
+ADD_USER  NUtterm04     89 Nathan Uttermost
+ADD_USER  RSurviv19   8233 Riley Survive
+ADD_PHONE RSurviv19  213-172-9226
+ADD_USER  TWarp87      957 Taylor Warp
+ADD_PHONE TWarp87    124-997-0885
+ADD_PHONE TWarp87    255-813-8448
+ADD_PHONE TWarp87    383-567-8566
+MARK_USED HXR0WxHmC78LDD KBpWBie3GiIMR5 KlWoAYxvcajXnA RomjZTjNDqfQXY jo2EIb9Geh1gKt

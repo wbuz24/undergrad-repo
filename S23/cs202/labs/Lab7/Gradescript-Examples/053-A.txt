@@ -1,0 +1,40 @@
+PRIZE     dogo         570      3 Club Dogo 12-Month Subscription
+PRIZE     downloads    700      8 10 MP3 Downloads from Babster
+PRIZE     ovis          50      3 Ovis Rent a Car Single Upgrade Coupon
+PRIZE     quest          1     10 Memory Quest Downloadable Game
+PRIZE     silver      1100      2 Two DMC Theatres Silver Experience movie tickets
+ADD_USER  ABetwee28   2000 Austin Between
+ADD_PHONE ABetwee28  488-351-1792
+ADD_USER  ACleave84     43 Audrey Cleave
+ADD_PHONE ACleave84  452-126-0176
+ADD_USER  AIngeni73   2689 Aiden Ingenious
+ADD_PHONE AIngeni73  656-953-4618
+ADD_PHONE AIngeni73  868-078-8099
+ADD_PHONE AIngeni73  874-064-0487
+ADD_USER  BChad04    27507 Brianna Chad
+ADD_USER  BPasty25      32 Brianna Pasty
+ADD_PHONE BPasty25   643-545-0854
+ADD_USER  CCart30       57 Chloe Cart
+ADD_PHONE CCart30    679-141-7318
+ADD_USER  CHorny12   16778 Cole Horny
+ADD_PHONE CHorny12   435-511-2963
+ADD_USER  CMorn96     9897 Caroline Morn
+ADD_PHONE CMorn96    639-084-8575
+ADD_PHONE CMorn96    720-594-1732
+ADD_PHONE CMorn96    978-904-3777
+ADD_USER  CSleigh72     58 Carson Sleigh
+ADD_PHONE CSleigh72  520-897-4680
+ADD_PHONE CSleigh72  682-250-5801
+ADD_USER  HCodewo30     66 Hailey Codeword Esq
+ADD_PHONE HCodewo30  450-388-0895
+ADD_USER  JPyrote77     95 Jackson Pyrotechnic
+ADD_PHONE JPyrote77  160-027-6264
+ADD_PHONE JPyrote77  682-995-1492
+ADD_USER  JReptil83     42 Jack Reptilian
+ADD_PHONE JReptil83  329-651-4319
+ADD_USER  LRieman19      6 Lilly Riemannian
+ADD_PHONE LRieman19  786-434-6893
+ADD_USER  SBarbec06  36252 Sydney Barbecue
+ADD_PHONE SBarbec06  070-974-5843
+ADD_USER  ZThis59    26423 Zoe This
+MARK_USED 4FDVLtvU86qbAZ 5NeEhbj2GAj3kz P0wFY1kMIpi8ZR QRdA3o3Smf8koF nun9lMT7r9ytJd

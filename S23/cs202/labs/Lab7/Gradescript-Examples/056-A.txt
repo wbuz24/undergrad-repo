@@ -1,0 +1,51 @@
+PRIZE     dogo         570      3 Club Dogo 12-Month Subscription
+PRIZE     hat         2222      2 Ninja Warrior Mount Midoriyama T-Shirt
+PRIZE     silver      1100      2 Two DMC Theatres Silver Experience movie tickets
+PRIZE     special       35    100 Bronze level donation to Special Olympics
+PRIZE     visasweep      1   1000 $500 VISA(r) Gift Card Sweepstakes Entry
+ADD_USER  ABay18      3091 Allison Bay
+ADD_PHONE ABay18     699-164-8833
+ADD_USER  AMedea40    4062 Alyssa Medea
+ADD_PHONE AMedea40   674-997-1879
+ADD_PHONE AMedea40   924-636-6257
+ADD_USER  AStrept18     31 Arianna Streptomycin
+ADD_PHONE AStrept18  439-521-2714
+ADD_PHONE AStrept18  534-984-3473
+ADD_PHONE AStrept18  753-626-4839
+ADD_USER  BMeal52      650 Brandon Meal
+ADD_PHONE BMeal52    270-280-3785
+ADD_PHONE BMeal52    498-029-8622
+ADD_PHONE BMeal52    590-778-3074
+ADD_USER  EBolsho56   7539 Evelyn Bolshoi
+ADD_PHONE EBolsho56  474-878-4244
+ADD_PHONE EBolsho56  712-115-5940
+ADD_USER  ECrewma10    507 Evelyn Crewman
+ADD_PHONE ECrewma10  426-143-5741
+ADD_PHONE ECrewma10  561-067-8408
+ADD_USER  GIncomp99      1 Gavin Incomprehensible
+ADD_PHONE GIncomp99  201-001-1332
+ADD_PHONE GIncomp99  267-703-2009
+ADD_PHONE GIncomp99  462-184-5632
+ADD_USER  HCaucas96      4 Henry Caucasian
+ADD_USER  IPolemi72   6991 Isabella Polemic
+ADD_USER  JClothe00    772 Jackson Clothesline
+ADD_PHONE JClothe00  538-817-7084
+ADD_PHONE JClothe00  722-183-5077
+ADD_PHONE JClothe00  741-745-5132
+ADD_USER  KSusann97    728 Kaylee Susanne
+ADD_PHONE KSusann97  007-698-0435
+ADD_USER  MFreer88     167 Makayla Freer MD
+ADD_PHONE MFreer88   250-243-1564
+ADD_USER  MThey95     1613 Morgan They
+ADD_PHONE MThey95    318-399-1057
+ADD_PHONE MThey95    366-160-1842
+ADD_PHONE MThey95    373-104-4821
+ADD_USER  PAlkane74   7912 Peyton Alkane
+ADD_PHONE PAlkane74  613-197-1628
+ADD_PHONE PAlkane74  634-859-1048
+ADD_PHONE PAlkane74  935-336-9180
+ADD_USER  SSolon37      73 Samuel Solon
+ADD_PHONE SSolon37   271-643-6028
+ADD_PHONE SSolon37   584-263-9168
+ADD_PHONE SSolon37   654-994-5938
+MARK_USED FF5HWZ40LscFyP XL6KdAhpf3i2bP gNEXdo4WO1xuGq kGdELiSrSD8ztz xqsJi9tTsZAHsW

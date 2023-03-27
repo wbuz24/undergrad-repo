@@ -1,0 +1,40 @@
+PRIZE     cancun     10000      1 All Expense-Paid trip to Cancun
+PRIZE     dogo         570      3 Club Dogo 12-Month Subscription
+PRIZE     downloads    700      8 10 MP3 Downloads from Babster
+PRIZE     habitat       35    100 Donation to Habitat for Humanity
+PRIZE     quest          1     10 Memory Quest Downloadable Game
+ADD_USER  AAva13       421 Aubrey Ava Flange
+ADD_PHONE AAva13     097-425-3472
+ADD_USER  ARabbit60   6542 Adam Rabbit IV
+ADD_PHONE ARabbit60  513-954-9232
+ADD_PHONE ARabbit60  803-440-6235
+ADD_PHONE ARabbit60  943-503-9320
+ADD_USER  AScandi47   7525 Austin Scandinavia
+ADD_PHONE AScandi47  117-931-4165
+ADD_PHONE AScandi47  339-458-0388
+ADD_USER  BSyntac32     29 Benjamin Syntactic
+ADD_USER  CCarlo13      80 Connor Carlo
+ADD_PHONE CCarlo13   786-702-6734
+ADD_USER  CImpoli88     78 Christian Impolitic
+ADD_USER  EBuxteh01   4896 Eli Buxtehude
+ADD_USER  GTorah05     162 Gabriel Torah
+ADD_PHONE GTorah05   228-007-8459
+ADD_USER  HCoinci43    526 Henry Coincidental
+ADD_PHONE HCoinci43  592-506-2289
+ADD_USER  JPrince75      0 Joshua Princeton
+ADD_PHONE JPrince75  226-794-4496
+ADD_PHONE JPrince75  476-128-3574
+ADD_PHONE JPrince75  606-033-8707
+ADD_USER  LThyrox23  27796 Logan Thyroxine
+ADD_PHONE LThyrox23  477-552-7475
+ADD_PHONE LThyrox23  752-606-7959
+ADD_USER  MHokan31       4 Morgan Hokan
+ADD_PHONE MHokan31   766-150-7156
+ADD_PHONE MHokan31   787-299-9427
+ADD_PHONE MHokan31   794-914-4810
+ADD_USER  MIrrawa71   4481 Makayla Irrawaddy
+ADD_PHONE MIrrawa71  034-610-6619
+ADD_PHONE MIrrawa71  357-258-8140
+ADD_USER  MKrause23      3 Mia Krause
+ADD_USER  MKriege33     72 Matthew Krieger
+MARK_USED 9zocEab37dZFR6 C56OtABvq7SNBr GRU0Fy7CNgeVbj c2Q6NMkAs1y8nv luyL15rTzqZ3fN

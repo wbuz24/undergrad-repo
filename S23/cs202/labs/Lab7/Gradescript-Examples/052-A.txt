@@ -1,0 +1,43 @@
+PRIZE     dogo         570      3 Club Dogo 12-Month Subscription
+PRIZE     habitat       35    100 Donation to Habitat for Humanity
+PRIZE     hat         2222      2 Ninja Warrior Mount Midoriyama T-Shirt
+PRIZE     plush        600      4 Boca-Cola Plush Polar Bear
+PRIZE     special       35    100 Bronze level donation to Special Olympics
+ADD_USER  AAmmoni63  10315 Ava Ammonia
+ADD_PHONE AAmmoni63  193-426-5721
+ADD_PHONE AAmmoni63  336-696-7798
+ADD_PHONE AAmmoni63  685-190-5437
+ADD_USER  AEmacia26  31002 Ava Emaciate PhD
+ADD_PHONE AEmacia26  641-570-9632
+ADD_USER  AGilber20    270 Allison Gilbertson
+ADD_PHONE AGilber20  605-838-6338
+ADD_USER  BMemora68     33 Brianna Memorable
+ADD_PHONE BMemora68  200-901-7545
+ADD_USER  CAlexan11  31607 Chloe Alexandra Demean
+ADD_PHONE CAlexan11  300-006-2703
+ADD_USER  CPorcel74     83 Claire Porcelain
+ADD_USER  IMathia27     46 Ian Mathias
+ADD_PHONE IMathia27  169-321-6178
+ADD_PHONE IMathia27  205-354-5293
+ADD_PHONE IMathia27  365-424-1985
+ADD_USER  IOften29      11 Isabelle Often
+ADD_PHONE IOften29   423-399-2954
+ADD_USER  JJake58      963 Jordan Jake Cleave
+ADD_PHONE JJake58    022-688-3905
+ADD_PHONE JJake58    896-401-3124
+ADD_USER  KRecurs70   7422 Kylie Recursion
+ADD_PHONE KRecurs70  574-618-4832
+ADD_USER  KShady38    7135 Kate Shady
+ADD_PHONE KShady38   498-766-8985
+ADD_USER  MAdmini14    535 Makayla Administer Esq
+ADD_PHONE MAdmini14  008-783-1442
+ADD_PHONE MAdmini14  563-964-3856
+ADD_PHONE MAdmini14  744-525-3715
+ADD_USER  RAdmixt58     15 Ryan Admixture
+ADD_PHONE RAdmixt58  102-336-2715
+ADD_PHONE RAdmixt58  533-535-7700
+ADD_USER  RCybern30  46148 Riley Cybernetics
+ADD_USER  SPaymas71  30906 Sydney Paymaster
+ADD_PHONE SPaymas71  031-190-8298
+ADD_PHONE SPaymas71  785-459-8334
+MARK_USED 29BGNKi6quNyCi 55vXf2yUWcy2OA B8s5XxIbWHugP2 JaGhSH4hGs7F77 eLh3raWwMBI1lD

@@ -1,0 +1,5 @@
+ADD_USER LStea 3 Lucy Steam
+ADD_USER MCons 40 Matthew Consummate
+DELETE_USER LStea
+ADD_PHONE LStea 264-860-5547
+WRITE f1.txt

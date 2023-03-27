@@ -1,0 +1,44 @@
+PRIZE     cancun     10000      1 All Expense-Paid trip to Cancun
+PRIZE     maze           1     20 Memory Collector Maze Downloadable Game
+PRIZE     ovis          50      3 Ovis Rent a Car Single Upgrade Coupon
+PRIZE     special       35    100 Bronze level donation to Special Olympics
+PRIZE     spinner      750      4 Multi-Function Salad Spinner and Chopper
+ADD_USER  ABen95     35483 Allison Ben PhD
+ADD_PHONE ABen95     219-308-1739
+ADD_PHONE ABen95     259-780-0398
+ADD_USER  ATravel67  21286 Addison Travel PhD
+ADD_PHONE ATravel67  135-580-2322
+ADD_PHONE ATravel67  593-129-9567
+ADD_USER  BLilly25    9886 Brooklyn Lilly Colorimeter
+ADD_USER  BTarzan77    233 Benjamin Tarzan
+ADD_PHONE BTarzan77  273-876-3316
+ADD_PHONE BTarzan77  913-956-0602
+ADD_USER  CLapida21    575 Chloe Lapidary
+ADD_PHONE CLapida21  457-801-3248
+ADD_USER  CSheila65     22 Carter Sheila
+ADD_USER  EGoldfi07     97 Evelyn Goldfinch
+ADD_USER  GFigaro06   2533 Grace Figaro MD
+ADD_PHONE GFigaro06  632-650-5752
+ADD_PHONE GFigaro06  702-386-3089
+ADD_PHONE GFigaro06  981-460-6364
+ADD_USER  IInfini38   6915 Isabella Infinitesimal
+ADD_PHONE IInfini38  000-110-8511
+ADD_USER  JAnna23      599 Julia Anna Subtrahend
+ADD_PHONE JAnna23    513-357-7521
+ADD_PHONE JAnna23    812-874-6481
+ADD_USER  JOffsta97     98 Julian Offstage
+ADD_PHONE JOffsta97  567-228-4597
+ADD_PHONE JOffsta97  629-309-7965
+ADD_USER  KKate08      541 Kate Kate Guidepost
+ADD_PHONE KKate08    003-096-1575
+ADD_PHONE KKate08    685-034-1272
+ADD_PHONE KKate08    821-427-6088
+ADD_USER  LEarmar92     59 Lucas Earmark
+ADD_PHONE LEarmar92  384-872-6008
+ADD_PHONE LEarmar92  620-232-0587
+ADD_PHONE LEarmar92  687-466-6367
+ADD_USER  MOnesel48   1904 Michael Oneself
+ADD_USER  TStave33   24281 Taylor Stave
+ADD_PHONE TStave33   322-353-0531
+ADD_PHONE TStave33   412-382-2434
+MARK_USED NgfmY4Hwt43luz dU10Nas90VnS32 jWh1ykkQm9Hd9E u5aLRi3yKHUUYA vbO69NrAyG9fwj

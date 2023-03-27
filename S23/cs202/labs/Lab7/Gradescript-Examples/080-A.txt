@@ -1,0 +1,46 @@
+PRIZE     cancun     10000      1 All Expense-Paid trip to Cancun
+PRIZE     dogo         570      3 Club Dogo 12-Month Subscription
+PRIZE     plush        600      4 Boca-Cola Plush Polar Bear
+PRIZE     pudget        50      5 pudget Rent A Car Single Upgrade Coupon
+PRIZE     swarokski     75      7 $30 Swarokski Gift Certificate
+ADD_USER  AAmelia39   9429 Addison Amelia
+ADD_PHONE AAmelia39  164-381-8732
+ADD_USER  AGrip89      330 Aaron Grip
+ADD_PHONE AGrip89    120-405-6863
+ADD_PHONE AGrip89    485-002-3735
+ADD_PHONE AGrip89    744-067-4974
+ADD_USER  CJoggle09     40 Cooper Joggle
+ADD_PHONE CJoggle09  385-836-3175
+ADD_USER  EEstran45  37033 Ellie Estrange
+ADD_PHONE EEstran45  293-466-4009
+ADD_PHONE EEstran45  597-825-3886
+ADD_PHONE EEstran45  870-248-0187
+ADD_USER  Gianna28   33288 Gianna
+ADD_PHONE Gianna28   667-137-8757
+ADD_USER  IAshame08      7 Isaiah Ashamed
+ADD_PHONE IAshame08  076-045-6167
+ADD_PHONE IAshame08  446-356-1523
+ADD_PHONE IAshame08  635-557-6117
+ADD_USER  IChimne45    567 Isabella Chimney
+ADD_PHONE IChimne45  096-522-9282
+ADD_PHONE IChimne45  956-535-6036
+ADD_USER  LTyndal58   5075 Lilly Tyndall
+ADD_PHONE LTyndal58  514-863-7043
+ADD_USER  MGarden90    143 Madelyn Garden
+ADD_USER  NCordit76     59 Nathan Cordite
+ADD_PHONE NCordit76  277-171-3512
+ADD_PHONE NCordit76  656-612-2662
+ADD_PHONE NCordit76  768-030-2836
+ADD_USER  RKnelt98   30022 Riley Knelt
+ADD_PHONE RKnelt98   789-214-9001
+ADD_PHONE RKnelt98   812-845-6756
+ADD_USER  SEmma21        0 Sophie Emma
+ADD_USER  TStein74   38065 Thomas Stein
+ADD_PHONE TStein74   090-972-6409
+ADD_PHONE TStein74   421-874-4744
+ADD_PHONE TStein74   873-665-0062
+ADD_USER  VWavele47     74 Victoria Wavelet
+ADD_USER  VWharto50   9135 Victoria Wharton
+ADD_PHONE VWharto50  018-239-3468
+ADD_PHONE VWharto50  391-152-0312
+MARK_USED 8vxaDMIhozh8il B887mTqSpnDvJO FzAddAkMz7Inun Ov1kj7q40DdsPg lXjre2TOgQlGDr

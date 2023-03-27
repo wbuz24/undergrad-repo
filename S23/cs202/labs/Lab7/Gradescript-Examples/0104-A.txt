@@ -1,0 +1,252 @@
+PRIZE     cancun     10000      1 All Expense-Paid trip to Cancun
+PRIZE     dogo         570      3 Club Dogo 12-Month Subscription
+PRIZE     downloads    700      8 10 MP3 Downloads from Babster
+PRIZE     habitat       35    100 Donation to Habitat for Humanity
+PRIZE     ovis          50      3 Ovis Rent a Car Single Upgrade Coupon
+PRIZE     plush        600      4 Boca-Cola Plush Polar Bear
+PRIZE     quest          1     10 Memory Quest Downloadable Game
+PRIZE     rest         500      5 Restaurant Gift Card from E-Restaurants.com
+PRIZE     swarokski     75      7 $30 Swarokski Gift Certificate
+PRIZE     visasweep      1   1000 $500 VISA(r) Gift Card Sweepstakes Entry
+ADD_USER  ACurlew81    446 Andrew Curlew
+ADD_USER  AEater24     881 Anthony Eater
+ADD_PHONE AEater24   597-576-5900
+ADD_USER  AFertil05  11970 Aaron Fertile
+ADD_PHONE AFertil05  366-218-0109
+ADD_PHONE AFertil05  800-141-4632
+ADD_USER  AGillig48   1318 Anna Gilligan
+ADD_PHONE AGillig48  065-772-0833
+ADD_PHONE AGillig48  639-380-9415
+ADD_USER  AIslama74     90 Avery Islamabad
+ADD_USER  AIsrael30      1 Aaron Israel
+ADD_PHONE AIsrael30  475-662-5091
+ADD_PHONE AIsrael30  701-728-8793
+ADD_PHONE AIsrael30  815-020-3082
+ADD_USER  AKnuckl28  11183 Andrew Knuckleball
+ADD_USER  AMilita47  28218 Aidan Militant
+ADD_PHONE AMilita47  067-618-2168
+ADD_PHONE AMilita47  554-863-7216
+ADD_PHONE AMilita47  609-919-3312
+ADD_USER  AMuggy56       5 Amelia Muggy
+ADD_PHONE AMuggy56   360-903-7778
+ADD_USER  AObserv27     12 Aubrey Observation
+ADD_PHONE AObserv27  686-009-9912
+ADD_USER  AOrin75      555 Aiden Orin
+ADD_PHONE AOrin75    089-624-5788
+ADD_PHONE AOrin75    739-831-2269
+ADD_USER  AReub64       72 Adam Reub
+ADD_USER  ASedime99     85 Avery Sedimentation
+ADD_PHONE ASedime99  875-584-3610
+ADD_USER  ASilver34  45769 Aubrey Silvery
+ADD_PHONE ASilver34  262-109-2634
+ADD_USER  ASubmit74  39853 Andrew Submitting
+ADD_USER  BAbando09    675 Brayden Abandon
+ADD_USER  BDigest34  29915 Benjamin Digestion
+ADD_PHONE BDigest34  423-867-2568
+ADD_PHONE BDigest34  683-836-6536
+ADD_PHONE BDigest34  891-824-0549
+ADD_USER  BHeires81   4696 Blake Heiress
+ADD_PHONE BHeires81  117-898-8236
+ADD_PHONE BHeires81  435-888-8209
+ADD_USER  BStinkp00     30 Brody Stinkpot
+ADD_PHONE BStinkp00  515-386-4895
+ADD_PHONE BStinkp00  672-835-3260
+ADD_USER  Brandon10    260 Brandon
+ADD_USER  CAdjoin26     49 Cole Adjoin
+ADD_PHONE CAdjoin26  035-299-8067
+ADD_PHONE CAdjoin26  139-043-2291
+ADD_PHONE CAdjoin26  873-203-7533
+ADD_USER  CBelle22     831 Carter Belle III
+ADD_PHONE CBelle22   039-525-0884
+ADD_PHONE CBelle22   448-800-3075
+ADD_PHONE CBelle22   535-979-6554
+ADD_USER  CCarter73   1001 Chase Carter Edit
+ADD_USER  CClothe33  24878 Carson Clothesmen
+ADD_USER  CDavis38    4437 Christian Davis
+ADD_PHONE CDavis38   748-450-8574
+ADD_PHONE CDavis38   851-535-6300
+ADD_USER  CFreer73   44802 Connor Freer
+ADD_PHONE CFreer73   266-099-0993
+ADD_USER  CHerpes26  22683 Cooper Herpes
+ADD_USER  CHunter85    522 Cole Hunter Impenetrable Jr
+ADD_PHONE CHunter85  873-570-6893
+ADD_PHONE CHunter85  952-122-7868
+ADD_USER  CIcon17     6158 Chase Icon
+ADD_USER  CIndeed95   8785 Chase Indeed
+ADD_USER  CPinbal21  40614 Cameron Pinball
+ADD_USER  CShill07    9748 Cameron Shill
+ADD_PHONE CShill07   060-879-2837
+ADD_PHONE CShill07   578-016-9316
+ADD_USER  CToefl86    2967 Chloe Toefl
+ADD_USER  CVagran74    191 Chloe Vagrant
+ADD_USER  CWeep60    19474 Charlotte Weep
+ADD_USER  CWhomso20     40 Cole Whomsoever
+ADD_PHONE CWhomso20  245-769-3515
+ADD_PHONE CWhomso20  764-834-5394
+ADD_USER  DGilber88     59 Dylan Gilbertson
+ADD_PHONE DGilber88  404-700-0582
+ADD_USER  DHonora98  27151 Dylan Honorarium MD
+ADD_USER  DYachts22     33 Dylan Yachtsman
+ADD_PHONE DYachts22  800-958-4277
+ADD_USER  EDonton84     56 Evan Dontonio Run
+ADD_PHONE EDonton84  132-506-9655
+ADD_PHONE EDonton84  154-833-8624
+ADD_PHONE EDonton84  304-179-6529
+ADD_USER  GBuffal93     96 Gavin Buffalo
+ADD_PHONE GBuffal93  057-552-8460
+ADD_PHONE GBuffal93  274-656-9337
+ADD_USER  HEnterp97   2729 Henry Enterprise
+ADD_PHONE HEnterp97  960-659-0215
+ADD_USER  HHobble38     68 Hailey Hobble
+ADD_PHONE HHobble38  975-106-3486
+ADD_PHONE HHobble38  978-476-8008
+ADD_USER  HStickl99     14 Hailey Stickleback
+ADD_PHONE HStickl99  034-636-4336
+ADD_PHONE HStickl99  202-183-1060
+ADD_PHONE HStickl99  639-500-3902
+ADD_USER  HUsable62    941 Hailey Usable
+ADD_PHONE HUsable62  049-310-4295
+ADD_PHONE HUsable62  569-539-8879
+ADD_PHONE HUsable62  981-011-7747
+ADD_USER  IBlueba51     84 Isaiah Blueback
+ADD_PHONE IBlueba51  955-753-4654
+ADD_USER  ILacuna92  45510 Isabella Lacuna
+ADD_PHONE ILacuna92  171-743-7081
+ADD_USER  IMcmaho86  48188 Isaiah Mcmahon
+ADD_PHONE IMcmaho86  175-476-7173
+ADD_PHONE IMcmaho86  432-951-3994
+ADD_USER  JBarrac60     66 Jordan Barracuda MD
+ADD_PHONE JBarrac60  192-864-6422
+ADD_PHONE JBarrac60  357-722-5034
+ADD_PHONE JBarrac60  797-061-0264
+ADD_USER  JCosy98     7455 Jake Cosy
+ADD_PHONE JCosy98    043-152-2522
+ADD_PHONE JCosy98    095-912-2124
+ADD_PHONE JCosy98    271-481-0796
+ADD_USER  JDizzy32   40207 Joseph Dizzy
+ADD_PHONE JDizzy32   126-337-2116
+ADD_USER  JExecut42  42310 Jacob Execution III
+ADD_USER  JFlorid08     10 Julian Floridian
+ADD_PHONE JFlorid08  177-531-2934
+ADD_PHONE JFlorid08  298-744-0142
+ADD_PHONE JFlorid08  661-553-7526
+ADD_USER  JFurlon41  12845 James Furlong
+ADD_PHONE JFurlon41  329-703-9614
+ADD_PHONE JFurlon41  714-242-3120
+ADD_USER  JInstan20    207 Jake Instance
+ADD_USER  JKnown33    3155 Julian Known
+ADD_USER  JLucas95      48 Jackson Lucas Pupil
+ADD_PHONE JLucas95   252-945-8823
+ADD_USER  JNaval68     482 Joseph Naval
+ADD_PHONE JNaval68   955-721-0802
+ADD_USER  JPropri14     87 Jake Proprietor
+ADD_PHONE JPropri14  908-779-8084
+ADD_PHONE JPropri14  916-552-9716
+ADD_USER  JWac42        68 Julian Wac
+ADD_USER  KAbater37    922 Kayla Abater
+ADD_PHONE KAbater37  817-779-0216
+ADD_USER  KLunar37     358 Kaylee Lunar
+ADD_PHONE KLunar37   645-494-2760
+ADD_USER  LBanter71    695 Luke Banter
+ADD_PHONE LBanter71  081-455-2802
+ADD_PHONE LBanter71  721-470-9360
+ADD_PHONE LBanter71  732-272-8398
+ADD_USER  LCliff20   41477 Luke Cliff
+ADD_USER  LJack68       34 Landon Jack Recuse
+ADD_PHONE LJack68    292-448-0643
+ADD_USER  LShrill15   8792 Liam Shrilly
+ADD_PHONE LShrill15  083-758-2224
+ADD_PHONE LShrill15  296-161-1669
+ADD_PHONE LShrill15  621-579-0081
+ADD_USER  LTriple51    783 Lauren Triple
+ADD_PHONE LTriple51  422-707-3857
+ADD_PHONE LTriple51  767-181-7813
+ADD_USER  LYardag71   3933 Liam Yardage
+ADD_PHONE LYardag71  710-566-0411
+ADD_USER  MGag45      1249 Madelyn Gag
+ADD_PHONE MGag45     091-027-3032
+ADD_PHONE MGag45     394-917-2733
+ADD_PHONE MGag45     534-612-5414
+ADD_USER  MLatex26    7392 Mia Latex
+ADD_USER  MLaxati12  14945 Makayla Laxative
+ADD_USER  MMoistu14  37773 Mason Moisture
+ADD_PHONE MMoistu14  792-713-5774
+ADD_PHONE MMoistu14  798-068-3538
+ADD_PHONE MMoistu14  879-310-1137
+ADD_USER  MPearls42  45043 Mia Pearlstone
+ADD_PHONE MPearls42  504-573-8760
+ADD_PHONE MPearls42  515-592-1360
+ADD_PHONE MPearls42  690-346-4791
+ADD_USER  MScotti89    104 Mia Scottish
+ADD_PHONE MScotti89  457-569-3535
+ADD_PHONE MScotti89  535-769-3067
+ADD_PHONE MScotti89  545-850-5870
+ADD_USER  MSinuso02   5106 Mia Sinusoidal
+ADD_PHONE MSinuso02  619-865-8501
+ADD_PHONE MSinuso02  906-187-1524
+ADD_PHONE MSinuso02  993-863-7168
+ADD_USER  NAnimad83     18 Nathan Animadversion
+ADD_USER  NMycena97     98 Natalie Mycenae
+ADD_PHONE NMycena97  577-452-5431
+ADD_PHONE NMycena97  608-992-7508
+ADD_USER  OMedioc58  24511 Owen Mediocre
+ADD_PHONE OMedioc58  713-025-9314
+ADD_USER  PServit74  21376 Paige Servitor
+ADD_PHONE PServit74  238-112-7198
+ADD_PHONE PServit74  783-934-6482
+ADD_USER  RAny86        63 Ryan Any
+ADD_PHONE RAny86     565-626-9969
+ADD_USER  RDragoo23  47942 Riley Dragoon
+ADD_USER  RSophia73  34877 Riley Sophia Teach
+ADD_USER  SBestia07   1006 Samantha Bestial
+ADD_PHONE SBestia07  340-504-0085
+ADD_PHONE SBestia07  419-630-9161
+ADD_PHONE SBestia07  776-821-9582
+ADD_USER  SBundes35   8862 Sydney Bundestag
+ADD_PHONE SBundes35  005-285-3348
+ADD_USER  SIsotop65   1579 Samantha Isotopic
+ADD_PHONE SIsotop65  265-395-4044
+ADD_PHONE SIsotop65  325-656-4983
+ADD_USER  SMontra47    746 Sophia Montrachet
+ADD_PHONE SMontra47  215-469-3736
+ADD_PHONE SMontra47  463-591-4548
+ADD_USER  SMuch09     7307 Samuel Much PhD
+ADD_PHONE SMuch09    666-010-4029
+ADD_USER  SSchwei74      1 Sophia Schweitzer
+ADD_PHONE SSchwei74  416-284-8469
+ADD_USER  SSofia13    9526 Sofia Sofia Mary
+ADD_PHONE SSofia13   395-590-8165
+ADD_PHONE SSofia13   583-336-3802
+ADD_USER  TAlumnu86  29826 Thomas Alumnus
+ADD_USER  TBaccar36     83 Tyler Baccarat
+ADD_PHONE TBaccar36  652-608-2180
+ADD_PHONE TBaccar36  683-868-4676
+ADD_PHONE TBaccar36  751-923-8279
+ADD_USER  TCape38     9382 Tyler Cape
+ADD_PHONE TCape38    628-592-3082
+ADD_PHONE TCape38    863-135-2223
+ADD_USER  TCitroe60   8982 Taylor Citroen
+ADD_PHONE TCitroe60  595-265-9662
+ADD_USER  TWoodbu58  38349 Thomas Woodbury
+ADD_PHONE TWoodbu58  338-202-0201
+ADD_PHONE TWoodbu58  943-006-7642
+ADD_USER  VElves73    8656 Victoria Elves
+ADD_PHONE VElves73   315-171-6957
+ADD_PHONE VElves73   453-012-4249
+ADD_PHONE VElves73   587-502-5658
+ADD_USER  XWaxen93     573 Xavier Waxen
+ADD_USER  ZCaroli07     47 Zoe Caroline Declaim
+ADD_PHONE ZCaroli07  581-619-7761
+ADD_PHONE ZCaroli07  614-571-3146
+ADD_PHONE ZCaroli07  701-171-2600
+ADD_USER  ZDishev76      1 Zoe Dishevel
+ADD_PHONE ZDishev76  545-831-0172
+ADD_PHONE ZDishev76  575-044-6139
+ADD_PHONE ZDishev76  665-046-6956
+ADD_USER  ZServil44   4431 Zachary Servile
+ADD_USER  ZSolips60  45920 Zachary Solipsism
+ADD_PHONE ZSolips60  542-467-8307
+MARK_USED 1u7RXfG9421J8n 2tAWXYQjAlof5t 2zZSPXOXyoulVW 36IetRSuCQoPFi 5guJeKDNMuG5dY Ft3uqSF1sJUk3E HSrcxR68ioasEu IqzLpp2Kg7nWd7
+MARK_USED JngxFs8350YUgM Nh40dQgwBvEbPl QOF9RNFBc7VCGP T50jfL0Marjbac VihUVe5gpKmSjJ WaeWvGRq1j2C0s YXRqJeWUaPJW7S Yk6aU9v9GsRnbE
+MARK_USED cqmghE71SHQkrF dSUVetyNlVQmig fdUhJGYYkl3nXs hUHGHnTAbt27I6 iDaxUl8JtpHN4l nfqxWyIgMjOtkz qnVcgKaoonZNDj rOKag9L4RfCGtD
+MARK_USED rPn0xSm08781D1 sLDQvGcHxSQBBf tbHhJ9EE3CAv7x tkDwXTAbWQ85H7 uRLoKLTszOIUnv wgi2IhPv7XaIEl

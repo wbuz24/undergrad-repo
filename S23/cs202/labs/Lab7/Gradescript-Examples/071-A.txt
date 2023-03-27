@@ -1,0 +1,35 @@
+PRIZE     habitat       35    100 Donation to Habitat for Humanity
+PRIZE     hat         2222      2 Ninja Warrior Mount Midoriyama T-Shirt
+PRIZE     rest         500      5 Restaurant Gift Card from E-Restaurants.com
+PRIZE     spinner      750      4 Multi-Function Salad Spinner and Chopper
+PRIZE     swarokski     75      7 $30 Swarokski Gift Certificate
+ADD_USER  ANeedha26    893 Abigail Needham
+ADD_USER  BSacrif06   1756 Bailey Sacrifice
+ADD_USER  CEpiphy34  14053 Chase Epiphysis
+ADD_USER  CWillia90     37 Charlie William Troubleshoot
+ADD_USER  JBrayde14      3 Jayden Brayden Gurkha
+ADD_PHONE JBrayde14  122-634-9228
+ADD_USER  JResili55     44 Jonathan Resilient
+ADD_PHONE JResili55  066-737-1733
+ADD_PHONE JResili55  231-702-6821
+ADD_USER  JSaturn71    277 Jacob Saturn
+ADD_USER  MAchill27    738 Matthew Achilles
+ADD_PHONE MAchill27  564-494-5535
+ADD_PHONE MAchill27  659-501-5911
+ADD_USER  MCausti77   9740 Morgan Caustic
+ADD_PHONE MCausti77  013-702-1040
+ADD_USER  MKately03      3 Molly Katelyn Probe MD
+ADD_PHONE MKately03  257-060-1561
+ADD_PHONE MKately03  985-226-4427
+ADD_USER  OSidelo92   3832 Olivia Sidelong
+ADD_PHONE OSidelo92  203-922-2888
+ADD_PHONE OSidelo92  508-166-1654
+ADD_PHONE OSidelo92  744-793-9612
+ADD_USER  PPapaw21    5373 Parker Papaw
+ADD_PHONE PPapaw21   612-302-7924
+ADD_USER  RSoleci57  40924 Ryan Solecism
+ADD_PHONE RSoleci57  498-519-4117
+ADD_PHONE RSoleci57  974-303-3557
+ADD_USER  TRole53     6575 Tyler Role
+ADD_USER  WBoatho72    577 William Boathouse
+MARK_USED SG76RnAXi9g88T STZsib0pgfmYxt d1Ya8EtUuCzZ6P trdLSr155GmawU wdsGmnfZdE92H0

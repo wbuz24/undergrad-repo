@@ -1,0 +1,5 @@
+ADD_USER APetr 27 Audrey Petroleum
+ADD_USER DConf 8 David Confine
+ADD_USER SLoud 45 Samantha Loudspeaking
+DELETE_USER Binky
+WRITE f1.txt

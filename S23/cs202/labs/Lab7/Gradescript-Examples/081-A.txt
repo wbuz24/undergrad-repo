@@ -1,0 +1,42 @@
+PRIZE     downloads    700      8 10 MP3 Downloads from Babster
+PRIZE     maze           1     20 Memory Collector Maze Downloadable Game
+PRIZE     plush        600      4 Boca-Cola Plush Polar Bear
+PRIZE     silver      1100      2 Two DMC Theatres Silver Experience movie tickets
+PRIZE     spinner      750      4 Multi-Function Salad Spinner and Chopper
+ADD_USER  ACannon70     60 Alexandra Cannonball
+ADD_PHONE ACannon70  477-052-5189
+ADD_PHONE ACannon70  699-748-1470
+ADD_PHONE ACannon70  781-891-4055
+ADD_USER  ALivre20     701 Aiden Livre
+ADD_PHONE ALivre20   187-115-6829
+ADD_PHONE ALivre20   541-531-2177
+ADD_PHONE ALivre20   730-724-5466
+ADD_USER  CGalact94     30 Connor Galactose
+ADD_PHONE CGalact94  750-943-2587
+ADD_PHONE CGalact94  896-446-9517
+ADD_USER  GBobbie53  39815 Gianna Bobbie
+ADD_PHONE GBobbie53  221-146-5541
+ADD_PHONE GBobbie53  266-375-3614
+ADD_PHONE GBobbie53  419-143-8018
+ADD_USER  HCornel19    301 Hailey Cornell
+ADD_USER  INative08  47578 Isabelle Native
+ADD_PHONE INative08  726-727-2842
+ADD_PHONE INative08  747-321-9136
+ADD_USER  JAlgonq86  25260 James Algonquin
+ADD_PHONE JAlgonq86  038-979-4047
+ADD_USER  KDonate17     93 Kaitlyn Donate
+ADD_USER  KMadely21   9899 Kayla Madelyn Reverberate
+ADD_PHONE KMadely21  486-859-5690
+ADD_PHONE KMadely21  810-710-6007
+ADD_USER  KMastur15    876 Kylie Masturbate
+ADD_PHONE KMastur15  342-737-3109
+ADD_PHONE KMastur15  852-909-4165
+ADD_USER  MOpulen60  40700 Mia Opulent
+ADD_USER  PCoset29   32615 Paige Coset
+ADD_PHONE PCoset29   106-829-7578
+ADD_PHONE PCoset29   648-216-6056
+ADD_USER  SJulio05    9622 Samantha Julio
+ADD_USER  SRerout17   4806 Sydney Rerouted
+ADD_USER  STodd38        0 Sophia Todd
+ADD_PHONE STodd38    115-464-8082
+MARK_USED 14uhUfHC58Cv1G AVdfd0axNUfRLk M3Y1AArwlJHydA dGB3vqYst4EPMO izHLhnnQzWucN7

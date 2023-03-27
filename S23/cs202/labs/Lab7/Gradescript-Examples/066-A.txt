@@ -1,0 +1,48 @@
+PRIZE     dogo         570      3 Club Dogo 12-Month Subscription
+PRIZE     habitat       35    100 Donation to Habitat for Humanity
+PRIZE     pudget        50      5 pudget Rent A Car Single Upgrade Coupon
+PRIZE     rest         500      5 Restaurant Gift Card from E-Restaurants.com
+PRIZE     spinner      750      4 Multi-Function Salad Spinner and Chopper
+ADD_USER  ABatt51     3570 Austin Batt
+ADD_USER  CDrape79     708 Cole Drape
+ADD_PHONE CDrape79   176-327-0812
+ADD_PHONE CDrape79   231-171-5963
+ADD_USER  CHorsed07   1115 Cooper Horsedom PhD
+ADD_PHONE CHorsed07  560-312-9865
+ADD_USER  GTampa99      17 Gabriel Tampa
+ADD_PHONE GTampa99   925-919-6300
+ADD_USER  LDavid62    5223 Lucas David Alert
+ADD_PHONE LDavid62   405-402-2813
+ADD_USER  LIsochr69    194 Lily Isochronous
+ADD_PHONE LIsochr69  117-496-4001
+ADD_PHONE LIsochr69  143-961-3162
+ADD_PHONE LIsochr69  348-188-6313
+ADD_USER  MAggrie65   8766 Morgan Aggrieve
+ADD_PHONE MAggrie65  871-486-6422
+ADD_USER  MCavine08     94 Madelyn Caviness
+ADD_PHONE MCavine08  242-012-2085
+ADD_PHONE MCavine08  251-055-4048
+ADD_PHONE MCavine08  518-672-0905
+ADD_USER  MInvoca79    197 Morgan Invocate
+ADD_PHONE MInvoca79  422-672-0774
+ADD_PHONE MInvoca79  984-881-2991
+ADD_USER  MRangy60    5438 Madelyn Rangy
+ADD_PHONE MRangy60   043-258-4174
+ADD_PHONE MRangy60   837-163-2127
+ADD_USER  NChat04     5496 Noah Chat
+ADD_PHONE NChat04    118-462-9672
+ADD_PHONE NChat04    410-477-7191
+ADD_PHONE NChat04    524-075-4023
+ADD_USER  RDefend26    615 Ryan Defend
+ADD_PHONE RDefend26  377-387-7454
+ADD_PHONE RDefend26  427-464-4408
+ADD_PHONE RDefend26  564-003-6638
+ADD_USER  SSandia10   6170 Sydney Sandia
+ADD_PHONE SSandia10  641-510-5065
+ADD_PHONE SSandia10  887-768-5164
+ADD_USER  SStuff24      93 Sofia Stuff
+ADD_PHONE SStuff24   390-341-9957
+ADD_PHONE SStuff24   407-207-1414
+ADD_PHONE SStuff24   919-776-6880
+ADD_USER  WLandon66  41508 Wyatt Landon Muscle
+MARK_USED UH8RkIMpcWkDNv a55YMMkLEEA3Bf aD0JKm9iTSUGtU ogn83tHDJ70k8y wZwDPhF8UoLtgp

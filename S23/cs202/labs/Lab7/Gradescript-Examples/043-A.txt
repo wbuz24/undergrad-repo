@@ -1,0 +1,40 @@
+PRIZE     cancun     10000      1 All Expense-Paid trip to Cancun
+PRIZE     dogo         570      3 Club Dogo 12-Month Subscription
+PRIZE     maze           1     20 Memory Collector Maze Downloadable Game
+PRIZE     ovis          50      3 Ovis Rent a Car Single Upgrade Coupon
+PRIZE     quest          1     10 Memory Quest Downloadable Game
+PRIZE     rest         500      5 Restaurant Gift Card from E-Restaurants.com
+PRIZE     special       35    100 Bronze level donation to Special Olympics
+PRIZE     spinner      750      4 Multi-Function Salad Spinner and Chopper
+PRIZE     swarokski     75      7 $30 Swarokski Gift Certificate
+PRIZE     visasweep      1   1000 $500 VISA(r) Gift Card Sweepstakes Entry
+ADD_USER  BUpswin21    946 Brody Upswing
+ADD_PHONE BUpswin21  849-585-5438
+ADD_USER  DMbaban81   5339 David Mbabane
+ADD_PHONE DMbaban81  715-389-7074
+ADD_PHONE DMbaban81  913-053-1281
+ADD_USER  HLoquat33   4781 Hunter Loquat
+ADD_PHONE HLoquat33  068-061-8502
+ADD_PHONE HLoquat33  328-618-0511
+ADD_PHONE HLoquat33  846-628-8611
+ADD_USER  JGregg34      55 Jordan Gregg
+ADD_PHONE JGregg34   495-600-1475
+ADD_PHONE JGregg34   774-519-4106
+ADD_USER  KInsult37  33079 Katelyn Insult
+ADD_PHONE KInsult37  118-345-1453
+ADD_PHONE KInsult37  124-321-3966
+ADD_USER  LInane40   11889 Lilly Inane
+ADD_PHONE LInane40   112-363-7115
+ADD_USER  LSpectr00     22 Lauren Spectrography
+ADD_PHONE LSpectr00  726-750-9365
+ADD_PHONE LSpectr00  956-189-5028
+ADD_USER  MKetchu83    368 Makayla Ketchup
+ADD_PHONE MKetchu83  951-857-5126
+ADD_PHONE MKetchu83  986-176-2804
+ADD_USER  RLucas44     694 Ryan Lucas Mawr IV
+ADD_PHONE RLucas44   967-947-0479
+ADD_USER  SWorklo41     59 Savannah Workload
+ADD_PHONE SWorklo41  206-223-6704
+ADD_PHONE SWorklo41  844-383-7860
+MARK_USED 2KheE55aStjlbL 2cSaWBsfczGmYf 9uQod6Ib1HtJJh HryrQinpxbJPk5 Mrfu188n7Jfcpb lMrlT3EuTmaXFs riWeSP4mNfFzB9 tGtxBASsPA0hrT
+MARK_USED uM6oEsKFfKBTUA zd9KwyXFvIsJn9

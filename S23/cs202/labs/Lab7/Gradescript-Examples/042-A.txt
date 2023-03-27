@@ -1,0 +1,32 @@
+PRIZE     cancun     10000      1 All Expense-Paid trip to Cancun
+PRIZE     habitat       35    100 Donation to Habitat for Humanity
+PRIZE     hat         2222      2 Ninja Warrior Mount Midoriyama T-Shirt
+PRIZE     plush        600      4 Boca-Cola Plush Polar Bear
+PRIZE     pudget        50      5 pudget Rent A Car Single Upgrade Coupon
+PRIZE     quest          1     10 Memory Quest Downloadable Game
+PRIZE     rest         500      5 Restaurant Gift Card from E-Restaurants.com
+PRIZE     silver      1100      2 Two DMC Theatres Silver Experience movie tickets
+PRIZE     special       35    100 Bronze level donation to Special Olympics
+PRIZE     spinner      750      4 Multi-Function Salad Spinner and Chopper
+ADD_USER  AEnmity20   2420 Adam Enmity Esq
+ADD_PHONE AEnmity20  723-690-1862
+ADD_PHONE AEnmity20  742-678-4678
+ADD_PHONE AEnmity20  853-775-6442
+ADD_USER  APtolem84    398 Ava Ptolemaic
+ADD_USER  ARagwee93     62 Alexander Ragweed
+ADD_USER  CTenth67   35766 Christopher Tenth
+ADD_PHONE CTenth67   132-509-9311
+ADD_PHONE CTenth67   781-998-6561
+ADD_USER  DTrimer07    271 Daniel Trimer
+ADD_USER  HInsign79     26 Hunter Insignia Jr
+ADD_PHONE HInsign79  191-902-0689
+ADD_PHONE HInsign79  941-810-5103
+ADD_USER  KMiser70       8 Kaitlyn Miser
+ADD_PHONE KMiser70   663-156-4592
+ADD_PHONE KMiser70   670-826-9317
+ADD_USER  NAbnorm38   9220 Natalie Abnormal PhD
+ADD_USER  PHorizo38     40 Parker Horizontal IV
+ADD_USER  TDamasc59   4959 Tyler Damascus
+ADD_PHONE TDamasc59  401-605-0366
+MARK_USED 4S6CIJq0KE5Nmw 700oHuADkTjjFi Dbf2OBNwO6ho8F FL9LQp9IMsgK8E IXvaZdzfKe8Efl QkFbAV8w139liY ViusddUNNwAScW llVCMrw3zH9K2J
+MARK_USED miYH56DH4nKzS3 vrXLfMk6c3HFav

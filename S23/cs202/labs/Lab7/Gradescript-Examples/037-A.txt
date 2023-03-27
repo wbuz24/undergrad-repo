@@ -1,0 +1,34 @@
+PRIZE     cancun     10000      1 All Expense-Paid trip to Cancun
+PRIZE     downloads    700      8 10 MP3 Downloads from Babster
+PRIZE     maze           1     20 Memory Collector Maze Downloadable Game
+PRIZE     ovis          50      3 Ovis Rent a Car Single Upgrade Coupon
+PRIZE     quest          1     10 Memory Quest Downloadable Game
+PRIZE     rest         500      5 Restaurant Gift Card from E-Restaurants.com
+PRIZE     silver      1100      2 Two DMC Theatres Silver Experience movie tickets
+PRIZE     special       35    100 Bronze level donation to Special Olympics
+PRIZE     spinner      750      4 Multi-Function Salad Spinner and Chopper
+PRIZE     visasweep      1   1000 $500 VISA(r) Gift Card Sweepstakes Entry
+ADD_USER  ABaxter79   7858 Alyssa Baxter
+ADD_PHONE ABaxter79  052-556-9222
+ADD_PHONE ABaxter79  267-552-3857
+ADD_USER  ARoar42       57 Alyssa Roar
+ADD_PHONE ARoar42    359-925-3942
+ADD_USER  BConnor41     22 Blake Connor Confidant
+ADD_USER  BInequi82  29923 Brooke Inequitable
+ADD_USER  CVein59      794 Charlie Vein
+ADD_PHONE CVein59    592-746-2122
+ADD_USER  KFreddy18     51 Kayla Freddy
+ADD_PHONE KFreddy18  753-217-4072
+ADD_USER  KGneiss05  34013 Kate Gneiss
+ADD_PHONE KGneiss05  111-285-3793
+ADD_PHONE KGneiss05  555-924-4958
+ADD_USER  MBeechw30   5421 Morgan Beechwood
+ADD_PHONE MBeechw30  152-560-7346
+ADD_PHONE MBeechw30  748-167-8201
+ADD_USER  NNathan64  15349 Nicholas Nathan Oligarchy
+ADD_PHONE NNathan64  452-063-0031
+ADD_USER  PBoon07    43272 Peyton Boon
+ADD_PHONE PBoon07    050-406-7212
+ADD_PHONE PBoon07    760-162-7668
+MARK_USED 3DFBbo3mwlfiaw 4x2iUBDePneFBS B2hXs3KvdijqPT I77YfgcDTMBej1 NCAAQaFSssNxa4 OjVq40M7ac2DH3 Op00cAUdJYayc8 a8P8ekwMLvFhWd
+MARK_USED mtHREwN0fDnJDu pEzMgZSEeYGWW7

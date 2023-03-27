@@ -1,0 +1,47 @@
+PRIZE     cancun     10000      1 All Expense-Paid trip to Cancun
+PRIZE     hat         2222      2 Ninja Warrior Mount Midoriyama T-Shirt
+PRIZE     ovis          50      3 Ovis Rent a Car Single Upgrade Coupon
+PRIZE     silver      1100      2 Two DMC Theatres Silver Experience movie tickets
+PRIZE     spinner      750      4 Multi-Function Salad Spinner and Chopper
+ADD_USER  ABourbo28    949 Aidan Bourbon MD
+ADD_PHONE ABourbo28  435-163-0301
+ADD_PHONE ABourbo28  570-972-7658
+ADD_PHONE ABourbo28  941-027-5185
+ADD_USER  CBloods76  14671 Cameron Bloodstone
+ADD_PHONE CBloods76  397-867-9247
+ADD_PHONE CBloods76  942-413-0314
+ADD_USER  CChantr14  20580 Chloe Chantry
+ADD_PHONE CChantr14  499-362-0610
+ADD_PHONE CChantr14  685-182-6567
+ADD_PHONE CChantr14  897-192-3670
+ADD_USER  DDiscre26   3413 David Discreet
+ADD_PHONE DDiscre26  797-299-4088
+ADD_PHONE DDiscre26  959-429-3043
+ADD_USER  ISeafar33     62 Isaac Seafare
+ADD_PHONE ISeafar33  418-098-9782
+ADD_PHONE ISeafar33  442-218-0091
+ADD_PHONE ISeafar33  516-918-1899
+ADD_USER  JTwine66     489 Jonathan Twine
+ADD_PHONE JTwine66   061-514-5064
+ADD_PHONE JTwine66   759-833-1773
+ADD_PHONE JTwine66   968-336-7690
+ADD_USER  LAileen39   2961 Lilly Aileen
+ADD_PHONE LAileen39  554-930-3429
+ADD_USER  LHardin86  18746 Lillian Hardin
+ADD_PHONE LHardin86  844-942-2989
+ADD_USER  LLucas19     515 Logan Lucas Lanthanide
+ADD_PHONE LLucas19   453-395-3008
+ADD_USER  LLucas66     773 Landon Lucas Gunman
+ADD_PHONE LLucas66   397-982-9710
+ADD_USER  MEasy26      625 Molly Easy
+ADD_PHONE MEasy26    017-248-4877
+ADD_PHONE MEasy26    585-462-7395
+ADD_PHONE MEasy26    745-463-9072
+ADD_USER  OJudici65   6086 Oliver Judicial
+ADD_USER  SAnna54      988 Savannah Anna Leapfrog
+ADD_PHONE SAnna54    228-172-6674
+ADD_PHONE SAnna54    523-756-4620
+ADD_USER  SAntiet23    325 Sofia Antietam
+ADD_USER  SDisc28     6259 Samantha Disc
+ADD_PHONE SDisc28    851-412-7262
+MARK_USED 0BS8uODGXhqymH HVanDqTbHolo1b O0gbc4cu7IyIEl VGuudtRaApG9uZ szxhUSV853YghY

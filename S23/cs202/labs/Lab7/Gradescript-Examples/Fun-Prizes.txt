@@ -1,0 +1,16 @@
+PRIZE maze 1 20 Memory Collector Maze Downloadable Game
+PRIZE quest 1 10 Memory Quest Downloadable Game
+PRIZE visasweep 1 1000 $500 VISA(r) Gift Card Sweepstakes Entry
+PRIZE habitat 35 100 Donation to Habitat for Humanity
+PRIZE special 35 100 Bronze level donation to Special Olympics
+PRIZE pudget 50 5 pudget Rent A Car Single Upgrade Coupon
+PRIZE ovis 50 3 Ovis Rent a Car Single Upgrade Coupon
+PRIZE swarokski 75 7 $30 Swarokski Gift Certificate
+PRIZE silver 1100 2 Two DMC Theatres Silver Experience movie tickets
+PRIZE plush 600 4 Boca-Cola Plush Polar Bear
+PRIZE hat 2222 2 Ninja Warrior Mount Midoriyama T-Shirt
+PRIZE rest 500 5 Restaurant Gift Card from E-Restaurants.com
+PRIZE dogo 570 3 Club Dogo 12-Month Subscription
+PRIZE spinner 750 4 Multi-Function Salad Spinner and Chopper
+PRIZE downloads 700 8 10 MP3 Downloads from Babster
+PRIZE cancun 10000 1 All Expense-Paid trip to Cancun

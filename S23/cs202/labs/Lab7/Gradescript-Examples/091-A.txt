@@ -1,0 +1,48 @@
+PRIZE     quest          1     10 Memory Quest Downloadable Game
+PRIZE     rest         500      5 Restaurant Gift Card from E-Restaurants.com
+PRIZE     silver      1100      2 Two DMC Theatres Silver Experience movie tickets
+PRIZE     spinner      750      4 Multi-Function Salad Spinner and Chopper
+PRIZE     swarokski     75      7 $30 Swarokski Gift Certificate
+ADD_USER  ADeus31    47698 Alyssa Deus
+ADD_PHONE ADeus31    065-403-8563
+ADD_PHONE ADeus31    123-309-1106
+ADD_PHONE ADeus31    275-876-5088
+ADD_USER  AElla81      136 Alexis Ella Valiant
+ADD_USER  ASeagra10      6 Ava Seagram
+ADD_PHONE ASeagra10  494-151-1046
+ADD_PHONE ASeagra10  664-557-3079
+ADD_USER  ASlippa00   4001 Arianna Slippage
+ADD_PHONE ASlippa00  116-632-6160
+ADD_PHONE ASlippa00  361-654-9237
+ADD_PHONE ASlippa00  407-574-5423
+ADD_USER  BLily96       64 Bailey Lily Absenteeism
+ADD_PHONE BLily96    294-749-4987
+ADD_PHONE BLily96    423-175-3030
+ADD_USER  CDavit53      76 Christian Davit
+ADD_PHONE CDavit53   040-604-5999
+ADD_PHONE CDavit53   647-098-1128
+ADD_PHONE CDavit53   983-383-6531
+ADD_USER  GOsprey83    144 Gavin Osprey
+ADD_PHONE GOsprey83  808-055-7847
+ADD_USER  LGoode83     167 Landon Goode
+ADD_PHONE LGoode83   561-277-2887
+ADD_PHONE LGoode83   594-639-2410
+ADD_USER  LMiliti14   2512 Lucy Militiamen
+ADD_PHONE LMiliti14  180-657-1001
+ADD_USER  OSecret71     10 Oliver Secrete
+ADD_PHONE OSecret71  449-902-0241
+ADD_USER  SInstep66     74 Sofia Instep
+ADD_PHONE SInstep66  448-902-4779
+ADD_PHONE SInstep66  992-655-5262
+ADD_USER  TIncorp49    642 Thomas Incorporable
+ADD_PHONE TIncorp49  972-290-4787
+ADD_USER  TMadhou83   5866 Taylor Madhouse
+ADD_PHONE TMadhou83  863-798-8883
+ADD_USER  VDrivew01    834 Victoria Driveway
+ADD_PHONE VDrivew01  053-902-2374
+ADD_PHONE VDrivew01  664-757-7880
+ADD_USER  XFrilly74    681 Xavier Frilly
+ADD_PHONE XFrilly74  086-932-3069
+ADD_PHONE XFrilly74  776-837-4345
+ADD_PHONE XFrilly74  986-491-7301
+MARK_USED BnDSZvSWcCS8JG LWwbTUUKHYgrMD ijWyi8ehRfR9K7 tLWZb4YKhJIJAv zLhGSt1mOGsErv

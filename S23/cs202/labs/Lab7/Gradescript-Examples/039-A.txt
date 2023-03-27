@@ -1,0 +1,33 @@
+PRIZE     dogo         570      3 Club Dogo 12-Month Subscription
+PRIZE     downloads    700      8 10 MP3 Downloads from Babster
+PRIZE     habitat       35    100 Donation to Habitat for Humanity
+PRIZE     maze           1     20 Memory Collector Maze Downloadable Game
+PRIZE     ovis          50      3 Ovis Rent a Car Single Upgrade Coupon
+PRIZE     plush        600      4 Boca-Cola Plush Polar Bear
+PRIZE     quest          1     10 Memory Quest Downloadable Game
+PRIZE     silver      1100      2 Two DMC Theatres Silver Experience movie tickets
+PRIZE     special       35    100 Bronze level donation to Special Olympics
+PRIZE     visasweep      1   1000 $500 VISA(r) Gift Card Sweepstakes Entry
+ADD_USER  AApathe66      2 Ava Apathetic
+ADD_PHONE AApathe66  094-455-0358
+ADD_PHONE AApathe66  544-957-3207
+ADD_USER  ABrookl83   5076 Abigail Brooklyn Jacksonian
+ADD_USER  APurvie62  33197 Alyssa Purview
+ADD_USER  BHutchi51   1978 Bella Hutchins
+ADD_PHONE BHutchi51  031-166-0019
+ADD_USER  BPreemp98   3056 Benjamin Preempt
+ADD_PHONE BPreemp98  428-373-7635
+ADD_USER  IHovel43      71 Isaac Hovel
+ADD_USER  KNumera01     27 Kylie Numerable MD
+ADD_PHONE KNumera01  093-522-8075
+ADD_PHONE KNumera01  964-656-8099
+ADD_USER  LLepido07     57 Lucas Lepidolite
+ADD_PHONE LLepido07  264-821-2548
+ADD_PHONE LLepido07  623-803-0567
+ADD_USER  LShelle00    210 Lucas Shelley
+ADD_PHONE LShelle00  477-447-5026
+ADD_PHONE LShelle00  487-626-6034
+ADD_PHONE LShelle00  749-745-7209
+ADD_USER  VElla53    10671 Victoria Ella Stuff
+MARK_USED 6pbKLGu0a3hsc3 9e5rFvE3WWC6tj CXCXaODFBFHjWv Jy2n0BaKwbrG82 OEXDCvlRQ8W5Bh SU5QAvzom0og89 eA2901LcTnEF2g q9kmymdxOcliPX
+MARK_USED rArfDcOYXqRaUD ttgIdvw2fBVjlE

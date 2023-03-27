@@ -1,0 +1,37 @@
+PRIZE     downloads    700      8 10 MP3 Downloads from Babster
+PRIZE     ovis          50      3 Ovis Rent a Car Single Upgrade Coupon
+PRIZE     silver      1100      2 Two DMC Theatres Silver Experience movie tickets
+PRIZE     swarokski     75      7 $30 Swarokski Gift Certificate
+PRIZE     visasweep      1   1000 $500 VISA(r) Gift Card Sweepstakes Entry
+ADD_USER  ACowman05     28 Austin Cowman
+ADD_PHONE ACowman05  171-499-7559
+ADD_USER  BBindwe43    191 Bailey Bindweed
+ADD_PHONE BBindwe43  484-698-2569
+ADD_USER  BDragon52     37 Brayden Dragon
+ADD_USER  CGinsen59     91 Carter Ginseng
+ADD_PHONE CGinsen59  071-478-0812
+ADD_PHONE CGinsen59  285-329-1850
+ADD_PHONE CGinsen59  850-529-8881
+ADD_USER  CInsofa84    466 Christian Insofar
+ADD_PHONE CInsofa84  908-938-5542
+ADD_USER  DGnat53      232 Daniel Gnat
+ADD_PHONE DGnat53    263-581-5305
+ADD_USER  EMollyc87    920 Evan Mollycoddle
+ADD_USER  JMussel91    112 John Mussel
+ADD_USER  KMadely93  23593 Kate Madelyn Rehabilitate
+ADD_PHONE KMadely93  318-199-3189
+ADD_PHONE KMadely93  595-554-4369
+ADD_PHONE KMadely93  922-436-7258
+ADD_USER  LInfeli65   5144 Liam Infelicity
+ADD_PHONE LInfeli65  353-590-9626
+ADD_USER  LLucy84      391 Lillian Lucy Kettle MD
+ADD_PHONE LLucy84    233-777-7252
+ADD_USER  MVolumi68   6736 Molly Voluminous
+ADD_PHONE MVolumi68  040-087-6213
+ADD_PHONE MVolumi68  530-026-1809
+ADD_PHONE MVolumi68  640-801-4171
+ADD_USER  OBagate97     71 Oliver Bagatelle
+ADD_PHONE OBagate97  457-977-7352
+ADD_USER  RHiss58     6084 Riley Hiss
+ADD_USER  TMarque32      2 Tyler Marque
+MARK_USED FLzUbHZfyOBrAe JuNCaXDGrxagM5 LFQAJK07htp7cV V5fwdhSsoNedAP fqt2VFkPi5cY4Q

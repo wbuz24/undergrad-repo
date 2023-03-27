@@ -1,0 +1,35 @@
+PRIZE     cancun     10000      1 All Expense-Paid trip to Cancun
+PRIZE     downloads    700      8 10 MP3 Downloads from Babster
+PRIZE     habitat       35    100 Donation to Habitat for Humanity
+PRIZE     hat         2222      2 Ninja Warrior Mount Midoriyama T-Shirt
+PRIZE     ovis          50      3 Ovis Rent a Car Single Upgrade Coupon
+PRIZE     plush        600      4 Boca-Cola Plush Polar Bear
+PRIZE     quest          1     10 Memory Quest Downloadable Game
+PRIZE     silver      1100      2 Two DMC Theatres Silver Experience movie tickets
+PRIZE     special       35    100 Bronze level donation to Special Olympics
+PRIZE     visasweep      1   1000 $500 VISA(r) Gift Card Sweepstakes Entry
+ADD_USER  GRussia52  31721 Gianna Russia
+ADD_PHONE GRussia52  681-081-9088
+ADD_PHONE GRussia52  713-035-9183
+ADD_PHONE GRussia52  768-039-7879
+ADD_USER  JPiecew51     64 Jake Piecewise
+ADD_PHONE JPiecew51  169-524-9822
+ADD_PHONE JPiecew51  550-614-0299
+ADD_USER  JTrace26      45 Julian Trace
+ADD_USER  LJohnso42    384 Lillian Johnson
+ADD_PHONE LJohnso42  954-957-3128
+ADD_USER  MLeague57   2918 Mackenzie League
+ADD_USER  PPreten21   2586 Parker Pretense
+ADD_USER  RTriato86    131 Ryan Triatomic
+ADD_PHONE RTriato86  086-027-7480
+ADD_PHONE RTriato86  475-044-2468
+ADD_USER  SConcla98  44022 Sophie Conclave
+ADD_PHONE SConcla98  813-685-8298
+ADD_USER  TPet21        42 Tristan Pet
+ADD_PHONE TPet21     798-957-4121
+ADD_USER  WTipsy80       7 Wyatt Tipsy
+ADD_PHONE WTipsy80   012-040-1954
+ADD_PHONE WTipsy80   372-122-2640
+ADD_PHONE WTipsy80   777-223-4372
+MARK_USED 0ulaGehI3KiXfD 3xmKmQNcQxOImr 5YoqFXEvhMeNyb AEm2R1hrwskB5x JFNWlqArINCbef JIX1HxUpr1LfPv WJw5ZZRSd9HJcF hEsVkK7dNGHhYm
+MARK_USED l9rkBdASFicuig sAKDtcOQ38HcWi

@@ -1,0 +1,46 @@
+PRIZE     pudget        50      5 pudget Rent A Car Single Upgrade Coupon
+PRIZE     quest          1     10 Memory Quest Downloadable Game
+PRIZE     rest         500      5 Restaurant Gift Card from E-Restaurants.com
+PRIZE     silver      1100      2 Two DMC Theatres Silver Experience movie tickets
+PRIZE     visasweep      1   1000 $500 VISA(r) Gift Card Sweepstakes Entry
+ADD_USER  ASkelet51     18 Anna Skeleton
+ADD_USER  DEthnic01   1091 Daniel Ethnic
+ADD_PHONE DEthnic01  212-664-9499
+ADD_PHONE DEthnic01  770-087-9583
+ADD_USER  EEcosys15   6951 Eli Ecosystem
+ADD_PHONE EEcosys15  234-360-8724
+ADD_PHONE EEcosys15  354-418-7903
+ADD_PHONE EEcosys15  871-248-8684
+ADD_USER  EGreer77    5685 Ella Greer
+ADD_PHONE EGreer77   175-686-2061
+ADD_PHONE EGreer77   386-792-8887
+ADD_PHONE EGreer77   966-086-6930
+ADD_USER  GCadmiu14    220 Gabriella Cadmium
+ADD_PHONE GCadmiu14  161-033-9949
+ADD_PHONE GCadmiu14  800-087-0233
+ADD_USER  JDocume24   3115 John Documentary
+ADD_PHONE JDocume24  950-382-4572
+ADD_USER  JMedial87   9131 Jacob Medial
+ADD_PHONE JMedial87  369-966-1796
+ADD_USER  KAngula67  23247 Kylie Angular
+ADD_PHONE KAngula67  013-383-0095
+ADD_PHONE KAngula67  878-931-8445
+ADD_USER  LJackso88  17093 Lucy Jackson Esq
+ADD_PHONE LJackso88  143-198-3256
+ADD_PHONE LJackso88  638-123-4162
+ADD_USER  LLucy59       55 Lily Lucy Ritual
+ADD_PHONE LLucy59    298-493-4433
+ADD_PHONE LLucy59    311-915-6943
+ADD_PHONE LLucy59    664-277-1516
+ADD_USER  LMaltos79  24191 Lily Maltose
+ADD_PHONE LMaltos79  597-785-5841
+ADD_USER  LSuzuki67   8987 Lucy Suzuki
+ADD_PHONE LSuzuki67  743-537-6614
+ADD_USER  MCurran24  14706 Makayla Curran
+ADD_PHONE MCurran24  601-706-2100
+ADD_USER  MMorgan51  29503 Madeline Morgan Hightail
+ADD_PHONE MMorgan51  368-482-5968
+ADD_USER  XThermo93   5902 Xavier Thermofax
+ADD_PHONE XThermo93  256-589-1046
+ADD_PHONE XThermo93  882-240-9861
+MARK_USED hLqFlQmefo1k3m hYAIAv5S6LQDDx kGp8u143cn2VCN p5IGL3FOWEjbIJ uyhdPhCAWP8I8z

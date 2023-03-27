@@ -1,0 +1,48 @@
+PRIZE     downloads    700      8 10 MP3 Downloads from Babster
+PRIZE     hat         2222      2 Ninja Warrior Mount Midoriyama T-Shirt
+PRIZE     maze           1     20 Memory Collector Maze Downloadable Game
+PRIZE     rest         500      5 Restaurant Gift Card from E-Restaurants.com
+PRIZE     silver      1100      2 Two DMC Theatres Silver Experience movie tickets
+ADD_USER  ABreach22     97 Alyssa Breach
+ADD_USER  AHelioc15   8768 Alexander Heliocentric
+ADD_PHONE AHelioc15  295-584-5525
+ADD_PHONE AHelioc15  521-765-2786
+ADD_PHONE AHelioc15  993-094-1854
+ADD_USER  BBlasph15   6511 Bailey Blasphemy
+ADD_USER  GIllogi89    981 Gavin Illogic
+ADD_PHONE GIllogi89  390-418-0668
+ADD_PHONE GIllogi89  524-068-4007
+ADD_PHONE GIllogi89  846-620-7710
+ADD_USER  GPolona24     67 Gabriel Polonaise PhD
+ADD_PHONE GPolona24  128-364-3510
+ADD_PHONE GPolona24  277-467-5304
+ADD_PHONE GPolona24  776-926-4084
+ADD_USER  HVibrat22  26408 Hailey Vibrato
+ADD_PHONE HVibrat22  034-706-6815
+ADD_USER  JMason29      99 James Mason Deviate
+ADD_PHONE JMason29   184-152-0066
+ADD_PHONE JMason29   239-004-4733
+ADD_PHONE JMason29   766-654-2644
+ADD_USER  KAbunda13    309 Kayla Abundant
+ADD_PHONE KAbunda13  944-026-2971
+ADD_USER  MAlexan60    153 Mason Alexander
+ADD_PHONE MAlexan60  003-935-7549
+ADD_PHONE MAlexan60  271-963-0973
+ADD_USER  MNolo16      110 Maya Nolo MD
+ADD_PHONE MNolo16    935-451-7087
+ADD_USER  MRoadbe62  16413 Mason Roadbed
+ADD_PHONE MRoadbe62  315-277-7698
+ADD_USER  MUtilit64     69 Madelyn Utilitarian
+ADD_PHONE MUtilit64  031-499-1489
+ADD_PHONE MUtilit64  294-934-3838
+ADD_PHONE MUtilit64  532-224-3313
+ADD_USER  NHoloce22  39675 Noah Holocene
+ADD_PHONE NHoloce22  116-305-3445
+ADD_PHONE NHoloce22  428-768-9485
+ADD_PHONE NHoloce22  524-132-8399
+ADD_USER  PProces39     54 Parker Processor
+ADD_PHONE PProces39  612-214-2774
+ADD_USER  WEli90       765 William Eli Weston
+ADD_PHONE WEli90     773-161-2737
+ADD_PHONE WEli90     899-817-3922
+MARK_USED 5z8U2aLUGo5jlv 9bAD2czXL6ZMMZ EKilVRubQPPSRq I9bYRUXL6DQjLa V9FPXXXfMcagHI

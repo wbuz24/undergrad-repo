@@ -1,0 +1,39 @@
+PRIZE     cancun     10000      1 All Expense-Paid trip to Cancun
+PRIZE     dogo         570      3 Club Dogo 12-Month Subscription
+PRIZE     habitat       35    100 Donation to Habitat for Humanity
+PRIZE     maze           1     20 Memory Collector Maze Downloadable Game
+PRIZE     ovis          50      3 Ovis Rent a Car Single Upgrade Coupon
+PRIZE     plush        600      4 Boca-Cola Plush Polar Bear
+PRIZE     pudget        50      5 pudget Rent A Car Single Upgrade Coupon
+PRIZE     rest         500      5 Restaurant Gift Card from E-Restaurants.com
+PRIZE     special       35    100 Bronze level donation to Special Olympics
+PRIZE     swarokski     75      7 $30 Swarokski Gift Certificate
+ADD_USER  AExudat62     23 Aidan Exudation
+ADD_PHONE AExudat62  794-874-7988
+ADD_USER  AGrandf85     32 Aiden Grandfather
+ADD_PHONE AGrandf85  610-892-1508
+ADD_USER  CJonath06   3927 Charlie Jonathan Circumcircle
+ADD_PHONE CJonath06  713-954-5091
+ADD_PHONE CJonath06  817-972-9809
+ADD_USER  EDoorst73     70 Elijah Doorstep
+ADD_PHONE EDoorst73  340-485-1934
+ADD_PHONE EDoorst73  715-004-0650
+ADD_PHONE EDoorst73  737-053-5868
+ADD_USER  HHambur25     71 Hannah Hamburg
+ADD_PHONE HHambur25  550-576-9631
+ADD_PHONE HHambur25  829-457-2407
+ADD_USER  JLuge39    29927 Jacob Luge
+ADD_PHONE JLuge39    072-921-6452
+ADD_USER  LInvest08   8040 Layla Investigate
+ADD_PHONE LInvest08  140-188-7525
+ADD_PHONE LInvest08  688-209-2412
+ADD_USER  MAllsta11   3080 Mia Allstate
+ADD_PHONE MAllsta11  430-823-8742
+ADD_PHONE MAllsta11  645-295-0564
+ADD_USER  NSequen06    120 Nicholas Sequent
+ADD_PHONE NSequen06  649-219-3470
+ADD_PHONE NSequen06  867-600-7389
+ADD_USER  PLucy99       57 Peyton Lucy Dragoon
+ADD_PHONE PLucy99    684-862-5356
+MARK_USED 0eCe4qNc8i1QLV QkGSBXr3KnCZvs RX4Tcqgo1owaSp WIQg83WxctIkmS WNleMRXPyRPUao aQKyanw5D74WNX ieeX8RE2VPw7bf nGwN66dTaYAZN0
+MARK_USED sB6eizHjieq91g v0zXnGw8rcOpC4

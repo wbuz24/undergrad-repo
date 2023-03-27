@@ -1,0 +1,45 @@
+PRIZE     cancun     10000      1 All Expense-Paid trip to Cancun
+PRIZE     dogo         570      3 Club Dogo 12-Month Subscription
+PRIZE     downloads    700      8 10 MP3 Downloads from Babster
+PRIZE     plush        600      4 Boca-Cola Plush Polar Bear
+PRIZE     pudget        50      5 pudget Rent A Car Single Upgrade Coupon
+ADD_USER  AFogy06      157 Alexis Fogy
+ADD_PHONE AFogy06    078-507-4587
+ADD_PHONE AFogy06    250-376-3737
+ADD_USER  ALevine70      4 Arianna Levine
+ADD_PHONE ALevine70  051-168-3540
+ADD_PHONE ALevine70  170-774-3017
+ADD_USER  BInters56  40587 Benjamin Intersect
+ADD_USER  CKajar96      69 Carter Kajar
+ADD_PHONE CKajar96   664-357-7593
+ADD_USER  CLiprea50    243 Cole Lipread
+ADD_PHONE CLiprea50  233-930-9305
+ADD_PHONE CLiprea50  317-534-0157
+ADD_PHONE CLiprea50  424-040-6294
+ADD_USER  EDizzy01   45607 Ella Dizzy
+ADD_PHONE EDizzy01   018-002-5550
+ADD_PHONE EDizzy01   289-453-1535
+ADD_PHONE EDizzy01   964-726-1726
+ADD_USER  ESpilt38     573 Eva Spilt
+ADD_PHONE ESpilt38   398-466-1098
+ADD_PHONE ESpilt38   402-887-7400
+ADD_PHONE ESpilt38   474-953-9307
+ADD_USER  GAmes19     3854 Gianna Ames
+ADD_PHONE GAmes19    673-724-7159
+ADD_USER  JGhostl22     15 James Ghostlike
+ADD_PHONE JGhostl22  198-608-0139
+ADD_PHONE JGhostl22  485-879-9924
+ADD_USER  LSewera52   4264 Lucy Sewerage
+ADD_USER  MInfirm27   5542 Mackenzie Infirmary
+ADD_PHONE MInfirm27  533-168-1265
+ADD_PHONE MInfirm27  693-034-7933
+ADD_PHONE MInfirm27  777-721-1666
+ADD_USER  NLogan67      87 Noah Logan Palmolive
+ADD_PHONE NLogan67   347-629-3118
+ADD_PHONE NLogan67   353-909-4340
+ADD_USER  SCarter74   2888 Samuel Carter Integrity
+ADD_PHONE SCarter74  333-811-9939
+ADD_PHONE SCarter74  687-258-7301
+ADD_USER  WHillto32   9313 Wyatt Hilltop
+ADD_USER  ZAdded84     961 Zachary Added
+MARK_USED CwRqazZBZTN03B DWzA94mh6rxHzL N5v4Fv9IbEnQVe aNlKKZnHIv7ua1 p15aRk1C3cdaFw

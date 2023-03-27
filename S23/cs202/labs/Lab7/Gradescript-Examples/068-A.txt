@@ -1,0 +1,45 @@
+PRIZE     downloads    700      8 10 MP3 Downloads from Babster
+PRIZE     hat         2222      2 Ninja Warrior Mount Midoriyama T-Shirt
+PRIZE     ovis          50      3 Ovis Rent a Car Single Upgrade Coupon
+PRIZE     rest         500      5 Restaurant Gift Card from E-Restaurants.com
+PRIZE     visasweep      1   1000 $500 VISA(r) Gift Card Sweepstakes Entry
+ADD_USER  AJimene29     40 Aidan Jimenez
+ADD_PHONE AJimene29  002-476-6532
+ADD_USER  APurpor92   8855 Austin Purport
+ADD_PHONE APurpor92  008-121-1124
+ADD_USER  BScimit03  19984 Bella Scimitar
+ADD_USER  CEndpoi85     49 Christian Endpoint
+ADD_PHONE CEndpoi85  156-625-5939
+ADD_PHONE CEndpoi85  196-167-7124
+ADD_PHONE CEndpoi85  722-746-3994
+ADD_USER  ECommer22   1111 Ella Commercial
+ADD_PHONE ECommer22  881-540-8033
+ADD_PHONE ECommer22  961-274-3795
+ADD_USER  IBrillo73    262 Isabella Brillouin
+ADD_PHONE IBrillo73  349-498-8385
+ADD_USER  IDoorme08    822 Ian Doormen PhD
+ADD_PHONE IDoorme08  908-404-9452
+ADD_USER  JEighte34    564 James Eighteenth
+ADD_PHONE JEighte34  349-583-2543
+ADD_PHONE JEighte34  573-331-5229
+ADD_PHONE JEighte34  854-828-1949
+ADD_USER  JMandar24   5149 Jordan Mandarin
+ADD_USER  LAlleyw02    573 Luke Alleyway
+ADD_PHONE LAlleyw02  201-831-8221
+ADD_PHONE LAlleyw02  727-158-0385
+ADD_PHONE LAlleyw02  983-999-0747
+ADD_USER  LArtisa88   8371 Layla Artisan
+ADD_PHONE LArtisa88  243-648-5405
+ADD_USER  LAsteri98  36404 Lillian Asteria
+ADD_PHONE LAsteri98  526-878-0120
+ADD_USER  LInform70  48192 Leah Information
+ADD_PHONE LInform70  063-406-2519
+ADD_PHONE LInform70  535-428-9455
+ADD_PHONE LInform70  856-784-8515
+ADD_USER  RGyrfal01  13650 Riley Gyrfalcon
+ADD_PHONE RGyrfal01  383-486-1671
+ADD_USER  SLice98     4132 Sophie Lice
+ADD_PHONE SLice98    289-701-7212
+ADD_PHONE SLice98    460-325-7822
+ADD_PHONE SLice98    776-431-7616
+MARK_USED GttkMQoiZwu9z2 UUcLyZPsWXPveb WROL3Eyg10LZYc fJ808xxNresJxQ hyJvU6XEO2JM0R

@@ -1,0 +1,42 @@
+PRIZE     maze           1     20 Memory Collector Maze Downloadable Game
+PRIZE     ovis          50      3 Ovis Rent a Car Single Upgrade Coupon
+PRIZE     silver      1100      2 Two DMC Theatres Silver Experience movie tickets
+PRIZE     swarokski     75      7 $30 Swarokski Gift Certificate
+PRIZE     visasweep      1   1000 $500 VISA(r) Gift Card Sweepstakes Entry
+ADD_USER  ABraver87   8444 Ava Bravery
+ADD_PHONE ABraver87  033-137-4359
+ADD_PHONE ABraver87  365-767-3389
+ADD_USER  ACrocod52     57 Anthony Crocodile
+ADD_USER  AImprob55  31232 Alyssa Improbable
+ADD_USER  AMisceg59  49639 Alex Miscegenation
+ADD_PHONE AMisceg59  304-567-6229
+ADD_USER  APenetr22     95 Anna Penetrate
+ADD_PHONE APenetr22  620-071-3912
+ADD_PHONE APenetr22  768-699-1399
+ADD_USER  IGrayso46    757 Ian Grayson
+ADD_PHONE IGrayso46  012-834-6695
+ADD_PHONE IGrayso46  541-262-9755
+ADD_USER  IJuno14      284 Isaac Juno
+ADD_PHONE IJuno14    315-946-6640
+ADD_USER  JGrade09     341 Jayden Grade
+ADD_USER  JNathan12    978 Julian Nathan Diatonic
+ADD_PHONE JNathan12  061-250-7879
+ADD_USER  LOsgood80  18789 Lillian Osgood
+ADD_PHONE LOsgood80  904-911-5184
+ADD_USER  LYardag26    564 Landon Yardage
+ADD_PHONE LYardag26  301-111-0143
+ADD_PHONE LYardag26  606-636-6701
+ADD_PHONE LYardag26  725-323-0333
+ADD_USER  MAmelia02     24 Maya Amelia
+ADD_PHONE MAmelia02  254-756-0598
+ADD_PHONE MAmelia02  492-693-0742
+ADD_USER  MUpgrad18     78 Mason Upgrade
+ADD_PHONE MUpgrad18  029-777-7148
+ADD_PHONE MUpgrad18  111-596-2247
+ADD_PHONE MUpgrad18  977-561-7018
+ADD_USER  SCain73       64 Samantha Cain
+ADD_PHONE SCain73    008-428-9583
+ADD_PHONE SCain73    188-306-9346
+ADD_USER  VPediat70  16083 Victoria Pediatric
+ADD_PHONE VPediat70  723-224-4989
+MARK_USED 62wNRJrY3Sgl9S NSMzKqm3JnS6Rw U4HhABgUoWrnVE eJniczzAGN8txN mlL0CusuO3qy5s

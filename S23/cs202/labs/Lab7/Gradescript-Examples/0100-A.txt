@@ -1,0 +1,247 @@
+PRIZE     downloads    700      8 10 MP3 Downloads from Babster
+PRIZE     habitat       35    100 Donation to Habitat for Humanity
+PRIZE     maze           1     20 Memory Collector Maze Downloadable Game
+PRIZE     ovis          50      3 Ovis Rent a Car Single Upgrade Coupon
+PRIZE     plush        600      4 Boca-Cola Plush Polar Bear
+PRIZE     pudget        50      5 pudget Rent A Car Single Upgrade Coupon
+PRIZE     rest         500      5 Restaurant Gift Card from E-Restaurants.com
+PRIZE     silver      1100      2 Two DMC Theatres Silver Experience movie tickets
+PRIZE     special       35    100 Bronze level donation to Special Olympics
+PRIZE     swarokski     75      7 $30 Swarokski Gift Certificate
+ADD_USER  AFreque70    466 Anthony Frequent
+ADD_USER  AGiant98      21 Alyssa Giant
+ADD_PHONE AGiant98   289-876-7700
+ADD_PHONE AGiant98   374-889-8483
+ADD_USER  AKennel15  43028 Amelia Kennel
+ADD_PHONE AKennel15  497-890-4911
+ADD_PHONE AKennel15  707-765-8045
+ADD_USER  APresti96    474 Aubrey Prestige
+ADD_USER  ARetent14    600 Andrew Retention
+ADD_USER  AThroat93   9455 Arianna Throat
+ADD_PHONE AThroat93  456-893-5367
+ADD_PHONE AThroat93  652-277-4782
+ADD_PHONE AThroat93  851-613-4220
+ADD_USER  ATranse44   6554 Aiden Transect
+ADD_PHONE ATranse44  292-673-9114
+ADD_PHONE ATranse44  422-780-4239
+ADD_PHONE ATranse44  957-837-8796
+ADD_USER  AVoltag19     67 Alexandra Voltage
+ADD_PHONE AVoltag19  032-174-3837
+ADD_PHONE AVoltag19  695-261-1374
+ADD_USER  AWhirl05      70 Austin Whirl
+ADD_PHONE AWhirl05   074-969-0541
+ADD_USER  BCrepe93   41712 Brandon Crepe
+ADD_USER  BHardwa71    374 Brooklyn Hardware
+ADD_PHONE BHardwa71  224-012-4943
+ADD_PHONE BHardwa71  597-183-9947
+ADD_USER  BLilly35      60 Bella Lilly Esq
+ADD_PHONE BLilly35   019-790-3990
+ADD_PHONE BLilly35   298-503-4875
+ADD_USER  BRecove49     29 Bailey Recovery
+ADD_PHONE BRecove49  443-261-4930
+ADD_USER  BSculpt83  37871 Bella Sculptural
+ADD_PHONE BSculpt83  163-831-1726
+ADD_USER  BSpitfi06   9203 Brody Spitfire
+ADD_PHONE BSpitfi06  005-892-5565
+ADD_PHONE BSpitfi06  534-862-4932
+ADD_PHONE BSpitfi06  827-115-2365
+ADD_USER  BTallah17     63 Bella Tallahassee
+ADD_PHONE BTallah17  622-690-2470
+ADD_PHONE BTallah17  885-722-6511
+ADD_PHONE BTallah17  955-748-8670
+ADD_USER  Benjami65   5443 Benjamin
+ADD_USER  CApache07  21615 Cole Apache
+ADD_PHONE CApache07  037-123-1876
+ADD_USER  CBruno85     944 Caroline Bruno
+ADD_PHONE CBruno85   343-415-3942
+ADD_PHONE CBruno85   817-978-0894
+ADD_USER  CBurgla26    151 Claire Burglary
+ADD_PHONE CBurgla26  711-026-9977
+ADD_PHONE CBurgla26  905-224-9269
+ADD_USER  CCretin53     91 Charlotte Cretin MD
+ADD_PHONE CCretin53  191-772-9179
+ADD_PHONE CCretin53  659-410-3958
+ADD_USER  CDash84    47126 Caroline Dash
+ADD_USER  CLacewi74     81 Cooper Lacewing
+ADD_PHONE CLacewi74  057-813-5635
+ADD_PHONE CLacewi74  761-962-5514
+ADD_USER  CRat17       850 Cole Rat
+ADD_PHONE CRat17     425-690-0016
+ADD_USER  CSleigh02     59 Claire Sleight
+ADD_USER  CSolon22      39 Christian Solon
+ADD_USER  DBasil61      68 Dylan Basil
+ADD_PHONE DBasil61   379-988-4348
+ADD_PHONE DBasil61   769-827-9026
+ADD_USER  DBritan49     84 David Britannic
+ADD_USER  DFresco52    665 Dylan Fresco
+ADD_PHONE DFresco52  529-874-7645
+ADD_USER  DGnome21      31 David Gnome
+ADD_PHONE DGnome21   130-031-4883
+ADD_USER  DSaturd61   3874 Dontonio Saturday
+ADD_PHONE DSaturd61  063-154-9537
+ADD_PHONE DSaturd61  217-112-3010
+ADD_PHONE DSaturd61  623-183-4511
+ADD_USER  DSilas05     344 David Silas
+ADD_PHONE DSilas05   511-912-4410
+ADD_USER  EAriann01   6559 Ella Arianna Abstruse
+ADD_PHONE EAriann01  271-872-1081
+ADD_PHONE EAriann01  525-099-6003
+ADD_PHONE EAriann01  953-601-6439
+ADD_USER  EEasy32       53 Emma Easy
+ADD_PHONE EEasy32    638-520-9693
+ADD_PHONE EEasy32    707-933-3303
+ADD_USER  EInheri35    110 Elijah Inherit
+ADD_PHONE EInheri35  116-662-1878
+ADD_USER  ENowher04  38081 Elizabeth Nowhere
+ADD_USER  ESydney71    270 Emma Sydney Derby
+ADD_PHONE ESydney71  797-641-3056
+ADD_PHONE ESydney71  844-984-4430
+ADD_USER  ETadpol01   8464 Emily Tadpole
+ADD_USER  EWhiteh33   7262 Evan Whitehorse
+ADD_USER  GAlfred13    515 Gianna Alfred MD
+ADD_USER  GBotuli84  36996 Gianna Botulism
+ADD_USER  HCloudy92   1656 Hannah Cloudy
+ADD_PHONE HCloudy92  591-182-1503
+ADD_PHONE HCloudy92  755-559-8352
+ADD_PHONE HCloudy92  868-606-0579
+ADD_USER  HMalcon55   6681 Hailey Malconduct Esq
+ADD_PHONE HMalcon55  172-767-4505
+ADD_PHONE HMalcon55  580-425-9070
+ADD_USER  HReid72     4212 Henry Reid
+ADD_PHONE HReid72    551-090-8858
+ADD_PHONE HReid72    831-125-9720
+ADD_PHONE HReid72    906-114-4444
+ADD_USER  IFasten95     47 Ian Fasten
+ADD_PHONE IFasten95  143-625-4494
+ADD_PHONE IFasten95  171-488-8697
+ADD_USER  IProsth96   6329 Isaac Prosthesis
+ADD_USER  ITeflon14    819 Isaiah Teflon
+ADD_USER  JCarson40     90 Jake Carson Touchdown
+ADD_PHONE JCarson40  731-138-6358
+ADD_PHONE JCarson40  868-607-0692
+ADD_PHONE JCarson40  875-784-8015
+ADD_USER  JFairy28     871 Jordan Fairy
+ADD_PHONE JFairy28   714-071-4190
+ADD_PHONE JFairy28   742-592-0628
+ADD_USER  JInstin33  14258 Jake Instinctual
+ADD_PHONE JInstin33  648-640-0040
+ADD_USER  JProhib75  21520 Jackson Prohibitive
+ADD_PHONE JProhib75  116-314-3466
+ADD_PHONE JProhib75  362-972-2270
+ADD_PHONE JProhib75  512-774-3985
+ADD_USER  JPvc27       429 Joshua Pvc
+ADD_PHONE JPvc27     065-891-1573
+ADD_PHONE JPvc27     959-837-2164
+ADD_USER  JTestbe79   7168 Jack Testbed
+ADD_PHONE JTestbe79  235-057-8677
+ADD_PHONE JTestbe79  278-351-9159
+ADD_PHONE JTestbe79  374-467-9247
+ADD_USER  JUkrain75  45779 James Ukrainian
+ADD_USER  KAnna93     6949 Kylie Anna Roach
+ADD_PHONE KAnna93    208-336-5707
+ADD_PHONE KAnna93    643-942-2707
+ADD_USER  KChina92     923 Kylie China
+ADD_PHONE KChina92   025-347-6374
+ADD_PHONE KChina92   422-527-3530
+ADD_PHONE KChina92   744-765-3078
+ADD_USER  KHowsom46     64 Kate Howsomever
+ADD_USER  KMangle01  26781 Katelyn Mangle
+ADD_PHONE KMangle01  407-956-8748
+ADD_PHONE KMangle01  694-599-8242
+ADD_PHONE KMangle01  919-195-0674
+ADD_USER  KParaps64   8517 Kate Parapsychology
+ADD_USER  KSofia38     774 Katelyn Sofia Boomerang
+ADD_PHONE KSofia38   093-277-1784
+ADD_PHONE KSofia38   207-331-6454
+ADD_PHONE KSofia38   257-845-9000
+ADD_USER  LChagri06  15603 Lucy Chagrin PhD
+ADD_PHONE LChagri06  742-461-4225
+ADD_USER  LManumi63   1465 Liam Manumitted
+ADD_PHONE LManumi63  791-678-2408
+ADD_USER  LMason35   25319 Lucas Mason Secretive Esq
+ADD_PHONE LMason35   797-638-9090
+ADD_PHONE LMason35   830-527-9533
+ADD_PHONE LMason35   989-967-7884
+ADD_USER  LPolona50     19 Layla Polonaise
+ADD_PHONE LPolona50  322-560-8488
+ADD_PHONE LPolona50  694-045-9719
+ADD_USER  LPsyche46  28199 Lucas Psyche
+ADD_PHONE LPsyche46  512-444-8327
+ADD_PHONE LPsyche46  625-098-3055
+ADD_USER  LRadice81   4702 Lillian Radices
+ADD_PHONE LRadice81  258-643-3737
+ADD_USER  LSesame51   6910 Lucas Sesame
+ADD_USER  LWillia07   3248 Liam Williams
+ADD_PHONE LWillia07  276-627-7548
+ADD_PHONE LWillia07  749-615-6717
+ADD_PHONE LWillia07  761-627-6371
+ADD_USER  MBaryce46      8 Makayla Barycentric
+ADD_USER  MBustle58     45 Madeline Bustle
+ADD_USER  MGeriat98  43359 Maya Geriatric
+ADD_PHONE MGeriat98  836-447-2663
+ADD_USER  MLava70       37 Morgan Lava
+ADD_USER  MNicosi14  34266 Madelyn Nicosia
+ADD_PHONE MNicosi14  377-176-4461
+ADD_PHONE MNicosi14  465-656-0383
+ADD_USER  MPessim06     48 Makayla Pessimist
+ADD_USER  MSanita49   1548 Morgan Sanitary
+ADD_USER  MSynthe61   5066 Morgan Synthesis
+ADD_PHONE MSynthe61  385-494-5292
+ADD_PHONE MSynthe61  397-102-8767
+ADD_PHONE MSynthe61  465-324-3623
+ADD_USER  MTrienn55    258 Mia Triennial
+ADD_PHONE MTrienn55  011-320-8503
+ADD_PHONE MTrienn55  067-444-9978
+ADD_PHONE MTrienn55  702-677-1174
+ADD_USER  Mackenz57    640 Mackenzie
+ADD_USER  NTrain05    3992 Noah Train
+ADD_PHONE NTrain05   604-434-4372
+ADD_USER  OInterm42  16399 Owen Intermediary
+ADD_USER  PDimeth43  46212 Peyton Dimethyl
+ADD_PHONE PDimeth43  036-662-7797
+ADD_USER  SDeposi45   4532 Sophie Depositary
+ADD_PHONE SDeposi45  279-261-2375
+ADD_PHONE SDeposi45  360-858-0021
+ADD_PHONE SDeposi45  533-383-5596
+ADD_USER  SKinest72     23 Savannah Kinesthesis
+ADD_PHONE SKinest72  277-115-7096
+ADD_PHONE SKinest72  600-116-8006
+ADD_PHONE SKinest72  784-822-5332
+ADD_USER  SNatali77    883 Sarah Natalie Madonna
+ADD_PHONE SNatali77  825-992-6856
+ADD_PHONE SNatali77  957-160-7035
+ADD_USER  STeeing95    762 Sydney Teeing
+ADD_USER  STundra52    480 Samuel Tundra
+ADD_PHONE STundra52  603-007-8938
+ADD_PHONE STundra52  622-773-5242
+ADD_PHONE STundra52  961-501-9845
+ADD_USER  TBryoph97    525 Tyler Bryophyte
+ADD_PHONE TBryoph97  220-804-8871
+ADD_PHONE TBryoph97  702-804-5246
+ADD_PHONE TBryoph97  742-482-8140
+ADD_USER  TNumero87     26 Tyler Numerous MD
+ADD_USER  TRoiste91    318 Tristan Roister
+ADD_USER  TTanaka85     80 Thomas Tanaka
+ADD_USER  TTaylor41   9104 Thomas Taylor
+ADD_USER  TTransp43  28728 Tyler Transparent PhD
+ADD_PHONE TTransp43  426-726-7835
+ADD_USER  WAudito90     38 Wyatt Auditory
+ADD_PHONE WAudito90  962-501-1449
+ADD_USER  WBrowni84    873 Wyatt Brownie
+ADD_USER  WKelvin11     49 William Kelvin
+ADD_USER  WRevere49   7108 William Reverent
+ADD_PHONE WRevere49  087-191-1176
+ADD_USER  ZElsewh28   1679 Zoey Elsewhere
+ADD_PHONE ZElsewh28  480-739-4157
+ADD_PHONE ZElsewh28  994-022-5734
+ADD_USER  ZEmbarg57   6147 Zoe Embargo
+ADD_PHONE ZEmbarg57  043-602-2629
+ADD_PHONE ZEmbarg57  360-694-8214
+ADD_PHONE ZEmbarg57  833-170-0422
+ADD_USER  ZFoundr17   3483 Zoey Foundry
+ADD_USER  ZSkiddy28   6693 Zoe Skiddy
+ADD_PHONE ZSkiddy28  544-537-3635
+MARK_USED 0Uw0u8DfhyglO0 2d4nY9G0vwuPQ7 2uofaTbpakdIGP 3KA7equRsvwUcK 4tNpkmHikL4QdD 5gnjQJ0tZNYC33 6lBGQZoA3cRRM0 8tntzaakFK9Q19
+MARK_USED 9DnPweWqA66PIT Dp9v7XP6d83tja INx5iObX76o6Vh IaG2OZUG4rxCyL LKjpMk1sHT3C8P MfQkva5l6xEgdE MyKTjFFsxGC5t0 PgkoNN9t5GlQdB
+MARK_USED QJMvhTXtnycDG2 STLewCGcJetk8x Xpg70XE0vzonbQ ZZsy3nRzymzu46 d9Xgw4r7zrFzxR eObPB7SqxvVGQM kEjVP5wuZFeuhC m3QzLl8hbolyQU
+MARK_USED sLkILNoal9p4f9 uOqDxS6VQQkDq8 wA6sOKDItHsl20 whpdVEYtnm55MN xinc6EeCtKYuxQ zrzB02k79MC4ic

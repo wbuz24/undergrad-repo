@@ -1,0 +1,4 @@
+ADD_USER xking 876 Xavier Kingston
+ADD_PHONE xking 457-274-6284
+TEXT_CODE 457-274-6284 2OXgdSnBdSY1qh
+WRITE f1.txt

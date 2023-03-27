@@ -1,0 +1,39 @@
+PRIZE     dogo         570      3 Club Dogo 12-Month Subscription
+PRIZE     downloads    700      8 10 MP3 Downloads from Babster
+PRIZE     habitat       35    100 Donation to Habitat for Humanity
+PRIZE     plush        600      4 Boca-Cola Plush Polar Bear
+PRIZE     quest          1     10 Memory Quest Downloadable Game
+PRIZE     rest         500      5 Restaurant Gift Card from E-Restaurants.com
+PRIZE     silver      1100      2 Two DMC Theatres Silver Experience movie tickets
+PRIZE     special       35    100 Bronze level donation to Special Olympics
+PRIZE     swarokski     75      7 $30 Swarokski Gift Certificate
+PRIZE     visasweep      1   1000 $500 VISA(r) Gift Card Sweepstakes Entry
+ADD_USER  AWyman99   15996 Abigail Wyman
+ADD_USER  CSignif13     41 Connor Signify
+ADD_PHONE CSignif13  816-227-3248
+ADD_PHONE CSignif13  838-430-8230
+ADD_PHONE CSignif13  952-045-7391
+ADD_USER  HFoamy97      94 Henry Foamy Jr
+ADD_PHONE HFoamy97   493-825-8504
+ADD_PHONE HFoamy97   599-048-9110
+ADD_PHONE HFoamy97   608-377-6794
+ADD_USER  HSuntan12    722 Hannah Suntanned
+ADD_PHONE HSuntan12  080-024-1528
+ADD_USER  IInflat21  47507 Ian Inflationary
+ADD_PHONE IInflat21  629-712-8045
+ADD_PHONE IInflat21  877-126-1599
+ADD_USER  KTenaci73     76 Kaylee Tenacity
+ADD_PHONE KTenaci73  942-992-6304
+ADD_USER  POrthod17     55 Peyton Orthodontic
+ADD_PHONE POrthod17  458-804-2891
+ADD_PHONE POrthod17  649-309-5971
+ADD_USER  SKaitly02     64 Sophie Kaitlyn Recession
+ADD_PHONE SKaitly02  057-959-6009
+ADD_PHONE SKaitly02  145-003-4875
+ADD_PHONE SKaitly02  962-808-3497
+ADD_USER  SSaturn00     97 Sophie Saturnine
+ADD_PHONE SSaturn00  030-487-7332
+ADD_USER  XFortun48    611 Xavier Fortune
+ADD_PHONE XFortun48  540-493-1616
+MARK_USED 1kvINB1RkNAwvR 94ATQ0VB5Eutoj BgqSnUD3G6ScEm Hac87QKkKmYaSb Igs4nfFzU5uxDQ KBlIJFlof5PcXk ackoPOyJJ013Dt krX5izD27vdROW
+MARK_USED p6c1XvTdHii9hT pEwDsGT4QMyLeb

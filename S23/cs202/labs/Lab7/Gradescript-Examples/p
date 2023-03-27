@@ -1,0 +1,3 @@
+#!/bin/sh
+
+randomize < Fun-Prizes.txt | head -n 1

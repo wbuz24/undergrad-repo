@@ -1,0 +1,43 @@
+PRIZE     downloads    700      8 10 MP3 Downloads from Babster
+PRIZE     hat         2222      2 Ninja Warrior Mount Midoriyama T-Shirt
+PRIZE     rest         500      5 Restaurant Gift Card from E-Restaurants.com
+PRIZE     special       35    100 Bronze level donation to Special Olympics
+PRIZE     spinner      750      4 Multi-Function Salad Spinner and Chopper
+ADD_USER  ASuperf12   6278 Anthony Superfluous
+ADD_USER  BErotic48    508 Brooke Erotica
+ADD_PHONE BErotic48  002-651-4893
+ADD_PHONE BErotic48  978-233-1698
+ADD_USER  BFallac92   6911 Bella Fallacious
+ADD_PHONE BFallac92  734-314-6096
+ADD_PHONE BFallac92  948-959-5808
+ADD_USER  BTernar65   9648 Brooke Ternary
+ADD_USER  CChorda08    323 Caleb Chordata
+ADD_USER  CHillme93  38882 Cameron Hillmen
+ADD_PHONE CHillme93  275-516-7703
+ADD_PHONE CHillme93  340-869-2965
+ADD_PHONE CHillme93  656-403-9585
+ADD_USER  DOint91        1 Dylan Oint
+ADD_PHONE DOint91    074-686-8014
+ADD_PHONE DOint91    359-714-6865
+ADD_PHONE DOint91    373-992-3350
+ADD_USER  EKelley04   9963 Elizabeth Kelley
+ADD_PHONE EKelley04  270-919-3176
+ADD_PHONE EKelley04  449-523-5598
+ADD_PHONE EKelley04  864-344-1372
+ADD_USER  ETheref91   6083 Elijah Therefor
+ADD_USER  LCathol48   5136 Layla Catholic
+ADD_PHONE LCathol48  992-143-0793
+ADD_USER  LSacram00  45962 Landon Sacramento
+ADD_PHONE LSacram00  142-825-0019
+ADD_PHONE LSacram00  736-248-3373
+ADD_USER  MCicada86    610 Morgan Cicada
+ADD_PHONE MCicada86  015-851-9675
+ADD_PHONE MCicada86  605-830-2115
+ADD_PHONE MCicada86  883-301-4246
+ADD_USER  MGog57        44 Morgan Gog
+ADD_PHONE MGog57     104-475-8655
+ADD_PHONE MGog57     145-239-8409
+ADD_PHONE MGog57     378-440-6379
+ADD_USER  VHaddoc49     94 Victoria Haddock
+ADD_USER  WLloyd68    3959 Wyatt Lloyd Jr
+MARK_USED GzzXLn28okflrq mqLAxx5j9gjXt3 q3gamWT8IBPDKF rxXz2Lxo09jKsN trzLyEZjMwAxqu

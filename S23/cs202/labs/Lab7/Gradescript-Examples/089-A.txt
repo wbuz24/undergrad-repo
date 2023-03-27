@@ -1,0 +1,43 @@
+PRIZE     cancun     10000      1 All Expense-Paid trip to Cancun
+PRIZE     dogo         570      3 Club Dogo 12-Month Subscription
+PRIZE     maze           1     20 Memory Collector Maze Downloadable Game
+PRIZE     ovis          50      3 Ovis Rent a Car Single Upgrade Coupon
+PRIZE     rest         500      5 Restaurant Gift Card from E-Restaurants.com
+ADD_USER  ACooky34   41206 Austin Cooky
+ADD_PHONE ACooky34   165-249-9964
+ADD_PHONE ACooky34   479-220-2522
+ADD_PHONE ACooky34   530-991-3173
+ADD_USER  ADebuta73     57 Alexandra Debutante
+ADD_PHONE ADebuta73  299-308-5133
+ADD_PHONE ADebuta73  324-872-1571
+ADD_PHONE ADebuta73  591-354-6684
+ADD_USER  BBouffa72    175 Bailey Bouffant
+ADD_USER  BPsychi16   5410 Bella Psychiatry
+ADD_PHONE BPsychi16  231-949-3230
+ADD_PHONE BPsychi16  563-358-6853
+ADD_USER  COffert26    310 Chloe Offertory
+ADD_PHONE COffert26  116-436-1073
+ADD_PHONE COffert26  194-309-8087
+ADD_USER  CWhine56    9228 Caroline Whine
+ADD_PHONE CWhine56   747-704-6661
+ADD_USER  HDada91     2276 Hannah Dada
+ADD_PHONE HDada91    256-114-2149
+ADD_PHONE HDada91    445-350-7412
+ADD_PHONE HDada91    680-821-7931
+ADD_USER  HSteinb38    326 Henry Steinberg
+ADD_PHONE HSteinb38  387-448-7702
+ADD_USER  KDistal59    809 Kate Distal
+ADD_PHONE KDistal59  479-574-6344
+ADD_PHONE KDistal59  657-511-3641
+ADD_USER  KFiche36    9835 Kylie Fiche
+ADD_USER  LProfus31     80 Liam Profusion
+ADD_PHONE LProfus31  039-255-0942
+ADD_PHONE LProfus31  350-230-4082
+ADD_USER  LZombie44   6676 Logan Zombie
+ADD_PHONE LZombie44  884-979-6605
+ADD_USER  MWhitta00     30 Madeline Whittaker Esq
+ADD_USER  TInocul83  15663 Taylor Inoculate
+ADD_PHONE TInocul83  209-628-3247
+ADD_USER  ZVon91       162 Zoe Von
+ADD_PHONE ZVon91     284-518-3413
+MARK_USED KGznnx69qvJszD RLgJX6gic4WcGO V4TU3dqs0cQMp4 er9bXgGiUyuoEr qIvItYeB5jC00U

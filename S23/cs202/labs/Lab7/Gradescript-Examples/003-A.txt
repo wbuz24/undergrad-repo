@@ -1,0 +1,5 @@
+PRIZE rest 500 5 Restaurant Gift Card from E-Restaurants.com
+PRIZE downloads 700 8 10 MP3 Downloads from Babster
+PRIZE cancun 10000 1 All Expense-Paid trip to Cancun
+PRIZE rest 500 5 Restaurant Gift Card from E-Restaurants.com
+WRITE f1.txt

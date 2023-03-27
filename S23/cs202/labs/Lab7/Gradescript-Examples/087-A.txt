@@ -1,0 +1,51 @@
+PRIZE     cancun     10000      1 All Expense-Paid trip to Cancun
+PRIZE     dogo         570      3 Club Dogo 12-Month Subscription
+PRIZE     ovis          50      3 Ovis Rent a Car Single Upgrade Coupon
+PRIZE     pudget        50      5 pudget Rent A Car Single Upgrade Coupon
+PRIZE     swarokski     75      7 $30 Swarokski Gift Certificate
+ADD_USER  ABrewer67     19 Alex Brewery
+ADD_PHONE ABrewer67  154-765-5681
+ADD_PHONE ABrewer67  480-797-0828
+ADD_PHONE ABrewer67  751-107-5743
+ADD_USER  BSophia23     29 Brooklyn Sophia Victrola
+ADD_PHONE BSophia23  886-817-8829
+ADD_USER  CRsvp53     8627 Chase Rsvp
+ADD_PHONE CRsvp53    260-120-7099
+ADD_PHONE CRsvp53    322-575-1311
+ADD_USER  Chloe79     5741 Chloe
+ADD_PHONE Chloe79    254-171-2308
+ADD_PHONE Chloe79    888-398-8537
+ADD_USER  EHierat31   5127 Ellie Hieratic
+ADD_PHONE EHierat31  074-106-9407
+ADD_PHONE EHierat31  375-112-2380
+ADD_PHONE EHierat31  818-640-9652
+ADD_USER  JBrowne68     27 Jayden Browne
+ADD_PHONE JBrowne68  105-918-3492
+ADD_USER  LMayflo54   6502 Landon Mayflower
+ADD_PHONE LMayflo54  360-637-5312
+ADD_USER  MDodeca87   9869 Max Dodecahedra
+ADD_PHONE MDodeca87  101-987-5753
+ADD_PHONE MDodeca87  454-163-6544
+ADD_USER  MVie59       117 Mackenzie Vie
+ADD_PHONE MVie59     111-589-1544
+ADD_PHONE MVie59     383-039-6254
+ADD_PHONE MVie59     812-165-1405
+ADD_USER  NCadre31      61 Nathan Cadre
+ADD_PHONE NCadre31   493-548-6689
+ADD_PHONE NCadre31   701-477-8617
+ADD_USER  OKafkae32   8795 Owen Kafkaesque
+ADD_PHONE OKafkae32  254-774-8972
+ADD_USER  RSquash31     54 Ryan Squashy
+ADD_PHONE RSquash31  367-638-5831
+ADD_PHONE RSquash31  606-694-1682
+ADD_PHONE RSquash31  954-800-5413
+ADD_USER  RStatew98   7214 Riley Statewide
+ADD_PHONE RStatew98  071-041-6986
+ADD_PHONE RStatew98  233-853-0024
+ADD_PHONE RStatew98  316-728-0968
+ADD_USER  SChic29     5762 Samuel Chic
+ADD_PHONE SChic29    593-794-2660
+ADD_USER  SJuncto54    133 Samuel Junctor
+ADD_PHONE SJuncto54  439-774-9992
+ADD_PHONE SJuncto54  470-315-1218
+MARK_USED 3XW6kwmhaR5Olp G81i5JG3UsS1GB Xt9Qs40BNXwIkL q8K31QMM6Y1qTE r5GeKCX9Ksk9rC

@@ -1,0 +1,7 @@
+PRIZE visasweep 1 1000 $500 VISA(r) Gift Card Sweepstakes Entry
+PRIZE special 35 100 Bronze level donation to Special Olympics
+PRIZE ovis 50 3 Ovis Rent a Car Single Upgrade Coupon
+PRIZE cancun 10000 1 All Expense-Paid trip to Cancun
+ADD_USER AIneq 98442 Aaron Inequality
+REDEEM AIneq cancun
+WRITE f1.txt

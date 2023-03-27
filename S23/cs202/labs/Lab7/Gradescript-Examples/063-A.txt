@@ -1,0 +1,45 @@
+PRIZE     ovis          50      3 Ovis Rent a Car Single Upgrade Coupon
+PRIZE     quest          1     10 Memory Quest Downloadable Game
+PRIZE     silver      1100      2 Two DMC Theatres Silver Experience movie tickets
+PRIZE     special       35    100 Bronze level donation to Special Olympics
+PRIZE     spinner      750      4 Multi-Function Salad Spinner and Chopper
+ADD_USER  AFinanc53   6682 Anthony Financier
+ADD_USER  ANoah73      697 Alex Noah Shamrock
+ADD_USER  ANonce03   35898 Alyssa Nonce
+ADD_PHONE ANonce03   349-327-5931
+ADD_USER  BRound14   27396 Brody Round
+ADD_PHONE BRound14   374-697-4076
+ADD_USER  CEveret30   9796 Carson Everett
+ADD_PHONE CEveret30  079-940-3047
+ADD_PHONE CEveret30  384-984-4546
+ADD_PHONE CEveret30  581-886-5570
+ADD_USER  CRebell19  47860 Carter Rebelling
+ADD_PHONE CRebell19  119-605-6472
+ADD_PHONE CRebell19  138-098-1468
+ADD_PHONE CRebell19  359-922-8250
+ADD_USER  EStretc73  14581 Emily Stretch PhD
+ADD_PHONE EStretc73  780-219-8155
+ADD_USER  GAnselm41   1323 Gabriel Anselm
+ADD_PHONE GAnselm41  579-325-6002
+ADD_PHONE GAnselm41  761-965-0193
+ADD_USER  HTurbin09     42 Hailey Turbine
+ADD_PHONE HTurbin09  117-867-9631
+ADD_USER  JCarson42   8191 Jonathan Carson Bateau
+ADD_PHONE JCarson42  082-967-1544
+ADD_USER  KHeld64     7329 Katelyn Held MD
+ADD_PHONE KHeld64    085-466-2104
+ADD_PHONE KHeld64    138-548-8729
+ADD_PHONE KHeld64    649-521-0638
+ADD_USER  LBrakem16   7349 Lucy Brakeman
+ADD_PHONE LBrakem16  278-420-1454
+ADD_PHONE LBrakem16  334-226-1900
+ADD_PHONE LBrakem16  436-508-9415
+ADD_USER  MBind32     9269 Madison Bind
+ADD_PHONE MBind32    238-340-9277
+ADD_PHONE MBind32    460-966-2400
+ADD_PHONE MBind32    875-928-8443
+ADD_USER  MMedfor64    974 Maya Medford
+ADD_PHONE MMedfor64  335-899-7247
+ADD_USER  MUpheav16     76 Maya Upheaval
+ADD_PHONE MUpheav16  765-964-2473
+MARK_USED 8FrRsO9oxVvXBO IV60u3uhtkHlEt VRpE1gOYlsRvdN erm38iavgcUtFB fEPDYXqEDg9Czv

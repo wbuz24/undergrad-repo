@@ -1,0 +1,43 @@
+PRIZE     cancun     10000      1 All Expense-Paid trip to Cancun
+PRIZE     dogo         570      3 Club Dogo 12-Month Subscription
+PRIZE     downloads    700      8 10 MP3 Downloads from Babster
+PRIZE     maze           1     20 Memory Collector Maze Downloadable Game
+PRIZE     plush        600      4 Boca-Cola Plush Polar Bear
+PRIZE     pudget        50      5 pudget Rent A Car Single Upgrade Coupon
+PRIZE     quest          1     10 Memory Quest Downloadable Game
+PRIZE     spinner      750      4 Multi-Function Salad Spinner and Chopper
+PRIZE     swarokski     75      7 $30 Swarokski Gift Certificate
+PRIZE     visasweep      1   1000 $500 VISA(r) Gift Card Sweepstakes Entry
+ADD_USER  AAllevi57  37949 Austin Alleviate
+ADD_PHONE AAllevi57  821-000-9814
+ADD_USER  CHetero85   8008 Christian Heterocyclic
+ADD_PHONE CHetero85  515-549-7124
+ADD_PHONE CHetero85  877-980-8644
+ADD_PHONE CHetero85  960-341-5524
+ADD_USER  ICalvin29    996 Isabelle Calvin
+ADD_USER  LEli57        78 Luke Eli Fischer
+ADD_PHONE LEli57     088-005-0152
+ADD_PHONE LEli57     280-445-5976
+ADD_USER  LFuriou57   7175 Lilly Furious
+ADD_PHONE LFuriou57  300-900-3612
+ADD_PHONE LFuriou57  464-292-4719
+ADD_PHONE LFuriou57  731-910-8051
+ADD_USER  LHunter51     68 Leah Hunter
+ADD_PHONE LHunter51  641-536-4749
+ADD_USER  NDramat42   2632 Nicholas Dramatic
+ADD_PHONE NDramat42  224-059-7575
+ADD_PHONE NDramat42  310-611-4890
+ADD_PHONE NDramat42  849-729-1601
+ADD_USER  OExplan93   4768 Olivia Explanatory
+ADD_PHONE OExplan93  147-539-4957
+ADD_PHONE OExplan93  275-422-5242
+ADD_PHONE OExplan93  621-028-1737
+ADD_USER  XAnthem06   4009 Xavier Anthem
+ADD_PHONE XAnthem06  324-230-8124
+ADD_PHONE XAnthem06  593-728-5616
+ADD_PHONE XAnthem06  714-214-6469
+ADD_USER  XFete94     8029 Xavier Fete
+ADD_PHONE XFete94    087-148-1578
+ADD_PHONE XFete94    995-625-0663
+MARK_USED 5ALI0rdL3Tp2DE CjSFryeYavVAc5 LvL1Dzj7Dc424r R5ZHkNHZ78jC7W Ue40oa5y1uTyCD YmzxEkJOHbtNi4 eWpEKYqCSAxCZN kOXfvoqmD2wyWg
+MARK_USED kcBBHxca6vQkqt tqhHP5898hZsRo

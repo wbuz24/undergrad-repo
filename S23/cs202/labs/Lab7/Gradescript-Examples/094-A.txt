@@ -1,0 +1,41 @@
+PRIZE     habitat       35    100 Donation to Habitat for Humanity
+PRIZE     maze           1     20 Memory Collector Maze Downloadable Game
+PRIZE     ovis          50      3 Ovis Rent a Car Single Upgrade Coupon
+PRIZE     pudget        50      5 pudget Rent A Car Single Upgrade Coupon
+PRIZE     quest          1     10 Memory Quest Downloadable Game
+ADD_USER  ABradbu89    745 Abigail Bradbury
+ADD_USER  AGlow53      737 Anthony Glow
+ADD_PHONE AGlow53    617-596-0004
+ADD_PHONE AGlow53    769-188-9882
+ADD_USER  ALindse41     16 Anna Lindsey
+ADD_PHONE ALindse41  253-173-7597
+ADD_PHONE ALindse41  762-471-8342
+ADD_PHONE ALindse41  780-463-8323
+ADD_USER  DLindst78  19474 David Lindstrom Jr
+ADD_PHONE DLindst78  164-692-7247
+ADD_USER  ESuds97       96 Emma Suds
+ADD_PHONE ESuds97    080-447-0173
+ADD_PHONE ESuds97    563-144-2429
+ADD_USER  GDonton69    138 Gavin Dontonio Strategic
+ADD_PHONE GDonton69  869-187-6666
+ADD_USER  IOrigin95     70 Ian Original
+ADD_PHONE IOrigin95  151-546-9985
+ADD_PHONE IOrigin95  339-220-7478
+ADD_USER  JTogeth24     35 James Together
+ADD_PHONE JTogeth24  463-522-4479
+ADD_PHONE JTogeth24  556-984-2011
+ADD_PHONE JTogeth24  840-568-9736
+ADD_USER  KPuppyi21   2208 Kaylee Puppyish
+ADD_PHONE KPuppyi21  713-374-2594
+ADD_USER  KRousse21     22 Kaylee Rousseau PhD
+ADD_USER  LElgin77    7392 Leah Elgin
+ADD_USER  MCancel83     83 Mason Cancel
+ADD_PHONE MCancel83  028-713-8225
+ADD_PHONE MCancel83  636-781-0295
+ADD_USER  MGiddy55    5931 Michael Giddy MD
+ADD_USER  SCompre65   1820 Samuel Compressive
+ADD_PHONE SCompre65  431-111-4457
+ADD_PHONE SCompre65  471-530-0310
+ADD_PHONE SCompre65  745-272-3253
+ADD_USER  VLumpur93    879 Victoria Lumpur
+MARK_USED CpxicpgWBEGA9S kyiy7b8gRjVOsO o4dkvI12ZUHyQw q2fNTG6NwKjNNZ vmreFap5ISSGMz

@@ -1,0 +1,8 @@
+PRIZE ovis 50 3 Ovis Rent a Car Single Upgrade Coupon
+ADD_USER CThru 101 Caroline Thrust
+ADD_USER DGirl 66 Daniel Girlie PhD
+WRITE f1.txt
+REDEEM CThru ovis
+REDEEM DGirl ovis
+REDEEM CThru ovis
+WRITE f2.txt

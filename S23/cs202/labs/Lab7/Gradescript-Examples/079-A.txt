@@ -1,0 +1,42 @@
+PRIZE     ovis          50      3 Ovis Rent a Car Single Upgrade Coupon
+PRIZE     plush        600      4 Boca-Cola Plush Polar Bear
+PRIZE     quest          1     10 Memory Quest Downloadable Game
+PRIZE     special       35    100 Bronze level donation to Special Olympics
+PRIZE     visasweep      1   1000 $500 VISA(r) Gift Card Sweepstakes Entry
+ADD_USER  AGrace26    3839 Andrew Grace
+ADD_PHONE AGrace26   424-938-1260
+ADD_USER  APolari16     71 Alexander Polariscope
+ADD_PHONE APolari16  279-686-2290
+ADD_PHONE APolari16  372-134-5604
+ADD_USER  BJuggle80     51 Brooklyn Juggle
+ADD_PHONE BJuggle80  277-523-1720
+ADD_PHONE BJuggle80  536-860-1814
+ADD_PHONE BJuggle80  760-134-1588
+ADD_USER  CLunar94    4593 Carson Lunar
+ADD_PHONE CLunar94   249-490-4317
+ADD_USER  CScurri20    617 Carson Scurrilous
+ADD_PHONE CScurri20  455-123-2285
+ADD_PHONE CScurri20  795-183-9053
+ADD_USER  IRespir70     51 Isaac Respirator
+ADD_PHONE IRespir70  477-349-5844
+ADD_USER  LHoover06     45 Lucy Hoover
+ADD_USER  LMatthe37    205 Lucas Matthew Indigene
+ADD_PHONE LMatthe37  129-494-4030
+ADD_USER  LPeculi90     83 Luke Peculiar
+ADD_PHONE LPeculi90  703-720-1811
+ADD_PHONE LPeculi90  734-495-7626
+ADD_USER  MFinal59    1364 Morgan Final
+ADD_USER  SCunnin71   8238 Samuel Cunningham
+ADD_PHONE SCunnin71  031-316-1533
+ADD_PHONE SCunnin71  768-824-7602
+ADD_USER  SHypocr73     23 Samantha Hypocritical
+ADD_PHONE SHypocr73  212-559-8772
+ADD_PHONE SHypocr73  662-167-0640
+ADD_USER  TExpati43   9618 Tyler Expatiate
+ADD_PHONE TExpati43  318-918-9973
+ADD_PHONE TExpati43  620-677-5252
+ADD_USER  TFilmst80   4892 Tyler Filmstrip
+ADD_PHONE TFilmst80  573-348-7417
+ADD_USER  ZLike83    17185 Zoey Like
+ADD_PHONE ZLike83    309-234-5385
+MARK_USED G6l7elMvzyuTUh eS1WZM1uTyueDu nLZyRDqFgjnOzw rIvfmsxIpKT1h6 t7ao9VzYzSgG8V

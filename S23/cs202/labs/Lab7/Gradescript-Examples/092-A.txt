@@ -1,0 +1,45 @@
+PRIZE     cancun     10000      1 All Expense-Paid trip to Cancun
+PRIZE     dogo         570      3 Club Dogo 12-Month Subscription
+PRIZE     downloads    700      8 10 MP3 Downloads from Babster
+PRIZE     hat         2222      2 Ninja Warrior Mount Midoriyama T-Shirt
+PRIZE     pudget        50      5 pudget Rent A Car Single Upgrade Coupon
+ADD_USER  ABusy87    27903 Alyssa Busy
+ADD_PHONE ABusy87    623-151-7609
+ADD_USER  ALimest53  46020 Aidan Limestone
+ADD_PHONE ALimest53  264-339-3443
+ADD_PHONE ALimest53  337-861-6849
+ADD_PHONE ALimest53  385-255-3089
+ADD_USER  BOrator53   3137 Blake Oratory
+ADD_USER  CDairym10     11 Connor Dairymen
+ADD_PHONE CDairym10  291-726-7383
+ADD_USER  CKhmer02    3639 Carson Khmer
+ADD_PHONE CKhmer02   558-423-9752
+ADD_PHONE CKhmer02   563-486-5326
+ADD_USER  CMischi75   9359 Charlie Mischievous
+ADD_USER  CScurri44     71 Caroline Scurrilous
+ADD_PHONE CScurri44  642-552-1536
+ADD_PHONE CScurri44  760-465-6577
+ADD_USER  EMonsie70     53 Evelyn Monsieur
+ADD_PHONE EMonsie70  373-523-0796
+ADD_PHONE EMonsie70  525-860-8457
+ADD_PHONE EMonsie70  557-194-8879
+ADD_USER  GSheath46    481 Gabriella Sheath
+ADD_PHONE GSheath46  688-234-3131
+ADD_PHONE GSheath46  950-325-4956
+ADD_USER  GSparli00     59 Gabriella Sparling
+ADD_PHONE GSparli00  207-868-1518
+ADD_PHONE GSparli00  230-771-3434
+ADD_PHONE GSparli00  777-110-8257
+ADD_USER  LImpres53  14530 Luke Impressible
+ADD_PHONE LImpres53  137-990-5672
+ADD_PHONE LImpres53  593-888-5028
+ADD_USER  LSave45    39910 Lily Save
+ADD_PHONE LSave45    878-543-5440
+ADD_USER  MHorn78    11197 Molly Horn
+ADD_PHONE MHorn78    604-340-2006
+ADD_PHONE MHorn78    753-030-6548
+ADD_PHONE MHorn78    811-901-2137
+ADD_USER  MOrange85     90 Madelyn Orange
+ADD_USER  MRecond57    922 Mackenzie Recondite
+ADD_PHONE MRecond57  740-545-7174
+MARK_USED 1ir6Ac5DxVLra1 D02b6RMAdmXQOt hHYpkmUd2uiOpg iymUNYFzucVtpQ vay6tQTnZ9OHjm

@@ -1,0 +1,51 @@
+PRIZE     cancun     10000      1 All Expense-Paid trip to Cancun
+PRIZE     dogo         570      3 Club Dogo 12-Month Subscription
+PRIZE     habitat       35    100 Donation to Habitat for Humanity
+PRIZE     silver      1100      2 Two DMC Theatres Silver Experience movie tickets
+PRIZE     spinner      750      4 Multi-Function Salad Spinner and Chopper
+ADD_USER  ACamelb30  45158 Arianna Camelback
+ADD_PHONE ACamelb30  590-448-0257
+ADD_PHONE ACamelb30  596-598-2816
+ADD_PHONE ACamelb30  702-497-7232
+ADD_USER  AChurn40   21934 Audrey Churn
+ADD_PHONE AChurn40   235-294-7081
+ADD_PHONE AChurn40   361-551-5980
+ADD_PHONE AChurn40   597-919-8261
+ADD_USER  ADuctil93    882 Anthony Ductile
+ADD_PHONE ADuctil93  375-449-4138
+ADD_PHONE ADuctil93  509-904-5217
+ADD_PHONE ADuctil93  644-036-2649
+ADD_USER  AFluenc43    682 Andrew Fluency PhD
+ADD_PHONE AFluenc43  495-712-4764
+ADD_PHONE AFluenc43  737-246-2569
+ADD_USER  AInterv57     13 Aiden Interval
+ADD_PHONE AInterv57  081-142-5426
+ADD_PHONE AInterv57  183-790-7235
+ADD_PHONE AInterv57  855-670-4758
+ADD_USER  AJugate14  38987 Austin Jugate
+ADD_PHONE AJugate14  174-351-3757
+ADD_PHONE AJugate14  610-205-1413
+ADD_PHONE AJugate14  856-562-1336
+ADD_USER  BBonifa55     93 Brianna Boniface
+ADD_PHONE BBonifa55  008-672-3102
+ADD_USER  CBarge68   24776 Chase Barge
+ADD_USER  DIneffi14  37842 Daniel Inefficient
+ADD_PHONE DIneffi14  029-131-8159
+ADD_PHONE DIneffi14  462-602-7283
+ADD_PHONE DIneffi14  569-485-8923
+ADD_USER  GMax14       235 Gabriel Max Set
+ADD_PHONE GMax14     556-830-7531
+ADD_USER  IParks92     696 Isaac Parks
+ADD_PHONE IParks92   119-480-9038
+ADD_PHONE IParks92   177-181-8465
+ADD_USER  JEcho91    11706 James Echo
+ADD_USER  NSvelte62     59 Noah Svelte
+ADD_USER  OMauve70    6464 Oliver Mauve
+ADD_PHONE OMauve70   120-797-9587
+ADD_PHONE OMauve70   364-503-8235
+ADD_PHONE OMauve70   451-559-9059
+ADD_USER  TVade56        2 Taylor Vade
+ADD_PHONE TVade56    355-887-8304
+ADD_PHONE TVade56    606-440-6857
+ADD_PHONE TVade56    914-780-5061
+MARK_USED 6ZzSTTdUaCDy6N 7fClHDlcNlxNpl F3W9dZq4NWCp3F jqivzc4eRM0Jt9 sHDNCtoOnMhctK

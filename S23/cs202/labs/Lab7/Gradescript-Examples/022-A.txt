@@ -1,0 +1,6 @@
+PRIZE silver 1100 2 Two DMC Theatres Silver Experience movie tickets
+ADD_USER APost 1670 Audrey Posthumous
+REDEEM APost silver
+PRIZE dogo 570 3 Club Dogo 12-Month Subscription
+REDEEM APost dogo
+WRITE f1.txt

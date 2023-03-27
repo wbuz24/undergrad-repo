@@ -1,0 +1,43 @@
+PRIZE     dogo         570      3 Club Dogo 12-Month Subscription
+PRIZE     maze           1     20 Memory Collector Maze Downloadable Game
+PRIZE     quest          1     10 Memory Quest Downloadable Game
+PRIZE     rest         500      5 Restaurant Gift Card from E-Restaurants.com
+PRIZE     swarokski     75      7 $30 Swarokski Gift Certificate
+ADD_USER  AMissou83   8172 Alyssa Missouri
+ADD_PHONE AMissou83  649-008-4961
+ADD_PHONE AMissou83  729-695-9667
+ADD_PHONE AMissou83  799-636-7097
+ADD_USER  AZoey84      886 Anna Zoey Rogue
+ADD_PHONE AZoey84    093-049-2615
+ADD_PHONE AZoey84    213-212-7658
+ADD_PHONE AZoey84    780-070-5171
+ADD_USER  CCorout54  25671 Chase Coroutine
+ADD_PHONE CCorout54  616-175-0708
+ADD_PHONE CCorout54  623-320-3333
+ADD_PHONE CCorout54  670-196-6697
+ADD_USER  CParker21     35 Christian Parker Competitor
+ADD_USER  CTrw18       723 Caleb Trw III
+ADD_PHONE CTrw18     315-414-9989
+ADD_PHONE CTrw18     364-666-0793
+ADD_USER  EInitia48     88 Emily Initiate
+ADD_PHONE EInitia48  034-970-8805
+ADD_USER  EKohlra79     59 Emily Kohlrabi
+ADD_PHONE EKohlra79  482-393-8774
+ADD_USER  IBoyd57     2084 Isabelle Boyd
+ADD_PHONE IBoyd57    871-420-9902
+ADD_USER  IThuban17   5623 Isaiah Thuban
+ADD_PHONE IThuban17  126-458-8867
+ADD_PHONE IThuban17  594-207-7382
+ADD_USER  JAggreg57    364 Julian Aggregate
+ADD_USER  LConsul38   5478 Lillian Consultative
+ADD_USER  LDream00   27342 Liam Dream
+ADD_USER  LFarada17   4045 Lauren Faraday
+ADD_PHONE LFarada17  140-349-2516
+ADD_USER  MAtypic04     82 Molly Atypic
+ADD_PHONE MAtypic04  477-688-6692
+ADD_PHONE MAtypic04  994-047-3787
+ADD_USER  NLigget09   1641 Nathan Liggett
+ADD_PHONE NLigget09  254-928-6374
+ADD_PHONE NLigget09  479-055-0665
+ADD_PHONE NLigget09  777-559-6829
+MARK_USED 6He4gCKs2ycH1z FA9lsdrD8FoL7r GqxUGwyHcW42T3 I9qgT5JqSjYhj8 gMKNzF6sSy7smu
