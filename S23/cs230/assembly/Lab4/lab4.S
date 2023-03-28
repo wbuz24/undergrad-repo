@@ -19,26 +19,52 @@ make_triangle:
 # theta1 16        4
 # total size = 20 bytes
 
-addi sp, sp -32
+addi sp, sp, -48
 
 # store save registers onto stack
+fsd     fs0, 0(sp)
+fsd     fs1, 8(sp)
+fsd     fs2, 16(sp)
+sd      s0, 24(sp)
+sd      ra, 32(sp)
 
-sw  s0, 0(sp)
-sw  s1, 4(sp)
-sw  s2. 8(sp)
+# move sid0 & side1 into save registers
+fmv.s   fs0, fa0
+fmv.s   fs1, fa1
+
+# put sid0 & side1 into a0
+fsw     fa0, 0(a0) 
+fsw     fa1, 4(a0)
+
+# save a0
+mv      s0, a0
 
 # compute the hypotenuse by calling sqrt
+fmul.s  fa0, fs0, fs0
+fmul.s  fa1, fs1, fs1 
+fadd.s  fa0, fa0, fa1
+call sqrt  # return is in fa0
 
+# move hypotenuse into saved register and store 
+fsw     fa0, 8(s0)
+fmv.s   fs2, fa0
 
 # compute theta0 & theta1 by calling asinf
+fdiv.s  fa0, fs0, fs2
+call asinf
+fsw     fa0, 12(s0)
 
-# store everying into a0 -> return RightTriangle struct
-
+fdiv.s  fa0, fs1, fs2
+call asinf
+fsw     fa0, 16(s0)
 
 # load values from stack back into save registers
+fld     fs0, 0(sp) 
+fld     fs1, 8(sp)
+fld     fs2, 16(sp)
+ld      s0, 24(sp)
+ld      ra, 32(sp)
 
-lw  s0, 0(sp)
-lw  sw, 4(sp)
-lw  s2, 8(sp)
+addi    sp, sp, 48
 
 ret
