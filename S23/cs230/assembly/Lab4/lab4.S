@@ -2,6 +2,7 @@
 # cs230
 # lab 4
 # Implement a structure to make a right triangle
+# Assistance from TA Clayton Gilmer
 
 .section .text
 .global make_triangle
@@ -43,7 +44,7 @@ mv      s0, a0
 fmul.s  fa0, fs0, fs0
 fmul.s  fa1, fs1, fs1 
 fadd.s  fa0, fa0, fa1
-call sqrt  # return is in fa0
+fsqrt.s fa0, fa0  # fsqrt.s was ideal over call sqrt
 
 # move hypotenuse into saved register and store 
 fsw     fa0, 8(s0)
