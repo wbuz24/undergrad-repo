@@ -1,0 +1,4 @@
+PRIZE cancun 50000 1 Free trip
+PRIZE mp3 40 500 Free mp3
+ADD_USER   the-donald     100   Donald Trump
+ADD_USER   tigerwoods     0   Tiger Woods

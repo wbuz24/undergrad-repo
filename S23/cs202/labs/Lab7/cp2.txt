@@ -1,0 +1,4 @@
+PRIZE mp3 40 500 Free mp3
+PRIZE cancun 50000 1 Free trip
+ADD_USER tigerwoods 0 Tiger Woods 865-974-4400 
+ADD_USER the-donald 100 Donald Trump 
