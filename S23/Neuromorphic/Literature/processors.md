@@ -32,60 +32,20 @@ To help disambuiguate this process, here's how it works:
  
  ## Izhikevich
  
+The Izhikevich neuron model was implemented by Thomas Neuefeind into the TENNLab framework and has been successful in recreating the graphs from both the 2003 and 2004 papers by Eugene M. Izhikevich. 
+
+The processor was implemented using the RISP processor as a model for implementing with the framework, therefore, the run() function is 1 indexed. 
+
+## The events vector
+
+The events vector is a 2D vector of neuron, charge pairs that tracks the events on which neuron and it's respective charge value.
+ - the index is the timestep (in other words, the vector's first dimension stores the timestep while the second stores the actual pair)
+
+## Network::process_events
+
+This method is a large portion of the work done by the processor and much of that work is done on the neuron stored in the events vector. This is initially extracted in a variable es which is the instance of the events vector we are interested in, then the neuron is inserted into the variable n which receives all of the work from the function. Primarily:
+ - updating the parameters based on the differential equations outlined in the 2003/2004 Izhikevich papers.
+ - checks to see if the neuron fires
+ - resizes the events vector
+ - keeps track of neuron fire times and counts
  
- ## Processor Tool
- ```
- pwd
- ```
-/home/shartreuce/Documents/repos/undergrad/framework/cpp-apps
- ```
- make app=processor_tool proc=izhikevich
- ```
-  - 
- ```
- echo "?" | bin/processor_tool_izhikevich
- ```
-This is a processor tool program. The commands listed below are case-insensitive,
-For commands that take a json either put a filename on the same line,
-or the json can be multiple lines, starting on the next line.
-
-Action commands --
-MAKE/M proc_name proc_param_json    - Make a new processor with no network
-LOAD/L network_json                 - Load a network on the processor
-ML network_json                     - Make a new processor from the network & load the network.
-AS node_id spike_time spike_val ... - Apply spikes to the network (note: node_id, not input_id)
-RUN simulation_time                 - Run the network for "simulation_time" cycles
-CLEAR-A/CA                          - Clear the network's internal state 
-CLEAR/C                             - Remove the network from processor
-VIZ T|F [extra_viz_argument] [...]  - Open network viz. T|F is to show viz's control panel
-
-Output tracking info commands --
-OLF [node_id] [...]                 - Output the last fire time for the given output or all outputs
-OC [node_id] [...]                  - Output the spike count for the given output or all outputs
-OT/OV [node_id] [...]               - Output the spike times for the given output or all outputs
-TRACK_O [node_id] [...]             - Track output events for given outputs (empty=all)
-UNTRACK_O [node_id] [...]           - Untrack output events for given output (empty=all)
-
-Neuron tracking info commands --
-NLF show_nonfiring(T/F)             - Last fire times for neurons.
-NC show_nonfiring(T/F)              - Fire counts for neurons.
-NT/NV show_nonfiring(T/F)           - All firing times for tracked neurons.
-GSR show_hidden(T/F)                - Print spike raster info for tracked neurons.
-NCH                                 - Print the charges (action potentials) of the neurons.
-NLFJ                                - Print the neuron last fire json
-NCJ                                 - Print the neuron count json
-NVJ type(V/S)                       - Print the neuron vector json
-NCHJ                                - Print the neuron charge json
-TRACK_N [node_id] [...]             - Track neuron events for specified neurons (empty=all)
-UNTRACK_N [node_id] [...]           - Untrack neuron events for specified neurons (empty=all)
-
-Other info commands --
-PARAMS [file]                       - Print the JSON that can recreate the processor
-NP/PPACK                            - Print the PropertyPack that networks use with the processor.
-NAME                                - Print the processor's name
-EMPTYNET [file]                     - Create an empty network for this processor
-PP                                  - Print processor's properties - (not a universal feature).
-INFO                                - Print the network's node ids and output tracking info
-PS                                  - Print the spikes we have applied
-?                                   - Print commands
-Q                                   - Quit
