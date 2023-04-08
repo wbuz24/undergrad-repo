@@ -1,0 +1,24 @@
+TEXT_CODE: Either the phone number (161-487-4269) is not registered,
+           or the code (4ZRETl0eXnkS2e) has been used already
+039-748-3111
+497-409-7434
+725-737-8972
+ENTER_CODE: Either the user (ARonald49) doesn't exist,
+            or the code (ynmaHLgQ4F0mjZ) has been used already
+REDEEM: Either the user (KInform05) doesn't exist,
+        or the prize (spinner) doesn't exist,
+        or the user can't afford the prize.
+97 Points
+REMOVE_PHONE: Either the user (CBaxter58) doesn't exist,
+              or the phone number (443-256-4292) is unassigned,
+              or the phone number is not assigned to the user.
+ENTER_CODE: Either the user (GBest72) doesn't exist,
+            or the code (XGFTAxWJybK09v) has been used already
+701 Points
+BALANCE: No user JHansel91
+ADD_PHONE: Either the user (TEndoth15) doesn't exist,
+           or the phone number (139-551-9886) is already assigned
+TEXT_CODE: Bad code (XhJf5HdLDd8lcu).
+Prize plush couldn't be added
+ADD_PHONE: Either the user (KTeleco77) doesn't exist,
+           or the phone number (021-783-4564) is already assigned

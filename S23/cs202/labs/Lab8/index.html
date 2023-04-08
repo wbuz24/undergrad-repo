@@ -1,0 +1,118 @@
+<title>CS202 Lab 8 - Dlists</title>
+<body bgcolor=ffffff>
+<h2>CS202 Lab 8 - Dlists</h2>
+<UL>
+<LI><a href=http://web.eecs.utk.edu/~jplank>Jim Plank</a>
+<LI>Directory: <b>~jplank/cs202/Labs/Lab8</b>
+<LI> Last modification date: <i>
+Tue Oct 26 18:03:37 EDT 2021
+</i>
+</UL>
+<hr>
+
+<h3>dlist.cpp</h3>
+
+Your job is to write <b>dlist.cpp</b> so that it
+properly implements all of the methods of the <b>Dlist</b> class, as 
+described in the 
+<a href=http://web.eecs.utk.edu/~jplank/plank/classes/cs202/Notes/Linked/index.html>lecture
+notes on linked data structures</a>.
+<p>
+You are <i>not</i> allowed to have any STL data structures or header files in your
+implementation -- you may only include <b>&lt;iostream&gt;</b>
+and <b>"dlist.hpp"</b>.  The implementation should be as described
+in the lecture notes: as a circular list with a sentinel node.
+<p>
+The gradescript will test all of the <b>src/dlist_rev_<i>x</i>.cpp</b> programs from the
+lecture notes, plus the program <b>src/dlist_editor.cpp</b> that I describe below.
+<p>
+You should doublecheck your <b>include/dlist.hpp</b> and make sure that
+it is the same one as in this lab directory.  In particular, you should
+not use an old one that doesn't have the <b>Next()</b> and <b>Prev()</b>
+methods.
+
+<hr>
+<h3>The list editor</h3>
+
+This is yet another command-line program that lets me test your code.  
+There is always a current list that is being edited.  The list holds 
+strings that are single words, and the words in a list must be unique.
+<p>
+The program takes a prompt on the command line (use "-" for no prompt).
+You can see a list of the commands by entering a question mark:
+
+<pre>
+UNIX> <font color=darkred><b>echo '?' | bin/dlist_editor</b></font>
+CLEAR:               This calls the Clear() method, clearing the list.
+DESTROY:             This deletes the list and creates a new one with new.
+PRINT_FORWARD:       This prints the list, all on one line in the forward direction.
+PRINT_REVERSE:       This prints the list, all on one line in the reverse direction.
+PRINT_COPY:          This prints the list using a procedure which calls the copy constructor.
+PUSH_BACK s:         This calls Push_Back on the string s.
+PUSH_FRONT s:        This calls Push_Front on the string s.
+POP_BACK:            This calls Pop_Back and prints the string
+POP_FRONT:           This calls Pop_Front and prints the string.
+ERASE s:             This calls Erase on the pointer to the node that holds string s. 
+                     If s is not on the list, this does nothing.
+INSERT_BEFORE s1 s2: This calls Insert_Before(s1, d), 
+                     where d is the pointer to the node that holds string s2. 
+                     If s2 is not on the list, this does nothing.
+INSERT_AFTER s1 s2:  This calls Insert_After(s1, d).
+EMPTY:               This returns whether the list is empty.
+SIZE:                This returns the list's size.
+AO:                  This tests the assignment overload by copying to a second list,
+                     and then copying back.
+?:                   Print these commands.
+QUIT:                Exit.
+UNIX>
+</pre>
+
+
+So, for example:
+
+<pre>
+UNIX> <font color=darkred><b>bin/dlist_editor 'Editor>'</b></font>
+Editor> <font color=darkred><b>PUSH_BACK a</b></font>
+Editor> <font color=darkred><b>PUSH_BACK b</b></font>
+Editor> <font color=darkred><b>PUSH_BACK c</b></font>
+Editor> <font color=darkred><b>PUSH_BACK d</b></font>
+Editor> <font color=darkred><b>PRINT_FORWARD</b></font>
+a b c d
+Editor> <font color=darkred><b>PUSH_FRONT z</b></font>
+Editor> <font color=darkred><b>PRINT_FORWARD</b></font>
+z a b c d
+Editor> <font color=darkred><b>PRINT_REVERSE</b></font>
+d c b a z
+Editor> <font color=darkred><b>POP_BACK</b></font>
+d
+Editor> <font color=darkred><b>POP_FRONT</b></font>
+z
+Editor> <font color=darkred><b>PRINT_FORWARD</b></font>
+a b c
+Editor> <font color=darkred><b>SIZE</b></font>
+3
+Editor> <font color=darkred><b>EMPTY </b></font>
+No
+Editor> <font color=darkred><b>INSERT_BEFORE xxx b</b></font>
+Editor> <font color=darkred><b>PRINT_FORWARD</b></font>
+a xxx b c
+Editor> <font color=darkred><b>INSERT_AFTER yyy b</b></font>
+Editor> <font color=darkred><b>PRINT_FORWARD</b></font>
+a xxx b yyy c
+Editor> <font color=darkred><b>ERASE b</b></font>
+Editor> <font color=darkred><b>PRINT_FORWARD</b></font>
+a xxx yyy c
+Editor> <font color=darkred><b>SIZE</b></font>
+4
+Editor> <font color=darkred><b>CLEAR</b></font>
+Editor> <font color=darkred><b>EMPTY</b></font>
+Yes
+Editor> <font color=darkred><b>PUSH_BACK a</b></font>
+Editor> <font color=darkred><b>PRINT_FORWARD</b></font>
+a
+Editor> <font color=darkred><b>QUIT</b></font>
+UNIX> <font color=darkred><b></b></font>
+</pre>
+
+Use <tt>COPY</tt>, <tt>DESTROY</tt> and <tt>AO</tt> to test your copy constructor, 
+destructor and assignment overload.

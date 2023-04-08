@@ -1,0 +1,7 @@
+PRIZE swarokski 75 0 $30 Swarokski Gift Certificate
+PRIZE special 35 2 Bronze level donation to Special Olympics
+PRIZE maze 1 0 Memory Collector Maze Downloadable Game
+PRIZE PRIZE swarokski 75 0 $30 Swarokski Gift Certificate
+PRIZE special 35 2 Bronze level donation to Special Olympics
+PRIZE maze 1 0 Memory Collector Maze Downloadable Game
+PRIZE WRITE your_dir/f2.txt

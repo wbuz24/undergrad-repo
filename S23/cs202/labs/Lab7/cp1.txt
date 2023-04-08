@@ -1,4 +1,2 @@
-PRIZE cancun 50000 1 Free trip
-PRIZE mp3 40 500 Free mp3
-ADD_USER   the-donald     100   Donald Trump
-ADD_USER   tigerwoods     0   Tiger Woods
+PRIZE plush 600 4 Boca-Cola Plush Polar Bear
+PRIZE hat 2222 2 Ninja Warrior Mount Midoriyama T-Shirt

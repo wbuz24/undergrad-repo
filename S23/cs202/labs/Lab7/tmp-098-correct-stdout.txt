@@ -1,0 +1,39 @@
+271 Points
+ADD_USER SDonnel83 unsuccessful
+ADD_PHONE: Either the user (IJeres13) doesn't exist,
+           or the phone number (663-287-2635) is already assigned
+TEXT_CODE: Either the phone number (837-648-8345) is not registered,
+           or the code (tN4bdiWu1wuvpK) has been used already
+ENTER_CODE: Either the user (ETenney63) doesn't exist,
+            or the code (tQFtv2dVirC4xS) has been used already
+ENTER_CODE: Either the user (IJeres13) doesn't exist,
+            or the code (kPCsqPKD53m5i2) has been used already
+TEXT_CODE: Either the phone number (092-995-0199) is not registered,
+           or the code (U5W3zwf5HJCC1E) has been used already
+ADD_PHONE: Either the user (LRan11) doesn't exist,
+           or the phone number (305-259-5922) is already assigned
+ADD_PHONE: Either the user (RWrapup42) doesn't exist,
+           or the phone number (301-120-7313) is already assigned
+ADD_PHONE: Either the user (ETenney63) doesn't exist,
+           or the phone number (889-549-0377) is already assigned
+TEXT_CODE: Either the phone number (305-259-5922) is not registered,
+           or the code (jwKcXTjzr5HhPg) has been used already
+ENTER_CODE: Either the user (CLobo84) doesn't exist,
+            or the code (0QVOVx6vYcpSf8) has been used already
+TEXT_CODE: Bad code (qQTWGxoe8IYZ0b).
+BALANCE: No user IJeres13
+SHOW_PHONES: No user CEva17
+ENTER_CODE: Bad code (jQ8OoH02zadNBJ).
+ENTER_CODE: Either the user (ICretac92) doesn't exist,
+            or the code (m4GK7OUZAzMMUQ) has been used already
+ENTER_CODE: Either the user (KKayla47) doesn't exist,
+            or the code (pGWOX4xTOdWKC0) has been used already
+ADD_PHONE: Either the user (NUsurp25) doesn't exist,
+           or the phone number (363-167-9702) is already assigned
+ENTER_CODE: Bad code (Si3vx2suZ07WGS).
+ENTER_CODE: Either the user (IJeres13) doesn't exist,
+            or the code (Pd7K6cD2TgSxxT) has been used already
+ENTER_CODE: Either the user (BBabcoc57) doesn't exist,
+            or the code (suB5ORSDVRcCBJ) has been used already
+MARK_USED: Either y2eYZWhPNlURHF is already used or it's a bad code.
+44 Points
