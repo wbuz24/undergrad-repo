@@ -5,4 +5,9 @@
  * enumerate all strings of a given length on standard output in sorted order
 */
 
+#include <iostream>
+using namespace std;
 
+int main(int argc, char** argv) {
+  
+}

@@ -22,7 +22,7 @@ Dnode* Dnode::Prev()
 
 Dlist::Dlist()
 {
-    Dnode *sentinel = new Dnode; // create a sentinel node
+    sentinel = new Dnode; // create a sentinel node
     sentinel->s = "";
     sentinel->flink = sentinel;
     sentinel->blink = sentinel;
@@ -31,12 +31,12 @@ Dlist::Dlist()
 
 Dlist::Dlist(const Dlist &d)
 {
-    Dnode *sentinel = new Dnode;
+    sentinel = new Dnode;
     sentinel->s = ""; // create the sentinel node
     sentinel->flink = sentinel;
     sentinel->blink = sentinel;
-    Dnode *l;
     size = 0;
+    Dnode *l;
     for (l = d.Begin(); l!= d.End(); l = l->Next()) {
         Push_Back(l->s); // copy each node from d
     }
@@ -64,7 +64,7 @@ void Dlist::Clear()
 
 bool Dlist::Empty() const
 {
-    if (size != 0) return true;
+    if (size == 0) return true;
     else return false; // check if size is equal to zero
 };
 
@@ -126,14 +126,13 @@ void Dlist::Insert_Before(const std::string &s, Dnode *n)
 {
     Dnode *newnode = new Dnode; // create newnode and set it's pointers
     newnode->s = s;
-    newnode->blink = n->blink;
-    cout << "push back\n";
+    newnode->blink = n->blink;  // newnode->blink = prev
+    // cout << "push back\n";
     newnode->flink = n;
 
     n->blink->flink = newnode; // reset surrounding node pointers to newnode
     n->blink = newnode;
     size++;
-
 };
 
 void Dlist::Insert_After(const std::string &s, Dnode *n)
