@@ -1,0 +1,600 @@
+<title> CS202 -- Lab 9</title>
+
+<h1> CS202 -- Lab 9</h1>
+<h3>
+<UL> <LI> CS202 -- Data Structures and Algorithms I
+<LI> <a href=http://web.eecs.utk.edu/~jplank>James S. Plank</a>
+<LI> This file: 
+<a href=http://web.eecs.utk.edu/~jplank/plank/classes/cs202/Labs/Lab9>
+     <b>http://web.eecs.utk.edu/~jplank/plank/classes/cs202/Labs/Lab9</b></a>
+<LI> Lab directory: 
+<b>/home/jplank/cs202/Labs/Lab9/</b>
+</UL>
+</h3>
+
+<hr>
+This is a recursion lab with two parts.  The first part is worth 20 points, and
+the second is worth 80.   You should submit <b>src/enum.cpp</b> as Lab 9A, and
+<b>src/ss_solver.cpp</b> as Lab 9B.
+
+<hr>
+<H2>Part 1: Enumerating Strings</h2>
+
+Your first job is write a program called <b>bin/enum</b>, which is called as follows:
+
+<p><center><table border=3 cellpadding=3><td><pre>
+bin/enum length ones
+</pre></td></table></center><p>
+
+This program should enumerate all strings of length <b>length</b> that contain
+<b>ones</b> ones, and (<b>length</b>-<b>ones</b>) zeros, and print them on 
+standard output in sorted order.  For example:
+<pre>
+<pre>
+UNIX> <font color=darkred><b>bin/enum 2 2</b></font>
+11
+UNIX> <font color=darkred><b>bin/enum 2 1</b></font>
+01
+10
+UNIX> <font color=darkred><b>bin/enum 2 0</b></font>
+00
+UNIX> <font color=darkred><b>bin/enum 3 1</b></font>
+001
+010
+100
+UNIX> <font color=darkred><b>bin/enum 3 2</b></font>
+011
+101
+110
+UNIX> <font color=darkred><b>bin/enum 5 3</b></font>
+00111
+01011
+01101
+01110
+10011
+10101
+10110
+11001
+11010
+11100
+UNIX> <font color=darkred><b>bin/enum 100 100</b></font>
+1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
+UNIX> <font color=darkred><b>bin/enum 100 0</b></font>
+0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+UNIX> <font color=darkred><b></b></font>
+</pre>
+</pre>
+You may puzzle about how to do this, but it is easy with recursion.  
+I defined a recursive procedure:
+
+
+<p><center><table border=3 cellpadding=3><td><pre>
+void do_enumeration(string &amp;s, int index, int n_ones);
+</pre></td></table></center><p>
+
+This procedure assumes that <b>s</b> has been initialized to be a string of size <b>length</b>,
+and that the characters in indices less than <b>index</b> have been set.  In my code, I have
+the unset characters be dashes, because it makes it easier to see what's going on with the
+recursion.
+This procedure
+will enumerate all values &ge; <b>index</b> that have exactly <b>n_ones</b> ones, and print
+each of those strings.  To help you, I have added code to print the recursive calls
+when you call:
+
+<UL>
+<LI> <b>bin/enum 3 2</b> in <a href=txt/enum-3-2.txt>txt/enum-3-2.txt</a>.
+<LI> <b>bin/enum 5 3</b> in <a href=txt/enum-5-3.txt>txt/enum-5-3.txt</a>.
+</UL>
+
+
+<hr>
+<h2>Part 2: ShapeShifter!!</h2>
+
+<h3>The Game</h3>
+
+In <a href=http://www.neopets.com>neopets.com</a>, there was a game called
+ShapeShifter.  (I have no clue if it still exists -- my kids are grown).
+I won't screen-dump their pictures, since that probably violates a few copyrights, 
+so I'll explain the game using my own pictures.  You are given a setup like
+below, consisting of grid of swords and shields, an "active shape", and some
+"remaining shapes":
+
+<p><center><table border=0><td><img src=jpg/Pic-1.jpg width=400></td></table></center><p>
+
+You apply the active shape to a part of the grid where it fits.  For example, in the
+picture above, you can apply the active shape to row zero, row one or row two (life
+is zero-indexed, of course).  When you apply the shape, all grid cells that the shape
+overlaps change swords to shields and vice versa.  For example, suppose you apply the
+active shape to row zero.  The state of the system then changes to:
+
+<p><center><table border=0><td><img src=jpg/Pic-2.jpg width=400></td></table></center><p>
+
+The next shape can be applied to row 0 or row 1.  Suppose we apply it to row 1.  Now
+the state of the system is:
+
+<p><center><table border=0><td><img src=jpg/Pic-3.jpg width=400></td></table></center><p>
+
+There is one more shape, which can be applied to columns 0, 1 or 2.  We
+apply it do column zero, and the grid becomes all swords:
+
+<p><center><table border=0><td><img src=jpg/Pic-4.jpg width=400></td></table></center><p>
+
+Those are the mechanics of the game.  You are given a grid of swords and shields and
+a collection of shapes.  Your goal is to apply <i>all</i> of the shapes to the grid
+so that you end up with a grid of all swords.
+<p>
+Here's a second example:
+<p><center><table border=0><td><img src=jpg/Pic-5.jpg width=300></td></table></center><p>
+
+There are nine places for that first shape to go.  Since I know the solution, 
+I know it gets applied at row 1, column 1:
+
+<p><center><table border=0><td><img src=jpg/Pic-6.jpg width=300></td></table></center><p>
+
+There are four places for the next shape -- we apply it to row 0, column 1:
+
+<p><center><table border=0><td><img src=jpg/Pic-7.jpg width=300></td></table></center><p>
+
+I think you can figure out where that last shape goes.
+
+<hr>
+<h3>The Interactive Game Player</h3>
+
+Since we are computer scientists, we are going to represent shields with zeros,
+and swords with ones.  We will represent any rectangular grid of zeros and ones
+that has <i>r</i> rows and <i>c</i> columns with a vector of <i>r</i> strings.
+Each string in the vector has exactly <i>c</i> characters, which are either '0'
+or '1'.  
+<p>
+Thus, the grid in our first example is:
+
+<p><center><table border=3 cellpadding=3><td><pre>
+{ "100", "101", "000" }
+</pre></td></table></center><p>
+
+and the grid in the second example is:
+
+<p><center><table border=3 cellpadding=3><td><pre>
+{ "100", "101", "001" }
+</pre></td></table></center><p>
+
+We can also represent shapes as grids of zeros and ones.  For example, the shapes in the
+first example are:
+
+<p><center><table border=3 cellpadding=3><td><pre>
+{ "111" }
+{ "110", "011" }
+{ "1", "1", "1" }
+</pre></td></table></center><p>
+
+and the shapes in the second example are:
+
+<p><center><table border=3 cellpadding=3><td><pre>
+{ "1" }
+{ "11", "10" }
+{ "01", "11" }
+</pre></td></table></center><p>
+
+I have written an interactive game player, called <b>bin/ss_player</b>, which takes a prompt and then 
+a grid as command line arguments.
+After the prompt, each word on the command line specifies a different row of the grid.  These words must all be
+the same size, and they must be composed solely of zeros and ones.
+Suppose I want to play using the first example above.  Then I can play with:
+
+<pre>
+UNIX> <font color=darkred><b>/home/jplank/cs202/Labs/Lab9/bin/ss_player ShapeShifter: 100 101 000</b></font>
+
+The Grid:
+
+100
+101
+000
+
+ShapeShifter: 
+</pre>
+
+At the prompt, I enter a shape and where to apply it.  Each row of the shape is a separate
+word, and the last two words must specify a row and a column.  Below, I show how you would
+specify the solution to the first example:
+
+<pre>
+UNIX> <font color=darkred><b>/home/jplank/cs202/Labs/Lab9/bin/ss_player ShapeShifter: 100 101 000</b></font>
+
+The Grid:
+
+100
+101
+000
+
+ShapeShifter: <font color=darkred><b>111 0 0</b></font>
+
+The Grid:
+
+011
+101
+000
+
+ShapeShifter: <font color=darkred><b>110 011 1 0</b></font>
+
+The Grid:
+
+011
+011
+011
+
+ShapeShifter: <font color=darkred><b>1 1 1 0 0</b></font>
+
+The Grid:
+
+111
+111
+111
+
+ShapeShifter: <font color=darkred><b>&lt;CNTL-D&gt;</b></font>
+UNIX> <font color=darkred><b></b></font>
+</pre>
+
+Go ahead and try to do the second example on your own.
+
+<p>
+If you give a prompt of "-", there will be no prompt, which is useful for when
+you use the player with a file or output of a program as input.
+<hr>
+<h3>Your job: ss_solver</h3>
+
+Your job is to write the program <b>ss_solver.cpp</b>.  It takes a grid on its command
+line, and then each line of standard input specifies a shape.  After reading all of
+the shapes, your program should output how to apply each shape to solve the 
+puzzle.  If there is no solution, it should simply exit with no output.  
+<p>
+For example, the file 
+<b><a href=txt/ex1.txt>txt/ex1.txt</a></b> contains the shapes for the first
+example:
+
+<p><center><table border=3 cellpadding=3><td><pre>
+111
+110 011
+1 1 1
+</pre></td></table></center><p>
+
+<b><a href=txt/ex2.txt>txt/ex2.txt</a></b> contains the shapes for the second example.  
+Here's the program running the two examples:
+
+<pre>
+UNIX> <font color=darkred><b>cd /home/jplank/cs202/Labs/Lab9/</b></font>
+UNIX> <font color=darkred><b>bin/ss_solver 100 101 000 < txt/ex1.txt</b></font>
+111 0 0
+110 011 1 0
+1 1 1 0 0
+UNIX> <font color=darkred><b>bin/ss_solver 100 101 001 < txt/ex2.txt</b></font>
+1 1 1
+11 10 0 1
+01 11 1 0
+UNIX> <font color=darkred><b></b></font>
+</pre>
+
+<hr>
+<h3>Testing your program</h3>
+
+The program <b>ss_random_game</b> generates a random game.  It takes five arguments -- rows,
+columns, number of shapes, a seed, and whether the puzzle should be solvable.  That last argument
+should either be "y" for "yes" or "u" for "unknown."
+<p>
+Here are two examples.  The first creates a 3x4 grid that is solvable with the given
+pieces.  The second creates a 4x4 grid whose solvability is unknown.  The program <b>sed</b>
+is used to strip out the first two lines of standard input.
+
+<pre>
+UNIX> <font color=darkred><b>cd /home/jplank/cs202/Labs/Lab9/</b></font>
+UNIX> <font color=darkred><b>bin/ss_random_game</b></font>
+usage: ss_random_game rows cols nshapes seed(0 for current time) solvable(y|u)
+UNIX> <font color=darkred><b>bin/ss_random_game 3 4 4 1 y > $HOME/tmp.txt    <font color=blue> # I'm using $HOME/tmp.txt, because if you run these commands from my directories, </b></font></font>
+UNIX> <font color=darkred><b>                                                <font color=blue> # you can't create files there.  You can create files in your $HOME directory.</b></font></font>
+UNIX> <font color=darkred><b>cat $HOME/tmp.txt</b></font>
+Grid: 0111 0110 0000
+Shapes:
+11 11
+101 100 110
+111 011
+011 100 011
+UNIX> <font color=darkred><b>sed 1,2d $HOME/tmp.txt    <font color=blue> # This strips out the first two lines</b></font></font>
+11 11
+101 100 110
+111 011
+011 100 011
+UNIX> <font color=darkred><b>sed 1,2d $HOME/tmp.txt | bin/ss_solver 0111 0110 0000</b></font>
+11 11 0 1
+101 100 110 0 0
+111 011 0 1
+011 100 011 0 1
+UNIX> <font color=darkred><b>sed 1,2d $HOME/tmp.txt | bin/ss_solver 0111 0110 0000 | bin/ss_player - 0111 0110 0000</b></font>
+
+The Grid:
+
+0111
+0110
+0000
+
+
+The Grid:
+
+0001
+0000
+0000
+
+
+The Grid:
+
+1011
+1000
+1100
+
+
+The Grid:
+
+1100
+1011
+1100
+
+
+The Grid:
+
+1111
+1111
+1111
+
+UNIX> <font color=darkred><b>bin/ss_random_game 4 4 4 2 u > $HOME/tmp.txt</b></font>
+UNIX> <font color=darkred><b>cat $HOME/tmp.txt</b></font>
+Grid: 1010 1111 0011 1110
+Shapes:
+101
+0110 0011 1110
+11
+1 1 1 1
+UNIX> <font color=darkred><b>sed 1,2d $HOME/tmp.txt | bin/ss_solver 1010 1111 0011 1110</b></font>
+UNIX> <font color=darkred><b>rm $HOME/tmp.txt</b></font>
+UNIX> <font color=darkred><b></b></font>
+</pre>
+
+
+Since there is no output from <b>ss_solver</b>, the puzzle is not solvable.
+
+<hr>
+<h3>ss_tester.sh</h3>
+
+In the lab directory, there's a testing shell script called <b>ss_tester.sh</b>.  
+This is what the grading script uses.  You call it with four arguments:
+<UL>
+<LI> Your solver
+<LI> My solver
+<LI> The player
+<LI> An input file, which is in the same format as the output to <b>ss_random_test</b>.
+</UL>
+
+It then runs both your and my solver.  If my solver says its not solvable, yours should
+too.  Otherwise, it uses the player to make sure that your solution works.  Your solution
+should not have any extraneous output.  
+<p>
+When it is done running, there will be four new files:
+<p>
+<UL>
+<LI> <b>tmp-pieces.txt</b> -- these are the input pieces
+<LI> <b>tmp-youroutput.txt</b> -- this is the output of your solver
+<LI> <b>tmp-yourgame.txt</b> -- this is the output of the player on your solver
+<LI> <b>tmp-yourpieces.txt</b> -- these are the pieces that you output.
+</UL>
+<p>
+Here's an example -- you should be in your directory that has <b>bin/ss_solver</b>
+in it.  I'm using <b>bash</b> because it lets me set the environment variable <b>$l</b>,
+which saves us some typing
+
+<pre>
+UNIX> <font color=darkred><b>bash</b></font>
+bash-3.2$ <font color=darkred><b>PS1='BASH> '</font></b>
+BASH> <font color=darkred><b>l=/home/jplank/cs202/Labs/Lab9</b></font>
+BASH> <font color=darkred><b>sh $l/scripts/ss_tester.sh</b></font>
+usage: sh ss_tester.sh your-solver my-solver player output-of-ss_random_game
+BASH> <font color=darkred><b>cat tmp-test.txt</b></font>
+Grid: 0011 1010 0110 1101
+Shapes:
+010 101
+1 1 1 1
+101 010 001 001
+1111 0100
+BASH> <font color=darkred><b>sh $l/scripts/ss_tester.sh bin/ss_solver $l/bin/ss_solver $l/bin/ss_player tmp-test.txt</b></font>
+Correct
+BASH> <font color=darkred><b>cat tmp-pieces.txt</b></font>
+010 101
+1 1 1 1
+101 010 001 001
+1111 0100
+BASH> <font color=darkred><b>cat tmp-yourpieces.txt</b></font>
+010 101
+1 1 1 1
+101 010 001 001
+1111 0100
+BASH> <font color=darkred><b>cat tmp-youroutput.txt</b></font>
+010 101 0 1
+1 1 1 1 0 1
+101 010 001 001 0 0
+1111 0100 2 0
+BASH> <font color=darkred><b>cat tmp-yourgame.txt</b></font>
+
+The Grid:
+
+0011
+1010
+0110
+1101
+
+
+The Grid:
+
+0001
+1111
+0110
+1101
+
+
+The Grid:
+
+0101
+1011
+0010
+1001
+
+
+The Grid:
+
+1111
+1111
+0000
+1011
+
+
+The Grid:
+
+1111
+1111
+1111
+1111
+
+BASH> <font color=darkred><b>exit</b></font>
+UNIX> 
+</pre>
+
+Here are two more examples.  In the first, I have a program called <b>bin/badsolver1</b>,
+which doesn't solve the problem.  Don't try to duplicate this example -- just read.
+
+<pre>
+UNIX> <font color=darkred><b>bash</b></font>
+bash-3.2$ <font color=darkred><b>PS1='BASH> '</font></b>
+BASH> <font color=darkred><b>l=/home/jplank/cs202/Labs/Lab9</b></font>
+BASH> <font color=darkred><b>sh $l/scripts/ss_tester.sh bin/badsolver1 $l/bin/ss_solver $l/bin/ss_player tmp-test.txt</b></font>
+Incorrect -- your solution does not solve the puzzle correctly.
+BASH> <font color=darkred><b>cat tmp-youroutput.txt </b></font>
+11 0 0
+1001 0 0
+111 010 101 0 0
+10 11 10 0 0
+BASH> <font color=darkred><b>cat tmp-yourgame.txt</b></font>
+
+The Grid:
+
+0110
+1010
+1110
+0100
+
+
+The Grid:
+
+1010
+1010
+1110
+0100
+
+
+The Grid:
+
+0011
+1010
+1110
+0100
+
+
+The Grid:
+
+1101
+1110
+0100
+0100
+
+
+The Grid:
+
+0101
+0010
+1100
+0100
+
+BASH> <font color=darkred><b>exit</b></font>
+UNIX> <font color=darkred><b></b></font>
+</pre>
+
+The second program <b>badsolver2</b> solves the puzzle, but doesn't use the right
+pieces:
+
+<pre>
+BASH> <font color=darkred><b>sh $l/scripts/ss_tester.sh bin/badsolver2 $l/bin/ss_solver $l/bin/ss_player tmp-test.txt</b></font>
+Incorrect -- your solution does not use the correct pieces in the correct order.
+BASH> <font color=darkred><b>cat tmp-youroutput.txt </b></font>
+1010 0111 0000 0001 0 0
+0010 0000 0010 1010 0 0
+0100 0010 0010 0000 0 0
+0101 0000 0001 0000 0 0
+BASH> <font color=darkred><b></b></font>
+</pre>
+
+If the tester fails, try to figure out why with the output files, and with my correct solver.
+<hr>
+<h3>The grading script</h3>
+
+The grading script runs <b>ss_tester.sh</b> on various input files.  Some of them may take a
+few seconds.  The <b>gradeall</b> script took 42 seconds for me on a hydra.  Yours shouldn't
+take more than three minutes.  
+
+<hr>
+<h3>Program Structure</h3>
+
+I'm going to let you structure this one yourself.  The only requirement
+is that your program must use recursion.  Here was my class definition -- you don't 
+need to use this -- it's just to help you think about the problem:
+
+
+<p><center><table border=3 cellpadding=3><td><pre>
+class Shifter {
+  public:
+
+    <font color=blue>/* Read_Grid_And_Shapes() initializes the grid from argc/argv, and the
+       reads from standard input to get the shapes. */</font>
+
+    bool Read_Grid_And_Shapes(int argc, const char **argv);
+
+    <font color=blue>/* Apply_Shape() applies the shape in Shapes[index] to the grid,
+       starting at row r and column c.  You'll note, if you call
+       Apply_Shape twice with the same arguments, you'll end up 
+       with the same grid as before the two calls. */</font>
+
+    void Apply_Shape(int index, int r, int c);
+
+    <font color=blue>/* Find_Solution() is the recursive procedure.  It tries all possible
+       starting positions for Shape[index], and calls Find_Solution() 
+       recursively to see if that's a correct way to use Shape[index].
+       If a recursive call returns false, then it "undoes" the shape by
+       calling Apply_Shape() again. */</font>
+
+    bool Find_Solution(int index);
+
+    <font color=blue>/* This prints the solution on standard output. */</font>
+
+    void Print_Solution() const;
+
+  protected:
+
+    <font color=blue>/* This is the grid.  I have this be a vector of 0's and 1's, because it makes
+       it easy to print the grid out. */</font>
+
+    vector &lt;string&gt; Grid                   
+
+    <font color=blue>/* These are the shapes, in the order in which they appear in standard input. */</font>
+
+    vector &lt; vector &lt;string&gt; &gt; Shapes;     
+
+    <font color=blue>/* These two vectors hold the starting positions of the shapes, both as you
+       are finding a solution, and when you are done finding a solution. */</font>
+
+    vector &lt;int&gt; Solution_Rows;            
+    vector &lt;int&gt; Solution_Cols;            
+};
+</pre></td></table></center><p>

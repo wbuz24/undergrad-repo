@@ -1,0 +1,78 @@
+Called do_enumeration("-----",0,3)
+Called do_enumeration("0----",1,3)
+Called do_enumeration("00---",2,3)
+Called do_enumeration("001--",3,2)
+Called do_enumeration("0011-",4,1)
+Called do_enumeration("00111",5,0)
+00111
+do_enumeration("00111",5,0) returning
+do_enumeration("0011-",4,1) returning
+do_enumeration("001--",3,2) returning
+do_enumeration("00---",2,3) returning
+Called do_enumeration("01---",2,2)
+Called do_enumeration("010--",3,2)
+Called do_enumeration("0101-",4,1)
+Called do_enumeration("01011",5,0)
+01011
+do_enumeration("01011",5,0) returning
+do_enumeration("0101-",4,1) returning
+do_enumeration("010--",3,2) returning
+Called do_enumeration("011--",3,1)
+Called do_enumeration("0110-",4,1)
+Called do_enumeration("01101",5,0)
+01101
+do_enumeration("01101",5,0) returning
+do_enumeration("0110-",4,1) returning
+Called do_enumeration("0111-",4,0)
+Called do_enumeration("01110",5,0)
+01110
+do_enumeration("01110",5,0) returning
+do_enumeration("0111-",4,0) returning
+do_enumeration("011--",3,1) returning
+do_enumeration("01---",2,2) returning
+do_enumeration("0----",1,3) returning
+Called do_enumeration("1----",1,2)
+Called do_enumeration("10---",2,2)
+Called do_enumeration("100--",3,2)
+Called do_enumeration("1001-",4,1)
+Called do_enumeration("10011",5,0)
+10011
+do_enumeration("10011",5,0) returning
+do_enumeration("1001-",4,1) returning
+do_enumeration("100--",3,2) returning
+Called do_enumeration("101--",3,1)
+Called do_enumeration("1010-",4,1)
+Called do_enumeration("10101",5,0)
+10101
+do_enumeration("10101",5,0) returning
+do_enumeration("1010-",4,1) returning
+Called do_enumeration("1011-",4,0)
+Called do_enumeration("10110",5,0)
+10110
+do_enumeration("10110",5,0) returning
+do_enumeration("1011-",4,0) returning
+do_enumeration("101--",3,1) returning
+do_enumeration("10---",2,2) returning
+Called do_enumeration("11---",2,1)
+Called do_enumeration("110--",3,1)
+Called do_enumeration("1100-",4,1)
+Called do_enumeration("11001",5,0)
+11001
+do_enumeration("11001",5,0) returning
+do_enumeration("1100-",4,1) returning
+Called do_enumeration("1101-",4,0)
+Called do_enumeration("11010",5,0)
+11010
+do_enumeration("11010",5,0) returning
+do_enumeration("1101-",4,0) returning
+do_enumeration("110--",3,1) returning
+Called do_enumeration("111--",3,0)
+Called do_enumeration("1110-",4,0)
+Called do_enumeration("11100",5,0)
+11100
+do_enumeration("11100",5,0) returning
+do_enumeration("1110-",4,0) returning
+do_enumeration("111--",3,0) returning
+do_enumeration("11---",2,1) returning
+do_enumeration("1----",1,2) returning
+do_enumeration("-----",0,3) returning
