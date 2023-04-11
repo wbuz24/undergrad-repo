@@ -43,7 +43,9 @@ The 2003 paper sought to model the firing of simple neurons and therefore utiliz
 
 ## matlab version
 
-Due to the inherent ability in matlab to do simulataneous operations on entire matrices, the matlab code is noticeably shorter and much of the math is done utilizing the "." and ":" operators allowing element-wise operations.
+Due to the inherent ability in matlab to do simulataneous operations on entire matrices, the matlab code is noticeably shorter and much of the math is done utilizing the "." and ":" operators allowing element-wise operations
+
+The matlab code tracks the spikes in a matrix, it then uses the standard find() method to return all indices of spikes. These indices relate to a column in the synapse 1000x1000 matrix. The matrix is then indexed into and the sum() function sums along it's 2nd axis, menaing that effectively, for each given row, the fired columns are summed along the fired columns creating a nx1 matrix as a result. This column matrix is added to the thalamic input.
 
 
 ## c++ version
