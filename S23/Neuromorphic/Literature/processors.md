@@ -59,3 +59,46 @@ A pointer to the current neuron is initialized and iterates 1000 timesteps and f
 - the input charge is updated in a vector
 - if the given neuron fires, the current neuron's charge is written to a text file
 
+## Generating graphs
+
+Be sure to properly pull the framework repository and Izhikevich repository onto your machine and navigate to the cpp-apps directory.
+
+ - single graphs:
+
+```
+pwd
+../framework/cpp-apps
+```
+
+```
+make app=processor_tool proc=izhikevich
+```
+You can now navigate to the izhikevich directory within the processors directory 
+
+```
+pwd
+../framework/processors/izhikevich
+```
+Using the [jgraph](http://web.eecs.utk.edu/~jplank/plank/jgraph/jgraph.html) command, you can generate your desired graph from the provided jgraph scrpts and pipe into your desired directory as a pdf with the "ps2pdf" command.
+
+```
+jgraph -P scripts/jgr-scripts/XXXX-paper/--my-neuron--.jgr | ps2pdf - > ./scripts/graphs/XXXX-paper/--my-neuron--.pdf
+```
+
+ - 2003 network spike raster
+
+Within the processors/izhikevich directory, make the network_builder app with izhikevich and generate the create_graph.jgr script
+
+```
+pwd
+../framework/processors/izhikevich
+```
+
+```
+make app=network_builder proc=izhikevich
+```
+note: the current directory houses the create_graph.jgr script in the izhikevich parent directory, when this moves, this command must reflect it's new location.
+
+```
+jgraph -P create_graph.jgr | ps2pdf - > ./scripts/graphs/2003-paper/spiking_network.pdf
+```
