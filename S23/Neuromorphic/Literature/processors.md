@@ -2,7 +2,7 @@
 
 These notes are derived from the [TENNLab](https://bitbucket.org/neuromorphic-utk/framework/src/master/markdown/framework_processor.md) and is intended to document the intricacies of the Izhikevich processor.
  
-A processor follows the general flow in the diagram below 
+For reference: A processor follows the general flow in the diagram below. (Diagram from TENNLab processors markdown) 
 
 ![processor_flowchart.png](processor_flowchart.png)
 
@@ -13,7 +13,7 @@ The Izhikevich neuron model was implemented by Thomas Neuefeind into the TENNLab
 
 The processor was implemented using the RISP processor as a model for implementation with the framework, therefore, the run() function is currently 1 indexed. 
 
-Graphs are written in c++ and utilizes [jgraph](http://web.eecs.utk.edu/~jplank/plank/jgraph/jgraph.html)
+Graphs are written in C++ and utilizes [jgraph](http://web.eecs.utk.edu/~jplank/plank/jgraph/jgraph.html)
 
 # processor.cpp
 
@@ -127,5 +127,5 @@ Load the newly created network onto the processor and start the sorted node vect
 
 
 A pointer to the current neuron is initialized and iterates 1000 timesteps and for each timestep:
-- the input charge is updated in a vector
+- the input charge is updated in a vector (I_vals)
 - if the given neuron fires, the current neuron's charge is written to a text file
