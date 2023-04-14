@@ -128,4 +128,7 @@ Load the newly created network onto the processor and start the sorted node vect
 
 A pointer to the current neuron is initialized and iterates 1000 timesteps and for each timestep:
 - the input charge is updated in a vector (I_vals)
-- if the given neuron fires, the current neuron's charge is written to a text file
+- if the given neuron fires:
+  -  The neuron is graphed
+  -  For all synapses connecting to the current neuron, the output charge is adjusted to reflect the firing neuron's weight. 
+  -  All parameters for the current neuron are updated per Izhikevich differential equations.
