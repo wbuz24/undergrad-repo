@@ -1,4 +1,4 @@
-CFLAGS ?= -std=c++11 -Wall -Wextra 
+CFLAGS ?= -g -std=c++11 -Wall -Wextra
 
 # -------------------------
 # This means that when you just type "make", you make all of the executables
@@ -27,7 +27,7 @@ clean:
 bin/enum: src/enum.cpp
 	g++ $(CFLAGS) -o bin/enum src/enum.cpp
 
-bin/ss_solver: src/ss_solver.cpp 
+bin/ss_solver: src/ss_solver.cpp
 	g++ $(CFLAGS) -o bin/ss_solver src/ss_solver.cpp
 
 bin/ss_player: src/ss_player.cpp

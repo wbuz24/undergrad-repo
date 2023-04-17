@@ -25,7 +25,7 @@ class Shifter {
            Apply_Shape twice with the same arguments, you'll end up
            with the same grid as before the two calls. */
 
-        void Apply_Shape(int index, int r, int c);
+        bool Apply_Shape(int index, int r, int c);
 
         /* Find_Solution() is the recursive procedure.  It tries all possible
            starting positions for Shape[index], and calls Find_Solution()
@@ -61,8 +61,8 @@ class Shifter {
 bool Shifter::Read_Grid_And_Shapes(int argc, const char** argv)
 {
     if (argc < 2) return 0; // error check for not enough arguments
-    
-    istringstream ss;
+
+    stringstream ss;
     string word = argv[2], l;
     int i;
     size_t s = word.size();
@@ -72,59 +72,77 @@ bool Shifter::Read_Grid_And_Shapes(int argc, const char** argv)
     for (i = 1; i < argc; i++) {
         word = argv[i];
         if (word.size() != s) return 0; // error check size
-    //    for (j = 0; j < s; j++) if (argv[i][j] != '0' && argv[i][j] != '1') return 0; // error check 0 or 1
+        //for (j = 0; j < s; j++) if (argv[i][j] != '0' && argv[i][j] != '1') return 0; // error check 0 or 1
         Grid.push_back(argv[i]); // push the string into Grid
     }
-  
+
     while (getline(cin, word)) {
-      ss.clear(); // clear the stream and vector
-      line.clear();
-      ss.str(word); // pass the line into the stream
-      while (ss >> l) line.push_back(l); // parse the stream and insert each string into a vector
-      Shapes.push_back(line); // push the vector into Shapes
+        ss.clear(); // clear the stream and vector
+        line.clear();
+        ss.str(word); // pass the line into the stream
+        while (ss >> l) line.push_back(l); // parse the stream and insert each string into a vector
+
+        Shapes.push_back(line); // push the vector into Shapes
     }
     return 1;
 };
 
-void Shifter::Apply_Shape(int index, int r, int c)
+bool Shifter::Apply_Shape(int index, int r, int c)
 {
-   size_t i, j;
-   if (r < (int) Grid.size() && c < (int) Grid[0].size() && index < (int) Shapes.size()) {
-     for (i = 0; i < Shapes[index].size(); i++) {
-       for (j = 0; j < Shapes[index][i].size(); j++) {
-          if (Shapes[index][i][j] == '1' && (r + i) < Grid.size() && (c + j) < Grid[0].size()) Grid[r + i][c + j] ^= 1;
-       }
-     }
-   }
+    size_t i, j;
+    bool ret = 0;
+
+    if ((Shapes[index].size() + r - 1) < Grid.size() && (Shapes[index][0].size() + c - 1) < Grid[0].size()){ // check if shape fits
+        for (i = 0; i < Shapes[index].size(); i++) {
+            for (j = 0; j < Shapes[index][i].size(); j++) {
+                if (Shapes[index][i][j] == '1') { // if Shapes is 1
+                    Grid[r + i][c + j] ^= 1; // xor each element with 1
+                }
+            }
+        }
+        ret = 1;
+    }
+    return ret;
 };
 
 bool Shifter::Find_Solution(int index)
 {
-  size_t i, j;
-  if (index == (int) Shapes.size()) return 0; // Find_Solution fails
+    size_t i, j;
+    bool finished = 1;
+    for (i = 0; i < Grid.size(); i++) { // check if its finished
+        for (j = 0; j < Grid[0].size(); j++) {
+            if (Grid[i][j] != '1') finished = 0;
+         //   cout << Grid[i][j] << " ";
+        }
+       // cout << endl;
+    }
+    if (finished && index == (int) Shapes.size()) return true; // check if grid is finished
+    if (!finished && index == (int) Shapes.size()) return false;
 
-  for (i = 0; i < Grid.size(); i++) {
-    for (j = 0; j < Grid[i].size(); j++) {
-        Apply_Shape(index, i, j); 
-        if (!Find_Solution(index + 1)) Apply_Shape(index, i, j);
-        else {
-            Solution_Rows.push_back(i);
-            Solution_Cols.push_back(j);
+    for (i = 0; i < Grid.size(); i++) { // for each element in grid
+        for (j = 0; j < Grid[i].size(); j++) {
+            if (Apply_Shape(index, i, j)) {  // apply the shape at index
+                if (Find_Solution(index + 1)) {
+                    Solution_Rows.insert(Solution_Rows.begin(), i); // store in vectors
+                    Solution_Cols.insert(Solution_Cols.begin(), j);
+                    return 1;
+                }
+                else Apply_Shape(index, i, j);
+            }
         }
     }
-  }  
-  return 1;
+    return false;
 };
 
 void Shifter::Print_Solution() const
 {
-  size_t i, j;
-  for (i = 0; i < Shapes.size(); i++) {
-    for (j = 0; j < Shapes[i].size(); j++) {
-        cout << Shapes[i][j] << " ";
+    size_t i, j;
+    for (i = 0; i < Shapes.size(); i++) {
+        for (j = 0; j < Shapes[i].size(); j++) { // parse Shapes
+            cout << Shapes[i][j] << " "; // print 
+        }
+        cout << Solution_Rows[i] << " " << Solution_Cols[i] << endl; // solutions
     }
-    cout << Solution_Rows[i] << " " << Solution_Cols[i] << endl;
-  }
 };
 
 int main(int argc, const char** argv) {
