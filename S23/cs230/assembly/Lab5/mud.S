@@ -39,7 +39,7 @@ look_at_room:
  # printf(“%s\n%s\nExits: ”, r->title, r->description);
  la   a0, enter_prompt
  call printf
- 
+
  li   a5, -1  # load -1
  ld   a1, 16(s0)
  ld   a2, 20(s0)
