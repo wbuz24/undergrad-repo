@@ -40,34 +40,36 @@ look_at_room:
  la   a0, enter_prompt
  call printf
 
- li   a5, -1  # load -1
- ld   a1, 16(s0)
- ld   a2, 20(s0)
- ld   a3, 24(s0)
- ld   a4, 28(s0)
+ lw   a1, 16(s0)
+ bltz a1, 1f     # check if negative
 
- bne  a1, a5, 1f
- bne  a2, a5, 2f
- bne  a3, a5, 3f
- bne  a4, a5, 4f
-1:
  la   a0, exit0
  call printf
- j    5f
-2:
+1:
+ lw   a1, 20(s0)
+ bltz a1, 2f
+
  la   a0, exit1
  call printf
- j    5f
-3:
+2:
+ lw   a1, 24(s0)
+ bltz a1, 3f
+
  la  a0, exit2
  call printf
- j    5f
-4:
+3:
+ lw   a1, 28(s0)
+ bltz a1, 4f
+ 
  la  a0, exit3
  call printf
- j    5f
 
-5:
+4:
+
+ ld   ra, 0(sp)
+ ld   s0, 8(sp)
+
+ addi sp, sp, 16
  ret
 
 .section .text
@@ -85,24 +87,24 @@ look_at_all_rooms:
  addi  s2, s2, 0    # declare i
  mv    s0, a0       # move a0 into s0
  mv    s1, a1       # move a1 into s1 
-
- bge   s2, s1, 1f   # for loop, if i >= num_rooms, jump forward
- 
- add   s0, s0, s2   # add rooms and i
+5:
+ beq   s1, s2, 5f   # for loop, if i >= num_rooms, jump forward
+ li    t0, 32
+ mul   t1, t0, s2   # i * 32
+ add   a0, s0, t1   # add rooms and i
 
  # call look_at_rooms(rooms + 1)
- mv    a0, s0       # move rooms back into a0 to be called
  call  look_at_room
- 
+ li    a0, 10
  # store the newline character for printf to call in a0
- la    a0, all_rooms
+ # la    a0, all_rooms
  call  printf
 
  addi  s2, s2, 1    # increment i
-
- 1:
+ j     5b
+5:
  # end of for loop
- mv    a0, s0  # move s0 into a0
+ # mv    a0, s0  # move s0 into a0
  ld    ra, 24(sp)
  ld    s2, 16(sp)
  ld    s1, 8(sp)
@@ -122,12 +124,11 @@ move_to:
  addi a1, a1, 16  # 16 + direction
  li   t0, 4
  mul  a2, a2, t0
- add  a2, a2, a1
- lw   a4, 0(a2)  # current->exits[direction]
+ add  a1, a2, a1
+ lw   a4, 0(a1)  # current->exits[direction]
  
- bne  a4, a3, 1f
+ beq  a4, a1, 1f
 
-# a5 - current->exits[direction] 
  slli a4, a4, 5
  add  a0, a0, a4
  ret
