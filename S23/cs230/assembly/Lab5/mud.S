@@ -65,6 +65,8 @@ look_at_room:
  call printf
 
 4:
+ la  a0, all_rooms
+ call printf
 
  ld   ra, 0(sp)
  ld   s0, 8(sp)
@@ -75,6 +77,10 @@ look_at_room:
 .section .text
 .global look_at_all_rooms
 look_at_all_rooms:
+
+ # la    a0, exit0
+ # call printf
+
  # ao - const Room *rooms
  # a1 - int num_rooms
  addi  sp, sp, -32  # allocate space on the stack
@@ -83,21 +89,22 @@ look_at_all_rooms:
  sd    s2, 16(sp)   # store s2 on the stack
  sd    ra, 24(sp)
 
-
- addi  s2, s2, 0    # declare i
+ li    s2, 0        # declare i
  mv    s0, a0       # move a0 into s0
  mv    s1, a1       # move a1 into s1 
-5:
- beq   s1, s2, 5f   # for loop, if i >= num_rooms, jump forward
- li    t0, 32
- mul   t1, t0, s2   # i * 32
- add   a0, s0, t1   # add rooms and i
 
+5:
+ bge   s2, s1, 5f   # for loop, if i >= num_rooms, jump forward
+ #li    t0, 32
+ #mul   t1, t0, s2   # i * 32
+ slli   t0, s2, 5
+ add    a0, s0, t0   # add rooms and i
+ 
  # call look_at_rooms(rooms + 1)
  call  look_at_room
- li    a0, 10
+ # li    a0, 10
  # store the newline character for printf to call in a0
- # la    a0, all_rooms
+ la    a0, all_rooms
  call  printf
 
  addi  s2, s2, 1    # increment i
@@ -122,12 +129,11 @@ move_to:
 
  li   a3, -1
  addi a1, a1, 16  # 16 + direction
- li   t0, 4
- mul  a2, a2, t0
+ slli  a2, a2, 2
  add  a1, a2, a1
  lw   a4, 0(a1)  # current->exits[direction]
  
- beq  a4, a1, 1f
+ bltz a4, 1f
 
  slli a4, a4, 5
  add  a0, a0, a4
