@@ -92,7 +92,10 @@ The 2003 paper sought to model the firing of simple neurons and therefore utiliz
 
 Due to the inherent ability in matlab to do simulataneous operations on entire matrices, the matlab code is noticeably shorter and much of the math is done utilizing the "." and ":" operators allowing element-wise operations.
 
-The matlab code tracks the spikes in a matrix, it then uses the standard find() method to return all indices of spikes. These indices relate to a column in the synapse 1000x1000 matrix. The matrix is then indexed into and the sum() function sums along it's 2nd axis, menaing that effectively, for each given row, the fired columns are summed along the fired columns creating a nx1 matrix as a result. This column matrix is added to the thalamic input.
+The matlab code tracks the spikes in a matrix, it then uses the standard find() method to return all indices of spikes. These indices relate to a column in the synapse 1000x1000 matrix. The matrix is then indexed into and the sum() function sums along it's 2nd axis, meaning that effectively, for each given row, the fired columns are summed along the fired columns creating a nx1 matrix as a result. This column matrix is added to the thalamic input.
+
+ - The rand() function is a built-in uniform distribution random number generator in matlab that generates between 0 and 1 by default.
+ - The randn() function is similar to rand() but operates on a normal distribution between 0 and 1.
 
 
 ## C++ version
@@ -109,9 +112,9 @@ A few notable structures/variables:
 - synapses map
 - SNV vector (sorted neuron vector)
 
-- create a vector of random values with a uniform distribution 0->1
+- create a vector of random values with a uniform distribution 0 to 1, this uniform distribution is intended for an element of stochasticity within the network as reflected by the matlab code.
 
-Create 1000 neurons
+Create 1000 neurons and for each neuron, set it's associated parameters defined in the class definition
 - the first 800 neurons are excitatory and the following 200 are inhibitory
 
 Set synapses
@@ -129,6 +132,6 @@ Load the newly created network onto the processor and start the sorted node vect
 A pointer to the current neuron is initialized and iterates 1000 timesteps and for each timestep:
 - the input charge is updated in a vector (I_vals)
 - if the given neuron fires:
-  -  The neuron is graphed
+  -  The neuron's indices are graphed
   -  For all synapses connecting to the current neuron, the output charge is adjusted to reflect the firing neuron's weight. 
   -  All parameters for the current neuron are updated per Izhikevich differential equations.
