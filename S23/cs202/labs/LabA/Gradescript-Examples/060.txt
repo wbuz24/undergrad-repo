@@ -1,0 +1,99 @@
+INSERT Austin-Alabama 980-911-0711 639-66-9103
+INSERT Jordan-Passer 349-636-9252 861-55-3095
+INSERT Jake-Gaberones 630-737-0571 975-53-0996
+INSERT Allison-Soliton 948-687-9700 752-16-1246
+INSERT Isabella-Luftwaffe 099-187-7515 076-18-4399
+INSERT Riley-Seventeen 635-556-8533 869-42-4824
+INSERT Anna-Neutrino 830-085-0553 731-13-5536
+INSERT Anthony-Cat 121-746-2061 537-10-3076
+INSERT Caleb-Confucian 216-127-3522 366-39-3933
+INSERT Nathan-Quonset 241-238-2126 905-22-5643
+INSERT Hunter-Icelandic 411-179-4314 846-02-9346
+FIND Riley-Seventeen
+VALS
+HEIGHT
+PRINT_COPY
+FIND Isabella-Luftwaffe
+FIND Caleb-Confucian
+INSERT Leah-Caretaker 462-336-1981 604-36-6445
+INSERT Kate-Nepenthe 128-852-3557 440-61-9126
+PRINT
+DELETE Allison-Soliton
+DEPTH Isabella-Luftwaffe
+DELETE Kate-Nepenthe
+FIND Caleb-Confucian
+PRINT
+HEIGHT
+INSERT Avery-Grammatic 455-228-2943 509-49-1314
+INSERT Lillian-Molly-Manville 123-740-1192 683-53-8899
+DEPTH Avery-Grammatic
+PRINT_COPY
+PRINT
+FIND Anna-Neutrino
+KEYS
+FIND Isabella-Luftwaffe
+VALS
+PRINT_COPY
+INSERT Charlotte-Problematic 186-172-4867 106-69-2345
+DEPTH Jordan-Passer
+INSERT Sophia-Isabella 189-722-4104 667-82-1407
+PRINT_COPY
+PRINT
+SIZE
+INSERT Liam-Privy 193-358-2690 355-63-0396
+PRINT
+FIND Liam-Privy
+INSERT Jayden-Bespoke-IV 756-907-5062 108-56-8810
+INSERT Hannah-Triable 350-409-6705 612-93-2001
+FIND Hunter-Icelandic
+FIND Jayden-Bespoke-IV
+DELETE Hannah-Triable
+FIND Wyatt-Experiment
+VALS
+FIND Anna-Neutrino
+PRINT
+DEPTH Charlotte-Problematic
+PRINT
+KEYS
+PRINT
+PRINT_COPY
+HEIGHT
+DELETE Jordan-Passer
+INSERT Owen-Tyler-Enzyme 743-448-3535 805-33-1705
+HEIGHT
+FIND Riley-Seventeen
+INSERT Claire-Emphysema 909-916-2918 381-39-8501
+INSERT Claire-Gladden 980-993-8344 669-28-4339
+SIZE
+SIZE
+FIND Sophia-Isabella
+PRINT_COPY
+DEPTH Owen-Tyler-Enzyme
+FIND Isabella-Luftwaffe
+FIND Nathan-Quonset
+PRINT
+DEPTH Austin-Alabama
+PRINT_COPY
+INSERT Cooper-Betty 445-649-7733 410-37-4958
+KEYS
+DEPTH Owen-Tyler-Enzyme
+DELETE Lillian-Molly-Manville
+FIND Allison-Soliton
+PRINT_COPY
+DEPTH Nathan-Quonset
+FIND Hunter-Icelandic
+PRINT
+PRINT_COPY
+FIND Anna-Neutrino
+KEYS
+CLEAR
+INSERT Alexandra-Cheese 581-500-6737 610-90-4747
+INSERT Dontonio-Juice 202-892-9056 789-24-1864
+INSERT Makayla-Monk 221-919-5204 658-24-1203
+INSERT Sydney-Gabrielle 290-549-8076 990-89-7490
+INSERT Tyler-Butene 098-018-4274 391-93-3176
+INSERT Ian-Touchstone 885-154-3746 721-97-3022
+INSERT Nicholas-Compassion 034-579-5791 113-22-1336
+INSERT Madison-Craven 102-832-5815 086-80-9063
+INSERT Ellie-Brooke-Headboard 811-427-6268 568-58-4209
+PRINT

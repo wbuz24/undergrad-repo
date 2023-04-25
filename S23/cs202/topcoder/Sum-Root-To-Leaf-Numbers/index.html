@@ -1,0 +1,282 @@
+<title>Leetcode.com problem 129: "Sum Root to Leaf Numbers"</title>
+<h3>Leetcode.com problem 129: Sum Root to Leaf Numbers</h3>
+<h3>James S. Plank</h3>
+Mon Apr 10 15:25:05 EDT 2023
+<hr>
+
+<UL>
+<LI><a href=https://leetcode.com/problems/sum-root-to-leaf-numbers/>Problem Statement</a>.
+<LI> <b>Success Rate (as of April, 2023)</b>: 61.1%
+<LI> This is a "medium" problem.
+<p>
+<LI> <a href=tests.sh><b>tests.sh</b>: A testing script</a>
+<LI> <a href=answers.txt><b>answers.txt</b>: Correct output to the testing script</a>
+<p>
+<LI> <a href=Skeleton.cpp>A skeleton with my main() that you can use to test your answer.</a>
+<LI> <a href=Preorder.cpp>A solution that uses a preorder traversal.</a>
+</UL>
+<hr>
+<h3>In case Leetcode's servers are down</h3>
+
+You have the following definition of a <b>TreeNode</b>, which stores a node in a
+binary tree:
+
+<p><center><table border=3 cellpadding=3><td><pre>
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode() : val(0), left(nullptr), right(nullptr) {}
+    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+};
+</pre></td></table></center><p>
+
+In case those last three lines look a little confusing to you, those are three constructors:
+You can construct a tree node with a value of 0 and no children, a tree node with a given value
+and no children, or a tree node with a given value and given children.
+<p>
+Your job is to write the method <b>sumNumbers</b> in the class <b>Solution</b>, with the following
+prototype:
+
+<p><center><table border=3 cellpadding=3><td><pre>
+class Solution {
+  public:
+    int sumNumbers(TreeNode *root);
+};
+</pre></td></table></center><p>
+
+Here's a description of the tree and what <b>sumNumbers()</b> should produce:
+
+<UL>
+<LI> <b>root</b> is the root of a binary tree.
+<LI> Each node in the tree has a <b>val</b> between 0 and 9.
+<LI> You are to consider each path from the root to a leaf node as a number, whose digits are represented
+by the <b>vals</b> in each node from the root to the leaf.
+<LI> <b>sumNumbers()</b> should return the sum of the numbers of all paths from the root to a leaf node.
+<LI> The tree will have between 1 and 1000 nodes.
+<LI> The answer is guaranteed to fit into a 32-bit signed integer.
+</UL>
+
+So, here are three examples in ASCII art:
+
+<p><center><table border=3 cellpadding=3>
+<td valign=bottom><pre>
+          5
+         / \
+        /   \
+       3     6
+
+
+
+</pre>
+<hr>
+Answer = 53 + 56 = 109.
+</pre></td>
+<td valign=bottom><pre>
+            2
+           / \
+          /   \
+         3     4
+              / \
+             /   \
+            1     0
+</pre>
+<hr>
+Answer = 23 + 241 + 240 = 504
+</pre></td>
+<td valign=bottom><pre>
+            2
+           / \
+          /   \
+         4     3
+        / \
+       /   \
+      1     0
+</pre>
+<hr>
+Answer = 241 + 240 + 23 = 504
+</pre></td>
+</table></center><p>
+
+<hr>
+<h3>Driver program and testing</h3>
+
+The driver program in 
+<b><a href=Skeleton.cpp>Skeleton.cpp</a></b> reads a Tree on standard input by reading numbers:
+<UL>
+<LI> First the value of the root
+<LI> Then the values of the two children of the root (the two nodes at level 1)
+<LI> Then the values of the four children of those children (the four nodes at level 2)
+<LI> And so on.  You don't need to complete the last level.
+</UL>
+If there is no node, then a value of -1 should be specified.  So, here are the three examples above:
+
+<pre>
+UNIX> <font color=darkred><b>cat example-1.txt</b></font>
+5
+3 6
+UNIX> <font color=darkred><b>cat example-2.txt</b></font>
+2
+3 4
+-1 -1 1 0         <font color=blue> # We need two -1's to take the place of the two children of node 3.</font>
+UNIX> <font color=darkred><b>cat example-3.txt</b></font>
+2 4 3 1 0         <font color=blue> # Formatting doesn't matter</font>
+UNIX> <font color=darkred><b></b></font>
+</pre>
+
+I'm not going to go over the code, but you should take a read if you're interested.
+
+I have bigger example files in the other <b>example-x.txt</b> files:
+
+<pre>
+UNIX> <font color=darkred><b>wc example-*.txt</b></font>
+       2       3       6 example-1.txt
+       3       7      16 example-2.txt
+       1       5      10 example-3.txt
+      20      20      40 example-4.txt
+       1      31      79 example-5.txt
+       1      63     136 example-6.txt
+       1     250     534 example-7.txt
+       1     500    1249 example-8.txt
+       1    1000    2295 example-9.txt
+      31    1879    4365 total
+UNIX> <font color=darkred><b></b></font>
+</pre>
+
+<hr>
+<h3>Let's look at the nodes first</h3>
+
+Before we solve the problem, let's just write code that prints out each node, the values of its
+children, and then recursively calls itself on chidlren when they are non-null.  The
+code is in 
+<b><a href=Print-Nodes.cpp>Print-Nodes.cpp</a></b>. Here is the implementation of
+<b>sumNumbers()</b>:
+
+<p><center><table border=3 cellpadding=3><td><pre>
+<font color=blue>/* We're not going to solve the problem.  Instead, we're going to simply print
+   out each node and the vals of its two children (-1 if the child is nullptr). */</font>
+
+int Solution::sumNumbers(TreeNode *root)
+{
+  printf("Node: %d   Left: %d    Right: %d\n", 
+          root-&gt;val,
+          (root-&gt;left == nullptr) ? -1 : root-&gt;left-&gt;val,
+          (root-&gt;right == nullptr) ? -1 : root-&gt;right-&gt;val);
+   
+  if (root-&gt;left != nullptr) (void) sumNumbers(root-&gt;left);
+  if (root-&gt;right != nullptr) (void) sumNumbers(root-&gt;right);
+  return 0;
+}
+</pre></td></table></center><p>
+
+We run this on our examples above, and on 
+<b><a href=example-9.txt>example-9.txt</a></b> to confirm that it's reading the trees
+correctly, and to show that 
+<b><a href=example-9.txt>example-9.txt</a></b> has 706 nodes:
+
+<pre>
+UNIX> <font color=darkred><b>g++ Print-Nodes.cpp</b></font>
+UNIX> <font color=darkred><b>a.out < example-1.txt</b></font>
+Node: 5   Left: 3    Right: 6
+Node: 3   Left: -1    Right: -1
+Node: 6   Left: -1    Right: -1
+0
+UNIX> <font color=darkred><b>a.out < example-2.txt</b></font>
+Node: 2   Left: 3    Right: 4
+Node: 3   Left: -1    Right: -1
+Node: 4   Left: 1    Right: 0
+Node: 1   Left: -1    Right: -1
+Node: 0   Left: -1    Right: -1
+0
+UNIX> <font color=darkred><b>a.out < example-3.txt</b></font>
+Node: 2   Left: 4    Right: 3
+Node: 4   Left: 1    Right: 0
+Node: 1   Left: -1    Right: -1
+Node: 0   Left: -1    Right: -1
+Node: 3   Left: -1    Right: -1
+0
+UNIX> <font color=darkred><b>a.out < example-9.txt | wc</b></font>      <font color=blue> # This shows that there are 706 nodes in the example (the last line, which is a zero, doesn't correspond to a node).</font>
+     707    4237   21889
+UNIX> <font color=darkred><b></b></font>
+</pre>
+
+Answer the following question to yourself: Is this a preorder or a postorder traversal?  The
+answer is <i>preorder</i>, because we print before we do the recursion.
+
+<hr>
+<h3>Solving his with a preorder traversal</h3>
+
+Each node in the graph represents a number.  For our three examples, we can show these numbers:
+<p><center><table border=3 cellpadding=3>
+<td valign=bottom><pre>
+    5
+   / \
+  /   \
+53    56
+
+
+
+</pre>
+</pre></td>
+<td valign=bottom><pre>
+    2
+   / \
+  /   \
+23    24
+      / \
+     /   \
+  241   240
+</pre>
+</pre></td>
+<td valign=bottom><pre>
+        2
+       / \
+      /   \
+    24    23
+    / \
+   /   \
+241   240
+</pre>
+</pre></td>
+</table></center><p>
+
+Can you see a pattern?  Each number is equal to its parent's number times ten, plus its <b>val</b>.
+So we can do a preorder traversal, where we define the following method:
+
+<p><center><table border=3 cellpadding=3><td><pre>
+int Preorder(TreeNode *n, int parent_number);
+</pre></td></table></center><p>
+
+The code in <b>sumNumbers</b> simply calls this with the root and zero:
+
+<p><center><table border=3 cellpadding=3><td><pre>
+int Solution::sumNumbers(TreeNode *root)
+{
+  return Preorder(root, 0);
+}
+</pre></td></table></center><p>
+
+And here's the code for <b>Preorder()</b>:
+
+<p><center><table border=3 cellpadding=3><td><pre>
+<font color=blue>/* Here's the preorder traversal.  Calculate the node's number, and then either
+   return it (if you have no children). Or sum the values of your children. */</font>
+
+int Solution::Preorder(TreeNode *n, int parent_number)
+{
+  int number, rv;
+
+  <font color=blue>/* Calculate the number and return it if you are a leaf node. */</font>
+
+  number = parent_number * 10 + n-&gt;val;
+  if (n-&gt;left == nullptr && n-&gt;right == nullptr) return number;
+
+  <font color=blue>/* Otherwise, sum the numbers of your children and return that. */</font>
+
+  rv = 0;
+  if (n-&gt;left != nullptr) rv += Preorder(n-&gt;left, number);
+  if (n-&gt;right != nullptr) rv += Preorder(n-&gt;right, number);
+  return rv;
+}
+</pre></td></table></center><p>

@@ -1,0 +1,9 @@
+./a.out < example-1.txt
+./a.out < example-2.txt
+./a.out < example-3.txt
+./a.out < example-4.txt
+./a.out < example-5.txt
+./a.out < example-6.txt
+./a.out < example-7.txt
+./a.out < example-8.txt
+./a.out < example-9.txt
