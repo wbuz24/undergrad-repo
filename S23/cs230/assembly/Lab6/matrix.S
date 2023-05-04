@@ -45,3 +45,20 @@ scale:
  fmul.d  
 
  ret
+
+ .section .text
+ .global translate
+ translate:
+
+
+
+ .section .text
+.global mul
+mul:
+
+
+
+.section .text
+.global normalize
+normalize:
+

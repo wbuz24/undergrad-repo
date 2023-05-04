@@ -1,0 +1,439 @@
+<title>SRM 731, D1, 250-Pointer (TreesAndBrackets)</title>
+<h3>SRM 731, D1, 250-Pointer (TreesAndBrackets)</h3>
+<h3>James S. Plank</h3>
+Sun Nov 14 14:50:42 EST 2021
+<hr>
+
+<UL>
+<LI><a href=https://community.topcoder.com/stat?c=problem_statement&pm=14836&rd=17095>Problem Statement</a>.
+<LI> <a href=main.cpp>A <b>main()</b> with the examples compiled in.</a>
+<LI> <a href=TreesAndBrackets.cpp>A skeleton that compiles with <b>main.cpp</b>.</a>
+<p>
+<LI> <b>Problem Given in Topcoder</b>: March, 2018
+<LI> <b>Competitors who opened the problem</b>: 184
+<LI> <b>Competitors who submitted a solution</b>: 171
+<LI> <b>Number of correct solutions</b>: 97
+<LI> <b>Accuracy (percentage correct vs those who opened)</b>: 52.7%
+<LI> <b>Average Correct Time</b>: 21 Minutes, 42 seconds.
+</UL>
+
+<hr>
+<h3>In case Topcoder's servers are down</h3>
+
+Here is a summary of the problem:
+
+<UL>
+<LI> You can define a tree with a string of parentheses -- <tt>"()"</tt> represents a 
+     leaf node, and <tt>"(<i>ABC</i>)"</tt> represents a tree with three subtrees, <i>A</i>,
+     <i>B</i> and <i>C</i>.
+<LI> (And in case that's unclear, <i>A</i>, <i>B</i> and <i>C</i> are also strings of
+     parentheses, and a tree can have any number of subtrees).
+<LI> You are given strings of two trees, <i>t1</i> and <i>t2</i>.
+<LI> You want to decide whether you can convert <i>t1</i> to <i>t2</i> by repeatedly deleting
+     leaf nodes from <i>t1</i>.
+<LI> If it's possible to do this conversion, return "Possible".
+<LI> Otherwise, return "Impossible".
+<LI> The strings that you are passed will be legal, and topcoder caps their size at 100.
+     My tests cap their size at 200,000.
+</UL>
+<hr>
+<h3>The examples</h3>
+
+Don't spend too much time on these just yet.  I convert them into pictures below.
+<p>
+
+<center>
+<table border=3 cellpadding=3>
+<tr><td align=center>Example</td>
+    <td align=center>t1</td>
+    <td align=center>t2</td>
+    <td align=center>Answer</td></tr>
+<tr><td align=center>0</td>
+    <td align=center><tt>"(())"</tt></td>
+    <td align=center><tt>"()"</tt></td>
+    <td align=center><tt>"Possible"</td></tr>
+<tr><td align=center>1</td>
+    <td align=center><tt>"()"</tt></td>
+    <td align=center><tt>"()"</tt></td>
+    <td align=center><tt>"Possible"</td></tr>
+<tr><td align=center>2</td>
+    <td align=center><tt>"(()()())"</tt></td>
+    <td align=center><tt>"((()))"</tt></td>
+    <td align=center><tt>"Impossible"</td></tr>
+<tr><td align=center>3</td>
+    <td align=center><tt>"((())((())())())"</tt></td>
+    <td align=center><tt>"(()(())())"</tt></td>
+    <td align=center><tt>"Possible"</td></tr>
+<tr><td align=center>4</td>
+    <td align=center><tt>"((())((())())())"</tt></td>
+    <td align=center><tt>"((()()()()()))"</tt></td>
+    <td align=center><tt>"Impossible"</td></tr>
+<tr><td align=center>5 (I added this one)</td>
+    <td align=center><tt> "(()((()()))(()(()))((()()))()(()(()())(()))())"</tt></td>
+
+    <td align=center><tt>"((())((()()))(()))"</tt></td>
+    <td align=center><tt>"Possible"</td></tr>
+</table></center><p>
+
+<hr>
+<h3>Testing yourself</h3>
+
+Like the <a href=../../2010/Cryptography/index.html>Cryptography Problem</a>,
+I have a shell script <b>tests.sh</b>, that you can use to test your program.  When you
+run <b>tests.sh</b>, your answer should be identical to
+<b><a href=answers.txt>answers.txt</a></b>.  
+
+<hr>
+<h2>Hints</h2>
+
+This is a great practice problem for CS202 in getting experience with trees and
+recursion.  
+<p>
+Let's start off by looking at the examples.  When it's "Possible", I show the nodes
+that you delete in blue.  Make sure you see how examples 3 and 5 return "Possible".
+I've labeled some subtrees in those examples to help with the explanation.
+
+<p><center><table border=3 cellpadding=10>
+<tr>
+<td valign=top align=center><b>Example 0:</b><br>Possible</td>
+<td valign=top align=center><i>t1</i><p><img src=0T1.jpg height=60></td>
+<td valign=top align=center><i>t2</i><p><img src=0T2.jpg height=17></td>
+</tr>
+<tr>
+<td valign=top align=center><b>Example 1:</b><br>Possible</td>
+<td valign=top align=center><i>t1</i><p><img src=0T2.jpg height=17></td>
+<td valign=top align=center><i>t2</i><p><img src=0T2.jpg height=17></td>
+</tr>
+<tr>
+<td valign=top align=center><b>Example 2:</b><br>Impossible</td>
+<td valign=top align=center><i>t1</i><p><img src=2T1.jpg height=60></td>
+<td valign=top align=center><i>t2</i><p><img src=2T2.jpg height=106></td>
+</tr>
+<tr>
+<td valign=top align=center><b>Example 3:</b><br>Possible</td>
+<td valign=top align=center><i>t1</i><p><img src=3T1.jpg height=150></td>
+<td valign=top align=center><i>t2</i><p><img src=3T2.jpg height=106></td>
+</tr>
+<tr>
+<td valign=top align=center><b>Example 4:</b><br>Impossible</td>
+<td valign=top align=center><i>t1</i><p><img src=4T1.jpg height=156></td>
+<td valign=top align=center><i>t2</i><p><img src=4T2.jpg height=106></td>
+</tr>
+<tr>
+<td valign=top align=center><b>Example 5:</b><br>Possible</td>
+<td valign=top align=center><i>t1</i><p><img src=5T1.jpg height=150></td>
+<td valign=top align=center><i>t2</i><p><img src=5T2.jpg height=150></td>
+</tr>
+</table></center><p>
+
+<hr>
+<h3>Observations</h3>
+
+Let's make some observations that help us with a solution:
+<p>
+
+<b>Observation #1</b>: While the problem description talks ./a.out deleting leaf nodes, in reality,
+you are deleting subtrees of T1 to match T2.  Look again at example 5 -- there you should
+be able to see that repeatedly deleting leaf nodes is equivalent to deleting subtrees.
+I've labeled the subtrees in the first level of example 5, so that it is easier to talk ./a.out
+that example.
+
+<p>
+<b>Observation #2</b>: When you are matching <i>t1</i> and <i>t2</i>, you cannot delete the root nodes.
+This is because you delete subtrees of <i>t1</i>.  If you delete the root of <i>t1</i>, then you will
+have deleted the entire tree.
+<p>
+
+<b>Observation #3</b>: If <i>t1</i> is a single node, and <i>t2</i> is more than a single node, then <i>t1</i> will not match <i>t2</i>.  That is the case if you try to match <i>a1</i> and <i>b1</i> 
+in example 5 above.
+<p>
+
+<b>Observation #4</b>: If <i>t2</i> is a single node, then <i>t1</i> will match <i>t2</i>.  That's
+because you can delete all of <i>t1</i> except for the root, and then it matches <i>t2</i>.
+That's what happens in example 0, and with subtrees <i>c1</i> and <i>d1</i> in example 3.
+<p>
+
+<b>Observation #5</b>: Let us suppose now that <i>t1</i> and <i>t2</i> are not single nodes.  Each of them
+is the root of an ordered collection of subtrees.  Let's call <i>t1</i>'s subtrees <i>x1</i>, <i>x2</i>, ... and
+<i>t2</i>'s subtrees <i>y1</i>, <i>y2</i>, ...  If <i>x1</i> matches <i>y1</i>, then you can delete both subtrees, and solve
+the problem on the remaining subtrees.  
+You can see this best in example 3:
+<UL>
+<LI> You match <i>c1</i> and <i>d1</i>, and then delete them.
+<LI> You match <i>c2</i> and <i>d2</i>, and then delete them.
+<LI> You match <i>c3</i> and <i>d3</i>, and then delete them.
+<LI> You're done.
+</UL>
+
+<b>Observation #6</b>: Let us suppose now that subtrees<i>x1</i> and <i>y1</i> don't match.
+Then, you delete <i>x1</i>, and try again.  
+Let's illustrate this by showing how you do the matching in example 5:
+
+<UL>
+<LI> <i>a1</i> and <i>b1</i> don't match, so delete <i>a1</i>.
+<LI> <i>a2</i> and <i>b1</i> match, so delete both.
+<LI> <i>a3</i> and <i>b2</i> don't match, so delete <i>a3</i>.
+<LI> <i>a4</i> and <i>b2</i> match, so delete both.
+<LI> <i>a5</i> and <i>b3</i> don't match, so delete <i>a3</i>.
+<LI> <i>a6</i> and <i>b3</i> match, so delete both.
+<LI> At this point, <i>t2</i> is a single node, so you can conclude that <i>t1</i> and <i>t2</i> match.
+</UL>
+
+<hr>
+<h3>Turning the observations into a solution</h3>
+
+The cleanest way to solve this problem is to go ahead and turn the strings into trees.
+I defined the following class:
+
+<p><center><table border=3 cellpadding=3><td><pre>
+class Node {
+  public:
+    int left_paren, right_paren;
+    vector &lt;class Node *&gt; children;
+    void Print();
+};
+</pre></td></table></center><p>
+
+And then I wrote a procedure to turn strings into trees.  I represent a tree with
+a single pointer to the tree's root node:
+
+<p><center><table border=3 cellpadding=3><td><pre>
+Node *StringToTree(const string &s, int lp);
+</pre></td></table></center><p>
+
+The parameters are as follows: 
+<UL>
+<LI> <b>s</b> is the string of parentheses.
+<LI> <b>lp</b> is an index of a <tt>'('</tt> character in the string.
+</UL>
+
+The procedure will turn the subtree that starts with the 
+given <tt>'('</tt> character into a tree of <b>Nodes</b>.  Here are some pictoral
+examples:
+
+<p><center>
+<table border=3 cellpadding=3>
+<tr><td align=center valign=top><tt>a = StringToTree("()", 0)</tt></td>
+    <td align=center valign=top><image src=Ex0-1.jpg height=109></td>
+</tr>
+<tr><td align=center valign=top><tt>b = StringToTree("(())", 1)</tt></td>
+    <td align=center valign=top><image src=Ex1-2.jpg height=109></td>
+</tr>
+<tr><td align=center valign=top><tt>c = StringToTree("(())", 0)</tt></td>
+    <td align=center valign=top><image src=Ex0-3.jpg height=232></td>
+</tr>
+</table></center><p>
+
+<hr>
+<h3>Job #1</h3>
+
+So, Job #1 for you is to write <b>StringToTree()</b>.  It will be recursive.  If you want to
+check yourself, have <b>StringToTree()</b> print its arguments when it is called,
+and have it print <b>left_paren</b>, <b>right_paren</b> and <b>children.size()</b> of its return
+value when it returns.  You can check it against the following for example.
+You should note how it makes the exact calls in the table/drawings above for both <i>T1</i>
+and <i>T2</i>.
+
+<pre>
+UNIX> <font color=darkred><b>./a.out 0</b></font>
+Calling StringToTree on t1
+STT("(())", 0) called.
+STT("(())", 1) called.
+STT("(())", 1) returning: left_paren=1, right_paren=2, children.size()=0
+STT("(())", 0) returning: left_paren=0, right_paren=3, children.size()=1
+
+Calling StringToTree on t2
+STT("()", 0) called.
+STT("()", 0) returning: left_paren=0, right_paren=1, children.size()=0
+
+UNIX>
+</pre>
+
+<pre>
+UNIX> <font color=darkred><b>./a.out 2</b></font>
+Calling StringToTree on t1
+STT("(()()())", 0) called.
+STT("(()()())", 1) called.
+STT("(()()())", 1) returning: left_paren=1, right_paren=2, children.size()=0
+STT("(()()())", 3) called.
+STT("(()()())", 3) returning: left_paren=3, right_paren=4, children.size()=0
+STT("(()()())", 5) called.
+STT("(()()())", 5) returning: left_paren=5, right_paren=6, children.size()=0
+STT("(()()())", 0) returning: left_paren=0, right_paren=7, children.size()=3
+
+Calling StringToTree on t2
+STT("((()))", 0) called.
+STT("((()))", 1) called.
+STT("((()))", 2) called.
+STT("((()))", 2) returning: left_paren=2, right_paren=3, children.size()=0
+STT("((()))", 1) returning: left_paren=1, right_paren=4, children.size()=1
+STT("((()))", 0) returning: left_paren=0, right_paren=5, children.size()=1
+
+UNIX> <font color=darkred><b></b></font>
+</pre>
+
+To help you out a little, here are examples 0, 2 and 3 with each node labeled by its
+<b>left_paren</b> value:
+
+
+<p><center><table border=3 cellpadding=10>
+<tr>
+<td valign=top align=center><b>Example 0:</b><br>Possible</td>
+<td valign=top align=center><i>t1</i><p><img src=0T1L.jpg height=60></td>
+<td valign=top align=center><i>t2</i><p><img src=0T2L.jpg height=17></td>
+</tr>
+<tr>
+<td valign=top align=center><b>Example 2:</b><br>Impossible</td>
+<td valign=top align=center><i>t1</i><p><img src=2T1L.jpg height=60></td>
+<td valign=top align=center><i>t2</i><p><img src=2T2L.jpg height=106></td>
+</tr>
+<tr>
+<td valign=top align=center><b>Example 3:</b><br>Possible</td>
+<td valign=top align=center><i>t1</i><p><img src=3T1L.jpg height=150></td>
+<td valign=top align=center><i>t2</i><p><img src=3T2L.jpg height=106></td>
+</tr>
+</table></center><p>
+
+And here is the program on example 2 -- the picture above should help you verify
+the output:
+
+<pre>
+UNIX> <font color=darkred><b>./a.out 2</b></font>
+Calling StringToTree on t1
+STT("(()()())", 0) called.
+STT("(()()())", 1) called.
+STT("(()()())", 1) returning: left_paren=1, right_paren=2, children.size()=0
+STT("(()()())", 3) called.
+STT("(()()())", 3) returning: left_paren=3, right_paren=4, children.size()=0
+STT("(()()())", 5) called.
+STT("(()()())", 5) returning: left_paren=5, right_paren=6, children.size()=0
+STT("(()()())", 0) returning: left_paren=0, right_paren=7, children.size()=3
+
+Calling StringToTree on t2
+STT("((()))", 0) called.
+STT("((()))", 1) called.
+STT("((()))", 2) called.
+STT("((()))", 2) returning: left_paren=2, right_paren=3, children.size()=0
+STT("((()))", 1) returning: left_paren=1, right_paren=4, children.size()=1
+STT("((()))", 0) returning: left_paren=0, right_paren=5, children.size()=1
+
+UNIX> <font color=darkred><b></b></font>
+</pre>
+<hr>
+<h3>Job #2</h3>
+
+Job #2 is to write the <b>Print()</b> method of a <b>Node()</b>.  What my method did was
+print the node's <b>left_paren</b> and <b>right_paren</b> and the <b>left_parens</b> of
+its children.  Then it called <b>Print()</b> recursively on its children.  Therefore,
+it does a preorder traversal of the tree, printing out information on each node.
+I changed my main code to print the root of each tree:
+
+<p><center><table border=3 cellpadding=3><td><pre>
+
+string TreesAndBrackets::check(string t1, string t2)
+{
+  Node *n1, *n2;
+
+  n1 = StringToTree(t1, 0);
+  n2 = StringToTree(t2, 0);
+
+  printf("LP RP - Children\n");
+  n1-&gt;Print();
+  printf("\n");
+
+  printf("LP RP - Children\n");
+  n2-&gt;Print();
+  printf("\n");
+</pre></td></table></center><p>
+
+Here's the output on examples 0 and 2:
+
+<pre>
+UNIX> <font color=darkred><b>./a.out 0</b></font>
+LP RP - Children
+ 0  3 - 1
+ 1  2 -
+
+LP RP - Children
+ 0  1 -
+
+UNIX> <font color=darkred><b>./a.out 2</b></font>
+LP RP - Children
+ 0  7 - 1 3 5
+ 1  2 -
+ 3  4 -
+ 5  6 -
+
+LP RP - Children
+ 0  5 - 1
+ 1  4 - 2
+ 2  3 -
+
+UNIX> <font color=darkred><b></b></font>
+</pre>
+
+<hr>
+<h3>Job #3</h3>
+
+Job #3 is to solve the problem.  You probably don't realize how close you are to solving
+the problem.  Write a procedure <b>Match()</b> with the following prototype:
+
+<p><center><table border=3 cellpadding=3><td><pre>
+bool Match(const Node *n1, const Node *n2);
+</pre></td></table></center><p>
+
+This returns <b>true</b> if the subtree rooted at <i>n1</i> matches the subtree rooted at
+<i>n2</i>.  Again, it will be recursive.  Mine went through the following steps.  
+
+<UL>
+<LI> First base case: If <i>n2</i> has no children, then it's a match: return true.
+<LI> Second base case: If <i>n2</i> has more children than <i>n1</i>, then a match will be
+impossible: return false.
+<LI> Now maintain two indices: <i>c1</i> for the children of <i>n1</i>  and
+<i>c2</i> for the children of <i>n2</i>.  Start both at zero, and you're going to loop:
+<LI> If the subtree rooted at <i>c1</i> matches the subtree rooted at <i>c2</i> (this is where
+     there is recursion), then increment both <i>c1</i> and <i>c2</i>.  Otherwise, there was
+     no match, you need to only increment <i>c1</i>.
+<LI> At the end of the loop, if there are no more children in <i>c2</i> to match, then
+     you've succeeded!  Return true.
+<LI> Otherwise, return false.
+</UL>
+
+Note, you
+don't ever "delete" anything -- if you match, then you move on, and if you don't match,
+then you move on.  I've annotated my code to print when <i>Match</i> is called, and when 
+it returns.  Here are examples 0, 2 and 3.  Again, look at the pictures above with the
+nodes labeled -- that will help you walk through this example:
+
+<pre>
+UNIX> <font color=darkred><b>./a.out 0</b></font>
+Match(0,0) called.
+Match(0,0) returns true.
+Possible
+UNIX> <font color=darkred><b>./a.out 2</b></font>
+Match(0,0) called.
+Match(1,1) called.
+Match(1,1) returns false.
+Match(3,1) called.
+Match(3,1) returns false.
+Match(5,1) called.
+Match(5,1) returns false.
+Match(0,0) returns false.
+Impossible
+UNIX> <font color=darkred><b>./a.out 3</b></font>
+Match(0,0) called.
+Match(1,1) called.
+Match(1,1) returns true.
+Match(5,3) called.
+Match(6,4) called.
+Match(6,4) returns true.
+Match(5,3) returns true.
+Match(13,7) called.
+Match(13,7) returns true.
+Match(0,0) returns true.
+Possible
+UNIX> <font color=darkred><b></b></font>
+</pre>
+
+When you're done, delete the extra print statements, and run <b>tests.sh</b> to 
+see if you match <b>answers.txt</b>.
