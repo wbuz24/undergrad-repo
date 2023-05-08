@@ -1,0 +1,409 @@
+INSERT Eva-Isabelle-Loren 572-886-5249 700-41-2726
+IS_AVL
+INSERT Madison-Vought 099-272-8019 850-46-8204
+IS_AVL
+INSERT Brody-Gambia 457-536-5477 585-52-0531
+IS_AVL
+INSERT Cole-Boson-MD 835-689-8624 356-68-9736
+IS_AVL
+INSERT Brooke-Trite 635-086-0414 675-60-1889
+IS_AVL
+INSERT Sophie-Ashen 641-314-6487 268-22-5788
+IS_AVL
+INSERT Adam-Lifelike 999-379-9851 407-41-7979
+IS_AVL
+INSERT Zoey-Indianapolis 774-034-4865 143-31-9320
+IS_AVL
+INSERT Ellie-Sportswriting 877-019-6371 633-57-3999
+IS_AVL
+INSERT Nathan-Susanne 975-021-4706 146-72-7440
+IS_AVL
+VALS
+FIND Nathan-Susanne
+INSERT Kayla-Xylene-PhD 195-869-0016 336-04-1465
+IS_AVL
+INSERT Blake-Eggshell 063-619-7409 361-24-2590
+IS_AVL
+VALS
+FIND Kayla-Xylene-PhD
+VALS
+PRINT
+FIND Sophie-Ashen
+FIND Nathan-Susanne
+FIND Mason-Boric
+SIZE
+VALS
+INSERT Zoey-Congregate 428-210-0618 831-74-1960
+IS_AVL
+INSERT Kaylee-Mystique 527-016-1523 560-16-6830
+IS_AVL
+INSERT Hunter-Recappable 495-005-1186 644-72-7223
+IS_AVL
+INSERT Landon-Landon-Dent 599-153-0554 770-93-2121
+IS_AVL
+INSERT Audrey-Verlag 316-572-7360 787-41-9530
+IS_AVL
+FIND Landon-Landon-Dent
+FIND Landon-Landon-Dent
+INSERT Allison-Roof 124-053-8071 941-72-7858
+IS_AVL
+FIND Liam-Isaac-Arrhenius
+FIND Blake-Eggshell
+FIND Nathan-Susanne
+PRINT
+FIND Adam-Lifelike
+VALS
+VALS
+PRINT
+VALS
+VALS
+INSERT Brianna-Electrolytic 141-522-5449 618-26-9786
+IS_AVL
+FIND Brianna-Electrolytic
+INSERT Ava-Hellebore 772-591-6669 084-67-4732
+IS_AVL
+INSERT Madelyn-Omit 146-540-8331 113-64-4617
+IS_AVL
+VALS
+VALS
+FIND Layla-Checkpoint
+FIND Ellie-Sportswriting
+FIND Brianna-Electrolytic
+INSERT Riley-Prodigy 016-393-7069 605-61-6697
+IS_AVL
+INSERT Bella-Correlate 961-530-4857 350-44-7150
+IS_AVL
+FIND Zoey-Congregate
+SIZE
+INSERT Samantha-Tsarina 741-834-5488 831-53-3929
+IS_AVL
+INSERT Zoe-Eskimo 962-005-0498 384-53-7624
+IS_AVL
+PRINT
+VALS
+SIZE
+VALS
+VALS
+FIND Blake-Eggshell
+VALS
+FIND Ava-Hellebore
+SIZE
+PRINT
+FIND Sophie-Ashen
+FIND Kate-Russet
+VALS
+FIND Zoey-Indianapolis
+FIND Blake-Eggshell
+SIZE
+INSERT Sofia-Coach 783-855-9812 598-55-0512
+IS_AVL
+INSERT Luke-Transmitted 519-583-0718 363-24-0051
+IS_AVL
+VALS
+INSERT Jackson-Bitterroot 221-158-4215 865-81-4710
+IS_AVL
+VALS
+VALS
+VALS
+VALS
+FIND Madeline-Lase
+PRINT
+INSERT Owen-Carson-Oxeye 429-655-0118 981-39-1284
+IS_AVL
+INSERT Joshua-Tantamount 901-530-9388 599-97-2594
+IS_AVL
+INSERT Daniel-Aaron-Sensate 348-808-6805 069-49-1873
+IS_AVL
+VALS
+INSERT Lilly-Thebes 001-314-1287 249-31-9608
+IS_AVL
+FIND Jackson-Bitterroot
+SIZE
+INSERT Christian-Aaron-Java 674-115-2453 368-87-3868
+IS_AVL
+PRINT
+FIND Ava-Hellebore
+INSERT Brianna-Catastrophe 984-324-7752 537-80-3920
+IS_AVL
+VALS
+VALS
+INSERT Parker-Albeit 575-339-0152 539-84-4585
+IS_AVL
+FIND Madison-Vought
+FIND Sofia-Coach
+PRINT
+INSERT William-Minuteman 716-707-2635 227-02-0609
+IS_AVL
+VALS
+PRINT
+VALS
+PRINT
+FIND Kayla-Splendid
+FIND Charlie-Anxious
+INSERT Bailey-Driven 827-037-7284 565-52-2920
+IS_AVL
+PRINT
+INSERT Aiden-Tire 031-854-7446 880-40-7936
+IS_AVL
+PRINT
+VALS
+FIND Brooke-Trite
+FIND Madelyn-Omit
+VALS
+INSERT Aubrey-Goer 508-809-3683 000-98-7082
+IS_AVL
+SIZE
+INSERT Christian-Clod 014-237-4640 879-26-4469
+IS_AVL
+PRINT
+FIND Sophie-Ashen
+VALS
+INSERT Dylan-Ratty 744-517-4347 396-32-7630
+IS_AVL
+FIND Zoey-Indianapolis
+INSERT Jacob-Colorado 460-047-8144 128-63-0021
+IS_AVL
+INSERT Evelyn-Ingenuity 014-464-5620 995-81-6901
+IS_AVL
+VALS
+INSERT Brody-Revert-IV 160-605-7143 120-50-2282
+IS_AVL
+SIZE
+FIND Kaylee-Mystique
+FIND Madeline-Edwards
+FIND Hunter-Recappable
+SIZE
+PRINT
+INSERT Christian-Waken 849-455-4015 480-16-1901
+IS_AVL
+FIND Audrey-Verlag
+INSERT Isaiah-Vice 766-192-8320 081-01-8459
+IS_AVL
+PRINT
+FIND Sofia-Coach
+SIZE
+FIND Sofia-Coach
+PRINT
+INSERT Isaiah-Hologram 018-164-3322 379-46-3348
+IS_AVL
+FIND Sophie-Ashen
+VALS
+VALS
+FIND Hunter-Recappable
+FIND Ava-Hellebore
+FIND Landon-Landon-Dent
+INSERT Austin-Lucas-Clutter-Jr 225-950-7372 981-80-2406
+IS_AVL
+SIZE
+VALS
+VALS
+FIND Madelyn-Omit
+FIND Daniel-Aaron-Sensate
+SIZE
+FIND Joshua-Tantamount
+FIND Christian-Clod
+PRINT
+VALS
+FIND Riley-Prodigy
+FIND Owen-Carson-Oxeye
+INSERT Jonathan-Picnicked 830-228-5578 637-44-0179
+IS_AVL
+FIND Abigail-Kaylee-Wrap
+PRINT
+VALS
+VALS
+VALS
+INSERT Luke-Sculptor 623-494-2052 617-82-8648
+IS_AVL
+PRINT
+FIND Samantha-Tsarina
+INSERT Riley-Roustabout 917-357-6194 873-57-2314
+IS_AVL
+FIND Blake-Eggshell
+SIZE
+FIND Allison-Roof
+FIND Samuel-Tavern
+VALS
+FIND Christian-Clod
+SIZE
+FIND Jonathan-Picnicked
+PRINT
+FIND Isaiah-Hologram
+PRINT
+VALS
+FIND Zoey-Indianapolis
+INSERT Kylie-Cornish 772-998-5133 805-19-0534
+IS_AVL
+INSERT Ella-Questionnaire 829-267-6493 695-91-1112
+IS_AVL
+INSERT Leah 355-067-6438 477-96-8698
+IS_AVL
+VALS
+VALS
+VALS
+FIND Jackson-Bitterroot
+PRINT
+FIND Brianna-Electrolytic
+INSERT Charlotte-Yesteryear 404-771-7136 836-00-5709
+IS_AVL
+FIND Mason-Ganglion
+INSERT Benjamin-Pandora 174-686-6769 154-96-4706
+IS_AVL
+FIND Blake-Eggshell
+FIND Aaron-Wept
+FIND Allison-Roof
+PRINT
+VALS
+INSERT Jordan-Concept 925-808-3837 773-65-4620
+IS_AVL
+PRINT
+SIZE
+SIZE
+VALS
+INSERT Jacob-Structural 035-294-3188 216-94-6027
+IS_AVL
+PRINT
+FIND Hunter-Recappable
+FIND Austin-Lucas-Clutter-Jr
+INSERT Gabriella-Garner 506-480-8821 838-61-4852
+IS_AVL
+FIND Gabriella-Garner
+PRINT
+INSERT Austin-Pirouette 706-617-3025 754-59-9083
+IS_AVL
+FIND Claire-Buckle
+FIND Joshua-Tantamount
+FIND Bailey-Driven
+INSERT Brody-Dylan-Goblet 579-995-2518 624-87-8586
+IS_AVL
+FIND Jordan-Concept
+PRINT
+INSERT Zoey-Charm 501-208-3281 601-50-9057
+IS_AVL
+FIND Bailey-Driven
+PRINT
+FIND Eva-Isabelle-Loren
+FIND Kayla-Christian
+INSERT Eva-Ultra 648-606-0511 499-64-8523
+IS_AVL
+PRINT
+FIND Jacob-Colorado
+FIND Joshua-Tantamount
+FIND Madelyn-Omit
+FIND William-Minuteman
+INSERT Leah-Carne 307-222-5041 305-94-3989
+IS_AVL
+SIZE
+INSERT Nathan-Springtail 293-561-0273 538-27-8348
+IS_AVL
+FIND Luke-Sculptor
+PRINT
+FIND Ellie-Sportswriting
+VALS
+FIND Eva-Ultra
+VALS
+INSERT Lily-Feminism 690-132-4661 366-61-6846
+IS_AVL
+INSERT Mia-Firewood 044-476-6659 659-46-8229
+IS_AVL
+SIZE
+INSERT Allison-Hartford 552-724-4277 009-39-0068
+IS_AVL
+FIND Brody-Dylan-Goblet
+PRINT
+INSERT Riley-Ogre 886-042-1510 095-67-6140
+IS_AVL
+VALS
+FIND Zoey-Congregate
+INSERT Owen-Lobo 022-284-3879 973-02-4900
+IS_AVL
+VALS
+FIND Jonathan-Picnicked
+PRINT
+FIND Christian-Clod
+VALS
+PRINT
+INSERT Lilly-Natalie-Clothbound 447-461-5899 925-61-8854
+IS_AVL
+PRINT
+INSERT Alexander-Burden 546-332-7587 236-40-7996
+IS_AVL
+FIND Zoey-Congregate
+INSERT Hunter-Setback 117-300-3056 341-81-2026
+IS_AVL
+FIND Landon-Landon-Dent
+INSERT Taylor-Drapery 480-793-3550 735-47-3973
+IS_AVL
+FIND Charlotte-Yesteryear
+PRINT
+INSERT Kaylee-Bartholomew 926-269-3208 427-13-2212
+IS_AVL
+INSERT Leah-Lillian-Covalent 816-130-3772 673-21-9279
+IS_AVL
+FIND Allison-Roof
+VALS
+VALS
+PRINT
+PRINT
+VALS
+FIND Ava-Hellebore
+SIZE
+INSERT Chase-Meadowland-PhD 835-143-8279 279-50-0309
+IS_AVL
+PRINT
+FIND Riley-Ogre
+VALS
+FIND Cole-Boson-MD
+FIND Lilly-Natalie-Clothbound
+INSERT Liam-Joseph-Nothing 508-278-0829 759-99-5971
+IS_AVL
+INSERT Zoe-Berlin 932-783-7277 134-44-2165
+IS_AVL
+INSERT Ian-Grandson 841-353-8047 962-35-2659
+IS_AVL
+FIND Lily-Feminism
+FIND Austin-Pirouette
+PRINT
+FIND Eva-Isabelle-Loren
+INSERT Benjamin-James-Griddle 781-199-4673 627-10-2301
+IS_AVL
+PRINT
+PRINT
+INSERT Avery-Jeopardy-Esq 372-277-0069 692-56-8604
+IS_AVL
+PRINT
+INSERT Eli-Pout 175-871-8197 445-01-5059
+IS_AVL
+INSERT Cameron-Isaac-Perfunctory 143-834-8804 672-94-1000
+IS_AVL
+FIND Brody-Impulsive
+FIND Andrew-Presbyterian
+PRINT
+FIND Blake-Eggshell
+FIND Lilly-Thebes
+INSERT Brody-Staphylococcus 966-442-2918 415-72-3121
+IS_AVL
+PRINT
+INSERT Riley-Audrey-Setup 106-218-3516 615-77-5733
+IS_AVL
+FIND Riley-Ogre
+FIND Kylie-Cornish
+PRINT
+INSERT Isaiah-Lamentation 136-058-0593 678-68-1838
+IS_AVL
+PRINT
+FIND Christian-Aaron-Java
+FIND Chase-Meadowland-PhD
+INSERT Julian-Murk-III 505-469-2547 072-27-3136
+IS_AVL
+VALS
+PRINT
+INSERT Dontonio-Hydrant 366-486-6685 169-99-2155
+IS_AVL
+PRINT
+VALS
+INSERT Sydney-Chuckle 707-733-2340 738-51-0961
+IS_AVL
+PRINT
+SIZE
+FIND Benjamin-Pandora

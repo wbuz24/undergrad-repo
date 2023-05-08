@@ -1,0 +1,57 @@
+INSERT Gabriella-Hairpin 989-392-0841 009-42-7771
+IS_AVL
+INSERT Alex-Space 905-937-5438 222-38-2871
+IS_AVL
+INSERT Charlotte-Margaret 895-427-3334 196-38-2466
+IS_AVL
+INSERT Addison-Becket-PhD 352-495-2145 436-23-5296
+IS_AVL
+INSERT Hunter-Critter 166-372-3250 122-42-7965
+IS_AVL
+INSERT Grace-Uniprocessor 660-709-8703 867-57-3007
+IS_AVL
+INSERT Ella-Nearest 581-945-8590 395-84-9748
+IS_AVL
+INSERT John-Osborn 029-793-1517 621-63-5109
+IS_AVL
+INSERT Caleb-Aiden-Copyright 097-757-7831 037-05-7957
+IS_AVL
+INSERT Anthony-Hourglass 131-324-1539 834-79-5101
+IS_AVL
+INSERT Natalie-Dwarves 462-409-6859 323-60-7736
+IS_AVL
+FIND Grace-Uniprocessor
+SIZE
+PRINT
+FIND Mason-Istanbul
+FIND Julia-Brooke-Preference
+INSERT Ella-Paige-Epiphyseal 552-489-0376 356-45-0480
+IS_AVL
+FIND John-Osborn
+FIND Gabriella-Mail
+FIND Sophie-Lambert
+FIND Anthony-Hourglass
+INSERT Liam-Partial 842-323-8418 952-86-5892
+IS_AVL
+FIND Gabriella-Hairpin
+VALS
+PRINT
+DELETE Charlotte-Margaret
+IS_AVL
+SIZE
+FIND Anthony-Hourglass
+PRINT
+INSERT Landon-Hygroscopic 930-728-4937 473-71-7168
+IS_AVL
+FIND Charlotte-Margaret
+VALS
+FIND Liam-Partial
+DELETE Ella-Paige-Epiphyseal
+IS_AVL
+VALS
+FIND Anthony-Hourglass
+INSERT Zoey-Spectacular 405-773-8157 635-17-0346
+IS_AVL
+PRINT
+VALS
+FIND Isabella-Congressmen

@@ -1,0 +1,848 @@
+INSERT Alexis-Presumption 401-661-0972 832-98-9693
+IS_AVL
+INSERT Wyatt-Want-PhD 272-563-8703 051-22-0971
+IS_AVL
+INSERT Gabriella-Cummins 425-993-3285 648-06-8132
+IS_AVL
+INSERT Layla-Circuit-PhD 004-411-7061 646-64-3608
+IS_AVL
+INSERT Ella-Montreal 371-517-2782 564-34-0357
+IS_AVL
+INSERT Michael-Chrysolite 036-855-3935 725-58-0728
+IS_AVL
+INSERT Isaiah-Staple 289-068-8272 078-84-7194
+IS_AVL
+INSERT Thomas-Isaac-Did 194-528-9775 236-86-0855
+IS_AVL
+INSERT Caroline-Chlorinate-PhD 613-586-9979 856-04-9398
+IS_AVL
+INSERT Logan-Andorra 555-821-9537 000-64-0216
+IS_AVL
+FIND Logan-Andorra
+FIND Gabriella-Cummins
+DELETE Gabriella-Cummins
+IS_AVL
+FIND Layla-Circuit-PhD
+FIND Logan-Andorra
+DELETE Isaiah-Staple
+IS_AVL
+FIND Wyatt-Want-PhD
+FIND Michael-Chrysolite
+FIND Michael-Chrysolite
+FIND Alexis-Presumption
+DELETE Isaiah-Staple
+IS_AVL
+PRINT
+INSERT Zoe-Salish 040-970-1345 422-85-0843
+IS_AVL
+FIND Caroline-Chlorinate-PhD
+FIND Ava-Leah-Tahiti
+INSERT Emma-Deformation 918-999-8725 144-53-4516
+IS_AVL
+FIND Julia-Flowchart-MD
+VALS
+FIND Isaiah-Staple
+INSERT Peyton-Expurgate 499-098-0511 764-81-7749
+IS_AVL
+FIND Peyton-Expurgate
+INSERT Nathan-Han 976-945-7678 039-87-3173
+IS_AVL
+FIND Wyatt-Want-PhD
+VALS
+PRINT
+FIND Logan-Andorra
+INSERT Victoria-Woodwind 524-542-1441 502-01-8529
+IS_AVL
+PRINT
+INSERT Aubrey-Edge 903-132-4828 624-19-4818
+IS_AVL
+INSERT Grace-Demijohn 319-457-1047 832-04-8487
+IS_AVL
+VALS
+FIND Nathan-Han
+FIND Madison-Iberia
+SIZE
+PRINT
+FIND Logan-Andorra
+DELETE Grace-Demijohn
+IS_AVL
+INSERT Brooklyn-Embedded 103-550-8973 646-65-7964
+IS_AVL
+FIND Aubrey-Edge
+INSERT Madelyn-Militia 800-607-4281 311-08-6942
+IS_AVL
+PRINT
+INSERT Brandon-Quadruple-MD 633-495-7079 033-16-3853
+IS_AVL
+VALS
+DELETE Thomas-Isaac-Did
+IS_AVL
+SIZE
+FIND Layla-Circuit-PhD
+PRINT
+INSERT Amelia-Shipley 609-969-4912 832-09-6018
+IS_AVL
+FIND Caroline-Chlorinate-PhD
+FIND Nathan-Han
+FIND Wyatt-Want-PhD
+PRINT
+INSERT Isabelle-Brandywine 203-738-9374 316-79-2747
+IS_AVL
+INSERT Emily-Highest 696-601-8766 976-42-2322
+IS_AVL
+INSERT Sarah 527-488-4542 932-19-6162
+IS_AVL
+INSERT Katelyn-Lusty-Esq 422-767-6366 509-06-2202
+IS_AVL
+PRINT
+FIND Gabriella-Cummins
+FIND Madelyn-Militia
+INSERT Mason-Convivial-IV 845-810-7102 821-25-3821
+IS_AVL
+DELETE Brooklyn-Embedded
+IS_AVL
+FIND Brooklyn-Embedded
+VALS
+FIND Sarah
+INSERT Lillian-Tokyo 277-745-9613 808-81-2155
+IS_AVL
+DELETE Sarah
+IS_AVL
+DELETE Gabriella-Cummins
+IS_AVL
+VALS
+PRINT
+FIND Emma-Deformation
+INSERT Alyssa-Abandon 770-356-1742 180-57-0533
+IS_AVL
+PRINT
+DELETE Layla-Circuit-PhD
+IS_AVL
+FIND Lillian-Tokyo
+DELETE Wyatt-Want-PhD
+IS_AVL
+PRINT
+SIZE
+FIND Isaiah-Staple
+INSERT William-Gaggle 044-981-1850 796-19-0251
+IS_AVL
+INSERT Natalie-Amelia-Thymus 514-155-1112 770-31-6183
+IS_AVL
+FIND Caroline-Chlorinate-PhD
+PRINT
+FIND Logan-Andorra
+VALS
+VALS
+DELETE Amelia-Shipley
+IS_AVL
+INSERT Max-Canine 328-582-7525 112-75-5406
+IS_AVL
+INSERT Hailey-Irksome 817-033-0843 578-56-1429
+IS_AVL
+PRINT
+INSERT Sophia-Pottery 764-863-5025 718-08-7957
+IS_AVL
+DELETE Hailey-Irksome
+IS_AVL
+PRINT
+VALS
+DELETE Aubrey-Edge
+IS_AVL
+INSERT Evelyn-Psychobiology 050-838-4835 219-83-8214
+IS_AVL
+INSERT Audrey-Devolve 957-326-6437 630-91-7626
+IS_AVL
+INSERT Andrew-Connive 127-264-1814 498-27-4898
+IS_AVL
+PRINT
+INSERT Lauren-Underling 136-850-5721 402-72-3818
+IS_AVL
+VALS
+SIZE
+INSERT Carter-Reave 061-828-5558 890-57-7438
+IS_AVL
+PRINT
+DELETE Brandon-Quadruple-MD
+IS_AVL
+INSERT Julian-Minstrel-IV 386-092-4583 607-72-9583
+IS_AVL
+PRINT
+DELETE Amelia-Shipley
+IS_AVL
+PRINT
+INSERT Lauren-Vesicular 347-544-2565 844-55-6889
+IS_AVL
+FIND Caroline-Chlorinate-PhD
+DELETE Brooklyn-Embedded
+IS_AVL
+PRINT
+INSERT Brandon-Durkin 188-964-2402 260-20-1478
+IS_AVL
+DELETE Layla-Circuit-PhD
+IS_AVL
+PRINT
+INSERT Charlie-Hepatica 009-651-1673 449-52-8408
+IS_AVL
+INSERT Charlotte-Absorption 185-266-0160 749-15-1758
+IS_AVL
+DELETE Lillian-Tokyo
+IS_AVL
+DELETE Nathan-Han
+IS_AVL
+DELETE Sophia-Pottery
+IS_AVL
+PRINT
+FIND Andrew-Connive
+INSERT Gabriella-Terbium 935-701-6986 289-55-2383
+IS_AVL
+DELETE Victoria-Woodwind
+IS_AVL
+DELETE Aubrey-Edge
+IS_AVL
+FIND Thomas-Isaac-Did
+FIND Hailey-Irksome
+INSERT Chase-Appleby 648-321-7481 755-97-5965
+IS_AVL
+DELETE Gabriella-Cummins
+IS_AVL
+FIND Charlie-Hepatica
+FIND Nathan-Han
+FIND Katelyn-Lusty-Esq
+PRINT
+FIND Emma-Deformation
+FIND Isaiah-Cockleshell
+FIND Eva-Discordant
+FIND Julian-Minstrel-IV
+VALS
+FIND Isaiah-Staple
+VALS
+FIND Ella-Montreal
+FIND Aubrey-Edge
+FIND Amelia-Shipley
+DELETE Brandon-Quadruple-MD
+IS_AVL
+FIND Katelyn-Lusty-Esq
+DELETE Alyssa-Abandon
+IS_AVL
+PRINT
+FIND Logan-Andorra
+INSERT Zoe-Cock 784-045-1852 242-62-0149
+IS_AVL
+INSERT Sofia-Debby 504-820-6263 228-32-7405
+IS_AVL
+VALS
+DELETE Grace-Demijohn
+IS_AVL
+FIND Jonathan-Tyler-Grandma
+PRINT
+FIND Chase-Appleby
+INSERT Chloe-Glimmer 927-290-1743 979-97-5271
+IS_AVL
+FIND Sophia-Pottery
+FIND Max-Canine
+VALS
+SIZE
+FIND Chase-Appleby
+FIND Caroline-Chlorinate-PhD
+PRINT
+INSERT Katelyn-Vide 768-540-8878 805-27-1304
+IS_AVL
+PRINT
+VALS
+VALS
+FIND Victoria-Woodwind
+DELETE Lauren-Vesicular
+IS_AVL
+FIND Andrew-Connive
+INSERT Victoria-Alcestis 244-245-8960 248-50-5734
+IS_AVL
+FIND Isabelle-Brandywine
+DELETE Zoe-Salish
+IS_AVL
+PRINT
+VALS
+DELETE Lauren-Vesicular
+IS_AVL
+PRINT
+INSERT Luke-Cassandra 273-172-9012 288-99-1402
+IS_AVL
+VALS
+FIND Victoria-Alcestis
+INSERT Sydney-Regressive 131-373-8914 645-89-9380
+IS_AVL
+FIND Lauren-Ignorant
+FIND Grace-Demijohn
+PRINT
+DELETE Lauren-Vesicular
+IS_AVL
+SIZE
+VALS
+FIND Alyssa-Abandon
+PRINT
+FIND Alexis-Presumption
+INSERT Isaiah-Brendan 890-651-3201 572-28-3378
+IS_AVL
+FIND Sofia-Debby
+FIND Julian-Minstrel-IV
+INSERT Ava-Free 064-096-0404 526-79-1834
+IS_AVL
+FIND Katelyn-Vide
+FIND Lillian-Tokyo
+PRINT
+VALS
+DELETE Zoe-Cock
+IS_AVL
+FIND Sydney-Regressive
+PRINT
+INSERT Alex-Intimidate 851-786-9577 480-82-1011
+IS_AVL
+FIND Morgan-Gangplank
+DELETE Evelyn-Psychobiology
+IS_AVL
+FIND Peyton-Expurgate
+SIZE
+VALS
+FIND Gabriella-Cummins
+INSERT Kaitlyn-Jawbreak-MD 241-953-1470 538-97-1978
+IS_AVL
+VALS
+INSERT Samantha-Cuddly 395-566-4239 637-99-5807
+IS_AVL
+PRINT
+FIND Isaiah-Brendan
+VALS
+INSERT Chloe-Anglican 506-341-7396 046-04-0118
+IS_AVL
+FIND Kaitlyn-Jawbreak-MD
+VALS
+PRINT
+FIND Thomas-Isaac-Did
+VALS
+FIND Sofia-Debby
+FIND Michael-Chrysolite
+FIND Hailey-Irksome
+INSERT Ella-Illegal-PhD 797-111-5186 333-22-6214
+IS_AVL
+DELETE Grace-Demijohn
+IS_AVL
+DELETE Thomas-Isaac-Did
+IS_AVL
+FIND Caroline-Chlorinate-PhD
+VALS
+INSERT Madelyn-Freestone 156-230-1975 653-11-9849
+IS_AVL
+FIND Alyssa-Abandon
+FIND Ella-Illegal-PhD
+PRINT
+FIND Caroline-Chlorinate-PhD
+VALS
+INSERT Madison-Tete 860-017-7677 553-27-2582
+IS_AVL
+INSERT Madeline-Flub 489-058-6361 607-28-0842
+IS_AVL
+PRINT
+SIZE
+DELETE Charlie-Hepatica
+IS_AVL
+FIND Mason-Cheerleader
+PRINT
+DELETE Emily-Highest
+IS_AVL
+PRINT
+INSERT Lucy-Paean 407-493-6644 626-80-4896
+IS_AVL
+INSERT Alexis-Fulcrum 335-003-2208 204-74-5810
+IS_AVL
+FIND Wyatt-Want-PhD
+FIND Sydney-Regressive
+FIND Carter-Reave
+VALS
+VALS
+FIND Emma-Deformation
+INSERT Grace-Infringe 001-259-5645 535-63-9664
+IS_AVL
+PRINT
+INSERT Samuel-Oakland 328-836-0489 900-40-7294
+IS_AVL
+FIND Evelyn-Psychobiology
+PRINT
+VALS
+DELETE Madeline-Flub
+IS_AVL
+FIND Isaiah-Brendan
+DELETE Zoe-Salish
+IS_AVL
+PRINT
+FIND Katelyn-Vide
+VALS
+FIND Nathan-Han
+FIND Michael-Chrysolite
+INSERT Layla-Scold 274-314-3931 477-99-8284
+IS_AVL
+FIND Logan-Andorra
+FIND William-Gaggle
+INSERT Ava-Farad 878-330-1805 193-86-6516
+IS_AVL
+DELETE Gabriella-Terbium
+IS_AVL
+FIND Chloe-Glimmer
+PRINT
+SIZE
+DELETE Madeline-Flub
+IS_AVL
+INSERT Molly-Nitrite 805-444-6230 812-68-6446
+IS_AVL
+INSERT Alyssa-Implode 605-479-1464 261-93-0084
+IS_AVL
+INSERT Max-Scathe 516-808-3029 625-60-7511
+IS_AVL
+PRINT
+INSERT Gavin-Kimball 518-455-8157 459-44-6568
+IS_AVL
+PRINT
+FIND Madelyn-Militia
+FIND Sofia-Debby
+FIND Alyssa-Implode
+INSERT Paige-Circulate 157-931-7797 862-23-0532
+IS_AVL
+INSERT Carter-Criterion 455-040-2031 213-08-4767
+IS_AVL
+FIND Wyatt-Want-PhD
+INSERT Jayden-Complaisant 973-062-8031 916-68-7108
+IS_AVL
+FIND Alexis-Fulcrum
+FIND Victoria-Alcestis
+PRINT
+VALS
+INSERT Eli-Christian-Assign 601-030-9537 053-56-2872
+IS_AVL
+INSERT Noah-Bluebonnet 982-905-4568 958-80-5292
+IS_AVL
+VALS
+INSERT Zachary-Responsive 962-224-2059 276-01-2380
+IS_AVL
+INSERT Sofia-Kazoo 215-852-4937 022-43-0750
+IS_AVL
+PRINT
+SIZE
+DELETE Brooklyn-Embedded
+IS_AVL
+INSERT Brandon-Arccos 419-599-3255 607-36-2390
+IS_AVL
+SIZE
+SIZE
+FIND Eva-Submersible
+VALS
+INSERT Bella-Curve 812-490-9321 517-17-4673
+IS_AVL
+INSERT Cole-Presentational 573-790-7919 151-41-7099
+IS_AVL
+SIZE
+PRINT
+INSERT Molly-Invention 741-138-3978 684-18-1880
+IS_AVL
+VALS
+FIND Xavier
+DELETE Layla-Scold
+IS_AVL
+PRINT
+VALS
+VALS
+FIND Alexis-Fulcrum
+FIND Carter-Reave
+FIND Noah-Bluebonnet
+VALS
+INSERT Ellie-Promiscuity 114-326-1771 705-05-5826
+IS_AVL
+PRINT
+SIZE
+INSERT Henry-Comply-PhD 818-485-1629 210-09-3618
+IS_AVL
+FIND Evelyn-Psychobiology
+INSERT Evan-Cacm 289-296-6179 149-49-7356
+IS_AVL
+PRINT
+DELETE Kaitlyn-Jawbreak-MD
+IS_AVL
+FIND Amelia-Amateur
+INSERT Joseph-Lush 588-715-9463 629-71-3655
+IS_AVL
+DELETE Gabriella-Terbium
+IS_AVL
+SIZE
+PRINT
+INSERT Morgan-Lunge 920-838-6671 475-67-9497
+IS_AVL
+VALS
+PRINT
+VALS
+FIND Jayden-Complaisant
+INSERT Christopher-Owen-Portal 133-237-6543 572-35-6776
+IS_AVL
+FIND Charlotte-Absorption
+FIND Sophia-Pottery
+PRINT
+INSERT Sarah-Lauren-Thwack 302-922-6894 795-88-9519
+IS_AVL
+FIND Caroline-Chlorinate-PhD
+INSERT Caleb-Woodrow 936-822-7375 335-17-5383
+IS_AVL
+PRINT
+INSERT Maya-Gianna-Fitzgerald 573-877-4732 006-04-8247
+IS_AVL
+PRINT
+FIND Ella-Illegal-PhD
+VALS
+DELETE Jayden-Complaisant
+IS_AVL
+INSERT Samantha-Assyria 495-109-8062 675-54-4800
+IS_AVL
+DELETE Samantha-Cuddly
+IS_AVL
+PRINT
+INSERT Cameron-Everywhere 667-486-5681 401-24-0497
+IS_AVL
+FIND Carter-Reave
+FIND Alex-Intimidate
+DELETE Alex-Intimidate
+IS_AVL
+PRINT
+VALS
+FIND Amelia-Shipley
+DELETE Carter-Reave
+IS_AVL
+PRINT
+FIND Logan-Andorra
+INSERT Anthony-Morgen-Esq 893-478-1740 449-64-1451
+IS_AVL
+PRINT
+SIZE
+INSERT Owen-Fructify 972-827-6281 471-42-9932
+IS_AVL
+DELETE Sydney-Regressive
+IS_AVL
+FIND Ella-Illegal-PhD
+FIND Luke-Cassandra
+FIND Jayden-Complaisant
+DELETE Molly-Nitrite
+IS_AVL
+DELETE Evan-Cacm
+IS_AVL
+FIND Zachary-Responsive
+PRINT
+INSERT Avery-Planar 302-025-2963 670-74-9396
+IS_AVL
+SIZE
+VALS
+FIND Eva-Loosen
+FIND Madison-Hound
+FIND Madelyn-Freestone
+PRINT
+FIND Christian-Silt
+INSERT Sophie-Conestoga 804-919-0295 322-05-2278
+IS_AVL
+SIZE
+FIND Audrey-Devolve
+PRINT
+FIND Zachary-Responsive
+FIND Ava-Free
+DELETE Isabelle-Brandywine
+IS_AVL
+INSERT Samuel-Thomas-Horsetail 120-838-2327 045-40-5443
+IS_AVL
+INSERT Madelyn-Peg 156-246-8781 312-78-0575
+IS_AVL
+FIND Eli-Christian-Assign
+INSERT Paige-Baritone 401-197-2034 357-71-4864
+IS_AVL
+INSERT Blake-Orgiastic-IV 848-606-0075 127-60-9067
+IS_AVL
+DELETE Madelyn-Militia
+IS_AVL
+PRINT
+INSERT Lilly-Steen 890-355-3918 820-48-1185
+IS_AVL
+FIND Michael-Chrysolite
+FIND Kaitlyn-Truly
+SIZE
+PRINT
+FIND Katelyn-Vide
+FIND Gabriella-Terbium
+FIND Michael-Chrysolite
+FIND Zoe-Salish
+FIND Samuel-Oakland
+SIZE
+FIND Samuel-Oakland
+VALS
+INSERT Peyton-Claire-Staccato 124-360-4690 210-25-7262
+IS_AVL
+INSERT Riley-Godwin-PhD 915-721-8933 568-15-0418
+IS_AVL
+VALS
+INSERT Kate-Mogadiscio 887-732-9061 755-02-0785
+IS_AVL
+VALS
+PRINT
+FIND Sarah-Lauren-Thwack
+FIND Gavin-Kimball
+DELETE Molly-Invention
+IS_AVL
+PRINT
+FIND Samantha-Cuddly
+INSERT Jackson-Colette-Jr 005-239-8846 104-27-8138
+IS_AVL
+PRINT
+FIND Brandon-Durkin
+INSERT Jack-Smart 361-680-2372 083-49-5229
+IS_AVL
+PRINT
+DELETE Madeline-Flub
+IS_AVL
+INSERT Hunter-Parasite 400-364-4766 516-70-5838
+IS_AVL
+INSERT Logan-Eulogy 238-666-9889 089-64-3709
+IS_AVL
+PRINT
+INSERT Aidan-Jake-Badge 693-207-4139 136-79-5759
+IS_AVL
+FIND Paige-Baritone
+INSERT Eva-Vane 127-144-1993 571-10-1727
+IS_AVL
+INSERT Carter-Redden 021-108-8940 594-03-3207
+IS_AVL
+FIND Madelyn-Militia
+PRINT
+FIND Samuel-Oakland
+FIND Nicholas-Twosome-III
+SIZE
+FIND Layla-Scold
+FIND Ava-Farad
+FIND Gabriella-Terbium
+INSERT Lucas-Rooftop 183-350-1743 898-94-5410
+IS_AVL
+VALS
+FIND Paige-Baritone
+VALS
+INSERT Thomas-Hubris 430-647-9214 650-08-3690
+IS_AVL
+DELETE Joseph-Lush
+IS_AVL
+PRINT
+DELETE Kaitlyn-Jawbreak-MD
+IS_AVL
+PRINT
+INSERT Carson-Signet 263-648-4534 842-37-1573
+IS_AVL
+INSERT Elijah-Agamemnon-III 718-693-3531 643-20-5933
+IS_AVL
+FIND Cameron-Everywhere
+FIND Alex-Intimidate
+PRINT
+FIND Caroline-Chlorinate-PhD
+INSERT Aaron-Empire 865-429-0965 978-94-4545
+IS_AVL
+INSERT Sarah-Scuffle 768-698-5307 242-37-5058
+IS_AVL
+VALS
+PRINT
+VALS
+FIND Katelyn-Lusty-Esq
+INSERT Landon-Dell 877-857-3503 466-36-9487
+IS_AVL
+INSERT Maya 138-717-5755 672-67-8904
+IS_AVL
+SIZE
+FIND Christopher-Owen-Portal
+PRINT
+FIND Madelyn-Freestone
+VALS
+FIND Madeline-Flub
+VALS
+FIND Avery-Transpire
+FIND Zachary-Responsive
+FIND Aidan-Jake-Badge
+DELETE Peyton-Expurgate
+IS_AVL
+PRINT
+FIND Zoe-Salish
+FIND Sophia-Pottery
+SIZE
+DELETE Isaiah-Brendan
+IS_AVL
+PRINT
+DELETE Landon-Dell
+IS_AVL
+INSERT Kayla-Calhoun 752-207-0762 890-97-2663
+IS_AVL
+PRINT
+DELETE Grace-Infringe
+IS_AVL
+PRINT
+FIND Charlie-Hepatica
+VALS
+FIND Julian-Minstrel-IV
+SIZE
+FIND Ellie-Promiscuity
+VALS
+FIND Carter-Criterion
+FIND Aidan-Waylaid
+VALS
+INSERT Aaron-Luke-Fictive 863-435-3253 648-49-7190
+IS_AVL
+INSERT Jackson 549-007-2999 406-91-5874
+IS_AVL
+SIZE
+INSERT Isaiah-Clemson 627-418-8266 755-04-0909
+IS_AVL
+VALS
+INSERT Alexandra-Inborn 336-966-9197 029-52-4458
+IS_AVL
+FIND Sophie-Conestoga
+VALS
+PRINT
+FIND Brandon-Arccos
+FIND Isaiah-Clemson
+FIND Morgan-Lunge
+FIND Samantha-Cuddly
+SIZE
+INSERT Luke-Compel 052-874-4267 723-06-4512
+IS_AVL
+PRINT
+INSERT Brody-Immortal 686-257-9991 385-23-1776
+IS_AVL
+INSERT Aubrey-Low 814-263-5748 125-20-0081
+IS_AVL
+FIND Adam-Acreage
+SIZE
+INSERT Parker-Peck 182-864-6237 584-90-4703
+IS_AVL
+FIND Charlotte-Bullseye
+INSERT Kaylee-Amigo 727-057-3806 416-35-4969
+IS_AVL
+INSERT Gabriel-Goodman 834-943-9244 800-14-0607
+IS_AVL
+FIND Carter-Criterion
+INSERT Paige-Automaton 956-302-3087 711-12-7030
+IS_AVL
+VALS
+FIND Mason-Convivial-IV
+PRINT
+VALS
+INSERT Zoey-Craw 277-636-3499 779-76-7052
+IS_AVL
+INSERT Cole-Intransigent 648-659-9987 467-37-8848
+IS_AVL
+PRINT
+FIND Ava-Farad
+FIND Sophie-Conestoga
+FIND Eli-Christian-Assign
+DELETE Chloe-Anglican
+IS_AVL
+INSERT Peyton-Bartok 554-337-1170 023-07-0375
+IS_AVL
+PRINT
+FIND Kaitlyn-Jawbreak-MD
+SIZE
+INSERT Gabriella-Molly-Carbide 152-633-2163 845-72-9845
+IS_AVL
+INSERT Hannah-Mcgee 701-876-8701 500-15-7024
+IS_AVL
+FIND Carter-Criterion
+FIND Daniel-Ware
+INSERT Lucas-Caleb-Fusillade 736-618-3026 039-17-9391
+IS_AVL
+INSERT Brooklyn-Repudiate 664-698-0602 836-16-2632
+IS_AVL
+FIND Sofia-Kazoo
+FIND Kaylee-Amigo
+FIND Paige-Automaton
+FIND Evan-Cacm
+INSERT Arianna-Ruminant 120-111-5984 652-01-3731
+IS_AVL
+PRINT
+INSERT Lillian-Pritchard 396-868-6941 835-02-7892
+IS_AVL
+FIND Lucy-Servitude
+FIND Ava-Free
+VALS
+DELETE Joseph-Lush
+IS_AVL
+FIND Gabriella-Molly-Carbide
+INSERT Alexander-Ablaze 438-659-6369 547-32-4611
+IS_AVL
+DELETE Evan-Cacm
+IS_AVL
+FIND Michael-Chrysolite
+INSERT Alexandra-Gilt 648-654-1144 450-92-8311
+IS_AVL
+FIND Hannah-Spavin
+PRINT
+FIND Paige-Circulate
+FIND Lucas-Rooftop
+VALS
+DELETE Aidan-Jake-Badge
+IS_AVL
+VALS
+VALS
+FIND Aubrey-Edge
+DELETE Eli-Christian-Assign
+IS_AVL
+FIND Peyton-Bartok
+FIND Parker-Peck
+VALS
+INSERT Anthony-Fluorite 909-126-8435 183-38-8676
+IS_AVL
+INSERT Jonathan-Aidan-Sarah 099-661-0178 814-58-9076
+IS_AVL
+INSERT Lillian-Relate 532-894-5917 243-66-7031
+IS_AVL
+PRINT
+FIND Katelyn-Lusty-Esq
+INSERT Paige-Homebuild 264-074-3669 335-60-0618
+IS_AVL
+PRINT
+FIND Alexandra-Inborn
+FIND Paige-Baritone
+FIND Zoey-Craw
+FIND Kaylee-Amigo
+INSERT Ian-Preach 070-829-0804 152-98-3004
+IS_AVL
+SIZE
+PRINT
+INSERT Julian-Stench-MD 201-587-4621 265-32-9345
+IS_AVL
+INSERT Natalie-Paschal-MD 907-939-3851 825-11-0362
+IS_AVL
+PRINT
+FIND Logan-Andorra
+INSERT Joseph-Asuncion 662-005-6263 943-80-7897
+IS_AVL
+PRINT
+INSERT Evan-Penumbra 574-368-9682 972-60-9924
+IS_AVL
+FIND Alexis-Presumption
+PRINT
+DELETE Jack-Smart
+IS_AVL
+FIND Ava-Free
+FIND Dylan-Millionth
+DELETE Cole-Presentational
+IS_AVL
+INSERT Christopher-Maximilian 592-447-8374 984-89-3800
+IS_AVL
+VALS
+PRINT
+FIND Julian-Extension
+INSERT Katelyn-Crept 868-678-4739 226-17-6057
+IS_AVL
+PRINT
+INSERT Noah-Extinguish-Jr 556-418-7588 467-40-2336
+IS_AVL
+INSERT Connor-Relate 519-005-8119 368-57-7509
+IS_AVL
+FIND Jack-Smart
+FIND Isaiah-Brendan
+PRINT
+FIND Audrey-Devolve
+FIND Zachary-Responsive
+VALS

@@ -1,0 +1,346 @@
+<title> CS202 -- Lab B</title>
+
+<h1> CS202 -- Lab B</h1>
+<h3>
+<UL> <LI> CS202 -- Data Structures and Algorithms I
+<LI> <a href=http://web.eecs.utk.edu/~jplank>James S. Plank</a>
+<LI> This file:
+<a href=http://web.eecs.utk.edu/~jplank/plank/classes/cs202/Labs/LabB>
+     <b>http://web.eecs.utk.edu/~jplank/plank/classes/cs202/Labs/LabB</b></a>
+</UL>
+</h3>
+
+Time to implement AVL trees.
+<p>
+To start this lab, please do the following:
+
+<pre>
+mkdir obj
+mkdir bin
+cp -r /home/jplank/cs202/Labs/LabB/include .
+cp -r /home/jplank/cs202/Labs/LabB/src .
+cp -r /home/jplank/cs202/Labs/LabB/makefile .
+</pre>
+
+You will be submitting one file -- your own <b>src/avltree_lab.cpp</b>.
+<hr>
+<h3>The AVLTree API</h3>
+
+And take a look at
+<b><a href=include/avltree.hpp>include/avltree.hpp</a></b>:
+
+<p><center><table border=3 cellpadding=3><td><pre>
+#include &lt;vector&gt;
+#include &lt;string&gt;
+
+namespace CS202 {
+
+<font color=blue>/* AVL Tree nodes are just like binary search tree nodes, but we maintain the height
+   in each node. */</font>
+
+class AVLNode {
+  public:
+    AVLNode *left;
+    AVLNode *right;
+    AVLNode *parent;
+    std::string key;
+    void *val;
+    size_t height;
+};
+
+class AVLTree {
+  public:
+
+    <font color=blue>/* Constructor, copy constructor, assignment overlead, destructor.
+       I am only implementing the constructor and destructor here in the notes.
+       You will implement the other two in your lab. */</font>
+
+    AVLTree();
+    AVLTree(const AVLTree &t);
+    AVLTree& operator= (const AVLTree &t);
+    ~AVLTree();
+
+    void Clear();                                      <font color=blue>// Turns the tree into an empty tree.</font>
+ 
+    bool Insert(const std::string &key, void *val);    <font color=blue>// Insert the key and val.  Returns success (duplicates are not allowed.</font>
+    void *Find(const std::string &key) const;          <font color=blue>// Return the val associated with the key.  Returns NULL if key not found.</font>
+    bool Delete(const std::string &key);               <font color=blue>// Delete the node with the key.  Returns whether there was such a node.</font>
+
+    void Print() const;                                <font color=blue>// These are obvious.</font>
+    size_t Size() const;
+    bool Empty() const;
+    size_t Height() const;
+    std::string Is_AVL() const;                        <font color=blue>// This double-checks to make sure that the tree is an AVL tree.</font>
+                                                       <font color=blue>// It returns an empty string if it is, and an error string if it is not.</font>
+
+    std::vector &lt;std::string&gt; Ordered_Keys() const;    <font color=blue>// Return a vector of sorted keys</font>
+    std::vector &lt;void *&gt; Ordered_Vals() const;         <font color=blue>// Return a vector of the vals, sorted by the keys.</font>
+
+  protected:
+    AVLNode *sentinel;                                 <font color=blue>// Like the bstrees, there is a sentinel.  Its right points to the root.</font>
+    size_t size;                                       <font color=blue>// Size of the tree</font>
+
+    void recursive_inorder_print(int level, const AVLNode *n) const;           <font color=blue>// A helper for Print()</font>
+    void recursive_destroy(AVLNode *n);                                        <font color=blue>// A helper for Clear()</font>
+    AVLNode *recursive_postorder_copy(const AVLNode *n) const;                 <font color=blue>// A helper for the assignment overload</font>
+    void make_key_vector(const AVLNode *n, std::vector&lt;std::string&gt; &v) const; <font color=blue>// A helper for Ordered_Keys()</font>
+    void make_val_vector(const AVLNode *n, std::vector&lt;void *&gt; &v) const;      <font color=blue>// A helper for Ordered_Vals()</font>
+    std::string recursive_is_avl(const AVLNode *n) const;                      <font color=blue>// A helper for Is_AVL()</font>
+};
+
+};
+</pre></td></table></center><p>
+
+You'll note that it is very similar to the binary search tree header file.  There are
+a few important differences:
+
+<UL>
+<LI> The <b>AVLNode</b> class now includes a height.
+<LI> The <b>AVLNode</b> class' members are public.  Since you can't get at the <b>AVLNode</b>
+     pointers from an <b>AVLTree</b>, that isn't unsafe.  It also facilitates writing some of
+     the helpter procedures below.
+<LI> The sentinel's height is zero.  All other nodes will have heights as defined in the 
+<a href=http://web.eecs.utk.edu/~jplank/plank/classes/cs202/Notes/AVL-Trees/index.html>AVLTree lecture notes.</a>
+<LI> There is no <b>Depth()</b> method.
+<LI> There is a procedure called <b>Is_AVL()</b> which returns a string.  If the string is empty,
+      then the tree is an AVL tree.  Otherwise, the string tells why it's not an AVL tree.
+<LI> The assignment overload and copy constructor will work differently.  The assignment overload
+     will use a protected method called <b>recursive_postorder_copy()</b> to copy the 
+     tree held by its parameter.  It will copy it so that it has the same structure as the
+     tree held by its parameter.  In other words, there's no need to balance an AVL tree --
+     it's already balanced!
+</UL>
+
+Like the Binary Search Tree lab, I have split the implementation of the class into two
+files:
+
+<OL>
+<LI> <b><a href=src/avltree_fixed.cpp>src/avltree_fixed.cpp</a></b> -- this contains methods
+that I have implemented:
+<p>
+<UL>
+<LI> The constructor
+<LI> The copy constructor
+<LI> The destructor
+<LI> <b>Clear()</b>
+<LI> <b>Print()</b>
+<LI> <b>Size()</b>
+<LI> <b>Empty()</b>
+<LI> <b>Is_AVL()</b>
+<LI> <b>Ordered_Vals()</b>
+<LI> <b>recursive_inorder_print()</b>
+<LI> <b>recursive_destroy()</b>
+<LI> <b>make_val_vector()</b>
+<LI> <b>recursive_is_avl()</b>
+</UL>
+<p>
+<LI> <b><a href=src/avltree_lab.cpp>src/avltree_lab.cpp</a></b> -- this contains
+dummy implementations for the things that you need to write:
+<p>
+<UL>
+<LI> The assignment overload
+<LI> <b>Height()</b>
+<LI> <b>Ordered_Keys()</b>
+<LI> <b>recursive_postorder_copy()</b>
+<LI> <b>make_key_vector()</b>
+<LI> <b>Insert()</b> -- this contains the implementation from <b>bstree_fixed.cpp</b>,
+     which is a good starting point for you.  It sets the new node's height to 1.
+<LI> <b>Delete()</b> -- this also contains the implementation from <b>bstree_fixed.cpp</b>,
+     which is a good starting point for you. 
+</UL> 
+</OL>
+<p>
+
+Your job in the lab is to implement these methods so that they 
+work on AVL trees.  
+<p>
+I have updated 
+<b><a href=src/avltree_tester.cpp>src/avltree_tester.cpp</a></b>
+to work with AVL trees:
+
+<pre>
+UNIX> <font color=darkred><b>echo '?' | bin/avltree_tester</b></font>
+usage: avltree_tester prompt(- for empty) -- commands on stdin.
+
+commands:
+<font color=blue>  INSERT name phone ssn  - Insert the person into the tree.</font>
+<font color=blue>  FIND name              - Find the person and print them out.</font>
+  DELETE person          - Delete the person.
+  PRINT                  - Print the keys using the Print() method.
+  EMPTY                  - Print whether the tree is empty.
+  SIZE                   - Print the tree's size.
+  HEIGHT                 - Print the tree's height.
+<font color=blue>  IS_AVL                 - Verifies that the tree is an avl tree.</font>
+  KEYS                   - Print the keys using the Ordered_Keys() method.
+  VALS                   - Print the vals using the Ordered_Vals() method.
+<font color=blue>  PRINT_COPY             - Call the copy constructor and call its Print() method.</font>
+<font color=blue>  ASSIGNMENT             - Test the assignment overload.</font>
+  CLEAR                  - Clear the tree back to an empty tree.
+  DESTROY                - Call the destructor and remake an empty tree.
+  QUIT                   - Quit.
+  ?                      - Print commands.
+UNIX> <font color=darkred><b></b></font>
+</pre>
+
+I've denoted the commands which have changed significantly from the binary search tree
+lab in blue.  To wit:
+
+<UL>
+<LI> <b>Insert()</b> has to result in a valid AVL tree, following the specifications in 
+     the <a href=http://web.eecs.utk.edu/~jplank/plank/classes/cs202/Notes/AVL-Trees/index.html>AVLTree lecture notes.</a>
+<LI> <b>Delete()</b> also has to result in a valid AVL tree.
+<LI> <b>IS_AVL</b> calls the <b>Is_AVL()</b> method to test whether the tree is indeed an
+AVL tree.  If it is, it prints nothing.  Otherwise, it prints the error string and exits.
+<LI> <b>PRINT_COPY</b> works like before -- calling the copy constructor and then calling
+the <b>Print()</b> method.  This duplicates the tree -- it doesn't do balancling like before.
+<LI> <b>ASSIGNMENT</b> tests the assignment overload.  It returns silently, but if you've messed up
+the assignment overload, you'll discover it in subsequent commands.
+</UL>
+
+<hr>
+<h3>Getting Started - Hints</h3>
+
+When you compile this out of the box, it works like the binary search tree lab, but with
+some things broken.  One problem is that every node gets inserted with a height of one.
+Take a look:
+
+<pre>
+UNIX> <font color=darkred><b>bin/avltree_tester '--->'</b></font>
+---> <font color=darkred><b>INSERT Kim-Kardashian 0 0   </b></font>
+---> <font color=darkred><b>INSERT Khloe-Kardashian 0 0</b></font>
+---> <font color=darkred><b>INSERT Kourtney-Kardashian 0 0</b></font>
+---> <font color=darkred><b>PRINT</b></font>
+  (1) Kourtney-Kardashian
+(1) Kim-Kardashian
+  (1) Khloe-Kardashian
+---> <font color=darkred><b>IS_AVL</b></font>
+Not an AVL tree:
+Node Kim-Kardashian's height is less than or equal at least one child's height.
+UNIX> <font color=darkred><b></b></font>
+</pre>
+
+As I said above, <b>Insert()</b> creates with nodes with heights of one, and nothing 
+updates them, so even though that tree is indeed an AVL tree, <b>Is_AVL()</b> returns,
+<b>false</b>.  This is because <b>Is_AVL()</b> checks a node's height with relation to
+its children's heights.
+<p>
+As a first task, I suggest that you update <b>Insert()</b> so that when it's done, it
+traverses the path from the newly inserted node to the root, updating heights if
+necessary.  I have done that, and now take a look at how it works:
+
+<pre>
+UNIX> <font color=darkred><b>bin/avltree_tester '--->'</b></font>
+---> <font color=darkred><b>INSERT Kim-Kardashian 0 0</b></font>
+---> <font color=darkred><b>INSERT Khloe-Kardashian 0 0</b></font>
+---> <font color=darkred><b>INSERT Kourtney-Kardashian 0 0</b></font>
+---> <font color=darkred><b>PRINT</b></font>
+  (1) Kourtney-Kardashian
+(2) Kim-Kardashian                       <font color=blue> # Insert() has correctly updated the height.</font>
+  (1) Khloe-Kardashian
+---> <font color=darkred><b>IS_AVL</b></font>                              <font color=blue> # Now it is correctly identified as an AVL tree.</font>
+---> <font color=darkred><b>INSERT Caitlyn-Jenner 0 0</b></font>
+---> <font color=darkred><b>INSERT Kris-Kardashian 0 0</b></font>
+---> <font color=darkred><b>PRINT</b></font>                               <font color=blue> # Adding these two nodes still results in an AVL tree.</font>
+    (1) Kris-Kardashian
+  (2) Kourtney-Kardashian
+(3) Kim-Kardashian
+  (2) Khloe-Kardashian
+    (1) Caitlyn-Jenner
+---> <font color=darkred><b>IS_AVL</b></font>
+---> <font color=darkred><b>INSERT Rob-Kardashian 0 0</b></font>
+---> <font color=darkred><b>PRINT</b></font>                               <font color=blue> # However, now the "Kourtney" node is imbalanced.</font>
+      (1) Rob-Kardashian
+    (2) Kris-Kardashian
+  (3) Kourtney-Kardashian
+(4) Kim-Kardashian
+  (2) Khloe-Kardashian
+    (1) Caitlyn-Jenner
+---> <font color=darkred><b>IS_AVL</b></font>
+Not an AVL tree:
+Node Kourtney-Kardashian's height is more than two greater than at least one child's height.
+UNIX> <font color=darkred><b></b></font>
+</pre>
+
+Here's how I suggest you proceed (you don't have to do it this way -- this is just my
+suggestion):
+
+<OL>
+<LI> Write and test <b>Height()</b>
+<p>
+<LI> Do the assignment overload.  I know it's a little confusing, but start by testing it with
+very small trees, and have it print out nodes as it creates them.  You'll note that 
+<b>recursive_postorder_copy()</b> does not have a parameter for the tree that it is copying -- 
+just a node that roots a subtree.  So, how can you determine whether <b>n</b> is 
+the sentinel node for its tree?  Test to see if its height is zero!
+<p>
+<LI> Copy your <b>Ordered_Key()</b> and <b>make_key_vector()</b> from your binary 
+search tree lab.  They should work without any modification.  Test.
+<p>
+<LI> Write the following procedure (not part of the class -- just a procedure):
+<p><center><table border=3 cellpadding=3><td><pre>
+bool imbalance(const AVLNode *n)
+</pre></td></table></center><p>
+This should simply check whether is an imbalance around a single node (by checking the heights
+of its children).  Test it by calling it as you set the heights in <b>Insert()</b>:
+If you insert A, B and C, then there will be an imbalance at A after inserting C.
+<p>
+<LI> Write the following procedure:
+<p><center><table border=3 cellpadding=3><td><pre>
+void rotate(AVLNode *n)
+</pre></td></table></center><p>
+This should rotate about the given node.  Since this procedure exists outside the class 
+definition, you don't have access to the <b>sentinel</b> pointer.  However, if a node's
+height is 0, then it is the sentinel node.  
+Just as a hint, it's best to have four <b>(AVLNode *)'s</b>: 
+<p>
+<UL>
+<LI> <b>n</b>: The node itself.
+<LI> <b>parent</b>: The node's parent.  Exit if the node's parent is the sentinel.
+<LI> <b>grandparent</b>: The node's grandparent.  It's ok if this is the sentinel.
+<LI> <b>middle</b>: The "middle" node in the rotation -- it is the parent's other child.
+      It's ok if this is the sentinel.
+</UL>
+<p>
+
+That's all you need to have to implement <b>rotate()</b>.  I tested it by having <b>Insert()</b>
+call <b>rotate()</b> on the parent of every newly inserted node, so long as the parent wasn't the
+root of the tree.  That allowed me to test a lot of cases.
+Once I was confident that rotate was working, I took out this testing code.
+<p>
+<LI> Write the following procedure:
+<p><center><table border=3 cellpadding=3><td><pre>
+void fix_height(AVLNode *n)
+</pre></td></table></center><p>
+This should make sure that a node's height is correctly calculated from the heights of
+its children.  Test it as you write the following code:
+<p>
+<LI> Write the following procedure:
+<p><center><table border=3 cellpadding=3><td><pre>
+void fix_imbalance(AVLNode *n)
+</pre></td></table></center><p>
+This is called on an imbalanced node, and what you do is identify whether it's a Zig-Zig
+or Zig-Zag imbalance, using the "Imbalanced Identification Picture" from the AVL Tree 
+lecture notes.  Then you do the correct rotations.  
+Write this slowly -- first implement Zig-Zig in one direction, then in the other direction,
+then Zig-Zag in one direction and Zig-Zag in the other direction.
+<p>
+Test is by calling it in <b>Insert()</b> when it detects an imbalance.  You'll note that
+once you have this working, insertion is done!
+<p>
+<LI> Write the code to do deletion -- it will use <b>imbalance()</b> and <b>fix_imbalance()</b>,
+and will be a lot easier than you thought it would be when you started this lab.
+<p>
+<LI> Now you can try the gradescripts.
+</OL>
+
+<h3>The Gradescript</h3>
+
+The gradescripts work in the following way:
+
+<UL>
+<LI> Gradescripts 1-25 test <b>Insert()</b>
+<LI> Gradescripts 26-50 test <b>Insert()</b> and <b>Delete()</b>
+<LI> Gradescripts 51-75 make sure that the assignment overload works (either by calling ASSIGNMENT
+     or PRINT_COPY).
+<LI> The remaining gradescripts test everything.
+</UL>

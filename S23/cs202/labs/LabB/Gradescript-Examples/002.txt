@@ -1,0 +1,40 @@
+INSERT Alex-Contributory 827-013-3013 843-41-1238
+IS_AVL
+INSERT Hunter-Struggle-MD 621-734-9013 861-67-0008
+IS_AVL
+INSERT Zoey-Tumult 437-576-6704 237-09-8847
+IS_AVL
+INSERT Sydney-Locust 557-170-0611 493-19-7763
+IS_AVL
+INSERT Cole-Ogle 356-547-6912 189-56-0269
+IS_AVL
+INSERT Emma-Yalta 756-765-8297 848-76-6609
+IS_AVL
+INSERT Madelyn-Slacken-Esq 818-766-6198 410-93-0136
+IS_AVL
+INSERT Abigail-Wellesley 121-330-4410 172-66-6685
+IS_AVL
+INSERT Gabriella-Ribbon 555-232-4085 277-65-4203
+IS_AVL
+INSERT Landon-Clearance 644-212-2434 070-77-0919
+IS_AVL
+FIND Sydney-Locust
+FIND Abigail-Wellesley
+PRINT
+FIND Aiden-Ready
+INSERT Isabella-Signor 182-611-1048 297-36-0265
+IS_AVL
+PRINT
+FIND Emma-Yalta
+VALS
+FIND Cole-Ogle
+FIND Gabriella-Ribbon
+FIND Alex-Contributory
+FIND Zoey-Tumult
+PRINT
+FIND Sydney-Locust
+FIND Abigail-Wellesley
+VALS
+VALS
+FIND Isabella-Signor
+FIND Zoey-Tumult

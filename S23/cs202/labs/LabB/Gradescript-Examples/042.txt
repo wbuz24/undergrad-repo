@@ -1,0 +1,613 @@
+INSERT Paige-Hewn 062-860-1288 795-85-2946
+IS_AVL
+INSERT Caroline-Hematite 667-443-6053 086-33-5899
+IS_AVL
+INSERT Aubrey-Slag 716-587-0453 754-37-6454
+IS_AVL
+INSERT Brianna-Chloe-Bowditch 858-056-8813 950-57-2398
+IS_AVL
+INSERT Lilly-Thulium 495-838-3998 024-37-9260
+IS_AVL
+INSERT Avery-Eugenic 926-979-4538 912-81-3526
+IS_AVL
+INSERT Xavier-Cayuga 135-664-5108 095-46-7027
+IS_AVL
+INSERT James-Teflon 274-429-3588 493-94-1366
+IS_AVL
+INSERT Kate-Thong 894-184-8068 490-56-3387
+IS_AVL
+INSERT Cooper-Inferior 085-585-9976 403-85-3711
+IS_AVL
+FIND Paige-Hewn
+DELETE Brianna-Chloe-Bowditch
+IS_AVL
+FIND Julian-Hobble
+SIZE
+PRINT
+INSERT Owen-Jackson-Lossy 493-296-9919 041-46-3894
+IS_AVL
+DELETE Xavier-Cayuga
+IS_AVL
+FIND Caroline-Hematite
+DELETE James-Teflon
+IS_AVL
+INSERT Allison-Spectroscope 570-395-4949 674-55-9338
+IS_AVL
+SIZE
+FIND Kate-Thong
+FIND Ella-Uproar
+INSERT John-Pulitzer 218-294-0369 101-14-2840
+IS_AVL
+FIND Evan-Bog
+VALS
+INSERT Adam-Musicale 143-495-9256 371-36-8172
+IS_AVL
+VALS
+INSERT Sarah-Vault 690-790-4553 210-83-3536
+IS_AVL
+VALS
+VALS
+DELETE Brianna-Chloe-Bowditch
+IS_AVL
+PRINT
+VALS
+INSERT Kaitlyn-Gusty 349-375-7604 486-86-8743
+IS_AVL
+INSERT Andrew-Chummy 537-818-3199 310-62-2888
+IS_AVL
+INSERT Connor-Chattel 209-757-8940 051-79-9573
+IS_AVL
+DELETE Sarah-Vault
+IS_AVL
+FIND Avery-Eugenic
+VALS
+FIND Paige-Hewn
+INSERT Allison-Emma-Copy 772-215-7695 491-87-9327
+IS_AVL
+PRINT
+DELETE Brianna-Chloe-Bowditch
+IS_AVL
+INSERT Andrew-Commonweal 716-925-6039 691-77-6445
+IS_AVL
+PRINT
+FIND Allison-Spectroscope
+DELETE James-Teflon
+IS_AVL
+PRINT
+INSERT Makayla-Indiscreet 118-515-8941 248-50-2511
+IS_AVL
+FIND Owen-Jackson-Lossy
+DELETE Kaitlyn-Gusty
+IS_AVL
+DELETE Brianna-Chloe-Bowditch
+IS_AVL
+FIND Xavier-Cayuga
+FIND Makayla-Indiscreet
+FIND Sarah-Vault
+PRINT
+SIZE
+INSERT Christopher-Whiten 108-564-0646 494-10-4094
+IS_AVL
+PRINT
+INSERT Samuel-Chortle 667-406-7901 906-92-6631
+IS_AVL
+PRINT
+FIND Owen-Jackson-Lossy
+VALS
+DELETE Paige-Hewn
+IS_AVL
+FIND Brianna-Chloe-Bowditch
+FIND Paige-Hewn
+FIND Allison-Emma-Copy
+PRINT
+INSERT Evan-Campaign 717-528-5584 367-45-9458
+IS_AVL
+FIND Avery-Eugenic
+FIND Allison-Emma-Copy
+FIND Evan-Campaign
+INSERT Arianna-Potts 511-860-9232 525-68-4629
+IS_AVL
+FIND Sarah-Vault
+PRINT
+FIND Sarah-Vault
+INSERT Thomas-Carson-Sidereal-Jr 994-005-4205 515-37-1693
+IS_AVL
+INSERT Olivia-Stand 331-910-7169 751-88-3266
+IS_AVL
+DELETE Owen-Jackson-Lossy
+IS_AVL
+FIND Xavier-Cayuga
+SIZE
+DELETE Olivia-Stand
+IS_AVL
+INSERT Peyton-Goode 939-124-6513 820-27-5690
+IS_AVL
+INSERT Lilly-Aztec 187-803-3943 375-09-0000
+IS_AVL
+PRINT
+DELETE James-Teflon
+IS_AVL
+FIND Allison-Spectroscope
+FIND Allison-Emma-Copy
+FIND Kaitlyn-Gusty
+INSERT Cooper-Murray 012-781-2433 594-11-9138
+IS_AVL
+DELETE Kaitlyn-Gusty
+IS_AVL
+INSERT Connor-Array 509-137-4699 874-98-2878
+IS_AVL
+DELETE Samuel-Chortle
+IS_AVL
+FIND John-Pulitzer
+FIND Xavier-Cayuga
+PRINT
+SIZE
+VALS
+SIZE
+FIND Cooper-Inferior
+FIND Lilly-Aztec
+VALS
+VALS
+DELETE Evan-Campaign
+IS_AVL
+INSERT Alexis-Freon 100-435-4435 542-69-1304
+IS_AVL
+VALS
+INSERT Gabriel-Isolate 019-758-4333 111-24-8191
+IS_AVL
+PRINT
+DELETE Caroline-Hematite
+IS_AVL
+FIND Peyton-Goode
+FIND Peyton-Goode
+VALS
+PRINT
+DELETE Kate-Thong
+IS_AVL
+VALS
+FIND Cooper-Inferior
+PRINT
+DELETE Andrew-Chummy
+IS_AVL
+FIND Connor-Chattel
+INSERT Anthony-Mcnally 951-845-3417 395-52-2473
+IS_AVL
+FIND Aubrey-Slag
+FIND James-Teflon
+PRINT
+FIND Alexis-Freon
+INSERT Alexandra-Sticktight 997-623-6083 373-07-7227
+IS_AVL
+INSERT Aaron-Plutarch 683-038-5049 878-62-9773
+IS_AVL
+INSERT Hunter-Michele 935-409-6737 508-72-5639
+IS_AVL
+INSERT Connor-Transmissible 900-319-8994 662-53-7148
+IS_AVL
+INSERT Caroline-Miranda 736-705-2003 915-13-3209
+IS_AVL
+SIZE
+FIND Cooper-Murray
+PRINT
+FIND Lilly-Thulium
+DELETE Christopher-Whiten
+IS_AVL
+VALS
+PRINT
+VALS
+FIND Sarah-Vault
+FIND Alexandra-Sticktight
+FIND Cooper-Murray
+INSERT Brooke-Expectation 788-804-2203 998-01-9287
+IS_AVL
+PRINT
+FIND Bailey-Qualify
+FIND Paige-Hewn
+INSERT Cameron-Christopher-Dove 140-052-4370 626-65-6152
+IS_AVL
+DELETE Allison-Emma-Copy
+IS_AVL
+INSERT Mackenzie-Regressive 709-516-5606 609-94-6989
+IS_AVL
+INSERT Alex-Chartroom 694-474-6724 817-63-3751
+IS_AVL
+FIND Connor-Array
+INSERT Allison-Malfeasant 988-185-7927 416-07-5791
+IS_AVL
+FIND Makayla-Indiscreet
+FIND Allison-Malfeasant
+FIND Aaron-Plutarch
+INSERT Katelyn-Rollick 073-281-0185 601-41-6430
+IS_AVL
+FIND Aaron-Plutarch
+VALS
+INSERT Peyton-Maitre 613-145-1315 042-07-1313
+IS_AVL
+PRINT
+FIND Owen-Jackson-Lossy
+INSERT Elizabeth-Cetus 034-448-3137 447-59-2403
+IS_AVL
+DELETE Elizabeth-Cetus
+IS_AVL
+VALS
+FIND Andrew-Commonweal
+INSERT Jacob-Radcliffe 394-202-2456 069-79-3495
+IS_AVL
+DELETE Arianna-Potts
+IS_AVL
+FIND Samuel-Chortle
+FIND Paige-Hewn
+INSERT Abigail-Portray 779-502-4154 244-57-7237
+IS_AVL
+PRINT
+DELETE Kate-Thong
+IS_AVL
+PRINT
+DELETE Aubrey-Slag
+IS_AVL
+FIND Caroline-Hematite
+FIND Anthony-Mcnally
+DELETE James-Teflon
+IS_AVL
+PRINT
+INSERT Liam-Session 850-392-8918 610-17-1627
+IS_AVL
+INSERT Christian-Hallway 790-404-1360 151-97-6372
+IS_AVL
+PRINT
+VALS
+FIND Olivia-Stand
+VALS
+FIND Katelyn-Rollick
+FIND Leah-Oppression
+FIND Adam-Musicale
+INSERT Nicholas-Dividend 873-912-9698 382-43-9638
+IS_AVL
+DELETE Allison-Spectroscope
+IS_AVL
+FIND Matthew-Proton
+FIND Caroline-Hematite
+FIND Abigail-Portray
+SIZE
+PRINT
+FIND Avery-Eugenic
+FIND Connor-Transmissible
+FIND Sarah-Vault
+DELETE Kaitlyn-Gusty
+IS_AVL
+PRINT
+FIND Alex-Chartroom
+INSERT Benjamin-Fiberboard 171-630-2137 001-01-3384
+IS_AVL
+INSERT Bailey-Insubordinate 469-673-1059 583-64-8422
+IS_AVL
+FIND Hunter-Michele
+FIND Owen-Jackson-Lossy
+PRINT
+INSERT Aidan-Lackluster 874-809-8936 625-98-8145
+IS_AVL
+FIND Mackenzie-Regressive
+DELETE Allison-Spectroscope
+IS_AVL
+FIND Samuel-Chortle
+PRINT
+INSERT Lucy-Pensacola 782-352-9676 823-14-4834
+IS_AVL
+VALS
+VALS
+VALS
+DELETE Elizabeth-Cetus
+IS_AVL
+DELETE Connor-Chattel
+IS_AVL
+INSERT Xavier-Cupid 107-957-6380 527-78-9916
+IS_AVL
+FIND Alexandra-Sticktight
+PRINT
+FIND Lilly-Thulium
+INSERT Madeline-Permissible 578-313-0712 106-59-3863
+IS_AVL
+PRINT
+FIND Aaron-Plutarch
+DELETE Owen-Jackson-Lossy
+IS_AVL
+FIND Brooke-Expectation
+FIND Peyton-Added
+FIND Peyton-Maitre
+VALS
+DELETE Andrew-Commonweal
+IS_AVL
+VALS
+PRINT
+VALS
+FIND Elizabeth-Cetus
+VALS
+INSERT Daniel-Tablecloth 622-214-7025 230-35-2003
+IS_AVL
+FIND Allison-Malfeasant
+INSERT Noah-Joshua-Chestnut 786-800-3145 861-77-7819
+IS_AVL
+INSERT Julian-Extracurricular 959-624-4687 395-42-6079
+IS_AVL
+FIND Lucy-Pensacola
+INSERT Carter-Smokescreen 107-276-3391 932-80-4781
+IS_AVL
+DELETE Julian-Extracurricular
+IS_AVL
+INSERT Henry-Habituate 149-682-1959 243-66-4348
+IS_AVL
+INSERT Blake-Fuselage 975-004-9036 688-48-6111
+IS_AVL
+PRINT
+FIND Daniel-Tablecloth
+VALS
+INSERT Andrew-Corpuscular 241-750-3487 373-47-2325
+IS_AVL
+INSERT Parker-Trihedral 600-036-6349 848-78-2498
+IS_AVL
+PRINT
+INSERT Grace-Hilarious 438-222-8320 762-67-1601
+IS_AVL
+FIND Gabriel-Isolate
+FIND Caroline-Miranda
+INSERT Lucas-Whiten 952-570-9987 555-09-3504
+IS_AVL
+PRINT
+VALS
+INSERT Bella-Nippon 520-149-5790 234-69-0512
+IS_AVL
+PRINT
+DELETE Andrew-Commonweal
+IS_AVL
+INSERT Christian-Aaron-Kline 667-434-0809 638-60-3128
+IS_AVL
+PRINT
+DELETE Connor-Array
+IS_AVL
+FIND Sarah-Vault
+SIZE
+FIND Andrew-Chummy
+PRINT
+INSERT Gabriella-Maya-Spree-PhD 301-443-0629 834-07-8539
+IS_AVL
+FIND Peyton-Goode
+INSERT Cooper-Narcotic 134-273-5356 584-13-6959
+IS_AVL
+FIND Abigail-Portray
+FIND Caroline-Miranda
+FIND Carter-Smokescreen
+FIND Riley-Showboat
+FIND Avery-Eugenic
+INSERT Jordan-Pittston 250-640-1877 208-10-2249
+IS_AVL
+PRINT
+VALS
+FIND Carter-Smokescreen
+FIND Aubrey-Slag
+VALS
+VALS
+FIND Caleb-Cute-Jr
+FIND Brianna-Chloe-Bowditch
+FIND Hunter-Michele
+DELETE Grace-Hilarious
+IS_AVL
+FIND Benjamin-Fiberboard
+FIND Caroline-Hematite
+FIND Sarah-Vault
+PRINT
+DELETE Alex-Chartroom
+IS_AVL
+INSERT Benjamin-Metallurgist 797-026-9888 864-23-0974
+IS_AVL
+FIND Kate-Thong
+FIND Cooper-Inferior
+PRINT
+FIND Aaron-Plutarch
+FIND Brooke-Expectation
+SIZE
+SIZE
+FIND Brayden-Curlicue
+SIZE
+INSERT Brooklyn-Mae 209-554-3573 530-05-5016
+IS_AVL
+DELETE Gabriel-Isolate
+IS_AVL
+FIND Christopher-Whiten
+PRINT
+FIND Abigail-Portray
+FIND Anthony-Mcnally
+INSERT Kate-Sentient 703-614-6328 394-22-3776
+IS_AVL
+INSERT Gavin-Decisional 781-561-1974 519-46-7965
+IS_AVL
+DELETE Olivia-Stand
+IS_AVL
+FIND Allison-Emma-Copy
+INSERT Aaron-Hoe 501-684-2095 257-25-2153
+IS_AVL
+PRINT
+VALS
+FIND Lucas-Heterocyclic
+DELETE Gavin-Decisional
+IS_AVL
+FIND John-Pulitzer
+FIND Olivia-Stand
+FIND Adam-Musicale
+INSERT Dontonio-Blasphemous 462-701-8873 585-54-3100
+IS_AVL
+PRINT
+INSERT Natalie-Twain 296-903-6438 906-13-8334
+IS_AVL
+DELETE Bailey-Insubordinate
+IS_AVL
+FIND Alex-Chartroom
+FIND Cooper-Murray
+DELETE Xavier-Cayuga
+IS_AVL
+FIND Thomas-Carson-Sidereal-Jr
+DELETE Anthony-Mcnally
+IS_AVL
+FIND Daniel-Tablecloth
+FIND Eva-Bacillus
+INSERT John-Cookbook 939-064-8104 666-42-1460
+IS_AVL
+INSERT Daniel-Pole-PhD 920-267-8352 340-31-4914
+IS_AVL
+SIZE
+VALS
+PRINT
+VALS
+SIZE
+INSERT Cole-Inopportune 732-981-6546 247-84-3210
+IS_AVL
+DELETE Brianna-Chloe-Bowditch
+IS_AVL
+VALS
+INSERT Kaitlyn-Staunch 484-395-9348 315-44-3124
+IS_AVL
+VALS
+FIND Xavier-Cayuga
+INSERT Chloe-Millikan 269-742-8939 511-97-9570
+IS_AVL
+SIZE
+FIND Noah-Delinquent
+DELETE Grace-Hilarious
+IS_AVL
+INSERT Alex-Nocturnal 033-622-5209 086-07-0268
+IS_AVL
+INSERT Nicholas-Sorrowful 993-024-6160 598-56-7673
+IS_AVL
+INSERT Sophia-Audrey-Parr 814-323-3174 586-86-5499
+IS_AVL
+VALS
+INSERT Sophia-Tuft 799-987-0323 711-60-5738
+IS_AVL
+PRINT
+FIND Bella-Nippon
+SIZE
+FIND Xavier-Cayuga
+INSERT Zoe-Epidermic 320-336-9843 729-05-6226
+IS_AVL
+FIND Liam-Session
+INSERT Matthew-Leopold 802-433-4170 928-89-0361
+IS_AVL
+FIND Cooper-Inferior
+PRINT
+INSERT Hailey-Elizabeth-Modish 923-197-6750 797-98-9005
+IS_AVL
+VALS
+INSERT Aubrey-Crypt 253-205-3668 690-04-8058
+IS_AVL
+SIZE
+FIND Daniel-Pole-PhD
+PRINT
+FIND Aidan-Lackluster
+INSERT Amelia-Classroom 647-047-4112 679-81-6106
+IS_AVL
+FIND Madeline-Permissible
+INSERT Zoey-Hinterland-MD 156-084-9577 262-87-3674
+IS_AVL
+PRINT
+FIND Mackenzie-Regressive
+VALS
+FIND Hunter-Michele
+VALS
+INSERT Olivia-Godlike 833-696-7203 403-20-9314
+IS_AVL
+FIND Amelia-Allentown
+INSERT Hannah-Hermann 706-197-9748 280-60-7334
+IS_AVL
+VALS
+PRINT
+FIND Andrew-Commonweal
+FIND Aidan-Lackluster
+FIND Daniel-Tablecloth
+FIND Hailey-Elizabeth-Modish
+DELETE Jordan-Pittston
+IS_AVL
+SIZE
+INSERT Jake-Philosophic 323-129-4075 149-75-0562
+IS_AVL
+FIND Michael-Parker-Presume
+VALS
+FIND Aubrey-Slag
+DELETE Alex-Chartroom
+IS_AVL
+INSERT Alexander-Pacifism 684-720-0415 817-30-5542
+IS_AVL
+VALS
+DELETE Makayla-Indiscreet
+IS_AVL
+PRINT
+FIND Olivia-Godlike
+INSERT Bailey-Taxonomy 152-800-4011 345-32-4800
+IS_AVL
+PRINT
+VALS
+FIND Christian-Hallway
+VALS
+INSERT Lillian-Congratulatory 143-069-6978 172-96-0111
+IS_AVL
+SIZE
+INSERT Wyatt-Austenite 208-418-4558 344-79-7728
+IS_AVL
+DELETE Olivia-Stand
+IS_AVL
+INSERT James-Max-Pause 506-358-1588 728-20-2010
+IS_AVL
+PRINT
+FIND Aubrey-Crypt
+DELETE Bailey-Insubordinate
+IS_AVL
+DELETE Nicholas-Dividend
+IS_AVL
+PRINT
+FIND Gavin-Decisional
+DELETE Cooper-Narcotic
+IS_AVL
+VALS
+FIND Parker-Trihedral
+VALS
+VALS
+FIND Lucas-Whiten
+PRINT
+FIND Kaitlyn-Staunch
+VALS
+DELETE Anthony-Mcnally
+IS_AVL
+PRINT
+FIND Gabriella-Maya-Spree-PhD
+FIND Jacob-Radcliffe
+INSERT Liam-Rooftop 884-555-5552 019-12-6462
+IS_AVL
+INSERT Isaac-Morbid 334-442-3853 194-92-1750
+IS_AVL
+PRINT
+DELETE Carter-Smokescreen
+IS_AVL
+VALS
+PRINT
+INSERT Aaron-Dyspeptic 130-770-2001 402-03-1891
+IS_AVL
+INSERT Elijah-Handmade 294-546-0811 489-98-3209
+IS_AVL
+PRINT
+FIND Owen-Jackson-Lossy
+VALS
+FIND Cameron-Christopher-Dove
+VALS
+INSERT Claire-Jacobian 658-373-9857 005-75-6599
+IS_AVL
+FIND Bailey-Taxonomy
+FIND Claire-Jacobian
+FIND Andrew-Commonweal
+PRINT
+INSERT Elizabeth-Haul 709-826-4563 970-15-6965
+IS_AVL
+PRINT
+FIND Sarah-Vault
+INSERT Riley-Peyton-Wretch 147-616-9952 968-62-5201
+IS_AVL
+INSERT Brody-Hallway-IV 866-206-1036 090-47-0387
+IS_AVL
+PRINT

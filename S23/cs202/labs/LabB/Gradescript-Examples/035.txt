@@ -1,0 +1,169 @@
+INSERT Claire-Martial 131-540-8455 712-86-0604
+IS_AVL
+INSERT Addison-Emma-Invoice 704-607-6370 565-99-3562
+IS_AVL
+INSERT Brooklyn-Fogy 362-311-2157 110-67-0852
+IS_AVL
+INSERT Aiden-Highest 875-099-8869 357-08-1466
+IS_AVL
+INSERT Elizabeth-Bulrush 371-046-8940 265-42-3386
+IS_AVL
+INSERT Kylie-Had 650-789-1114 551-81-4632
+IS_AVL
+INSERT Isaac-Sesame 771-562-0431 173-39-6712
+IS_AVL
+INSERT Abigail-Contrariety 215-629-8334 166-64-4749
+IS_AVL
+INSERT Mia-Dried 066-769-9829 872-43-3504
+IS_AVL
+INSERT Max-Adam-Introvert 739-436-8966 668-13-3907
+IS_AVL
+PRINT
+INSERT Jayden-Migrant 436-356-6119 830-56-8942
+IS_AVL
+FIND Abigail-Contrariety
+FIND Addison-Emma-Invoice
+SIZE
+FIND Isaac-Sesame
+FIND Brooklyn-Fogy
+FIND Claire-Martial
+PRINT
+INSERT Samuel-Tristan-Colgate 074-667-7896 610-18-6587
+IS_AVL
+PRINT
+DELETE Isaac-Sesame
+IS_AVL
+INSERT Tyler-Jackson-Leisure 282-108-5379 443-76-6578
+IS_AVL
+FIND Isaac-Sesame
+FIND Mia-Dried
+DELETE Samuel-Tristan-Colgate
+IS_AVL
+FIND Eva-Heublein
+FIND Jacob-Downstate
+PRINT
+DELETE Addison-Emma-Invoice
+IS_AVL
+FIND Samuel-Tristan-Colgate
+SIZE
+FIND Addison-Emma-Invoice
+PRINT
+INSERT Riley-Madison-Impermissible 553-350-7614 447-28-9806
+IS_AVL
+FIND Tyler-Jackson-Leisure
+FIND Aiden-Highest
+FIND Tyler-Jackson-Leisure
+FIND Addison-Emma-Invoice
+DELETE Aiden-Highest
+IS_AVL
+SIZE
+INSERT Kylie-Multiply 446-629-3693 116-43-3013
+IS_AVL
+DELETE Addison-Emma-Invoice
+IS_AVL
+SIZE
+INSERT Arianna-Sideboard 623-574-2370 214-20-0452
+IS_AVL
+INSERT Sophie-Opossum 574-410-3295 068-42-6739
+IS_AVL
+FIND Kylie-Had
+INSERT Paige-Recline 445-884-2055 809-22-9291
+IS_AVL
+PRINT
+FIND Abigail-Contrariety
+INSERT Nathan-Onto 176-959-8894 135-24-6095
+IS_AVL
+VALS
+FIND Mia-Dried
+INSERT Layla-Appointe 329-628-0180 564-47-4352
+IS_AVL
+PRINT
+FIND Nathan-Onto
+SIZE
+FIND Max-Adam-Introvert
+INSERT Lilly 358-242-7304 728-40-4622
+IS_AVL
+INSERT Natalie-Torah 973-995-6674 093-30-0662
+IS_AVL
+INSERT Chloe-Lily-Dualism 310-341-7321 674-04-9054
+IS_AVL
+FIND Chloe-Lily-Dualism
+FIND Elizabeth-Bulrush
+FIND Jack-Brayden-Stratify
+PRINT
+DELETE Natalie-Torah
+IS_AVL
+FIND Kylie-Multiply
+INSERT Ellie-Impertinent 072-285-0612 859-37-7617
+IS_AVL
+INSERT Mackenzie-Malicious 421-391-3756 511-15-6988
+IS_AVL
+INSERT Molly-Hypothalamic 050-666-0795 983-73-3019
+IS_AVL
+DELETE Chloe-Lily-Dualism
+IS_AVL
+PRINT
+INSERT Sophie-Erbium 449-037-1636 698-32-1472
+IS_AVL
+INSERT Audrey-Resistant 541-446-8252 389-31-0915
+IS_AVL
+VALS
+FIND Samuel-Tristan-Colgate
+INSERT Austin-Scription 118-500-8508 675-80-5355
+IS_AVL
+DELETE Max-Adam-Introvert
+IS_AVL
+SIZE
+PRINT
+FIND Kylie-Had
+FIND Jayden-Migrant
+DELETE Mia-Dried
+IS_AVL
+PRINT
+FIND Austin-Scription
+DELETE Max-Adam-Introvert
+IS_AVL
+DELETE Chloe-Lily-Dualism
+IS_AVL
+FIND Lilly
+PRINT
+INSERT Liam-Salina 586-738-3076 953-32-5633
+IS_AVL
+INSERT Olivia-Jocose 127-176-2245 153-78-5526
+IS_AVL
+VALS
+VALS
+PRINT
+INSERT Paige-Beneficent 317-288-0806 690-95-4546
+IS_AVL
+DELETE Austin-Scription
+IS_AVL
+VALS
+FIND Mia-Dried
+FIND Claire-Martial
+SIZE
+SIZE
+VALS
+INSERT Bailey-Ruinous 079-054-1859 698-42-5749
+IS_AVL
+PRINT
+INSERT Kaitlyn-Hannah-Hannibal 425-091-2435 275-84-5403
+IS_AVL
+SIZE
+FIND Audrey-Resistant
+INSERT Kate-Anna 686-519-0326 407-73-4687
+IS_AVL
+PRINT
+DELETE Lilly
+IS_AVL
+FIND Mia-Dried
+FIND Chloe-Lily-Dualism
+PRINT
+FIND Nathan-Youth
+FIND Austin-Scription
+FIND Brooke-Widen
+FIND Natalie-Torah
+FIND Bailey-Ruinous
+INSERT Isabelle-Stove 719-316-6045 629-14-3550
+IS_AVL
+PRINT

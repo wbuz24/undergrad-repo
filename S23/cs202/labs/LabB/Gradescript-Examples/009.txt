@@ -1,0 +1,134 @@
+INSERT Alexandra-Collins 450-898-0314 449-35-9522
+IS_AVL
+INSERT Evan-Resist 300-634-5006 871-88-8197
+IS_AVL
+INSERT Elijah-Kipling 372-324-0031 537-65-3592
+IS_AVL
+INSERT Dontonio-Gavin-Frictional 748-168-1596 388-04-7281
+IS_AVL
+INSERT Samantha-Herpetology 719-286-7280 121-23-7219
+IS_AVL
+INSERT Gavin-Inferring 454-704-9793 666-13-0022
+IS_AVL
+INSERT Landon-Technocratic 804-040-7689 546-48-2575
+IS_AVL
+INSERT Logan-Neuropathology 944-180-7567 126-68-3629
+IS_AVL
+INSERT Liam-Violet 962-205-1342 601-01-0664
+IS_AVL
+INSERT Jack-Brim 361-434-6525 903-91-8112
+IS_AVL
+FIND Aaron-Formic
+INSERT Zoey-Impractical 575-068-8446 426-29-6678
+IS_AVL
+VALS
+VALS
+FIND Samantha-Herpetology
+FIND Elijah-Spotty
+FIND Gavin-Inferring
+PRINT
+INSERT Carter-Superlative 077-373-3120 604-96-0758
+IS_AVL
+FIND Liam-Violet
+INSERT Paige-Meet 112-418-8622 591-94-9865
+IS_AVL
+FIND Paige-Meet
+PRINT
+INSERT Mia-Vandenberg 604-623-7101 118-04-1220
+IS_AVL
+PRINT
+INSERT Gabriel-Gene 515-029-0818 898-08-3035
+IS_AVL
+VALS
+FIND Zoey-Impractical
+PRINT
+FIND Landon-Technocratic
+FIND Mia-Vandenberg
+INSERT Chase-Arianism 152-552-2232 861-78-2198
+IS_AVL
+INSERT Riley-Paunch 014-513-6208 164-91-3304
+IS_AVL
+FIND Jack-Brim
+INSERT Cole-Ouvre 697-920-5806 473-88-6132
+IS_AVL
+FIND Dontonio-Gavin-Frictional
+PRINT
+FIND Samantha-Herpetology
+FIND Gavin-Inferring
+FIND Zoey-Impractical
+FIND Gavin-Inferring
+FIND Jack-Brim
+VALS
+INSERT Jordan-Daniel-Zesty 105-854-2549 553-96-4717
+IS_AVL
+FIND Logan-Neuropathology
+PRINT
+FIND Riley-Paunch
+VALS
+FIND Ella-Megabit
+VALS
+INSERT Madison-Viceroy 070-930-9262 449-03-3155
+IS_AVL
+VALS
+PRINT
+FIND Gavin-Inferring
+FIND Lillian-Turkish
+INSERT Owen-Cameron-Deletion 882-903-6195 921-99-0869
+IS_AVL
+FIND Carter-Superlative
+VALS
+FIND Paige-Meet
+INSERT Nathan-Lockhart 612-531-5293 032-74-1384
+IS_AVL
+INSERT Cole-Poplin 734-897-3487 870-34-1502
+IS_AVL
+VALS
+INSERT Carter-Midmorn 053-175-3194 055-36-6539
+IS_AVL
+FIND Cole-Poplin
+PRINT
+INSERT Zoey-Disrupt 239-885-4872 752-16-5942
+IS_AVL
+FIND Cole-Ouvre
+SIZE
+FIND Elijah-Kipling
+INSERT Brandon-Jacob-Drop 542-357-0161 764-13-1948
+IS_AVL
+INSERT Caroline-Mongolia 480-093-6153 739-90-7481
+IS_AVL
+INSERT Julian-Hearten-IV 232-044-9467 697-63-9476
+IS_AVL
+PRINT
+VALS
+FIND Ian-Cull
+FIND Mia-Stephanotis
+FIND Gabriel-Salient
+FIND Zoey-Impractical
+FIND Mia-Vandenberg
+VALS
+VALS
+FIND Paige-Meet
+INSERT Ava-Metropolitan-MD 798-543-3635 438-85-5848
+IS_AVL
+FIND Sophia-Diacritical
+FIND Zoey-Impractical
+VALS
+FIND Cole-Poplin
+FIND Owen-Cameron-Deletion
+PRINT
+INSERT Joshua-Siltation 200-435-0995 312-66-3290
+IS_AVL
+INSERT Chase-Canal 543-448-5974 019-20-6450
+IS_AVL
+INSERT Lucas-Stannous 770-314-1491 087-04-2816
+IS_AVL
+INSERT Molly-Varistor 386-182-6318 417-57-6559
+IS_AVL
+FIND Brandon-Jacob-Drop
+FIND Jack-Brim
+VALS
+INSERT Matthew-Clinician-IV 474-863-4975 645-93-7732
+IS_AVL
+PRINT
+VALS
+FIND Alexandra-Collins

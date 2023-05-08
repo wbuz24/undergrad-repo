@@ -1,0 +1,109 @@
+INSERT Lucy-Kiosk 300-804-0747 853-83-1928
+IS_AVL
+INSERT Bailey-Dietary 369-638-0782 782-28-3278
+IS_AVL
+INSERT Lilly-Postdoctoral 063-804-0601 038-41-3479
+IS_AVL
+INSERT David-Secret 480-885-5768 799-66-9550
+IS_AVL
+INSERT Taylor-Rickettsia 918-301-7065 619-65-8406
+IS_AVL
+INSERT Gianna-Fibrous 055-467-4379 331-24-4616
+IS_AVL
+INSERT Leah-Mileage 103-556-1841 612-96-9655
+IS_AVL
+INSERT Dylan-Thomas-Debit 012-746-2822 864-34-0192
+IS_AVL
+INSERT Christopher-Stuck 184-837-0591 910-39-7164
+IS_AVL
+INSERT Audrey-Ruffle 183-410-0127 580-60-7947
+IS_AVL
+DELETE Christopher-Stuck
+IS_AVL
+PRINT
+DELETE Lucy-Kiosk
+IS_AVL
+DELETE Lucy-Kiosk
+IS_AVL
+FIND Lucy-Kiosk
+VALS
+DELETE Lucy-Kiosk
+IS_AVL
+VALS
+INSERT Austin-Tristan-Antennae 569-364-2011 641-13-0518
+IS_AVL
+INSERT Brody-Seneca 378-938-7214 824-95-5286
+IS_AVL
+INSERT Alexis-Barrington 484-721-3316 644-51-9056
+IS_AVL
+PRINT
+FIND Taylor-Rickettsia
+FIND Austin-Tristan-Antennae
+INSERT Kylie-Multiple 109-524-2894 162-63-9812
+IS_AVL
+FIND Brody-Seneca
+PRINT
+FIND Brody-Seneca
+FIND Leah-Mileage
+FIND Brody-Seneca
+SIZE
+INSERT Emily-Beside-Esq 845-924-4975 603-35-9078
+IS_AVL
+PRINT
+FIND Lilly-Taylor-Petticoat
+FIND Emily-Beside-Esq
+VALS
+INSERT Abigail-Judy 068-907-6626 342-00-5107
+IS_AVL
+DELETE David-Secret
+IS_AVL
+VALS
+SIZE
+FIND David-Secret
+VALS
+FIND David-Secret
+FIND David-Secret
+PRINT
+FIND Bailey-Dietary
+INSERT Natalie-Javelin 831-478-0690 538-55-5480
+IS_AVL
+FIND Leah-Mileage
+FIND Gianna-Fibrous
+FIND Kylie-Multiple
+VALS
+INSERT Austin-Honk 647-556-8185 401-71-6727
+IS_AVL
+FIND Leah-Mileage
+INSERT Madeline-Sioux 854-618-6229 109-83-6987
+IS_AVL
+FIND Leah-Mileage
+INSERT Savannah-Raj 178-543-1469 564-24-4629
+IS_AVL
+VALS
+FIND Alexis-Barrington
+INSERT Chase-Tnt 808-209-2233 243-11-5415
+IS_AVL
+FIND Samuel-Tor-Jr
+PRINT
+FIND Savannah-Raj
+FIND Alexis-Barrington
+VALS
+VALS
+FIND Dylan-Thomas-Debit
+FIND Madeline-Sioux
+FIND Emily-Beside-Esq
+VALS
+SIZE
+VALS
+SIZE
+INSERT Samuel-Ellsworth 675-238-1658 660-72-8665
+IS_AVL
+FIND Abigail-Judy
+PRINT
+FIND Lucy-Kiosk
+FIND Gianna-Fibrous
+INSERT Connor-Solitude 651-330-9238 093-34-7388
+IS_AVL
+DELETE Madeline-Sioux
+IS_AVL
+PRINT

@@ -1,0 +1,84 @@
+INSERT Gabriel-Whither 861-836-4917 467-95-4484
+IS_AVL
+INSERT Allison-Nodular 111-515-8431 641-24-5966
+IS_AVL
+INSERT John-Harlan 202-484-8010 101-48-9149
+IS_AVL
+INSERT Evan-Seedy 749-480-0108 719-55-9724
+IS_AVL
+INSERT Michael-Superb 472-832-4851 166-33-9379
+IS_AVL
+INSERT Eva-Sank-Esq 700-131-4087 535-42-0053
+IS_AVL
+INSERT Gavin-Nuclide 354-779-8888 201-15-1437
+IS_AVL
+INSERT Addison-Manufacture 598-758-1149 354-09-7263
+IS_AVL
+INSERT Elizabeth-Happenstance 973-843-9360 624-21-3283
+IS_AVL
+INSERT Madelyn-Fresnel 348-099-1725 111-71-5318
+IS_AVL
+DELETE Allison-Nodular
+IS_AVL
+VALS
+INSERT Zoey-Hathaway 533-457-9883 833-46-1419
+IS_AVL
+FIND Gavin-Nuclide
+VALS
+SIZE
+FIND Madelyn-Fresnel
+INSERT Peyton-Twinkle 518-752-6366 305-18-4703
+IS_AVL
+DELETE Eva-Sank-Esq
+IS_AVL
+INSERT Max-Caleb-Toad 068-336-5924 273-59-0260
+IS_AVL
+INSERT Brody-Trespass 931-812-7845 460-74-6257
+IS_AVL
+FIND Peyton-Twinkle
+FIND Peyton-Twinkle
+FIND Elizabeth-Happenstance
+VALS
+FIND Zoey-Hathaway
+INSERT Zoey-Poodle 745-744-7139 376-46-2297
+IS_AVL
+INSERT Dontonio-Registrable 793-093-8927 634-26-3577
+IS_AVL
+FIND Gavin-Nuclide
+FIND Zoey-Poodle
+FIND Isabella-Pumpkinseed
+PRINT
+DELETE Brody-Trespass
+IS_AVL
+INSERT Zachary-Clash 331-098-0942 594-50-9959
+IS_AVL
+INSERT Madison-Bourn-PhD 012-671-9358 152-35-1069
+IS_AVL
+FIND Michael-Superb
+INSERT Maya-Waterfall 707-222-0188 802-80-1883
+IS_AVL
+DELETE Eva-Sank-Esq
+IS_AVL
+DELETE Gavin-Nuclide
+IS_AVL
+VALS
+INSERT Emily-Bootstrapping 782-151-9106 187-88-9070
+IS_AVL
+FIND Addison-Manufacture
+INSERT Liam-Aidan-Eyed 180-705-3172 826-06-9538
+IS_AVL
+FIND Brody-Trespass
+DELETE Gabriel-Whither
+IS_AVL
+FIND Gabriel-Whither
+PRINT
+DELETE Gabriel-Whither
+IS_AVL
+FIND Zoey-Hathaway
+FIND Allison-Nodular
+FIND Dontonio-Registrable
+PRINT
+FIND Gabriel-Whither
+INSERT Joseph-Quay 912-680-6232 147-73-7638
+IS_AVL
+PRINT

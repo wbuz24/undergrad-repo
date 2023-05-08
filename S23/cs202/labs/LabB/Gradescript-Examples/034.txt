@@ -1,0 +1,150 @@
+INSERT Aaron-Primitivism 911-172-2063 591-62-5640
+IS_AVL
+INSERT Liam-Deploy 947-466-7494 948-09-7938
+IS_AVL
+INSERT Morgan-Beowulf 199-959-5084 648-07-4006
+IS_AVL
+INSERT Amelia-Swelter 201-281-8972 161-13-6395
+IS_AVL
+INSERT Jack-Solar 843-096-7975 321-25-3889
+IS_AVL
+INSERT Owen-Incompatible 234-338-8922 862-74-4995
+IS_AVL
+INSERT Taylor-Pug 155-622-5685 948-62-0177
+IS_AVL
+INSERT Nathan-Publication 683-475-5542 717-24-8309
+IS_AVL
+INSERT Madison-Evolutionary 831-559-1724 648-64-1960
+IS_AVL
+INSERT Lillian-Laureate 001-018-0100 038-08-4892
+IS_AVL
+FIND Morgan-Beowulf
+VALS
+INSERT Gabriel-Candelabra 740-783-4096 453-55-0067
+IS_AVL
+INSERT Aiden-Biblical 898-327-7725 541-81-1397
+IS_AVL
+FIND Amelia-Swelter
+FIND Jack-Solar
+VALS
+PRINT
+DELETE Morgan-Beowulf
+IS_AVL
+PRINT
+FIND Lillian-Laureate
+INSERT Isabelle-Elizabeth-Riggs 005-725-4064 080-52-1455
+IS_AVL
+INSERT Max-Palazzi 157-248-4303 982-47-8477
+IS_AVL
+INSERT Gabriella-Judicatory 807-825-5044 557-83-9275
+IS_AVL
+PRINT
+FIND Owen-Incompatible
+VALS
+INSERT Alyssa-Colette 654-654-4630 835-81-5615
+IS_AVL
+FIND Aaron-Primitivism
+FIND Gabriella-Judicatory
+PRINT
+DELETE Amelia-Swelter
+IS_AVL
+FIND Alyssa-Colette
+PRINT
+DELETE Max-Palazzi
+IS_AVL
+VALS
+SIZE
+INSERT Katelyn-Bryant-PhD 873-757-4111 810-99-6077
+IS_AVL
+INSERT Lucas-Statutory 754-290-3346 780-73-4277
+IS_AVL
+INSERT Molly-Enterprise 404-836-5312 284-49-5708
+IS_AVL
+PRINT
+FIND Gabriella-Judicatory
+VALS
+INSERT Katelyn-Razzle 226-300-0139 216-84-2180
+IS_AVL
+SIZE
+FIND Henry-Inanimate
+PRINT
+DELETE Amelia-Swelter
+IS_AVL
+DELETE Nathan-Publication
+IS_AVL
+FIND Aiden-Biblical
+DELETE Max-Palazzi
+IS_AVL
+INSERT Noah-Apt 449-247-5837 892-76-3247
+IS_AVL
+INSERT Cameron-Mizar 188-911-1217 459-23-8887
+IS_AVL
+FIND Morgan-Beowulf
+DELETE Isabelle-Elizabeth-Riggs
+IS_AVL
+FIND Jake-Barrage
+INSERT Jack-Uranyl 538-449-2006 129-72-6649
+IS_AVL
+INSERT Jonathan-Guesswork 540-804-6470 494-22-7620
+IS_AVL
+FIND Cameron-Mizar
+INSERT Brianna-Fist 644-377-0853 154-13-2902
+IS_AVL
+VALS
+FIND Amelia-Swelter
+FIND Lucas-Statutory
+FIND Lucas-Statutory
+DELETE Jonathan-Guesswork
+IS_AVL
+FIND Lillian-Laureate
+INSERT Noah-Achromatic-Jr 660-240-6529 363-00-4351
+IS_AVL
+FIND Amelia-Swelter
+VALS
+VALS
+FIND Nathan-Publication
+PRINT
+VALS
+VALS
+FIND Nathan-Publication
+FIND Liam-Deploy
+VALS
+FIND Max-Palazzi
+INSERT Gianna-Scurry 431-979-8793 312-38-6180
+IS_AVL
+DELETE Amelia-Swelter
+IS_AVL
+FIND Cameron-Mizar
+PRINT
+SIZE
+SIZE
+FIND Bailey-Utterance
+DELETE Aaron-Primitivism
+IS_AVL
+SIZE
+PRINT
+DELETE Taylor-Pug
+IS_AVL
+VALS
+INSERT Jonathan-Bumble 739-710-0747 345-19-3066
+IS_AVL
+FIND Amelia-Swelter
+INSERT Claire-Rhodolite 456-290-5847 098-03-7050
+IS_AVL
+PRINT
+FIND Nathan-Publication
+INSERT Madison-Lilly-Steely 356-189-6397 702-99-5158
+IS_AVL
+FIND Katelyn-Bryant-PhD
+FIND Lucas-Statutory
+INSERT Max-Arsenal 927-696-7648 762-25-3923
+IS_AVL
+PRINT
+FIND Amelia-Swelter
+VALS
+FIND Gabriel-Candelabra
+VALS
+FIND Noah-Achromatic-Jr
+FIND Gabriel-Candelabra
+FIND Claire-Rhodolite
+VALS

@@ -16,7 +16,7 @@ struct Vector {
 // 4x4 matrix
 struct Matrix {
   float m[16] = {1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1};
-}
+};
 
 extern "C" {
   Matrix scale(const Matrix &orig, float sc, float sy, float sz);
@@ -31,15 +31,20 @@ int main() {
 
   Matrix m;
   Vector v;
+
+  cout << "Enter 3 floats: ";
+  cin >> x >> y >> z;
   
   while (true) {
     cout << "> ";
     cin >> op;
 
-    if (op == "scale") {
-      m = scale(m, x, y, z);
-    }
-
+    if (op == "scale") m = scale(m, x, y, z);
+    else if(op == "translate") m = translate(m, x, y, z);
+    else if (op == "mul") v = mul(m, v);
+    else if (op == "norm") v = norm(v);
+    else cout << "Invalid\n";
   }
+  return 0;
 
 }
