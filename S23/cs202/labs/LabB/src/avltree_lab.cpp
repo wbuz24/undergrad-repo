@@ -4,7 +4,6 @@
  * AVL Trees
 */ 
 
-
 #include <vector>
 #include <string>
 #include <iostream>
@@ -16,10 +15,9 @@ using namespace std;
 using CS202::AVLTree;
 using CS202::AVLNode;
 
-
 AVLTree& AVLTree::operator= (const AVLTree &t)        
 {
-  (void) t;
+  this->sentinel = recursive_postorder_copy(t.sentinel->right);
   return *this;
 }
 
@@ -32,7 +30,6 @@ bool AVLTree::Insert(const string &key, void *val)
   AVLNode *parent;
   AVLNode *n;
   int l, r;
-
   // if (Is_Avl() != "") return 0;
 
   parent = sentinel;
@@ -43,7 +40,7 @@ bool AVLTree::Insert(const string &key, void *val)
   while (n != sentinel) {
     if (n->key == key) return false;
     parent = n;
-    if (parent->left != sentinel) n = parent->right;
+    if (parent->left != sentinel && parent->right == sentinel) n = parent->right;
     else n = parent->left;
   }
 
@@ -56,14 +53,7 @@ bool AVLTree::Insert(const string &key, void *val)
   n->parent = parent;
   n->left = sentinel;
   n->right = sentinel;
-
-  /* Check if the children are sentinel, otherwise set height to greatest child plus one */
-  if (n->left == sentinel && n->right == sentinel) n->height = 1; // Case 1, leaf node 
-  else {
-    if (n->left != sentinel) l = n->left->height;
-    if (n->right != sentinel) r = n->left->height;
-    n->height = (l < r) ? l : r;
-  }
+  n->height = 1;
   /* Use the correct pointer in the parent to point to the new node. */
 
   if (parent == sentinel) {
@@ -74,8 +64,16 @@ bool AVLTree::Insert(const string &key, void *val)
     parent->right = n;
   }
 
-  /* Increment the size */
+  // return back up the tree and adjust the heights
+  while (n != sentinel) {
+    l = 0, r = 0;
+    if (n->left != sentinel) l = n->left->height;
+    if (n->right != sentinel) r = n->right->height;
+    n->height = (l > r) ? ++l : ++r;
+    n = n->parent;
+  }
 
+  /* Increment the size */
   size++;
   return true;
 }
@@ -149,18 +147,25 @@ bool AVLTree::Delete(const string &key)
 vector <string> AVLTree::Ordered_Keys() const
 {
   vector <string> rv;
+  make_key_vector(sentinel->right, rv); // recursize call
   return rv;
 }
     
 void AVLTree::make_key_vector(const AVLNode *n, vector<string> &v) const
 {
-  (void) n;
-  (void) v;
-}
-     
+  if (n == sentinel) return; // base case
+  make_key_vector(n->left, v); // left recursive call
+  v.push_back(n->key); // action
+  make_key_vector(n->right, v); // right recursive call
+} 
+
 size_t AVLTree::Height() const
 {
-  return 0;
+  AVLNode *n = sentinel->right; // root node
+  int height;
+
+  height = n->height; // AVL trees store their height, therefore we just return the root node's height
+  return height;
 }
 
 /* You need to write this to help you with the assignment overload.
@@ -170,6 +175,17 @@ size_t AVLTree::Height() const
 
 AVLNode *AVLTree::recursive_postorder_copy(const AVLNode *n) const
 {
-  (void) n;
-  return NULL;
+  if (n->left->height == 0) recursive_postorder_copy(n->left);
+  if (n->right->height == 0) recursive_postorder_copy(n->right);
+  
+  // copy yourself
+  AVLNode *copy = new AVLNode;
+
+  copy->left = n->left;
+  copy->right = n->right;
+  copy->parent = n->parent;
+  copy->key = n->key;
+  copy->val = n->val;
+  copy->height = n->height;
+  return n->parent;
 }
