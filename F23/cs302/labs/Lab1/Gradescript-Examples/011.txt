@@ -1,0 +1,15 @@
+Prokofiev,_Tales_of_an_Old_Grandmother,_op._31,_Andate_assai 2:56 Sandor,_Gyorgy Sandor_Plays_Prokofiev,_Solo_Piano_Works,_V2,_Disc_2 Classical 6
+Prokofiev,_Four_Pieces,_op._32,_Waltz 3:09 Sandor,_Gyorgy Sandor_Plays_Prokofiev,_Solo_Piano_Works,_V2,_Disc_2 Classical 12
+Prokofiev,_Pensees,_op._62,_Andante 4:43 Sandor,_Gyorgy Sandor_Plays_Prokofiev,_Solo_Piano_Works,_V2,_Disc_2 Classical 14
+Prokofiev,_Four_Pieces,_op._32,_Minuet 1:36 Sandor,_Gyorgy Sandor_Plays_Prokofiev,_Solo_Piano_Works,_V2,_Disc_2 Classical 11
+Prokofiev,_Tales_of_an_Old_Grandmother,_op._31,_Andantino 1:21 Sandor,_Gyorgy Sandor_Plays_Prokofiev,_Solo_Piano_Works,_V2,_Disc_2 Classical 5
+Prokofiev,_Pensees,_op._62,_Adagio_Penseroso 3:42 Sandor,_Gyorgy Sandor_Plays_Prokofiev,_Solo_Piano_Works,_V2,_Disc_2 Classical 13
+Prokofiev,_Three_Pieces,_op._59,_Promenade 2:38 Sandor,_Gyorgy Sandor_Plays_Prokofiev,_Solo_Piano_Works,_V2,_Disc_2 Classical 2
+Prokofiev,_Tales_of_an_Old_Grandmother,_op._31,_Moderato 2:06 Sandor,_Gyorgy Sandor_Plays_Prokofiev,_Solo_Piano_Works,_V2,_Disc_2 Classical 7
+Prokofiev,_Four_Pieces,_op._32,_Gavotte 1:23 Sandor,_Gyorgy Sandor_Plays_Prokofiev,_Solo_Piano_Works,_V2,_Disc_2 Classical 10
+Prokofiev,_Three_Pieces,_op._59,_Sonatine_Pastorale 4:30 Sandor,_Gyorgy Sandor_Plays_Prokofiev,_Solo_Piano_Works,_V2,_Disc_2 Classical 3
+Prokofiev,_Twenty_Visions_Fugitives,_op._22 21:03 Sandor,_Gyorgy Sandor_Plays_Prokofiev,_Solo_Piano_Works,_V2,_Disc_2 Classical 4
+Prokofiev,_Tales_of_an_Old_Grandmother,_op._31,_Sostenuto 2:19 Sandor,_Gyorgy Sandor_Plays_Prokofiev,_Solo_Piano_Works,_V2,_Disc_2 Classical 8
+Prokofiev,_Three_Pieces,_op._59,_Paysage 2:23 Sandor,_Gyorgy Sandor_Plays_Prokofiev,_Solo_Piano_Works,_V2,_Disc_2 Classical 1
+Prokofiev,_Pensees,_op._62,_Lento 2:12 Sandor,_Gyorgy Sandor_Plays_Prokofiev,_Solo_Piano_Works,_V2,_Disc_2 Classical 15
+Prokofiev,_Four_Pieces,_op._32,_Dance 2:50 Sandor,_Gyorgy Sandor_Plays_Prokofiev,_Solo_Piano_Works,_V2,_Disc_2 Classical 9

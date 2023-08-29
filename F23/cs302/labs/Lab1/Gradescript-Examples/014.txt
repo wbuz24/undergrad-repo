@@ -1,0 +1,16 @@
+Faure,_Dolly,_Opus_56,_5._Tendresse 3:19 Casadesus,_Robert_&_Gaby Great_Pianists,_V16,_Disc_2 Classical 8
+Faure,_Dolly,_Opus_56,_1._Berceuse 2:28 Casadesus,_Robert_&_Gaby Great_Pianists,_V16,_Disc_2 Classical 4
+Faure,_Prelude_In_Db,_Opus_103,_#1 3:18 Casadesus,_Robert Great_Pianists,_V16,_Disc_2 Classical 10
+Faure,_Prelude_In_Gm,_Opus_103,_#3 3:21 Casadesus,_Robert Great_Pianists,_V16,_Disc_2 Classical 11
+Faure,_Dolly,_Opus_56,_2._Mi-A-Ou 1:46 Casadesus,_Robert_&_Gaby Great_Pianists,_V16,_Disc_2 Classical 5
+Debussy,_En_Blanc_Et_Noir,_3._Scherzando 4:34 Casadesus,_Robert_&_Gaby Great_Pianists,_V16,_Disc_2 Classical 3
+Ravel,_Concerto_in_D_(for_the_left_hand) 17:05 Casadesus,_Robert Great_Pianists,_V16,_Disc_2 Classical 16
+Faure,_Dolly,_Opus_56,_6._Le_Pas_Espagnol 2:06 Casadesus,_Robert_&_Gaby Great_Pianists,_V16,_Disc_2 Classical 9
+Faure,_Nocturne_#3_In_C#m,_Opus_74 7:59 Casadesus,_Robert Great_Pianists,_V16,_Disc_2 Classical 13
+Faure,_Impromptu_#5_In_G#m,_Opus_102 2:10 Casadesus,_Robert Great_Pianists,_V16,_Disc_2 Classical 15
+Faure,_Barcarolle_#5_In_F#m,_Opus_66 5:14 Casadesus,_Robert Great_Pianists,_V16,_Disc_2 Classical 14
+Faure,_Dolly,_Opus_56,_4._Kitty_Valse 2:24 Casadesus,_Robert_&_Gaby Great_Pianists,_V16,_Disc_2 Classical 7
+Faure,_Prelude_In_Dm,_Opus_103,_#5 2:13 Casadesus,_Robert Great_Pianists,_V16,_Disc_2 Classical 12
+Faure,_Dolly,_Opus_56,_3._Le_Jardin_De_Dolly 2:14 Casadesus,_Robert_&_Gaby Great_Pianists,_V16,_Disc_2 Classical 6
+Debussy,_En_Blanc_Et_Noir,_1._Avec_Emportement 4:12 Casadesus,_Robert_&_Gaby Great_Pianists,_V16,_Disc_2 Classical 1
+Debussy,_En_Blanc_Et_Noir,_2._Lent._Sombre 6:04 Casadesus,_Robert_&_Gaby Great_Pianists,_V16,_Disc_2 Classical 2

@@ -1,0 +1,12 @@
+Baby_Daisy 6:38 Madonna Queen Madonna 42
+Madonna 0:12 Cher Madonna Fabio 65
+Fabio 6:28 Fabio Madonna Thor 13
+Fabio 0:59 Thor Thor Cher 76
+Thor 6:35 Baby_Daisy Madonna Thor 26
+Cher 5:25 Baby_Daisy Cher Fabio 68
+Madonna 2:56 Thor Baby_Daisy Thor 67
+Baby_Daisy 6:12 Baby_Daisy Queen Madonna 30
+Cher 6:52 Fabio Queen Cher 19
+Queen 4:42 Baby_Daisy Thor Fabio 42
+Cher 9:22 Fabio Thor Queen 80
+Queen 2:46 Cher Thor Fabio 48
