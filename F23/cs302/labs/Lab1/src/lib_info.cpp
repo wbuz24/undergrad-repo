@@ -12,25 +12,25 @@
 using namespace std;
 
 class Song { 
-  public:
-    string title;
-    int time;
-    int track;
+public:
+  string title;
+  int time;
+  int track;
 };
 
 class Album {
-  public:
-    map <int, Song *> songs;
-    string name;
-    int time;
+public:
+  map <int, Song *> songs;
+  string name;
+  int time;
 };
 
 class Artist {
-  public:
-    map <string, Album *> albums;
-    string name;
-    int time;
-    int nsongs;
+public:
+  map <string, Album *> albums;
+  string name;
+  int time;
+  int nsongs;
 };
 
 string commas(string word) {
@@ -45,12 +45,14 @@ string commas(string word) {
 int main(int argc, char **argv) {
   ifstream fin;
   istringstream ss;
-  string song, t, artist, album, genre, num;
+  string song, t, artist, album, genre;
   size_t tindex; // time index
-  int mins, sec;
-  map <int, Song *>::iterator sit; // song map iterator
-  Artist *artptr; // album map iterator
-
+  int mins, sec, num;
+  map <string, Artist *> artists; // map of artists
+  map <string, Artist *>::iterator ait; // map iterator
+  Song *ns = new Song;
+  Artist *a = new Artist;
+  Album *na = new Album;
 
   if (argc == 2) {
     string filename = argv[1];
@@ -62,31 +64,41 @@ int main(int argc, char **argv) {
           mins = stoi(t.substr(0, tindex));
           sec = stoi(t.substr(tindex + 1, t.size()));
         } 
-        
-        song = commas(song);
+
+        song = commas(song); // convert strings - remove _ for ' '
         artist = commas(artist);
         album = commas(album);
+ 
+        ns->title = song; // create a new song
+        ns->time = mins*60 + sec;
+        ns->track = num;
+
         genre = commas(genre);
 
-        artptr = Artist::albums.find(artist);
+        if (artists.find(artist) == artists.end()) { // artist is found
+
+          artists.insert(make_pair(artist, a));
+        }
+
+        if (a->albums.find(album) == a->albums.end()) {
+
+          a->albums.insert(make_pair(album, na));
+          na->name = album;
+          na->time = 0;
+        }
         
-        if (Artist->albums.find(artist) != Artist::albums->end()) { // song is found
-          cout << "Old Artist: " << artist << endl;
-        }
-        else { // otherwise, place it in the map
-          cout << "New Artist: " << artist << endl;
-        }
-        // if (Songs.find())
-        //cout << genre << endl;
+        na->songs.insert(make_pair(num, ns));
+
+
       }
     }
     else {
-      cout << "File not found\n";
-      return 0;
+    cout << "File not found\n";
+    return 0;
 
-    }
+  }
 
 
   } else cout << "Usage: ./lib_info filename\n";
-  
+
 }
