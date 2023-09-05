@@ -33,12 +33,26 @@ public:
   int nsongs;
 };
 
-string commas(string word) {
+string commas(string word) { // remove commas
   size_t i = 0;
   for (i = 0; i < word.size(); i++) {
     if (word[i] == '_') word[i] = ' ';
   }
   return word;
+}
+
+string time(int sec) { //convert back to string time
+  string mins;
+  int m, s;
+  char buf[100]; // we know the buffer wont be bigger than this
+
+  m = sec/60; // mins
+  s = sec % 60; // seconds
+  
+  sprintf(buf, "%d:%02d", m, s); // pad with 2 zeroes
+ 
+  mins = buf;
+  return mins;
 }
 
 
@@ -73,11 +87,11 @@ int main(int argc, char **argv) {
           Artist *a = new Artist;
           a->name = artist;
           a->time = 0;
-          a->nsongs = 1;
+          a->nsongs = 0;
           artists.insert(make_pair(artist, a)); // make a new artist
         }
 
-        if (artists.find(artist)->second->albums.find(album) == artists.find(artist)->second->albums.end()) { // cannot find the album
+        if (artists.find(artist)->second->albums.find(album) == artists.find(artist)->second->albums.end()) { // cannot find the album}
           Album *na = new Album; // create a new album
           na->name = album;
           na->time = 0;
@@ -89,24 +103,27 @@ int main(int argc, char **argv) {
         ns->time = mins*60 + sec;
         ns->track = num;
         artists.find(artist)->second->albums.find(album)->second->songs.insert(make_pair(num, ns)); // insert the song into the album
-        artists.find(artist)->second->albums.find(album)->second->time += (mins*60 + sec); // increment the time
+        artists.find(artist)->second->albums.find(album)->second->time += (mins*60 + sec); // increment the album total time
+        artists.find(artist)->second->time += (mins*60 + sec); // increment artists total time
+        artists.find(artist)->second->nsongs++; // increment # of songs
       }
 
       for (arit = artists.begin(); arit != artists.end(); arit++) { // loop through artists
-        cout << arit->first << endl; // print the artist
+        cout << arit->first << ": " << arit->second->nsongs << ", " << time(arit->second->time) << endl; // print the artist
         for (alit = arit->second->albums.begin(); alit != arit->second->albums.end(); alit++) {
-           cout << "        " << alit->first << endl; // print the album
-        }
+           cout << "        " << alit->first << ": " << alit->second->songs.end()->first << ", " << time(alit->second->time) << endl; // print the album
+        
           for (sit = alit->second->songs.begin(); sit != alit->second->songs.end(); sit++) {
-           cout << "                 " << sit->second->track << ". " << sit->second->title << ": " << sit->second->time << endl; // print the songs of the album
+           cout << "                " << sit->second->track << ". " << sit->second->title << ": " << time(sit->second->time) << endl; // print the songs of the album
             
+        }
         }
       }
     }
     else {
-      cout << "File not found\n";
+      cout << "File not found\n"; // error check the file
       return 0;
 
     }
-  } else cout << "Usage: ./lib_info filename\n";
+  } else cout << "Usage: ./lib_info filename\n"; // error check the arguments
 }
