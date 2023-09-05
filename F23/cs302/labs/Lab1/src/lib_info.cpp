@@ -49,10 +49,9 @@ int main(int argc, char **argv) {
   size_t tindex; // time index
   int mins, sec, num;
   map <string, Artist *> artists; // map of artists
-  map <string, Artist *>::iterator ait; // map iterator
-  Song *ns = new Song;
-  Artist *a = new Artist;
-  Album *na = new Album;
+  map <string, Artist *>::iterator arit; // map iterator
+  map <string, Album *>::iterator alit; // map iterator
+  map <int, Song *>::iterator sit; // map iterator
 
   if (argc == 2) {
     string filename = argv[1];
@@ -68,37 +67,46 @@ int main(int argc, char **argv) {
         song = commas(song); // convert strings - remove _ for ' '
         artist = commas(artist);
         album = commas(album);
- 
+        genre = commas(genre);
+
+        if (artists.find(artist) == artists.end()) { // artist is not found
+          Artist *a = new Artist;
+          a->name = artist;
+          a->time = 0;
+          a->nsongs = 1;
+          artists.insert(make_pair(artist, a)); // make a new artist
+        }
+
+        if (artists.find(artist)->second->albums.find(album) == artists.find(artist)->second->albums.end()) { // cannot find the album
+          Album *na = new Album; // create a new album
+          na->name = album;
+          na->time = 0;
+          artists.find(artist)->second->albums.insert(make_pair(album, na)); // insert the album into the artist
+        }
+
+        Song *ns = new Song;
         ns->title = song; // create a new song
         ns->time = mins*60 + sec;
         ns->track = num;
+        artists.find(artist)->second->albums.find(album)->second->songs.insert(make_pair(num, ns)); // insert the song into the album
+        artists.find(artist)->second->albums.find(album)->second->time += (mins*60 + sec); // increment the time
+      }
 
-        genre = commas(genre);
-
-        if (artists.find(artist) == artists.end()) { // artist is found
-
-          artists.insert(make_pair(artist, a));
+      for (arit = artists.begin(); arit != artists.end(); arit++) { // loop through artists
+        cout << arit->first << endl; // print the artist
+        for (alit = arit->second->albums.begin(); alit != arit->second->albums.end(); alit++) {
+           cout << "        " << alit->first << endl; // print the album
         }
-
-        if (a->albums.find(album) == a->albums.end()) {
-
-          a->albums.insert(make_pair(album, na));
-          na->name = album;
-          na->time = 0;
+          for (sit = alit->second->songs.begin(); sit != alit->second->songs.end(); sit++) {
+           cout << "                 " << sit->second->track << ". " << sit->second->title << ": " << sit->second->time << endl; // print the songs of the album
+            
         }
-        
-        na->songs.insert(make_pair(num, ns));
-
-
       }
     }
     else {
-    cout << "File not found\n";
-    return 0;
+      cout << "File not found\n";
+      return 0;
 
-  }
-
-
+    }
   } else cout << "Usage: ./lib_info filename\n";
-
 }
