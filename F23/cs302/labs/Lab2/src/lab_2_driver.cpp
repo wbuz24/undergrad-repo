@@ -64,7 +64,7 @@ bool am_i_greater_d(double v)
   return (v > d);
 }
 
-int main() 
+int main(int argc, char **argv) 
 {
   int s, i, shift;
   int sel;
@@ -78,6 +78,10 @@ int main()
   map <unsigned int, double>::iterator wit;
   double max;
   unsigned int maxi, uirv;
+
+  bool printans;
+
+  printans = (argc == 2 && (string) argv[1] == "P");
 
   np = (uint32_t *) &n;
 
@@ -106,8 +110,14 @@ int main()
         while (d > 1000000000.0) d/= 10.0;
       }
       rvd = whats_my_number_d();
-      printf("%.8lf %.8lf %s\n", rvd, d, 
-             (rvd-d < 0.000000001 && rvd-d > -0.000000001) ? "Correct" : "Incorrect");
+      printf("%.10lf %s\n", d, (rvd-d < 0.000000001 && rvd-d > -0.000000001) ? "Correct" : "Incorrect");
+      if (printans) {
+        printf("The number (to 10 digits) is    %.10lf\n", d);
+        printf("Your answer (to 10 digits) is   %.10lf\n", rvd);
+        rvd -= d;
+        if (rvd < 0) rvd = -rvd;
+        printf("Difference between the numbers: %.10lf\n", rvd);
+      }
     } else if (sel == 2) {
       x.insert(0);
       x.insert(0xffffffff);
