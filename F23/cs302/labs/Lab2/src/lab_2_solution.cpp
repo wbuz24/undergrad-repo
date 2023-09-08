@@ -1,3 +1,8 @@
+// Will Buziak
+// cs302
+// Lab 2
+// Binary search on all numbers of varying types
+
 #include <iostream>
 #include <vector>
 #include "lab_2.hpp"
