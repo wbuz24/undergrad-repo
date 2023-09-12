@@ -21,5 +21,5 @@ and
 
 Neuromorphic Computing Lab [TENNLAB](https://neuromorphic.eecs.utk.edu/)
 
- - Assist a senior design project aiming to control a mini drone with an embedded neuromorphic spiking neural network
+ - Neuromorphic application development for embedded computing applications
  - Robotic design for neuromorphic swarm applications
