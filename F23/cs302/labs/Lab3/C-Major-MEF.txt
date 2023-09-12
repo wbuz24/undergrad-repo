@@ -1,0 +1,10 @@
+CS302-Midi-Event-File
+
+ON 0 60 64
+ON 0 64 64
+ON 0 67 64
+
+OFF 480 60
+OFF   0 64
+OFF   0 67
+

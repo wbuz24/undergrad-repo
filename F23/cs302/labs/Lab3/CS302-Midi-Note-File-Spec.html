@@ -1,0 +1,97 @@
+<h3>File Specification: CS302 Midi Note File</h3>
+<p>
+I assume that you have read the 
+<a href=CS302-Midi-Event-File-Spec.html>CS302 Midi Event File</a> specification before you read this.
+<p>
+The CS302 Midi Note File starts with the word "CS302-Midi-Note-File".
+After that, the file should contain note or pedal event specifications.
+The format of these specifications are keywords followed by  values.
+Keywords and values are words separated by whitespace.
+There is no concept of a line of text -- the input composed of simple words (this makes it easier
+to read input in C++).
+<p>
+Here are the two specification formats:
+<p>
+<UL>
+<LI> ``<b>NOTE</b> <i>pitch volume starttime stoptime</i>:''  play a note at the given pitch and volume 
+starting and stopping at the given times.
+<LI> ``<b>DAMPER</b> <i>starttime stoptime</i>:''  depress the damper pedal at the given start time,
+and release it at the given stop time.
+</UL>
+<p>
+Times are doubles, and refer to seconds after the file has started playing.
+Other units and values are the same as in the
+<a href=CS302-Midi-Event-File-Spec.html>CS302 Midi Event File</a> specification.
+
+<hr>
+<h3>Some Examples</h3>
+
+As in the Event specification,
+the first example is a simple file that plays a C-major chord for one second, starting at time 0 and ending at 
+time 1.  The file is
+<b><a href=C-Major-MNF.txt>C-Major-MNF.txt</a></b>, and its MIDI is
+<a href=C-Major.mid>C-Major.mid</a>.
+
+<p><center><table border=3 cellpadding=3><td><pre>
+CS302-Midi-Note-File
+NOTE 60 64 0 1
+NOTE 64 64 0 1
+NOTE 67 64 0 1
+</pre></td></table></center><p>
+
+<p>
+The second example, where we hold the damper pedal for two seconds, is in
+<b><a href=C-Major-Damper-MNF.txt>C-Major-Damper-MNF.txt</a></b>
+(MIDI: <b><a href=C-Major-Damper.mid>C-Major-Damper.mid</a></b>):
+
+<p><center><table border=3 cellpadding=3><td><pre>
+CS302-Midi-Note-File
+NOTE 60 64 0 1
+NOTE 64 64 0 1
+NOTE 67 64 0 1
+DAMPER 0 2
+</pre></td></table></center><p>
+
+All of the Midi Event File Examples exist as Midi Note Files:
+
+<UL>
+<LI> <b><a href=Two-Repeat-MNF.txt>Two-Repeat-MNF.txt</a></b>,
+<b><a href=Two-Repeat.mid>Two-Repeat.mid</a></b>, two notes, played one after another.
+
+<p><LI> <b><a href=C-Major-Scale-MNF.txt>C-Major-Scale-MNF.txt</a></b>,
+<b><a href=C-Major-Scale.mid>C-Major-Scale.mid</a></b>: 
+A C major scale, where each note is played for 1/2 a second,
+and each successive note is played right after the previous note has stopped.
+<p>
+
+<LI> <b><a href=C-Major-Scale-Damper-MNF.txt>C-Major-Scale-Damper-MNF.txt</a></b>,
+<b><a href=C-Major-Scale-Damper.mid>C-Major-Scale-Damper.mid</a></b>:
+The same C major scale as above, only now the damper pedal is held down thoughout.
+<p>
+
+<LI> <b><a href=C-Major-Scale-Overlap-MNF.txt>C-Major-Scale-Overlap-MNF.txt</a></b>,
+<b><a href=C-Major-Scale-Overlap.mid>C-Major-Scale-Overlap.mid</a></b>:
+A C major scale, 
+and each successive note is played a half a second after the previous note, but each
+note is held for a second.  Thus, the scale sounds a little blurry.
+<p>
+
+<LI> <b><a href=Repeating-Louder-MNF.txt>Repeating-Louder-MNF.txt</a></b>,
+<b><a href=Repeating-Louder.mid>Repeating-Louder.mid</a></b>:
+Middle C, repeating every 1/10th of a second, getting louder at each repetition.
+<p><LI> <b><a href=Chopin-Black-Key-MNF.txt>Chopin-Black-Key-MNF.txt</a></b>,
+<b><a href=Chopin-Black-Key.mid>Chopin-Black-Key.mid</a></b>: Chopin's "Black Key" Etude, Opus 10, #5.
+<p><LI> <b><a href=Chopin-Military-Polonaise-Beginning-MNF.txt>Chopin-Military-Polonaise-Beginning-MNF.txt</a></b>,
+<b><a href=Chopin-Military-Polonaise-Beginning.mid>Chopin-Military-Polonaise-Beginning.mid</a></b>: The 
+beginning of Chopin's "Military" Polonaise, Opus 40, #1.
+<p><LI> <b><a href=Gershwin-RIB-MNF.txt>Gershwin-RIB-MNF.txt</a></b>,
+<b><a href=Gershwin-RIB.mid>Gershwin-RIB.mid</a></b>: Gershwin's Rhapsody in Blue, played by the Composer on 
+a Duo-Art Piano Roll, and then converted to MIDI.
+<p><LI> <b><a href=Rachmaninoff-Elegy-MNF.txt>Rachmaninoff-Elegy-MNF.txt</a></b>,
+<b><a href=Rachmaninoff-Elegy.mid>Rachmaninoff-Elegy.mid</a></b>: Rachmaninoff's Elegy, Opus 3, #1.
+<p><LI> <b><a href=Scriabin-Etude-Beginning-MNF.txt>Scriabin-Etude-Beginning-MNF.txt</a></b>,
+<b><a href=Scriabin-Etude-Beginning.mid>Scriabin-Etude-Beginning.mid</a></b>: Beginning of Scriabin's Etude, Opus 8, #10.
+<p><LI> <b><a href=bach_565-MNF.txt>bach_565-MNF.txt</a></b>,
+<b><a href=bach_565.mid>bach_565.mid</a></b>: Bach's D minor Toccata, 
+BWV 565.
+</UL>

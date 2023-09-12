@@ -1,0 +1,3 @@
+CS302-Midi-Note-File
+NOTE 60 65 0 1
+NOTE 60 60 1 2

@@ -1,0 +1,101 @@
+#!/bin/sh 
+
+dir=/home/jplank/cs302/Labs/Lab3
+ge="$dir/Gradescript-Examples"
+
+if [ $# -ne 1 ]; then
+  echo 'usage: gradescript problem_number (1-100)' >&2
+  exit 1
+fi
+
+if [ "$1" -gt 0 -a "$1" -le 100 ]; then
+  enum=`echo $1 | awk '{ printf "%03d\n", $1 }'`
+else
+  echo 'usage: gradescript problem_number (1-100)' >&2
+  exit 1
+fi
+  
+program=mconvert
+  
+if [ ! -f $program ]; then
+  echo "Problem $enum is incorrect."
+  echo ""
+  echo "Your program $program does not exist."
+  exit 0
+fi
+
+if [ `grep Event $ge/$enum.txt | wc | awk '{ print $1 }'` -eq 1 ]; then
+  format=N
+  grader=$dir/note-file-grader
+else
+  format=E
+  grader=$dir/event-file-grader
+fi
+
+rm -f tmp-$enum-test-output.txt tmp-$enum-test-stderr.txt tmp-$enum-test-stdout.txt tmp-$enum-correct-stdout.txt tmp-$enum-correct-output.txt tmp-$enum-correct-stderr.txt tmp-$enum-grading.txt
+
+$dir/$program $ge/$enum.txt tmp-$enum-correct-output.txt $format > tmp-$enum-correct-stdout.txt 2> tmp-$enum-correct-stderr.txt
+./$program $ge/$enum.txt tmp-$enum-test-output.txt $format > tmp-$enum-test-stdout.txt 2> tmp-$enum-test-stderr.txt
+call="./$program $ge/$enum.txt tmp-$enum-test-output.txt $format"
+
+if [ `wc tmp-$enum-correct-stdout.txt | awk '{ print $1 }'` -ne 0 ]; then
+  echo "There is a problem with the correct answer with problem $enum."
+  echo "The correct answer generated output on stdout."
+  echo "Please tell the TA or Dr. Plank"
+  exit 1
+fi
+
+if [ `wc tmp-$enum-correct-stderr.txt | awk '{ print $1 }'` -ne 0 ]; then
+  echo "There is a problem with the correct answer with problem $enum."
+  echo "The correct answer generated output on stderr."
+  echo "Please tell the TA or Dr. Plank"
+  exit 1
+fi
+
+if [ `wc tmp-$enum-test-stdout.txt | awk '{ print $1 }'` -ne 0 ]; then
+  echo "Problem $enum is incorrect."
+  echo ""
+  echo "Your program generated output on standard output, which is in the file tmp-$enum-test-stdout.txt."
+  echo "Your program should not generate any output."
+  exit 1
+fi
+
+if [ `wc tmp-$enum-test-stderr.txt | awk '{ print $1 }'` -ne 0 ]; then
+  echo "Problem $enum is incorrect."
+  echo ""
+  echo "Your program generated output on standard output, which is in the file tmp-$enum-test-stderr.txt."
+  echo "Your program should not generate any output."
+  exit 1
+fi
+
+
+$grader tmp-$enum-test-output.txt tmp-$enum-correct-output.txt > tmp-$enum-grading.txt 2> tmp-$enum-g-stderr.txt
+
+out=`cat tmp-$enum-grading.txt tmp-$enum-g-stderr.txt | wc | awk '{ print $1 }'`
+
+if [ $out != 0 ]; then
+  echo "Problem $enum is incorrect."
+  echo ""
+  if [ $out != 0 ]; then
+    echo "Your generated file, when compared with the correct one using $grader, was not equivalent."
+  fi
+  echo ""
+  echo "TEST:"
+  echo ""
+  echo "$call"
+  echo "$grader tmp-$enum-test-output.txt tmp-$enum-correct-output.txt > tmp-$enum-grading.txt 2> tmp-$enum-g-stderr.txt"
+  echo ""
+  echo "FILES:"
+  echo ""
+  echo "Your output is in tmp-$enum-test-output.txt."
+  echo "The correct output is in tmp-$enum-correct-output.txt."
+  echo "The results of $grader are in tmp-$enum-grading.txt and tmp-$enum-g-stderr.txt."
+  echo ""
+  echo "Look at correct files and your files, and figure out your mistake."
+  echo "Please remember to delete these files when you are finished."
+else 
+  echo "Problem $enum is correct."
+  echo ""
+  echo "Test: $call" 
+  rm -f tmp-$enum-test-output.txt tmp-$enum-test-stderr.txt tmp-$enum-test-stdout.txt tmp-$enum-correct-stdout.txt tmp-$enum-correct-output.txt tmp-$enum-correct-stderr.txt tmp-$enum-grading.txt tmp-$enum-g-stderr.txt
+fi

@@ -1,0 +1,484 @@
+<title> CS302 -- Lab 3 -- Manipulating MIDI</title>
+
+<h1> CS302 -- Lab 3 -- Manipulating MIDI</h1>
+<h3>
+<UL> <LI> CS302 -- Fundamental Algorithms
+<LI> <a href=http://web.eecs.utk.edu/~jplank>James S. Plank</a>
+<LI> <a href=http://web.eecs.utk.edu/~jplank/plank/classes/cs302/Labs/Lab3/index.html>This file:
+     <b>http://web.eecs.utk.edu/~jplank/plank/classes/cs302/Labs/Lab3</b></a>
+<LI> Lab Directory: <b>/home/jplank/cs302/Labs/Lab3</b>
+</UL>
+</h3>
+
+<h2>This Long Lab Writeup</h2>
+
+This is a very long lab writeup.  We will go over it in class or lab.  
+Please read it <i>thoroughly</i>,
+and play around with hand-editing the files before you start writing code.
+<hr>
+<h2>What you submit</h2>
+<p>
+You will submit your <b>cs302-midi.cpp</b> file.  <i>You may not modify 
+<b>cs302-midi-base.cpp</b> or <b>cs302-midi.h</b> in any way.</i>  The TA will compile
+your <b>cs302-midi.cpp</b> with my <b>cs302-midi-base.cpp</b> and <b>cs302-midi.h</b>.
+<p>
+There is a makefile in the lab directory.  If you copy 
+<b>cs302-midi.cpp</b>, <b>cs302-midi-base.cpp</b> and <b>cs302-midi.h</b> and the <b>makefile</b>
+from the lab directory, then you should be able to compile with <b>make</b>, and then
+start editing <b>cs302-midi.cpp</b> to do the lab.
+
+<hr>
+
+<h2>Introduction: MIDI</h2>
+
+MIDI stands for <i>"Musical Instrument Digital Interface"</i>.  It is a bit of an overloaded
+term, so I'll try to give it a succinct explanation here.  If you want more, there's tons
+of text about MIDI on 
+<a href=http://en.wikipedia.org/wiki/Musical_Instrument_Digital_Interface>Wikipedia</a>.
+<p>
+MIDI is a standard for representing and manipulating note-based music on computers.  Most
+electronic instruments, notably keyboards, have MIDI output ports which emit events in 
+a specific format whenever the instruments are played.  These events are emitted in real-time,
+so that a computer may record them, manipulate them, etc.
+<p>
+There is a file format called <i>Standard MIDI File (SMF) Format</i>, which records a MIDI 
+performance.  These files contain MIDI events that an instrument would emit, plus timing information
+about when the various events occur.  A MIDI player will play these events back, using some sort 
+of sound synthesizer.
+<p>
+Most web browsers support SMF files.  For example, 
+<b><a href=bach_565.mid>bach_565.mid</a></b> contains a rather tepid
+performance of Bach's famous D minor Toccata and Fugue (BWV 565)
+(taken from <a href=http://users1.ee.net/lstone/midi.htm><b>http://users1.ee.net/lstone/midi.htm</b></a>).
+The file
+<b><a href=rockytop.mid>rockytop.mid</a></b> contains a more familiar tune.
+When you click on these links, your web browser should play the MIDI
+files.  If your computer has a nice expensive sound card, this will
+sound pretty good.  If it has a janky one like mine, it will sound
+kinda lame.  So it goes.
+<p>
+The SMF format is far too detailed for this lab.  Instead, we're only going to concern ourselves
+with a limited subset of SMF, and we'll use two different representations that are easy to edit
+and manipulate.  MIDI files contain <i>tracks</i>, each of which is a different instrument.
+A MIDI player will play all of the tracks simultaneously, which can make for a good performance.
+We are only going to concentrate on MIDI files with a single track.
+<p>
+These MIDI files contain linear streams of <i>events</i>.  We will only handle four of these events:
+<UL>
+<LI> <b>ON</b>: Turn a note on.  The parameters of this event are the pitch of the note and its volume,
+each of which is an integer between 1 and 127.
+<LI> <b>OFF</b>: Turn a note off.  The parameter of this event is the pitch of the note.
+A note should be turned on before it is turned off.
+<LI> <b>DAMPER DOWN</b>: Depress the damper pedal.  The damper pedal on a piano makes sure that all
+notes that are playing keep playing, regardless of whether they are turned OFF, until the damper
+pedal is released.  
+<LI> <b>DAMPER UP</b>: Release the damper pedal. 
+</UL>
+<p>
+We are going to handle two representations of MIDI files.  You may read their 
+specifications in the following links:
+<p>
+<OL>
+<LI> <a href=CS302-Midi-Event-File-Spec.html>Event Files</a>: In these you specify events
+in a linear stream, where each event contains the duration between it and the previous event.
+<p>
+<LI> <a href=CS302-Midi-Note-File-Spec.html>Note Files</a>: In these, you specify note events and
+damper pedal events.  A note event is represented by a pitch, volume, start
+time and stop time.  Thus, it stores two MIDI events -- an <b>ON</b> and an <b>OFF</b> event.
+A damper pedal event is represented by a start and stop time.  Like a note, it stores two MIDI events --
+a <b>DAMPER DOWN</b> and a <b>DAMPER UP</b> event.  
+<p>
+Unlike Event files, Note files are not a linear stream of events -- since each event has a start
+and a stop time, events may be specified in any order.
+</OL>
+<p>
+Again, read the specification files for more information and for simple example files that
+illustrate their use.  You should go ahead and hand-edit some of these files and convert
+them to MIDI to reinforce your understanding of MIDI.
+<p>
+The program <b>mconvert</b> converts Midi-Event Files to and from Midi-Note Files:
+
+<p><center><table border=3 cellpadding=3><td><pre>
+mconvert inputfile outputfile E|N
+</pre></td></table></center><p>
+
+The <b>inputfile</b> can be either a Midi-Event-File or a Midi-Note-File.  The format
+of the <b>outputfile</b> is either an Event file (if the last argument is <b>E</b>)
+or a Note file (if the last argument is <b>N</b>).
+
+<hr>
+<h2>cs302-midi.h</h2>
+
+Take a look at
+<b><a href=cs302-midi.h>cs302-midi.h</a></b>
+
+<p><center><table border=3 cellpadding=3><td><pre>
+#include &lt;iostream&gt;
+#include &lt;map&gt;
+#include &lt;list&gt;
+using namespace std;
+
+class ND {
+  public:
+    int key;          // 'N' for Note, or 'D' for Damper
+    int pitch;        // Ignored by 'D'
+    int volume;       // Ignored by 'D'
+    double start;
+    double stop;    
+};
+
+class Event {
+   public:
+     int key;         // 'O':ON, 'F':OFF, 'D':DAMPER, 
+     int time;
+     int v1;          // Pitch for O/F, 1 for D:DOWN, 0 for D:UP
+     int v2;          // Volume for O.  Ignored for everything else.
+};
+
+typedef multimap &lt;double, ND *&gt; NDMap;
+typedef list &lt;Event *&gt; EventList;
+
+class CS302_Midi {
+  public:
+    CS302_Midi(string file);
+    ~CS302_Midi();
+    void Write(string file, char format);   // 'E' for Event, 'N' for Note
+    void Add_Pause(double starttime, double duration);
+    void Scale(double factor);
+  protected:
+    void destroy_nd();
+    void destroy_el();
+    void nd_to_el();
+    void el_to_nd();
+    EventList *el;
+    NDMap *nd;
+};
+</pre></td></table></center><p>
+
+This defines a class called <b>CS302_Midi</b>, which lets you read, manipulate and
+write both representations of Midi files.  The constructor takes a filename
+and creates an instance of the class from the file.  The file can be in either
+format (the first word in the file defines the format).  
+There is a destructor method, which is necessary because the
+constructor makes <b>new</b> calls.  Additionally, there is a 
+<b>Write()</b> method, which writes out the class instance in either format.
+<p>
+There are two other public functions -- <b>Add_Pause()</b> adds a pause to the
+file at the given start time and duration (both in seconds).
+<b>Scale()</b> scales the speed of the file -- for example, scaling by 2 will
+make it play twice as fast, and scaling by .5 will make it play half as fast.
+<p>
+There are four protected methods and two protected variables.  Let's start with
+the variables:
+<UL>
+<LI> <b>el</b>:  This is a list of events as defined in a Midi-Event-File.  As you can see
+from the <b>EventList</b> typedef, it is a list of pointers to <b>Event</b> class
+instances.  When you create an instance of <b>CS302_Midi</b> from a Midi-Event-File,
+it creates <b>el</b> directly from the file.  Each <b>Event</b> in the event list
+is categorized by its <b>key</b>, which is <b>'O'</b> for an <b>ON</b> event, 
+<b>'F'</b> for an <b>OFF</b> event, and <b>'D'</b> for either a <b>DAMPER DOWN</b>
+or <b>DAMPER UP</b> event.  The <b>time</b> is the time (in 1/480 of a second) since
+the previous event.  <b>v1</b> depends on the <b>key</b> -- if <b>key</b> is <b>'O'</b>
+or <b>'F'</b>, then <b>v1</b> is the pitch.  Otherwise, it is 1 for <b>DAMPER DOWN</b>
+and 0 for <b>DAMPER UP</b>.  <b>v2</b> is the volume of an <b>'O'</b> event.  It is
+ignored for all other events.
+<p>
+<LI> <b>nd</b>:  This is a multimap of NOTE and DAMPER events as defined in a Midi-Note-File.
+Each of these events has a start time, and the multimap is keyed on these start times.
+Each multimap entry points to a <b>ND</b> class instance.  This contains all the information 
+about the NOTE or DAMPER event
+instances.  When you create an instance of <b>CS302_Midi</b> from a Midi-Note-File,
+it creates <b>nd</b> directly from the file.  
+<p>
+Like an <b>Event</b>, a <b>ND</b> instance has a <b>key</b>, which is <b>'N'</b> for
+a note and <b>'D'</b> for a damper pedal event.  The rest of the fields should be
+self-explanatory.
+</UL>
+<p>
+Two of the private methods are straightforward: <b>destroy_el()</b> deletes <b>el</b>, making
+sure to delete every <b>Event</b> in the list.  <b>destroy_nd()</b> delete <b>nd</b>, 
+making sure to delete every <b>ND</b> in the multimap.  These are called by the destructor,
+and also by <b>Add_Pause()</b> and <b>Scale()</b>.
+<p>
+The last two methods are the tricky methods: <b>el_to_nd()</b> creates the multimap
+<b>nd</b> from the event list <b>el</b>.  Conversely, <b>nd_to_el()</b> creates the 
+event list <b>el</b> from the multimap <b>nd</b>.   These are called by the constructor --
+if the constructor reads a Midi-Event-File, it creates <b>el</b> from the file and
+then creates <b>nd</b> using <b>el_to_nd()</b>.  Conversely,
+if the constructor reads a Midi-Note-File, it creates <b>nd</b> from the file and
+then creates <b>el</b> using <b>nd_to_el()</b>.   
+<p>
+Thus, when the constructor is done, both <b>el</b> and <b>nd</b> are initialized to 
+represent the same MIDI file.   This makes it easy to write <b>Write()</b> -- it 
+uses <b>el</b> to create the Midi-Event-File output and it uses 
+<b>nd</b> to create the Midi-Note-File output.
+<p>
+<hr>
+<h3>Your Job</h3>
+
+The entire <b>CS302_Midi</b> class has been implemented for you, with the exception of
+these last two methods.  Additionally, there are two programs
+<b><a href=mconvert.cpp>mconvert.cpp</a></b> and 
+<b><a href=midi_tester.cpp>midi_tester.cpp</a></b>, which test the implementation.
+<p>
+Your job is to implement the two unimplemented methods.  
+<p>
+The implementations that I provide for you are in 
+<b><a href=cs302-midi-base.cpp>cs302-midi-base.cpp</a></b>.  The remaining two
+methods are given a skeleton implementation in
+<b><a href=cs302-midi.cpp>cs302-midi.cpp</a></b>.  This means that
+you can copy them to your directory along with the <b>makefile</b> and they
+will compile:
+
+<pre>
+UNIX> <b>make clean</b>
+rm -f *.o midi_tester mconvert  core
+UNIX> <b>make</b>
+g++ -c midi_tester.cpp
+g++ -c cs302-midi-base.cpp
+g++ -c cs302-midi.cpp
+g++ -o midi_tester midi_tester.o cs302-midi-base.o cs302-midi.o
+g++ -c mconvert.cpp
+g++ -o mconvert mconvert.o cs302-midi-base.o cs302-midi.o
+UNIX> <b></b>
+</pre>
+
+First, let's consider <b>mconvert</b>.  This reads a file and then writes a file.
+If we write a file of the same type, this version will work.  For example:
+
+<pre>
+UNIX> <b>mconvert C-Major-MEF.txt tmp.txt E</b>
+UNIX> <b>cat tmp.txt</b>
+CS302-Midi-Event-File
+ON 0 60 64
+ON 0 64 64
+ON 0 67 64
+OFF 480 60
+OFF 0 64
+OFF 0 67
+UNIX> <b>mconvert C-Major-MNF.txt tmp.txt N</b>
+UNIX> <b>cat tmp.txt</b>
+CS302-Midi-Note-File
+NOTE 60 64 0 1
+NOTE 64 64 0 1
+NOTE 67 64 0 1
+UNIX> <b></b>
+</pre>
+
+The first call works because reading <b>C-Major-MEF.txt</b> reads all the events
+into <b>el</b> in the constructor.  The constructor also calls <b>el_to_nd()</b>, 
+but that doesn't do anything.  However, when we write the file with format <b>E</b>,
+it write out <b>el</b>, which works fine.  
+<p>
+Similarly, when we read <b>C-Major-MNF.txt</b>, the constructor creates the <b>nd</b>
+multimap.  It also calls <b>nd_to_el()</b>, but that doesn't do anything.  
+When we print using format <b>N</b>, that traverses <b>nd</b> and 
+prints out all the notes.  
+<p>
+If we try to read a MEF file and print it with format <b>N</b>, the resulting file
+will be empty, because <b>el_to_nd()</b> has no implementation.  Similarly,
+if we 
+try to read a MNF file and print it with format <b>E</b>, the resulting file
+will be empty:
+
+<pre>
+UNIX> <b>mconvert C-Major-MEF.txt tmp.txt N</b>
+UNIX> <b>cat tmp.txt</b>
+CS302-Midi-Note-File
+UNIX> <b>mconvert C-Major-MNF.txt tmp.txt E</b>
+UNIX> <b>cat tmp.txt</b>
+CS302-Midi-Event-File
+UNIX> <b></b>
+</pre>
+
+At this point, make sure you have understood everything.  Make sure you try the above
+examples, and perhaps some others.  Read the implementation of the <b>Write()</b>
+method and the constructor method so that you know how <b>el</b> and <b>nd</b> 
+work.
+<p>
+<hr>
+<h3>Your first implementation: nd_to_el()</h3>
+
+First, implement <b>nd_to_el()</b>.  It is the easier of the two methods.  It should traverse
+the <b>nd</b> multimap and create <b>ON/OFF/DAMPER DOWN/DAMPER UP/</b> events (of type <b>Event *</b>)
+from them.  Think about how you should implement this.  You'll need
+some temporary data structures.  You also need to worry about what
+happens when multiple events occur at the same time.  For example,
+look at <b><a href=Two-Repeat-MNF.txt>Two-Repeat-MNF.txt</a></b>:
+
+<p><center><table border=3 cellpadding=3><td><pre>
+CS302-Midi-Note-File
+NOTE 60 65 0 1
+NOTE 60 60 1 2
+</pre></td></table></center><p>
+
+The first note ends at time 1, and the second note begins at time 1.  You 
+would not want this file to convert to the following MEF file:
+
+<p><center><table border=3 cellpadding=3><td><pre>
+CS302-Midi-Event-File
+ON 0 60 65
+ON 480 60 60
+OFF 0 60 
+OFF 480 60 
+</pre></td></table></center><p>
+
+Why?  Because you would not have an OFF event corresponding to the first ON event until the note
+is played a second time.  Instead, you want 
+<b><a href=Two-Repeat-MNF.txt>Two-Repeat-MNF.txt</a></b> to convert to:
+
+<p><center><table border=3 cellpadding=3><td><pre>
+CS302-Midi-Event-File
+ON 0 60 65
+OFF 480 60 
+ON 0 60 60
+OFF 480 60 
+</pre></td></table></center><p>
+
+So, here is what you should do in <b>nd_to_el()</b>:
+<p>
+<UL>
+<LI> Convert each <b>'N'</b> event into an <b>ON</b> and an <b>OFF</b> event.  Also
+convert each <b>'D'</b> event into a <b>DAMPER DOWN</b> and a <b>DAMPER UP</b> event.  
+<LI>
+Insert each of these events into a temporary map keyed on the start time, which are
+integers whose units are 1/480 of a second.  Use <b>rint()</b> to round the double to
+an integer.
+<p>
+You are going to insert these events into a map and not a multimap.  
+The val part of the map should be a multimap
+containing all of the events that start at that time.  The events should be in the following
+relative order:
+<p>
+<UL>
+<LI> <b>OFF</b> events.
+<LI> <b>DAMPER UP</b> events.
+<LI> <b>DAMPER DOWN</b> events.
+<LI> <b>ON</b> events.
+</UL>
+<p>
+That way, notes will be turned off before they are turned on, and the damper pedal will be
+set to up before it is set to down.
+<p>
+One final part of <b>nd_to_el()</b> -- if a <b>'N'</b> or <b>'D'</b> event is such that it
+will start and stop at the same time once you convert them to integers, ignore the event.
+For example, the following note should be ignored when you call <b>nd_to_el()</b> because
+<b>rint(0.00000001*480.0) = rint((0.00000002*480.0) = 0</b>:
+
+<pre>
+NOTE 60 65 0.00000001 0.00000002
+</pre>
+
+<p>
+<LI> Traverse the temporary map and push all the events onto <b>el()</b>, calculating the
+correct time for each event.
+</UL>
+<hr>
+<h3>Your second implementation: el_to_nd()</h3>
+
+The method <b>el_to_nd()</b> is harder.  You are going to need a vector of 128 <b>(ND *)</b>'s.
+Initialize them all to NULL.  Then, when you see an <b>ON</b> event, you will create a <b>ND</b> for
+it, set its start time and put it into the vector, indexed by pitch.  
+When you see an <b>OFF</b> event, you will 
+use the <b>ND</b> in the vector, set its stop time, and insert it into <b>nd</b>.  
+Similarly, you should have a <b>(ND *)</b> for the damper pedal, which you create when you 
+encounter a <b>DAMPER DOWN</b> event, and which you finish and insert into the map when you 
+encounter a <b>DAMPER UP</b> event.  At the end of traversing <b>el</b>, you should double-check
+the vector and the damper variable and make sure that there are no notes that have <b>ON</b> events
+that are not finished with corresponding <b>OFF</b> events.
+<p>
+There is some additional error checking that you should do.  I will not grade you on it.
+However, you should be able to catch the following errors when you write <b>el_to_nd()</b>:
+<p>
+<UL>
+<LI> An <b>OFF</b> event for a pitch that is not preceded by an <b>ON</b> event.
+<LI> An <b>ON</b> event for a pitch that follows another <b>ON</b> event.
+<LI> An <b>ON</b> event for a pitch that is never followed by an <b>OFF</b> event.
+<LI> A <b>DAMPER UP</b> event that is not preceded by a <b>DAMPER DOWN</b> event.
+<LI> A <b>DAMPER DOWN</b> event that follows another <b>DAMPER DOWN</b> event.
+<LI> A <b>DAMPER DOWN</b> event that is never followed by a <b>DAMPER UP</b> event.
+</UL>
+
+<p>
+When you are done with <b>el_to_nd()</b> and <b>nd_to_el()</b> the programs <b>mconvert</b> and
+<b>midi_tester</b> should work with complete functionality.
+<hr>
+<h3>Files</h3>
+There are working executables for <b>mconvert</b> and <b>midi_tester</b>, as well as a <b>cs302-midi.o</b>
+that contains working implementations of <b>el_to_nd()</b> and <b>nd_to_el()</b>.  When it doubt,
+make sure that your programs work like these.  Again, I will not grade you on how your programs 
+error check, so don't stress about the output format.
+<p>
+Also, the gradescript makes use of two programs: <b>event-file-grader</b> and <b>note-file-grader</b>.
+These take two Event and Note files respectively and print out if they differ.  The <b>note-file-grader</b>
+ignores the order of note specifications in the input files -- it simply makes sure that both 
+files have the same notes.
+<p>
+The <b>event-file-grader</b> is a little more detailed.  It partitions the events into "on" events 
+(NOTE-ON and DAMPER DOWN) and "off" events (NOTE-OFF and DAMPER UP).  If events of the same type
+occur simultaneously, then they may occur in any order.  For example, the following 
+Midi-Event-Files are equivalent, although not identical, because:
+
+<p><center><table border=3 cellpadding=3>
+<td><pre>
+DAMPER 5 DOWN
+ON 0 60 65
+ON 0 54 55
+
+OFF 480 60 
+OFF 0 54 
+DAMPER 0 UP
+</pre></td>
+<td><pre>
+ON 5 54 55
+ON 0 60 65
+DAMPER 0 DOWN
+
+OFF 480 54 
+DAMPER 0 UP
+OFF 0 60 
+</pre></td>
+</table></center><p>
+However, the following are not, since you can't reorder "on" and "off" events relative to each other, 
+even though they happen at the "same time:"
+<p><center><table border=3 cellpadding=3>
+<td><pre>
+ON 0 60 65
+
+DAMPER 5 DOWN
+OFF 0 60
+
+DAMPER 20 UP
+</pre></td>
+<td><pre>
+ON 0 60 65
+
+OFF 5 60
+DAMPER 0 DOWN
+
+DAMPER 20 UP
+</pre></td>
+</table></center><p>
+
+<hr>
+<h3>If you get inspired</h3>
+If you get inspired to create some neat MIDI files, I'd love to see
+them -- when you're done, feel free to email me MEF or MNF files that
+you have created.  If I like them, I'll post them with the lab for
+future years to see.
+<hr>
+<h3>A Final Word</h3>
+
+I know that this is a brutal lab writeup.  It is long, and I'm
+guessing it may take the entire lab session to read and understand.
+This is part of computer science -- understanding specifications,
+conventions, and formats, and working within those constraints.  Take
+it slow, and try to understand the lab material piece by piece.  It
+should be a rewarding lab!
+
+<hr>
+<h3>Piazza Q & A</h3>
+
+<UL>
+<LI> <a href=2022-02-15-Question.pdf> 2022-02-15-Question.pdf</a>
+</UL>

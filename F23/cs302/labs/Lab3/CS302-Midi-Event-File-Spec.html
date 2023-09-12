@@ -1,0 +1,183 @@
+<h3>File Specification: CS302 Midi Event File</h3>
+The CS302 Midi Event File starts with the word "CS302-Midi-Event-File".
+After that, the file should contain events, specified by keywords and values.
+Keywords and values are words separated by whitespace.
+There is no concept of a line of text -- the input is composed of simple words (this makes it easier
+to read input in C++).
+<p>
+The following are the events that may be specified:
+<p>
+<UL>
+<LI> ``<b>ON</b> <i>time pitch volume</i>:''  play a note at the given pitch and volume after
+<i>time</i> units of time have passed since the last event.
+<LI> ``<b>OFF</b> <i>time pitch</i>:''  turn off a note of the given pitch after
+<i>time</i> units of time have passed since the last event.
+<LI> ``<b>DAMPER</b> <i>time <b>DOWN|UP</b></i>:''  create a pedal-down or pedal-up event 
+for the dampler pedal after <i>time</i> units of time have passed since the last event.
+</UL>
+<p>
+Time units are integers, and represent 1/480 of a second.  Zero is a fine time unit.  Negative
+time units are not allowed.
+<p>
+Pitches are specified by integers between 0 and 127.  Middle C is 60.
+<p>
+Volumes are integers between 1 (soft) and 127 (loud).
+<p>
+When the damper pedal is down, then, if a note is playing and turned off, it does not get
+turned off, but remains playing
+until the damper pedal is up (I'll give an example).
+<p>
+<hr>
+<h3>Some Examples</h3>
+
+The first example is a simple file that plays a C-major chord for one second --
+<b><a href=C-Major-MEF.txt>C-Major-MEF.txt</a></b>.  Here's the MIDI file: 
+<a href=C-Major.mid>C-Major.mid</a>.
+
+<p><center><table border=3 cellpadding=3><td><pre>
+CS302-Midi-Event-File
+
+ON 0 60 64
+ON 0 64 64
+ON 0 67 64
+
+OFF 480 60
+OFF   0 64
+OFF   0 67
+</pre></td></table></center><p>
+
+The next example shows how the damper pedal keeps notes playing longer.
+The file is <b><a href=C-Major-Damper-MEF.txt>C-Major-Damper-MEF.txt</a></b> and the MIDI file is
+<a href=C-Major-Damper.mid>C-Major-Damper.mid</a>.  The damper pedal is set to DOWN
+as the notes start playing, and is set to UP two seconds later.  Thus, even though the
+notes are turned off one second after they are turned on, they keep playing until the
+damper pedal is set to UP.
+
+<p><center><table border=3 cellpadding=3><td><pre>
+CS302-Midi-Event-File
+
+ON 0 60 64
+ON 0 64 64
+ON 0 67 64
+
+DAMPER 0 DOWN
+
+OFF 480 60
+OFF   0 64
+OFF   0 67
+
+DAMPER 480 UP
+</pre></td></table></center><p>
+
+Other simple examples:
+
+<UL>
+<LI> <b><a href=Two-Repeat-MEF.txt>Two-Repeat-MEF.txt</a></b>,
+<b><a href=Two-Repeat.mid>Two-Repeat.mid</a></b>, two notes, played one after another.
+
+<p><LI> <b><a href=C-Major-Scale-MEF.txt>C-Major-Scale-MEF.txt</a></b>,
+<b><a href=C-Major-Scale.mid>C-Major-Scale.mid</a></b>: 
+A C major scale, where each note is played for 1/2 a second,
+and each successive note is played right after the previous note has stopped.
+
+<LI> <b><a href=C-Major-Scale-Damper-MEF.txt>C-Major-Scale-Damper-MEF.txt</a></b>,
+<b><a href=C-Major-Scale-Damper.mid>C-Major-Scale-Damper.mid</a></b>:
+The same C major scale as above, only now the damper pedal is held down thoughout.
+
+<LI> <b><a href=C-Major-Scale-Overlap-MEF.txt>C-Major-Scale-Overlap-MEF.txt</a></b>,
+<b><a href=C-Major-Scale-Overlap.mid>C-Major-Scale-Overlap.mid</a></b>:
+A C major scale, 
+and each successive note is played a half a second after the previous note, but each
+note is held for a second.  Thus, the scale sounds a little blurry.
+
+<LI> <b><a href=Repeating-Louder-MEF.txt>Repeating-Louder-MEF.txt</a></b>,
+<b><a href=Repeating-Louder.mid>Repeating-Louder.mid</a></b>:
+Middle C, repeating every 1/10th of a second, getting louder at each repetition.
+</UL>
+<p>
+And below are some more complex piano pieces:
+<UL>
+<p><LI> <b><a href=Chopin-Black-Key-MEF.txt>Chopin-Black-Key-MEF.txt</a></b>,
+<b><a href=Chopin-Black-Key.mid>Chopin-Black-Key.mid</a></b>: Chopin's "Black Key" Etude, Opus 10, #5.
+<p><LI> <b><a href=Chopin-Military-Polonaise-Beginning-MEF.txt>Chopin-Military-Polonaise-Beginning-MEF.txt</a></b>,
+<b><a href=Chopin-Military-Polonaise-Beginning.mid>Chopin-Military-Polonaise-Beginning.mid</a></b>: The 
+beginning of Chopin's "Military" Polonaise, Opus 40, #1.
+<p><LI> <b><a href=Gershwin-RIB-MEF.txt>Gershwin-RIB-MEF.txt</a></b>,
+<b><a href=Gershwin-RIB.mid>Gershwin-RIB.mid</a></b>: Gershwin's Rhapsody in Blue, played by the Composer on 
+a Duo-Art Piano Roll, and then converted to MIDI.
+<p><LI> <b><a href=Rachmaninoff-Elegy-MEF.txt>Rachmaninoff-Elegy-MEF.txt</a></b>,
+<b><a href=Rachmaninoff-Elegy.mid>Rachmaninoff-Elegy.mid</a></b>: Rachmaninoff's Elegy, Opus 3, #1.
+<p><LI> <b><a href=Scriabin-Etude-Beginning-MEF.txt>Scriabin-Etude-Beginning-MEF.txt</a></b>,
+<b><a href=Scriabin-Etude-Beginning.mid>Scriabin-Etude-Beginning.mid</a></b>: Beginning of Scriabin's Etude, Opus 8, #10.
+<p><LI> <b><a href=bach_565-MEF.txt>bach_565-MEF.txt</a></b>,
+<b><a href=bach_565.mid>bach_565.mid</a></b>: Bach's D minor Toccata (maybe and Fugue -- I haven't listened that far), 
+BWV 565.
+<p><LI> <b><a href=Coltrane_Mr_PC-MEF.txt>Coltrane_Mr_PC-MEF.txt</a></b>,
+<b><a href=Coltrane.mid>Coltrane.mid</a></b>: Melody from Mr. PC, by John Coltrane (from the
+album Giant Steps).  Thanks to Forrest Sable for sending me that one (CS302, 2014).
+</UL>
+<hr>
+<h3>Converting CS302-Midi-Event-Files into MIDI and vice versa</h3>
+
+I have two programs that turn Midi Event Files into MIDI:
+<P>
+<UL>
+<LI> <b>mef2jmid outputfile</b> takes a CS302-Midi-Event-File on standard input, and turns
+it into an intermediate format called JMID.  This is a text format that is
+much closer to MIDI than our event files.
+<p>
+<LI> <b>jmid2mid outputfile</b> takes a JMID file on standard input and turns
+it into a MIDI file on <b>outputfile</b>. You should be able to play the MIDI
+file on your web browser, or using Quicktime.
+</UL>
+<p>
+Converting MIDI into a CS302-Midi-Event-File is more of a black art.  The first step
+is to use <b>mid2jmid outputfile</b>, which takes a MIDI file on standard input
+and turns it into a JMID file on <b>outputfile</b>.  At that point, you should 
+look at the first few lines.  Here are two examples:
+
+<pre>
+UNIX> <b>head tmp.txt</b>
+JMID FILE
+Format: 1  ntracks: 1  Division: 480
+TRACK 0
+    962 NOTE-ON  90  39  88
+      0 NOTE-ON  90  27  83
+    346 CONTROL  B0  64 127
+     38 NOTE-ON  90  46  60
+    308 NOTE-ON  90  54  66
+    288 NOTE-ON  90  63  54
+    336 NOTE-ON  90  70  55
+UNIX> <b>mid2jmid < bach_565.mid tmp.txt</b>
+UNIX> <b>head tmp.txt</b>
+JMID FILE
+Format: 1  ntracks: 10  Division: 240
+TRACK 0
+      0 META       FF 7F 3 00 00 41
+      0 META       FF 58 4 04 02 18 08
+      0 META       FF 51 3 07 A1 20
+      0 META       FF 2F 0
+TRACK 1
+      0 META       FF 01 6 43 68 75 72 63 68
+      0 PROGRM   C0  19
+UNIX> <b></b>
+</pre>
+
+In the first case, the MIDI file is simple -- one track.  In the second, it's not, with 10 tracks.
+Basically, what you should do is go into <b>vi</b> and delete all the tracks but the one that
+you want.  Then, run <b>jmid2mef outputfile</b> on it.  That strips out all the events but 
+the NOTE and DAMPER events, and converts the result into a Midi Event File:
+
+<pre>
+UNIX> <b>sed -e '1930,$d' -e 3,7d tmp.txt > bach_565-JMID.txt</b>
+UNIX> <b>jmid2mef < bach_565-JMID.txt bach_565-MEF.txt</b>
+UNIX> <b>mef2jmid < bach_565-MEF.txt tmp-jmid.txt</b>
+UNIX> <b>jmid2mid < tmp-jmid.txt bach-stripped.mid</b>
+</pre>
+
+The result, in 
+<b><a href=bach-stripped.mid>bach-stripped.mid</a></b> has the Bach piece, but with 
+everything but the ON/OFF/DAMPER events stripped out.
+<p>
+You may have to do a little more editing at times, because sometimes MIDI files are weird.
+
