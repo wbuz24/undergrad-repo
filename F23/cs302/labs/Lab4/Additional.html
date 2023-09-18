@@ -1,0 +1,59 @@
+The following was a piazza post about the gradescript's running times:
+
+<h3>Lab 4 Run Times</h3>
+
+Question: At the end of the Lab 4 write-up, there is a table showing how long each gradescript took to run.  I am wondering if this is how long it took to run a gradescript (i.e. #81) using "./gradescript 81" or using the actual contents of gradescript 81, meaning "./matrix_enum 5 10 h"?
+ 
+<h3>The instructors' answer</h3>
+
+The majority of time is spent in <b>double_check</b>.  Let me explain:
+<p>
+ 
+Calling <b>matrix_enum 5 10</b> will take a long time, because there are (5!) * ( 20! ) / (10! * 10!) =  22,170,720 matrices that it will generate.  Each matrix prints 6 lines, so we can double-check that math by running <b>matrix_enum 5 10</b> and piping it to <b>wc</b>.  The answer should be 22,170,720*6 = 133,024,320.  As you can see, it takes a minute, 22 seconds.
+<p>
+ 
+<pre>
+UNIX> <font color=darkred><b>time sh -c "./matrix_enum 5 10 h | wc"</b></font>
+133024320 110853600 310390080
+80.069u 1.828s 1:22.82 98.8%  0+0k 0+0io 0pf+0w
+UNIX>
+</pre>
+
+The beauty of the <b>double_check</b> program is you don't have to let <b>matrix_enum</b> complete, and in gradescript 81, you are piping <b>matrix_enum</b> to <b>flatten_for_grading</b>, and then only taking the first 5000 lines of output, and piping that to <b>double_check</b>.  In doing so, <b>matrix_enum</b> doesn't complete -- it will die after outputting roughly 30000 lines (because each matrix corresponds to six lines of output for <b>matrix_enum</b>, and then one line of output for <b>flatten_for_grading</b>).  You will learn the "why's" of this in CS360, but when head exits after reading 5000 lines, it will kill <b>double_check</b> and that will kill <b>matrix_enum</b>.
+<p>
+ 
+Let's prove that <b>matrix_enum</b> only has to print 30000 lines for the gradescript to work: Here, I'm going to show you that piping <b>matrix_enum</b> to <b>head -n 30000</b> and then piping that to "<b>flatten_for_grading | head -n 5000</b>" is the same as what the gradescript does:
+ 
+<pre>
+UNIX> <font color=darkred><b>./matrix_enum 5 10 h | head -n 30000 | /home/plank/cs302/Labs/Lab4/flatten_for_grading | head -n 5000 > f1.txt</b></font>
+UNIX> <font color=darkred><b>./matrix_enum 5 10 h | /home/plank/cs302/Labs/Lab4/flatten_for_grading | head -n 5000 > f2.txt </b></font>
+UNIX> <font color=darkred><b>diff f1.txt f2.txt</b></font>
+UNIX> <font color=darkred><b></b></font>
+</pre>
+
+Now, let's time the components.  First, the first 30,000 lines of <b>matrix_enum</b> should be generated in a blink of an eye:
+ 
+<pre>
+UNIX> <font color=darkred><b>time sh -c "./matrix_enum 5 10 h | head -n 30000 > /dev/null"</b></font>
+0.020u 0.000s 0:00.02 100.0%  0+0k 0+0io 0pf+0w
+UNIX>
+</pre>
+
+Piping them through <b>flatten_for_grading</b> is really quick too:
+ 
+<pre>
+UNIX> <font color=darkred><b>time sh -c "./matrix_enum 5 10 h | /home/plank/cs302/Labs/Lab4/flatten_for_grading | head -n 5000 > /dev/null"</b></font>
+0.068u 0.084s 0:00.15 93.3% 0+0k 0+0io 0pf+0w
+UNIX> <font color=darkred><b></b></font>
+</pre>
+ 
+The program that's taking forever is <b>double_check</b>:
+ 
+<pre>
+UNIX> <font color=darkred><b>./matrix_enum 5 10 h | /home/plank/cs302/Labs/Lab4/flatten_for_grading | head -n 5000 > f1.txt </b></font>
+UNIX> <font color=darkred><b>time /home/plank/cs302/Labs/Lab4/double_check 5 10 h < f1.txt</b></font>
+11.356u 0.040s 0:11.50 99.0%  0+0k 128+0io 0pf+0w
+UNIX> 
+</pre>
+
+The reason is that <b>double_check</b> generates all possible combinations of 'X' and 'E' from its input, and with 10 E's in each matrix, that's a lot of enumeration.

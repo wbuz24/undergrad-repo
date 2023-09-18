@@ -1,0 +1,550 @@
+<title> CS302 -- Lab 4 -- Enumeration</title>
+
+<h1> CS302 -- Lab 4 -- Enumeration</h1>
+<h3>
+<UL> <LI> CS302 -- Data Structures and Algorithms II
+<LI> <a href=http://web.eecs.utk.edu/~jplank>James S. Plank</a>
+<LI> <a href=http://web.eecs.utk.edu/~jplank/plank/classes/cs302/Labs/Lab4/index.html>This file:
+     <b>http://web.eecs.utk.edu/~jplank/plank/classes/cs302/Labs/Lab4</b></a>
+<LI> Lab Directory: <b>/home/jplank/cs302/Labs/Lab4</b>
+</UL>
+</h3>
+<hr>
+<h3>What you hand in</h3>
+
+You will submit the single file <b>matrix_enum.cpp</b>.  The TA's will compile that to an 
+executable <b>matrix_enum</b> and test it with the grading script.  They will use the following
+command to compile:
+
+<pre>
+UNIX> <font color=darkred><b>g++ -Wall -Wextra -std=c++11 -o matrix_enum matrix_enum.cpp</b></font>
+</pre>
+
+<hr>
+
+<h3>Introduction, and your enumerations</h3>
+
+Back in the late 2000's and early 2010's, 
+I was doing research on <i>erasure codes</i>.  These are techniques
+for protecting data in storage systems composed of multiple disks (think <a href=https://en.wikipedia.org/wiki/RAID>RAID</a>).  In 2008, I wrote a paper entitled
+<i>"A New Minimum Density RAID-6 Code with a Word Size of Eight."</i>  If you dare, you 
+can read the paper at <a href=http://web.eecs.utk.edu/~jplank/plank/papers/NCA-2008.html>http://web.eecs.utk.edu/~jplank/plank/papers/NCA-2008.html</a>.  Read it out loud to your significant other when 
+he/she can't sleep.  
+
+<p>
+Part of this research was performing enumerations of square matrices.  The elements in the
+matrices can be any of three characters: <tt>'.'</tt>, <tt>'X'</tt> and <tt>'E'</tt>.
+The enumeration is parameterized by two values:
+<UL>
+<LI> <b>W</b> (which stands for the "word size") is the number of rows in the matrices.  It is
+also the number of columns, because the matrices are square.
+<LI> <b>E</b> (which stands for "extra non-zero entries") is a number between 0 and <i><b>W</b><sup>2</sup>-<b>W</b></i>.
+</UL>
+
+Now, given <b>W</b> and <b>E</b>, your job is to enumerate all matrices of the following
+form:
+<UL>
+<LI> There are exactly <b>W</b> elements with <tt>X</tt>'s.  There must be an <tt>'X'</tt> in every row and every 
+column.  (BTW, this is called a <i><a href=https://en.wikipedia.org/wiki/Permutation_matrix>Permutation Matrix</a></i>).
+<LI> There are exactly <b>E</b> elements that have <tt>E</tt>'s in them, and they can't be where the
+<tt>X</tt>'s are.
+<LI> The remaining <i><b>W</b><sup>2</sup>-<b>W</b>-<b>E</b></i> elements contain <tt>'.'</tt>.
+</UL>
+
+For example, when <b>W</b> is 3 and <b>E</b> is 1, then you have the following 36 matrices:
+
+<p>
+<center>
+<table border=3 cellpadding=5>
+<tr><td>
+<tt>XE.</tt><br>
+<tt>.X.</tt><br>
+<tt>..X</tt><br>
+</td><td>
+<tt>X.E</tt><br>
+<tt>.X.</tt><br>
+<tt>..X</tt><br>
+</td><td>
+<tt>X..</tt><br>
+<tt>EX.</tt><br>
+<tt>..X</tt><br>
+</td><td>
+<tt>X..</tt><br>
+<tt>.XE</tt><br>
+<tt>..X</tt><br>
+</td><td>
+<tt>X..</tt><br>
+<tt>.X.</tt><br>
+<tt>E.X</tt><br>
+</td><td>
+<tt>X..</tt><br>
+<tt>.X.</tt><br>
+<tt>.EX</tt><br>
+</td><td>
+<tt>XE.</tt><br>
+<tt>..X</tt><br>
+<tt>.X.</tt><br>
+</td><td>
+<tt>X.E</tt><br>
+<tt>..X</tt><br>
+<tt>.X.</tt><br>
+</td><td>
+<tt>X..</tt><br>
+<tt>E.X</tt><br>
+<tt>.X.</tt><br>
+</td><td>
+<tt>X..</tt><br>
+<tt>.EX</tt><br>
+<tt>.X.</tt><br>
+</td><td>
+<tt>X..</tt><br>
+<tt>..X</tt><br>
+<tt>EX.</tt><br>
+</td><td>
+<tt>X..</tt><br>
+<tt>..X</tt><br>
+<tt>.XE</tt><br>
+</td></tr><tr><td>
+<tt>EX.</tt><br>
+<tt>X..</tt><br>
+<tt>..X</tt><br>
+</td><td>
+<tt>.XE</tt><br>
+<tt>X..</tt><br>
+<tt>..X</tt><br>
+</td><td>
+<tt>.X.</tt><br>
+<tt>XE.</tt><br>
+<tt>..X</tt><br>
+</td><td>
+<tt>.X.</tt><br>
+<tt>X.E</tt><br>
+<tt>..X</tt><br>
+</td><td>
+<tt>.X.</tt><br>
+<tt>X..</tt><br>
+<tt>E.X</tt><br>
+</td><td>
+<tt>.X.</tt><br>
+<tt>X..</tt><br>
+<tt>.EX</tt><br>
+</td><td>
+<tt>EX.</tt><br>
+<tt>..X</tt><br>
+<tt>X..</tt><br>
+</td><td>
+<tt>.XE</tt><br>
+<tt>..X</tt><br>
+<tt>X..</tt><br>
+</td><td>
+<tt>.X.</tt><br>
+<tt>E.X</tt><br>
+<tt>X..</tt><br>
+</td><td>
+<tt>.X.</tt><br>
+<tt>.EX</tt><br>
+<tt>X..</tt><br>
+</td><td>
+<tt>.X.</tt><br>
+<tt>..X</tt><br>
+<tt>XE.</tt><br>
+</td><td>
+<tt>.X.</tt><br>
+<tt>..X</tt><br>
+<tt>X.E</tt><br>
+</td></tr><tr><td>
+<tt>E.X</tt><br>
+<tt>.X.</tt><br>
+<tt>X..</tt><br>
+</td><td>
+<tt>.EX</tt><br>
+<tt>.X.</tt><br>
+<tt>X..</tt><br>
+</td><td>
+<tt>..X</tt><br>
+<tt>EX.</tt><br>
+<tt>X..</tt><br>
+</td><td>
+<tt>..X</tt><br>
+<tt>.XE</tt><br>
+<tt>X..</tt><br>
+</td><td>
+<tt>..X</tt><br>
+<tt>.X.</tt><br>
+<tt>XE.</tt><br>
+</td><td>
+<tt>..X</tt><br>
+<tt>.X.</tt><br>
+<tt>X.E</tt><br>
+</td><td>
+<tt>E.X</tt><br>
+<tt>X..</tt><br>
+<tt>.X.</tt><br>
+</td><td>
+<tt>.EX</tt><br>
+<tt>X..</tt><br>
+<tt>.X.</tt><br>
+</td><td>
+<tt>..X</tt><br>
+<tt>XE.</tt><br>
+<tt>.X.</tt><br>
+</td><td>
+<tt>..X</tt><br>
+<tt>X.E</tt><br>
+<tt>.X.</tt><br>
+</td><td>
+<tt>..X</tt><br>
+<tt>X..</tt><br>
+<tt>EX.</tt><br>
+</td><td>
+<tt>..X</tt><br>
+<tt>X..</tt><br>
+<tt>.XE</tt><br>
+</td></tr></table></center><p>
+
+Your job is to write a program called <b>matrix_enum</b>, which takes three command line
+arguments: <b>W</b>, <b>E</b> and either an <tt>'x'</tt> or an <tt>'h'</tt>.  Your
+program will enumerate all of the matrices for <b>W</b> and <b>E</b>, in any order you 
+want, and print them out in one of the following two formats:
+<UL>
+<LI> If the last argument is <tt>'x'</tt>, then you'll print the matrices out in the
+format above.  You should print each matrix as <b>W</b> lines of <b>W</b> characters 
+that are 
+<tt>'.'</tt>, <tt>'X'</tt> or <tt>'E'</tt>.  After each matrix, you print a blank line.
+<LI> If the last argument is <tt>'h'</tt>, then you'll convert each line of each matrix into
+an integer, and print that integer in hexadecimal, with no leading 0's and no leading
+<tt>"0x"</tt>.  
+If element <i>i</i> in a row is 
+<tt>'X'</tt> or <tt>'E'</tt>, then you'll set the <i>i</i>-th bit of the number to 1.  Otherwise,
+the 
+<i>i</i>-th bit is zero.
+You'll print each integer on its own line, and print a blank line at the
+end of each matrix.   
+</UL>
+
+Here are a few runs:
+<p>
+<center>
+<table border=3 cellpadding=5>
+<td valign=top><pre>UNIX> <font color=darkred><b>matrix_enum 2 0 x</b></font>
+X.
+.X
+
+.X
+X.
+
+UNIX></pre></td>
+<td valign=top><pre>UNIX> <font color=darkred><b>matrix_enum 2 1 x</b></font>
+XE
+.X
+
+X.
+EX
+
+EX
+X.
+
+.X
+XE
+
+UNIX></pre></td>
+<td valign=top><pre>UNIX> <font color=darkred><b>matrix_enum 2 2 x</b></font>
+XE
+EX
+
+EX
+XE
+
+UNIX></pre></td>
+<td valign=top><pre>UNIX> <font color=darkred><b>matrix_enum 2 0 h</b></font>
+1
+2
+
+2
+1
+
+UNIX></pre></td>
+<td valign=top><pre>UNIX> <font color=darkred><b>matrix_enum 2 1 h</b></font>
+3
+2
+
+1
+3
+
+3
+1
+
+2
+3
+
+UNIX></pre></td>
+<td valign=top><pre>UNIX> <font color=darkred><b>matrix_enum 2 2 h</b></font>
+3
+3
+
+3
+3
+
+UNIX></pre></td>
+</table>
+</center>
+
+<h3>Approach</h3>
+
+This is a two-level enumeration.  The first enumeration is enumerating the permutation
+matrices (the <tt>X</tt>'s).  You can do this by enumerating permutations of the numbers
+(0,1,2,...<b>W</b>-1).  Let's suppose that each permutation is represented by a 
+vector of <b>W</b> numbers.  Then, the <tt>'X'</tt> in row <i>i</i> will be in 
+the column specified by element <i>i</i> of the vector.  For example, if <b>W</b> 
+equals 3, then the permutation (1,2,0) represents the matrix:
+<pre>
+.X.
+..X
+X..
+</pre>
+
+I don't want you to use <b>next_permutation()</b> to implement this part.  Use the recursive
+technique specified in the <a href=http://web.eecs.utk.edu/~jplank/plank/classes/cs302/Notes/Enumeration/>Enumeration lecture notes</a>, in the section entitled "Using Recursion to Permute." 
+If you use <b>next_permutation()</b>, you will lose 10 points on this lab, so when you're 
+developing your code, you may want to start by using <b>next_permutation()</b>, and then
+changing it to use recursion when you've gotten everything else working.
+
+<p>
+At the second level, you have 
+<i><b>W</b><sup>2</sup>-<b>W</b></i> potential locations for the <tt>'E'</tt> characters.
+Thus, this is an "<i>n</i> choose <i>k</i>" where <i>n</i> is equal to 
+<i><b>W</b><sup>2</sup>-<b>W</b></i> and <i>k</i> is equal to <b>E</b>.  Implement this
+using the recursive technique specified 
+in the <a href=http://web.eecs.utk.edu/~jplank/plank/classes/cs302/Notes/Enumeration/>Enumeration lecture notes</a>, in the section entitled "Using Recursion to Perform an "<i>n</i> choose <i>k</i>" Enumeration."   
+<p>
+When I did this, I created a vector out of the non-<tt>'X'</tt> matrix elements.  I stored
+these as numbers: (row * <b>W</b> + column).  I then enumerated all ways to 
+choose <b>E</b> of these, using the same technique as in the lecture notes.
+Continuing the example above, suppose <b>W</b> equals three, and my permutation matrix
+is (1,2,0).  Then the potential spots for <tt>'E'</tt> elements are the following (again,
+using (row * <b>W</b> + column)):
+<p>
+<center>
+(0, 2, 3, 4, 7, 8).
+</center>
+<p>
+Here is my main class definition.  You don't need to use this, but you may 
+find it useful:
+
+<p><center><table border=3 cellpadding=3><td><pre>
+class Matrix {
+  public:
+    int W;
+    int E;
+    int P;                      <font color=blue>/* This is 'x' or 'h' */</font>
+    vector &lt;int&gt; Perm;          <font color=blue>/* Permutation of 0 .. (W-1), for the 'X' elements. */</font>
+    vector &lt;int&gt; Non_X;         <font color=blue>/* This is the row/col id of each of the non-X elements. */</font>
+    vector &lt;int&gt; E_ID;          <font color=blue>/* This is the row/col id of the E elements */</font>
+    void Print();               <font color=blue>/* Print the matrix defined by W, Perm and E_ID */</font>
+    void Permute(int index);    <font color=blue>/* This is the recursive permuting method. */</font>
+    void Choose(int index);     <font color=blue>/* This is the recursive n-choose-k method. */</font>
+};
+</pre></td></table></center><p>
+
+<hr>
+<h3>The Gradescript</h3>
+
+I have two techniques for grading these.  The first
+pipes the output of your program through
+the program <b><a href=flatten_for_grading.cpp>flatten_for_grading.cpp</a></b>.  
+This program coalesces 
+the lines for each matrix down to one line, and then prints the lines.  Thus, if you 
+pipe the output for this to <b>sort</b>, then you'll get all of the matrices, printed
+on one line, sorted lexicographically
+
+<pre>
+UNIX> <font color=darkred><b>matrix_enum 2 1 x | flatten_for_grading | sort</b></font>
+.X XE
+EX X.
+X. EX
+XE .X
+UNIX> <font color=darkred><b>matrix_enum 2 1 h | flatten_for_grading | sort</b></font>
+1 3
+2 3
+3 1
+3 2
+UNIX> <font color=darkred><b></b></font>
+</pre>
+
+Your output, after being piped through <b>flatten_for_grading</b> and then <b>sort</b>, 
+has to match my output
+(piped through <b>flatten_for_grading</b> and <b>sort</b>) verbatim.
+This will be the technique used for gradescripts 0 through 70.
+<p>
+The second technique is to use the program 
+<b>double_check</b>.  This takes <b>W</b>,
+<b>E</b>, and <b>h|x</b> on the command line
+and then accepts input of your program piped through <b>flatten_for_grading</b>.
+It then checks every line of input t to see
+if it is legal for those parameters.  
+This means that for <tt>'x'</tt>:
+
+<UL>
+<LI> Lines have the proper number of characters and are in the proper format.
+<LI> Each row has exactly one <tt>'X'</tt> in a different column.
+<LI> The number of <tt>'E'</tt> and <tt>'.'</tt> characters is correct.
+<LI> Lines are unique.
+</UL>
+
+For <tt>'h'</tt>, the line is converted into a string, and then checked as in <tt>'x'</tt> above.
+There is a little subtlety here, because a single <tt>'h'</tt> line can correspond to quite
+a few strings.  What <b>double_check</b> does is enumerate all of the strings that the 
+<tt>'h'</tt> line corresponds to, and it counts the legal ones.  It then allows to to use
+that string that many times.  Let's try an example.  Suppose that <b>W</b> equals three and
+<b>E</b> equals 2,
+and you specify the 
+<tt>'h'</tt> matrix (3,3,4).  This can correspond to the following legal matrices:
+
+<p>
+<center>
+<table border=3 cellpadding=5>
+<tr><td>
+<tt>XE.</tt><br>
+<tt>EX.</tt><br>
+<tt>..X</tt><br>
+</td><td>
+<tt>EX.</tt><br>
+<tt>XE.</tt><br>
+<tt>..X</tt><br>
+</td></tr>
+</table></center><p>
+
+So <b>double_check</b> will allow you to specify (3,3,4) twice, but not three times.
+<p>
+The <b>double_check</b> program prints nothing if its input is legal.  If you have a problem,
+it prints an error message on standard output.  For example, here's what happens if you 
+specify (3,3,4) three times in the above example:
+
+<pre>
+UNIX> <font color=darkred><b>double_check 3 2 h</b></font>
+<font color=darkred><b>3 3 4</b></font>
+<font color=darkred><b>3 3 4</b></font>
+<font color=darkred><b>3 3 4</b></font>
+Bad line 3: Too many lines (3) with these values.
+Here are the matrices that correspond to these values:
+EX. XE. ..X
+XE. EX. ..X
+UNIX> <font color=darkred><b></b></font>
+</pre>
+
+Gradescripts 71 through 100 pipe the output of your program through <b>flatten_for_grading</b>,
+and then through <b>head -n 50000</b>, and then through <b>double_check</b>.  This lets me
+grade for larger values of <b>W</b> and <b>E</b> without waiting for the giant enumerations
+to complete.
+<p>
+To help you manage your expectations -- the following table contains how long the gradescripts took on my programs (seconds).  Most of this time is in <b>double_check</b>, by the way --
+please see <a href=Additional.html>this Piazza question and answer for more detail on why gradescript 81 takes so long</a>.
+
+<p><center>
+<table border=3 cellpadding=10>
+<td valign=top>
+1 - 0.08<br>
+2 - 0.06<br>
+3 - 0.06<br>
+4 - 0.06<br>
+5 - 0.06<br>
+6 - 0.06<br>
+7 - 0.07<br>
+8 - 0.07<br>
+9 - 0.06<br>
+10 - 0.06<br>
+11 - 1.65<br>
+12 - 0.06<br>
+13 - 0.81<br>
+14 - 0.20<br>
+15 - 4.09<br>
+16 - 0.37<br>
+17 - 0.09<br>
+18 - 1.93<br>
+19 - 0.66<br>
+20 - 0.21<br>
+</td><td valign=top>
+21 - 3.31<br>
+22 - 0.76<br>
+23 - 0.43<br>
+24 - 0.09<br>
+25 - 1.38<br>
+26 - 0.32<br>
+27 - 1.71<br>
+28 - 1.81<br>
+29 - 0.14<br>
+30 - 3.17<br>
+31 - 0.34<br>
+32 - 0.83<br>
+33 - 0.44<br>
+34 - 2.77<br>
+35 - 1.54<br>
+36 - 0.07<br>
+37 - 0.07<br>
+38 - 0.39<br>
+39 - 2.07<br>
+40 - 3.38<br>
+</td><td valign=top>
+41 - 0.06<br>
+42 - 2.71<br>
+43 - 0.13<br>
+44 - 2.01<br>
+45 - 0.10<br>
+46 - 0.06<br>
+47 - 1.27<br>
+48 - 0.15<br>
+49 - 0.22<br>
+50 - 0.18<br>
+51 - 0.04<br>
+52 - 0.04<br>
+53 - 0.04<br>
+54 - 0.04<br>
+55 - 0.40<br>
+56 - 0.05<br>
+57 - 0.05<br>
+58 - 0.05<br>
+59 - 0.04<br>
+60 - 0.04<br>
+</td><td valign=top>
+61 - 0.29<br>
+62 - 0.04<br>
+63 - 0.29<br>
+64 - 0.35<br>
+65 - 0.25<br>
+66 - 0.68<br>
+67 - 0.06<br>
+68 - 0.50<br>
+69 - 0.27<br>
+70 - 0.22<br>
+71 - 0.27<br>
+72 - 1.73<br>
+73 - 0.42<br>
+74 - 0.05<br>
+75 - 1.21<br>
+76 - 1.17<br>
+77 - 1.68<br>
+78 - 1.79<br>
+79 - 0.49<br>
+80 - 2.08<br>
+</td><td valign=top>
+81 - 11.78<br>
+82 - 1.00<br>
+83 - 0.77<br>
+84 - 1.53<br>
+85 - 1.52<br>
+86 - 2.20<br>
+87 - 0.53<br>
+88 - 0.52<br>
+89 - 0.41<br>
+90 - 2.65<br>
+91 - 2.40<br>
+92 - 1.48<br>
+93 - 1.80<br>
+94 - 0.78<br>
+95 - 0.63<br>
+96 - 1.76<br>
+97 - 1.17<br>
+98 - 0.57<br>
+99 - 0.30<br>
+100 - 2.38<br>
+</td></table></center>
