@@ -22,32 +22,39 @@ void CS302_Midi::el_to_nd()
   list <Event *>::const_iterator lit; // const iterator for the el list
   size_t i;
 
+  double ltime = 0, c = 0;
+
   v.resize(128, NULL); // resize vector 128 & initialize to NULL
 
   for (lit = el->begin(); lit != el->end(); lit++) {
 
+    ND* nn = new ND;
     if ((*lit)->key == 'O') { // on event
-      ND* nn = new ND;
       nn->key = 'N';
       nn->pitch = (*lit)->v1;
-      nn->start = (*lit)->time;
+      nn->start = ((*lit)->time + ltime) / 480;
       nn->volume = (*lit)->v2;
       v[nn->pitch] = nn; // place in the vector
     }
 
     if ((*lit)->key == 'F') { // off event
-      v[(*lit)->v1]->stop = (*lit)->time; // index to the pitch & set the stop
+      v[(*lit)->v1]->stop = ((*lit)->time + ltime) / 480; // index to the pitch & set the stop
       nd->insert(make_pair(v[(*lit)->v1]->start, v[(*lit)->v1])); // insert into nd map
     }
 
-    if ((*lit)->key == 'D' && (*lit)->v1 == 1) { // damper DOWN
-      ND* n = new ND;
-      n->key = 'D';
-      n->start = (*lit)->time;
-      lit++; // increment the iterator
-      n->stop = (*lit)->time; // set stop time
-      nd->insert(make_pair(n->start, n)); // insert into the map
+    if ((*lit)->key == 'D') { // damper DOWN
+      if ((*lit)->v1 == 1) c = ((*lit)->time + ltime) / 480;
+      else if ((*lit)->v1 == 0) {
+      nn->key = 'D';
+      nn->start = c;
+      nn->stop = ((*lit)->time + ltime) / 480; // set stop time
+      nd->insert(make_pair(c, nn)); // insert into the map
+
+      }
     }
+    ltime += (*lit)->time;
+
+   
     // traverse the vector & make sure no ON events never end
 
   }
