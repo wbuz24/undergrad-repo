@@ -1,10 +1,11 @@
 // Will Buziak
 // CS302
 // Lab 4
-// Enumeration
+// Enumeration with recursion
 
-#include <iostream>
 #include <cstdio>
+#include <iostream>
+#include <fstream>
 #include <vector>
 using namespace std;
 
@@ -16,7 +17,7 @@ public:
   vector <int> Perm;          /* Permutation of 0 .. (W-1), for the 'X' elements. */
   vector <int> Non_X;         /* This is the row/col id of each of the non-X elements. */
   vector <int> E_ID;          /* This is the row/col id of the E elements */
-  vector < vector <int> > im;
+  vector <vector <int> > im;  // vector of vectors to map the permutations
   void Print();               /* Print the matrix defined by W, Perm and E_ID */
   void Permute(int index);    /* This is the recursive permuting method. */
   void Choose(int index);     /* This is the recursive n-choose-k method. */
@@ -24,54 +25,71 @@ public:
 
 void Matrix::Print() {
   size_t i, j;
-  /*for (i = 0; i < Perm.size(); i++) printf("%c", Perm[i]); 
+
+  cout << "Printing: " << endl; 
+  /*  for (j = 0; j < Perm.size(); j++) printf("%c", Perm[j]);
   cout << endl;
 */
   for (i = 0; i < im.size(); i++) {
-    for (j = 0; j < im[i].size(); j++) { 
+    for (j = 0; j < im[i].size(); j++) {
       printf("%c", im[i][j]);
     }
     printf("\n");
+    printf("\n");
   }
-  cout << endl;
   return;
 }
 
-void Matrix::Permute(int index) {
-  vector <int> tmp;
-  //size_t i;
+void Matrix::Permute (int index) {
+  size_t i, j;
 
-    cout << index << endl;
-  if ((size_t) index == Perm.size()) {
-    Print();
+  //cout << "Index: " << index << endl;
+  if (index == W) { // base case, print
+    //Print();
     return;
   }
 
+  Perm.clear();
+  Perm.resize(W, '.'); // resize vector with .'s
 
-  //for (i = index; i < Perm.size(); i++) {
-    tmp = Perm;
-    Perm[index] = 'X';
+  for (i = index; i < Perm.size(); i++) {
+    Perm[index] = 'X'; // insert X at the index
     im.push_back(Perm);
-    Perm = tmp;
-
-    Permute(index + 1);
-    tmp = Perm;
+    Permute(index+1); // recursive call
     Perm[index] = '.';
-    im.push_back(Perm);
-    Perm = tmp;
-  //}
+  }
 
-  Choose(index);
 
+  for (i = 0; i < Perm.size(); i++) {
+    if (Perm[i] != 'X') Non_X.push_back(index*W + i);
+  } 
+  cout << "Non_x size: " << Non_X.size() << endl;
+
+  Choose(index); // n choose k call
 }
 
 void Matrix::Choose(int index) {
-  (void) index;
-  return;
+
+  if (E == E_ID.size()) {
+    return; // there are no more E's to enumerate
+  }
+
+  if (Non_X.size() == 0) { // no more spots to choose from
+    Print();
+    return; // second base case
+  }
+  Perm[Non_X[index] % index*W] = 'E';
+  Non_X.pop_back();
+  cout << "Non_x pop: " << Non_X.size() << endl;
+  im.push_back(Perm);
+  E_ID.push_back(Non_X[index] % index*W); // push index*w + j onto E_ID
+  Choose(index+1);
+
 }
 
 int main(int argc, char** argv) {
   Matrix* M = new Matrix;
+  int i;
 
 
   if (argc == 4) { // Gather all command line arguments
@@ -83,5 +101,4 @@ int main(int argc, char** argv) {
   }
   delete M; // clear for memory
   return 0;
-
 }
