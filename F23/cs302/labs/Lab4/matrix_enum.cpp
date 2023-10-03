@@ -3,7 +3,7 @@
  * CS302
  * Lab 4
  * Enumeration through permutation
- * Credit to the student Mung-Shu, although I often work with Mung-Shu, this lab was particularly influenced by my conversations with him.
+ * Credit to the student Mung-Shu
  */ 
 
 #include <iostream>
@@ -24,10 +24,30 @@ public:
 
   void Choose(int e, int index, vector <int> Non_X, vector < vector < char > > &im); // I was only able to get this to work by passing these vectors instead of having access through the class
   void Permute(int index);
+  void Print(vector < vector < char > > im);
 };
 
+void Matrix::Print(vector <vector < char > > im) {
+  size_t i, j;
+  int H;
+  for (i = 0; i < im.size(); i++) {
+    H = 0;
+    for (j = 0; j < im[i].size(); j ++) {
+      if (h == 'h') {
+        if (im[i][j] == 'E' || im[i][j] == 'X') H += 1 << j; // shift the appropriate amount of bits to print as hex
+      }
+      else printf("%c", im[i][j]); // print the matrix regularly
+    }
+    if (h == 'h') printf("%x", H);
+    printf("\n");
+  }
+  printf("\n");
+
+}
+
 void Matrix::Permute(int index) { // permutation by recursion
-  int i, j, tmp;
+  size_t j;
+  int tmp, i;
 
   if (index == (int) Perm.size()) {
     vector < vector < char > > m; // must declare vectors here or code breaks
@@ -36,11 +56,11 @@ void Matrix::Permute(int index) { // permutation by recursion
     for (i = 0; i < W; i++) m[i].resize(W,'.'); // create 2D vector
 
     // mapping 'x' positions to matrix
-    for (j = 0; j < (int) Perm.size(); j ++) m[j][Perm[j]%W] = 'X'; // insert X's
+    for (j = 0; j < Perm.size(); j ++) m[j][Perm[j]%W] = 'X'; // insert X's
 
     // finding the '.'
-    for (i = 0; i < (int) W; i++) {
-      for (j = 0; j < (int) W; j++)	{
+    for (i = 0; i < W; i++) {
+      for (j = 0; j < (size_t) W; j++)	{
         if (m[i][j] == '.') {
           Non_X.push_back((i*W+j));
         }
@@ -67,21 +87,9 @@ void Matrix::Permute(int index) { // permutation by recursion
 
 void Matrix::Choose(int e, int index, vector <int> Non_X, vector <vector < char > > &im) { //recursive n choose k
   if ((int)Non_X.size() - index < e) return;
-  int H;
   // print the matrix
   if (e == 0) {
-    for (int i = 0; i < (int)im.size(); i++) {
-      H = 0;
-      for (int j = 0; j < (int)im[i].size(); j ++) {
-        if (h == 'h') {
-          if (im[i][j] == 'E' || im[i][j] == 'X') H += 1 << j; // shift the appropriate amount of bits to print as hex
-        }
-        else printf("%c", im[i][j]); // print the matrix regularly
-      }
-      if (h == 'h') printf("%x", H);
-      printf("\n");
-    }
-    printf("\n");
+    Print(im);   
     return;
   }
 
