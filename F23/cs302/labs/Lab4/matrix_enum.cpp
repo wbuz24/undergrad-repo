@@ -1,9 +1,9 @@
 /*
- * Mung-Shu Shen
- * yvy976
- * Lab 4: Enumeration
- * 09/20/2023
- * Enumerates all possible positions of 'x','e', and '.' via double recursion 
+ * Will Buziak
+ * CS302
+ * Lab 4
+ * Enumeration through permutation
+ * Credit to the student Mung-Shu, although I often work with Mung-Shu, this lab was particularly influenced by my conversations with him.
  */ 
 
 #include <iostream>
@@ -15,121 +15,98 @@
 #include <cmath>
 using namespace std;
 
-void choose(char &h, int e, int &w, int index, vector <int> &v, vector <vector < char > > &m)
-{
-	if ((int)v.size() - index <  e) return;
-	
-	// print the matrix
-	if (e == 0)
-	{
-		for (int i = 0; i < (int)m.size(); i ++)
-		{
-			int s = 0;
-			for (int j = 0; j < (int)m[i].size(); j ++)
-			{
-				if (h == 'h')
-				{
-					if (m[i][j] == 'E' || m[i][j] == 'X') s += 1 << j;
+class Matrix { // class definition, I had to slightly alter from Dr. Plank's
+public:
+  int W;
+  int E;
+  char h;
+  vector <int> Perm;
 
-				}
-				else { cout << m[i][j];}
-			}
-			if (h == 'h') printf("%x", s);
-			cout << endl;
-		}
-		cout << endl;
-		return;
-	}
+  void Choose(int e, int index, vector <int> Non_X, vector < vector < char > > &im); // I was only able to get this to work by passing these vectors instead of having access through the class
+  void Permute(int index);
+};
 
-	// enumerate the positions of 'e'
-	if (e > 0)
-	{
-		m[v[index] / w][v[index] % w] = 'E';
-		choose(h,e-1,w,index + 1, v, m);
-		m[v[index] / w][v[index] % w] = '.';
-		choose(h,e,w,index + 1, v, m);
-	}
-}
-void permute(char &h, int e, int &w,vector < int > &v,int index)
-{
-	int i, j, temp;
+void Matrix::Permute(int index) { // permutation by recursion
+  int i, j, tmp;
 
-	if (index == (int) v.size())
-	{
+  if (index == (int) Perm.size()) {
+    vector < vector < char > > m; // must declare vectors here or code breaks
+    vector <int> Non_X;
+    m.resize(W);
+    for (i = 0; i < W; i++) m[i].resize(W,'.'); // create 2D vector
 
-		vector < vector < char > > matrix;
-		matrix.resize(w);
-		vector <int> d;
-		for (int t = 0; t < w; t ++) matrix[t].resize(w,'.');
+    // mapping 'x' positions to matrix
+    for (j = 0; j < (int) Perm.size(); j ++) m[j][Perm[j]%W] = 'X'; // insert X's
 
-		// mapping 'x' positions to matrix
-		for (j = 0; j < (int) v.size(); j ++) matrix[j][v[j]%w] = 'X';
+    // finding the '.'
+    for (i = 0; i < (int) W; i++) {
+      for (j = 0; j < (int) W; j++)	{
+        if (m[i][j] == '.') {
+          Non_X.push_back((i*W+j));
+        }
+      } 
+    }
+    // enumerate the matrix with d.size possible positions for 'e'
+    Choose(E, 0, Non_X, m);
+    return;
+  }
 
+  // recursive call
+  for (i = index; i < (int) Perm.size(); i ++) {
+    tmp = Perm[i];
+    Perm[i] = Perm[index];
+    Perm[index] = tmp;
 
-		// finding the '.'
-		for (j = 0; j < (int) w; j ++)
-		{
-			for (i = 0; i < (int) w; i ++)
-			{
-				if (matrix[j][i] == '.')
-				{
-					d.push_back((j*w+i));
+    Permute(index + 1 );
 
-				}
-			} 
-
-		}
-		// enumerate the matrix with d.size possible positions for 'e'
-		choose(h,e,w,0,d,matrix);
-		return;
-	}
-
-	// recursive call
-	for (i = index; i < (int) v.size(); i ++)
-	{
-		temp = v[i];
-		v[i] = v[index];
-		v[index] = temp;
-
-		permute(h,e,w,v,index + 1 );
-
-		temp = v[i];
-		v[i] = v[index];
-		v[index] = temp;
-	}
+    tmp = Perm[i];
+    Perm[i] = Perm[index];
+    Perm[index] = tmp;
+  }
 }
 
+void Matrix::Choose(int e, int index, vector <int> Non_X, vector <vector < char > > &im) { //recursive n choose k
+  if ((int)Non_X.size() - index < e) return;
+  int H;
+  // print the matrix
+  if (e == 0) {
+    for (int i = 0; i < (int)im.size(); i++) {
+      H = 0;
+      for (int j = 0; j < (int)im[i].size(); j ++) {
+        if (h == 'h') {
+          if (im[i][j] == 'E' || im[i][j] == 'X') H += 1 << j; // shift the appropriate amount of bits to print as hex
+        }
+        else printf("%c", im[i][j]); // print the matrix regularly
+      }
+      if (h == 'h') printf("%x", H);
+      printf("\n");
+    }
+    printf("\n");
+    return;
+  }
 
-int main(int argc, char ** argv)
-{
-	if (argc != 4)
-	{
-		return -1;
-	}
-
-	int w, e;
-	char f;
-	int i; 
-
-	w = stoi(argv[1]);
-	e = stoi(argv[2]);
-	f = argv[3][0];
-	vector < vector < vector < char > >  >big;
-	vector < vector < int > > x_pos;
-	vector < int > x;
-
-	// vector of 0,1,2,...w-1
-	for (i = 0; i < w; i ++) x.push_back(i);
-
-	// dat fat double recursive call
-	permute(f,e,w,x,0);
-	return 0;
+  // enumerate the positions of 'e'
+  im[Non_X[index] / W][Non_X[index] % W] = 'E';
+  Choose(e-1,index + 1, Non_X, im); // recursive calls
+  im[Non_X[index] / W][Non_X[index] % W] = '.';
+  Choose(e,index + 1, Non_X, im);
 }
 
+int main(int argc, char ** argv) {
+  if (argc == 4) {
+    int i;
+    Matrix *M = new Matrix;
 
+    M->W = stoi(argv[1]);
+    M->E = stoi(argv[2]);
+    M->h = argv[3][0];
 
+    // vector to permute
+    for (i = 0; i < M->W; i ++) M->Perm.push_back(i);
 
-
-
-
-
+    // double recursive call
+    M->Permute(0);
+    delete M;
+  }
+  return 0;
+}
