@@ -17,6 +17,16 @@ class TheBrickTowerMediumDivTwo {
 vector <int> TheBrickTowerMediumDivTwo::find(vector <int> heights)
 {
   vector <int> rv;
+  int u, iter = 0;
+  rv.clear();
+
+  while (next_permutation(heights.begin(), heights.end())) {
+    u = heights[iter] - heights[iter+1];
+
+    rv.push_back(u);
+
+    iter++;
+  }
 
   return rv;
 }
