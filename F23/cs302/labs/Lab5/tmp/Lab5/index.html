@@ -1,0 +1,1518 @@
+<title> CS302 -- Lab 5 -- Superball!</title>
+
+<h1> CS302 -- Lab 5 -- Superball!</h1>
+<h3>
+<UL> <LI> CS302 -- Fundamental Algorithms
+<LI> <a href=http://web.eecs.utk.edu/~jplank>James S. Plank</a>
+<LI> <a href=http://web.eecs.utk.edu/~jplank/plank/classes/cs302/Labs/Lab5/>This file:
+     <b>http://web.eecs.utk.edu/~jplank/plank/classes/cs302/Labs/Lab5/</b></a>
+</UL>
+</h3>
+
+<hr> <i>
+Tue Nov 27 16:37:58 EST 2007.  Last revision: 
+Fri Jan 21 10:08:31 EST 2022
+</i> <hr>
+
+<h2>What you hand in</h2>
+
+This is split into two labs on Canvas:
+<UL>
+<LI> Lab 5A is for you to submit <b>sb-analyze.cpp</b>.
+<LI> Lab 5B is for you to submit <b>sb-play.cpp</b>.
+</UL>
+They are both due on the same day, and will be graded independently.  If you are late with
+one, but not the other, the late points will only be applied to the late one.
+<p>
+Please do not submit anything other than those programs.  The TA's will compile them with
+the disjoint set implementation described below.
+
+<hr>
+<h2>Getting Started</h2>
+
+You should start by going to whatever directory you'll be working in (on our lab machines),
+and doing:
+
+<pre>
+UNIX> <font color=darkred><b>sh /home/jplank/cs302/Labs/Lab5/scripts/start_lab.sh</b></font>
+UNIX> <font color=darkred><b>git clone https://jimplank@bitbucket.org/jimplank/plank-disjoint-sets.git            <font color=blue> # You'll need a bitbucket account for this one.</b></font></font>
+UNIX> <font color=darkred><b>cd plank-disjoint-sets</b></font>
+UNIX> <font color=darkred><b>make clean ; make</b></font>
+UNIX> <font color=darkred><b>cd ..</b></font>
+UNIX> <font color=darkred><b>make</b></font>
+</pre>
+
+If all is successful, then you'll have three programs in your <b>bin</b> directory:
+
+<pre>
+UNIX> <font color=darkred><b>ls bin</b></font>
+sb-analyze	sb-play		sb-read
+UNIX> <font color=darkred><b>bin/sb-read</b></font>
+usage: sb-read rows cols min-score-size colors
+UNIX> <font color=darkred><b>bin/sb-analyze</b></font>
+This program doesn't do anything yet.
+UNIX> <font color=darkred><b>bin/sb-play</b></font>
+This program doesn't do anything yet.
+UNIX> <font color=darkred><b></b></font>
+</pre>
+
+<hr>
+<h2>How you are graded</h2>
+
+The gradescript tests <b>sb-analyze</b>.  It will be graded as a 50-point lab.  
+For <b>sb-play</b>, we grade it by running <b>sh scripts/run_multiple.sh</b> on it for at
+least 10 runs.  It too is graded as a 50-point lab.
+<p>
+Remember, (and I know I'm repeating myself here), that you are only submitting two programs -- the TA's will compile with their own 
+copy of the disjoint set code.
+
+<hr>
+<h2>Also</h2>
+Every year, someone asks me for the source to <b>sb-player</b>.  Sorry, but I can't give it out, 
+because it's too easy to modify it to solve the lab.  I can try to make an <b>sb-player</b>
+binary for your machine, and if you want modifications, I'll listen.  Let me know.
+<p>
+There is an <b>sb-player</b> binary for macs in <b>mac-binary/sb-player-mac</b>.
+<p>
+Plus, in 2015, Alex Teepe wrote a multiplatform Superball player to share.  I have not tried
+it, but please do.  Thanks, Alex!
+<p>
+<a href=https://drive.google.com/file/d/0B4rzPrfwFCsKbUpwd21pMlgtc1E/view?usp=drive_link&resourcekey=0-gAtqjRzaBM5sHYs9nlvb7w>https://drive.google.com/file/d/0B4rzPrfwFCsKbUpwd21pMlgtc1E/view?usp=drive_link&resourcekey=0-gAtqjRzaBM5sHYs9nlvb7w</a>
+<p>
+There is a README <a href=txt/Superball-README.txt>here</a>, and a brief
+video to show it in use at: <a href=https://drive.google.com/file/d/0B4rzPrfwFCsKel9TOHRTMFR2TUk/view?usp=drive_link&resourcekey=0-rkDUhTWLp1ZgsLpDwEKgrw>https://drive.google.com/file/d/0B4rzPrfwFCsKel9TOHRTMFR2TUk/view?usp=drive_link&resourcekey=0-rkDUhTWLp1ZgsLpDwEKgrw</a>.
+<p>
+And finally -- a 2023 COSC student, James Shastid, wrote
+<a href=Superball-Player.html>this player</a>, which should play on your browser
+(you may need to resize your window).
+<hr>
+<h2>Disjoint Sets</h2>
+
+If you've done the command above correctly, 
+in your directory <b>plank-disjoint-sets</b>, there is an implementation of disjoint
+sets that comes from <a href=https://bitbucket.org/jimplank/plank-disjoint-sets>https://bitbucket.org/jimplank/plank-disjoint-sets</a>.  You should have compiled the code in that directory,
+and then in the makefile, it will:
+<UL>
+<LI> Make sure that when you say <tt>#include "disjoint_set.hpp"</tt>, it will find it from <b>plank-disjoint-sets/include</b>.
+<LI> Link in <b>plank-disjoint-sets/obj/disjoint_set.o</b>, so that you can use this implementation 
+<LI> When you type <tt>make</tt> in the current directory, it should make dummy versions
+of <b>bin/sb-analyze</b> and <b>bin/sb-play</b>.  If not, you have something wrong with
+your compilation.
+</UL>
+<p>
+You are not allowed to modify the disjoint set code -- you should use it as is.  The TA's
+will compile your code with their versions of the disjoint set code, so you can't customize 
+it.  Moreover, you shouldn't copy the code into your source files, or copy it from the lecture
+notes, and then modify it for your lab.  
+
+<p>
+<font color=red><b>If you don't understand how to compile your program correctly, please ask the TA's or
+ask on Piazza.  DO NOT COPY THE DISJOINT SET CODE FROM LECTURE AND INCLUDE IT WITH YOUR PROGRAM.
+Instead, use the code from bitbucket, as specified above</b></font>.
+
+<p>
+
+<hr>
+<h2>Superball</h2>
+
+Superball is a simplistic game that was part of a games CD for my old
+Windows 95 box.  It works as follows.  You have a 8x10 grid which is
+the game board.  Each cell of the game board may be empty or hold
+a color:
+<p>
+<UL>
+<LI> P - Purple: worth 2 points.
+<LI> B - Blue: worth 3 points.
+<LI> Y - Yellow: worth 4 points.
+<LI> R - Red: worth 5 points.
+<LI> G - Green: worth 6 points.
+</UL>
+
+The board starts with five random colors set.  On your turn, you may
+do one of two things:
+<p>
+<UL>
+<LI> You may swap two cells.  After the swap, five new random 
+cells will be filled with a random colors.
+<LI> You may "score" a cell.  To score a cell, the cell must
+be one of the "goal" cells, and there are sixteen of these,
+in rows 2-5, columns 0, 1, 8 and 9.  (Everything is zero
+indexed).  Moreover, there must be at least five touching
+cells of the same color, one of which must be the goal cell
+that you want to score.  When you score, you get the sum
+of the cells connected to the cell that you are scoring, 
+and then all of those cells leave the board, and three new
+random ones are added.
+</UL>
+<p>
+I have a tcl/tk/shell-scripted Superball player at <b>/home/jplank/Superball</b>.
+Simply copy that directory to your home directory:
+<p>
+<pre>
+UNIX> </b>cp -r /home/jplank/Superball $HOME</b>
+</pre>
+<p>
+Then you can play it with <b>~/Superball/Superball</b>.  The
+high score probably won't work -- you'll have to change the 
+<b>open</b> command in the file <b>hscore</b> to the name of
+your web browser.
+<p>
+Let's look at some screen shots.  Suppose we fire up <b>Superball</b>:
+<p>
+<center><img src=img/SS1.jpg></center>
+<p>
+The "goal" cells are marked with asterisks, and there are five non-empty
+cells.  Our only legal action is to swap two cells -- I'm going to swap 
+cells [3,6] and [5,8].  This will make those two blue cells contiguous.
+In the game, I do that by clicking on the two cells that I want to swap.
+Afterwards, five new cells are put on the screen.  Here's the screen shot:
+<p>
+<center><img src=img/SS2.jpg></center>
+<p>
+I do a bunch more swaps and end up with the  following board: 
+<p>
+<center><img src=img/SS3.jpg></center>
+<p>
+I can score the green cells by clicking on cell [2,1], [3,0], [3,1]  or [4,0] and then clicking
+"Collect".  This will score that group of eight green squares, which gets me 
+48 points (8*6), and three new cells will be added:
+<p>
+<center><img src=img/SS4.jpg></center>
+<p>
+
+There are no cells to score here (the blues ones in the lower right-hand part
+of the board only compose a group of four).  So I revert to swapping.
+Suppose I keep doing so until I reach:
+
+<p>
+<center><img src=img/SS5.jpg></center>
+<p>
+
+I'm in trouble.  I've got these beautiful groups of red, green and purple cells, but
+I can't score any of them because they are not connected to a goal call.  Dang.  I can
+only score those two groups of blue cells.    When I do that, I'm only left
+with four open squares, and I can't score anything:
+
+<p>
+<center><img src=img/SS6.jpg></center>
+<p>
+
+Perhaps I should have been a little more thoughtful while playing the game.  Regardless, I'm stuck. 
+I simply swap two random squares and end the game:
+
+<p>
+<center><img src=img/SS7.jpg></center>
+<p>
+
+Oh well -- should have done that swap a little sooner....
+<hr>
+For this lab, we are going to deal with a text-based version of the game.  
+Our programs will have the following parameters:
+<UL>
+<LI> <b>rows</b> - the number of rows on the game board.  Although
+the tcl/tk version has that set to eight, our programs will handle any number.
+<LI> <b>cols</b> - the number of columns on the game board. 
+<LI> <b>min-score-size</b> - the number of contiguous cells that have to be
+together in order to score them.  This is 5 in the tcl/tk version
+<LI> <b>colors</b> - this must be a string of distinct lower-case 
+letters.  They represent that the colors that a cell can have.  The 
+point value of the first of these is 2, and each succeeding character
+is worth one more point.  To have the same values as the tcl/tk game, this parameter should be "pbyrg". 
+</UL>
+<p>
+I have written an interactive game player.  I'll discuss all the parameters later.  Call it as
+done below:
+<p>
+<pre>
+UNIX> <font color=darkred><b>cd /home/jplank/cs302/Labs/Lab5/</b></font>
+UNIX> <font color=darkred><b>bin/sb-player</b></font>
+usage: sb-player rows cols min-score-size colors player interactive(y|n) output(y|n) seed
+UNIX> <font color=darkred><b>bin/sb-player 8 10 5 pbyrg - y y -</b></font>
+Empty Cells: 75     Score: 0
+
+..........
+..........
+**b....b**
+**....b.**
+**.g....**
+**......**
+..........
+..g.......
+
+Your Move: 
+</pre>
+The format of the board is as follows: 
+When a letter is capitalized, it is on a goal cell.  
+Dots and asterisks stand
+for empty cells -- asterisks are on the goal cells.  
+If you click on the
+<b>Print Boards</b> button in the tcl/tk game, it will print out each board on 
+standard output in that format.  That's nice for testing.
+<p>
+You can type two commands:
+
+<p><center><table border=3 cellpadding=3><td><pre>
+SWAP r1 c1 r2 c2
+SCORE r c
+</pre></td></table></center><p>
+
+In the board above, you can't score anything, so you'll have to swap.  We'll
+swap the blue cell in [2,2] with the green one in [7,2]:
+
+<center><table border=3><td>
+<pre>
+Your Move: <font color=darkred><b>SWAP 2 2 7 2</b></font>
+
+Empty Cells: 70     Score: 0
+
+.r........
+..........
+**g....b**
+**....b.**
+**.g....*Y
+**......*P
+.....rr...
+..b.......
+
+Your Move: 
+</pre></td></table></center><p>
+
+It's incredibly tedious -- play along with me:
+
+<center>
+<table border=3>
+<tr><TD><pre>Empty Cells: 70     Score: 0
+
+.r........
+..........
+**g....b**
+**....b.**
+**.g....*Y
+**......*P
+.....rr...
+..b.......
+
+Your Move: <font color=darkred><b>SWAP 0 1 7 2  </b></font>
+</pre></td>
+<TD><pre>Empty Cells: 65     Score: 0
+
+.b........
+..........
+**g....bB*
+**....b.**
+P*.g....RY
+**......*P
+.....rr...
+.gry......
+
+Your Move: <font color=darkred><b>SWAP 7 3 4 8</b></font>
+</pre></td>
+<TD><pre>Empty Cells: 60     Score: 0
+
+.b.......p
+....g.....
+**g.p..bB*
+**r...b.*R
+P*.g....YY
+**......*P
+.....rr...
+.grr......
+
+Your Move: <font color=darkred><b>SWAP 3 2 7 1</b></font>
+</pre></td>
+<TD><pre>Empty Cells: 55     Score: 0
+
+.b..r...pp
+....g...b.
+**g.p..bB*
+**g...b.*R
+P*.g....YY
+**.g....*P
+.....rr...
+rrrr......
+
+Your Move: <font color=darkred><b>SWAP 3 9 0 1</b></font>
+</pre></td>
+<TD><pre>Empty Cells: 50     Score: 0
+
+.r..rgy.pp
+....g...b.
+**g.p..bB*
+**g...b.*B
+P*.g....YY
+**.g....*P
+p...rrr...
+rrrr.p....
+
+Your Move: <font color=darkred><b>SWAP 6 0 0 1</b></font>
+</pre></td>
+</tr><tr><TD><pre>Empty Cells: 45     Score: 0
+
+.p..rgy.pp
+.g..g...b.
+**g.p..bB*
+**g...b.*B
+P*.g..y.YY
+**.g..yp*P
+r...rrr...
+rrrr.py...
+
+Your Move: <font color=darkred><b>SWAP 5 9 7 6</b></font>
+</pre></td>
+<TD><pre>Empty Cells: 40     Score: 0
+
+.p..rgy.pp
+.g..g...b.
+**g.p.pbB*
+R*g...by*B
+P*.g..y.YY
+P*.g..yp*Y
+r...rrrb..
+rrrr.pp...
+
+Your Move: <font color=darkred><b>SWAP 5 0 0 4</b></font>
+</pre></td>
+<TD><pre>Empty Cells: 35     Score: 0
+
+.p..pgy.pp
+.g..g.r.b.
+G*g.p.pbB*
+R*g...by*B
+P*.g..y.YY
+R*.g..yp*Y
+r..grrrb..
+rrrrbppy..
+
+Your Move: <font color=darkred><b>SWAP 7 4 1 6</b></font>
+</pre></td>
+<TD><pre>Empty Cells: 30     Score: 0
+
+.p..pgy.pp
+.g.pg.b.b.
+G*g.p.pbB*
+R*g.r.by*B
+P*pg..y.YY
+R*.g.bypBY
+r..grrrb..
+rrrrrppy..
+
+Your Move: <font color=darkred><b>SCORE 5 0</b></font>
+</pre></td>
+<TD><pre>Empty Cells: 37     Score: 50
+
+.p..pgy.pp
+.g.pg.b.by
+G*g.p.pbB*
+R*g.r.byGB
+P*pg..y.YY
+**.g.bypBY
+...g...b..
+.p...ppy..
+
+Your Move: <font color=darkred><b></b></font>
+</pre></td></tr>
+</table>
+</center>
+
+</pre>
+<p>
+You'll note, I could have scored cell [5,0] when there were 35 empty cells, but I really
+wanted to make that patch of red cells bigger.
+<p>
+
+<hr>
+<h3>Program #1: Sb-read</h3>
+
+I have written <b><a href=src/sb-read.cpp>src/sb-read.cpp</a></b> for you.  This program 
+takes the four parameters detailed above, reads in a game board with those parameters
+and prints out some very basic information.  For example, the following board:
+
+<p><center><img src=img/SS8.jpg></center><p>
+
+May be represented by the following text 
+(in <b><a href=txt/input-1.txt>txt/input-1.txt</a></b>):
+
+<p><center><table border=3 cellpadding=3><td><pre>
+...yyryy.p
+y.rg.yppyp
+**gg.yrpPP
+GGgbgybp**
+R*bg.yrp*P
+G*gygyypY*
+yyybpby.pb
+.pgg.yp.bb
+</pre></td></table></center><p>
+
+When we run <b>bin/sb-read</b> on it, we get the following:
+
+<pre>
+UNIX> <font color=darkred><b>bin/sb-read 8 10 5 pbyrg < txt/input-1.txt</b></font>
+Empty cells:                    20
+Non-Empty cells:                60
+Number of pieces in goal cells:  8
+Sum of their values:            33
+UNIX> 
+</pre>
+
+There are three purple pieces in goal cells, one yellow, three
+green and one red.  That makes a total of 3*2 + 4 + 5 + 3*6 = 33.
+<p>
+You should take a look at 
+<b><a href=src/sb-read.cpp>src/sb-read.cpp</a></b>.
+In particular, look 
+at the <b>Superball</b> class:
+
+<p><center><table border=3 cellpadding=3><td><pre>
+class Superball {
+  public:
+    Superball(int argc, char **argv);
+    int r;
+    int c;
+    int mss;
+    int empty;
+    vector &lt;int&gt; board;
+    vector &lt;int&gt; goals;
+    vector &lt;int&gt; colors;
+};
+</pre></td></table></center><p>
+
+<b>Mss</b> is min-score-size.  <b>Empty</b> is the number of 
+empty cells in the board.  <b>Board</b> is a vector of <b>r * c</b>
+integers.  The element in [i,j] is in entry <b>board[i*c+j]</b>, and
+is either '.', '*' or a lower case letter.  
+<b>goals</b> is another array of <b>r * c</b> integers.  It is equal
+to 0 if the cell is not a goal cell, and 1 
+if it is a goal cell.  <b>Colors</b> is an array of 256 
+elements, which should be indexed by a letter.  Its value is the
+value of the letter (e.g. in the above example, <b>colors['p'] = 2</b>).
+
+<p>
+<b>sb-read</b> does all manner of error checking for you.  It is a nice
+program from which to build your other programs.
+
+<hr>
+<h3>Program #2: Sb-analyze</h3>
+
+You are to write this one.
+<p>
+With <b>bin/sb-analyze</b>, you are to start with <b>sb-read.cpp</b> as a base, and augment
+it so that it prints out all possible scoring sets.  For example, in the above
+game board (represented by 
+<b><a href=txt/input-1.txt>txt/input-1.txt</a></b>), there are two scoring sets -- the 
+set of 10 purple cells in the upper right-hand corner, and the set of 6 green
+cells on the left side of the screen.  Here is the output to <b>sb_analyze</b>:
+<p>
+<pre>
+UNIX> <font color=darkred><b>sb-analyze</b></font>
+usage: sb-analyze rows cols min-score-size colors
+UNIX> <font color=darkred><b>bin/sb-analyze 8 10 5 pbyrg < txt/input-1.txt</b></font>
+Scoring sets:
+  Size: 10  Char: p  Scoring Cell: 2,8
+  Size:  6  Char: g  Scoring Cell: 3,0
+UNIX> 
+</pre>
+Each set must be printed exactly once, but in any 
+order, and with any legal goal cell.  Thus, the following
+output would also be ok:
+<pre>
+UNIX> <font color=darkred><b>bin/sb-analyze 8 10 5 pbyrg < txt/input-1.txt</b></font>
+Scoring sets:
+  Size:  6  Char: g  Scoring Cell: 3,1
+  Size: 10  Char: p  Scoring Cell: 2,9
+UNIX> 
+</pre>
+
+Think about how you would use the disjoint sets data structure to 
+implement this -- it is a straightforward connected components application.  
+I would recommend augmenting your <b>Superball</b>
+class with a <b>Disjoint_Set</b>, and then having a method called
+<b>analyze_superball()</b>, which performs the analysis. 
+<p>
+Here's another example:
+
+<p><center><img src=img/SS9.jpg></center><p>
+This is in the file
+<b><a href=txt/input-2.txt>txt/input-2.txt</a></b>:
+
+<p><center><table border=3 cellpadding=3><td><pre>
+yyggyryybp
+ggrgpyppyp
+RBgggyrpPP
+GGgggybpPP
+RGygryrpBP
+YGyygyypYB
+yyybpbyppb
+ppggyypbbb
+</pre></td></table></center><p>
+
+<pre>
+UNIX> <font color=darkred><b>bin/sb-analyze 8 10 5 pbyrg < txt/input-2.txt</b></font>
+Scoring sets:
+  Size: 14  Char: g  Scoring Cell: 5,1
+  Size: 15  Char: p  Scoring Cell: 4,9
+  Size:  7  Char: y  Scoring Cell: 5,0
+  Size:  5  Char: b  Scoring Cell: 5,9
+UNIX> 
+</pre>
+
+
+<hr>
+<h3>Program #3: Sb-play</h3>
+
+Your next program takes the same arguments and input as <b>sb-analyze</b>.
+However, now its job is to print a single move as would be accepted
+as input for the <b>sb-player</b> program.  In other words, it
+needs to output a SWAP or SCORE line with legal values.
+<p>
+If you have fewer than five pieces and cannot score any, you
+will lose the game -- you should do that by swapping two legal pieces
+so that the game can end.
+<p>
+The <b>sb-player</b> program takes as its 5th argument the name of
+a program that it will use for input.  I also have three programs - 
+<b>sb-play</b>, <b>sb-play2</b> and <b>sb-play3</b> in that directory.
+<b>sb-play</b> simply swaps two random cells until there are fewer
+than five empty, then it scores a set if it can.  The other two are
+smarter, but are by no means the best one can do.  
+
+<p>
+Here's <b>sb-player</b> running on <b>bin/sb-play2</b> (note, <b>sb-player</b> creates
+a temporary file, so you must run it from your own directory):
+<pre>
+UNIX> <font color=darkred><b>/home/jplank/cs302/Labs/Lab5/bin/sb-player 8 10 5 pbyrg /home/jplank/cs302/Labs/Lab5/bin/sb-play2 y y -</b></font>
+Empty Cells: 75     Score: 0
+
+g.........
+..........
+**......**
+*Pr.....**
+**......**
+**..p...**
+........b.
+..........
+
+Type Return for the next play
+</pre>
+It waits for you to press the return key.  When you do so, it will send the game
+board to <b>/home/jplank/cs302/Labs/Lab5/sp-play2</b> and perform the output.  Here's
+what happens:
+<pre>
+Move is: SWAP 5 4 3 2
+
+Empty Cells: 70     Score: 0
+
+g........g
+.......y..
+**......**
+*Pp.....**
+**......G*
+**..r...**
+..g.....b.
+........g.
+
+Type Return for the next play
+</pre>
+You can bet that the next move will swap that <b>b</b> with one of the <b>g</b>'s:
+<pre>
+Move is: SWAP 6 8 0 0
+
+Empty Cells: 65     Score: 0
+
+b........g
+.......y..
+**..b...**
+*Pp.g...**
+**.....gG*
+**..r...**
+..g.....g.
+.p...p..g.
+
+Type Return for the next play
+</pre>
+
+And so on.   If you run it with <b>n</b> for the 6th argument, it will simply run the
+program without your input:
+
+<pre>
+UNIX> <font color=darkred><b>/home/jplank/cs302/Labs/Lab5/bin/sb-player 8 10 5 pbyrg /home/jplank/cs302/Labs/Lab5/bin/sb-play2 n y -</b></font>
+Empty Cells: 75     Score: 0
+
+..........
+..........
+**......**
+**y..y..**
+**......**
+*P......**
+..........
+......p.g.
+
+Move is: SWAP 3 5 3 2
+
+</pre>
+<i>... a bunch of output skipped...</i>
+<pre>
+
+Empty Cells:  1     Score: 505
+
+yyrrgggpyy
+grrbppg.yg
+GYbgygggPB
+GBggpgbpPB
+PPgggggrYB
+YBbybgpbYR
+pprrrggggr
+byyrppppgg
+
+Move is: SWAP 0 1 7 5
+
+Game over.  Final score = 505
+UNIX> 
+</pre>
+Even though there were no good moves at the end, the program did a final
+SWAP so that the game could finish.
+
+<p>
+If you run with the 7th argument as <b>n</b>, it will only print out the end result, and
+the last argument can specify a seed (it uses the current time if that argument is "-"),
+so that you can compare multiple players on the same game:
+<p>
+<pre>
+UNIX> <font color=darkred><b>/home/jplank/cs302/Labs/Lab5/bin/sb-player 8 10 5 pbyrg /home/jplank/cs302/Labs/Lab5/bin/sb-play n n 1</b></font>
+Game over.  Final score = 0
+UNIX> <font color=darkred><b>/home/jplank/cs302/Labs/Lab5/bin/sb-player 8 10 5 pbyrg /home/jplank/cs302/Labs/Lab5/bin/sb-play2 n n 1</b></font>
+Game over.  Final score = 855
+UNIX> <font color=darkred><b>/home/jplank/cs302/Labs/Lab5/bin/sb-player 8 10 5 pbyrg /home/jplank/cs302/Labs/Lab5/bin/sb-play3 n n 1</b></font>
+Game over.  Final score = 2572
+UNIX> 
+</pre>
+It can take a while for these to run -- if it appears to be hanging, send the process a <b>QUIT</b> 
+signal and it will print out what the current score is.
+
+<h3>Shell Script to Run Multiple Times</h3>
+
+The file <b><a href=scripts/run_multiple.sh>scripts/run_multiple.sh</a></b> is a shell script to run 
+the player on multiple seeds and average the results.  Examples:
+
+<pre>
+UNIX> <font color=darkred><b>sh scripts/run_multiple.sh </b></font>
+usage: sh scripts/run_multiple.sh r c mss colors player nruns starting_seed
+UNIX> <font color=darkred><b>sh scripts/run_multiple.sh 8 10 5 pbyrg bin/sb-play 10 1</b></font>
+Run   1 - Score:     38  - Average     38.000
+Run   2 - Score:      0  - Average     19.000
+Run   3 - Score:      0  - Average     12.667
+Run   4 - Score:     57  - Average     23.750
+Run   5 - Score:      0  - Average     19.000
+Run   6 - Score:      0  - Average     15.833
+Run   7 - Score:     89  - Average     26.286
+Run   8 - Score:     15  - Average     24.875
+Run   9 - Score:      0  - Average     22.111
+Run  10 - Score:     20  - Average     21.900
+UNIX> <font color=darkred><b>sh scripts/run_multiple.sh 8 10 5 pbyrg bin/sb-play2 10 1</b></font>
+Run   1 - Score:    855  - Average    855.000
+Run   2 - Score:    979  - Average    917.000
+Run   3 - Score:    650  - Average    828.000
+Run   4 - Score:    833  - Average    829.250
+Run   5 - Score:    832  - Average    829.800
+Run   6 - Score:   3326  - Average   1245.833
+Run   7 - Score:   1507  - Average   1283.143
+Run   8 - Score:   3643  - Average   1578.125
+Run   9 - Score:    610  - Average   1470.556
+Run  10 - Score:    862  - Average   1409.700
+UNIX> <font color=darkred><b>sh scripts/run_multiple.sh 8 10 5 pbyrg bin/sb-play3 10 1</b></font>
+Run   1 - Score:   2572  - Average   2572.000
+Run   2 - Score:   2708  - Average   2640.000
+Run   3 - Score:    745  - Average   2008.333
+Run   4 - Score:    424  - Average   1612.250
+Run   5 - Score:   1888  - Average   1667.400
+Run   6 - Score:   7140  - Average   2579.500
+Run   7 - Score:   3475  - Average   2707.429
+Run   8 - Score:   1701  - Average   2581.625
+Run   9 - Score:   2699  - Average   2594.667
+Run  10 - Score:   2291  - Average   2564.300
+UNIX> <font color=darkred><b></b></font>
+</pre>
+
+Obviously, to get a meaningful average, many more runs (than 10) will be
+required.
+<p>
+Oh, and make your programs run in reasonable time.  Roughly 5 seconds for
+every thousand points, and if you are burning all that time, your program 
+better be killing mine....
+
+<hr>
+<h3>Hints</h3>
+
+Play the game for a bit to try to figure out some strategies.
+However, one good way to write a game player is to figure out a way
+to come up with a rating for a game board.  Then when you are faced
+with making a move, you analyze all potential moves by trying them
+out (in other words, enumerate all potential swap operations) and
+choosing the one that gives you the resulting board with the highest
+rating.
+<p>
+Ideas for ratings?  How about the total number of disjoint sets on the board (do you 
+want that to bif or small)?
+Maybe some metric related to the sizes of the disjoint sets?  Maybe add a fudge
+factor for a disjoint set that can be scored?
+<hr>
+<h3>The Superball Challenge</h3>
+
+To get credit, your player needs to average over 100 points on runs of 100 games.  
+<p>
+I will run a Superball tournament
+with all of your players with extra lab points going to the winners:
+<p>
+<UL>
+<LI> 1st place: 40 extra lab points.
+<LI> 2nd place: 25 extra lab points.
+<LI> 3rd place: 10 extra lab points.
+</UL>
+
+Dr. Emrich and I have 
+now performed the challenge eleven times:
+<UL>
+<LI> CS140 in Fall, 2007: Plank
+<LI> CS302 in Fall, 2010: Plank
+<LI> CS302 in Fall, 2011: Plank
+<LI> CS302 in Fall, 2012: Plank
+<LI> CS302 in Fall, 2013: Plank
+<LI> CS302 in Fall, 2014: Plank
+<LI> CS302 in Fall, 2015: Plank
+<LI> CS302 in Fall, 2018: Plank
+<LI> CS302 in Spring, 2019: Emrich
+<LI> CS302 in Spring, 2020: Emrich
+<LI> CS302 in Fall, 2020: Plank
+<LI> CS302 in Spring, 2022: Plank
+<LI> CS302 in Spring, 2023: Emrich
+</UL>
+
+Here's the Superball Challenge Hall Of Fame (scores over 500):
+
+<p>
+<center>
+<table border=3>
+<tr><td align=center><b>Rank</b></td>
+    <td align=center><b>Average</b></td>
+    <td align=center><b>Name</b></td>
+    <td align=center><b>Semester</b></td></tr>
+
+<tr><td align=center>1</td>
+<td align=center>31814.13</td>
+<td align=center>Grant Bruer</td>
+<td align=center>CS302, Fall, 2015</td></tr>
+
+<tr><td align=center>2</td>
+<td align=center>24278.49</td>
+<td align=center>Alexander Teepe</td>
+<td align=center>CS302, Fall, 2015</td></tr>
+
+<tr><td align=center>3</td>
+<td align=center>17367.77</td>
+<td align=center>Joseph Connor</td>
+<td align=center>CS302, Fall, 2014</td></tr>
+
+<tr><td align=center>4</td>
+<td align=center>17246.98</td>
+<td align=center>Caleb Kornegay</td>
+<td align=center>CS302, Spring, 2023</td></tr>
+
+<tr><td align=center>5</td>
+<td align=center>17021.37</td>
+<td align=center>Cory Walker</td>
+<td align=center>CS302, Fall, 2014</td></tr>
+
+<tr><td align=center>6</td>
+<td align=center>16963.40</td>
+<td align=center>Seth Kitchens</td>
+<td align=center>CS302, Fall, 2015</td></tr>
+
+<tr><td align=center>7</td>
+<td align=center>14555.83</td>
+<td align=center>Ben Arnold</td>
+<td align=center>CS302, Fall, 2012</td></tr>
+
+<tr><td align=center>8</td>
+<td align=center>14555.83</td>
+<td align=center>Adam Disney</td>
+<td align=center>CS302, Fall, 2011</td></tr>
+
+<tr><td align=center>9</td>
+<td align=center>13657.79</td>
+<td align=center>Isaac Sikkema</td>
+<td align=center>CS302, Fall, 2018</td></tr>
+
+<tr><td align=center>10</td>
+<td align=center>12963.47</td>
+<td align=center>Jake Davis</td>
+<td align=center>CS302, Fall, 2014</td></tr>
+
+<tr><td align=center>11</td>
+<td align=center>12634.29</td>
+<td align=center>Jake Lamberson</td>
+<td align=center>CS302, Fall, 2014</td></tr>
+
+<tr><td align=center>12</td>
+<td align=center>11722.05</td>
+<td align=center>Parker Mitchell</td>
+<td align=center>CS302, Fall, 2014</td></tr>
+
+<tr><td align=center>13</td>
+<td align=center>11418.77</td>
+<td align=center>James Pickens</td>
+<td align=center>CS302, Fall, 2014</td></tr>
+
+<tr><td align=center>14</td>
+<td align=center>11380.74</td>
+<td align=center>Nathan Ziebart</td>
+<td align=center>CS302, Fall, 2011</td></tr>
+
+<tr><td align=center>15</td>
+<td align=center>11291.39</td>
+<td align=center>Michael Jugan</td>
+<td align=center>CS302, Fall, 2010</td></tr>
+
+<tr><td align=center>16</td>
+<td align=center>10576.96</td>
+<td align=center>Tyler Shields</td>
+<td align=center>CS302, Fall, 2014</td></tr>
+
+<tr><td align=center>17</td>
+<td align=center>10087.23</td>
+<td align=center>Maxwell Marcum</td>
+<td align=center>CS302, Spring, 2022</td></tr>
+
+<tr><td align=center>18</td>
+<td align=center>8770.67</td>
+<td align=center>Nathan Swartz</td>
+<td align=center>CS302, Spring, 2019</td></tr>
+
+<tr><td align=center>19</td>
+<td align=center>7607.98</td>
+<td align=center>Riley Crockett</td>
+<td align=center>CS302, Spring, 2022</td></tr>
+
+<tr><td align=center>20</td>
+<td align=center>7475.07</td>
+<td align=center>Jared Smith</td>
+<td align=center>CS302, Fall, 2014</td></tr>
+
+<tr><td align=center>21</td>
+<td align=center>7216.28</td>
+<td align=center>Michael Bowie</td>
+<td align=center>CS302, Fall, 2018</td></tr>
+
+<tr><td align=center>22</td>
+<td align=center>7003.56</td>
+<td align=center>Andrew LaPrise</td>
+<td align=center>CS302, Fall, 2011</td></tr>
+
+<tr><td align=center>23</td>
+<td align=center>6100.28</td>
+<td align=center>Chris Nagy</td>
+<td align=center>CS302, Fall, 2015</td></tr>
+
+<tr><td align=center>24</td>
+<td align=center>5467.56</td>
+<td align=center>Tyler Marshall</td>
+<td align=center>CS302, Fall, 2013</td></tr>
+
+<tr><td align=center>25</td>
+<td align=center>5262.80</td>
+<td align=center>Harry Channing</td>
+<td align=center>CS302, Fall, 2018</td></tr>
+
+<tr><td align=center>26</td>
+<td align=center>5116.13</td>
+<td align=center>Kyle Bashour</td>
+<td align=center>CS302, Fall, 2014</td></tr>
+
+<tr><td align=center>27</td>
+<td align=center>4808.03</td>
+<td align=center>Matt Baumgartner</td>
+<td align=center>CS302, Fall, 2010</td></tr>
+
+<tr><td align=center>28</td>
+<td align=center>4586.51</td>
+<td align=center>Jeramy Harrison</td>
+<td align=center>CS302, Fall, 2013</td></tr>
+
+<tr><td align=center>29</td>
+<td align=center>4531.96</td>
+<td align=center>Philip Hicks</td>
+<td align=center>CS302, Spring, 2019</td></tr>
+
+<tr><td align=center>30</td>
+<td align=center>4057.08</td>
+<td align=center>Phillip McKnight</td>
+<td align=center>CS302, Fall, 2015</td></tr>
+
+<tr><td align=center>31</td>
+<td align=center>3882.53</td>
+<td align=center>Pranshu Bansal</td>
+<td align=center>CS302, Fall, 2013</td></tr>
+
+<tr><td align=center>32</td>
+<td align=center>3882.28</td>
+<td align=center>Kemal Fidan</td>
+<td align=center>CS302, Fall, 2018</td></tr>
+
+<tr><td align=center>33</td>
+<td align=center>3852.87</td>
+<td align=center>Yaohung Tsai</td>
+<td align=center>CS302, Fall, 2015</td></tr>
+
+<tr><td align=center>34</td>
+<td align=center>3849.24</td>
+<td align=center>Chris Richardson</td>
+<td align=center>CS302, Fall, 2010</td></tr>
+
+<tr><td align=center>35</td>
+<td align=center>3809.41</td>
+<td align=center>Arthur Vidineyev</td>
+<td align=center>CS302, Fall, 2015</td></tr>
+
+<tr><td align=center>36</td>
+<td align=center>3588.35</td>
+<td align=center>Kevin Dunn</td>
+<td align=center>CS302, Fall, 2014</td></tr>
+
+<tr><td align=center>37</td>
+<td align=center>3545.96</td>
+<td align=center>Caleb Fisher</td>
+<td align=center>CS302, Spring, 2022</td></tr>
+
+<tr><td align=center>38</td>
+<td align=center>3464.83</td>
+<td align=center>Patrick Slavick</td>
+<td align=center>CS302, Fall, 2012</td></tr>
+
+<tr><td align=center>39</td>
+<td align=center>3460.00</td>
+<td align=center>Brandan Roachell</td>
+<td align=center>CS302, Fall, 2020</td></tr>
+
+<tr><td align=center>40</td>
+<td align=center>3436.21</td>
+<td align=center>sb-play3</td>
+<td align=center>CS140, Fall, 2007</td></tr>
+
+<tr><td align=center>41</td>
+<td align=center>3400.50</td>
+<td align=center>Kody Bloodworth</td>
+<td align=center>CS302, Fall, 2018</td></tr>
+
+<tr><td align=center>42</td>
+<td align=center>3080.15</td>
+<td align=center>Andrew Messing</td>
+<td align=center>CS302, Fall, 2013</td></tr>
+
+<tr><td align=center>43</td>
+<td align=center>3059.06</td>
+<td align=center>Stephen Qiu</td>
+<td align=center>CS302, Spring, 2022</td></tr>
+
+<tr><td align=center>44</td>
+<td align=center>2903.38</td>
+<td align=center>Adam LaClair</td>
+<td align=center>CS302, Fall, 2013</td></tr>
+
+<tr><td align=center>45</td>
+<td align=center>2736.85</td>
+<td align=center>Christopher Canaday</td>
+<td align=center>CS302, Spring, 2022</td></tr>
+
+<tr><td align=center>46</td>
+<td align=center>2728.86</td>
+<td align=center>Alexander Yu</td>
+<td align=center>CS302, Spring, 2022</td></tr>
+
+<tr><td align=center>47</td>
+<td align=center>2616.00</td>
+<td align=center>Rus Refait</td>
+<td align=center>CS302, Spring, 2020</td></tr>
+
+<tr><td align=center>48</td>
+<td align=center>2555.36</td>
+<td align=center>Mohammad Fathi</td>
+<td align=center>CS302, Fall, 2014</td></tr>
+
+<tr><td align=center>49</td>
+<td align=center>2532.89</td>
+<td align=center>Trevor Sharpe</td>
+<td align=center>CS302, Fall, 2015</td></tr>
+
+<tr><td align=center>50</td>
+<td align=center>2521.44</td>
+<td align=center>Justus Camp</td>
+<td align=center>CS302, Fall, 2018</td></tr>
+
+<tr><td align=center>51</td>
+<td align=center>2487.24</td>
+<td align=center>Befikir Bogale</td>
+<td align=center>CS302, Spring, 2022</td></tr>
+
+<tr><td align=center>52</td>
+<td align=center>2473.69</td>
+<td align=center>Colin Canonaco</td>
+<td align=center>CS302, Spring, 2022</td></tr>
+
+<tr><td align=center>53</td>
+<td align=center>2354.00</td>
+<td align=center>Zach Deguira</td>
+<td align=center>CS302, Fall, 2020</td></tr>
+
+<tr><td align=center>54</td>
+<td align=center>2335.88</td>
+<td align=center>Mark Clark</td>
+<td align=center>CS302, Fall, 2012</td></tr>
+
+<tr><td align=center>55</td>
+<td align=center>2307.16</td>
+<td align=center>John Burnum</td>
+<td align=center>CS302, Fall, 2012</td></tr>
+
+<tr><td align=center>56</td>
+<td align=center>2205.17</td>
+<td align=center>Shawn Cox</td>
+<td align=center>CS302, Fall, 2011</td></tr>
+
+<tr><td align=center>57</td>
+<td align=center>2163.70</td>
+<td align=center>Alex Wetherington</td>
+<td align=center>CS302, Fall, 2011</td></tr>
+
+<tr><td align=center>58</td>
+<td align=center>2134.99</td>
+<td align=center>Julian Kohann</td>
+<td align=center>CS302, Fall, 2013</td></tr>
+
+<tr><td align=center>59</td>
+<td align=center>2062.54</td>
+<td align=center>Gitasuk Jur</td>
+<td align=center>CS302, Spring, 2022</td></tr>
+
+<tr><td align=center>60</td>
+<td align=center>2011.38</td>
+<td align=center>Wells Phillip</td>
+<td align=center>CS302, Fall, 2015</td></tr>
+
+<tr><td align=center>61</td>
+<td align=center>1919.72</td>
+<td align=center>Ravi Patel</td>
+<td align=center>CS302, Spring, 2019</td></tr>
+
+<tr><td align=center>62</td>
+<td align=center>1854.00</td>
+<td align=center>Sam Aba</td>
+<td align=center>CS302, Spring, 2020</td></tr>
+
+<tr><td align=center>63</td>
+<td align=center>1849.73</td>
+<td align=center>Andrew Lay</td>
+<td align=center>CS302, Spring, 2022</td></tr>
+
+<tr><td align=center>64</td>
+<td align=center>1828.05</td>
+<td align=center>Fatima Bowers</td>
+<td align=center>CS302, Spring, 2022</td></tr>
+
+<tr><td align=center>65</td>
+<td align=center>1778.83</td>
+<td align=center>Keith Clinart</td>
+<td align=center>CS302, Fall, 2011</td></tr>
+
+<tr><td align=center>66</td>
+<td align=center>1740.19</td>
+<td align=center>Luke Bechtel</td>
+<td align=center>CS302, Fall, 2014</td></tr>
+
+<tr><td align=center>67</td>
+<td align=center>1635.30</td>
+<td align=center>Justin Bowers</td>
+<td align=center>CS302, Spring, 2022</td></tr>
+
+<tr><td align=center>68</td>
+<td align=center>1634.49</td>
+<td align=center>William Brummette</td>
+<td align=center>CS302, Fall, 2013</td></tr>
+
+<tr><td align=center>69</td>
+<td align=center>1602.83</td>
+<td align=center>Forrest Sable</td>
+<td align=center>CS302, Fall, 2014</td></tr>
+
+<tr><td align=center>70</td>
+<td align=center>1498.87</td>
+<td align=center>Tom Hills</td>
+<td align=center>CS302, Spring, 2019</td></tr>
+
+<tr><td align=center>71</td>
+<td align=center>1470.84</td>
+<td align=center>Christopher Tester</td>
+<td align=center>CS302, Fall, 2014</td></tr>
+
+<tr><td align=center>72</td>
+<td align=center>1446.00</td>
+<td align=center>Noah Burgin</td>
+<td align=center>CS302, Spring, 2020</td></tr>
+
+<tr><td align=center>73</td>
+<td align=center>1433.48</td>
+<td align=center>Xiao Zhou</td>
+<td align=center>CS302, Fall, 2015</td></tr>
+
+<tr><td align=center>74</td>
+<td align=center>1430.54</td>
+<td align=center>Jonathan Burns</td>
+<td align=center>CS302, Fall, 2018</td></tr>
+
+<tr><td align=center>75</td>
+<td align=center>1399.08</td>
+<td align=center>Meghan Brandt</td>
+<td align=center>CS302, Spring, 2022</td></tr>
+
+<tr><td align=center>76</td>
+<td align=center>1340.32</td>
+<td align=center>John Murray</td>
+<td align=center>CS302, Fall, 2012</td></tr>
+
+<tr><td align=center>77</td>
+<td align=center>1329.34</td>
+<td align=center>Benjamin Brock</td>
+<td align=center>CS302, Fall, 2013</td></tr>
+
+<tr><td align=center>78</td>
+<td align=center>1301.00</td>
+<td align=center>Henry Brand</td>
+<td align=center>CS302, Spring, 2022</td></tr>
+
+<tr><td align=center>79</td>
+<td align=center>1257.56</td>
+<td align=center>Dylan Lee</td>
+<td align=center>CS302, Fall, 2018</td></tr>
+
+<tr><td align=center>80</td>
+<td align=center>1202.06</td>
+<td align=center>Bandara</td>
+<td align=center>CS302, Fall, 2014</td></tr>
+
+<tr><td align=center>81</td>
+<td align=center>1149.80</td>
+<td align=center>Will Houston</td>
+<td align=center>CS302, Fall, 2010</td></tr>
+
+<tr><td align=center>82</td>
+<td align=center>1148.99</td>
+<td align=center>Fort Hunter</td>
+<td align=center>CS302, Spring, 2022</td></tr>
+
+<tr><td align=center>83</td>
+<td align=center>1119.85</td>
+<td align=center>Kevin Chiang</td>
+<td align=center>CS302, Fall, 2014</td></tr>
+
+<tr><td align=center>84</td>
+<td align=center>1096.48</td>
+<td align=center>Daniel Cash</td>
+<td align=center>CS302, Fall, 2011</td></tr>
+
+<tr><td align=center>85</td>
+<td align=center>1076.30</td>
+<td align=center>Abrian Abir</td>
+<td align=center>CS302, Spring, 2022</td></tr>
+
+<tr><td align=center>86</td>
+<td align=center>1059.91</td>
+<td align=center>Kaleb McClure</td>
+<td align=center>CS302, Fall, 2013</td></tr>
+
+<tr><td align=center>87</td>
+<td align=center>1058.26</td>
+<td align=center>sb-play2</td>
+<td align=center>CS140, Fall, 2007</td></tr>
+
+<tr><td align=center>88</td>
+<td align=center>1029.63</td>
+<td align=center>Lydia San George</td>
+<td align=center>CS302, Fall, 2018</td></tr>
+
+<tr><td align=center>89</td>
+<td align=center>1020.55</td>
+<td align=center>Jihun Kim</td>
+<td align=center>CS302, Spring, 2022</td></tr>
+
+<tr><td align=center>90</td>
+<td align=center>1019.72</td>
+<td align=center>Justin Langston</td>
+<td align=center>CS302, Spring, 2019</td></tr>
+
+<tr><td align=center>91</td>
+<td align=center>1016.15</td>
+<td align=center>Harrison Hoytt</td>
+<td align=center>CS302, Spring, 2022</td></tr>
+
+<tr><td align=center>92</td>
+<td align=center>972.36</td>
+<td align=center>Erik Rutledge</td>
+<td align=center>CS302, Fall, 2013</td></tr>
+
+<tr><td align=center>93</td>
+<td align=center>959.79</td>
+<td align=center>Daniel Nichols</td>
+<td align=center>CS302, Fall, 2018</td></tr>
+
+<tr><td align=center>94</td>
+<td align=center>917.92</td>
+<td align=center>Vasu Kalaria</td>
+<td align=center>CS302, Fall, 2015</td></tr>
+
+<tr><td align=center>95</td>
+<td align=center>916.54</td>
+<td align=center>Cody Blankenship</td>
+<td align=center>CS302, Spring, 2022</td></tr>
+
+<tr><td align=center>96</td>
+<td align=center>909.35</td>
+<td align=center>Andrew Mueller</td>
+<td align=center>CS360?, Spring, 2022</td></tr>
+
+<tr><td align=center>97</td>
+<td align=center>908.09</td>
+<td align=center>Chris Rains</td>
+<td align=center>CS302, Fall, 2012</td></tr>
+
+<tr><td align=center>98</td>
+<td align=center>875.44</td>
+<td align=center>Allen McBride</td>
+<td align=center>CS302, Fall, 2012</td></tr>
+
+<tr><td align=center>99</td>
+<td align=center>856.00</td>
+<td align=center>Tim Krenz</td>
+<td align=center>CS302, Spring, 2019</td></tr>
+
+<tr><td align=center>100</td>
+<td align=center>852.32</td>
+<td align=center>Jonathan Graham</td>
+<td align=center>CS302, Spring, 2022</td></tr>
+
+<tr><td align=center>101</td>
+<td align=center>843.69</td>
+<td align=center>Jacob Looney</td>
+<td align=center>CS302, Spring, 2022</td></tr>
+
+<tr><td align=center>102</td>
+<td align=center>840.94</td>
+<td align=center>Spencer Howell</td>
+<td align=center>CS302, Fall, 2018</td></tr>
+
+<tr><td align=center>103</td>
+<td align=center>831.74</td>
+<td align=center>Ethan Kessinger</td>
+<td align=center>CS302, Spring, 2022</td></tr>
+
+<tr><td align=center>104</td>
+<td align=center>830.79</td>
+<td align=center>David Cunningham</td>
+<td align=center>CS302, Fall, 2014</td></tr>
+
+<tr><td align=center>105</td>
+<td align=center>826.00</td>
+<td align=center>Kincaid Mcgee</td>
+<td align=center>CS302, Fall, 2020</td></tr>
+
+<tr><td align=center>106</td>
+<td align=center>817.17</td>
+<td align=center>Alex Nguyen</td>
+<td align=center>CS302, Spring, 2022</td></tr>
+
+<tr><td align=center>107</td>
+<td align=center>810.17</td>
+<td align=center>Collin Bell</td>
+<td align=center>CS302, Fall, 2012</td></tr>
+
+<tr><td align=center>108</td>
+<td align=center>763.58</td>
+<td align=center>Jacob Lambert</td>
+<td align=center>CS302, Fall, 2013</td></tr>
+
+<tr><td align=center>109</td>
+<td align=center>707.16</td>
+<td align=center>Shivam Mistry</td>
+<td align=center>CS302, Spring, 2022</td></tr>
+
+<tr><td align=center>110</td>
+<td align=center>703.71</td>
+<td align=center>Shanna Wallace</td>
+<td align=center>CS302, Spring, 2022</td></tr>
+
+<tr><td align=center>111</td>
+<td align=center>703.67</td>
+<td align=center>Scott Marcus</td>
+<td align=center>CS302, Fall, 2015</td></tr>
+
+<tr><td align=center>112</td>
+<td align=center>703.00</td>
+<td align=center>Don Lopez</td>
+<td align=center>CS140, Fall, 2007</td></tr>
+
+<tr><td align=center>113</td>
+<td align=center>700.90</td>
+<td align=center>Tony Abston</td>
+<td align=center>CS302, Fall, 2015</td></tr>
+
+<tr><td align=center>114</td>
+<td align=center>682.56</td>
+<td align=center>Jackson Collier</td>
+<td align=center>CS302, Fall, 2014</td></tr>
+
+<tr><td align=center>115</td>
+<td align=center>681.00</td>
+<td align=center>Holland Johnson</td>
+<td align=center>CS302, Fall, 2020</td></tr>
+
+<tr><td align=center>116</td>
+<td align=center>677.83</td>
+<td align=center>KC Bentjen</td>
+<td align=center>CS302, Fall, 2011</td></tr>
+
+<tr><td align=center>117</td>
+<td align=center>677.74</td>
+<td align=center>Andrew Artates</td>
+<td align=center>CS302, Spring, 2019</td></tr>
+
+<tr><td align=center>118</td>
+<td align=center>665.60</td>
+<td align=center>Joshua Clark</td>
+<td align=center>CS302, Fall, 2012</td></tr>
+
+<tr><td align=center>119</td>
+<td align=center>659.96</td>
+<td align=center>Warren Dewit</td>
+<td align=center>CS302, Fall, 2010</td></tr>
+
+<tr><td align=center>120</td>
+<td align=center>654.67</td>
+<td align=center>Coburn Brandon</td>
+<td align=center>CS302, Fall, 2015</td></tr>
+
+<tr><td align=center>121</td>
+<td align=center>650.98</td>
+<td align=center>Joaquin Bujalance</td>
+<td align=center>CS140, Fall, 2007</td></tr>
+
+<tr><td align=center>122</td>
+<td align=center>643.13</td>
+<td align=center>John Blackaby</td>
+<td align=center>CS302, Spring, 2022</td></tr>
+
+<tr><td align=center>123</td>
+<td align=center>638.14</td>
+<td align=center>Justin Mcknight</td>
+<td align=center>CS302, Spring, 2022</td></tr>
+
+<tr><td align=center>124</td>
+<td align=center>630.73</td>
+<td align=center>Dylan Devries</td>
+<td align=center>CS302, Fall, 2018</td></tr>
+
+<tr><td align=center>125</td>
+<td align=center>630.10</td>
+<td align=center>Winston Boyd</td>
+<td align=center>CS302, Fall, 2018</td></tr>
+
+<tr><td align=center>126</td>
+<td align=center>626.62</td>
+<td align=center>Elliot Greenlee</td>
+<td align=center>CS302, Fall, 2014</td></tr>
+
+<tr><td align=center>127</td>
+<td align=center>616.00</td>
+<td align=center>Joseph Wehby</td>
+<td align=center>CS302, Spring, 2022</td></tr>
+
+<tr><td align=center>128</td>
+<td align=center>609.58</td>
+<td align=center>Ethan Maness</td>
+<td align=center>CS302, Spring, 2022</td></tr>
+
+<tr><td align=center>129</td>
+<td align=center>603.14</td>
+<td align=center>Joseph Eaton</td>
+<td align=center>CS302, Spring, 2022</td></tr>
+
+<tr><td align=center>130</td>
+<td align=center>594.02</td>
+<td align=center>James Tucker</td>
+<td align=center>CS302, Fall, 2015</td></tr>
+
+<tr><td align=center>131</td>
+<td align=center>586.71</td>
+<td align=center>Jonathan Ting</td>
+<td align=center>CS302, Spring, 2019</td></tr>
+
+<tr><td align=center>132</td>
+<td align=center>586.56</td>
+<td align=center>Andrew Berger</td>
+<td align=center>CS302, Spring, 2019</td></tr>
+
+<tr><td align=center>133</td>
+<td align=center>581.29</td>
+<td align=center>Mason Stott</td>
+<td align=center>CS302, Spring, 2022</td></tr>
+
+<tr><td align=center>134</td>
+<td align=center>571.02</td>
+<td align=center>Rocco Febbo</td>
+<td align=center>CS302, Fall, 2018</td></tr>
+
+<tr><td align=center>135</td>
+<td align=center>558.62</td>
+<td align=center>Matthew Bowlby</td>
+<td align=center>CS302, Spring, 2022</td></tr>
+
+<tr><td align=center>136</td>
+<td align=center>557.01</td>
+<td align=center>Eli Kell</td>
+<td align=center>CS302, Spring, 2022</td></tr>
+
+<tr><td align=center>137</td>
+<td align=center>555.40</td>
+<td align=center>Jovan Yoshioka</td>
+<td align=center>CS302, Spring, 2022</td></tr>
+
+<tr><td align=center>138</td>
+<td align=center>554.94</td>
+<td align=center>Jared Burris</td>
+<td align=center>CS302, Fall, 2015</td></tr>
+
+<tr><td align=center>139</td>
+<td align=center>546.52</td>
+<td align=center>Andrew Rutter</td>
+<td align=center>CS302, Spring, 2022</td></tr>
+
+<tr><td align=center>140</td>
+<td align=center>539.00</td>
+<td align=center>Braden Butler</td>
+<td align=center>CS302, Fall, 2020</td></tr>
+
+<tr><td align=center>141</td>
+<td align=center>534.24</td>
+<td align=center>Christian Graham</td>
+<td align=center>CS302, Spring, 2022</td></tr>
+
+<tr><td align=center>142</td>
+<td align=center>524.21</td>
+<td align=center>Reagan Austin</td>
+<td align=center>CS302, Spring, 2022</td></tr>
+
+<tr><td align=center>143</td>
+<td align=center>508.04</td>
+<td align=center>Victoria Florence</td>
+<td align=center>CS302, Fall, 2015</td></tr>
+
+
+</table>
+</center>
+<p>
+

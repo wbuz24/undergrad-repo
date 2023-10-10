@@ -1,0 +1,7 @@
+....ab.ba.ab
+aa.a..baaaaa
+B*aa...aaaBA
+A*a.b.a.baAB
+BAa..aaa.aBA
+aaab.aaaaabb
+aa...aaaaab.

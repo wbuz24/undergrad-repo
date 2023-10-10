@@ -1,0 +1,13 @@
+..bbb.a...
+ba..babaaa
+B*..a.bb*A
+*Aa...bbB*
+B*aa....*B
+A*..ab.bB*
+*Aaaaa..*A
+AB.a..a.**
+*Abbb..a**
+ABbb.b.aA*
+BA.b.babB*
+..aaa.bbb.
+b.a...b..b

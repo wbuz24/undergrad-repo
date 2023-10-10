@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Superball</title>
+        <style>
+            html, body {
+                width: 100%;
+                height: 100%;
+                padding: 0;
+                font-family:Georgia, 'Times New Roman', Times, serif;
+            }
+            .playground {
+                width: 70%;
+                height: fit-content;
+
+                box-shadow: inset 5px 10px 8px #4d4d4d;
+                border-radius: 35px;
+                padding: 30px;
+                margin: auto;
+                margin-top: 5%;
+                display: grid;
+                grid-template-columns: 70% 30%;
+                background-color: #CB997C;
+            }
+
+            .boardtile {
+                list-style: none;
+                display: grid;
+                grid-template-columns: 60px 60px 60px 60px 60px 60px 60px 60px 60px 60px;
+                grid-template-rows: 60px 60px 60px 60px 60px 60px 60px 60px;
+            }
+
+            .boardtile li {
+                padding: 10px;
+                border: 1px solid black;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: white;
+            }
+
+            .controller {
+                width: 80%;
+                border-radius: 35px;
+                height: 90%;
+                padding: 10px;
+                background-color: white;
+                box-shadow: 5px 10px 8px #4d4d4d;
+
+                display: grid;
+                grid-template-rows: 30% 20% 50%;
+            }
+
+            .controller .info {
+                font-size: 30px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-between;
+                border-bottom: 1px solid #555555;
+            }
+
+            .controller .info p {
+                margin-bottom: 0px;
+            }
+
+            .controller .controls {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-around;
+            }
+
+            .controller .data {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .controller .data table{
+                width: 90%;
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+
+            .controller .data table tr, .controller .data table td {
+                border: 1px solid black;
+                padding: 10px;
+            }
+
+            .controller .data table tr:nth-child(even){background-color: #f2f2f2;}
+
+            .controller .data table  tr:hover {background-color: #ddd;}
+
+            
+        </style>
+        <script>
+            var empt = [];
+            var select1 = -1;
+            var select2 = -1;
+            var lis;
+            var score = 0;
+            var selected = [];
+            var lastselected = 2;
+
+            function RecursiveScore(at, color) {
+
+                if (at >= 80 || at < 0) return;
+
+                if (selected.indexOf(at) == -1 && lis[at].style["background-color"] == color) {
+                    selected.push(at);
+                }
+                else {
+                    return;
+                }
+                if ((at - 1).toString().charAt(at.toString().length - 1) != "9") RecursiveScore(at - 1, color);
+                if ((at + 1).toString().charAt(at.toString().length - 1) != "0") RecursiveScore(at + 1, color);
+                RecursiveScore(at + 10, color);
+                RecursiveScore(at - 10, color);
+            }
+            function Score() {
+                if (select1 != -1) {
+                    lis[select1].style["border"] = "1px solid black";
+                }
+                if (select2 != -1) {
+                    lis[select2].style["border"] = "1px solid black";
+                }
+
+                if (select1 == -1) {
+                    if (select2 == -1) {
+                        return;
+                    }
+                    select1 = select2;
+                    lastselected = 1;
+                }
+
+                if (lis[select1].innerHTML != "<p>*</p>") {
+                    if (select2 != -1 && lis[select2].innerHTML == "<p>*</p>") {
+                        select1 = select2;
+                        select2 = -1;
+                    }
+                    else {
+                        return; 
+                    }
+                }
+                var color =  lis[select1].style["background-color"];
+                RecursiveScore(select1, color);
+                select1 = -1;
+                select2 = -1;
+
+                if (selected.length < 5) {
+                    selected = [];
+                    return;
+                }
+                else {
+                    if (color == "purple") {
+                        score += selected.length * 2;
+                    }
+                    else if (color == "blue") {
+                        score += selected.length * 3;
+                    }
+                    else if (color == "yellow") {
+                        score += selected.length * 4;
+                    }
+                    else if (color == "red") {
+                        score += selected.length * 5;
+                    }
+                    else if (color == "green") {
+                        score += selected.length * 6;
+                    }
+                    document.getElementById("Score").innerHTML = score;
+
+                    for (var i = 0; i < selected.length; i += 1) {
+                        lis[selected[i]].style["background-color"] = "";
+                        empt.push(selected[i]);
+                    }
+                    selected = [];
+                }
+
+                var arr = ["green", "red", "blue", "yellow", "purple"];
+                for (var i = 0; i < 3; i += 1) {
+                    var at = Math.floor(Math.random() * empt.length);
+                  lis[empt[at]].style["background-color"] = arr[Math.floor(Math.random() * arr.length)];
+                  empt.splice(at, 1);
+                }
+            }
+            function Swap() {
+                if (empt.length < 5) {
+                    document.getElementById("gameover").innerHTML = "Game Over";
+                    return;
+                }
+                var col = lis[select1].style["background-color"];
+                lis[select1].style["background-color"] = lis[select2].style["background-color"];
+                lis[select2].style["background-color"] = col;
+
+                var arr = ["green", "red", "blue", "yellow", "purple"];
+                for (var i = 0; i < 5; i += 1) {
+                    var at = Math.floor(Math.random() * empt.length);
+                  lis[empt[at]].style["background-color"] = arr[Math.floor(Math.random() * arr.length)];
+                  empt.splice(at, 1);
+                }
+            }
+            function Selected(index) {
+              if (lis[index].style["background-color"] == "") {
+                return;
+              }
+              if (select1 == index) {
+                lis[select1].style["border"] = "1px solid black";
+                select1 = -1;
+                lastselected = 2;
+              }
+              else if (select2 == index) {
+                lis[select2].style["border"] = "1px solid black";
+                select2 = -1;
+                lastselected = 1;
+              }
+              else if (lastselected == 2) {
+                if (select1 != -1) {
+                    lis[select1].style["border"] = "1px solid black";
+                }
+                select1 = index;
+                lastselected = 1;
+              }
+              else if (lastselected == 1) {
+                if (select2 != -1) {
+                    lis[select2].style["border"] = "1px solid black";
+                }
+                select2 = index;
+                lastselected = 2;
+              }
+              
+              if (select1 != -1) {
+                    lis[select1].style["border"] = "3px solid orange";
+              }
+              if (select2 != -1) {
+                    lis[select2].style["border"] = "3px solid orange";
+              }
+            }
+            function LoadBoard() {
+                console.log(lis.length);
+                lis[20].innerHTML = "<p>*</p>"; lis[21].innerHTML = "<p>*</p>"; lis[28].innerHTML = "<p>*</p>"; lis[29].innerHTML = "<p>*</p>";
+                lis[30].innerHTML = "<p>*</p>"; lis[31].innerHTML = "<p>*</p>"; lis[38].innerHTML = "<p>*</p>"; lis[39].innerHTML = "<p>*</p>";
+                lis[40].innerHTML = "<p>*</p>"; lis[41].innerHTML = "<p>*</p>"; lis[48].innerHTML = "<p>*</p>"; lis[49].innerHTML = "<p>*</p>";
+                lis[50].innerHTML = "<p>*</p>"; lis[51].innerHTML = "<p>*</p>"; lis[58].innerHTML = "<p>*</p>"; lis[59].innerHTML = "<p>*</p>";
+
+                var arr = ["green", "red", "blue", "yellow", "purple"];
+                for (var i = 0; i < 5; i += 1) {
+                    var at = Math.floor(Math.random() * empt.length);
+                  lis[empt[at]].style["background-color"] = arr[Math.floor(Math.random() * arr.length)];
+                  empt.splice(at, 1);
+                }
+            }
+
+            function StartOver() {
+                empt = [];
+                selected = [];
+                if (select1 != -1) {
+                    lis[select1].style["border"] = "1px solid black";
+                }
+                if (select2 != -1) {
+                    lis[select2].style["border"] = "1px solid black";
+                }
+                document.getElementById("gameover").innerHTML = "";
+                select1 = -1;
+                select2 = -1;
+                lastselected = 2;
+                score = 0;
+                document.getElementById("Score").innerHTML = score;
+
+                for (var i = 0; i < 80; i += 1) {
+                    empt.push(i);
+                    lis[i].style["background-color"] = "";
+                }
+
+                var arr = ["green", "red", "blue", "yellow", "purple"];
+                for (var i = 0; i < 5; i += 1) {
+                    var at = Math.floor(Math.random() * empt.length);
+                  lis[empt[at]].style["background-color"] = arr[Math.floor(Math.random() * arr.length)];
+                  empt.splice(at, 1);
+                }
+            }
+            window.onload = function() {
+                lis = document.getElementsByClassName("boardtile")[0].getElementsByTagName("li");
+                for (var i = 0; i < 80; i += 1) {
+                    empt.push(i);
+                }
+                LoadBoard();
+            };
+        </script>
+    </head>
+    <body>
+        <div class="playground">
+            <div class="board">
+                <ul class="boardtile">
+                    <li onclick="Selected(0)"></li> <li onclick="Selected(1)"></li> <li onclick="Selected(2)"></li> 
+                    <li onclick="Selected(3)"></li> <li onclick="Selected(4)"></li> <li onclick="Selected(5)"></li> 
+                    <li onclick="Selected(6)"></li> <li onclick="Selected(7)"></li> <li onclick="Selected(8)"></li> 
+                    <li onclick="Selected(9)"></li> <li onclick="Selected(10)"></li> <li onclick="Selected(11)"></li> 
+                    <li onclick="Selected(12)"></li> <li onclick="Selected(13)"></li> <li onclick="Selected(14)"></li> 
+                    <li onclick="Selected(15)"></li> <li onclick="Selected(16)"></li> <li onclick="Selected(17)"></li> 
+                    <li onclick="Selected(18)"></li> <li onclick="Selected(19)"></li> <li onclick="Selected(20)"></li> 
+                    <li onclick="Selected(21)"></li> <li onclick="Selected(22)"></li> <li onclick="Selected(23)"></li> 
+                    <li onclick="Selected(24)"></li> <li onclick="Selected(25)"></li> <li onclick="Selected(26)"></li> 
+                    <li onclick="Selected(27)"></li> <li onclick="Selected(28)"></li> <li onclick="Selected(29)"></li>
+                    <li onclick="Selected(30)"></li> <li onclick="Selected(31)"></li> <li onclick="Selected(32)"></li> 
+                    <li onclick="Selected(33)"></li> <li onclick="Selected(34)"></li> <li onclick="Selected(35)"></li> 
+                    <li onclick="Selected(36)"></li> <li onclick="Selected(37)"></li> <li onclick="Selected(38)"></li> 
+                    <li onclick="Selected(39)"></li> <li onclick="Selected(40)"></li> <li onclick="Selected(41)"></li> 
+                    <li onclick="Selected(42)"></li> <li onclick="Selected(43)"></li> <li onclick="Selected(44)"></li> 
+                    <li onclick="Selected(45)"></li> <li onclick="Selected(46)"></li> <li onclick="Selected(47)"></li> 
+                    <li onclick="Selected(48)"></li> <li onclick="Selected(49)"></li> <li onclick="Selected(50)"></li> 
+                    <li onclick="Selected(51)"></li> <li onclick="Selected(52)"></li> <li onclick="Selected(53)"></li> 
+                    <li onclick="Selected(54)"></li> <li onclick="Selected(55)"></li> <li onclick="Selected(56)"></li> 
+                    <li onclick="Selected(57)"></li> <li onclick="Selected(58)"></li> <li onclick="Selected(59)"></li>
+                    <li onclick="Selected(60)"></li> <li onclick="Selected(61)"></li> <li onclick="Selected(62)"></li> 
+                    <li onclick="Selected(63)"></li> <li onclick="Selected(64)"></li> <li onclick="Selected(65)"></li> 
+                    <li onclick="Selected(66)"></li> <li onclick="Selected(67)"></li> <li onclick="Selected(68)"></li> 
+                    <li onclick="Selected(69)"></li> <li onclick="Selected(70)"></li> <li onclick="Selected(71)"></li> 
+                    <li onclick="Selected(72)"></li> <li onclick="Selected(73)"></li> <li onclick="Selected(74)"></li> 
+                    <li onclick="Selected(75)"></li> <li onclick="Selected(76)"></li> <li onclick="Selected(77)"></li> 
+                    <li onclick="Selected(78)"></li> <li onclick="Selected(79)"></li>
+                </ul>
+            </div>
+            <div class="controller">
+                <div class="info">
+                   <p id="Score">0</p><p id="gameover" style="color:red;font-weight:bolder;"></p>
+                </div>
+                <div class="controls">
+                   <button onclick="Swap()">Swap</button>
+                   <button onclick="Score()">Score</button>
+                   <button onclick="StartOver()">Restart</button>
+                </div>
+                <div class="data">
+                    <table>
+                        <tr>
+                            <th>Color</th> <th>Value</th>
+                        </tr>
+                        <tr>
+                            <td style="font-weight:bolder;color:purple;">Purple</td><td>2 Points</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight:bolder;color:blue;">Blue</td><td>3 Points</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight:bolder;color:rgb(221, 221, 0);">Yellow</td><td>4 Points</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight:bolder;color:red;">Red</td><td>5 Points</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight:bolder;color:green;">Green</td><td>6 Points</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

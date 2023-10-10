@@ -1,0 +1,8 @@
+.ab.aabbb..abbb
+b..bbbbbbaaa.bb
+B*...abb.aaaa*B
+A*.aaabbbaa..B*
+BAba..bbb.aa.AB
+A*bbbbbb..a.a*A
+.aa..bb.aaaaa.a
+aaaabbbaa.b.a.a
