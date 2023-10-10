@@ -142,5 +142,6 @@ int main(int argc, char** argv) {
   s->store(d); // must wait until after creating the sets to store
   s->print(d);
   delete d;
+  delete s; // delete both class instances
   return 0;
 }
