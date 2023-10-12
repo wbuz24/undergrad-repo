@@ -17,6 +17,7 @@ public:
   char move(Disjoint_Set *d);
   void print(char m);
   int ideal_swap(Disjoint_Set *d);
+  int nsearch(int index, Disjoint_Set *d);
   int ideal_score(Disjoint_Set *d);
   map <int, int> idmap;
   int r;
@@ -26,7 +27,8 @@ public:
   vector <int> board;
   vector <int> goals;
   vector <int> colors;
-  vector <int> swap;
+  vector <int> swap; // indices of either swapping or scoring squares
+  vector <int> non_scoring; // indices of non_scoring squares
 };
 
 void usage(const char *s) 
@@ -89,12 +91,19 @@ Superball::Superball(int argc, char **argv)
 
 void Superball::analyze_superball(Disjoint_Set *d) {
   int i;
+  non_scoring.clear();
 
-  for (i = 0; i < r*c; i++) if (board[i] != '*' && board[i] != '.') search(i, d); // we know that the given square is not a '*'
-
+  for (i = 0; i < r*c; i++) {
+    if (board[i] != '*' && board[i] != '.') {
+      search(i, d); // we know that the given square is not a '*'
+      non_scoring.push_back(i); // all colored squares, will later look for an arbitrary swapping square.
+    }
+  }
   store(d); // must wait until after creating the sets to store
+
   return;
 }
+
 void Superball::search(int index, Disjoint_Set *d) {
 
   int i, j;
@@ -113,6 +122,39 @@ void Superball::search(int index, Disjoint_Set *d) {
   return;
 }
 
+int Superball::nsearch(int index, Disjoint_Set *d) {
+  int i, j;
+  const vector <int> *sizes;
+
+  i = index / c;
+  j = index % c;
+
+  sizes = d->Get_Sizes();
+  // check if the set id is a scoring set, if so, return the color
+  if (i >= 1 && sizes->at(d->Find((i-1)*c+j)) > 1) {
+    swap[0] = index / c;
+    swap[1] = index % c;
+    return board[(i-1)*c + j];
+  }
+  if (j >= 1 && sizes->at(d->Find(i*c+j-1)) > 1) {
+    swap[0] = index / c;
+    swap[1] = index % c;
+    return board[i*c+j-1];
+  }
+  if (i < r - 1 && sizes->at(d->Find((i+1)*c+j)) > 1) {
+    swap[0] = index / c;
+    swap[1] = index % c;
+    return board[(i+1)*c+j];
+  }
+  if (j < c - 1 && sizes->at(d->Find(i*c+j+1)) > 1) {
+    swap[0] = index / c;
+    swap[1] = index % c;
+    return board[i*c+j+1];
+  }
+
+  return -1;
+}
+
 void Superball::store(Disjoint_Set *d) {
   int i;
   const vector <int> *sizes;
@@ -128,89 +170,107 @@ void Superball::store(Disjoint_Set *d) {
 
 void Superball::print(char m) { 
   if (m == 'w') {
-    printf("Move is: SWAP %d %d %d %d\n", swap[0], swap[1], swap[2], swap[3]); 
+    printf("SWAP %d %d %d %d\n", swap[0], swap[1], swap[2], swap[3]); 
   }
   if (m == 'c') {
-    printf("Move is: SCORE %d %d\n", swap[0], swap[1]);
+    printf("SCORE %d %d\n", swap[0], swap[1]);
   }
   return;
 }
 
 int Superball::ideal_swap(Disjoint_Set *d) {
-  int i, j, bsize = 0, bindex = 0, index, sindex = 0;
-  const vector <int> *sizes;
-  vector <int> squares; // vector to keep track of eligible swapping squares
-  // find the ideal indices to swap
-  // what is the best swap?
-  // connecting two groups
-  // adding to a set: you want to add to the largest set
-  // turn a set into a scoring set: a set is near a scoring square, but not found in the map.
-  squares.clear(); // squares holds the valid squares for swapping
-  sizes = d->Get_Sizes();
-  if (empty > r*c/3) { // if there is mostly empty spaces
-    
-    // Next, find an index to take from: this will be a non-scoring square from a negligible set (not found in the scoring sets)
-    // I want the color to be the same as the desired index
-    
-    for (i = 0; i < r; i++) {
-      for (j = 0; j < c; j++) {
-        if (idmap.find(d->Find(i*c+j)) == idmap.end() && board[i*c+j] != '.') { // if I am not a part of a scoring set and I am not a dot
-          if (i >= 1 && idmap.find(d->Find((i-1)*c+j)) != idmap.end()) bindex = i*c+j;
-          if (j >= 1 && idmap.find(d->Find(i*c+j-1)) != idmap.end()) bindex = i*c+j;
-          if (i < r - 1 && idmap.find(d->Find((i+1)*c+j)) != idmap.end()) bindex = i*c+j;
-          if (j < c - 1 && idmap.find(d->Find(i*c+j + 1)) != idmap.end()) bindex = i*c+j;
-          if (goals[i*c+j] && board[i*c+j == '*']) bindex = i*c+j;
-          if (!goals[i*c+j]) squares.push_back(i*c+j); // gather all eligible swapping squares
-        }
-      }
-    } 
+  size_t i;
+  int index = non_scoring[0], sindex = non_scoring[1], cc;
+  bool is = 1, ss = 1;
+  swap.clear();
+  swap.resize(4, -1);
 
-    sindex = squares[0];
-    for (i = 0; (size_t) i < squares.size(); i++) {
-      if (board[squares[i]] != board[bindex]) sindex = squares[i]; // if the colors match, grab the index from the vector
+
+  for (i = 0; i < non_scoring.size(); i++) {
+    // find an "ideal square"
+    if (idmap.find(d->Find(non_scoring[i])) == idmap.end() && is) { // I am not a part of a scoring set
+      index = non_scoring[i];
+      swap[0] = index / c;
+      swap[1] = index % c;
+      cc = nsearch(index, d);
+      if (cc > 0) is = 0; // ideal color
     }
-    index = bindex;
-    swap.clear();
-    swap.push_back(bindex / c); // store the desired cell
-    swap.push_back(bindex % c); 
-    swap.push_back(sindex / c);
-    swap.push_back(sindex % c);
-    return index;
+
+    
+
+    if (board[non_scoring[i]] == cc) { // I know that I am the same color as my ideal color
+      if (idmap.find(d->Find(non_scoring[i])) == idmap.end()) { // if I am not a part of a scoring set 
+        swap[2] = non_scoring[i] / c;
+        swap[3] = non_scoring[i] % c;
+        sindex = non_scoring[i];
+        ss = 0;
+      }
+      else if (ss) sindex = non_scoring[i];
+    }
   }
-  return -1;
+
+  // run through i & check if it is -1
+  for (i = 0; i < swap.size(); i++) {
+    if (swap[i] == -1) {
+      switch (i) {
+        case 0: 
+          swap[i] = index / c;
+          break;
+        case 1:
+          swap[i] = index % c;
+          break;
+        case 2:
+          swap[i] = sindex / c;
+          break;
+        case 3:
+          swap[i] = sindex % c;
+          break;
+      }
+    }
+  }
+
+
+  return index;
 }
 
 int Superball::ideal_score(Disjoint_Set *d) {
   map <int, int>::iterator mit;
   const vector <int> *sizes;
-  int biggest = 0, bindex = 0, sindex = 0, score = 0, cscore = 0, index = 0;
+  int score = 0, index = 0, lindex, size = 0;
 
-  sizes = d->Get_Sizes();
-  if (idmap.size() > 0) { // it is ideal to score
-    // find the ideal set to score
+  // check if scoring is legal
+  // must have a scoring set
+  // must be able to clear enough squares for the incoming 3
+  if (idmap.size() > 0) {
+    if (empty <= r*c/2) { // if the board is 2/3 full, I will try to score
+
+    sizes = d->Get_Sizes();
     for (mit = idmap.begin(); mit != idmap.end(); mit++) {
-      if (sizes->at(mit->first) > biggest) { // track the largest set
-        biggest = sizes->at(mit->first);
-        bindex = mit->second; // store the index
+      if (colors[board[mit->first]] * sizes->at(mit->first) > score) {
+        // highest score
+        index = mit->second;
+        score = colors[board[mit->first]] * sizes->at(mit->first); // color of the set id should be the same as the color of the index
       }
-      cscore = sizes->at(mit->first) * colors[board[mit->second]]; // size of the set * points for the color
-      if (cscore > score) { // track largest scoring set
-        score = cscore;
-        sindex = mit->second; // track scoring set index
+
+      if (sizes->at(mit->first) > size) { // largest set
+        size = sizes->at(mit->first);
+        lindex = mit->second;
       }
+
     }
 
-    // choose which way to score
-    if (empty < r*c/3) index = bindex; // less than 1/3 of the board open, score larger set
-    else index = sindex; // otherwise, score based on higher scoring set
+    // if your largest scoring set cannot clear enough squares for the incoming 3, make an arbitrary swap and end the game.
+    if (r*c <= (int) non_scoring.size() + 3 - size) return 0;
+    // if my largest scoring set can clear 
+    if (empty < r*c/3) index = lindex;
 
     swap.clear();
-    swap.push_back(index / c); // store the row in the vector
-    swap.push_back(index % c); // store the column in the vector
-    return index;
+    swap.push_back(index / c);
+    swap.push_back(index % c);
+    }
   }
 
-  return -1;
+  return score;
 }
 
 char Superball::move(Disjoint_Set *d) { // this function calls analyze and decides on what move to make
@@ -219,36 +279,23 @@ char Superball::move(Disjoint_Set *d) { // this function calls analyze and decid
   analyze_superball(d);
   // make a move
   // you can either swap or score
-  if (idmap.size() == 0 || empty >= r*c / 3) {
-    // swap
-    // find the ideal swap
-    if (ideal_swap(d) != -1) { // if it is ideal to swap, return
-      return 'w';
-    }
-    ideal_score(d); // otherwise, call ideal score instead
-    return 'c'; // 'w' for swap, 'c' for score
-  }
-
-  else {
-    // find the ideal score
-    if (ideal_score(d) != -1) { // if it is ideal to score, return
-      return 'c'; // score
-    }
-    ideal_swap(d); // otherwise, swap instead
-    return 'w';
-  }
+  if (ideal_score(d) > 0) return 'c';
   // if you have fewer than five pieces & cannot score any, you lose: make a final legal swap & the game can end.
   // if you cannot clear enough squares for the incoming new random ones, you lose, make a legal swap or score and the game can end
+  ideal_swap(d);
+  return 'w';
 }
 
 int main(int argc, char** argv) {
   Disjoint_Set *d = new Disjoint_Set;
   Superball *s = new Superball(argc, argv);
+  char m;
 
   d->Initialize(s->r * s->c); // initialize the disjoint set
 
   s->swap.clear();
-  s->print(s->move(d)); // print the desired move
+  m = s->move(d);
+  s->print(m); // print the desired move
 
   delete d;
   delete s; // delete both class instances
