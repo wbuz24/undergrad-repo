@@ -99,15 +99,19 @@ int Superball::rate(Disjoint_Set *d) {
   num = d->Size();
   sizes = d->Get_Sizes();
   for (i = 0; i < r*c; i++) {
-    if (goals[i]) rate += colors[board[i]];
-    if (sizes->at(d->Find(i)) > 1) { // I am a set & I am not in the map
-      rate += sizes->at(d->Find(i)); // rate is the highest scoring board
-      if (idmap.find(d->Find(i)) != idmap.end()) rate += 5 * sizes->at(d->Find(i)) * colors[board[i]]; // scoring sets have higher ratings, otherwise rate normally
-      if (next_to(i)) rate += 2;
+    if (goals[i] && next_to(i)) rate += colors[board[i]];
+    if (goals[i]) rate += 3 * colors[board[i]];
+    if (sizes->at(d->Find(i)) > 1 && next_to(i)) { // I am a set & I am not in the map
+      rate += sizes->at(d->Find(i)) * colors[board[i]]; // I am not a scoring set
+      if (idmap.find(d->Find(i)) != idmap.end() && sizes->at(d->Find(i)) > (int) num) rate += 5 * sizes->at(d->Find(i));
+      if (sizes->at(d->Find(i)) > mss) rate += 10 * sizes->at(d->Find(i));
+      if (idmap.find(d->Find(i)) != idmap.end()) rate += 15 * sizes->at(d->Find(i)) * colors[board[i]]; // scoring set
     }
+    else rate --;
+    if (!next_to(i) || sizes->at(d->Find(i)) == 1) rate -= 5;
   }
 
-  if (num < 15 && idmap.size() > 4) rate *= 2; // reward low number of sets
+  if (num < 7) rate += idmap.size(); // reward low number of sets
 
   return rate;
 }
@@ -209,7 +213,7 @@ void Superball::move(Disjoint_Set *d) {
 }
 
 int Superball::score(Disjoint_Set *d) {
-  int score = -1, index = -1;
+  int score = -1, index = -1, lindex = 0, largest = 0;
   const vector <int> *sizes;
   map <int, int>::iterator mit;
 
@@ -221,7 +225,13 @@ int Superball::score(Disjoint_Set *d) {
         score = sizes->at(mit->first) * colors[board[mit->first]];
         index = mit->second;
       }
+      if (sizes->at(mit->first) > largest) {
+        lindex = mit->second;
+        largest = sizes->at(mit->first);
+      } 
     }
+
+    if (empty < r*c/5) index = lindex;
   }
 
   return index;
