@@ -1,0 +1,1414 @@
+<title>CS302 Lecture Notes</title>
+<h2>CS302 Lecture Notes - Sorting Algorithms</h2>
+<UL>
+<LI> October 20, 2009
+<LI> James S. Plank
+<LI> Directory: <b>/home/plank/cs302/Notes/Sorting</b>
+<LI> Last modification:<i>
+Tue Mar 10 14:57:32 EDT 2020
+</i>
+</UL>
+<hr>
+
+<h2>Descriptions from Wikipedia:</h2>
+<UL>
+<LI> <a href=http://en.wikipedia.org/wiki/Bubble_sort>Bubble Sort - A horrible <i>O(n<sup>2</sup>)</i> algorithm</a>
+<LI> <a href=http://en.wikipedia.org/wiki/Selection_sort>Selection Sort - A better <i>O(n<sup>2</sup>)</i> algorithm</a>
+<LI> <a href=http://en.wikipedia.org/wiki/Insertion_sort>Insertion Sort - The best <i>O(n<sup>2</sup>)</i> algorithm</a>
+<LI> <a href=http://en.wikipedia.org/wiki/Heap_sort>Heapsort - A simple <i>O(n lg(n))</i> algorithm</a>
+<LI> <a href=http://en.wikipedia.org/wiki/Merge_sort>Merge Sort - Another <i>O(n lg(n))</i> algorithm</a>
+<LI> <a href=http://en.wikipedia.org/wiki/Quick_sort>Quick Sort - A quick average <i>O(n lg(n))</i> algorithm</a>
+<LI> <a href=http://en.wikipedia.org/wiki/Bucket_sort>Bucket Sort - Sorting in <i>O(n)</i> time</a>
+</UL>
+
+Other resources:
+<UL>
+<LI> <a href=http://www.youtube.com/watch?v=PvoKfjyYJDk>Katie Schuman (TA from 2011 to 2014, now
+an EECS professor)
+explains Quicksort.</a>
+<LI> <a href=http://robertfr0st.github.io/algorithmizer/>A Sorting Visualizer written by 
+UTK CS402 Students in 2016.</a>
+explains Quicksort.</a>
+<LI> <a href=https://www.youtube.com/watch?v=kPRA0W1kECg>Youtube video of sorting algorithms (with sound).
+<LI> <a href=https://www.youtube.com/user/AlgoRythmics/videos>Sorting algorithms illustrated with folk dance.</a> (Thank you, Andrew LaPrise).  Note, the partition does not work exactly as 
+I describe in Quicksort.  I haven't watched the others.
+<LI> <a href=https://www.youtube.com/watch?v=WaNLJf8xzC4>TedEd Tackles Bubble Sort, Insertion Sort and Quicksort</a> (Thank you, Camille Crumpton).
+<LI> <a href=https://www.youtube.com/watch?v=I5v77ITleSw>Dr. Plank explains how to sort 
+a hand of cards with selection sort.</a> (<a href=https://youtu.be/pzT8_iQ8vkQ>And then the good Mrs. Dr. Plank sorts a deck
+in 76 seconds with a combination of bucket sort and selection sort.</a>)
+</UL>
+
+<hr>
+<h2>A note on compilation</h2>
+
+I am not using interfaces in this set of lecture notes.  Instead, I am taking a more
+"old-school" approach of having one header file, which specifies one procedure prototype, and
+I have multiple implementations of this procedure 
+in multiple <b>.cpp</b> files.   I have one driver program,
+and I compile it with each implementation separately to make a different executable file
+for each implementation. 
+<p>
+All of this works with <b>make</b>, so that if you grab this directory using the Git
+repo on bitbucket, or you scp it from the lab machines,
+you should be able to type <b>"make clean; make"</b>, and everything
+will be compiled for you.  In your sorting lab, you will implement the procedure in two
+different ways, which will result in two more sorting executables.
+<p>
+
+<hr>
+<h2>Implementation and performance testing</h2>
+
+In 
+<b><a href=src/sorting.hpp>src/sorting.hpp</a></b> we define a procedure <b>sort_doubles</b>, which takes 
+a vector of doubles (reference parameter) and a boolean parameter called <b>print</b>.  When it returns,
+the elements of the vector should be sorted.  If <b>print</b> is <b>true</b>, intermediate sorting states
+should be printed.  Otherwise, nothing should be printed.
+
+<p><center><table border=3 cellpadding=3><td><pre>
+#include &lt;vector&gt;
+
+void sort_doubles(std::vector &lt;double&gt; &v, bool print);
+</pre></td></table></center><p>
+
+The file <b><a href=src/sort_driver.cpp>src/sort_driver.cpp</a></b>
+contains a <b>main()</b> routine that lets you perform a variety of sorting examples.
+It is called with five command line arguments:
+<p><center><table border=3 cellpadding=3><td><pre>
+size iterations seed double-check(yes|no) print(yes|no)
+</pre></td></table></center><p>
+
+This will run <i>iterations</i> tests where it sorts a randomly created vector of size <i>size</i>
+by calling <b>sort_doubles()</b>.  It will use the given <i>seed</i> as a seed for <b>srand48()</b>.
+The elements of the vector will be floating point numbers between 0 and 10 (i.e. we multiply <b>drand48()</b> by 10).
+If <i>double-check</i> is "yes", then it will double check the results of <b>sort_doubles()</b> to 
+make sure that it sorted correctly.  The last command line argument specifies 
+whether to set the <b>print</b> parameter to <b>true</b> or <b>false</b>.
+<p>
+In this lecture (and your next lab), we will implement a large host of sorting algorithms and 
+link them in with <b>obj/sort_driver.o</b> so that we can test their correctness and speed.
+<p>
+The first such implementation is 
+<b><a href=src/null_sort.cpp>src/null_sort.cpp</a></b>, which does nothing except print out the 
+vector if <b>print</b> is true:
+
+<p><center><table border=3 cellpadding=3><td><pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include "sorting.hpp"
+using namespace std;
+
+
+void sort_doubles(vector &lt;double&gt; &v, bool print)
+{
+  size_t j;
+
+  if (print) {
+    for (j = 0; j &lt; v.size(); j++) printf("%4.2lf ", v[j]);
+    cout &lt;&lt; endl;
+  }
+
+  return;
+}
+</pre></td></table></center><p>
+
+As such, it does not run correctly.  For example, if we double-check it on a three-element
+vector, it will fail:
+
+<pre>
+UNIX> <font color=darkred><b>bin/null_sort 3 1 0 yes no</b></font>
+V is unsorted at element 1
+
+0 1.70828036
+1 7.49901980
+2 0.96371656
+UNIX> <font color=darkred><b></b></font>
+</pre>
+
+Although it doesn't sort properly, <b>src/null_sort.cpp</b> is useful because we can use it as
+a base case for timing other sorting algorithms.  
+<p>
+<hr>
+<h2>Bubble Sort</h2>
+
+Bubble sort is an awful sorting algorithm.  There's really no good reason to teach it to
+you, except that this is an algorithm that many programmers come up with when they need
+to sort something, and they haven't studied sorting!  So, I feel it's good to address and
+acknowledge it, and then to tell you never to use it.
+<p>
+Bubble sort works with the following inner loop:
+<UL>
+<LI> Run through the elements from the smallest index to the largest.
+<LI> At each iteration, if the element that you're inspecting is greater than the next
+element, then swap them.
+</UL>
+
+For example, suppose your vector is:
+<pre>
+2 4 3 1
+</pre>
+Then, when you perform an iteration of bubble sort, you'll skip over the value 2, 
+but you'll swap 3 and 4.  Next, you'll be looking at 4 again, and it's greater than 1, so
+you'll swap them.  Since 4 is now at the last element, you're done.  The vector is now:
+<pre>
+2 3 1 4
+</pre>
+You'll note that after an iteration, the largest element will always be at the last index.
+That's good, because if you want to do another iteration, you don't have to worry about
+that last element -- it's already where it belongs.  
+<p>
+You'll also note that whenever an element moves to a smaller index, it can only do that once
+per iteration.  Thus, if the smallest value starts at the highest index, 
+you'll have do do <i>n-1</i>
+iterations to get it to the beginning.  Such is bubble sort.  You iterate <i>n-1</i> times, and
+at each iteration, you perform the "inner loop" above.  Each time you perform it, you can skip 
+an additional element at the end of the vector, because the previous iteration has already placed
+that element where it belongs.  Here's <b><a href=src/bubble_sort.cpp>src/bubble_sort.cpp</a></b>, without
+the code to print the vector, and without the headers:
+
+<p><center><table border=3 cellpadding=3><td><pre>
+void sort_doubles(vector &lt;double&gt; &v, bool print)
+{
+  int i, j, n;
+  double tmp;
+
+  <font color=blue>// The vector is printed here, but I've omitted the code. </font>
+
+  n = v.size();
+  for (i = 0; i &lt; n-1; i++) {
+
+    <font color=blue>/* This is the inner loop. Each time you perform it, you can stop
+       one step closer to the beginning of the vector, because the previous
+       iteration has placed the element where it belongs. */</font>
+
+    for (j = 0; j &lt; n-i-1; j++) {   
+      if (v[j] &gt; v[j+1]) {
+        tmp = v[j];
+        v[j] = v[j+1];
+        v[j+1] = tmp;
+      }
+    }
+    <font color=blue>// The vector is printed here, but I've omitted the code. </font>
+  }
+}
+</pre></td></table></center><p>
+
+I'm going to run it on seed 14, and an 8-element vector.  You'll see that we need all 7 
+iterations to get the smallest element from the right side to the left side.  I'm also
+coloring this one so that you see the elements that are inspected in each loop.  
+
+<p><center><table border=3 cellpadding=3><td>
+<pre>
+                 | UNIX> <font color=darkred><b>bin/bubble_sort 8 1 14 yes yes</b></font>
+Before the loop: | 3.62 6.14 4.35 3.88 4.12 8.09 6.28 0.72
+i = 0            | <font  style="background-color: #ffff80">3.62 4.35 3.88 4.12 6.14 6.28 0.72 8.09</font> 
+i = 1            | <font  style="background-color: #ffff80">3.62 3.88 4.12 4.35 6.14 0.72 6.28</font> 8.09 
+i = 2            | <font  style="background-color: #ffff80">3.62 3.88 4.12 4.35 0.72 6.14</font> 6.28 8.09 
+i = 3            | <font  style="background-color: #ffff80">3.62 3.88 4.12 0.72 4.35</font> 6.14 6.28 8.09 
+i = 4            | <font  style="background-color: #ffff80">3.62 3.88 0.72 4.12</font> 4.35 6.14 6.28 8.09 
+i = 5            | <font  style="background-color: #ffff80">3.62 0.72 3.88</font> 4.12 4.35 6.14 6.28 8.09 
+i = 6            | <font  style="background-color: #ffff80">0.72 3.62</font> 3.88 4.12 4.35 6.14 6.28 8.09 
+                 | UNIX> 
+</pre>
+</td></table></center><p>
+
+If you count the number of elements that are inspected over the course of the algorithm, that
+is: 
+<p>
+<center>
+<i>n</i> +
+<i>(n-1)</i> +
+<i>(n-2)</i> + ... + 4 + 3 + 2</center>
+<p>
+That is equal to <i>n(n-1)/2 - 1</i>, which is clearly <i>O(n<sup>2</sup>)</i>.  For that reason,
+bubble sort is a really slow algorithm (we can always sort in <i>O(n log(n))</i> time, which is
+<i>much</i> faster).  And for that reason, we never use bubble sort.
+
+<hr>
+<h2>Selection Sort</h2>
+
+Selection sort is another crappy <i>O(n<sup>2</sup>)</i> algorithm, so like bubble sort, you'll
+never implement it.  However, also like bubble sort, it is a very natural sorting algorithm, so
+it's good for you to see it, and understand why it is bad.  It is a useful algorithm when you
+are sorting a hand of cards, though.  I'll demonstrate that in class -- when you learn to 
+play bridge, you should sort your cards using selection sort.  Not only is it the most efficient
+way to sort the cards, but it will make you seem really cool at the bridge table....
+
+<p>
+Selection sort is pretty straightforward:
+
+<UL>
+<LI> At iteration 0, you find the smallest element in the vector, and you swap it with element 0.
+<LI> At iteration 1, you find the second smallest element in the vector, and you swap it with element 1.
+<LI> At iteration 2, you find the third smallest element in the vector, and you swap it with element 2.
+<LI> And so on.
+</UL>
+
+You'll note that at iteration <i>i</i> you don't have to look at any of the elements before
+index <i>i</i>, because they are the smallest elements up to element <i>i</i>.  So, at iteration
+<i>i</i>, you simply look for the smallest element from index <i>i</i> to the end of the
+vector, and swap that with element <i>i</i>.
+<p>
+Before looking at any code, let's look at the output to make sure we know what's going on:
+
+<p><center><table border=3 cellpadding=3><td>
+<pre>
+                 | UNIX> <font color=darkred><b>bin/selection_sort 8 1 13 yes yes</b></font>
+Before the loop: | 4.91 9.10 6.96 9.22 4.24 5.93 1.32 4.50
+i = 0            | <font style="background-color: #ffff80"><font style="background-color: #d0d0ff">1.32 </font>9.10 6.96 9.22 4.24 5.93 <font style="background-color: #d0d0ff">4.91 </font>4.50 </font>
+i = 1            | 1.32 <font style="background-color: #ffff80"><font style="background-color: #d0d0ff">4.24 </font>6.96 9.22 <font style="background-color: #d0d0ff">9.10 </font>5.93 4.91 4.50 </font>
+i = 2            | 1.32 4.24 <font style="background-color: #ffff80"><font style="background-color: #d0d0ff">4.50 </font>9.22 9.10 5.93 4.91 <font style="background-color: #d0d0ff">6.96 </font></font>
+i = 3            | 1.32 4.24 4.50 <font style="background-color: #ffff80"><font style="background-color: #d0d0ff">4.91 </font>9.10 5.93 <font style="background-color: #d0d0ff">9.22 </font>6.96 </font>
+i = 4            | 1.32 4.24 4.50 4.91 <font style="background-color: #ffff80"><font style="background-color: #d0d0ff">5.93 </font><font style="background-color: #d0d0ff">9.10 </font>9.22 6.96 </font>
+i = 5            | 1.32 4.24 4.50 4.91 5.93 <font style="background-color: #ffff80"><font style="background-color: #d0d0ff">6.96 </font>9.22 <font style="background-color: #d0d0ff">9.10 </font></font>
+i = 6            | 1.32 4.24 4.50 4.91 5.93 6.96 <font style="background-color: #d0d0FF">9.10 9.22 </font>
+                 | UNIX> 
+</pre></td></table></center><p>
+
+What you see above is that in iteration <i>i</i>, we find the smallest value from indices <i>i</i> to the end of the
+vector, and then we swap that value with the value in index <i>i</i>.  Those values are the ones in light blue.  The values
+in yellow are those that are checked in that iteration.  The number of colored elements are exactly the same as in bubble
+sort, which means that selection sort is <i>O(n<sup>2</sup>)</i> as well.  Typically, it is faster than bubble sort,
+because it involves fewer swaps.
+<p>
+Here's the code (in <b><a href=selection_sort.cpp>selection_sort.cpp</a></b>):
+
+<p><center><table border=3 cellpadding=3><td valign=top><pre>
+void sort_doubles(vector &lt;double&gt; &v, bool print)
+{
+  int i, j, k, n;
+  double tmp;
+  int minindex;
+
+  n = v.size();
+
+  <font color=blue>/* Optionally print the vector before sorting */</font>
+
+  if (print) {
+    for (k = 0; k &lt; n; k++) printf("%4.2lf ", v[k]);
+    cout &lt;&lt; endl;
+  }
+
+  <font color=blue>/* Outer loop.  At each of these iterations, we
+     are going to find the smallest element from
+     index i to the end, and swap it with the
+     element in index i.  */</font>
+</pre></td><td valign=top><pre>
+  for (i = 0; i &lt; n-1; i++) {
+    
+    <font color=blue>/* Put the index of the smallest element 
+       starting at index i in minindex. */</font>
+
+    minindex = i;
+    for (j = i+1; j &lt; n; j++) {
+      if (v[j] &lt; v[minindex]) {
+        minindex = j;
+      }
+    }
+
+    <font color=blue>/* Now swap v[minindex] with v[i] */</font>
+
+    tmp = v[i];
+    v[i] = v[minindex];
+    v[minindex] = tmp;
+      
+    <font color=blue>/* Optionally print the vector. */</font>
+
+    if (print) {
+      for (k = 0; k &lt; n; k++) printf("%4.2lf ", v[k]);
+      cout &lt;&lt; endl;
+    }
+  }
+}
+</pre></td></table></center><p>
+
+Although it as a useless algorithm in computer science, selection sort is the best
+way to sort a hand of cards.  I explain in this video from 2020:
+<a href=https://www.youtube.com/watch?v=I5v77ITleSw>https://www.youtube.com/watch?v=I5v77ITleSw</a>.
+<p>
+Plus in this video, also from 2020, Mrs. Dr. Plank sorts an entire deck
+of cards in just 76 seconds, with a combination of bucket and selection sort. 
+(That's faster than I could do it): <a href=https://youtu.be/pzT8_iQ8vkQ>https://youtu.be/pzT8_iQ8vkQ</a>.
+<hr>
+<h2>Insertion Sort</h2>
+
+Insertion sort is the last of the <i>O(n<sup>2</sup>)</i> algorithms, and it is the most
+important.  Insertion sort works in the following way:
+<UL>
+<LI> In iteration <i>i</i>, make sure that the first <i>i+2</i> values in the vector are sorted.
+</UL>
+
+Before we implement it, let's take a look at its output on seed 4:
+
+<p><center><table border=3 cellpadding=3><td>
+<pre>
+                                                | UNIX> <font color=darkred><b>bin/insertion_1_sort 8 1 4 yes yes</b></font>
+Before the loop. The first element is sorted.   | <font style="background-color: #d0FFd0">6.54</font> 5.68 0.50 7.33 5.30 6.50 6.74 8.55 
+Iteration 0: The first 2 elements are sorted.   | <font style="background-color: #d0FFd0">5.68 6.54</font> 0.50 7.33 5.30 6.50 6.74 8.55 
+Iteration 1: The first 3 elements are sorted.   | <font style="background-color: #d0FFd0">0.50 5.68 6.54</font> 7.33 5.30 6.50 6.74 8.55 
+Iteration 2: The first 4 elements are sorted.   | <font style="background-color: #d0FFd0">0.50 5.68 6.54 7.33</font> 5.30 6.50 6.74 8.55 
+Iteration 3: The first 5 elements are sorted.   | <font style="background-color: #d0FFd0">0.50 5.30 5.68 6.54 7.33</font> 6.50 6.74 8.55 
+Iteration 4: The first 6 elements are sorted.   | <font style="background-color: #d0FFd0">0.50 5.30 5.68 6.50 6.54 7.33</font> 6.74 8.55 
+Iteration 5: The first 7 elements are sorted.   | <font style="background-color: #d0FFd0">0.50 5.30 5.68 6.50 6.54 6.74 7.33</font> 8.55 
+Iteration 6:       All 8 elements are sorted.   | <font style="background-color: #d0FFd0">0.50 5.30 5.68 6.50 6.54 6.74 7.33 8.55</font> 
+                                                | UNIX> <font color=darkred><b></b></font>
+</pre></td></table></center><p>
+
+Now, think about how to implement this.  At iteration <i>i</i>, the first <i>i+1</i> elements are already sorted.  The only 
+element out of place is element <i>i+2</i>.  For example, in the output above, when iteration 0 starts, the first element 
+(6.54) is already sorted, and the element that is out of place is 5.68.  Similarly, when iteration 1 starts, the first two
+elements (5.68 6.54) are already sorted, and the element that is out of place is 0.50.
+<p>
+So, our inner loop of insertion sort is going to look at the one element that is out place, and then put it in its proper place.
+To do so, it will <i>insert</i> it into its proper place, but it will have to move all of the elements greater than it over one,
+so that it can make room.  Let's annotate the output on seed 4 a little more.  What I'll do is show the element that is inserted
+in blue, and the elements that have to be "moved over" in yellow:
+
+<p><center><table border=3 cellpadding=3><td>
+<pre>
+                                                | UNIX> <font color=darkred><b>bin/insertion_1_sort 8 1 4 yes yes</b></font>
+Before the loop. The first element is sorted.   | 6.54 5.68 0.50 7.33 5.30 6.50 6.74 8.55 
+Iteration 0: The first 2 elements are sorted.   | <font style="background-color: #d0d0FF">5.68 </font><font style="background-color: #FFFFaa">6.54</font> 0.50 7.33 5.30 6.50 6.74 8.55 
+Iteration 1: The first 3 elements are sorted.   | <font style="background-color: #d0d0FF">0.50 </font><font style="background-color: #FFFFaa">5.68 6.54</font> 7.33 5.30 6.50 6.74 8.55 
+Iteration 2: The first 4 elements are sorted.   | 0.50 5.68 6.54 <font style="background-color: #d0d0FF">7.33</font> 5.30 6.50 6.74 8.55 
+Iteration 3: The first 5 elements are sorted.   | 0.50 <font style="background-color: #d0d0FF">5.30</font><font style="background-color: #FFFFaa"> 5.68 6.54 7.33</font> 6.50 6.74 8.55 
+Iteration 4: The first 6 elements are sorted.   | 0.50 5.30 5.68 <font style="background-color: #d0d0FF">6.50</font><font style="background-color: #FFFFaa"> 6.54 7.33</font> 6.74 8.55 
+Iteration 5: The first 7 elements are sorted.   | 0.50 5.30 5.68 6.50 6.54 <font style="background-color: #d0d0FF">6.74</font><font style="background-color: #FFFFaa"> 7.33</font> 8.55 
+Iteration 6:       All 8 elements are sorted.   | 0.50 5.30 5.68 6.50 6.54 6.74 7.33 <font style="background-color: #d0d0FF">8.55</font> 
+                                                | UNIX> <font color=darkred><b></b></font>
+</pre>
+</pre></td></table></center><p>
+
+What makes insertion sort different than selection and bubble sort is that the number of operations that insertion sort
+takes in each inner loop is dependent on the element to be "inserted," and how many elements have to move to accomodate it.
+In the worst case, that element will go to the
+beginning of the vector, which will make insertion sort's running time be just like selection and bubble sort.  
+In the "average" case, the element will have to go into the middle of the elements that precede it, which is still
+ <i>O(n<sup>2</sup>)</i>.  But what makes insertion sort interesting is what happens when the element to be inserted is close
+  to where it belongs.  Then, insertion sort is <i>much</i> faster.
+<p>
+Before we think about that any more, let's look at implementations.  
+I have three implementations that vary in their details.  The first is 
+<b><a href=src/insertion_1_sort.cpp>src/insertion_1_sort.cpp</a></b>, which I'll include in its
+entirety.  Note, it works pretty much straight from the definition of insertion sort -- assume you 
+have a sorted list of size <i>i-1</i> and look at the <i>i<sup>th</sup></i> element.  Start at the
+right-hand side of the sorted list, and as long as the <i>i<sup>th</sup></i> element is less than 
+that element, swap the two.  When you're done, the element will be in its proper place,
+and you have a sorted list of size <i>i</i>.
+
+<p><center><table border=3 cellpadding=3><td valign=top><pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include "sorting.hpp"
+using namespace std;
+
+void sort_doubles(vector &lt;double&gt; &v, bool print)
+{
+  size_t i, j;
+  double tmp;
+
+  <font color=blue>/* Optionally print the vector */</font>
+
+  if (print) {
+    for (j = 0; j &lt; v.size(); j++) printf("%.2lf ", v[j]);
+    cout &lt;&lt; endl;
+  }
+
+  for (i = 1; i &lt; v.size(); i++) {
+</pre></td><td valign=top><pre>
+    <font color=blue>/* Inner loop -- while element i is out of place,  
+       swap it with the element in front of it. */</font>
+
+    for (j = i; j &gt;= 1 && v[j] &lt; v[j-1]; j--) {
+      tmp = v[j-1];
+      v[j-1] = v[j];
+      v[j] = tmp;
+    }
+
+    <font color=blue>/* Optionally print the vector */</font>
+
+    if (print) {
+      for (j = 0; j &lt; v.size(); j++) printf("%.2lf ", v[j]);
+      cout &lt;&lt; endl;
+    }
+  }
+}
+</pre></td></table></center><p>
+Let's reconsider what makes insertion sort an interesting algorithm:
+When the input is already sorted, or "nearly" sorted, then 
+<i>it sorts in 
+linear time rather than quadratic.</i>  That's because at each iteration, the element to be inserted
+is "close" to where it belongs.  To see this, I've implemented a second driver program called
+<b><a href=src/sort_sorted.cpp>src/sort_sorted.cpp</a></b> which generates "nearly" sorted input and
+sorts it.  Instead of simply inserting random numbers between 0 and 10, this program 
+inserts <i>i*0.1+drand48()</i> into index <i>i</i>.  This means that the vector contains
+the numbers from 0 to roughly <b>v.size()/10.0</b>, where each number is within 10 vector
+slots of its final sorted position.  Let's look at an example with 20 elements:
+
+<pre>
+UNIX> <font color=darkred><b>bin/insertion_1_sorted 20 1 0 no yes | head -n 1</b></font>
+0.17 0.85 0.30 1.17 0.98 1.29 1.29 1.07 1.67 1.65 1.45 1.45 1.93 1.56 1.79 2.28 2.45 2.28 2.52 1.98 
+UNIX> <font color=darkred><b></b></font>
+</pre>
+
+Think about the element in index zero.  Its value will be randomly distributed between 0 and 1.
+The element in index one will be randomly distributed between 0.1 and 1.1.  And so on -- element 
+zero has to be less than element 10, so you know that element zero is within 10 slots of
+its final resting place.   Now, let's take a look at insertion sort sorting this "nearly" sorted
+vector:
+
+<p><center><table border=3 cellpadding=3><td valign=top> <pre>
+UNIX> <font color=darkred><b>bin/insertion_1_sorted 20 1 0 no yes </b></font>
+0.17 0.85 0.30 1.17 0.98 1.29 1.29 1.07 1.67 1.65 1.45 1.45 1.93 1.56 1.79 2.28 2.45 2.28 2.52 1.98 
+0.17 <font style="background-color: #d0d0FF">0.85</font> 0.30 1.17 0.98 1.29 1.29 1.07 1.67 1.65 1.45 1.45 1.93 1.56 1.79 2.28 2.45 2.28 2.52 1.98 
+0.17 <font style="background-color: #d0d0FF">0.30</font><font style="background-color: #FFFFaa"> 0.85</font> 1.17 0.98 1.29 1.29 1.07 1.67 1.65 1.45 1.45 1.93 1.56 1.79 2.28 2.45 2.28 2.52 1.98 
+0.17 0.30 0.85 <font style="background-color: #d0d0FF">1.17</font> 0.98 1.29 1.29 1.07 1.67 1.65 1.45 1.45 1.93 1.56 1.79 2.28 2.45 2.28 2.52 1.98 
+0.17 0.30 0.85 <font style="background-color: #d0d0FF">0.98</font><font style="background-color: #FFFFaa"> 1.17</font> 1.29 1.29 1.07 1.67 1.65 1.45 1.45 1.93 1.56 1.79 2.28 2.45 2.28 2.52 1.98 
+0.17 0.30 0.85 0.98 1.17 <font style="background-color: #d0d0FF">1.29</font> 1.29 1.07 1.67 1.65 1.45 1.45 1.93 1.56 1.79 2.28 2.45 2.28 2.52 1.98 
+0.17 0.30 0.85 0.98 1.17 1.29 <font style="background-color: #d0d0FF">1.29</font> 1.07 1.67 1.65 1.45 1.45 1.93 1.56 1.79 2.28 2.45 2.28 2.52 1.98 
+0.17 0.30 0.85 0.98 <font style="background-color: #d0d0FF">1.07</font><font style="background-color: #FFFFaa"> 1.17 1.29 1.29</font> 1.67 1.65 1.45 1.45 1.93 1.56 1.79 2.28 2.45 2.28 2.52 1.98 
+0.17 0.30 0.85 0.98 1.07 1.17 1.29 1.29 <font style="background-color: #d0d0FF">1.67</font> 1.65 1.45 1.45 1.93 1.56 1.79 2.28 2.45 2.28 2.52 1.98 
+0.17 0.30 0.85 0.98 1.07 1.17 1.29 1.29 <font style="background-color: #d0d0FF">1.65</font><font style="background-color: #FFFFaa"> 1.67</font> 1.45 1.45 1.93 1.56 1.79 2.28 2.45 2.28 2.52 1.98 
+0.17 0.30 0.85 0.98 1.07 1.17 1.29 1.29 <font style="background-color: #d0d0FF">1.45</font><font style="background-color: #FFFFaa"> 1.65 1.67</font> 1.45 1.93 1.56 1.79 2.28 2.45 2.28 2.52 1.98 
+0.17 0.30 0.85 0.98 1.07 1.17 1.29 1.29 1.45 <font style="background-color: #d0d0FF">1.45</font><font style="background-color: #FFFFaa"> 1.65 1.67</font> 1.93 1.56 1.79 2.28 2.45 2.28 2.52 1.98 
+0.17 0.30 0.85 0.98 1.07 1.17 1.29 1.29 1.45 1.45 1.65 1.67 <font style="background-color: #d0d0FF">1.93</font> 1.56 1.79 2.28 2.45 2.28 2.52 1.98 
+0.17 0.30 0.85 0.98 1.07 1.17 1.29 1.29 1.45 1.45 <font style="background-color: #d0d0FF">1.56</font><font style="background-color: #FFFFaa"> 1.65 1.67 1.93</font> 1.79 2.28 2.45 2.28 2.52 1.98 
+0.17 0.30 0.85 0.98 1.07 1.17 1.29 1.29 1.45 1.45 1.56 1.65 1.67 <font style="background-color: #d0d0FF">1.79</font><font style="background-color: #FFFFaa"> 1.93</font> 2.28 2.45 2.28 2.52 1.98 
+0.17 0.30 0.85 0.98 1.07 1.17 1.29 1.29 1.45 1.45 1.56 1.65 1.67 1.79 1.93 <font style="background-color: #d0d0FF">2.28</font> 2.45 2.28 2.52 1.98 
+0.17 0.30 0.85 0.98 1.07 1.17 1.29 1.29 1.45 1.45 1.56 1.65 1.67 1.79 1.93 2.28 <font style="background-color: #d0d0FF">2.45</font> 2.28 2.52 1.98 
+0.17 0.30 0.85 0.98 1.07 1.17 1.29 1.29 1.45 1.45 1.56 1.65 1.67 1.79 1.93 2.28 <font style="background-color: #d0d0FF">2.28</font><font style="background-color: #FFFFaa"> 2.45</font> 2.52 1.98 
+0.17 0.30 0.85 0.98 1.07 1.17 1.29 1.29 1.45 1.45 1.56 1.65 1.67 1.79 1.93 2.28 2.28 2.45 <font style="background-color: #d0d0FF">2.52</font> 1.98 
+0.17 0.30 0.85 0.98 1.07 1.17 1.29 1.29 1.45 1.45 1.56 1.65 1.67 1.79 1.93 <font style="background-color: #d0d0FF">1.98</font><font style="background-color: #FFFFaa"> 2.28 2.28 2.45 2.52 </font>
+UNIX> 
+</pre></td></table></center><p>
+
+Because each element is "near" where it should be, insertion sort takes very few operations.
+<p>
+To explore it further -- take a look at sorting 50,000 random elements, and 50,000 "nearly" sorted elements
+with insertion sort
+(all timings in this writeup are done on a Dell Linux workstation in 2009):
+
+<pre>
+UNIX> <font color=darkred><b>time bin/insertion_1_sort 50000 1 0 no no</b></font>
+3.768u 0.000s 0:03.76 100.0%    0+0k 0+0io 0pf+0w
+UNIX> <font color=darkred><b>time bin/insertion_1_sorted 50000 1 0 no no</b></font>
+0.004u 0.008s 0:00.00 0.0%      0+0k 32+0io 0pf+0w
+UNIX> <font color=darkred><b></b></font>
+</pre>
+
+<p>
+The "user time" is the first word printed -- 3.768 seconds for unsorted input as opposed to
+0.004 seconds for sorted input.  The difference is stunning!
+<p>
+
+We can speed up our first implementation of insertion sort if we observe that the implementation above performs too much
+data movement.  Think about the following output: 
+
+
+<p><center><table border=3 cellpadding=3><td><pre>
+UNIX> <font color=darkred><b>bin/insertion_1_sort 6 1 1 no yes</b></font>
+0.42 4.54 8.35 3.36 5.65 0.02 
+0.42 4.54 8.35 3.36 5.65 0.02 
+0.42 4.54 8.35 3.36 5.65 0.02 
+0.42 3.36 4.54 8.35 5.65 0.02 
+<font style="background-color: #FFcccc">0.42 3.36 4.54 5.65 8.35 0.02</font>
+<font style="background-color: #FFcccc">0.02 0.42 3.36 4.54 5.65 8.35</font>
+UNIX> <font color=darkred><b></b></font>
+</pre>
+</pre></td></table></center><p>
+
+Specifically, look at the two highlighted lines.  When we perform the insertion of
+0.02, think about what happens:
+<UL>
+<LI> We swap it with 8.35.
+<LI> Then we swap it with 5.65.
+<LI> Then we swap it with 4.54.
+<LI> Then we swap it with 3.36.
+<LI> Then we swap it with 0.42.
+<LI> And finally, it is in position.
+</UL>
+
+Those are a lot of swap operations, when in reality, all we wanted to do was
+move all those numbers over one, and "insert" 0.02 into position.
+This change has been made in 
+<b><a href=src/insertion_2_sort.cpp>src/insertion_2_sort.cpp</a></b> -- I only put the main loop here
+without the <b>print</b> statements.
+
+<p><center><table border=3 cellpadding=3><td><pre>
+  for (i = 1; i &lt; v.size(); i++) {
+    tmp = v[i];
+
+    <font color=blue>/* While v[j-1] is greater than v[i], move v[j-1] over one. */</font>
+    for (j = i; j &gt;= 1 && tmp &lt; v[j-1]; j--) {
+      v[j] = v[j-1];  
+    }
+
+    <font color=blue>/* And put v[i] into its proper place. */</font>
+    v[j] = tmp;            
+  }
+</pre></td></table></center><p>
+
+Note how it is faster than <b>insertion_1_sort:</b>
+
+<pre>
+UNIX> <font color=darkred><b>time bin/insertion_1_sort 50000 1 0 no no</b></font>
+3.792u 0.000s 0:03.80 99.7%     0+0k 0+0io 0pf+0w
+UNIX> <font color=darkred><b>time bin/insertion_2_sort 50000 1 0 no no</b></font>
+2.584u 0.012s 0:02.59 100.0%    0+0k 32+0io 0pf+0w
+UNIX> <font color=darkred><b></b></font>
+</pre>
+
+Let's compare sorting algorithms graphically.  To do so, I've written a 
+shell script called 
+<b><a href=scripts/do_timing.sh>scripts/do_timing.sh</a></b>
+that varies the number of elements and times the given sorting program as it
+runs ten iterations.  It uses the wall-clock time of the program (again on 
+my Linux box in 2009).  I have results of timing all the programs in this lecture 
+in the file
+<b><a href=txt/all_timings.txt>txt/all_timings.txt</a></b>.  Below, we graph the 
+algorithms that we have seen so far:
+
+<p><center><table border=3 cellpadding=3><td><img src=img/quad1.png width=450></td></table></center><p>
+
+<p>
+So, insertion sort is the fastest (interestingly, this can vary from machine to machine.  On
+my Mac in 2009, selection sort was fastest).
+<p>
+If you look at the inner loop of <b>insertion_2_sort</b>, there is one place where it can be improved: 
+it is always checking to make sure that <i>j &gt;= 1</i>.  We can fix this by sentinelizing:
+we traverse
+the vector before sorting and swap the minimum element in index 0.  This is done
+in 
+<b><a href=src/insertion_3_sort.cpp>src/insertion_3_sort.cpp</a></b> -- here's the relevant part:
+
+<p><center><table border=3 cellpadding=3><td><pre>
+  <font color=blue>/* Swap the minimum element into element 0 */</font>
+
+  minindex = 0;
+  for (i = 1; i &lt; v.size(); i++) if (v[i] &lt; v[minindex]) minindex = i;
+  tmp = v[0];
+  v[0] = v[minindex];
+  v[minindex] = tmp;
+
+  <font color=blue>/* Now, I can remove the "(j >= 1)" check in the inner loop: */</font>
+
+  for (i = 1; i &lt; v.size(); i++) {
+    tmp = v[i];
+    for (j = i; tmp &lt; v[j-1]; j--) v[j] = v[j-1];
+    v[j] = tmp;
+  }
+</pre></td></table></center><p>
+This improves matters, but not to a great degree (again, this varies from
+machine to machine).
+<p><center><table border=3 cellpadding=3><td><img src=img/quad2.png width=450></td></table></center><p>
+
+<hr>
+<h3>Using STL's multisets</h3>
+
+Were I to point a gun to your head and tell you to sort a vector of doubles without
+using the STL's <b>sort()</b> procedures, you would probably
+use a multiset, as in <b><a href=src/set_sort.cpp>src/set_sort.cpp</a></b>:
+
+<p><center><table border=3 cellpadding=3><td><pre>
+void sort_doubles(vector &lt;double&gt; &v, bool print)
+{
+  multiset &lt;double&gt; s;
+  size_t i;
+  multiset &lt;double&gt;::iterator sit;
+
+  for (i = 0; i &lt; v.size(); i++) s.insert(v[i]);
+  i = 0;
+  for (sit = s.begin(); sit != s.end(); sit++) {
+    v[i] = *sit;
+    i++;
+  }
+  if (print) {
+    for (i = 0; i &lt; v.size(); i++) printf("%4.2lf ", v[i]);
+    cout &lt;&lt; endl;
+  }
+}
+</pre></td></table></center><p>
+
+As you can see below, this blows away the other algorithms in performance.  
+This is because the others
+are <i>O(n<sup>2</sup>)</i> algorithms, and STL's sets are implemented with a balanced binary 
+tree structure (e.g. AVL or Red-Black trees), which results in <i>O(n log(n))</i> sorting:
+
+<p><center><table border=3 cellpadding=3><td><img src=img/set.png width=450></td></table></center><p>
+
+Using multisets, however, is overkill, since they contain a lot of structure
+(internal nodes, pointers, etc), which takes time and memory to keep updated after
+every <b>insert()</b> call.  There are algorithms that sort in 
+<i>O(n log(n))</i> time without the extra overhead.  One of these is used in the <b>sort</b> routine
+implemented with STL algorithms.  We include that in 
+<b><a href=src/stl_sort.cpp>src/stl_sort.cpp</a></b>
+
+<p><center><table border=3 cellpadding=3><td><pre>
+void sort_doubles(vector &lt;double&gt; &v, bool print)
+{
+  size_t j;
+
+  sort(v.begin(), v.end());
+  if (print) {
+    for (j = 0; j &lt; v.size(); j++) printf("%4.2lf ", v[j]);
+    cout &lt;&lt; endl;
+  }
+}
+</pre></td></table></center><p>
+
+The graph below shows how it destroys the others (note the X-axis has been greatly
+expanded to sort up to one million elements).  
+
+<p><center><table border=3 cellpadding=3><td><img src=img/stl.png width=450></td></table></center><p>
+The reason is that the STL's <b>sort()</b> routine is a very carefully tuned 
+<i>O(n log(n))</i> algorithm (I'd guess quicksort).  We'll explore these algorithms below.
+
+<hr>
+<h2>Heap Sort, Merge Sort and Quicksort</h2>
+
+Heap sort, Merge sort and Quicksort are three 
+<i>O(n log(n))</i> algorithms for sorting.  I will go over each in turn.
+
+
+<hr>
+<h2>Heap Sort</h2>
+
+I have two implementations of heap sort:
+<p>
+The first is <b><a href=src/heap_sort.cpp>src/heap_sort.cpp</a></b>. This uses the priority queue implementation 
+     from the <a href=http://web.eecs.utk.edu/~jplank/plank/classes/cs302/Notes/PQ/>priority 
+     queue lecture notes</a> (although, I modified the print routine so it would match these
+     lecture notes).  When you use the "print" option, it prints the vector and
+     the priority queue at every step.  In the example below, I color the part of the 
+     vector that is sorted at every step.  As you can see, the root of the heap in the
+     previous step (yellow) becomes the next element of the vector.  I draw the sorted
+     vector in light red.
+
+<p><center><table border=3 cellpadding=3><td><pre>
+       | UNIX> <font color=darkred><b>bin/heap_sort 8 1 0 no yes</b></font>                                                            |
+vector | 1.71 7.50 0.96 8.70 5.77 7.86 6.92 3.69    <font  style="background-color: #ffffaa">0.96</font>  3.69  1.71  7.50  5.77  7.86  6.92  8.70   | heap
+       | <font  style="background-color: #ffaaaa">0.96</font> 7.50 0.96 8.70 5.77 7.86 6.92 3.69    <font  style="background-color: #ffffaa">1.71</font>  3.69  6.92  7.50  5.77  7.86  8.70         |
+       | <font  style="background-color: #ffaaaa">0.96 1.71</font> 0.96 8.70 5.77 7.86 6.92 3.69    <font  style="background-color: #ffffaa">3.69</font>  5.77  6.92  7.50  8.70  7.86               |
+       | <font  style="background-color: #ffaaaa">0.96 1.71 3.69</font> 8.70 5.77 7.86 6.92 3.69    <font  style="background-color: #ffffaa">5.77</font>  7.50  6.92  7.86  8.70                     |
+       | <font  style="background-color: #ffaaaa">0.96 1.71 3.69 5.77</font> 5.77 7.86 6.92 3.69    <font  style="background-color: #ffffaa">6.92</font>  7.50  8.70  7.86                           |
+       | <font  style="background-color: #ffaaaa">0.96 1.71 3.69 5.77 6.92</font> 7.86 6.92 3.69    <font  style="background-color: #ffffaa">7.50</font>  7.86  8.70                                 |
+       | <font  style="background-color: #ffaaaa">0.96 1.71 3.69 5.77 6.92 7.50</font> 6.92 3.69    <font  style="background-color: #ffffaa">7.86</font>  8.70                                       |
+       | <font  style="background-color: #ffaaaa">0.96 1.71 3.69 5.77 6.92 7.50 7.86</font> 3.69    <font  style="background-color: #ffffaa">8.70</font>                                             |
+       | <font  style="background-color: #ffaaaa">0.96 1.71 3.69 5.77 6.92 7.50 7.86 8.70</font>                                                     |
+       | UNIX> <font color=darkred><b></b></font>                                                                                      |
+</pre></td></table></center><p>
+
+The second is <b><a href=src/heap_fast_sort.cpp>src/heap_fast_sort.cpp</a></b>. One inefficiency with using
+     the priority queue data structure is that you make a copy of the vector.  This program
+     rips the functionality out of the priority queue program and puts it directly into the
+     sorting procedure.  That way, it doesn't require a second vector.  
+     It first turns the vector into a heap whose root is the maximum rather than
+     the minimum element.  It does this using the linear time heap construction method.
+     Then, it removes the root and puts it at the end of the vector, then calls percolate
+     down on the remaining <b>v.size()-1</b> elements.  It continues doing this until
+     the heap is gone, and the vector is sorted.
+     <p>
+     In this program, when the print option is specified, it prints out the vector after 
+     turning it into a heap, and then at every step of removing the root of the heap.  In
+     the example below, I color the heap yellow and the sorted vector light red:
+
+
+<p><center><table border=3 cellpadding=3><td><pre>
+                |  UNIX> <font color=darkred><b>bin/heap_fast_sort 8 1 0 no yes</b></font>    | 
+  heap, but     |  <font  style="background-color: #ffffaa">8.70 7.50 7.86 3.69 5.77 0.96 6.92 1.71</font>  | the vector is filled
+  storing max   |  <font  style="background-color: #ffffaa">7.86 7.50 6.92 3.69 5.77 0.96 1.71</font><font  style="background-color: #ffaaaa"> 8.70</font>  | in from right to left
+  values rather |  <font  style="background-color: #ffffaa">7.50 5.77 6.92 3.69 1.71 0.96</font><font  style="background-color: #ffaaaa"> 7.86 8.70</font>  | with the maximum element
+  than min      |  <font  style="background-color: #ffffaa">6.92 5.77 0.96 3.69 1.71</font><font  style="background-color: #ffaaaa"> 7.50 7.86 8.70</font>  | popped off the heap.
+  values:       |  <font  style="background-color: #ffffaa">5.77 3.69 0.96 1.71</font><font  style="background-color: #ffaaaa"> 6.92 7.50 7.86 8.70</font>  | 
+                |  <font  style="background-color: #ffffaa">3.69 1.71 0.96</font><font  style="background-color: #ffaaaa"> 5.77 6.92 7.50 7.86 8.70</font>  | 
+                |  <font  style="background-color: #ffffaa">1.71 0.96</font><font  style="background-color: #ffaaaa"> 3.69 5.77 6.92 7.50 7.86 8.70</font>  | 
+                |  <font  style="background-color: #ffffaa">0.96</font><font  style="background-color: #ffaaaa"> 1.71 3.69 5.77 6.92 7.50 7.86 8.70</font>  | 
+                |  UNIX> 
+</pre></td></table></center><p>
+
+
+In terms of timing, this is faster than using multisets, and you can see that the "fast"
+version is faster, although just a little:
+
+<p><center><table border=3 cellpadding=3><td><img src=img/heap.png width=550></td></table></center><p>
+
+<hr>
+<h2> Merge Sort</h2>
+
+I don't give implementations for Quicksort and Merge sort, because you will be
+doing them in your labs.  I will, however, go over the algorithms and how you should
+implement them here.
+<p>
+Merge sort works with an ingenious recursion, which I outline as follows:
+
+<UL>
+<LI> <i>Base case 1:</i> If the vector's size is one, then it's already sorted -- return it.
+<LI> <i>Base case 2:</i> If the vector's size is two, then sort it with an <tt>if</tt> statement, and maybe
+     a swap.
+<LI> Otherwise, split the vector into two equal parts, and recursively sort both parts.
+<LI> Now that the two parts are sorted, <i>merge</i> the parts together into a sorted
+vector.
+</UL> 
+
+I know that's a little confusing, so let's do an example.  Let's suppose we're sorting an
+eight-element vector:
+<pre>
+8.70 7.50 7.86 3.69 9.22 0.96 6.92 1.71 
+</pre>
+The first thing that we do is split this into two 4-element vectors.  I'm coloring
+one light red and one light blue:
+<pre>
+Part 1                        Part 2
+<font  style="background-color: #ffaaaa">8.70 7.50 7.86 3.69</font>           <font  style="background-color: #ccccff">9.22 0.96 6.92 1.71</font>
+</pre>
+Now, we sort the vectors recursively.  I know that's a leap of faith, but that's how recursion works.  When we're done, here's what they look like:
+<pre>
+Part 1                        Part 2
+<font  style="background-color: #ffaaaa">3.69 7.50 7.86 8.70</font>           <font  style="background-color: #ccccff">0.96 1.71 6.92 9.22</font>
+</pre>
+Now, we want to <i>merge</i> them together into one sorted vector.  One thing we know -- the
+first element of the sorted vector will be either the first element of the light red vector,
+or the first element of the light blue vector.  It will be the smaller of the two -- in this
+case, 0.96.    So, we copy that value to our final vector, and concentrate on the second
+value from the light blue vector:
+<pre>
+Part 1                        Part 2                        Final Vector
+<font  style="background-color: #ffaaaa">3.69 7.50 7.86 8.70</font>           0.96 <font  style="background-color: #ccccff">1.71 6.92 9.22</font>           <font  style="background-color: #ffffaa">0.96</font>
+</pre>
+
+Now, we're comparing 3.69 from the red vector, and 1.71 from the blue vector -- we copy the
+smallest of these, 1.71, to the final vector, and concentrate on the next value in the blue
+vector:
+
+<pre>
+Part 1                        Part 2                        Final Vector
+<font  style="background-color: #ffaaaa">3.69 7.50 7.86 8.70</font>           0.96 1.71 <font  style="background-color: #ccccff">6.92 9.22</font>           <font  style="background-color: #ffffaa">0.96 1.71</font>
+</pre>
+
+Next, we compare 3.69 from the red vector, and 6.92 from the blue vector -- again, we copy
+the smallest of these, 3.69, to the final vector, and concentrate on the next value in the
+red vector:
+
+<pre>
+Part 1                        Part 2                        Final Vector
+3.69 <font  style="background-color: #ffaaaa">7.50 7.86 8.70</font>           0.96 1.71 <font  style="background-color: #ccccff">6.92 9.22</font>           <font  style="background-color: #ffffaa">0.96 1.71 3.69</font>
+</pre>
+
+By now, I think you see how it progresses -- Here are the last five steps:
+
+<pre>
+Part 1                        Part 2                        Final Vector
+3.69 <font  style="background-color: #ffaaaa">7.50 7.86 8.70</font>           0.96 1.71 6.92 <font  style="background-color: #ccccff">9.22</font>           <font  style="background-color: #ffffaa">0.96 1.71 3.69 6.92</font>
+3.69 7.50 <font  style="background-color: #ffaaaa">7.86 8.70</font>           0.96 1.71 6.92 <font  style="background-color: #ccccff">9.22</font>           <font  style="background-color: #ffffaa">0.96 1.71 3.69 6.92 7.50</font>
+3.69 7.50 7.86 <font  style="background-color: #ffaaaa">8.70</font>           0.96 1.71 6.92 <font  style="background-color: #ccccff">9.22</font>           <font  style="background-color: #ffffaa">0.96 1.71 3.69 6.92 7.50 7.86</font>
+3.69 7.50 7.86 8.70           0.96 1.71 6.92 <font  style="background-color: #ccccff">9.22</font>           <font  style="background-color: #ffffaa">0.96 1.71 3.69 6.92 7.50 7.86 8.70</font>
+3.69 7.50 7.86 8.70           0.96 1.71 6.92 9.22           <font  style="background-color: #ffffaa">0.96 1.71 3.69 6.92 7.50 7.86 8.70 9.22</font>
+</pre>
+
+As it turns out, merging is a linear operation -- <i>O(n)</i> in the size of the vector.
+We'll talk about the overall running time of merge sort later.  For now, let's think
+about implementation.  Here's what I suggest you use as your recursive call:
+
+<p><center><table border=3 cellpadding=3><td>
+<tt>void recursive_sort(vector &lt;double&gt; &amp;v, vector &lt;double&gt; &amp;temp, int start, int size, int print);</tt>
+</td></table></center><p>
+
+The original vector is <b>v</b>, and <b>temp</b> is a temporary vector.  Both are the same size.
+<b>Recursive_sort()</b> will only sort the elements from <b>start</b> to <b>start+size</b>.  
+If <b>size</b> is equal to 1, then it simply returns.  If <b>size</b> equals 2, 
+then it sorts the elements directly.  Otherwise, It 
+calls <b>recursive_sort()</b> on the first <b>size/2</b> elements, and on the last
+<b>size-size/2</b> elements.  When that's done, it merges them into <b>temp</b>, and
+then copies the elements in <b>temp</b> back to <b>v</b>.  It is an unfortunate
+fact with merge sort that we need a temporary vector.  
+<p>
+Let's take a quick look at the output of <b>merge_1_sort</b>.  Whenever 
+<b>recursive_sort()</b> is called with a size greater than one, 
+it prints out "B:", <b>start</b> and <b>size</b> (both padded
+to 5 characters) and the vector.  Right before a call to
+<b>recursive_sort()</b> returns, it does the same thing, only it prints "E" instead of "B".
+Below is an example of sorting 16 elements.  I'm coloring the elements on which each call
+is focused in light red when <b>recursive_sort()</b> is first called ("B"), and yellow
+right when <b>recursive_sort()</b> is about to return ("E"):
+
+<p><center><table border=3 cellpadding=3><td>
+<pre>
+UNIX> <font color=darkred><b>bin/merge_1_sort 16 1 1 yes yes</b></font>
+B:     0    16      <font  style="background-color: #ffaaaa">  0.42</font><font  style="background-color: #ffaaaa">  4.54</font><font  style="background-color: #ffaaaa">  8.35</font><font  style="background-color: #ffaaaa">  3.36</font><font  style="background-color: #ffaaaa">  5.65</font><font  style="background-color: #ffaaaa">  0.02</font><font  style="background-color: #ffaaaa">  1.88</font><font  style="background-color: #ffaaaa">  9.90</font><font  style="background-color: #ffaaaa">  7.50</font><font  style="background-color: #ffaaaa">  3.66</font><font  style="background-color: #ffaaaa">  3.51</font><font  style="background-color: #ffaaaa">  5.73</font><font  style="background-color: #ffaaaa">  1.33</font><font  style="background-color: #ffaaaa">  0.64</font><font  style="background-color: #ffaaaa">  9.51</font><font  style="background-color: #ffaaaa">  1.54</font>
+B:     0     8      <font  style="background-color: #ffaaaa">  0.42</font><font  style="background-color: #ffaaaa">  4.54</font><font  style="background-color: #ffaaaa">  8.35</font><font  style="background-color: #ffaaaa">  3.36</font><font  style="background-color: #ffaaaa">  5.65</font><font  style="background-color: #ffaaaa">  0.02</font><font  style="background-color: #ffaaaa">  1.88</font><font  style="background-color: #ffaaaa">  9.90</font>  7.50  3.66  3.51  5.73  1.33  0.64  9.51  1.54
+B:     0     4      <font  style="background-color: #ffaaaa">  0.42</font><font  style="background-color: #ffaaaa">  4.54</font><font  style="background-color: #ffaaaa">  8.35</font><font  style="background-color: #ffaaaa">  3.36</font>  5.65  0.02  1.88  9.90  7.50  3.66  3.51  5.73  1.33  0.64  9.51  1.54
+B:     0     2      <font  style="background-color: #ffaaaa">  0.42</font><font  style="background-color: #ffaaaa">  4.54</font>  8.35  3.36  5.65  0.02  1.88  9.90  7.50  3.66  3.51  5.73  1.33  0.64  9.51  1.54
+E:     0     2      <font  style="background-color: #ffff00">  0.42</font><font  style="background-color: #ffff00">  4.54</font>  8.35  3.36  5.65  0.02  1.88  9.90  7.50  3.66  3.51  5.73  1.33  0.64  9.51  1.54
+B:     2     2        0.42  4.54<font  style="background-color: #ffaaaa">  8.35</font><font  style="background-color: #ffaaaa">  3.36</font>  5.65  0.02  1.88  9.90  7.50  3.66  3.51  5.73  1.33  0.64  9.51  1.54
+E:     2     2        0.42  4.54<font  style="background-color: #ffff00">  3.36</font><font  style="background-color: #ffff00">  8.35</font>  5.65  0.02  1.88  9.90  7.50  3.66  3.51  5.73  1.33  0.64  9.51  1.54
+E:     0     4      <font  style="background-color: #ffff00">  0.42</font><font  style="background-color: #ffff00">  3.36</font><font  style="background-color: #ffff00">  4.54</font><font  style="background-color: #ffff00">  8.35</font>  5.65  0.02  1.88  9.90  7.50  3.66  3.51  5.73  1.33  0.64  9.51  1.54
+B:     4     4        0.42  3.36  4.54  8.35<font  style="background-color: #ffaaaa">  5.65</font><font  style="background-color: #ffaaaa">  0.02</font><font  style="background-color: #ffaaaa">  1.88</font><font  style="background-color: #ffaaaa">  9.90</font>  7.50  3.66  3.51  5.73  1.33  0.64  9.51  1.54
+B:     4     2        0.42  3.36  4.54  8.35<font  style="background-color: #ffaaaa">  5.65</font><font  style="background-color: #ffaaaa">  0.02</font>  1.88  9.90  7.50  3.66  3.51  5.73  1.33  0.64  9.51  1.54
+E:     4     2        0.42  3.36  4.54  8.35<font  style="background-color: #ffff00">  0.02</font><font  style="background-color: #ffff00">  5.65</font>  1.88  9.90  7.50  3.66  3.51  5.73  1.33  0.64  9.51  1.54
+B:     6     2        0.42  3.36  4.54  8.35  0.02  5.65<font  style="background-color: #ffaaaa">  1.88</font><font  style="background-color: #ffaaaa">  9.90</font>  7.50  3.66  3.51  5.73  1.33  0.64  9.51  1.54
+E:     6     2        0.42  3.36  4.54  8.35  0.02  5.65<font  style="background-color: #ffff00">  1.88</font><font  style="background-color: #ffff00">  9.90</font>  7.50  3.66  3.51  5.73  1.33  0.64  9.51  1.54
+E:     4     4        0.42  3.36  4.54  8.35<font  style="background-color: #ffff00">  0.02</font><font  style="background-color: #ffff00">  1.88</font><font  style="background-color: #ffff00">  5.65</font><font  style="background-color: #ffff00">  9.90</font>  7.50  3.66  3.51  5.73  1.33  0.64  9.51  1.54
+E:     0     8      <font  style="background-color: #ffff00">  0.02</font><font  style="background-color: #ffff00">  0.42</font><font  style="background-color: #ffff00">  1.88</font><font  style="background-color: #ffff00">  3.36</font><font  style="background-color: #ffff00">  4.54</font><font  style="background-color: #ffff00">  5.65</font><font  style="background-color: #ffff00">  8.35</font><font  style="background-color: #ffff00">  9.90</font>  7.50  3.66  3.51  5.73  1.33  0.64  9.51  1.54
+B:     8     8        0.02  0.42  1.88  3.36  4.54  5.65  8.35  9.90<font  style="background-color: #ffaaaa">  7.50</font><font  style="background-color: #ffaaaa">  3.66</font><font  style="background-color: #ffaaaa">  3.51</font><font  style="background-color: #ffaaaa">  5.73</font><font  style="background-color: #ffaaaa">  1.33</font><font  style="background-color: #ffaaaa">  0.64</font><font  style="background-color: #ffaaaa">  9.51</font><font  style="background-color: #ffaaaa">  1.54</font>
+B:     8     4        0.02  0.42  1.88  3.36  4.54  5.65  8.35  9.90<font  style="background-color: #ffaaaa">  7.50</font><font  style="background-color: #ffaaaa">  3.66</font><font  style="background-color: #ffaaaa">  3.51</font><font  style="background-color: #ffaaaa">  5.73</font>  1.33  0.64  9.51  1.54
+B:     8     2        0.02  0.42  1.88  3.36  4.54  5.65  8.35  9.90<font  style="background-color: #ffaaaa">  7.50</font><font  style="background-color: #ffaaaa">  3.66</font>  3.51  5.73  1.33  0.64  9.51  1.54
+E:     8     2        0.02  0.42  1.88  3.36  4.54  5.65  8.35  9.90<font  style="background-color: #ffff00">  3.66</font><font  style="background-color: #ffff00">  7.50</font>  3.51  5.73  1.33  0.64  9.51  1.54
+B:    10     2        0.02  0.42  1.88  3.36  4.54  5.65  8.35  9.90  3.66  7.50<font  style="background-color: #ffaaaa">  3.51</font><font  style="background-color: #ffaaaa">  5.73</font>  1.33  0.64  9.51  1.54
+E:    10     2        0.02  0.42  1.88  3.36  4.54  5.65  8.35  9.90  3.66  7.50<font  style="background-color: #ffff00">  3.51</font><font  style="background-color: #ffff00">  5.73</font>  1.33  0.64  9.51  1.54
+E:     8     4        0.02  0.42  1.88  3.36  4.54  5.65  8.35  9.90<font  style="background-color: #ffff00">  3.51</font><font  style="background-color: #ffff00">  3.66</font><font  style="background-color: #ffff00">  5.73</font><font  style="background-color: #ffff00">  7.50</font>  1.33  0.64  9.51  1.54
+B:    12     4        0.02  0.42  1.88  3.36  4.54  5.65  8.35  9.90  3.51  3.66  5.73  7.50<font  style="background-color: #ffaaaa">  1.33</font><font  style="background-color: #ffaaaa">  0.64</font><font  style="background-color: #ffaaaa">  9.51</font><font  style="background-color: #ffaaaa">  1.54</font>
+B:    12     2        0.02  0.42  1.88  3.36  4.54  5.65  8.35  9.90  3.51  3.66  5.73  7.50<font  style="background-color: #ffaaaa">  1.33</font><font  style="background-color: #ffaaaa">  0.64</font>  9.51  1.54
+E:    12     2        0.02  0.42  1.88  3.36  4.54  5.65  8.35  9.90  3.51  3.66  5.73  7.50<font  style="background-color: #ffff00">  0.64</font><font  style="background-color: #ffff00">  1.33</font>  9.51  1.54
+B:    14     2        0.02  0.42  1.88  3.36  4.54  5.65  8.35  9.90  3.51  3.66  5.73  7.50  0.64  1.33<font  style="background-color: #ffaaaa">  9.51</font><font  style="background-color: #ffaaaa">  1.54</font>
+E:    14     2        0.02  0.42  1.88  3.36  4.54  5.65  8.35  9.90  3.51  3.66  5.73  7.50  0.64  1.33<font  style="background-color: #ffff00">  1.54</font><font  style="background-color: #ffff00">  9.51</font>
+E:    12     4        0.02  0.42  1.88  3.36  4.54  5.65  8.35  9.90  3.51  3.66  5.73  7.50<font  style="background-color: #ffff00">  0.64</font><font  style="background-color: #ffff00">  1.33</font><font  style="background-color: #ffff00">  1.54</font><font  style="background-color: #ffff00">  9.51</font>
+E:     8     8        0.02  0.42  1.88  3.36  4.54  5.65  8.35  9.90<font  style="background-color: #ffff00">  0.64</font><font  style="background-color: #ffff00">  1.33</font><font  style="background-color: #ffff00">  1.54</font><font  style="background-color: #ffff00">  3.51</font><font  style="background-color: #ffff00">  3.66</font><font  style="background-color: #ffff00">  5.73</font><font  style="background-color: #ffff00">  7.50</font><font  style="background-color: #ffff00">  9.51</font>
+E:     0    16      <font  style="background-color: #ffff00">  0.02</font><font  style="background-color: #ffff00">  0.42</font><font  style="background-color: #ffff00">  0.64</font><font  style="background-color: #ffff00">  1.33</font><font  style="background-color: #ffff00">  1.54</font><font  style="background-color: #ffff00">  1.88</font><font  style="background-color: #ffff00">  3.36</font><font  style="background-color: #ffff00">  3.51</font><font  style="background-color: #ffff00">  3.66</font><font  style="background-color: #ffff00">  4.54</font><font  style="background-color: #ffff00">  5.65</font><font  style="background-color: #ffff00">  5.73</font><font  style="background-color: #ffff00">  7.50</font><font  style="background-color: #ffff00">  8.35</font><font  style="background-color: #ffff00">  9.51</font><font  style="background-color: #ffff00">  9.90</font>
+                      0.02  0.42  0.64  1.33  1.54  1.88  3.36  3.51  3.66  4.54  5.65  5.73  7.50  8.35  9.51  9.90
+</pre>
+</td></table></center><p>
+Whenever there
+is an "E" line, you can see that the yellow elements are merged from the previous line.    Study this
+output -- your lab will have to match it. 
+<p>
+I've written an awk script in <a href=ms.awk><b>ms.awk</b></a> to produce the colored output
+that you see above.  Here's another example:
+<p>
+<pre>
+UNIX> <font color=darkred><b>bin/merge_1_sort 13 1 100 yes yes | awk -f ~jplank/cs302/Notes/Sorting/ms.awk > msex.html</b></font>
+</pre>
+<p>
+And here's <a href=msex.html><b>msex.html</b></a>.  It's not a bad idea to look at this, so that
+you can see how the recursive calls are made when <b>size</b> is an odd number.
+<h4>Running Time</h4>
+
+Some students have a hard time seeing how merge sort's running time is <i>O(n log(n))</i>.  I
+think that the colored output above is a nice illustration.  The only steps that do work are
+the merges, which are highlighted in yellow.  You can see in the output above:
+
+<UL>
+<LI> There are 8 yellow rectangles composed of 2 numbers.
+<LI> There are 4 yellow rectangles composed of 4 numbers.
+<LI> There are 2 yellow rectangles composed of 8 numbers.
+<LI> There is 1 yellow rectangle composed of 16 numbers.
+</UL>
+
+In each bullet above, the product of the number of rectangles and the size of the rectangles
+(i.e. the number of merges times the size of the merges) is 16.  
+And there are 4 bullets, which is the log base two of 16.  
+<p>
+You can view it in a alternative, but similar way -- 
+each number, for example 0.42, is involved in exactly
+four yellow rectangles, which means exactly four merges.  
+There are 16 numbers, and each is involved in <i>log(16)</i> merges.  Hence <i>(n log(n))</i>.
+<p>
+<h4>merge_2_sort</h4>
+
+<p>
+I've also written <b>merge_2_sort.cpp</b>, which is identical to <b>merge_1_sort</b>, except that
+whenever <b>size</b> is less than 115, it sorts the array with insertion sort.  The reason is
+that for small arrays, insertion sort is faster than merge sort, since it doesn't make recursive
+calls.  Thus, <b>merge_2_sort</b> should be faster than <b>merge_1_sort</b>.  (I determined
+the value of 115 experimentally).  Here is merge sort in relation to the other algorithms:
+
+<p><center><table border=3 cellpadding=3><td><img src=img/merge.png width=550></td></table></center><p>
+
+<hr>
+<h3> Quicksort </h3>
+
+I have three implementations of Quicksort.  You are to duplicate the second implementation 
+in your lab.  I use the following recursive call, which is much like the call in merge sort:
+
+<p><center><table border=3 cellpadding=3><td>
+<tt>void recursive_sort(vector &lt;double&gt; &amp;v, int start, int size, int print)</tt><br>
+</td></table></center><p>
+<p>
+
+In all versions of quicksort, I use a slight variant of the "version with in-place partition," (from 
+the Wikipedia notes).  We'll start with Quicksort 1, where I simply use the element in 
+<b>v[start]</b> as the pivot.  To perform the partition, I 
+set a left pointer at <b>start+1</b> and a right
+pointer at <b>start+size-1</b>.  While the left pointer is less than the right
+pointer, I do the following:
+<p>
+<UL>
+<LI> Increment the left pointer until it points to an element &ge; the pivot (or it points to <b>v[start+size]</b>).
+<LI> Decrement the right pointer until it points to an element &le; the pivot. (or it points to <b>v[start]</b>).
+<LI> Determine if we're done. 
+<LI> If not, swap the two elements, increment the left pointer, decrement right pointer, and repeat.
+</UL>
+<p>
+When we are done, I swap the pivot in elements <b>v[start]</b> with the last
+element of the left set.  Then I recursively sort the left and right sets,
+omitting the pivot, since it is already in the correct place.
+<p>
+The output of <b>quick_1_sort</b> is similar to <b>merge_1_sort</b>: I print the
+vector with an "S" label when I call <b>recursive_sort()</b> with a size greater than 1.
+If the size is equal to two, I simply sort the vector by hand and return.
+Otherwise, I partition the vector around the pivot, then print the
+vector with a "P" label.  This statement includes the index of the pivot element.
+At the end of sorting, I also print out the vector.
+<p>
+Let's look at some example output:
+<p>
+
+<p><center><table border=3 cellpadding=3><td><pre>
+UNIX> <font color=darkred><b>bin/quick_1_sort 12 1 82 no yes </b></font>
+S:     0    12       <font color=blue> 5.77</font> <font color=red> 5.26</font> <font color=red> 6.49</font> <font color=red> 0.43</font> <font color=red> 6.09</font> <font color=red> 4.95</font> <font color=red> 3.15</font> <font color=red> 3.46</font> <font color=red> 7.55</font> <font color=red> 6.82</font> <font color=red> 6.69</font> <font color=red> 3.62</font>
+P:     0    12     6 <font color=red> 3.15</font> <font color=red> 5.26</font> <font color=red> 3.62</font> <font color=red> 0.43</font> <font color=red> 3.46</font> <font color=red> 4.95</font> <font color=blue> 5.77</font> <font color=red> 6.09</font> <font color=red> 7.55</font> <font color=red> 6.82</font> <font color=red> 6.69</font> <font color=red> 6.49</font>
+S:     0     6       <font color=blue> 3.15</font> <font color=red> 5.26</font> <font color=red> 3.62</font> <font color=red> 0.43</font> <font color=red> 3.46</font> <font color=red> 4.95</font>  5.77  6.09  7.55  6.82  6.69  6.49
+P:     0     6     1 <font color=red> 0.43</font> <font color=blue> 3.15</font> <font color=red> 3.62</font> <font color=red> 5.26</font> <font color=red> 3.46</font> <font color=red> 4.95</font>  5.77  6.09  7.55  6.82  6.69  6.49
+S:     0     1       <font color=red> 0.43</font>  3.15  3.62  5.26  3.46  4.95  5.77  6.09  7.55  6.82  6.69  6.49
+S:     2     4        0.43  3.15 <font color=blue> 3.62</font> <font color=red> 5.26</font> <font color=red> 3.46</font> <font color=red> 4.95</font>  5.77  6.09  7.55  6.82  6.69  6.49
+P:     2     4     3  0.43  3.15 <font color=red> 3.46</font> <font color=blue> 3.62</font> <font color=red> 5.26</font> <font color=red> 4.95</font>  5.77  6.09  7.55  6.82  6.69  6.49
+S:     2     1        0.43  3.15 <font color=red> 3.46</font>  3.62  5.26  4.95  5.77  6.09  7.55  6.82  6.69  6.49
+S:     4     2        0.43  3.15  3.46  3.62 <font color=red> 5.26</font> <font color=red> 4.95</font>  5.77  6.09  7.55  6.82  6.69  6.49
+S:     7     5        0.43  3.15  3.46  3.62  4.95  5.26  5.77 <font color=blue> 6.09</font> <font color=red> 7.55</font> <font color=red> 6.82</font> <font color=red> 6.69</font> <font color=red> 6.49</font>
+P:     7     5     7  0.43  3.15  3.46  3.62  4.95  5.26  5.77 <font color=blue> 6.09</font> <font color=red> 7.55</font> <font color=red> 6.82</font> <font color=red> 6.69</font> <font color=red> 6.49</font>
+S:     7     0        0.43  3.15  3.46  3.62  4.95  5.26  5.77  6.09  7.55  6.82  6.69  6.49
+S:     8     4        0.43  3.15  3.46  3.62  4.95  5.26  5.77  6.09 <font color=blue> 7.55</font> <font color=red> 6.82</font> <font color=red> 6.69</font> <font color=red> 6.49</font>
+P:     8     4    11  0.43  3.15  3.46  3.62  4.95  5.26  5.77  6.09 <font color=red> 6.49</font> <font color=red> 6.82</font> <font color=red> 6.69</font> <font color=blue> 7.55</font>
+S:     8     3        0.43  3.15  3.46  3.62  4.95  5.26  5.77  6.09 <font color=blue> 6.49</font> <font color=red> 6.82</font> <font color=red> 6.69</font>  7.55
+P:     8     3     8  0.43  3.15  3.46  3.62  4.95  5.26  5.77  6.09 <font color=blue> 6.49</font> <font color=red> 6.82</font> <font color=red> 6.69</font>  7.55
+S:     8     0        0.43  3.15  3.46  3.62  4.95  5.26  5.77  6.09  6.49  6.82  6.69  7.55
+S:     9     2        0.43  3.15  3.46  3.62  4.95  5.26  5.77  6.09  6.49 <font color=red> 6.82</font> <font color=red> 6.69</font>  7.55
+S:    12     0        0.43  3.15  3.46  3.62  4.95  5.26  5.77  6.09  6.49  6.69  6.82  7.55
+                      0.43  3.15  3.46  3.62  4.95  5.26  5.77  6.09  6.49  6.69  6.82  7.55
+UNIX>
+</pre></td></table></center><p>
+
+I've colored the part of the array under attention red/blue.  When the size is greater than two and
+we are looking at an "S" line, the pivot is at <b>v[start]</b> and is colored blue.  When you see
+a "P" line, the pivot will be at the given index, still colored blue, and recursive calls will be
+made to the left partition and the right partition.   For example, in line one, the pivot is 5.77.
+The partition moves it to index 6, and then makes recursive calls with start=0,size=6 and start=7,size=5.
+<p>
+You can create your own colored output by piping <b>quick_1_sort</b> to "<b>awk -f ~jplank/cs302/Notes/Sorting/qs1.awk</b>" -- the output is HTML that is colored.  Here's a different
+example than the one above:
+<pre>
+UNIX> <font color=darkred><b>quick_1_sort 16 1 100 yes yes | awk -f qs1.awk > qs1ex.html</b></font>
+</pre>
+Here is <a href=qs1ex.html><b>qs1ex.html</b></a>.
+<p>
+I am going to give two detailed examples of the partitioning algorithm.  In the first, I want to
+show how the first partition above is done.  To remind you, here is the array:
+
+<center><table border=3><td>
+<pre>
+
+<font color=blue> 5.77</font> <font color=red> 5.26</font> <font color=red> 6.49</font> <font color=red> 0.43</font> <font color=red> 6.09</font> <font color=red> 4.95</font> <font color=red> 3.15</font> <font color=red> 3.46</font> <font color=red> 7.55</font> <font color=red> 6.82</font> <font color=red> 6.69</font> <font color=red> 3.62</font></pre></td></table></center><p>
+
+Our pivot is at element zero with a value of 5.77.  What we do is have two integer indices,
+called <i>left</i> and <i>right</i>.  <i>Left</i> starts at 1 and <i>right</i> starts at
+11.  I'm abbreviating <i>left</i> as <b>L</b> and 
+<i>right</i> as <b>R</b> below, and I'm going to show two lines -- the original vector, and
+what is looks like as it is being partitioned:
+
+<center><table border=3><td>
+<pre>Original:    <font color=blue> 5.77</font> <font color=red> 5.26</font> <font color=red> 6.49</font> <font color=red> 0.43</font> <font color=red> 6.09</font> <font color=red> 4.95</font> <font color=red> 3.15</font> <font color=red> 3.46</font> <font color=red> 7.55</font> <font color=red> 6.82</font> <font color=red> 6.69</font> <font color=red> 3.62</font>
+In Progress: <font color=blue> 5.77</font> <font color=red> 5.26</font> <font color=red> 6.49</font> <font color=red> 0.43</font> <font color=red> 6.09</font> <font color=red> 4.95</font> <font color=red> 3.15</font> <font color=red> 3.46</font> <font color=red> 7.55</font> <font color=red> 6.82</font> <font color=red> 6.69</font> <font color=red> 3.62</font>
+              Pivot L=1                                                         R=11
+</pre></td></table></center><p>
+
+Now, our first step is to increment <b>L</b>  until it is pointing to a value &ge; the pivot.
+I'm going to color the skipped-over value green:
+
+<center><table border=3><td>
+<pre>Original:    <font color=blue> 5.77</font> <font color=red> 5.26</font> <font color=red> 6.49</font> <font color=red> 0.43</font> <font color=red> 6.09</font> <font color=red> 4.95</font> <font color=red> 3.15</font> <font color=red> 3.46</font> <font color=red> 7.55</font> <font color=red> 6.82</font> <font color=red> 6.69</font> <font color=red> 3.62</font>
+In Progress: <font color=blue> 5.77</font> <font color=green> 5.26</font> <font color=red> 6.49</font> <font color=red> 0.43</font> <font color=red> 6.09</font> <font color=red> 4.95</font> <font color=red> 3.15</font> <font color=red> 3.46</font> <font color=red> 7.55</font> <font color=red> 6.82</font> <font color=red> 6.69</font> <font color=red> 3.62</font>
+              Pivot       L=2                                                   R=11
+</pre></td></table></center><p>
+
+Next, I'm going to decrement <b>R</b> until it is pointing to a value &le; the pivot.  Since it
+is already pointing to such a value, I don't decrement it at all.  Note, this picture is the same
+as the previous one:
+
+<center><table border=3><td>
+<pre>Original:    <font color=blue> 5.77</font> <font color=red> 5.26</font> <font color=red> 6.49</font> <font color=red> 0.43</font> <font color=red> 6.09</font> <font color=red> 4.95</font> <font color=red> 3.15</font> <font color=red> 3.46</font> <font color=red> 7.55</font> <font color=red> 6.82</font> <font color=red> 6.69</font> <font color=red> 3.62</font>
+In Progress: <font color=blue> 5.77</font> <font color=green> 5.26</font> <font color=red> 6.49</font> <font color=red> 0.43</font> <font color=red> 6.09</font> <font color=red> 4.95</font> <font color=red> 3.15</font> <font color=red> 3.46</font> <font color=red> 7.55</font> <font color=red> 6.82</font> <font color=red> 6.69</font> <font color=red> 3.62</font>
+              Pivot       L=2                                                   R=11
+</pre></td></table></center><p>
+
+We swap the values pointed to by <b>L</b> and <b>R</b>, increment <b>L</b> and decrement <b>R</b>.  I'm going to color the
+elements in the right partition purple.
+
+<center><table border=3><td>
+<pre>Original:    <font color=blue> 5.77</font> <font color=red> 5.26</font> <font color=red> 6.49</font> <font color=red> 0.43</font> <font color=red> 6.09</font> <font color=red> 4.95</font> <font color=red> 3.15</font> <font color=red> 3.46</font> <font color=red> 7.55</font> <font color=red> 6.82</font> <font color=red> 6.69</font> <font color=red> 3.62</font>
+In Progress: <font color=blue> 5.77</font> <font color=green> 5.26</font> <font color=green> 3.62</font> <font color=red> 0.43</font> <font color=red> 6.09</font> <font color=red> 4.95</font> <font color=red> 3.15</font> <font color=red> 3.46</font> <font color=red> 7.55</font> <font color=red> 6.82</font> <font color=red> 6.69</font> <font color=purple> 6.49</font>
+              Pivot             L=3                                       R=10
+</pre></td></table></center><p>
+
+And we repeat.  Increment <b>L</b>  until it is pointing to a value &ge; the pivot:
+
+<center><table border=3><td>
+<pre>Original:    <font color=blue> 5.77</font> <font color=red> 5.26</font> <font color=red> 6.49</font> <font color=red> 0.43</font> <font color=red> 6.09</font> <font color=red> 4.95</font> <font color=red> 3.15</font> <font color=red> 3.46</font> <font color=red> 7.55</font> <font color=red> 6.82</font> <font color=red> 6.69</font> <font color=red> 3.62</font>
+In Progress: <font color=blue> 5.77</font> <font color=green> 5.26</font> <font color=green> 3.62</font> <font color=green> 0.43</font> <font color=red> 6.09</font> <font color=red> 4.95</font> <font color=red> 3.15</font> <font color=red> 3.46</font> <font color=red> 7.55</font> <font color=red> 6.82</font> <font color=red> 6.69</font> <font color=purple> 6.49</font>
+              Pivot                   L=4                                 R=10
+</pre></td></table></center><p>
+
+Decrement <b>R</b>  until it is pointing to a value &le; the pivot:
+
+<center><table border=3><td>
+<pre>Original:    <font color=blue> 5.77</font> <font color=red> 5.26</font> <font color=red> 6.49</font> <font color=red> 0.43</font> <font color=red> 6.09</font> <font color=red> 4.95</font> <font color=red> 3.15</font> <font color=red> 3.46</font> <font color=red> 7.55</font> <font color=red> 6.82</font> <font color=red> 6.69</font> <font color=red> 3.62</font>
+In Progress: <font color=blue> 5.77</font> <font color=green> 5.26</font> <font color=green> 3.62</font> <font color=green> 0.43</font> <font color=red> 6.09</font> <font color=red> 4.95</font> <font color=red> 3.15</font> <font color=red> 3.46</font> <font color=purple> 7.55</font> <font color=purple> 6.82</font> <font color=purple> 6.69</font> <font color=purple> 6.49</font>
+              Pivot                   L=4               R=7
+</pre></td></table></center><p>
+
+Swap, increment <b>L</b> and decrement <b>R</b>:. 
+
+<center><table border=3><td>
+<pre>Original:    <font color=blue> 5.77</font> <font color=red> 5.26</font> <font color=red> 6.49</font> <font color=red> 0.43</font> <font color=red> 6.09</font> <font color=red> 4.95</font> <font color=red> 3.15</font> <font color=red> 3.46</font> <font color=red> 7.55</font> <font color=red> 6.82</font> <font color=red> 6.69</font> <font color=red> 3.62</font>
+In Progress: <font color=blue> 5.77</font> <font color=green> 5.26</font> <font color=green> 3.62</font> <font color=green> 0.43</font> <font color=green> 3.46</font> <font color=red> 4.95</font> <font color=red> 3.15</font> <font color=purple> 6.09</font> <font color=purple> 7.55</font> <font color=purple> 6.82</font> <font color=purple> 6.69</font> <font color=purple> 6.49</font>
+              Pivot                         L=5   R=6
+</pre></td></table></center><p>
+
+Repeat again.
+Increment <b>L</b>  until it is pointing to a value &ge; the pivot:
+
+<center><table border=3><td>
+<pre>Original:    <font color=blue> 5.77</font> <font color=red> 5.26</font> <font color=red> 6.49</font> <font color=red> 0.43</font> <font color=red> 6.09</font> <font color=red> 4.95</font> <font color=red> 3.15</font> <font color=red> 3.46</font> <font color=red> 7.55</font> <font color=red> 6.82</font> <font color=red> 6.69</font> <font color=red> 3.62</font>
+In Progress: <font color=blue> 5.77</font> <font color=green> 5.26</font> <font color=green> 3.62</font> <font color=green> 0.43</font> <font color=green> 3.46</font> <font color=green> 4.95</font> <font color=green> 3.15</font> <font color=purple> 6.09</font> <font color=purple> 7.55</font> <font color=purple> 6.82</font> <font color=purple> 6.69</font> <font color=purple> 6.49</font>
+              Pivot                               R=6   L=7
+</pre></td></table></center><p>
+
+Decrement <b>R</b>  until it is pointing to a value &le; the pivot (it is already doing that, so this picture is identical to the last):
+:
+
+<center><table border=3><td>
+<pre>Original:    <font color=blue> 5.77</font> <font color=red> 5.26</font> <font color=red> 6.49</font> <font color=red> 0.43</font> <font color=red> 6.09</font> <font color=red> 4.95</font> <font color=red> 3.15</font> <font color=red> 3.46</font> <font color=red> 7.55</font> <font color=red> 6.82</font> <font color=red> 6.69</font> <font color=red> 3.62</font>
+In Progress: <font color=blue> 5.77</font> <font color=green> 5.26</font> <font color=green> 3.62</font> <font color=green> 0.43</font> <font color=green> 3.46</font> <font color=green> 4.95</font> <font color=green> 3.15</font> <font color=purple> 6.09</font> <font color=purple> 7.55</font> <font color=purple> 6.82</font> <font color=purple> 6.69</font> <font color=purple> 6.49</font>
+              Pivot                               R=6   L=7
+</pre></td></table></center><p>
+
+Because <b>L</b> is greater than <b>R</b>, we're done.  We now swap the pivot with the last element in the left (green) set:
+
+<p><center><table border=3><td>
+<pre>Original:    <font color=blue> 5.77</font> <font color=red> 5.26</font> <font color=red> 6.49</font> <font color=red> 0.43</font> <font color=red> 6.09</font> <font color=red> 4.95</font> <font color=red> 3.15</font> <font color=red> 3.46</font> <font color=red> 7.55</font> <font color=red> 6.82</font> <font color=red> 6.69</font> <font color=red> 3.62</font>
+In Progress: <font color=green> 3.15</font> <font color=green> 5.26</font> <font color=green> 3.62</font> <font color=green> 0.43</font> <font color=green> 3.46</font> <font color=green> 4.95</font> <font color=blue> 5.77</font> <font color=purple> 6.09</font> <font color=purple> 7.55</font> <font color=purple> 6.82</font> <font color=purple> 6.69</font> <font color=purple> 6.49</font>
+                                                  R=6   L=7
+</pre></td></table></center><p>
+
+And we make two recursive calls:
+<pre>
+recursive_sort(v, 0, 6, print);
+recursive_sort(v, 7, 5, print);
+</pre>
+
+As you can see, this matches the first "P" line in the input above.  Additionally, you can see the two recursive calls at lines
+3 and 10.
+<pr>
+
+<p>
+Here's a second detailed example of the partitioning algorithm.   For this, I'm including a third driver program, 
+called 
+<b><a href=sort_driver_lab.cpp>sort_driver_lab.cpp</a></b>.  It is exactly the same as 
+<b><a href=sort_driver.cpp>sort_driver.cpp</a></b>, except when the seed is a multiple of 2000, it creates 
+vectors with a lot of duplicate entries.  The makefile in this directory compiles it to <b>quick_1_lab_sort</b>.
+Let's use an example to illustrate how the partitioning algorithm
+works when there are a lot of duplicate entries:
+
+
+<p><center><table border=3 cellpadding=3><td><pre>
+UNIX> <font color=darkred><b>bin/quick_1_lab_sort 12 1 6000 yes yes</b></font>
+S:     0    12       <font color=blue> 9.85</font> <font color=red> 2.93</font> <font color=red> 7.70</font> <font color=red> 9.85</font> <font color=red> 7.70</font> <font color=red> 9.85</font> <font color=red> 7.70</font> <font color=red> 2.93</font> <font color=red> 9.85</font> <font color=red> 2.93</font> <font color=red> 2.93</font> <font color=red> 9.85</font>
+P:     0    12     8 <font color=red> 2.93</font> <font color=red> 2.93</font> <font color=red> 7.70</font> <font color=red> 9.85</font> <font color=red> 7.70</font> <font color=red> 2.93</font> <font color=red> 7.70</font> <font color=red> 2.93</font> <font color=blue> 9.85</font> <font color=red> 9.85</font> <font color=red> 9.85</font> <font color=red> 9.85</font>
+S:     0     8       <font color=blue> 2.93</font> <font color=red> 2.93</font> <font color=red> 7.70</font> <font color=red> 9.85</font> <font color=red> 7.70</font> <font color=red> 2.93</font> <font color=red> 7.70</font> <font color=red> 2.93</font>  9.85  9.85  9.85  9.85
+P:     0     8     2 <font color=red> 2.93</font> <font color=red> 2.93</font> <font color=blue> 2.93</font> <font color=red> 9.85</font> <font color=red> 7.70</font> <font color=red> 7.70</font> <font color=red> 7.70</font> <font color=red> 2.93</font>  9.85  9.85  9.85  9.85
+S:     0     2       <font color=red> 2.93</font> <font color=red> 2.93</font>  2.93  9.85  7.70  7.70  7.70  2.93  9.85  9.85  9.85  9.85
+S:     3     5        2.93  2.93  2.93 <font color=blue> 9.85</font> <font color=red> 7.70</font> <font color=red> 7.70</font> <font color=red> 7.70</font> <font color=red> 2.93</font>  9.85  9.85  9.85  9.85
+P:     3     5     7  2.93  2.93  2.93 <font color=red> 2.93</font> <font color=red> 7.70</font> <font color=red> 7.70</font> <font color=red> 7.70</font> <font color=blue> 9.85</font>  9.85  9.85  9.85  9.85
+S:     3     4        2.93  2.93  2.93 <font color=blue> 2.93</font> <font color=red> 7.70</font> <font color=red> 7.70</font> <font color=red> 7.70</font>  9.85  9.85  9.85  9.85  9.85
+P:     3     4     3  2.93  2.93  2.93 <font color=blue> 2.93</font> <font color=red> 7.70</font> <font color=red> 7.70</font> <font color=red> 7.70</font>  9.85  9.85  9.85  9.85  9.85
+S:     3     0        2.93  2.93  2.93  2.93  7.70  7.70  7.70  9.85  9.85  9.85  9.85  9.85
+S:     4     3        2.93  2.93  2.93  2.93 <font color=blue> 7.70</font> <font color=red> 7.70</font> <font color=red> 7.70</font>  9.85  9.85  9.85  9.85  9.85
+P:     4     3     5  2.93  2.93  2.93  2.93 <font color=red> 7.70</font> <font color=blue> 7.70</font> <font color=red> 7.70</font>  9.85  9.85  9.85  9.85  9.85
+S:     4     1        2.93  2.93  2.93  2.93 <font color=red> 7.70</font>  7.70  7.70  9.85  9.85  9.85  9.85  9.85
+S:     6     1        2.93  2.93  2.93  2.93  7.70  7.70 <font color=red> 7.70</font>  9.85  9.85  9.85  9.85  9.85
+S:     8     0        2.93  2.93  2.93  2.93  7.70  7.70  7.70  9.85  9.85  9.85  9.85  9.85
+S:     9     3        2.93  2.93  2.93  2.93  7.70  7.70  7.70  9.85  9.85 <font color=blue> 9.85</font> <font color=red> 9.85</font> <font color=red> 9.85</font>
+P:     9     3    10  2.93  2.93  2.93  2.93  7.70  7.70  7.70  9.85  9.85 <font color=red> 9.85</font> <font color=blue> 9.85</font> <font color=red> 9.85</font>
+S:     9     1        2.93  2.93  2.93  2.93  7.70  7.70  7.70  9.85  9.85 <font color=red> 9.85</font>  9.85  9.85
+S:    11     1        2.93  2.93  2.93  2.93  7.70  7.70  7.70  9.85  9.85  9.85  9.85 <font color=red> 9.85</font>
+                      2.93  2.93  2.93  2.93  7.70  7.70  7.70  9.85  9.85  9.85  9.85  9.85
+UNIX>
+</pre></td></table></center><p>
+
+As before, I'll walk you through the first partitioning:
+
+<p><center><table border=3><td>
+<pre>Original:    <font color=blue> 9.85</font> <font color=red> 2.93</font> <font color=red> 7.70</font> <font color=red> 9.85</font> <font color=red> 7.70</font> <font color=red> 9.85</font> <font color=red> 7.70</font> <font color=red> 2.93</font> <font color=red> 9.85</font> <font color=red> 2.93</font> <font color=red> 2.93</font> <font color=red> 9.85</font>
+In Progress: <font color=blue> 9.85</font> <font color=red> 2.93</font> <font color=red> 7.70</font> <font color=red> 9.85</font> <font color=red> 7.70</font> <font color=red> 9.85</font> <font color=red> 7.70</font> <font color=red> 2.93</font> <font color=red> 9.85</font> <font color=red> 2.93</font> <font color=red> 2.93</font> <font color=red> 9.85</font>
+              Pivot L=1                                                         R=11
+</pre></td></table></center><p>
+
+We increment <b>L</b> until it points to an element &ge; the pivot, and
+we decrement <b>R</b> until it points to an element &le; the pivot (it already does):
+
+<p><center><table border=3><td>
+<pre>Original:    <font color=blue> 9.85</font> <font color=red> 2.93</font> <font color=red> 7.70</font> <font color=red> 9.85</font> <font color=red> 7.70</font> <font color=red> 9.85</font> <font color=red> 7.70</font> <font color=red> 2.93</font> <font color=red> 9.85</font> <font color=red> 2.93</font> <font color=red> 2.93</font> <font color=red> 9.85</font>
+In Progress: <font color=blue> 9.85</font> <font color=green> 2.93</font> <font color=green> 7.70</font> <font color=red> 9.85</font> <font color=red> 7.70</font> <font color=red> 9.85</font> <font color=red> 7.70</font> <font color=red> 2.93</font> <font color=red> 9.85</font> <font color=red> 2.93</font> <font color=red> 2.93</font> <font color=red> 9.85</font>
+              Pivot             L=3                                             R=11
+</pre></td></table></center><p>
+
+Swap the values (since they are equal, this doesn't do anything), increment <b>L</b>
+and decrement <b>R</b>:
+
+<p><center><table border=3><td>
+<pre>Original:    <font color=blue> 9.85</font> <font color=red> 2.93</font> <font color=red> 7.70</font> <font color=red> 9.85</font> <font color=red> 7.70</font> <font color=red> 9.85</font> <font color=red> 7.70</font> <font color=red> 2.93</font> <font color=red> 9.85</font> <font color=red> 2.93</font> <font color=red> 2.93</font> <font color=red> 9.85</font>
+In Progress: <font color=blue> 9.85</font> <font color=green> 2.93</font> <font color=green> 7.70</font> <font color=green> 9.85</font> <font color=red> 7.70</font> <font color=red> 9.85</font> <font color=red> 7.70</font> <font color=red> 2.93</font> <font color=red> 9.85</font> <font color=red> 2.93</font> <font color=red> 2.93</font> <font color=purple> 9.85</font>
+              Pivot                   L=4                                 R=10
+</pre></td></table></center><p>
+
+Increment <b>L</b> until it points to an element &ge; the pivot, and
+decrement <b>R</b> until it points to an element &le; the pivot (it already does):
+
+<p><center><table border=3><td>
+<pre>Original:    <font color=blue> 9.85</font> <font color=red> 2.93</font> <font color=red> 7.70</font> <font color=red> 9.85</font> <font color=red> 7.70</font> <font color=red> 9.85</font> <font color=red> 7.70</font> <font color=red> 2.93</font> <font color=red> 9.85</font> <font color=red> 2.93</font> <font color=red> 2.93</font> <font color=red> 9.85</font>
+In Progress: <font color=blue> 9.85</font> <font color=green> 2.93</font> <font color=green> 7.70</font> <font color=green> 9.85</font> <font color=green> 7.70</font> <font color=red> 9.85</font> <font color=red> 7.70</font> <font color=red> 2.93</font> <font color=red> 9.85</font> <font color=red> 2.93</font> <font color=red> 2.93</font> <font color=purple> 9.85</font>
+              Pivot                         L=5                           R=10
+</pre></td></table></center><p>
+
+Swap the values, increment <b>L</b> and decrement <b>R</b>:
+
+<p><center><table border=3><td>
+<pre>Original:    <font color=blue> 9.85</font> <font color=red> 2.93</font> <font color=red> 7.70</font> <font color=red> 9.85</font> <font color=red> 7.70</font> <font color=red> 9.85</font> <font color=red> 7.70</font> <font color=red> 2.93</font> <font color=red> 9.85</font> <font color=red> 2.93</font> <font color=red> 2.93</font> <font color=red> 9.85</font>
+In Progress: <font color=blue> 9.85</font> <font color=green> 2.93</font> <font color=green> 7.70</font> <font color=green> 9.85</font> <font color=green> 7.70</font> <font color=green> 2.93</font> <font color=red> 7.70</font> <font color=red> 2.93</font> <font color=red> 9.85</font> <font color=red> 2.93</font> <font color=purple> 9.85</font> <font color=purple> 9.85</font>
+              Pivot                               L=6               R=9
+</pre></td></table></center><p>
+
+Increment <b>L</b> until it points to an element &ge; the pivot, and
+decrement <b>R</b> until it points to an element &le; the pivot (again, it already does):
+
+<p><center><table border=3><td>
+<pre>Original:    <font color=blue> 9.85</font> <font color=red> 2.93</font> <font color=red> 7.70</font> <font color=red> 9.85</font> <font color=red> 7.70</font> <font color=red> 9.85</font> <font color=red> 7.70</font> <font color=red> 2.93</font> <font color=red> 9.85</font> <font color=red> 2.93</font> <font color=red> 2.93</font> <font color=red> 9.85</font>
+In Progress: <font color=blue> 9.85</font> <font color=green> 2.93</font> <font color=green> 7.70</font> <font color=green> 9.85</font> <font color=green> 7.70</font> <font color=green> 2.93</font> <font color=green> 7.70</font> <font color=green> 2.93</font> <font color=red> 9.85</font> <font color=red> 2.93</font> <font color=purple> 9.85</font> <font color=purple> 9.85</font>
+              Pivot                                           L=8   R=9
+</pre></td></table></center><p>
+
+Swap the values, increment <b>L</b> and decrement <b>R</b>:
+
+<p><center><table border=3><td>
+<pre>Original:    <font color=blue> 9.85</font> <font color=red> 2.93</font> <font color=red> 7.70</font> <font color=red> 9.85</font> <font color=red> 7.70</font> <font color=red> 9.85</font> <font color=red> 7.70</font> <font color=red> 2.93</font> <font color=red> 9.85</font> <font color=red> 2.93</font> <font color=red> 2.93</font> <font color=red> 9.85</font>
+In Progress: <font color=blue> 9.85</font> <font color=green> 2.93</font> <font color=green> 7.70</font> <font color=green> 9.85</font> <font color=green> 7.70</font> <font color=green> 2.93</font> <font color=green> 7.70</font> <font color=green> 2.93</font> <font color=green> 2.93</font> <font color=purple> 9.85</font> <font color=purple> 9.85</font> <font color=purple> 9.85</font>
+              Pivot                                           R=8   L=9
+</pre></td></table></center><p>
+
+We're done.   Swap the pivot with the last element of the left partition:
+
+<p><center><table border=3><td>
+<pre>Original:    <font color=blue> 9.85</font> <font color=red> 2.93</font> <font color=red> 7.70</font> <font color=red> 9.85</font> <font color=red> 7.70</font> <font color=red> 9.85</font> <font color=red> 7.70</font> <font color=red> 2.93</font> <font color=red> 9.85</font> <font color=red> 2.93</font> <font color=red> 2.93</font> <font color=red> 9.85</font>
+In Progress: <font color=green> 2.93</font> <font color=green> 2.93</font> <font color=green> 7.70</font> <font color=green> 9.85</font> <font color=green> 7.70</font> <font color=green> 2.93</font> <font color=green> 7.70</font> <font color=green> 2.93</font> <font color=blue> 9.85</font> <font color=purple> 9.85</font> <font color=purple> 9.85</font> <font color=purple> 9.85</font>
+                                                              R=8   L=9
+</pre></td></table></center><p>
+
+And make recursive calls:
+<pre>
+recursive_sort(v, 0, 8, print);
+recursive_sort(v, 9, 3, print);
+</pre>
+
+<b>PAY ATTENTION TO THIS:</b>
+There are times when, after incrementing and decrementing,  you will have <b>L</b> equal to <b>R</b>.  Pay attention to this
+case, and perform the appropriate action.  You can see an example of this with the following call:
+
+<pre>
+UNIX> <font color=darkred><b>bin/quick_1_lab_sort 8 1 12000 yes yes</b></font>
+</pre>
+
+In the first partitioning, you will end up with <b>L</b> = <b>R</b>.
+<p>
+If you want yet another example of partitioning, I have some older notes in 
+<b><a href=old.html>old.html</a></b>.
+
+<hr>
+<h3>Quicksort #2</h3>
+
+Quicksort #1 uses the first element of the list as the pivot.  Quicksort #2 checks
+the first, last and middle elements and uses the median as the pivot (see below for 
+how the "middle" element is calculated).  If the pivot
+is the middle element, then it swaps the middle element and the first element before
+performing the partition.  If the pivot
+is the last element, then it swaps the last element and the first element before
+performing the partition.  The output prints a line with a label of "M" after
+the pivot has been found and swapped to <b>v[start]</b>:
+Here's an example:
+
+<p><center><table border=3 cellpadding=3><td><img src=img/Quick-Example-2.png height=180></td></table></center><p>
+
+The circles show the three elements considered for the pivot -- the one with the median value is always chosen.
+(The indices are calculated as <b>start</b>, (<b>start+size-1</b>) and <b>(start+size/2</b>).
+Study that output, because you will have to duplicate it in your lab.
+(<a href=qs2.awk><b>qs2.awk</b></a> formats the output of <b>quick_2_sort</b> if you'd like to study from it).
+<p>
+This makes a 
+minor difference in sorting random lists, but a <i>huge</i> difference in sorting 
+presorted lists:
+
+<pre>
+UNIX> <font color=darkred><b>time bin/quick_1_sorted 100000 1 0 no no</b></font>
+5.173u 0.012s 0:05.21 99.4%     0+0k 0+0io 0pf+0w
+UNIX> <font color=darkred><b>time bin/quick_2_sorted 100000 1 0 no no</b></font>
+0.006u 0.003s 0:00.01 0.0%      0+0k 0+0io 0pf+0w
+UNIX> <font color=darkred><b></b></font>
+</pre>
+
+Quicksort #3 sorts lists of size 46 and smaller with insertion sort.  That improves
+the performance a little: 
+<p><center><table border=3 cellpadding=3><td><img src=img/quick.png width=550></td></table></center><p>
+<p>
+
+If you'd like more help, Katie Schuman (CS302 TA from 2010 to 2014, now an EECS professor) 
+explains quicksort in 
+<a href=http://www.youtube.com/watch?v=PvoKfjyYJDk>this youtube video.</a>
+<hr>
+<h3>Linear Time Sorting -- Bucket Sort!</h3>
+
+<UL>
+<LI> This is a good Leetcode problem that you solve with bucket sort: <a href=http://web.eecs.utk.edu/~jplank/topcoder-writeups/Leetcode/Maximum-Gap/index.html>Maximum-Gap</a>
+</UL>
+
+Since our input has a known probability distribution, we can take advantage of that fact
+to use a variant of bucket sort and sort in <i>linear</i> time.  Let me give an example.
+Suppose you are sorting the following numbers, which have been generated by a random number
+generator that picks numbers uniformly from 0 to 10:
+
+<p><center><table border=3 cellpadding=3><td><pre>
+0.8   9.7   2.6   8.7   7.0   7.8   4.3   0.4   3.0   5.5
+</pre></td></table></center><p>
+
+Since we know how the numbers have been generated, and we know that there are ten of
+them, we can approximate where they'll end up when we sort them:
+
+<p><center><table border=0 cellpadding=3><td><pre>
+0.8 -- around index 0
+9.7 -- around index 9
+2.6 -- around index 2
+8.7 -- around index 8
+7.0 -- around index 7
+7.8 -- around index 7
+4.3 -- around index 4
+0.4 -- around index 0
+3.0 -- around index 3
+5.5 -- around index 5
+</pre></td></table></center><p>
+
+So, to use Bucket Sort, let's start by putting each element where we think it belongs.  If
+there's already an element there (as with 7.8 and 0.4), we'll find the closest empty element in
+the array:
+
+<p><center><table border=3 cellpadding=3><td><pre>
+Index                 0     1     2     3     4     5     6     7     8     9
+Start                 -     -     -     -     -     -     -     -     -     -
+0.8 goes to 0       <font color=blue>0.8</font>     -     -     -     -     -     -     -     -     -
+9.7 goes to 9       0.8     -     -     -     -     -     -     -     -   <font color=blue>9.7</font>
+2.6 goes to 2       0.8     -   <font color=blue>2.6</font>     -     -     -     -     -     -   9.7
+8.7 goes to 8       0.8     -   2.6     -     -     -     -     -   <font color=blue>8.7</font>   9.7
+7.0 goes to 7       0.8     -   2.6     -     -     -     -   <font color=blue>7.0</font>   8.7   9.7
+7.8 goes to 6       0.8     -   2.6     -     -     -   <font color=blue>7.8</font>   7.0   8.7   9.7    <font color=blue> Nearest empty slot</font>
+4.3 goes to 4       0.8     -   2.6     -   <font color=blue>4.3</font>     -   7.8   7.0   8.7   9.7
+0.4 goes to 1       0.8   <font color=blue>0.4</font>   2.6     -   4.3     -   7.8   7.0   8.7   9.7    <font color=blue> Nearest empty slot</font>
+3.0 goes to 3       0.8   0.4   2.6   <font color=blue>3.0</font>   4.3     -   7.8   7.0   8.7   9.7
+5.5 goes to 5       0.8   0.4   2.6   3.0   4.3   <font color=blue>5.5</font>   7.8   7.0   8.7   9.7
+</pre></td></table></center><p>
+
+When we're done, we have a vector that is <i>almost</i> sorted.  We can use insertion sort
+to sort it, and since it's almost sorted, insertion sort will run in linear time.  How cool is that!!
+
+<p>
+A first implemention of using bucket sort in this way is in
+<b><a href=src/bucket_1_sort.cpp>src/bucket_1_sort.cpp</a></b>:
+
+<p><center><table border=3 cellpadding=3><td valign=top><pre>
+<font color=blue>/* Headers and insertion sort omitted. */</font>
+void sort_doubles(vector &lt;double&gt; &v, bool print)
+{
+  int sz;
+  int index, j;
+  double val;
+  double *v2;
+  int hind, lind, done, i;
+
+  sz = v.size();
+
+  <font color=blue>/* Allocate a new array, and set every entry to -1. */</font>
+
+  v2 = (double *) malloc(sizeof(double)*sz);
+  for (i = 0; i &lt; sz; i++) v2[i] = -1;
+
+  <font color=blue>/* For each element, find out where you think it will go.
+     If that index is empty, put it there. */</font>
+
+  for (i = 0; i &lt; sz; i++) {
+    val = (v[i] * sz/10.0);
+    index = (int) val;
+    if (v2[index] == -1) {
+      v2[index] = v[i];
+
+    <font color=blue>/* Otherwise, check nearby, above and below, until
+       you find an empty element. */</font>
+</pre></td><td valign=top><pre>
+    } else {
+      hind = index+1;
+      lind = index-1;
+      done = 0;
+      while(!done) {
+        if (hind &lt; sz && v2[hind] == -1) {
+          v2[hind] = v[i];
+          done = 1;
+        } else {
+          hind++;
+        }
+        if (!done && lind &gt;= 0 && v2[lind] == -1) {
+          v2[lind] = v[i];
+          done = 1;
+        } else {
+          lind--;
+        }
+      }
+    } 
+  }
+
+  <font color=blue>/* At the end, copy this new vector back to the
+     old one, free it, and call insertion sort to 
+     "clean up" the vector. */</font>
+
+  for (i = 0; i &lt; sz; i++) v[i] = v2[i];
+  free(v2);
+
+  if (print) {
+    cout &lt;&lt; "Before Insertion Sort\n";
+    for (j = 0; j &lt; sz; j++) printf("%.2lf ", v[j]);
+    cout &lt;&lt; endl;
+  }
+
+  insertion_sort(v);
+
+  if (print) {
+    cout &lt;&lt; "After Insertion Sort\n";
+    for (j = 0; j &lt; sz; j++) printf("%.2lf ", v[j]);
+    cout &lt;&lt; endl;
+  }
+}
+</pre></td></table></center><p>
+
+What this code does is predict where each value is going to go, and then put it into that
+index of <b>v2</b> so long as it's empty (-1).  If that entry is not empty, then it looks 
+adjacent to that entry, and continues doing so until it finds an empty slot, and puts it
+there.  Once that process is done, it copies <b>v2</b> back to <b>v</b> and uses insertion
+sort to sort <b>v</b>.  Since <b>v</b> is nearly sorted (or should be), insertion sort
+should sort it very quickly.
+<p>
+As it turns out, this process is quite slow, and the reason is that as <b>v2</b> fills 
+up, it takes longer to find empty slots and they are quite far from where they should be.
+We fix this in 
+<b><a href=src/bucket_2_sort.cpp>src/bucket_2_sort.cpp</a></b>
+where we double the size of <b>v2</b> so that there are more empty cells and a much smaller
+chance of having to move to adjacent cells.  As you can see, the results are great -- 
+even better than the Standard Template Library!
+
+<p><center><table border=3 cellpadding=3><td><img src=img/bucket.png width=550></td></table></center><p>
+
+As I said in class, if you can characterize the probability distribution, 
+you can use its CDF 
+(<a href=http://en.wikipedia.org/wiki/Cumulative_distribution_function>Cumulative 
+Distribution Function</a>) 
+to sort any input in this way.  Think about it.

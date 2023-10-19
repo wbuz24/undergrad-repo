@@ -1,0 +1,113 @@
+<pre>
+
+**Bring a deck of cards**
+
+1. Go over file structure: One header, one driver, many implementations.
+   Each implementation includes the header, implements sort_doubles, and is compiled into its
+        own executable.
+   Make
+2. Arguments to sort_driver.
+3. null_sort.cpp -- baseline and run.
+
+3 Three O(n^2) Sorting algorithms:
+
+3A Bubble.  Explain how it works.  Give an example in vi.  Grab it using:
+   
+   bin/null_sort  8 1 14 no yes -- and put everything in its own line.
+
+   Note how it works by moving the highest element to the end at every iteration,
+        so n-1 iterations are sufficient.
+
+   Show them with html/bubble.html
+
+   Do the code.
+   Do running time by example.
+   Do running time analytically.
+
+3B Selection.  Explain how it works.  Give an example in vi and do it line-based.
+
+   bin/null_sort 8 1 13 no yes
+
+   Do "live" vi practice with them at this point, then clicker (maybe).
+
+   show html/selection.html
+
+   Code it up.
+   Running time by example, and analytically.
+
+   Bring a deck of cards to show selection sort.
+
+3C Insertion.  Explain how it works,  Give an example in vi.
+
+     bin/null_sort 8 1 4 no yes
+
+     open html/insertion1.html
+
+     Running time -- reason it out -- show html/insertion2.html
+
+     (This is where I ended in 2020, but I had mop-up to do at the beginning of class).
+
+     Code it up -- #1 following the definition.
+                   #2 not doing the final swap until the end.
+                   #3 using a sentinel to save on an if statement.
+
+     img/quad1.png and img/quad2.png
+
+     Suppose your input is nearly sorted -- now reason out the running time.
+
+     Show html/insertion3.html
+
+     Go over the sort_sorted stuff.
+
+     Clickers.
+
+4. From the STL -- multisets and sort().  Write them and time them.
+
+     img/set.png
+     img/stl.png
+
+5. Heap sort -- don't write -- just go over the outputs and timings.
+
+    Stress two things: O(n log n).  Done in place.  Slower than the others.
+
+    show html/heap1.html and html/heap2.html
+
+6. Merge Sort.  Recursion / Recursion / Cleanup.
+
+
+   Detailed example using txt/merge_ex.txt
+
+   When you do the merge -- put the final vector on the right of the first two
+        and use vi to show the "pointers".  Stress that merging is linear.
+ 
+   Show the prototype: 
+
+   void recursive_sort(vector <double> &v, vector <double> &temp, int start, int size, int print);
+
+   Then go over the colored example on the lecture note page.  html/merge.html
+   Running time (use the yellow rectangles in the picture).
+
+   Merge clickers?
+
+7. Quicksort.  Partition / Recursion / Recursion
+
+               Go over.  Talk about partitioning in detail.  First, txt/quick_ex_1.txt, 
+               Using 5.77 as the pivot.
+
+               Next txt/quick_ex_2.txt
+
+               Again -- use 9.85 as the pivot.
+
+               Median of three.  img/Quick-Example-2*
+
+               Running time.
+
+        Clickers?
+
+8. Bucket Sort!!
+
+   Start with an example of txt/bucket_ex.txt -- Fill it in.
+
+   Go over the code which has the general concept.    Run it and increase times.  Show why it's bad.
+
+   Go over the fix and run it.  Show the final graph.

@@ -1,0 +1,10 @@
+sed 's/ no/1 no/' 030.txt > 040.txt
+sed 's/ no/1 no/' 031.txt > 041.txt
+sed 's/ no/1 no/' 032.txt > 042.txt
+sed 's/ no/1 no/' 033.txt > 043.txt
+sed 's/ no/1 no/' 034.txt > 044.txt
+sed 's/ no/1 no/' 035.txt > 045.txt
+sed 's/ no/1 no/' 036.txt > 046.txt
+sed 's/ no/1 no/' 037.txt > 047.txt
+sed 's/ no/1 no/' 038.txt > 048.txt
+sed 's/ no/1 no/' 039.txt > 049.txt

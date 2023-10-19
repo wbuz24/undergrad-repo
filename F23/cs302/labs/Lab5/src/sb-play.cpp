@@ -101,15 +101,15 @@ int Superball::rate(Disjoint_Set *d) {
   for (i = 0; i < r*c; i++) {
     if (goals[i] && next_to(i)) rate += colors[board[i]];
     if (goals[i]) rate += colors[board[i]];
-    if (next_to(i)) rate += 3 * colors[board[i]];
+    if (next_to(i)) rate += 5 * colors[board[i]];
     if (sizes->at(d->Find(i)) > 1 && next_to(i)) { // I am a set & I am not in the map
       rate += sizes->at(d->Find(i)) * colors[board[i]]; // I am not a scoring set
-      if (idmap.find(d->Find(i)) != idmap.end() && sizes->at(d->Find(i)) > (int) num) rate += 5 * sizes->at(d->Find(i));
+      if (idmap.find(d->Find(i)) != idmap.end() && sizes->at(d->Find(i)) > 2*mss/3) rate += 5 * sizes->at(d->Find(i));
       if (sizes->at(d->Find(i)) > mss) rate += 10 * sizes->at(d->Find(i));
       if (idmap.find(d->Find(i)) != idmap.end()) rate += 15 * sizes->at(d->Find(i)) * colors[board[i]]; // scoring set
     }
     else rate --;
-    if (!next_to(i) || sizes->at(d->Find(i)) == 1) rate -= 5;
+    if (!next_to(i) || sizes->at(d->Find(i)) == 1) rate -= 3;
   }
 
   if (num < 7) rate += idmap.size(); // reward low number of sets

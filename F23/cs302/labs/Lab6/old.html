@@ -1,0 +1,31 @@
+
+Here's a detailed example of the partitioning algorithm. Suppose our vector has 12 elements: 
+<p><center><img src=img/qs1.jpg></center><p>
+And suppose we have already done some partitioning, and we are in a nested recursive call:
+<pre>
+recursive_sort(v, 5, 7, 0);
+</pre>
+This means we need to sort the last seven elements of the vector.  Below, I've 
+colored those elements light orange.  Suppose we 
+use <b>v[start]</b> as our pivot.  Then, our pivot is 13.  We start
+partitioning with our left pointer equaling 6 and the right pointer equaling 11:
+<p><center><img src=img/qs2.jpg></center><p>
+Next, we move the left pointer to the right until it is pointing to an element &ge; 13.
+That moves it to equal 7.  The right pointer is already pointing to an element &le; 13:
+<p><center><img src=img/qs3.jpg></center><p>
+Now, we swap them, increment the left pointer and decrement the right pointer:
+<p><center><img src=img/qs4.jpg></center><p>
+Since the left pointer is pointing to an element &ge; 13 and the right pointer is pointing
+to an element &le; 13, we swap them, increment the left pointer and decrement the right pointer: 
+<p><center><img src=img/qs5.jpg></center><p>
+We increment the left pointer again, and now it is pointing past the right pointer, so we
+are almost done:
+<p><center><img src=img/qs6.jpg></center><p>
+Our final move is to swap the pivot with the rightmost element in the left set (element #9 with
+a value of 10).  Then we are going to recursively sort the left and right sets (colored very light blue
+below) with the two calls:
+<pre>
+recursive_sort(v, 5, 4, 0);
+recursive_sort(v, 10, 2, 0);
+</pre>
+<p><center><img src=img/qs7.jpg></center><p>
