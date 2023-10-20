@@ -5,7 +5,10 @@
 
 #include <iostream> 
 #include "sorting.hpp"
+using namespace std;
 
-int main() {
-  return 1;
+void sort_doubles(vector <double> &v, bool print) {
+  (void) v;
+  (void) print;
+  return;
 }
