@@ -15,7 +15,7 @@ void recursive_sort(vector <double> &v, vector <double> &temp, int start, int si
   if (size == 1) return;
 
   if (print) {
-    printf("B:%6d%6d       ", start, size);
+    printf("B:%6d%6d  ", start, size);
     for (j = 0; j < v.size(); j++) printf(" %4.2lf", v[j]);
     cout << endl;
   }
@@ -27,7 +27,7 @@ void recursive_sort(vector <double> &v, vector <double> &temp, int start, int si
       v[start + 1] = tmp;
     }
     if (print) { // E call before returning
-      printf("E:%6d%6d       ", start, size);
+      printf("E:%6d%6d  ", start, size);
       for (j = 0; j < v.size(); j++) printf(" %4.2lf", v[j]);
       cout << endl;
     } 
@@ -35,24 +35,24 @@ void recursive_sort(vector <double> &v, vector <double> &temp, int start, int si
   }
 
   if (size > 2) { // if there are more than 2 elements
-    recursive_sort(v, temp, start, size/2, print); // call of on the two halves
-    recursive_sort(v, temp, start + size/2, size - size/2, print); // deals with odd sizes
+    recursive_sort(v, temp, start, size/2, print); // call from start to the end of first half
+    recursive_sort(v, temp, start + size/2, size - size/2, print); 
 
     // after the recursive calls, merge the two into temp
     // set pointers to the start of each half
     index = start;
     lindex = start;
-    hindex = start + size - size/2; // this always chooses the higher half
+    hindex = start + size/2; // this always chooses the higher half
 
     // merging
-    while (index < start + size && (lindex < start + size/2 || hindex < start + size)) { // you want your lower & upper pointers to be within their respective halves.
+    while (index < start + size) { // you want your lower & upper pointers to be within their respective halves.
       
       //cout << "Lower: " << lindex << " Higher: " << hindex << " Index: " << index << endl;
-      if (v[hindex] < v[lindex] || lindex >= start + size - size/2) { // the lower half at index is greater
+      if (hindex < start + size && (v[hindex] <= v[lindex] || lindex >= start + size/2)) { // the lower half at index is greater
         temp[index] = v[hindex]; // temp at that index is the lower element
         hindex++; // increment the pointer of the greater half
       }
-      else if (v[hindex] > v[lindex] || hindex >= start + size) { // the lower half is less
+      else if (lindex < start + size/2 && (v[hindex] > v[lindex] || hindex >= start + size)) { // the lower half is less
         temp[index] = v[lindex]; // temp at index is the lower element
         lindex++; // increment the pointer of the lower half
       }
@@ -66,7 +66,7 @@ void recursive_sort(vector <double> &v, vector <double> &temp, int start, int si
   }  
 
   if (print) { // E call before printing
-    printf("E:%6d%6d       ", start, size);
+    printf("E:%6d%6d  ", start, size);
     for (j = 0; j < v.size(); j++) printf(" %4.2lf", v[j]);
     cout << endl;
   }
@@ -75,12 +75,19 @@ void recursive_sort(vector <double> &v, vector <double> &temp, int start, int si
 
 void sort_doubles(vector <double> &v, bool print){
   vector <double> temp;
+  size_t j;
 
   temp.clear();
   temp.resize(v.size());
   temp = v;
 
   recursive_sort(v, temp, 0, v.size(), print);
+
+  printf("                ");
+  if (print) { // E call before printing
+    for (j = 0; j < v.size(); j++) printf(" %4.2lf", v[j]);
+    cout << endl;
+  }
   return;
 }
 
