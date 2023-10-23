@@ -7,15 +7,48 @@
 #include "sorting.hpp"
 using namespace std;
 
-void recursive_sort(vector <double> &v, vector <double> &temp, int start, int size, int print) {
+void median(vector <double> &v, int start, int size, bool print) {
+  int l, m, h; // low, medium & high indices
   size_t j;
-  int index, lindex, hindex;
+  double tmp;
+
+  l = start;
+  m = start + size/2;
+  h = start + size - 1;
+
+  // find the median element of the three & swap it to the v[start]
+  if ((v[m] >= v[l] && v[m] <= v[h]) || (v[m] <= v[l] && v[m] >= v[h])) { 
+    // the middle is the median
+    tmp = v[l];
+    v[l] = v[m];
+    v[m] = tmp;
+  }
+  else if((v[h] >= v[l] && v[h] <= v[m]) || (v[h] <= v[l] && v[h] >= v[m])) {
+    // the higher element is the median
+    tmp = v[l];
+    v[l] = v[h];
+    v[h] = tmp;
+  }
+
+  // print
+  if (print) { // Beginning print statement
+    printf("M:%6d%6d  %4.2f", start, size, v[start]);
+    for (j = 0; j < v.size(); j++) printf(" %4.2lf", v[j]);
+    cout << endl;
+  }
+
+  return;
+}
+
+void recursive_sort(vector <double> &v, int start, int size, bool print) {
+  size_t j;
+  int l, r;
   double tmp;
 
   if (size == 1) return; // first base case
 
   if (print) { // Beginning print statement
-    printf("B:%6d%6d  ", start, size);
+    printf("S:%6d%6d      ", start, size);
     for (j = 0; j < v.size(); j++) printf(" %4.2lf", v[j]);
     cout << endl;
   }
@@ -26,63 +59,55 @@ void recursive_sort(vector <double> &v, vector <double> &temp, int start, int si
       v[start] = v[start + 1];
       v[start + 1] = tmp;
     }
-    if (print) { // E call before returning
-      printf("E:%6d%6d  ", start, size);
-      for (j = 0; j < v.size(); j++) printf(" %4.2lf", v[j]);
-      cout << endl;
-    } 
     return;
   }
 
   if (size > 2) { // if there are more than 2 elements
-    recursive_sort(v, temp, start, size/2, print); // call from start to the end of first half
-    recursive_sort(v, temp, start + size/2, size - size/2, print); 
+    // Find the median of three & set the pivot
+    median(v, start, size, print);
+    l = start + 1;
+    r = start + size - 1;
 
-    // after the recursive calls, merge the two into temp
-    // set pointers to the start of each half
-    index = start;
-    lindex = start;
-    hindex = start + size/2; // this always chooses the higher half
-
-    // merging
-    while (index < start + size) { // you want your lower & upper pointers to be within their respective halves.
-      
-      if (hindex < start + size && (v[hindex] <= v[lindex] || lindex >= start + size/2)) { // the lower half at index is greater
-        temp[index] = v[hindex]; // temp at that index is the lower element
-        hindex++; // increment the pointer of the greater half
+    // presort the vector
+    while (l < r) { // you want your lower & upper pointers to be within their respective halves.
+      while (v[l] < v[start] && l < start + size - 1) l++; // increment the left pointer
+      while (v[r] > v[start] && r > start) r--; // decrement the right pointer
+      if (l == r) {
+        if (v[l] < v[start] && l < start + size - 1) { // the element is less than the pivot
+        l++; // if l==r, increment the left
+        }
       }
-      else if (lindex < start + size/2 && (v[hindex] > v[lindex] || hindex >= start + size)) { // the lower half is less
-        temp[index] = v[lindex]; // temp at index is the lower element
-        lindex++; // increment the pointer of the lower half
+      if (l < r) { // if not done, swap the elements
+        tmp = v[l];
+        v[l] = v[r];
+        v[r] = tmp;
       }
-      index++; // temporary index increments each iteration
     }
 
-    // after merging into tmp, return to v
-    for (j = start; j < (size_t) size + start; j++) {
-      v[j] = temp[j];
-    }
-  }  
+    // after we are finished, swap the pivot with the last element of the left set
+    tmp = v[start];
+    v[start] = v[l - 1];
+    v[l - 1] = tmp;
 
-  if (print) { // E call before printing
-    printf("E:%6d%6d  ", start, size);
-    for (j = 0; j < v.size(); j++) printf(" %4.2lf", v[j]);
-    cout << endl;
+    if (print) { // Pivot call before recursive calls
+      printf("P:%6d%6d  %4d", start, size, l - 1);
+      for (j = 0; j < v.size(); j++) printf(" %4.2lf", v[j]);
+      cout << endl;
+    }
+
+    recursive_sort(v, start, l - start - 1, print); // call from start to the end of first half
+    recursive_sort(v, l, size - l, print); 
   }
+
   return;
 }
 
 void sort_doubles(vector <double> &v, bool print){
-  vector <double> temp;
   size_t j;
 
-  temp.clear(); // ensure temp is proper size
-  temp.resize(v.size());
-  temp = v;
+  recursive_sort(v, 0, v.size(), print); // recursive call
 
-  recursive_sort(v, temp, 0, v.size(), print); // recursive call
-
-  printf("                ");
+  printf("                    ");
   if (print) { // Print the sorted vector
     for (j = 0; j < v.size(); j++) printf(" %4.2lf", v[j]);
     cout << endl;
