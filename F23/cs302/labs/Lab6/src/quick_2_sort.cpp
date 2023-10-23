@@ -17,19 +17,34 @@ void median(vector <double> &v, int start, int size, bool print) {
   h = start + size - 1;
 
   // find the median element of the three & swap it to the v[start]
-  if ((v[m] >= v[l] && v[m] <= v[h]) || (v[m] <= v[l] && v[m] >= v[h])) { 
+  if ((v[m] > v[l] && v[m] < v[h]) || (v[m] < v[l] && v[m] > v[h])) { 
     // the middle is the median
     tmp = v[l];
     v[l] = v[m];
     v[m] = tmp;
   }
-  else if((v[h] >= v[l] && v[h] <= v[m]) || (v[h] <= v[l] && v[h] >= v[m])) {
+  else if((v[h] > v[l] && v[h] <= v[m]) || (v[h] < v[l] && v[h] > v[m])) {
     // the higher element is the median
     tmp = v[l];
     v[l] = v[h];
     v[h] = tmp;
   }
 
+  if (v[h] == v[l] && v[h] > v[m]) { // high & low are greater than the middle
+    tmp = v[h];
+    v[h] = v[l]; // swap for higher index
+    v[l] = tmp;
+  }
+  else if (v[m] == v[l] && v[m] > v[h]) { // middle & low are greater than the high
+    tmp = v[m]; // swap for middle index
+    v[m] = v[l];
+    v[l] = tmp;
+  }
+  else if (v[m] == v[h] && v[m] > v[l]) { // middle & higher are greater than the low
+    tmp = v[h];
+    v[h] = v[l];
+    v[l] = tmp;
+  }
   // print
   if (print) { // Beginning print statement
     printf("M:%6d%6d  %4.2f", start, size, v[start]);
@@ -72,10 +87,9 @@ void recursive_sort(vector <double> &v, int start, int size, bool print) {
     while (l < r) { // you want your lower & upper pointers to be within their respective halves.
       while (v[l] < v[start] && l < start + size - 1) l++; // increment the left pointer
       while (v[r] > v[start] && r > start) r--; // decrement the right pointer
-      if (l == r) {
-        if (v[l] < v[start] && l < start + size - 1) { // the element is less than the pivot
-          l++; // if l==r, increment the left
-        }
+      if (l == r) { // if L == R
+       if (v[l] < v[start]) l--; // decrement the left pointer
+       else l++;
       }
       if (l < r) { // if not done, swap the elements
         tmp = v[l];
