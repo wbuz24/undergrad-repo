@@ -74,7 +74,7 @@ void recursive_sort(vector <double> &v, int start, int size, bool print) {
       while (v[r] > v[start] && r > start) r--; // decrement the right pointer
       if (l == r) {
         if (v[l] < v[start] && l < start + size - 1) { // the element is less than the pivot
-        l++; // if l==r, increment the left
+          l++; // if l==r, increment the left
         }
       }
       if (l < r) { // if not done, swap the elements
@@ -96,7 +96,7 @@ void recursive_sort(vector <double> &v, int start, int size, bool print) {
     }
 
     recursive_sort(v, start, l - start - 1, print); // call from start to the end of first half
-    recursive_sort(v, l, size - l, print); 
+    recursive_sort(v, l, start + size - l, print); 
   }
 
   return;
