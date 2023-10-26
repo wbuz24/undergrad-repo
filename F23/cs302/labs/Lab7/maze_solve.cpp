@@ -3,6 +3,7 @@
 // Lab 7
 // Maze Solver
 // Use depth first search to solve a Maze
+// each time I parse a nodes edge, it is O(E), but there will only be a max of four edges for any node
 
 #include <cstdio>
 #include <iostream>
@@ -35,7 +36,7 @@ void Graph::print(int index) const {
  
   printf("PATH %d\n", index);
   nodes[index]->visited = 0; // I have now printed myself and can remove from my path
-  for (lit = nodes[index]->edges.begin(); lit != nodes[index]->edges.end(); lit++) {
+  for (lit = nodes[index]->edges.begin(); lit != nodes[index]->edges.end(); lit++) { // search the edges
     if (nodes[*lit]->visited > 0) print(*lit); // only make a recursive call if this edge is a part of my path
   }
   return;
@@ -92,9 +93,9 @@ int main() {
   for (i = 0; i < g->nodes.size(); i++) { // each node is connected to each surrounding node
     
     if (i < g->row*g->col - g->col) g->nodes[i]->edges.push_back(i + g->col);
-    if (i < g->row*g->col - 1 && i + 1 % g->col > 0) g->nodes[i]->edges.push_back(i + 1);
-    if (i > 0 && i % g->col > 0) g->nodes[i]->edges.push_back(i-1);
-    if (i > g->col - 1) g->nodes[i]->edges.push_back(i-g->col);
+    if (i < g->row*g->col - 1 && i % g->col < g->col - 1) g->nodes[i]->edges.push_back(i + 1);
+    if (i % g->col > 0) g->nodes[i]->edges.push_back(i - 1);
+    if (i > g->col - 1) g->nodes[i]->edges.push_back(i - g->col);
   }
 
   while (cin >> word >> r >> c) { // insert walls inbetween each index, these nodes are no longer connected
