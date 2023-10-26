@@ -87,15 +87,17 @@ void recursive_sort(vector <double> &v, int start, int size, bool print) {
     while (l < r) { // you want your lower & upper pointers to be within their respective halves.
       while (v[l] < v[start] && l < start + size - 1) l++; // increment the left pointer
       while (v[r] > v[start] && r > start) r--; // decrement the right pointer
-      if (l == r) { // if L == R
-       if (v[l] < v[start]) l--; // decrement the left pointer
-       else l++;
-      }
+      
       if (l < r) { // if not done, swap the elements
         tmp = v[l];
         v[l] = v[r];
         v[r] = tmp;
       }
+      else if (l == r) {
+        l++;
+        break;
+      }
+
     }
 
     // after we are finished, swap the pivot with the last element of the left set

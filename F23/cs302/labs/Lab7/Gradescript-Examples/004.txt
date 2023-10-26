@@ -1,0 +1,1 @@
+ROWS 30 COLS 1

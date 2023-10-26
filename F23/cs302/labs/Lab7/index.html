@@ -1,0 +1,278 @@
+<title> CS302 -- Lab 7 -- The Maze Solver</title>
+
+<h1> CS302 -- Lab 7 -- The Maze Solver</h1>
+<UL> <LI> CS302 -- Data Structures and Algorithms II
+<LI> Fall, 2021
+<LI> <a href=http://web.eecs.utk.edu/~jplank>James S. Plank</a>
+<LI> <a href=http://web.eecs.utk.edu/~jplank/plank/classes/cs302/Labs/Lab7/index.html>This file:
+     <b>http://web.eecs.utk.edu/~jplank/plank/classes/cs302/Labs/Lab7</b></a>
+<LI> Lab Directory: <b>/home/plank/cs302/Labs/Lab7</b>
+</UL>
+
+<hr>
+<h2>What you Submit</h2>
+
+<b>maze_solve.cpp</b>
+
+<hr>
+<h2>Maze Solving</h2>
+
+You are to write the program <b>maze_solve</b>, where you will solve a maze by employing depth first search.
+The program takes no command line arguments.  It receives a maze on standard input.  Mazes are in 
+the following format:
+<p>
+<UL>
+<LI> Maze files are composed of words with no line dependencies.
+<LI> The first word should be "ROWS" followed by the number of rows in the maze.
+<LI> The next word should be "COLS" followed by the number of columns in the maze.
+<LI> After that should be any number of "WALL" specifications, which are of the form
+  "WALL", then two indices.  Each index is of a cell in the maze.  The cell in row <i>i</i>
+column <i>j</i> is in index <i>ic+j</i>, where <i>c</i> is the number of columns in the maze.
+</UL>
+<p>
+Here are some example mazes with their graphical representations:
+<p>
+<center>
+<table border=3 cellpadding=2>
+<td valign=top>
+<b><a href=m1.txt>m1.txt</a></b><hr>
+<IMG align=center src=m1.jpg><hr>
+<pre>
+ROWS 4 COLS 3
+</pre> </td>
+<td valign=top>
+<b><a href=m2.txt>m2.txt</a></b><hr>
+<IMG align=center src=m2.jpg><hr>
+<pre>
+ROWS 5 COLS 5
+WALL 0 5
+WALL 1 6
+WALL 2 7
+WALL 3 8
+WALL 9 14
+WALL 8 13
+WALL 7 12
+WALL 6 11
+WALL 10 11
+WALL 15 16
+WALL 21 22
+WALL 16 17
+WALL 12 13
+WALL 17 18
+WALL 23 24
+WALL 18 19
+</pre> </td>
+<td valign=top>
+<b><a href=m3.txt>m3.txt</a></b><hr>
+<IMG align=center src=m3.jpg><hr>
+<pre>
+ROWS 3 COLS 4
+WALL 7 11
+WALL 10 9
+WALL 1 0
+WALL 1 2
+WALL 5 9
+WALL 6 2
+</pre> </td>
+<td valign=top>
+<b><a href=m4.txt>m4.txt</a></b><hr>
+<IMG align=center src=m4.jpg><hr>
+<pre>
+ROWS 2 COLS 5
+WALL 1 6
+WALL 2 7
+WALL 3 8
+</pre> </td>
+<td valign=top>
+<b><a href=m5.txt>m5.txt</a></b><hr>
+<IMG align=center src=m5.jpg><hr>
+<pre>
+ROWS 2 COLS 
+5 WALL 0 5 WALL 1 
+6 WALL 2 7 WALL 3 8 
+WALL 4 9
+</pre> </td>
+</table>
+</center><p>
+
+Observe a few things about mazes.  First, they don't have to have any walls.  They
+do not have to have unique paths through the maze (like 
+<b><a href=m4.txt>m4.txt</a></b>), and they don't have to have any
+paths at all (like <b><a href=m5.txt>m5.txt</a></b>).  As you can see
+from <b><a href=m2.txt>m2.txt</a></b>, the walls may be specified in any 
+order.  And there is no line formatting -- just words in order.
+
+<p>
+You are to read in a maze file, turn it into a graph, and use depth-first search
+to find a path through the graph from cell 0 to cell <i>rc-1</i>.  
+As output, you should output the maze in
+the same format as the input, and you should include "PATH" and an index of
+each cell that belongs in the path.  The "PATH" statements should specify the
+path in the proper order.  For example:
+
+<pre>
+UNIX> <font color=darkred><b>maze_solve < m1.txt</b></font>
+ROWS 4 COLS 3
+PATH 0
+PATH 3
+PATH 6
+PATH 9
+PATH 10
+PATH 11
+UNIX> <font color=darkred><b>maze_solve < m2.txt</b></font>
+ROWS 5 COLS 5
+WALL 0 5
+WALL 1 6
+WALL 2 7
+WALL 3 8
+WALL 6 11
+WALL 7 12
+WALL 8 13
+WALL 9 14
+WALL 10 11
+WALL 12 13
+WALL 15 16
+WALL 16 17
+WALL 17 18
+WALL 18 19
+WALL 21 22
+WALL 23 24
+PATH 0
+PATH 1
+PATH 2
+PATH 3
+PATH 4
+PATH 9
+PATH 8
+PATH 7
+PATH 6
+PATH 5
+PATH 10
+PATH 15
+PATH 20
+PATH 21
+PATH 16
+PATH 11
+PATH 12
+PATH 17
+PATH 22
+PATH 23
+PATH 18
+PATH 13
+PATH 14
+PATH 19
+PATH 24
+UNIX> <font color=darkred><b>maze_solve < m3.txt</b></font>
+ROWS 3 COLS 4
+WALL 0 1
+WALL 1 2
+WALL 2 6
+WALL 5 9
+WALL 7 11
+WALL 9 10
+PATH 0
+PATH 4
+PATH 5
+PATH 6
+PATH 10
+PATH 11
+UNIX> <font color=darkred><b>maze_solve < m5.txt</b></font>
+ROWS 2 COLS 5
+WALL 0 5
+WALL 1 6
+WALL 2 7
+WALL 3 8
+WALL 4 9
+UNIX> <font color=darkred><b></b></font>
+</pre>
+
+The output specification of the maze does not have to be the exact same
+as the input specification, nor does it have to be in any order.  It must 
+represent the same maze though.
+<p>
+If there are multiple paths through the maze, your program only has to find 
+one of them.  It doesn't have to be the shortest path.
+If there is no path, then no path should be specified.
+<p>
+Don't worry about error-checking your input files.
+
+<h3>Resources</h3>
+
+I have two useful programs for testing and displaying mazes:
+<p>
+<UL>
+<LI> <b>maze_gen rows cols</b> generates a random maze with the given rows and columns.
+It spits out walls in random order.
+<LI> <b>maze_ppm cell-width</b> takes a maze on standard input (with or without paths)
+and turns it into a PPM file.  <b>Cell-width</b> must be an odd number.
+</UL>
+<p>
+
+Since PPM files are big, you can use <b>convert</b> to skip making a PPM file.
+For example:
+<p>
+<pre>
+UNIX> <b>maze_solve < m1.txt | maze_ppm 11 | convert - m1s.jpg</b>
+UNIX> <b>maze_solve < m2.txt | maze_ppm 11 | convert - m2s.jpg</b>
+UNIX> <b>maze_solve < m3.txt | maze_ppm 11 | convert - m3s.jpg</b>
+UNIX> <b>maze_solve < m4.txt | maze_ppm 11 | convert - m4s.jpg</b>
+UNIX> <b>maze_solve < m5.txt | maze_ppm 11 | convert - m5s.jpg</b>
+UNIX> <b>maze_gen 10 30 > ex1.txt</b>
+UNIX> <b>maze_gen 150 50 > ex2.txt</b>
+UNIX> <b>maze_ppm 11 < ex1.txt | convert - ex1.jpg</b>
+UNIX> <b>maze_solve < ex1.txt | maze_ppm 11 | convert - ex1s.jpg</b>
+UNIX> <b>maze_ppm 3 < ex2.txt | convert - ex2.jpg</b>
+UNIX> <b>maze_solve < ex2.txt | maze_ppm 3 | convert - ex2s.jpg</b>
+UNIX> <b>maze_gen 400 400 | maze_solve | maze_ppm 3 | convert - big-ol-maze.jpg</b>
+</pre>
+
+
+<p><center><table border=3 cellpadding=3>
+<td valign=top> <b><a href=m1s.jpg>m1s.jpg</a></b><br> <IMG src=m1s.jpg></td>
+<td valign=top> <b><a href=m2s.jpg>m2s.jpg</a></b><br> <IMG src=m2s.jpg></td>
+<td valign=top> <b><a href=m3s.jpg>m3s.jpg</a></b><br> <IMG src=m3s.jpg></td>
+<td valign=top> <b><a href=m4s.jpg>m4s.jpg</a></b><br> <IMG src=m4s.jpg></td>
+<td valign=top> <b><a href=m5s.jpg>m5s.jpg</a></b><br> <IMG src=m5s.jpg></td>
+</table></center><p>
+
+<p><center><table border=3 cellpadding=3>
+<td><b><a href=ex1.txt>ex1.txt</a></b>,
+<b><a href=ex1.jpg>ex1.jpg</a></b><br>
+<IMG src=ex1.jpg></td>
+<td>
+<b><a href=ex1s.jpg>ex1s.jpg</a></b><br>
+<IMG src=ex1s.jpg></td>
+</table></center><p>
+
+<p><center><table border=3 cellpadding=3>
+<td><b><a href=ex2.txt>ex2.txt</a></b>,
+<b><a href=ex2.jpg>ex2.jpg</a></b><br>
+<IMG src=ex2.jpg></td>
+<td>
+<b><a href=ex2s.jpg>ex2s.jpg</a></b><br>
+<IMG src=ex2s.jpg></td>
+</table></center><p>
+
+<p><center><table border=3 cellpadding=3><td>
+<b><a href=big-ol-maze.jpg>big-ol-maze.jpg</a></b>
+</td></table></center><p>
+
+<hr>
+Finally, the program <b>ms_checker</b> checks the output of <b>maze_solve</b>. 
+It takes a non-solved maze file as a command line argument, and the output of <b>maze_solve</b>
+on that maze on standard input.  If the solution is correct, then it simply returns.
+Otherwise, it specifies the error:
+
+<pre>
+UNIX> <font color=darkred><b>maze_solve < m1.txt | ms_checker m1.txt</b></font>
+UNIX> <font color=darkred><b>maze_solve < m1.txt | ms_checker m2.txt</b></font>
+ROWS of the solution does not match ROWS of the input file
+UNIX> <font color=darkred><b>maze_solve < m2.txt | ms_checker m2.txt</b></font>
+UNIX> <font color=darkred><b>cat m2.txt | ms_checker m2.txt</b></font>
+Bad Solution: Empty path, yet there is a solution to the maze
+UNIX> <font color=darkred><b>maze_solve < m4.txt | ms_checker m4.txt</b></font>
+UNIX> <font color=darkred><b>maze_solve < m4.txt | ms_checker m5.txt</b></font>
+Bad Solution: Bad maze -- missing some of the original walls
+UNIX> 
+</pre>
+
