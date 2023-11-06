@@ -22,26 +22,30 @@ City_Map::City_Map() {
   Road_Segment *r;
   list <Intersection*>::iterator lit;
     
+  highest = 0;
   while (cin >> strt >> ave >> x >> y >> gs >> ga) { // create each intersection
     i = new Intersection;
     i->street = strt;
     i->avenue = ave;
+    if (ave > highest) highest = ave;
     i->x = x;
     i->y = y;
     i->green[0] = gs;
     i->green[1] = ga;
     if (strt == 0 && ave == 0) first = i;
+    // need to set the last node
     all.push_back(i);
   }
 
   for (lit = all.begin(); lit != all.end(); lit++) {
+    r = new Road_Segment;
+    (void) r;
    // streets ascend from east to west
     if ((*lit)->street % 5 == 0) {
       // if the street or avenue is a multiple of 5, they go in both directions
-      (void) r;
-
+      // need to find the adjacent nodes
     }
-    /* else if (*lit->street % 2 == 0) { // even
+    else if ((*lit)->street % 2 == 0) { // even
       // even streets are one way east to west
     }
     else {
@@ -49,19 +53,17 @@ City_Map::City_Map() {
     }
     
     // avenues ascend from south to north
-    if (*lit->avenue == highest || *lit->avenue % 5 == 0) {
+    if ((*lit)->avenue == highest || (*lit)->avenue % 5 == 0) {
       // highest avenue always goes in both direction
       
     }
-    else if (*lit->avenue % 2 == 0) { // avenue is even
+    else if ((*lit)->avenue % 2 == 0) { // avenue is even
       // even avenues are one way to the north
     }
     else {
       // odd avenues are one way to the south
     }
 
-    r = new Road_Segment;
-    */
   }
   delete i;
 }
