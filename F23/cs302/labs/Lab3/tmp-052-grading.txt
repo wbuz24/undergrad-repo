@@ -1,2 +1,0 @@
-Event Files differ around event 2.
-tmp-052-test-output.txt's event has a time of 0 while tmp-052-correct-output.txt's has a time of 192.

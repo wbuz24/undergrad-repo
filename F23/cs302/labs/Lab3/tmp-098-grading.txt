@@ -1,2 +1,0 @@
-Event Files differ around event 3.
-tmp-098-test-output.txt's event has a time of 0 while tmp-098-correct-output.txt's has a time of 96.
