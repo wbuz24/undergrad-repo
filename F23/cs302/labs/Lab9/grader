@@ -1,0 +1,33 @@
+#!/bin/sh
+
+if [ $# -ne 3 ]; then
+  echo 'usage: grader dice output correct-output' >&2
+  exit 1
+fi
+
+if [ `wc "$2" | awk '{ print $1 }'` -ne `wc "$3" | awk '{ print $1 }'` ]; then
+  echo 'Wrong number of lines in your output file.  It should be ' `wc "$3" | awk '{ print $1 }'` ' and yours is ' \
+   `wc "$2" | awk '{ print $1 }'`
+  exit 1
+fi
+
+c=`sed -n 's/Cannot spell//p' "$3"` 
+y=`sed -n 's/Cannot spell//p' "$2"` 
+if [ "$c" != "$y" ]; then
+  echo 'The "Cannot Spell" words differ in your output and the correct output' 
+  exit 1
+fi
+
+c=`sed -n 's/.*: //p' "$3"` 
+y=`sed -n 's/.*: //p' "$2"` 
+if [ "$c" != "$y" ]; then
+  echo 'The input words differ in your output and the correct output' 
+  exit 1
+fi
+
+if [ `/home/jplank/cs302/Labs/Lab9/double-check-correct "$1" < "$2" | wc | awk '{ print $1 }'` -ne 0 ]; then
+   /home/jplank/cs302/Labs/Lab9/double-check-correct "$1" < "$2" 
+  exit 1
+fi
+
+exit 0

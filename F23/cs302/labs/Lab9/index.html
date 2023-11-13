@@ -1,0 +1,427 @@
+<title> CS302 -- Lab 9 -- Letter Dice</title>
+
+<h1> CS302 -- Lab 9 -- Letter Dice</h1>
+<h3>
+<UL> <LI> CS302 -- Fundamental Algorithms
+<LI> <a href=http://web.eecs.utk.edu/~jplank>James S. Plank</a>
+<LI> <a href=http://web.eecs.utk.edu/~jplank/plank/classes/cs302/Labs/Lab9/index.html>This file:
+     <b>http://web.eecs.utk.edu/~jplank/plank/classes/cs302/Labs/Lab9</b></a>
+<LI> Lab Directory: <b>/home/jplank/cs302/Labs/Lab9</b>
+</UL>
+</h3>
+
+<hr>
+<h3>What you are to submit</h3>
+
+You are to submit the file <b>worddice.cpp</b>.  This should be a standalone C++ file that the
+TA's will compile and test with the gradescripts.
+
+<hr>
+<h3>Help</h3>
+2017 TA Camille Crumpton has posted some youtube videos to help with this
+lab -- <a href=https://www.youtube.com/playlist?list=PLQFSAfh8OMT6qqWxJlcRrK7poAk5VcmxS>they are here.</a>
+
+<hr>
+<h3>Description</h3>
+<h
+This program solves a puzzle.  Here you are given some number of "word dice", 
+as in the picture below:
+<p><center><table border=3 cellpadding=3><td valign=top><IMG src=dice.jpg></td></table></center><p>
+These will be specified by strings, one per die, that contain the letters on the die.  
+We won't constrain dice to have six sides -- we'll assume that a die may have any number
+of sides, and that the length of the string defines the number of sides on a die.  
+<p>
+For example, let's assume that the above dice only have three sides each -- the sides
+that you can see.  Then, the file 
+<b><a href=Dice1.txt>Dice1.txt</a></b> defines the four dice pictured:
+
+<p><center><table border=3 cellpadding=3><td><pre>
+ENG
+SAA
+PRR
+EAE
+</pre></td></table></center><p>
+
+Now, you are also given a list of words, and your job is to spell the words 
+on the dice so that each letter of the word is on a different die.  For example,
+"RAGE" may be spelled using 'R' from the "PRR" die, 'A' from the "SAA" die, 'G' 
+from the "ENG" die and 'E' from the "EAE" die.  Similarly, "SEEP" may be spelled
+with 'S' from the "SAA" die, 
+'E' from the "EAE" die, 
+'E' from the "ENG" die and
+'P' from the "PRR" die.
+However, you cannot spell "PEEN", even though all the letters are there, because
+you would have to use the "ENG" die for both the 'E' and 'N'.
+<p>
+Your job is to write the program 
+<b>worddice</b>, called as follows:
+
+
+<p><center><table border=3 cellpadding=3><td><pre>
+worddice dice-file word-list
+</pre></td></table></center><p>
+
+The dice file is a list of dice as above.  Each die may have any number of 
+letters, and within a file, the dice may all have differing numbers of letters.
+The word list is a file that contains words.  For each word in the word list file, your program
+should print out:
+<p>
+<UL>
+<LI> If the word cannot be spelled: "Cannot spell <i>word</i>".
+<LI> If the word can be spelled: The order of the dice used to spell out the word, then the word.
+The dice are numbered starting with zero.
+</UL>
+
+For example.
+
+<pre>
+UNIX> <b>cat Dice1.txt</b>
+ENG
+SAA
+PRR
+EAE
+UNIX> <b>cat Words1.txt</b>
+RAGE
+SEEP
+ERR
+PEEN
+GASP
+UNIX> <b>worddice Dice1.txt Words1.txt</b>
+2,1,0,3: RAGE
+1,0,3,2: SEEP
+Cannot spell ERR
+Cannot spell PEEN
+0,3,1,2: GASP
+UNIX> <b></b>
+</pre>
+
+<hr>
+<h2>Organizing the program</h2>
+
+This is an example of a bipartite matching.  For each word, set 
+up a graph that matches dice to letters of the words.  For example,
+here are the above dice with the word "RAGE":
+<p><center><table border=3 cellpadding=3><td valign=top><IMG src=ex1.jpg></td></table></center><p>
+I've included double-edges for the duplicate letters.  Your program can eliminate these if you
+want, since duplicate letters don't help you at all and just make your program run slower.
+My program does that.  You want to find a <i>matching</i> of this graph that is composed 
+of edges that connect two nodes, where no edge is incident to the same node.
+<p>
+To do this, you convert the graph into one in which network flow will solve the problem: a source
+node connected to each die, and a sink node connected to each letter of the word:
+<p><center><table border=3 cellpadding=3><td valign=top><IMG src=ex2.jpg></td></table></center><p>
+Finding the maximum flow will discover the matching if it exists.  Here is
+the flow/matching in this example:
+<p><center><table border=3 cellpadding=3><td valign=top><IMG src=ex3.jpg></td></table></center><p>
+Your program should use the Edmonds-Karp algorithm to determine maximum flow.  The fact that
+all edges have weight one makes this easier.
+<p>
+My program is slow for two reasons.  First, I create and destroy the graph with each
+word.  It would be faster if I never deleted the source and dice nodes/edges.
+Second, when I create the edges to each letter of the word, I use the <b>Find()</b>
+method on the dice strings.  That is inefficient as I could instead have a 
+256-element array for each die which has a 1 for each letter set in the die.  That
+would speed things up.  However, I'm not doing it for lack of time.  
+Maybe next semester.  That said, your program should not run more slowly than mine.
+<hr>
+<h2>The first step -- reading the input and creating the graphs</h2>
+
+The program <b>readorig</b> was my first step -- reading the input, creating the
+network flow graph, and printing it out.  Note, my program does not have 
+duplicate edges.
+
+<pre>
+UNIX> <b>readorig Dice1.txt Words1.txt</b>
+Node 0: SOURCE Edges to 1 2 3 4
+Node 1: ENG Edges to 7 8
+Node 2: SAA Edges to 6
+Node 3: PRR Edges to 5
+Node 4: EAE Edges to 6 8
+Node 5: R Edges to 9
+Node 6: A Edges to 9
+Node 7: G Edges to 9
+Node 8: E Edges to 9
+Node 9: SINK Edges to
+
+Node 0: SOURCE Edges to 1 2 3 4
+Node 1: ENG Edges to 6 7
+Node 2: SAA Edges to 5
+Node 3: PRR Edges to 8
+Node 4: EAE Edges to 6 7
+Node 5: S Edges to 9
+Node 6: E Edges to 9
+Node 7: E Edges to 9
+Node 8: P Edges to 9
+Node 9: SINK Edges to
+
+Node 0: SOURCE Edges to 1 2 3 4
+Node 1: ENG Edges to 5
+Node 2: SAA Edges to
+Node 3: PRR Edges to 6 7
+Node 4: EAE Edges to 5
+Node 5: E Edges to 8
+Node 6: R Edges to 8
+Node 7: R Edges to 8
+Node 8: SINK Edges to
+
+Node 0: SOURCE Edges to 1 2 3 4
+Node 1: ENG Edges to 6 7 8
+Node 2: SAA Edges to
+Node 3: PRR Edges to 5
+Node 4: EAE Edges to 6 7
+Node 5: P Edges to 9
+Node 6: E Edges to 9
+Node 7: E Edges to 9
+Node 8: N Edges to 9
+Node 9: SINK Edges to
+
+Node 0: SOURCE Edges to 1 2 3 4
+Node 1: ENG Edges to 5
+Node 2: SAA Edges to 6 7
+Node 3: PRR Edges to 8
+Node 4: EAE Edges to 6
+Node 5: G Edges to 9
+Node 6: A Edges to 9
+Node 7: S Edges to 9
+Node 8: P Edges to 9
+Node 9: SINK Edges to
+
+UNIX> <b></b>
+</pre>
+
+<hr>
+<h2>Examples</h2>
+I have a few example files besides the above:
+<p>
+<b><a href=Dice2.txt>Dice2.txt</a></b> and 
+<b><a href=Words2.txt>Words2.txt</a></b> are small files to 
+test variable-sized dice:
+<p>
+<pre>
+UNIX> <b>cat Dice2.txt</b>
+E
+PITED
+FOGCEF
+UNIX> <b>cat Words2.txt</b>
+DOG
+PIG
+CAT
+DO
+TEE
+FEE
+UNIX> <b>worddice Dice2.txt Words2.txt</b>
+Cannot spell DOG
+Cannot spell PIG
+Cannot spell CAT
+1,2: DO
+1,0,2: TEE
+2,0,1: FEE
+UNIX> <b></b>
+</pre>
+<p>
+<b><a href=Dice3.txt>Dice3.txt</a></b> is a file with six randomly 
+generated six-sided dice, and 
+<b><a href=Words3.txt>Words3.txt</a></b> contains all words from 
+the Unix dictionary that have six letters.
+
+<pre>
+UNIX> <b>cat Dice3.txt</b>
+IBTLCP
+DUAQEM
+DXLOTN
+WMIVQA
+NDCLOT
+JKCEMR
+UNIX> <b>head Words3.txt</b>
+AARHUS
+ABACUS
+ABATER
+ABBOTT
+ABDUCT
+ABJECT
+ABLATE
+ABLAZE
+ABOARD
+ABOUND
+UNIX> <b>worddice Dice3.txt Words3.txt | head</b>
+Cannot spell AARHUS
+Cannot spell ABACUS
+Cannot spell ABATER
+Cannot spell ABBOTT
+3,0,2,1,5,4: ABDUCT
+3,0,5,1,4,2: ABJECT
+1,0,2,3,4,5: ABLATE
+Cannot spell ABLAZE
+1,0,2,3,5,4: ABOARD
+Cannot spell ABOUND
+UNIX> <b></b>
+</pre>
+
+<p>
+<b><a href=Dice4.txt>Dice4.txt</a></b> is a file with eight randomly 
+generated dice with between three and seven sides.
+<b><a href=Words4.txt>Words4.txt</a></b> contains all words from 
+the Unix dictionary that have eight letters.  As <b>worddice</b>
+shows, there are fewer successful spellings in this example:
+
+<pre>
+UNIX> <b>cat Dice4.txt</b>
+FJZ
+BSYQ
+WYUTI
+SHTXVU
+PRAFYBH
+LWQCEI
+ENLJB
+BTJO
+UNIX> <b>head Words4.txt</b>
+ABDICATE
+ABERDEEN
+ABERRANT
+ABERRATE
+ABETTING
+ABEYANCE
+ABHORRED
+ABLUTION
+ABNORMAL
+ABORNING
+UNIX> <b>worddice Dice4.txt Words4.txt | head</b>
+Cannot spell ABDICATE
+Cannot spell ABERDEEN
+Cannot spell ABERRANT
+Cannot spell ABERRATE
+Cannot spell ABETTING
+Cannot spell ABEYANCE
+Cannot spell ABHORRED
+Cannot spell ABLUTION
+Cannot spell ABNORMAL
+Cannot spell ABORNING
+UNIX> <b>worddice Dice4.txt Words4.txt | grep ':' | head</b>
+7,6,4,2,3,5,0,1: BEAUTIFY
+1,6,7,2,0,5,3,4: BLOWFISH
+7,5,3,6,0,2,1,4: BLUEFISH
+6,7,4,1,2,0,3,5: BOASTFUL
+5,0,4,3,1,2,7,6: EFFUSION
+0,4,6,2,5,7,3,1: FABULOUS
+0,6,4,7,5,2,3,1: FEROCITY
+0,5,1,7,2,3,4,6: FESTIVAL
+0,2,6,4,7,3,5,1: FIBROSIS
+0,6,4,2,3,5,1,7: FLAUTIST
+UNIX> <b></b>
+</pre>
+
+
+<p>
+<b><a href=Dice5.txt>Dice5.txt</a></b> is a file with twenty randomly generated
+5-sided dice and 
+<b><a href=Words5.txt>Words5.txt</a></b> contains all words from 
+the Unix dictionary:
+
+<pre>
+UNIX> <b>wc Dice5.txt</b>
+      20      20     120 Dice5.txt
+UNIX> <b>head -n 5 Dice5.txt</b>
+CWOZP
+YFLBV
+VNJGT
+PUISB
+MCGNQ
+UNIX> <b>wc Words5.txt</b>
+   24854   24853  205394 Words5.txt
+UNIX> <b>head -n 5 Words5.txt</b>
+AAA
+AAAS
+AARHUS
+AARON
+AAU
+UNIX> <b>time worddice Dice5.txt Words5.txt > /dev/null</b>
+20.827u 0.100s 0:21.07 99.2%    0+0k 0+0io 0pf+0w
+UNIX> <b></b>
+</pre>
+
+It takes a little time, doesn't it? (<i>These timings are from 2008: This is on my MacBook Pro with a 2.16 Ghz processor.
+The Linux box in my office (much older) takes roughly twice as long.  The cetus lab
+machines take 32 seconds</i>).
+Let's see if using compiler optimization helps:
+
+<pre>
+UNIX> <b>g++ -O -o worddice worddice.cpp</b>
+UNIX> <b>time worddice Dice5.txt Words5.txt > /dev/null</b>
+2.736u 0.050s 0:02.80 99.2%     0+0k 0+1io 0pf+0w
+UNIX> <b></b>
+</pre>
+
+Wow.  The optimized version is in the lab directory and takes 2.85 seconds on the cetus machines.
+<p>
+We can use our mastery of Unix tools like <b>sed</b>, <b>awk</b> and <b>grep</b> to 
+answer some questions.  For example, how many words can be spelled, and how many
+cannot:
+
+<pre>
+UNIX> <b>worddice Dice5.txt Words5.txt | grep ':' | wc</b>
+   24400   48800  623204
+UNIX> <b>worddice Dice5.txt Words5.txt | grep Cannot | wc</b>
+     453    1359   10819
+UNIX> <b></b>
+</pre>
+
+Quite a high success ratio -- 24400/24953 = 97.8 percent.  What's the largest 
+word that you can spell:
+
+<pre>
+UNIX> <b>worddice Dice5.txt Words5.txt | grep ':' | sed 's/,/ /g' | awk '{ print NF }' | sort -u</b>
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+4
+5
+6
+7
+8
+9
+UNIX> <b>worddice Dice5.txt Words5.txt | grep ':' | sed 's/,/ /g' | awk '{ if (NF == 19) print $NF }'</b>
+DIETHYLSTILBESTROL
+ELECTROCARDIOGRAPH
+UNIX> <b></b>
+</pre>
+
+What's the smallest word that you can't spell:
+
+<pre>
+UNIX> <b>worddice Dice5.txt Words5.txt | grep Cannot | awk '{ print $NF }' | sed 's/./x/g' | sort -u</b>
+xxx
+xxxx
+xxxxx
+xxxxxx
+xxxxxxx
+xxxxxxxx
+xxxxxxxxx
+xxxxxxxxxx
+xxxxxxxxxxx
+xxxxxxxxxxxx
+xxxxxxxxxxxxx
+xxxxxxxxxxxxxx
+xxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxx
+UNIX> <b>worddice Dice5.txt Words5.txt | grep Cannot | awk '{ print $NF }' | grep '^...$'</b>
+AAA
+UNIX> <b></b>
+</pre>
+<hr>
+<h3>The Gradescript</h3>
+Your output format needs to match my exactly.  However, as long as
+your output is correct, you don't have to match mine.  There is a
+program called <b>grader</b> in the lab directory which is used to
+determine if your output is correct.
