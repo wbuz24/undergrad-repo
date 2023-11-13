@@ -14,16 +14,22 @@ using namespace std;
 class MyCalendar {
 public:
     MyCalendar();
+    map <int, bool> Mycal;
     bool book(int start, int end);
 };
 
 
-MyCalendar::MyCalendar() {}
+MyCalendar::MyCalendar() {
+  MyCalendar *m;
+}
+
 
 bool MyCalendar::book(int start, int end)
 {
-  (void) start;
-  (void) end;
+  if (Mycal.lower_bound(start)->first < end && !Mycal.lower_bound(start)->second) return false;
+  if (Mycal.find(start) != Mycal.end()) return false;
+  Mycal.insert(make_pair(start, 1));
+  Mycal.insert(make_pair(end, 0));
   return true;
 }
 
@@ -37,7 +43,7 @@ int main()
   int seed, num;
   int nt, nf, i;
 
-  while (ss >> word) {
+  while (cin >> word) {
     if (word == "BOOK") {
       if (!(cin >> start >> end)) exit(0);
       printf("%s\n", (m.book(start, end)) ? "TRUE" : "FALSE");
