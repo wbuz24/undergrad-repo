@@ -19,9 +19,9 @@ class Node {
     int Id;
     int Distance; // for BFS, acting as distance and visited field
     string Word;
-    vector <class Edge*> Edges; // stack of edges
     int Letters; // Nodes list of letters
     class Edge* Back; // the edge that brought you to this node
+    vector <Node *> Children; // list of children nodes
 };
 
 class Edge {
@@ -48,18 +48,40 @@ class Graph { // This will still be
 };
 
 void Graph::DeleteHalf() {
+  int i;
+  // delete all nodes greater than MinNodes
+  for (i = 1; i < MinNodes; i++) {
+    Nodes[i]->Children.clear();
+  }
+
+  Nodes.resize(MinNodes);
+  
 
   return;
 };
 
 int Graph::BFS() {
-
-  return 1;
+  /*int i;
+  vector <int> stack; // stack of indices  
+  
+  for (i = 0; i < (int) stack.size(); i++) {
+    
+  }
+*/
+  return 0;
 }
 
 int Graph::CanSpell() {
-  // calls BFS
-
+  int i;
+  // if the BFS function can 
+  if (BFS() > 0) {
+    Print(); 
+  } 
+  else {
+    printf("Cannot spell ");
+    for (i = MinNodes; i < (int) Nodes.size() - 1; i++) printf("%s", Nodes[i]->Word.c_str());
+    printf("\n");
+  }
   return 1;
 }
 
@@ -98,11 +120,10 @@ void Graph::ReadDice(string filename) {
     n->Letters = 0;
     n->Word = words;
     for (i = 0; i < (int) words.size(); i++) {
-      n->Letters |= 1 << i; // set the bit of the letter
+      n->Letters |= 1 << (words[i] - 'A'); // set the bit of the letter
     }
 
-    Source->Edges.push_back(e);
-
+    Source->Children.push_back(n);
     Nodes.push_back(n);
     MinNodes++; // increment the Id
     //printf("%s\n", words.c_str());
@@ -113,23 +134,27 @@ void Graph::ReadDice(string filename) {
 
 void Graph::ReadWords(string filename) {
   string word;
-  size_t i;
+  int i, j;
   ifstream fin;
-  Node* n;
+  Node* n, *sink;
   Edge *e, *er;
   int count;
 
   fin.open(filename);
   if (fin.fail()) return;
 
-  count = 0;
+  sink = new Node;
+  sink->Word = "SINK";
+  Sink = sink;
+
   while (fin >> word) {
-    for (i = 0; i < word.size(); i++) {
+    count = MinNodes;
+    for (i = 0; i < (int) word.size(); i++) {
       n = new Node;
       e = new Edge;
       er = new Edge;
       
-      n->Id = MinNodes + count;
+      n->Id = count;
       n->Word = word[i];
       count++;
       
@@ -146,13 +171,38 @@ void Graph::ReadWords(string filename) {
       er->Reverse = e;
       e->Reverse = er;
 
+      n->Children.push_back(Sink);
       Nodes.push_back(n);
 
+      // run through all nodes 1-MinNodes and check if the letter is in the die
+      for (j = 1; j < MinNodes + 1; j++) {
+        if (Nodes[j]->Letters & (1 << (word[i] - 'A'))) {
+          // If my letter is in the die, add an edge
+          e = new Edge;
+
+          e->To = n;
+          e->From = Nodes[j];
+          e->Original = 1;
+          e->Residual = 0;
+
+          n->Back = e;
+          Nodes[j]->Children.push_back(n);
+        }
+      }
+
     }
+    Sink->Id = count;
+    Nodes.push_back(Sink);
     CanSpell(); // See if you can spell the given word
+//    Print();
     DeleteHalf(); // delete each word, but keep the first half of the graph
     //printf("%s\n", word.c_str());
   }
+
+  delete n;
+  delete e;
+  delete er;
+  delete sink;
   return;
 }
 
@@ -161,11 +211,12 @@ void Graph::Print() {
 
   for (i = 0; i < (int) Nodes.size(); i++) {
     printf("Node %d: %s Edges to", i, Nodes[i]->Word.c_str());
-    for (j = 0; j < (int) Nodes[i]->Edges.size(); j++) {
-      printf(" %d", Nodes[i]->Edges[j]->To->Id);
+    for (j = 0; j < (int) Nodes[i]->Children.size(); j++) {
+      printf(" %d", Nodes[i]->Children[j]->Id);
     }
     cout << endl;
   }
+  cout << endl;
 
   return;
 }
@@ -189,7 +240,7 @@ int main(int argc, char** argv) {
   g->ReadDice(argv[1]);
   g->ReadWords(argv[2]);
 
-  g->Print();
+//  g->Print();
 
   delete g;
   delete source;
