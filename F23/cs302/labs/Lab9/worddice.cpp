@@ -1,297 +1,343 @@
 // Will Buziak
-// Word Dice
 // Lab 9
-// CS302
-// g++ -Wall -Wextra -o worddice worddice.cpp
+// Edmunds-Karp Algorithm to find Maximum Flow
 
-
-#include <vector>
-#include <list>
-#include <unordered_map>
-#include <unordered_set>
 #include <cstdio>
-#include <stdio.h>
+#include <vector>
 #include <string>
+#include <list>
 #include <iostream>
 #include <fstream>
 using namespace std;
 
-class Node {
-public:
-  int Id;
-  int Distance; // for BFS, acting as distance and visited field
-  string Word;
-  int Letters; // Nodes list of letters
-  class Edge* Back; // the edge that brought you to this node
-  vector <class Edge *> Edges;
+typedef enum {SOURCE, SINK, DICE, WORD} Node_Type;
+
+class Node{
+	public:
+		int Id;								  // node's position
+		Node_Type type;					// enum
+		int Letters;			      // bit arithmetic to track letters
+		int Distance;
+		vector <class Edge *> Edges;
+		Edge *Back;					
 };
 
 class Edge {
-public:
-  Node *To;
-  Node *From;
-  Edge* Reverse; // think of it as a backlink
-  int Flow;
-  int Residual;
+	public:
+		Node *To;	
+		Node *From;
+		Edge *Reverse;
+		int Flow;
+		int Residual;
 };
 
-class Graph { // This will still be 
-public:
-  int MinNodes; // minimum number of nodes to help delete half the graph
-  Node *Source;
-  Node *Sink;
-  vector <Node *> Nodes; // vector of words from the list
-  int BFS(); // Breadth-First Search
-  int CanSpell(); // Can I spell the given word
-  void DeleteHalf(); // delete half the graph
-  void ReadDice(string filename); // This will read the dice file and construct the graph
-  void ReadWords(string filename);
-  void Print(); // printing helper function for testing
+class Graph {
+	public:
+		vector <Node *> Nodes;			
+		int BFS();									// Breadth First Search
+		int CanSpell();							// calls BFS to determine if you can spell
+		vector <int> Ids;				    // used to print
+		void DeleteHalf();					// delete half of the graph  
+    void ReadDice(string filename);
+    void ReadWords(string filename);
+		int MinNodes;								// number of nodes for deleting half 
+    Node *Source;
+    Node *Sink;
 };
 
-void Graph::Print() {
-  int i, j;
-
-  for (i = 0; i < (int) Nodes.size(); i++) {
-    printf("Node %d: %s Edges to", i, Nodes[i]->Word.c_str());
-    for (j = 0; j < (int) Nodes[i]->Edges.size(); j++) {
-      printf(" %d", Nodes[i]->Edges[j]->From->Id);
-    }
-    cout << endl;
-  }
-  cout << endl;
-
-  return;
-}
-
-void Graph::DeleteHalf() {
-  int i;
-  // delete all nodes greater than MinNodes
-  for (i = 1; i < MinNodes; i++) {
-    Nodes[i]->Edges.clear();
-  }
-
-  Nodes.resize(MinNodes);
-
-  for (i = 0; i < (int) Nodes.size(); i++) {
-    Nodes[i]->Distance = -1;
-  }
-
-
-  return;
-};
-
+// Breadth First Search
 int Graph::BFS() {
-  int i;
-  list <int> stack;
-  unordered_set <int> die;
-  unordered_set <int>::iterator sit;
-  Node* n, *prev;
-  // For the all edges of the sink, can you return to the source
-  
-  stack.push_back(Sink->Id);
-  prev = Sink;
-  while (stack.size() > 0) {
-    // pop a node off the stack
-    n = Nodes[stack.front()];
-    stack.pop_front();
+	int i;
+	Node *n;
+	list <Node *> stack;
 
-    // you cannot spell
-    if (n->Word != "SOURCE" && n->Edges.size() == 0) return 0;
-    if (n->Word == "SOURCE") continue; // if you find the source
-    if (n->Distance > 0) continue; // if you have already visited the node
+	// resets the Backs and Distance fields
+	for (i = 0; i < (int) Nodes.size(); i++) {
+		Nodes[i]->Back = NULL;
+		Nodes[i]->Distance = 0;
+	}
 
-    // Run through all parent edges, if you cannot find the Id in the set, insert it.
-    for (i = 0; i < (int) n->Edges.size(); i++) {
-      // we only want one dice for each letter
-      if (die.find(n->Edges[i]->From->Id) == die.end()) {
-        if (n->Edges[i]->From->Word != "SOURCE") die.insert(n->Id);
-        break;
-      }
-    }
-    n->Distance = prev->Distance + 1;
-//    cout << i << " " << die.size() << endl;
+  // start with the source
+	n = Source;
+	stack.push_back(n);
 
-    // ran through all edges & could not find a dice that was not in the map
-    if (i == (int) n->Edges.size()) return 0;
+	while (stack.size() > 0) {
+		// pops the first item off the stack
+		n = stack.front();
+		stack.pop_front();
 
-    // push all the node's children onto the stack
-    for (i = (int) n->Edges.size() - 1; i >= 0; i--) {
-      stack.push_back(n->Edges[i]->From->Id);
-    }
-    prev = n;
-  }
+		// if it finds the sink
+		if (n == Sink) return 1;
 
-  return 1;
+		// push all children nodes onto the stack
+		for (i = 0; i < (int) n->Edges.size(); i++) {
+			if (!n->Edges[i]->To->Distance && n->Edges[i]->Flow) {
+				n->Edges[i]->To->Back = n->Edges[i];
+				n->Edges[i]->To->Distance = 1;
+				stack.push_back(n->Edges[i]->To);
+			}
+		}
+	}
+
+	return 0;
 }
 
 int Graph::CanSpell() {
-  int i;
-  // if the BFS function can 
-    if (BFS() > 0) {
-      for (i = MinNodes; i < (int) Nodes.size() - 1; i++) printf("%s", Nodes[i]->Word.c_str());
-      cout << endl;
-    } 
-    else {
-      printf("Cannot spell ");
-      for (i = MinNodes; i < (int) Nodes.size() - 1; i++) printf("%s", Nodes[i]->Word.c_str());
-      printf("\n");
-    }
-  return 1;
+	Node *n;
+	Edge *e;
+	int i, j;
+	int ret = 1;		// return value
+
+
+	while(BFS()) {
+		// sets n to the sink
+		n = Nodes[Nodes.size() - 1];
+
+		while (n != Nodes[0]) {
+			e = n->Back;
+
+			e->Flow = 0;
+			e->Residual = 1;
+			e->Reverse->Flow = 1;
+			e->Reverse->Residual = 0;
+
+			n = e->From;
+		}
+	}
+
+  n = Sink;
+	Ids.resize(0);
+	
+	for (i = 0; i < (int) n->Edges.size(); i++) {
+		if (n->Edges[i]->Reverse->Residual == 0) ret = 0;
+	}
+
+	// builds Ids with the Dice Nodes that spell the word
+	if (ret) {
+		for (i = MinNodes; i < (int) Nodes.size() - 1; i++) {
+			n = Nodes[i];
+
+			for (j = 0; j < (int) n->Edges.size(); j++) {
+				if (n->Edges[j]->To->type == DICE && n->Edges[j]->Flow == 1) {
+					Ids.push_back(n->Edges[j]->To->Id);
+				}
+			}
+		}
+	}
+
+	return ret;
 }
 
-void Graph::ReadDice(string filename) {
+void Graph::DeleteHalf() {
+	int i, j;	
+	Node *n;
+
+	// deletes the edges from the dice to the word Nodes
+	for (i = 1; i < MinNodes; i++) {
+		n = Nodes[i];
+		for (j = 0; j < (int) n->Edges.size(); j++) {
+			if (n->Edges[j]->To->type == WORD) {
+				delete n->Edges[j];
+			}
+		}
+		n->Edges.resize(1);
+	}
+
+	// resets all the edges from the source to the dice
+	n = Nodes[0];
+	for (i = 0; i < (int) Nodes[0]->Edges.size(); i++) {
+		n->Edges[i]->Flow = 1;
+		n->Edges[i]->Residual = 0;
+		n->Edges[i]->Reverse->Flow = 0;
+		n->Edges[i]->Reverse->Residual = 1;
+	}
+
+	for (i = MinNodes; i < (int) Nodes.size(); i++) {
+		n = Nodes[i];
+    // delete all edges
+		for (j = 0; j < (int) n->Edges.size(); j++) {
+			delete n->Edges[j];
+		}
+    // delete the node itself
+		delete n;
+	}
+
+	// resets Nodes vector size
+	Nodes.resize(MinNodes);
+}
+
+void Graph::ReadWords (string filename) {
   ifstream fin;
+  int count, i, j;
+  Node *n, *n1, *n2;
+  Edge *e, *er;
   string words;
-  Node *n;
-  int i;
-  Edge *e, *er;
 
   fin.open(filename);
-  if (fin.fail()) return;
+	// read in eacg word and make nodes for each letter
+	while (fin >> words) {
+		count = MinNodes - 1;
+		for (i = 0; i < (int) words.size(); i++) {
+			count++;
+			n = new Node;
+			n->Id = count;
+      n->Distance = 0;
+      n->Letters = 0;
+			n->type = WORD;
+			n->Letters |= 1 << (words[i] - 'A');
+			Nodes.push_back(n);
+		}
 
-  while (fin >> words) {
-    // For each node, you need an edge and a reverse edge
-    n = new Node;
-    e = new Edge;
-    er = new Edge;
-
-    // set up the new dice node
-    n->Id = MinNodes;
-    n->Distance = -1;
-    e->To = n; // create the reverse edge
-    e->From = Source;
-    e->Flow = 0;
-    e->Residual = 0;
-    n->Back = e; // all die are connected to the source
-
-    er->To = Source;
-    er->From = n;
-    er->Flow = 0;
-    er->Residual = 0;
-    er->Reverse = e; // each edge points to it's own reverse edge
-    e->Reverse = er;
-
+		// add the sink at the very end of Nodes vector
+		n = new Node;
+		n->Id = count + 1;
+		n->type = SINK;
+    n->Distance = 0;
     n->Letters = 0;
-    n->Word = words;
-    for (i = 0; i < (int) words.size(); i++) {
-      n->Letters |= 1 << (words[i] - 'A'); // set the bit of the letter
-    }
+    Sink = n;
+		Nodes.push_back(n);
 
-    // The source is each die's parent
-    n->Edges.push_back(e);
-    Nodes.push_back(n);
-    MinNodes++; // increment the Id
-    //printf("%s\n", words.c_str());
-  }
+		// add the edges from the dice to the word
+		for (i = 1; i < MinNodes; i++) {
+			n1 = Nodes[i];
+			for (j = MinNodes; j < (int) Nodes.size() - 1; j++) {
+				n2 = Nodes[j];
+				for (int k = 0; k < 26; k++) {
+					if (n1->Letters & (1 << k) && n2->Letters & (1 << k)) {
+						//make an edge
 
-  return;
-}
+            e = new Edge;
+            er = new Edge;
+  	        e->To = n2;
+	          e->From = n1;
+	          e->Reverse = er;
+	          e->Flow = 1;
+	          e->Residual = 0;
+	          n1->Edges.push_back(e);
 
-void Graph::ReadWords(string filename) {
-  string word;
-  int i, j;
-  ifstream fin;
-  Node* n, *sink;
-  Edge *e, *er;
-  int count;
+	          er->To = n1;
+	          er->From = n2;
+	          er->Reverse = e;
+	          er->Flow = 0;
+	          er->Residual = 1;
+	          n2->Edges.push_back(er);
+					}
+				}
+			}
+		}
 
-  fin.open(filename);
-  if (fin.fail()) return;
+		// add the edges to the sink
+		for (i = MinNodes; i < (int) Nodes.size() - 1; i++) {
+			n = Nodes[i];
 
-  sink = new Node;
-  sink->Word = "SINK";
-  sink->Distance = 0;
-  Sink = sink;
-
-  while (fin >> word) {
-    count = MinNodes;
-    for (i = 0; i < (int) word.size(); i++) {
-      n = new Node;
       e = new Edge;
       er = new Edge;
+  	  e->To = Sink;
+	    e->From = n;
+	    e->Reverse = er;
+	    e->Flow = 1;
+	    e->Residual = 0;
+	    n->Edges.push_back(e);
 
-      n->Id = count;
-      n->Word = word[i];
-      count++;
+	    er->To = n;
+	    er->From = Sink;
+	    er->Reverse = e;
+	    er->Flow = 0;
+	    er->Residual = 1;
+	    Sink->Edges.push_back(er);
+		}
 
-      // build edges with the sink
-      e->To = Sink;
-      e->From = n;
-      e->Flow = 0;
-      e->Residual = 0;
+		// find if there is a way to arrange the dice to spell the word
+		if (CanSpell()) {
+			printf("%d", Ids[0] - 1);
+			for (i = 1; i < (int) Ids.size(); i++) {
+				printf(",%d", Ids[i] - 1);
+			}
+			printf(": %s\n", words.c_str());
+		} else {
+			printf("Cannot spell %s\n", words.c_str());
+		}
 
-      er->To = n;
-      er->From = Sink;
-      er->Flow = 0;
-      er->Residual = 0;
-      er->Reverse = e;
-      e->Reverse = er;
-
-      // all letters are parents to the sink
-      Sink->Edges.push_back(e);
-      Nodes.push_back(n);
-
-      // run through all nodes 1-MinNodes and check if the letter is in the die
-      for (j = 1; j < MinNodes + 1; j++) {
-        if (Nodes[j]->Letters & (1 << (word[i] - 'A'))) {
-          // If my letter is in the die, add an edge
-          e = new Edge;
-          er = new Edge;
-
-          e->To = n;
-          e->From = Nodes[j];
-          e->Flow = 0;
-          e->Residual = 0;
-
-          er->To = Nodes[j];
-          er->From = n;
-          er->Flow = 0;
-          er->Residual = 0;
-
-          n->Back = e;
-          // I insert my parent node to my edges list
-          n->Edges.push_back(e);
-        }
-      }
-
-    }
-    Sink->Id = count;
-    Nodes.push_back(Sink);
-//    Print();
-    CanSpell();
-    DeleteHalf(); // delete each word, but keep the first half of the graph
-    //printf("%s\n", word.c_str());
-  }
-
-  delete n;
-  delete e;
-  delete er;
-  delete sink;
-  return;
+		// deletes the right half of the Graph
+		DeleteHalf();
+	}
 }
 
-int main(int argc, char** argv) {
-  if (argc != 3) {
-    printf("usage - ./worddice Dice.txt Words.txt\n");
-    return 1;
-  }
+void Graph::ReadDice (string filename) {
+  Node *n;
+  Edge *e, *er;
+  int i;
+  string dice;
+  ifstream fin;
 
-  Node *source = new Node;
-  Graph *g = new Graph;
+  fin.open(filename);
 
-  g->MinNodes = 0;
-  source->Id = g->MinNodes;
-  source->Distance = -1;
-  g->MinNodes++;
-  source->Word = "SOURCE";
-  g->Source = source;
-  g->Nodes.push_back(source);
+
+  MinNodes = 0;
+	// creating the source node
+	n = new Node;
+	n->Id = MinNodes;
+	n->type = SOURCE;
+  n->Letters = 0;
+  n->Distance = 0;
+	Nodes.push_back(n);
+  Source = n;
+
+	// read in the Dice and add them To g.Nodes
+	while (fin >> dice) {		
+		//build a node
+    MinNodes++;
+		n = new Node;
+		n->Id = MinNodes;
+    n->Letters = 0;
+    n->Distance = 0;
+		n->type = DICE;
+		
+		for (i = 0; i < (int) dice.size(); i++) {
+			
+			if (!(n->Letters & 1 << (dice[i] - 'A'))) {
+				n->Letters |= 1 << (dice[i] - 'A');
+			}
+		}
+
+		Nodes.push_back(n);
+
+	}
+
+	// sets MinNodes
+  MinNodes++;
+	
+	// add the edges from the source to the dice
+	for (i = 1; i < MinNodes; i++) {
+		n = Nodes[i];
+
+    e = new Edge;
+    er = new Edge;
+  	e->To = n;
+	  e->From = Source;
+	  e->Reverse = er;
+	  e->Flow = 1;
+	  e->Residual = 0;
+	  Source->Edges.push_back(e);
+
+	  er->To = Source;
+	  er->From = n;
+	  er->Reverse = e;
+	  er->Flow = 0;
+	  er->Residual = 1;
+	  n->Edges.push_back(er);
+	}
+
+}
+
+int main (int argc, char **argv) {
+	Graph *g;	
+
+  (void) argc;
+  g = new Graph;
+
   g->ReadDice(argv[1]);
   g->ReadWords(argv[2]);
 
-  //  g->Print();
-
   delete g;
-  delete source;
 }
