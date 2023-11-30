@@ -1,0 +1,6 @@
+-wxwx
+yx---
+xx---
+xw---
+PATH
+1 1

@@ -1,0 +1,3 @@
+-BBB
+BBAB
+-B-A

@@ -1,0 +1,9 @@
+i=51
+
+while [ $i -le 100 ]; do
+  sz=`echo $i | awk '{ print ($1-50)*2 }'`
+  sh genrandom.sh $sz > 0$i.txt
+  i=`echo $i | awk '{ print $1+1 }'`
+  echo $i 
+  sleep 1
+done

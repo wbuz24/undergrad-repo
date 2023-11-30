@@ -1,0 +1,580 @@
+<title> CS302 -- Lab A -- Dynamic Programming</title>
+
+<h1> CS302 -- Lab A -- Dynamic Programming</h1>
+
+<UL> <LI> CS302 -- Fundamental Algorithms
+<LI> Spring, 2022
+<LI> <a href=http://web.eecs.utk.edu/~jplank>James S. Plank</a>
+<LI> <a href=http://web.eecs.utk.edu/~jplank/plank/classes/cs302/Labs/LabA/index.html>This file:
+     <b>http://web.eecs.utk.edu/~jplank/plank/classes/cs302/Labs/LabA</b></a>
+<LI> Lab Directory: <b>/home/jplank/cs302/Labs/LabA</b>
+<LI> Original Date: November, 2009.  Last modification
+Thu Nov 17 16:33:41 EST 2011
+<LI> Video from 2017 TA Camille Crumpton on Dice or No Dice: <a href=https://www.youtube.com/watch?v=AdbragdDmqo&list=PLQFSAfh8OMT6shQI0O5M3EGfNuq_WQQfA&index=1>https://www.youtube.com/watch?v=AdbragdDmqo&list=PLQFSAfh8OMT6shQI0O5M3EGfNuq_WQQfA&index=1</a>
+</UL>
+
+<hr>
+<H3>What you submit</h3>
+
+This lab is broken up into three labs on Canvas:
+
+<UL>
+<LI> Lab AA: <b>dond.cpp</b>
+<LI> Lab AB: <b>spellpath.cpp</b>
+<LI> Lab AC: <b>spellseeker.cpp</b>
+</UL>
+
+AA and AB will be graded out of 30 points each.  AC will be graded out of 40 points.  They will
+be graded independently.
+<p>
+
+I'm going to give you the descriptions of the programs first, and then after all the descriptions,
+I'll give hints on how to turn the problem into a solution.
+
+<hr>
+<H3>dond.cpp: Dice or No Dice</h3>
+
+Your friend Maui Handel comes to you with an idea for a new game show (or perhaps
+Vegas gambling game) called "Dice or No Dice."  The way it works is as follows.
+A contestent will be given a <i>s</i>-sided die numbered from 0 to <i>s-1</i>, and a certain number of times
+that they must roll that die.  Call that number <i>t</i>.  On each roll after
+the first, if the contestant rolls a number that equals the previous number that they
+rolled, or is one away from the number that they previously rolled, they lose.  If
+they roll the die <i>t</i> times without losing, they win a certain amount of prize money.
+<p>
+As an extra twist, Maui says that after each roll, he can offer them a certain amount
+of prize money for them to quit.  Perhaps each roll will be represented by a model wearing
+glittery clothes.  He hasn't figured out those details yet.  Regardless, he would like to
+be able to know the probability of success at each phase of the game so that he may set
+odds.  That's where you come in.
+<p>
+Maui wants you to write a program called <b>dond.cpp</b> that will be called with three 
+parameters:
+<p><center><table border=3 cellpadding=3><td><pre>
+UNIX> dond s t last-roll
+</pre></td></table></center><p>
+If <b>last-roll</b> is -1, then the program should print the probability of a contestant
+rolling an <b>s</b>-sided die <b>t</b> times succesfully.  Otherwise, it should assume
+that the contestant has last rolled the value in <b>last-roll</b>, and we now want the
+probability of rolling the die <b>t</b> more times successfully.
+<p>
+Your program's output should match mine, which does error-check the command line parameters.
+The solution is a straightforward dynamic program with memoization if you want to structure
+it that way.  You can also ditch the recursion and make it a straightforward iterative
+program.  My solution was dynamic, because it required less thinking.
+<p>
+I won't give any hints or help here -- if you want some help, read the 
+<a href=#DOND>help at the end of this file.</a>
+<p>
+For the grading, your program's output needs to match mine exactly on legal input.
+<hr>
+
+<H3>Part AB: Spellpath and Part AC: Spellseeker</h3>
+
+Spellseeker is a game from Neopets.  The link is
+<a href=http://www.neopets.com/games/play.phtml?game_id=1157&size=regular&quality=high>here</a>,
+although I'm guessing you'll need a Neopets account to look at it.  The game works
+as follows.  You are given a game board, like the following:
+<p><center><table border=3 cellpadding=3><td valign=top><IMG src=Grid.png width=400></td></table></center><p>
+
+Your job is to score points by discovering long paths in the game board, where a path consists of adjacent squares whose numbers differ by one.  So, for example, the following board
+shows a path of seven squares.
+<p><center><table border=3 cellpadding=3><td valign=top><IMG src=Grid-Path.png width=400></td></table></center><p>
+In the Neopets game, that dog wizard tells you that your path is ok.  In our lab, there 
+is no dog wizard.  Sorry.
+<p>
+In the lab, we will define a grid with an input file, like
+<b><a href=example.txt>example.txt</a></b>, which represents the grid above:
+
+<p><center><table border=3 cellpadding=3><td><pre>
+213322223
+332123331
+331231121
+133131123
+131211121
+231231121
+-1-2-3-3-
+</pre></td></table></center><p>
+
+The format of the input file is words, where each word must contain the same
+number of letters.  The first word contains the top "row" of the grid; however
+the rows are skewed so that even columns are a half a square lower than odd
+columns (zero-indexing, of course).  You may specify that a cell is empty
+with a hyphen.  
+<p>
+All rows must have the same number of cells. Any cell may be blank.
+Cells are not restricted to have numbers -- letters are fine too, although
+we use ASCII values to determine whether two cells may be in a path together.
+<p>
+I have some example input files in the lab directory, plus a program 
+<b>spellgen</b> that generates random input files, and a program <b>spellscreen</b>
+that converts an input file into a <b>jgraph</b> file so that you can look at
+it (pipe the output through <b>jgraph -P</b> to get a Postscript picture).
+<b>Spellscreen</b> also does error checking for correctness.  Your program does
+not have to do so.
+<p>
+Some example inputs are below:
+
+<center>
+<p>
+<table border=3>
+<td valign=top align=center>
+<b><a href=easy-ones.txt>easy-ones.txt</a></b>
+<hr>
+<pre>
+1111
+1111
+</pre>
+<hr>
+<img src=easy-ones.jpg width=89></td>
+<td valign=top align=center>
+<b><a href=easy-3x4.txt>easy-3x4.txt</a></b>
+<hr>
+<pre>
+ABBB
+BBAB
+-B-A
+</pre>
+<hr>
+<img src=easy-3x4.jpg width=89></td>
+</td>
+<td valign=top align=center>
+<b><a href=example.txt>example.txt</a></b>
+<hr>
+<pre>
+213322223
+332123331
+331231121
+133131123
+131211121
+231231121
+-1-2-3-3-
+</pre>
+<hr>
+<img src=example.jpg width=200></td>
+</td>
+<td valign=top align=center>
+<b><a href=10x15.txt>10x15.txt</a></b>
+<hr>
+<pre>
+DAAACCDCADBDBDD
+BB-----DBABAAAB
+ACBAAABACDBDDBA
+CCCADA-----BADC
+BDDCDCBBABBDADA
+BA-----BDCDBBDA
+CBBCBCDCADCBAAB
+BADACD-----ACCB
+ACCADDCDDAADADC
+EDEAECEBEDEBEDE
+</pre>
+<hr>
+<img src=10x15.jpg width=333></td>
+</td>
+</table>
+
+<table border=3>
+<td align=center>
+<b><a href=04x27.txt>04x27.txt</a></b>
+<hr>
+<pre>
+yxxxzzyzxywywyywwxzxywywxwx
+xxwxzwxxxwxzywyywxzzzxyxxzz
+ywwxyzwyyzyzwwxwwyxyxwxxzwy
+zzywxywzyyxwxwxyzxyzxwxwyzx
+</pre>
+<hr>
+<img src=04x27.jpg width=666></td>
+</td>
+</table></center><p>
+
+We will index cells by <i>(row,column)</i>, where row zero is at the top and column zero is
+at the left.  Thus, the cell at <i>(0,0)</i> in 
+<b><a href=10x15.txt>10x15.txt</a></b> is <b>D</b>, the cell
+<i>(0,1)</i> is <b>A</b> and the cell at <i>(1,0)</i> is <b>B</b>.
+<p>
+Formally, two cells are adjacent if:
+<UL>
+<LI> They are in the same column and their row numbers differ by one.
+<LI> They are in the same row and their column numbers differ by one.
+<LI> If <i>c</i> is even, then <i>(r,c)</i> is adjacent to <i>(r+1,c+1)</i> and <i>(r+1,c-1)</i>.
+<LI> Similarly, if <i>c</i> is odd, then <i>(r,c)</i> is adjacent to <i>(r-1,c+1)</i> and <i>(r-1,c-1)</i>.
+</UL>
+Your job is to find the longest path through the cells such that adjacent nodes in the path
+have values that differ by exactly one.  If there are multiple longest paths, finding just
+one will do.  Below are the longest paths through the five examples above:
+
+<center>
+<p>
+<table border=3>
+<td valign=top align=center>
+<img src=easy-ones-path.jpg width=89><br>
+<pre>
+0 0
+</pre></td>
+<td valign=top align=center>
+<img src=easy-3x4-path.jpg width=89><br>
+<pre>
+0 1
+0 0
+1 1
+1 2
+1 3
+2 3
+</pre></td>
+</td>
+<td valign=top align=center>
+<img src=example-path.jpg width=200><br>
+<pre>
+4 6   5 7   4 8
+4 7   3 6   3 7
+2 6   2 7   1 6
+0 6   1 5   0 4
+1 3   1 2   2 2
+2 3   3 3   4 3
+4 2   5 3   5 2
+6 3   5 4      
+</pre></td>
+</td>
+<td valign=top align=center>
+<img src=10x15-path.jpg width=333><br>
+<pre>
+3  4    4  5    4  4    4  3    4  2    3  2
+2  2    3  1    4  1    3  0    4  0    5  1
+5  0    6  0    7  0    7  1    6  2    7  3
+6  4    7  4    7  5    6  5    6  6    6  7
+5  7    4  8    4  9    5  9    6  9    6 10
+6 11    6 12    5 12    6 13    6 14    7 13
+7 14    8 14    8 13    7 12    8 11        
+</pre></td>
+</td>
+</table>
+
+<table border=3>
+<td align=center>
+<img src=04x27-path.jpg width=666><br>
+<pre>
+0 17   0 16   1 17   2 17   3 17   3 18   2 18   2 19   1 19   0 20   1 21   2 21
+2 20   3 21   2 22   3 23   2 23   1 22   1 23   0 23   0 24   0 25   0 26       
+</pre>
+</td>
+</table></center><p>
+
+You are to write two programs.  The first is easier than the second.  The first is called <b>spellpath</b>.
+It should read a grid on standard input and print out the length of the longest path through the grid:
+
+<pre>
+UNIX> <b>spellpath < easy-ones.txt</b>
+1
+UNIX> <b>spellpath < easy-3x4.txt</b>
+6
+UNIX> <b>spellpath < example.txt</b>
+23
+UNIX> <b>spellpath < 10x15.txt</b>
+41
+UNIX> <b>spellpath < 04x27.txt</b>
+23
+UNIX> <b></b>
+</pre>
+
+<b>Spellpath</b> should be a dynamic program, which does not have to use memoization.  This means that it
+doesn't have to be too fast.  If you want help, see below.
+<p>
+The second program, called <b>spellseeker</b>  needs to output the path.  
+It should do so by first outputting the grid, then the word "PATH",
+and then the path itself.  Your output does not have to match mine, but the path must be a legal longest path.
+You can check for validity with the program <b>spellchecker</b>.  So, for example:
+
+<pre>
+UNIX> <b>spellseeker < easy-ones.txt</b>
+1111
+1111
+PATH
+0 0
+UNIX> <b>spellseeker < easy-3x4.txt</b>
+ABBB
+BBAB
+-B-A
+PATH
+0 1
+0 0
+1 1
+1 2
+1 3
+2 3
+UNIX> <b>spellseeker < easy-3x4.txt | spellchecker</b>
+OK - Pathlength = 6
+UNIX> <b></b>
+</pre>
+
+<b>Spellseeker</b> should be a dynamic program that uses memoization to make it fast. 
+The gradescript will test for speed, and if your program takes more than a second longer
+than mine, it will kill your program and count it as wrong.  
+As with <b>spellpath</b>, if you want some help, read the help
+below.
+
+<hr>
+<a NAME=DOND>
+<h3>Help with dond.cpp</h3>
+Let's look at some examples that should help you think about the solution.  In each, we'll
+assume a six-sided die.  If <b>t</b> is one, then all rolls are legal.  If <b>t</b>
+is one, and <b>last-roll</b> is 0 or 5, then there are four legal rolls, yielding a 
+probability of 2/3.  If <b>last-roll</b> is any other value (1, 2, 3, 4), then there are only three
+legal rolls, yielding a probability of 1/2.  These are all confirmed by the following
+<b>dond</b> calls:
+<p>
+<pre>
+UNIX> <b>dond 6 1 -1</b>
+1
+UNIX> <b>dond 6 1 0</b>
+0.666667
+UNIX> <b>dond 6 1 1</b>
+0.5
+UNIX> <b>dond 6 1 2</b>
+0.5
+UNIX> <b>dond 6 1 3</b>
+0.5
+UNIX> <b>dond 6 1 4</b>
+0.5
+UNIX> <b>dond 6 1 5</b>
+0.666667
+UNIX> <b></b>
+</pre>
+
+So, consider <b>t=2</b> and <b>last-roll=-1</b>.   This will be the sum of times that 
+<b>t=1</b> and <b>lastroll &ne; -1</b>, divided by six.  Put another way, you have
+a 1/6 probability of rolling a zero.  If you roll a zero, you have a 2/3 chance of winning.
+Ditto when you roll a five.  If you roll a 1 through 4, you have a 1/2 chance of winning.
+So, your probability of winning when <b>t=2</b> is 1/6 * (2/3 + 2/3 + 1/2 + 1/2 + 1/2 + 1/2).
+That value is 0.555556:
+
+<pre>
+UNIX> <b>dond 6 2 -1</b>
+0.555556
+UNIX> <b></b>
+</pre>
+
+Now consider <b>t=2</b> and <b>last-roll=0</b>.  Well, 1/6 of the time, you will roll a zero
+on your next roll, and 1/6 of the time, you will roll a one.  In each of those, you lose.  However,
+1/6 of the time, you will roll a 2, and your chance of winning will be "<b>dond 6 1 2</b>", which is
+1/2.  The same is true when you roll a 3 or a 4.  1/6 of the time, you'll roll a 5, and your
+chance of winning will be 2/3.  Therefore, if <b>t=2</b> and <b>last-roll=0</b>, your chance
+of winning will be 1/6*(0 + 0 + 1/2 + 1/2 + 1/2 + 2/3).
+That value is 0.361111:
+
+<pre>
+UNIX> <b>dond 6 2 0</b>
+0.361111
+UNIX> <b></b>
+</pre>
+
+You should be able to confirm all of the calls below by hand.  
+For example, <b>dond 6 2 1</b> will equal 1/6*(0 + 0 + 0 + 1/2 + 1/2 + 2/3), and 
+<b>dond 6 2 2</b> will equal 1/6*(2/3 + 0 + 0 + 0/2 + 1/2 + 2/3). 
+
+<pre>
+UNIX> <b>dond 6 2 1</b>
+0.277778
+UNIX> <b>dond 6 2 2</b>
+0.305556
+UNIX> <b>dond 6 2 3</b>
+0.305556
+UNIX> <b>dond 6 2 4</b>
+0.277778
+UNIX> <b>dond 6 2 5</b>
+0.361111
+UNIX>
+</pre>
+
+The recursion should be getting clearer.  
+<b>dond 6 3 -1</b> will equal 
+1/6*(0.361111 + 0.277778 + 0.305556 + 0.305556 + 0.277778 + 0.361111) = 0.314815:
+
+<pre>
+UNIX> <b>dond 6 3 -1</b>
+0.314815
+UNIX> <b></b>
+</pre>
+<hr>
+<h3>Help with spellpath.cpp</h3>
+
+The key to any dynamic program is to spot the recursion.  With <b>spellpath</b>, you 
+will make a call to the procedure <b>MaxPathLen(row, col, grid)</b>.  This will
+return the maximum path length of the longest path that starts with the cell at
+<i>(row, col)</i>.  So, for example, on 
+<b><a href=easy-3x4.txt>easy-3x4.txt</a></b>, 
+<b>MaxPathLen(0,1)</b> will return 6, 
+<b>MaxPathLen(0,0)</b> will return 5, and
+<b>MaxPathLen(0,3)</b> will return 1. 
+<p>
+Can you spot how to write <b>MaxPathLen()</b> recursively?
+I'll tell you below.
+<p>
+Let <i>n</i> be the cell at <i>(row, col)</i>.  Let <i>(r,c)</i> be a cell adjacent
+to <i>n</i> whose value is exactly one less than or one greater than <i>n's</i> value.
+Then call <b>MaxPathLen(r, c, grid-<i>n</i>)</b>, where <b>grid-<i>n</i></b> is the
+grid with cell <i>n</i> removed.  Do this for all <i>(r,c)</i>.  The
+return value for <b>MaxPathLen(row, col, grid)</b> will be one plus the maximum 
+<b>MaxPathLen(r, c, grid-<i>n</i>)</b> for all the <i>(r,c)</i>.
+<p>
+Here's an example that uses the following three pictures:
+<center>
+<table>
+<tr><td><img src=easy-3x4.jpg></td>
+    <td><img src=g2.jpg></td>
+    <td><img src=g3.jpg></td></tr>
+<tr><td align=center><i>g1</i></td>
+    <td align=center><i>g2</i></td>
+    <td align=center><i>g3</i></td></tr>
+</table></center>
+Suppose you call <b>MaxPathLen(0,0,<i>g1</i>)</b>.  You store the value of cell (0,0), which
+is <b>A</b>.  Then you remove cell (0,0), from the graph, which yields <i>g2</i>.  You now
+make recursive calls to 
+<b>MaxPathLen(0,1,<i>g2</i>)</b>,
+<b>MaxPathLen(1,0,<i>g2</i>)</b> and
+<b>MaxPathLen(1,1,<i>g2</i>)</b>.  When they all finish, you will put <b>A</b> back into
+cell (0,0).  You then select the call that returned the largest value, add one to it, and 
+return that to your caller.
+<p>
+Consider those three recursive calls.
+The first two will return instantly with max path lengths of one, 
+because cells (0,1) and (1,0) in <i>g2</i> are only adjacent to <b>B</b>'s.  The call to 
+<b>MaxPathLen(1,1,<i>g2</i>)</b>, however, will make a recursive call to
+<b>MaxPathLen(1,2,<i>g3</i>)</b>.  
+<p>
+You should see how it goes now -- that call will eventually return 3, which means that
+<b>MaxPathLen(1,1,<i>g2</i>)</b> will return 4.  Since that is the maximum of the three
+recursive calls on <i>g2</i>, 
+<b>MaxPathLen(0,0,<i>g1</i>)</b> will return 5.
+<p>
+If you call <b>MaxPathLen</b> on every cell of the original grid, the one with the maximum 
+value will be the maximum length path.
+<p>
+You can hack this up fairly easily.  When you call 
+<b>MaxPathLen(row, col, grid)</b>, save the value of <i>(row, col)</i> in a temporary
+variable and set the value to '-'.  Make all of the recursive calls, and then 
+set the value back to the saved value before you return to the caller.
+<b>Spellpath</b> called on all of the examples above should take well less than 
+a second to run.  
+<hr>
+<h3>Help with spellseeker.cpp</h3>
+
+This one is harder.  For this, I defined a class called an <b>Answer</b>, defined as follows:
+<p><center><table border=3 cellpadding=3><td><pre>
+class Answer {
+  public:
+    int length;
+    int r;
+    int c;
+    string key;
+    Answer *nexta;
+};
+</pre></td></table></center><p>
+I also have a <b>Spellseeker</b> class that contains my grid, the memoization cache, the total
+rows and columns and a <b>Solve()</b> method:
+
+<p><center><table border=3 cellpadding=3><td><pre>
+class SpellSeeker {
+  public:
+    vector &lt;string&gt; grid;
+    map &lt;string, Answer *&gt; cache;
+    int total_r;
+    int total_c;
+
+    Answer *Solve(int r, int c);
+};
+</pre></td></table></center><p>
+
+As you can see, <b>Solve(r, c)</b> returns an <b>(Answer *)</b>.  
+The <b>r</b> and <b>c</b> fields contain the <i>r</i> and <i>c</i> values of the <b>Solve()</b>
+call.  <b>Length</b> is the 
+maximum length path, and <b>nexta</b> contains the <b>(Answer *)</b> of the next node in the
+path.  If there is no next node, <b>nexta</b> is NULL.  <b>Key</b> is a string that represents
+the grid.  It is the key for my memoization cache.  
+<p>
+When I call <b>Solve()</b>, I first
+calculate a key from the grid, then look up the key in my cache.  If it's there, then I return
+its contents (which is an <b>(Answer *)</b>).  If it's not there, then I create a new
+<b>(Answer *)</b> and set its <b>r</b>, <b>c</b> and <b>key</b> fields.  I then make recursive calls
+as in <b>spellpath</b> above, only the recursive calls return <b>(Answer *)</b>'s instead of
+lengths.  As with <b>spellpath</b>, I modify the grid before making the recursive calls (taking
+the element in <i>(r,c)</i> out of the grid, and when I'm done with them, I put the element back.
+I take the best of the recursive calls, and use it as my <b>nexta</b> field.  I set the length equal
+to one plus the length of the <b>nexta</b> field, put the <b>(Answer *)</b> into the memoization cache and return 
+it.  
+<p>
+Now, to create the key, you should notice that when you call <b>Solve(r,c)</b>, 
+the only nodes that matter are the ones reachable
+from cell <i>(r, c)</i>.  What I do is create a key that identifies those nodes and node <i>(r,c)</i>
+as the starting node.  To help illustrate this, let's consider a call to <b>Solve(0,0)</b>  on 
+<i>g4</i> below (I've colored node (0,0) blue).  
+<center>
+<table>
+<tr><td><img src=sshelp0.jpg width=120></td>
+    <td><img src=sshelp2.jpg width=120></td>
+    <td><img src=sshelp4.jpg width=120></td></tr>
+<tr><td align=center><i>g4</i></td>
+    <td align=center><i>g5</i></td>
+    <td align=center><i>g6</i></td></tr>
+</table></center>
+
+This is going to make a recursive call to <b>Solve(1,1)</b> on <i>g5</i>, which in turn makes a 
+recursive call to 
+<b>Solve(0,1)</b> on <i>g6</i>.  
+<p>
+Now, instead, consider a call to <b>Solve(1,0)</b> on 
+<i>g4</i>.  I've drawn it with cell (1,0) blue below:
+<center>
+<table>
+<tr><td><img src=sshelp1.jpg width=120></td>
+    <td><img src=sshelp3.jpg width=120></td>
+    <td><img src=sshelp5.jpg width=120></td></tr>
+<tr><td align=center><i>g4</i></td>
+    <td align=center><i>g7</i></td>
+    <td align=center><i>g8</i></td></tr>
+</table></center>
+
+This is going to make a recursive call to <b>Solve(1,1)</b> on <i>g7</i>, which in turn makes a 
+recursive call to 
+<b>Solve(0,1)</b> on <i>g8</i>.  
+<p>
+Now think about the two recursive calls to <b>Solve(0,1)</b>.  Even though graphs <i>g6</i> and <i>g8</i>
+differ, the two <b>Solve(0,1)</b> calls are exactly the same and will return the same path.  This piece 
+of insight helps our memoization.  The first thing that we do when we make a call to <b>Solve(r,c)</b>
+is perform a DFS on the given cell to identify all the nodes reachable from <i>(r,c)</i>.  We show these
+DFS results for each of the six example calls to <b>Solve()</b> above:
+
+<center>
+<table>
+<tr><td align=center><img src=sshelp0-A.jpg width=120></td>
+    <td align=center><img src=sshelp2-A.jpg width=120></td>
+    <td align=center><img src=sshelp4-A.jpg width=120></td>
+    <td align=center><img src=sshelp1-A.jpg width=120></td>
+    <td align=center><img src=sshelp3-A.jpg width=120></td>
+    <td align=center><img src=sshelp5-A.jpg width=120></td></tr>
+<tr><td align=center><b>Solve(0,0)</b> on <i>g4</i></td>
+    <td align=center><b>Solve(1,1)</b> on <i>g5</i></td>
+    <td align=center><b>Solve(0,1)</b> on <i>g6</i></td>
+    <td align=center><b>Solve(1,0)</b> on <i>g4</i></td>
+    <td align=center><b>Solve(1,1)</b> on <i>g7</i></td>
+    <td align=center><b>Solve(0,1)</b> on <i>g8</i></td></tr>
+</table></center><p>
+
+See how the two calls to <b>Solve(0,1)</b> are exactly alike.  After performing the DFS, I turn
+it into a key, and that is the lookup key in my memoization cache.  The way I construct my key is
+as follows: I create a string that has an entry for each cell in the
+grid (empty or not).  I set all the entries to '-'.  I then set the entry for <i>(r,c)</i> to 'X'.  Then I call
+the depth-first search routine that marks all nodes reachable from node <i>(r,c)</i>, and sets their entries to
+'O'.  When I'm done, I have constructed my key.  
+For example, the key for <b>Solve(0,1)</b> on <i>g6</i> and <i>g8</i> is:
+"-XOOO---------------".  The key for <b>Solve(1,1)</b> on <i>g7</i> is
+"OOOOO-X-------------".  The key for <b>Solve(0,0)</b> on <i>g4</i> is
+"XOOOOOO---OO---OO---".  
+<p>
+The memoization helps drastically in performance.  For example, calling <b>spellseeker</b> on 
+<b><a href=20x20.txt>20x20.txt</a></b> takes about four tenths of a second on my Mac (this is
+when <b>g++</b> is called with <b>-O2</b>).  Without memoization, it takes so long that I 
+gave up and killed it before it terminated.
+
+<p>
+<center><img src=20x20-path.jpg width=300></img></center>
