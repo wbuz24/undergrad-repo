@@ -1,0 +1,52 @@
+jgggiijigjhjhjjhhgig
+jhjhghggghgihggghgij
+hjjhgiiigjggiijhhgji
+hjjijihhghhjgjghggih
+jihjijhhjgihhihijigj
+ihgghhgjgijghgiigiih
+-g-i-i-g-j-j-i-j-j-g
+PATH
+5 18
+6 17
+5 17
+4 16
+5 15
+4 14
+5 13
+4 12
+5 11
+4 11
+4 10
+3 10
+4 9
+3 9
+2 8
+3 7
+2 6
+3 6
+3 5
+3 4
+3 3
+3 2
+4 1
+5 1
+5 2
+4 2
+3 5
+3 6
+2 6
+3 7
+2 8
+3 9
+2 10
+3 10
+4 10
+4 11
+3 12
+4 12
+4 13
+3 13
+2 12
+1 12
+1 11
+0 0
