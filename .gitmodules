@@ -7,3 +7,6 @@
 [submodule "S23/EESCL/Li-ion-viz"]
 	path = S23/EESCL/Li-ion-viz
 	url = git@github.com:wbuz24/Li-Ion-Visualizer.git
+[submodule "F23/cs302/labs/Lab5/plank-disjoint-sets"]
+  path = F23/cs302/labs/Lab5/plank-disjoint-sets
+  url = git@github.com:wbuz24/Undergrad-Repo.git
