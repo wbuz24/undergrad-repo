@@ -1,6 +1,6 @@
 # Will Buziak's Undergraduate Repository
 
-[My personal website](https://wbuz24.github.io/Undergrad-Repo/)
+Check out [My personal website](https://wbuz24.github.io/personal-site/) hosted through github pages.
 
 This repository holds the course work for Will Buziak's Undergraduate degree in Mechanical Engineering with a minor in Computer Science from the University of Tennessee, Knoxville.
 
