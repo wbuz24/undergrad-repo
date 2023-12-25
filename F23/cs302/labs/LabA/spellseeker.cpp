@@ -2,7 +2,7 @@
 // Lab AB
 // CS302
 // Spellpath
-// g++ -Wall -Wextra -o spellpath spellpath.cpp
+// g++ -Wall -Wextra -o spellseeker spellseeker.cpp
 
 #include <iostream>
 #include <vector>
