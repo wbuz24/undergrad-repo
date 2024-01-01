@@ -10,3 +10,9 @@
 [submodule "F23/cs302/labs/Lab5/plank-disjoint-sets"]
   path = F23/cs302/labs/Lab5/plank-disjoint-sets
   url = git@github.com:wbuz24/Undergrad-Repo.git
+[submodule "S24/cs360/cs360-lecture-notes"]
+	path = S24/cs360/cs360-lecture-notes
+	url = https://jimplank@bitbucket.org/jimplank/cs360-lecture-notes.git
+[submodule "S24/cs360/notes"]
+	path = S24/cs360/notes
+	url = https://jimplank@bitbucket.org/jimplank/cs360-lecture-notes.git
