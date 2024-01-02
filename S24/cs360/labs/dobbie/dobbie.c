@@ -1,14 +1,22 @@
-/*Practice C code, read names from a file */
+/* Practice C code, read from a file and print the cheapest path to Hogwards */
 
 #include <stdio.h> // new best friends
 #include <stdlib.h>
 
+struct Location {
+  int Coin;
+  int Jumps;
+  char Loc[1000];
+};
+
 int main(int argc, char **argv) {
-  char line[100]; // statically cast char
+  int myCoin, currCoin, jumps;
+  char line[100], loc[1000]; // statically cast char
   FILE* filename; // file pointer
+  struct Location* n;
 
   if (argc != 2) { // error check args
-    printf("./a.out filename.txt\n");
+    printf("./dobbie filename.txt\n");
     return 0;
   }
 
@@ -19,8 +27,7 @@ int main(int argc, char **argv) {
   } 
 
   while (fgets(line, 100, filename) != NULL) { // read each independent line
-    
-    printf("%s", line); // print each line
+    printf("%s", line);
   }
   return 1;
 }
