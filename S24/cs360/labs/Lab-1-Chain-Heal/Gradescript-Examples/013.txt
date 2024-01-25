@@ -1,0 +1,10 @@
+-6225  7801     7     7 Urgosa_the_Healing_Shaman
+ 7406  2431     4    16 Michael_the_Archer
+ 2224  4713     7    11 Eric_the_Space-Marine
+ 9449  4088    20    23 Big-McLargeHuge_the_Computer-Scientist
+ 5919 -4702     3    10 Dylan_the_Psion
+ 5586  -514    19    25 Grell_the_Warmage
+ 6021  6015     0     5 Spartacus_the_Smelly
+ 4690 -4568     7    10 Shawn_the_Warlord
+-5761 -2031     2    20 Dasha_the_Merchant
+-4383   597     2     2 Peach_the_Mystic

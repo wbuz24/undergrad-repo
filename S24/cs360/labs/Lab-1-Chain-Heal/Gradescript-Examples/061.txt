@@ -1,0 +1,22 @@
+-5155 -3349  2918  3612 Urgosa_the_Healing_Shaman
+ 4278 -5616   559  1903 Maelshan_the_Blackguard
+-6295 -4481  1393  4185 Paloc_the_Grumpy-Pants
+-9576 -2237  4413  6382 Urgos_the_Glam-Rocker
+ 6332 -5557    41   216 Riyuu_the_Lurk
+-2331 -3158   173  4497 Allen_the_Priest
+ 8425 -6678   956  1429 Catherine_the_Alchemist
+ -911 -5891  1199  8244 Gristle-McThornBody_the_Time-Lady
+ 3671 -9554  4246  6249 Beavis_the_Monster-Hunter
+ 6549  1388  3346  4044 Dylan_the_Healer
+-6426 -2453  2392  2950 Adam_the_Twelve-Fingered,-Son-of-Herman-Li
+ 9279 -9420     2   225 Beast_the_Knight
+-6259 -2615   537  1032 Ndomukong_the_Oracle
+-9168 -8891  5119  5331 Michael_the_Psychic-Warrior
+-7692  2689  1497  7922 Alvin_the_Insane
+-1551 -9828   662   671 Beast_the_Fighter
+ 5928  6213   904  3995 Fist-RockBone_the_Adept
+ 6534 -3659  5220  7300 Ciel_the_Space-Marine
+ 9242  -967   443  9405 Varrus_the_Psion
+ 4217 -1308  4255  5183 Malicah_the_Priest
+-6882  3226   635  1089 Doll_the_Warlock
+  617 -6464   585  2967 Pitbull_the_Gunslinger

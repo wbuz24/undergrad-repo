@@ -1,0 +1,23 @@
+ 8395 -3067   503  9873 Urgosa_the_Healing_Shaman
+-1466 -6024  2913  4537 Fyzix_the_Cleric
+-9180 -8044   884  1495 Parappa_the_Inquisitor
+ 3959  8642  3535  5408 Jumbo_the_Ugly
+-2098  5121  2574  3838 Tempest_the_Space-Marine
+ -797  9723  4829  7162 Alvin_the_Binder
+ -612  4155    33    99 Fyzix_the_Scout
+  549 -4245  1974  6437 Thick-McRunFast_the_Legendariously-Brave-hearted
+ 6515  7678  6555  9278 Spartacus_the_Severly-Flawed
+-6501 -6969  1178  3845 Polong_the_Bounty-Hunter
+ 3329 -1446   340  3683 Buck-PlankChest_the_Illusionist
+ -782  8167   606  5987 Spartacus_the_Angsty-Teenager
+ 2595  4757  2633  3006 Polong_the_Legendariously-Brave-hearted
+ 4610 -9210  6346  8924 Gorex_the_Gladiator
+ 3800  2659  5580  6672 Polong_the_Inquisitor
+-4636 -1134  2043  3328 Big-McLargeHuge_the_Archer
+  721 -8991   129  1857 Literally_the_Flatulent
+ 9740 -6259  3808  7310 Catherine_the_Priest
+ 6107 -6063  2045  2650 Sweeney_the_Butler
+-5182  4186   173  1616 Polong_the_Warrior
+-1545  9705  3454  3958 Mario_the_Barbarian
+-9253   -37   366   640 Thor_the_Ginormous
+ 4082 -2641    23   158 Alok_the_Ginormous

@@ -1,0 +1,12 @@
+ -228   190     0     1 Urgosa_the_Healing_Shaman
+  -22    -6     5    60 Adam_the_Demon
+   62   291    52   162 Veleny_the_Scout
+ -234    -4   151   159 Rob_the_Battlerager
+  -93  -229    27   645 Donald_the_Scavenger
+  235  -236    64   298 Alok_the_Cleric
+ -292   -70   161   170 Chad_the_Hacker
+   87  -148    63   329 Donald_the_Death-Knight
+  -59    62   163   258 Blast-ThickNeck_the_Beastlord
+  164  -158    22   469 Braeor_the_Medic
+  254  -278    33    47 Hector_the_Summoner
+   61  -191   114   142 Malicah_the_Monster-Trainer

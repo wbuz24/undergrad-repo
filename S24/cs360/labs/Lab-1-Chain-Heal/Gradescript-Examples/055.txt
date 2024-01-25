@@ -1,0 +1,13 @@
+ 8366   418  4864  8868 Urgosa_the_Healing_Shaman
+ 8899  5555  4951  5415 Mario_the_Bounty-Hunter
+-2558  4291  2135  3617 Polong_the_Thug
+-6626 -7019   400  3062 Rock-Party_the_Shin-Kicker
+  413  -899   394   832 Malicah_the_Dragonslayer
+-3145 -9038  5025  5497 Ash_the_Fighter
+-1334   162  1242  3325 Parappa_the_Falsely-Accused
+ 8202  4159  1768  2508 Chad_the_Basement-Dweller
+-8882 -7863   870  1521 Danielle_the_Princess
+  586  2640  1524  3156 Fluffy_the_Goblin
+ 1179 -2403   753  3582 Sweeney_the_Computer-Scientist
+ 3177   420  1878  4761 Urgos_the_Barber
+-3354  3778   851  1792 Thor_the_Oracle

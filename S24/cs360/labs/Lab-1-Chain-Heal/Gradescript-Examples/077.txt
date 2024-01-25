@@ -1,0 +1,13 @@
+ 5666 -2786  2560  6135 Urgosa_the_Healing_Shaman
+-7209 -6433  1756  7170 Ciel_the_Divine-Born
+ 7937 -7885  1215  8804 Fist-RockBone_the_Illusionist
+-6229 -4200  1223  4433 Fist-RockBone_the_Gunslinger
+-6808 -4203   589  1107 Dirk-HardPec_the_Awesome,-Born-Above-Heaven
+  736  2602  8357  9828 Beavis_the_Scout
+ 6632 -1293  2562  8768 Dirk-HardPec_the_Heavy-footed
+ 2008 -2600  2161  4631 Dirk-HardPec_the_Bard
+ 5639  8629  5950  8660 Michael_the_Swashbuckler
+  449  4676  1322  3647 Beast_the_Weak-Minded
+-6918  3283  2719  4417 Orykle_the_Battlerager
+ 9159  5752  2928  8100 Moon-Moon_the_Lurk
+-4832 -7871  4647  4979 Shawn_the_Druid

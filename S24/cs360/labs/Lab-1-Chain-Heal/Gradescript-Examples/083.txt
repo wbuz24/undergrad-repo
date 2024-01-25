@@ -1,0 +1,23 @@
+-6005  1420  1337  6205 Urgosa_the_Healing_Shaman
+  573 -7576   553   613 Peach_the_Battlerager
+-4773 -4232  1992  6563 Allen_the_Assassin
+ 6459  1950  3415  6252 Mario_the_Soulknife
+-8257  1812   517   682 Beast_the_Binder
+ 3021 -4558    12    54 Alvin_the_Bomb-diggity
+ 2892 -2665  6753  8399 Buck-PlankChest_the_Awesome,-Born-Above-Heaven
+-4615 -3174   538  3041 Braeor_the_Warmage
+ 2474 -2555  3135  4250 Pitbull_the_Artificer
+ 6325   313  5124  5137 Mario_the_Tiny
+ 1487 -5875   628  1615 Luigi_the_Warlord
+  -30  3768  1594  7999 Joker_the_Worst
+ 5466  -120   262   954 Sir-Robin_the_Heavy-footed
+-1407  1224  4807  9624 Ben_the_Big-boned
+-3738 -4257  4536  9180 Tempest_the_Grumpy-Pants
+-2864 -3412  3410  4284 Pitbull_the_Destroyer,-Born-Under-Chaos
+-8924 -8796   357  2349 Riyuu_the_Knight
+ 7914 -4826  2469  3418 Pitbull_the_Glam-Rocker
+ 3267 -2112  3315  7766 Alok_the_Arcane-Archer
+-3478 -8847   412  9708 Rock-Party_the_Gladiator
+-7054  8822  2900  9298 Rip-SteakFace_the_Shin-Kicker
+-6228   546  3184  3772 Spinny-McCrazyPants_the_Medic
+  326 -1998  1388  3130 Donald_the_Bladesinger

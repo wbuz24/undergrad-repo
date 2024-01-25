@@ -1,0 +1,11 @@
+-2602  8737   661  1520 Urgosa_the_Healing_Shaman
+ 4128 -1431  2003  2083 Ben_the_Well-Endowed
+ -871  7391   753  7005 Elizabeth_the_Spider-Rider
+ 2026  5227   666  1778 Fist-RockBone_the_Swashbuckler
+-2682 -5093  3147  7388 Jumbo_the_Warlock
+-7622  5962  2565  2821 Buck-PlankChest_the_Angel
+ 1524 -7818  3098  9289 Joker_the_Destroyer,-Born-Under-Chaos
+ 3617  2047  2009  2984 Tempest_the_Psyblade
+ 8864  2878  2554  8253 Moon-Moon_the_Monster-Hunter
+ 8163 -5255  3524  4192 Blast-ThickNeck_the_Tiny
+ 7501 -6415  3618  9354 Thor_the_Bladesinger

@@ -1,0 +1,29 @@
+-4012 -5559  1740  4035 Urgosa_the_Healing_Shaman
+ 3529  3803   300  5262 Beast_the_Barbarian
+ 4894  8602    78  3440 Spartacus_the_Spidermage
+ 7942 -1615  3491  3645 Fyzix_the_Gunslinger
+ 5077 -9472   929  2255 Gandia_the_Ugly
+-8625 -2398   583  3152 Jumbo_the_Insane
+-5174  1367  2447  5564 Elizabeth_the_Spider-Rider
+-4371 -1896   637  2355 Spinny-McCrazyPants_the_Monster-Trainer
+  964  -378  8343  8848 Fist-RockBone_the_Swashbuckler
+-3317 -4786  2942  6635 Rip-SteakFace_the_Battlemage
+-1118 -9954  1793  2493 Ndomukong_the_Spidermage
+ 1592  6116  3495  9616 Hector_the_Weak-Minded
+-9594   171    15  5935 Riyuu_the_Battlerager
+-4208  5394  2020  6082 Wendy_the_Merchant
+ 1858 -7466   288   473 Thick-McRunFast_the_Arcane-Archer
+  145 -8218   731  6814 Hector_the_Insane
+-5819   930   877  8018 Sir-Robin_the_Scavenger
+-8771  2866  1037  1187 Paloc_the_Catpurse
+ 2177 -8087   489  1572 Chad_the_Goblin
+ 5718  8935  1526  2430 Elizabeth_the_Paladin
+ 5724   449    26   504 Polong_the_Dragon-Rider
+-7137  4517  2521  7606 Tina_the_Whisperer
+-6203 -4781  4660  6744 Fluffy_the_Spidermage
+-5092  1692  3736  7565 Urgos_the_Warlord
+-1340 -7186  1571  1801 Conam_the_Paladin
+ 8654  8874  1172  1228 Luigi_the_Mystic
+-9848  1332  7264  9372 Alvin_the_Bounty-Hunter
+ 1960 -3774   790  1745 Dasha_the_Falsely-Accused
+ 8205  8257  1815  2905 Dylan_the_Warmage

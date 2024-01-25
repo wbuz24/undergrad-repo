@@ -1,0 +1,15 @@
+-3631  2852  3473  7824 Urgosa_the_Healing_Shaman
+-4628  1516  3919  8499 Tina_the_Ranger
+ 3197  3350  2787  5309 Blast-ThickNeck_the_Adept
+ 5874 -9315  2419  7282 Ben_the_Battlemage
+ 5899  2557  4594  5052 Paloc_the_Wizard
+-7777  3282   903  3605 Grell_the_Hunter
+ 3627 -1378   644  4825 Beast_the_Awesome,-Born-Above-Heaven
+ 2383 -3045  8532  9176 Luigi_the_Blind
+-9086 -2746   686  2733 Tina_the_Delver
+-4125  6490  4721  9616 Rip-SteakFace_the_Worst
+ -589 -4547  4442  6890 Rip-SteakFace_the_Inquisitor
+ 6937  5868  4308  9413 Danielle_the_Smelly
+-1558 -8048  3995  4236 Grell_the_Demon
+  -74 -1938  1339  2999 Paloc_the_Jester
+ 3801 -1238  1662  7990 Buck-PlankChest_the_Summoner

@@ -1,0 +1,44 @@
+-5624  9831  6323  6346 Urgosa_the_Healing_Shaman
+-7584 -9863   654  3850 Jumbo_the_Sorcerer
+-6470 -9484  3138  8432 Doll_the_Dead
+ 4391 -2029  2680  9889 Danielle_the_Jester
+-7435 -6160  5931  7127 Dirk-HardPec_the_Cleric
+ 7590  1122  3824  4155 Peach_the_Blackguard
+-8308 -5410  4862  7660 Thick-McRunFast_the_Dragonslayer
+ 2139  -602  2887  9862 Braeor_the_Librarian
+-7576 -4923  2585  8135 Chunkhead_the_Inquisitor
+ 5517 -8412  4296  8118 Mario_the_Spider-Rider
+ 2016  -468  4380  6012 Varrus_the_Monster-Trainer
+ 5315  3520  6992  7796 Dirk-HardPec_the_Shadowdancer
+-6499 -8339  3505  9255 Jumbo_the_Mystic
+ -994 -6108  4475  6541 Gristle-McThornBody_the_Barbarian
+-1795  5692  3265  6697 Gristle-McThornBody_the_Catpurse
+ 3128 -5356   719   881 Joker_the_Dragonslayer
+ 5921  9444  2965  4906 Sabastian_the_Arcane-Archer
+ 1572 -9318  3350  9263 Joker_the_Bounty-Hunter
+ 7579  3422  3580  5155 Thick-McRunFast_the_Psyblade
+ 6170  6661   250  6673 Thor_the_Senile
+ 3815  6656  6656  7887 Catherine_the_Well-Endowed
+ 7002    20   583  1985 Polong_the_Archer
+-1028  6146  2449  4567 Allen_the_Soulknife
+-5619 -2401  1701  7808 Veleny_the_Computer-Scientist
+-8544  4023  6679  7505 Chad_the_Delver
+-4152 -5872  4726  6183 Sir-Robin_the_Necromancer
+-1155  9407   568  1851 Fist-RockBone_the_Awesome,-Born-Above-Heaven
+ 2747 -6941   349  5284 Braeor_the_Artificer
+ 6659  6108  2439  6976 Joker_the_Divine-Born
+ -160  2800  2183  2475 Grell_the_Battlemage
+ 8118  -641  3450  6383 Elizabeth_the_Jester
+ 1038  8219   934  3822 Orykle_the_Paladin
+-3918  5125  1080  5964 Buff-HardBack_the_Bomb-diggity
+ 2315 -1090  1920  2371 Shawn_the_Thug
+-3090 -9169  1806  2029 Ash_the_Archer
+ 5014  8091     1  5961 Mario_the_Artificer
+-5240  7589   192   217 Luigi_the_Scourge,-Born-Under-Blood
+ 6290  1429    30  7854 Orykle_the_Insane
+-8669 -7038   262   600 Chunkhead_the_Knight
+-7892 -9807  5391  5688 Fluffy_the_Druid
+ 2517 -9784  5629  7562 Sabastian_the_Thief
+ 4049  8336  4473  6421 Alok_the_Binder
+-7040 -6948  5569  8126 Gandia_the_Scourge,-Born-Under-Blood
+-8229 -2881  2067  7002 Spinny-McCrazyPants_the_Monster-Hunter

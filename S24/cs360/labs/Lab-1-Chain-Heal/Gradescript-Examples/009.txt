@@ -1,0 +1,10 @@
+ 8262  5446  5468  8826 Urgosa_the_Healing_Shaman
+ 5384 -9483  4717  5978 Luigi_the_Warmage
+ -312 -5125  1248  5728 Alok_the_Big-boned
+-4949 -1730   360  1009 Dylan_the_Necromancer
+ 5023  3462  7835  7959 Eric_the_Illusionist
+ 7280    87  7500  9371 Spinny-McCrazyPants_the_Illusionist
+-9553 -1967   831  4412 Eric_the_Time-Lord
+   51  2781  3359  8918 Gristle-McThornBody_the_Dragon-Rider
+ -425  5940   233  2503 Rip-SteakFace_the_Warmage
+ 4633  8118  3875  4406 Thick-McRunFast_the_Monster-Trainer

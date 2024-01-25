@@ -1,0 +1,18 @@
+-4393  9752  1710  3894 Urgosa_the_Healing_Shaman
+ 7965  6090  1525  2025 Chunkhead_the_Gunslinger
+-9689 -2426  2039  7923 Luigi_the_Rogue
+ 6289  6085     4     8 Allen_the_Scourge,-Born-Under-Blood
+ 4255 -1500   467  9458 Catherine_the_Shadowdancer
+ 6807  8202  4725  9051 Thick-McRunFast_the_Legendariously-Brave-hearted
+ 6026  4112  4744  9951 Orykle_the_Knight
+ 8876 -4468   761  1886 Braeor_the_Artificer
+ 7293  1990  1222  1315 Braeor_the_Gunslinger
+ 1212  3939    81  3654 Alok_the_Dead
+-5368  4640  7845  8096 Chad_the_Binder
+  -32  6364  3624  9819 Peach_the_Basement-Dweller
+ 6092  4669  4040  7634 Alok_the_Wizard
+-4621 -3554  1243  9165 Ndomukong_the_Oracle
+-3806  2586  1195  2956 Moon-Moon_the_Blackguard
+-5847 -9995   204   217 Peach_the_Heavy-footed
+ -663  2691  2292  5461 Rock-Party_the_Bomb-diggity
+-2429  7358  4089  8990 Spinny-McCrazyPants_the_Grumpy-Pants

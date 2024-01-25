@@ -1,0 +1,17 @@
+-3072 -1455  8860  9025 Urgosa_the_Healing_Shaman
+ 2688 -5113   936  6476 Sweeney_the_Adept
+ 8958  2368  8447  9150 Jumbo_the_Blind
+-2669 -4961  2547  9067 Michael_the_Flatulent
+-8003 -1126  5545  5677 Polong_the_Monster-Hunter
+-6716  8602  4489  9598 Jumbo_the_Knight
+ 4718  6097    66  4714 Thick-McRunFast_the_Hunter
+-6953  8640    55   657 Donald_the_Dragonslayer
+-2917 -3634  1716  2686 Veleny_the_Adept
+ 3096  6995  1752  4105 Parappa_the_Whisperer
+-2039 -2168  6249  8283 Sir-Robin_the_Alchemist
+ 1968  5777  1198  2446 Braeor_the_Warmage
+-6298  7733  1665  4909 Dasha_the_Merchant
+-5356 -5669  1779  4608 Veleny_the_Flatulent
+-1911  9077  3870  4903 Veleny_the_Jester
+-7109 -1217  2616  5468 Rock-Party_the_Princess
+ -641 -8973  1795  5088 Tina_the_Dragon-Rider

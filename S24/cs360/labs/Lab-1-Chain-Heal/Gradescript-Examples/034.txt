@@ -1,0 +1,12 @@
+   93   159    39   671 Urgosa_the_Healing_Shaman
+  149   157     1   655 Gandia_the_Basement-Dweller
+  137  -191   282   621 Moon-Moon_the_Death-Knight
+   73   211   392   678 Conam_the_Healer
+ -274  -181    18    68 Ben_the_Sorcerer
+ -160    24   317   624 Adam_the_Shadowdancer
+  159    15   107   201 Beast_the_Artificer
+   30  -223   180   539 John_the_Barbarian
+  111  -166   237   300 Chunkhead_the_Falsely-Accused
+  216    55   372   507 Parappa_the_Insane
+ -259   270   460   545 Peter_the_Paladin
+  -57   -13   276   541 Gristle-McThornBody_the_Witchhunter

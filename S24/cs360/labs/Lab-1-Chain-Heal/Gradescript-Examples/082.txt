@@ -1,0 +1,34 @@
+-2983  4047   572  1379 Urgosa_the_Healing_Shaman
+ 8564   856  1991  8846 Conam_the_Fighter
+ 4547 -3637  4160  5136 Ash_the_Princess
+ 4094 -7074  6361  8141 Adam_the_Big-boned
+-3504  -842    17  4591 Dasha_the_Shaman
+ 7810   282  1366  8720 Chunkhead_the_Archer
+-7277 -5073  2002  3676 Sabastian_the_Arcane-Archer
+-3137  3196  3905  6163 Buff-HardBack_the_Assassin
+-4808  5246   441   720 Beast_the_Binder
+-7309  3470    98  1211 Gorex_the_Angel
+ 6972  8179  3715  4957 Shawn_the_Knight
+-3189 -4145  1818  4064 Spinny-McCrazyPants_the_Barbarian
+ -825  7872  2143  4271 Elizabeth_the_Blackguard
+ 9937  6132  1091  3778 Shawn_the_Summoner
+-7599 -2601  6406  6425 Fist-RockBone_the_Thug
+ 7692 -5773  4996  6846 Gristle-McThornBody_the_Big-boned
+-4757  9698  4982  6066 Tiny_the_Worst
+-5659  9363  1397  1747 Maelshan_the_Catpurse
+ 7596  8064  5261  8020 Ash_the_Cleric
+ 5139 -5068  1158  1534 Malicah_the_Blind
+ 9794  6953  1508  1832 Varrus_the_Hero,-Born-Under-Justice
+-9377 -7660    95  9478 Pitbull_the_Bard
+-3945 -9303  2751  4360 Thor_the_Smelly
+ 5466  6966  2224  6285 Grell_the_Warlord
+ 7285 -4128  4051  5177 Moon-Moon_the_Dead
+ 1149 -9821  1346  5516 Moon-Moon_the_Paladin
+-3118 -2163     4   108 Mario_the_Cleric
+-3278 -4679   574   721 Michael_the_Awesome,-Born-Above-Heaven
+-9064  7491  4753  5353 Luigi_the_Heavy-footed
+ 8219 -4137  1277  1311 Aldaricht_the_Ginormous
+-4377 -2707   492  2608 Thick-McRunFast_the_Destroyer,-Born-Under-Chaos
+ 2758  -622   635  8443 Hector_the_Demon
+ 4548  3364  1053  3620 Fist-RockBone_the_Dead
+ 3872  4162  1931  3687 Gandia_the_Angsty-Teenager

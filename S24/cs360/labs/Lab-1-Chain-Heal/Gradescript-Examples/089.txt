@@ -1,0 +1,15 @@
+-9790  6043  2573  5520 Urgosa_the_Healing_Shaman
+-4404  9132  6492  8352 Chad_the_Ardent
+ 3026 -3181  6274  8502 Thick-McRunFast_the_Scavenger
+-9423  -302   172   871 Veleny_the_Medic
+-2487  4979  2413  6205 Riyuu_the_Catpurse
+   80 -6118  6756  7601 Peter_the_Gunslinger
+-4615  1600  6974  7442 Sir-Robin_the_Inquisitor
+ 6781  6617  4544  8684 Big-McLargeHuge_the_Ninja
+ 5600  3238  1325  5261 Sabastian_the_Priest
+ 8702 -3346  2928  5292 Donald_the_Rogue
+-3037 -4759  4003  5346 Donald_the_Divine-Born
+  -64 -6873  3294  3354 Spartacus_the_Wizard
+ 9859 -5313   535  1501 Buff-HardBack_the_Scavenger
+-4897 -5110   665  7987 Allen_the_Rapper
+ 2923   358   687  2735 Aldaricht_the_Delver

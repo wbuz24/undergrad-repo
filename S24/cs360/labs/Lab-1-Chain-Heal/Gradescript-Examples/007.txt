@@ -1,0 +1,10 @@
+ 7881 -2965  3381  8685 Urgosa_the_Healing_Shaman
+-6460 -7196  1285  2741 Pitbull_the_Delver
+ 1385  3848     4   211 Riyuu_the_Arcane-Archer
+-2881  5970  1307  7372 Paloc_the_Ugly
+ 4201 -8567   982  5162 Bolt-VanderHuge_the_Dragonslayer
+ 6432 -9314  2299  5270 Tina_the_Jester
+ 1647   778  1329  5151 Varrus_the_Paladin
+-6703   209  1762  2097 Rock-Party_the_Scourge,-Born-Under-Blood
+ 5904  8308  3095  4970 Joker_the_Knight
+ 9162 -3158  1070  1425 Catherine_the_Princess

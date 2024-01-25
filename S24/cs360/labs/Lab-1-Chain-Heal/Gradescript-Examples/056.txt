@@ -1,0 +1,16 @@
+-3305  4624  3280  8938 Urgosa_the_Healing_Shaman
+-3320  4412  3052  8858 Aldaricht_the_Arcane-Archer
+ 8454  7944  6169  7728 Parappa_the_Gladiator
+ 2341  -869   688  4881 Veleny_the_Barbarian
+-1036  5116  1899  4055 Alok_the_Druid
+ -860  3803  3860  9371 Allen_the_Spidermage
+-5074 -1210  1762  2956 Literally_the_Wizard
+ 1579  3585   652   918 Ash_the_Time-Lady
+ 7954   954  2297  3463 Fist-RockBone_the_Sorcerer
+-9818 -1723  3529  4646 Thor_the_Duelist
+-6696 -7840   532   780 Rock-Party_the_Bard
+-6012  2157    53  4660 Spartacus_the_Medic
+-9336  7808  1145  4119 Moon-Moon_the_Scout
+-6063 -7073  1813  3901 Braeor_the_Weak-Minded
+-1260  6454  1805  5561 Chunkhead_the_Dead
+ 5854 -6024  4235  9633 Chad_the_Weak-Minded

@@ -1,0 +1,54 @@
+ 6428 -9686    54    65 Urgosa_the_Healing_Shaman
+-3522  8994   741  3644 Tiny_the_Oracle
+  822 -5830  6099  6190 Veleny_the_Summoner
+-6644  4122  1239  1707 Gristle-McThornBody_the_Spidermage
+-8885  -146  1017  6701 Rob_the_Doctor
+ 9874 -6039  1437  4382 Paloc_the_Ninja
+ 4233  9497   209  7290 Riyuu_the_Weak-Minded
+-4485 -1177  1107  1921 Adam_the_Divine-Born
+ 9261  3893  1984  3726 Elizabeth_the_Rapper
+-8609  7227   556  3257 Rock-Party_the_Shadowdancer
+-5860 -9625   321  3211 Spinny-McCrazyPants_the_Gladiator
+-3873  1535   100  1342 Chad_the_Butler
+ 7519  -587   685  1581 Chad_the_Paladin
+ -788  8366  7547 10000 Dasha_the_Artificer
+ -824 -1194   278   455 Varrus_the_Binder
+ 7985  3673   685  9180 Riyuu_the_Tiny
+ 5204  8563    59  1184 Gristle-McThornBody_the_Time-Lady
+  261 -1564  5089  5361 Ash_the_Artificer
+-8406 -3811   354   674 Braeor_the_Warrior
+-2728  4414  4027  8332 Sir-Robin_the_Tiny
+ 9249  -706  1153  4006 Rock-Party_the_Illusionist
+ -104 -2103   564  1092 Gristle-McThornBody_the_Dragonslayer
+-3565   218  1494  3462 Chad_the_Big-boned
+ 2293 -9426  8094  8779 Danielle_the_Merchant
+-4266  9463   901  1255 Bolt-VanderHuge_the_Bounty-Hunter
+-9975 -4274   830  3098 Donald_the_Cleric
+-5192  5312  4064  9754 Beavis_the_Falsely-Accused
+-9268  1963   562  7743 Ciel_the_Smelly
+ 5285 -1651  1341  1367 Fyzix_the_Monk
+ -304 -2500   641  2621 Beavis_the_Priest
+ 5014 -9485   814  2366 Malicah_the_Doctor
+-9142 -9435  2001  9193 Malicah_the_Psychic-Warrior
+ -420 -6004    84   690 Dasha_the_Bounty-Hunter
+ 3892  5694  2657  6709 Dylan_the_Reaper
+ -887  4760   843  1707 Peach_the_Jester
+ 8490  7161   103  2995 Big-McLargeHuge_the_Smelly
+-7808 -1831  7459  8688 Literally_the_Awesome,-Born-Above-Heaven
+ 8238 -4504   523   944 Chunkhead_the_Cavalier
+ 1667 -6463  8587  9366 Fist-RockBone_the_Demon
+ 3665   453  3043  9106 Jumbo_the_Princess
+ 9215  3700  1948  5793 Peach_the_Worst
+ 5340 -7021  2126  5976 Peter_the_Time-Lord
+-9175 -1917  3371  4349 Dirk-HardPec_the_Awesome,-Born-Above-Heaven
+-5111 -7020  3169  3828 Beast_the_Psion
+-9507  8806   272  4592 Wendy_the_Mage
+ -742 -2930  5860  8783 Aldaricht_the_Space-Marine
+ 6876 -7516  2931  3479 Tina_the_Rogue
+ 5825 -4994  2643  8306 Beavis_the_Swashbuckler
+-8965  3768  1377  3794 Big-McLargeHuge_the_Psion
+-1465  6030   159  2308 Urgos_the_Gladiator
+ 4547 -2191  2299  2566 Tiny_the_Battlerager
+ 1180  5053  9050  9437 Ben_the_Demon
+ 1717 -8889    46  7799 Parappa_the_Twelve-Fingered,-Son-of-Herman-Li
+-8690 -9818  1062  1486 Chunkhead_the_Warmage

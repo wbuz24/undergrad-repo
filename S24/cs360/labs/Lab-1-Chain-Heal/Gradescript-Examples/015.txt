@@ -1,0 +1,10 @@
+-5844 -7510    18    21 Urgosa_the_Healing_Shaman
+ -751   144     2     3 Gorex_the_Rogue
+-3194 -4260     4     5 Parappa_the_Warlord
+ 7381   109     6    10 Sir-Robin_the_Warrior
+ 6741  7327     5     7 Malicah_the_Soulknife
+ 6434  5166     2     3 Fist-RockBone_the_Ugly
+-5179  3270     3    16 Maelshan_the_Arcane-Archer
+ 7723 -5717     6     6 John_the_Legendariously-Brave-hearted
+ 7911 -4399     3     3 Smoke-ManMuscle_the_Wizard
+-8912 -4407     5     8 Peach_the_Hunter

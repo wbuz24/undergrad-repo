@@ -1,0 +1,10 @@
+ 5826  8286     0     2 Urgosa_the_Healing_Shaman
+-8534  1288     8     9 Allen_the_Time-Lord
+ 9515  8366     0    22 Aldaricht_the_Druid
+-1585 -6042     8    17 Doll_the_Medic
+ 4470  1313     2     8 Big-McLargeHuge_the_Scout
+ 4150 -7674     0     1 Fyzix_the_Hero,-Born-Under-Justice
+ 2281  4643     8    11 Pitbull_the_Grumpy-Pants
+-1933 -5142    15    20 Paloc_the_Severly-Flawed
+-8926  6786     0    12 Fluffy_the_Shin-Kicker
+ 1493 -3766    11    17 Buff-HardBack_the_Lurk

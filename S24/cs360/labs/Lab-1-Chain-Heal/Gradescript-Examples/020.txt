@@ -1,0 +1,10 @@
+ 7235  -790     3    10 Urgosa_the_Healing_Shaman
+ 6208 -7102    24    24 Spinny-McCrazyPants_the_Cleric
+-6247  7135     0     8 Donald_the_Thug
+-2441 -9596     2     7 Buck-PlankChest_the_Hunter
+ 5157  6541     6    19 Spinny-McCrazyPants_the_Priest
+ -141  -954     6    12 Grell_the_Weak-Minded
+ 8905  8105     2     5 Luigi_the_Scout
+-7565   105     3     4 Alvin_the_Summoner
+ 2161 -4822    12    12 Spartacus_the_Barber
+-7342 -2186    15    15 Tempest_the_Worst

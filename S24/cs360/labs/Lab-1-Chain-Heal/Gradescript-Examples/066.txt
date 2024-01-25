@@ -1,0 +1,24 @@
+ 3937 -6043   353  3964 Urgosa_the_Healing_Shaman
+-4254  4947   268  1820 Parappa_the_Death-Knight
+-2398  4948  2439  5682 Buff-HardBack_the_Doctor
+-4745 -7766    68  1827 Cher_the_Bard
+ 6527  4515  2447  9033 Parappa_the_Summoner
+ 9092  1042  2114  2925 Spinny-McCrazyPants_the_Archer
+-1435  2740  8678  9582 Joker_the_Beastlord
+ 2253 -5042   250   296 Aldaricht_the_Spidermage
+ 4128 -9194  2491  3257 Conam_the_Priest
+-9192  -424  2131  5144 Luigi_the_Bomb-diggity
+ 6758  -797  1201  5294 Gandia_the_Angel
+-9221  8101  4228  9718 Malicah_the_Monk
+-3611 -7581  5987  9961 Alvin_the_Angsty-Teenager
+-4414 -9080    81  2623 Gristle-McThornBody_the_Monster-Trainer
+  887 -4301   411  6715 Fluffy_the_Barber
+-4712  -967  3985  8515 Tiny_the_Adept
+-5102  1811   582  1740 Blast-ThickNeck_the_Weak-Minded
+-7460 -4888  4714  5089 Fluffy_the_Falsely-Accused
+-1839  -854  1668  6053 Urgos_the_Battlerager
+-9106 -8819  1342  7123 Grell_the_Inquisitor
+  290 -8469   668  4385 Spartacus_the_Scout
+-3752  6640  1651  8499 Hector_the_Ranger
+-7387  1147  2027  7849 Chad_the_Mage
+ 3276  8717    60  6594 Orykle_the_Necromancer

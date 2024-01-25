@@ -1,0 +1,11 @@
+ 9128 -6482  7193  9150 Urgosa_the_Healing_Shaman
+-3694   981  3721  5537 Conam_the_Hero,-Born-Under-Justice
+-5952  6346  3243  7355 Moon-Moon_the_Binder
+-7041  1303    98   336 Spinny-McCrazyPants_the_Bard
+-1664  3158    60    74 Allen_the_Medic
+ 5993  6043    13    51 Ndomukong_the_Computer-Scientist
+-3733 -5328   368  1847 Ben_the_Thief
+ 1709  5582   356  6150 Michael_the_Cleric
+-5260  7402  1826  2939 Alok_the_Gunslinger
+-4751  5191  2007  2766 Beavis_the_Catpurse
+ 2237  8411  1378  8728 Beast_the_Monk

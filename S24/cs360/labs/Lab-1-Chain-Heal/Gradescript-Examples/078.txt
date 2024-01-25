@@ -1,0 +1,31 @@
+-4392 -6878  1791  2771 Urgosa_the_Healing_Shaman
+-2457  9246  5461  5931 Gorex_the_Alchemist
+  308 -2406   668  3673 Alvin_the_Bomb-diggity
+ 4950 -7241  2380  6226 Bolt-VanderHuge_the_Doctor
+-4191 -6070   287  4432 Maelshan_the_Thug
+-4179 -6438   756  1932 Thick-McRunFast_the_Medic
+ 6100  7745  2189  7109 Ciel_the_Scavenger
+ 2495 -2051  6968  9479 Sabastian_the_Wizard
+ 4106 -3147  4700  5120 Urgos_the_Ugly
+ 1526  1890  1456  1463 Riyuu_the_Merchant
+-3666  2378  1370  5877 Conam_the_Alchemist
+-7529  9134  2450  2453 Beavis_the_Gunslinger
+ -640 -5414  2268  3520 Pitbull_the_Priest
+ -742   -23   116  2814 Wendy_the_Flatulent
+ 5788  3860    31   770 Polong_the_Battlemage
+ 7066  7978  3862  8402 Michael_the_Angsty-Teenager
+-9942  -890  1373  9907 Cher_the_Insane
+-9708  1127    99   656 Thor_the_Shadowdancer
+ 7353   477   682  1212 Ash_the_Divine-Born
+-5621  -583  7978  8978 Malicah_the_Worst
+ 1384   824  3060  4136 Conam_the_Oracle
+ 1775  4812  5100  5106 Alvin_the_Monk
+-8396  -546   422  1360 Joker_the_Dragonslayer
+ 1025  2387  1836  2225 Alok_the_Falsely-Accused
+-6639  9190  1263  1626 Fluffy_the_Bard
+-2971   778   636  2312 Dirk-HardPec_the_Angsty-Teenager
+-9846 -9630  1733  2036 Bolt-VanderHuge_the_Shin-Kicker
+-2666  1747   941  7317 Donald_the_Spider-Rider
+  690  3442    58   441 Riyuu_the_Ninja
+-9008  1299  4695  5596 Spartacus_the_Bounty-Hunter
+  430  6160   828  1928 Thor_the_Mage

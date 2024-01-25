@@ -1,0 +1,24 @@
+-4448  3113  1407  4867 Urgosa_the_Healing_Shaman
+-2571 -5007   765  9147 John_the_Basement-Dweller
+-2735 -5139  1342  2121 Hector_the_Wizard
+ 8545 -1491  1677  3970 Joker_the_Artificer
+-3502  9031  1572  2016 Elizabeth_the_Arcane-Archer
+ 9155  3043   174   716 Cher_the_Whisperer
+ 8525 -9255  2103  8821 Eric_the_Blackguard
+ 1318  -410   560  6807 Peach_the_Binder
+-9340 -8222  4272  4512 Beavis_the_Mystic
+   48  4451  5424  5703 Chad_the_Psyblade
+ 7997 -4060  5614  7589 Bolt-VanderHuge_the_Blind
+ 1675  2901  2734  5269 Riyuu_the_Archer
+-9722  8743  1128  2864 John_the_Cavalier
+ 8978 -1357   265  3150 Rock-Party_the_Battlerager
+ 9191   329  1560  3010 Beavis_the_Rogue
+  437 -3913  2805  3490 Big-McLargeHuge_the_Severly-Flawed
+ 8277 -1124   241  9427 Ben_the_Scout
+ 4291  4998  7327  8704 Peach_the_Spider-Rider
+  607  2696    19  5788 Tina_the_Divine-Born
+ 9007  8278  4126  9698 Elizabeth_the_Tiny
+ 4407  5554   469  5448 Urgos_the_Arcane-Archer
+ 4174 -3191   853   978 Buff-HardBack_the_Dragonslayer
+ 5305  2347   492  1552 Blast-ThickNeck_the_Time-Lord
+ 5684  9650   948  2321 Mario_the_Summoner

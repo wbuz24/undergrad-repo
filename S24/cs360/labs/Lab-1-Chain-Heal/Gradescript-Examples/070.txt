@@ -1,0 +1,12 @@
+ 8598 -5660  5842  8954 Urgosa_the_Healing_Shaman
+-5095 -3969  2118  3034 Grell_the_Bladesinger
+ 1666 -5007   590  1392 Sweeney_the_Mystic
+ 8366  8889  2460  7249 Ben_the_Ardent
+-6553 -7140   163  2455 Conam_the_Knight
+-9000 -4238  2992  9371 Luigi_the_Worst
+-7823  7470  7788  8732 Alok_the_Swashbuckler
+ -329  5494   204  2246 John_the_Insane
+ 3968  7551   681   743 Luigi_the_Sorcerer
+-2779 -8644  2817  8966 Hector_the_Arcane-Archer
+ 5837  6989   117  1084 Moon-Moon_the_Butler
+-8845  7762  1768  2548 Ciel_the_Medic

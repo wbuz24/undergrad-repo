@@ -1,0 +1,12 @@
+ -250    63   197   642 Urgosa_the_Healing_Shaman
+  257  -282    21   397 Spartacus_the_Time-Lady
+  149  -135   415   531 Conam_the_Swashbuckler
+ -222  -174    60   496 Grell_the_Shadowdancer
+  209  -134   186   342 Maelshan_the_Sorcerer
+   45   219   133   251 Veleny_the_Butler
+   74    99   248   383 Tiny_the_Ranger
+  -92  -299    37    50 Donald_the_Thief
+  218   206    30   191 Parappa_the_Merchant
+  267   269   318   698 Spinny-McCrazyPants_the_Gunslinger
+ -172   282   295   344 Mario_the_Hacker
+ -174   228   220   239 Eric_the_Falsely-Accused

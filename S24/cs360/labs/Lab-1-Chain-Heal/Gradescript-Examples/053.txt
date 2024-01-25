@@ -1,0 +1,22 @@
+ 7985 -7993  6064  8727 Urgosa_the_Healing_Shaman
+-2945 -8438  1257  2178 Riyuu_the_Necromancer
+ 2860 -6737  1561  1748 Gandia_the_Ranger
+-4558   681  5633  9425 Fist-RockBone_the_Awesome,-Born-Above-Heaven
+ -409  7073    93  8035 Dylan_the_Blind
+-7714  5283   764  5044 Blast-ThickNeck_the_Gladiator
+ 9866  6628  6337  7712 Urgos_the_Bard
+ 1448  1587  3697  5687 Jumbo_the_Legendariously-Brave-hearted
+-2553 -5495   218  3988 Riyuu_the_Cavalier
+ 5115 -8636    26   175 Fluffy_the_Hunter
+  650 -7810   323  9185 Grell_the_Princess
+-2168   668    97  4964 Grell_the_Dragonslayer
+-7669  8276  3019  3491 Catherine_the_Illusionist
+-6683  5785  2282  3526 Varrus_the_Archer
+-4175  3392   600  4285 Buck-PlankChest_the_Heavy-footed
+-8715  6893  1190  4738 Braeor_the_Falsely-Accused
+-1317 -3766  3004  8262 Smoke-ManMuscle_the_Barber
+-3362  8260   605   647 Rip-SteakFace_the_Insane
+ 8935   997  7907  8696 Alok_the_Bounty-Hunter
+ 9757  1538  3560  4674 Beavis_the_Gladiator
+  709 -3974   127   156 Dasha_the_Scout
+-9703 -9561  6026  8298 Shawn_the_Bard

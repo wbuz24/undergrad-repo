@@ -1,0 +1,34 @@
+ 6047  5625  3994  6276 Urgosa_the_Healing_Shaman
+ 4635 -8720   223   407 Beavis_the_Well-Endowed
+ 6240  3143   885  4321 Peach_the_Psion
+-4576  8101   380  8070 Rock-Party_the_Battlemage
+-9707  7826   566  3904 Literally_the_Cavalier
+ 5305  8282  3175  3929 Allen_the_Priest
+-4568 -4038  6554  8029 Allen_the_Reaper
+ 8762 -3749   309  1452 Adam_the_Reaper
+-4411  6261  2014  6193 Blast-ThickNeck_the_Delver
+-4080 -4049  2750  6628 Beast_the_Tiny
+-6389  8690  8486  8814 Riyuu_the_Sorcerer
+-9218  5504  1930  7897 Fyzix_the_Flatulent
+ -517  7632   749  3280 Joker_the_Inquisitor
+-1201 -4303  1367  3083 Tiny_the_Battlemage
+-2767 -7422    82  2938 Peach_the_Falsely-Accused
+ 1993  5617   686  2583 Urgos_the_Swashbuckler
+ 6639 -9677  7064  8627 Gandia_the_Demon
+ 6603  2928  2795  9516 Conam_the_Death-Knight
+ 7283 -9345  1345  3285 Moon-Moon_the_Ginormous
+-8655  8907   407  1367 Peach_the_Lurk
+-1620 -2261  5165  5417 Dirk-HardPec_the_Fighter
+-9613  2144   225  2879 Dasha_the_Summoner
+ 1510 -7926  3986  5673 Smoke-ManMuscle_the_Legendariously-Brave-hearted
+ 2748  4625  1824  3190 Paloc_the_Warmage
+ 3459 -1418    86   106 Michael_the_Dragonslayer
+ 1670 -3748  1397  2917 Dirk-HardPec_the_Warlock
+ 2883 -6498    29   301 Elizabeth_the_Sorcerer
+-8959  4157  2122  2826 Beast_the_Glam-Rocker
+ 8034 -2412  7750  8938 Moon-Moon_the_Awesome,-Born-Above-Heaven
+-3738  8099  7601  8680 Smoke-ManMuscle_the_Mystic
+-5057 -8076   305   401 Smoke-ManMuscle_the_Shin-Kicker
+ 7496  5871   507  2100 Polong_the_Psyblade
+-7417 -3746   326  1237 Eric_the_Bomb-diggity
+  739 -4154  7944  8032 Tiny_the_Bard

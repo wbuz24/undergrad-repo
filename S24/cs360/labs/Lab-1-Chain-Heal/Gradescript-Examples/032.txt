@@ -1,0 +1,12 @@
+  115   286     6    30 Urgosa_the_Healing_Shaman
+ -130  -168   140   318 Mario_the_Heavy-footed
+  -14   235   283   404 Doll_the_Big-boned
+   61  -220    30   341 Malicah_the_Senile
+   25  -276    87   523 Malicah_the_Princess
+   30   106   448   671 Ash_the_Smelly
+ -207  -154     2   140 Elizabeth_the_Space-Marine
+  209    -8     7   118 John_the_Insane
+ -166   291     9   215 Aldaricht_the_Warmage
+   49   229   131   278 Parappa_the_Oracle
+  103  -290   165   248 Mario_the_Whisperer
+  242   169   347   444 Parappa_the_Beastlord

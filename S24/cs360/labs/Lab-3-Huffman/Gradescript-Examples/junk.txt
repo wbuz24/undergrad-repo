@@ -1,0 +1,10 @@
+sh do_it.sh 090 020-clear.txt 100000
+sh do_it.sh 091 021-clear.txt 1
+sh do_it.sh 092 022-clear.txt 10
+sh do_it.sh 093 023-clear.txt 1000
+sh do_it.sh 094 024-clear.txt 10000
+sh do_it.sh 095 025-clear.txt 10000
+sh do_it.sh 096 026-clear.txt 10000
+sh do_it.sh 097 027-clear.txt 10
+sh do_it.sh 098 058-clear.txt 10
+sh do_it.sh 099 029-clear.txt 1000

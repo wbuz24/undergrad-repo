@@ -1,0 +1,22 @@
+ 8979  2751  8727  9095 Urgosa_the_Healing_Shaman
+-9531 -6256  4873  6271 Dasha_the_Summoner
+-3752  6021  6074  6909 Braeor_the_Rogue
+ 6298  4910   772   886 Shawn_the_Ranger
+-5731  4889  1869  5252 John_the_Monster-Trainer
+-8152  1442   765  9824 Hector_the_Whisperer
+  978  4725  1857  4345 Rob_the_Barber
+ 6425  8066  1608  9067 John_the_Barbarian
+-6082  1462  2354  8276 Beast_the_Catpurse
+-7308  6353  1408  5595 Buck-PlankChest_the_Ugly
+ 6366 -7605    46  5481 Polong_the_Time-Lady
+-7221  3793   822  2345 Alvin_the_Dragon-Rider
+ 7721 -8238  1664  7236 Adam_the_Psychic-Warrior
+-5149  8806  7653  8066 Joker_the_Druid
+ -939  2190  3395  8662 Rob_the_Fighter
+-5974  7811  2927  3766 Allen_the_Battlerager
+-1359 -9853   293  1367 Mario_the_Awesome,-Born-Above-Heaven
+ 9007  9477  3433  3988 Shawn_the_Adept
+ 4774 -3345  2311  6000 Rip-SteakFace_the_Priest
+ 9534 -9828  4510  8134 Dirk-HardPec_the_Artificer
+ 6544 -1076  3162  7468 Tempest_the_Scourge,-Born-Under-Blood
+  990 -7316    26   102 Doll_the_Dragonslayer

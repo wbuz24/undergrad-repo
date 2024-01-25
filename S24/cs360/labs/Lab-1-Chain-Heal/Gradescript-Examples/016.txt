@@ -1,0 +1,10 @@
+ 6473  6110     3     3 Urgosa_the_Healing_Shaman
+-1200  1193    21    25 Buck-PlankChest_the_Ugly
+-2853  5080     4    22 Gorex_the_Jester
+-2026  5804     1     6 Beavis_the_Assassin
+ 3513  2484    10    25 Fluffy_the_Grumpy-Pants
+-9279  3966     8     8 Thick-McRunFast_the_Adept
+-8697 -2685     6     6 Ben_the_Cleric
+-1072 -1318     5    14 Elizabeth_the_Princess
+-1461   -86     6    19 Beast_the_Dead
+-2005 -4737     1     3 Buff-HardBack_the_Blind

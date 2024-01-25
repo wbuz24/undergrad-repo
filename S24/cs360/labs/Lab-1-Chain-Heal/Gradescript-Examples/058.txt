@@ -1,0 +1,23 @@
+-2924  9314  8759  9079 Urgosa_the_Healing_Shaman
+ 8524  2125  2057  2095 Spinny-McCrazyPants_the_Reaper
+ 6757 -1029  3068  3245 Varrus_the_Monk
+ 3994 -4848  2915  8518 Parappa_the_Smelly
+ -214 -2856  2156  6852 Conam_the_Inquisitor
+ 3709  9483  1885  9824 Varrus_the_Sorcerer
+ 3727 -3955   597  2217 Ciel_the_Cleric
+ 8333  6157  2896  7739 Rob_the_Hunter
+-2096 -1414   964   996 Tina_the_Catpurse
+ 5654  9553   764  1275 Michael_the_Destroyer,-Born-Under-Chaos
+-6167 -2433   386  1529 Buff-HardBack_the_Shaman
+ -667 -1812  3218  4457 Orykle_the_Dragon-Rider
+-1300  3310  1772  2420 Doll_the_Time-Lord
+-1929  1875   143   818 Smoke-ManMuscle_the_Tiny
+ 4404 -7319  2134  3078 Jumbo_the_Ardent
+-8155 -4247  1371  2582 Aldaricht_the_Worst
+-8626 -8168  5405  6007 Malicah_the_Witchhunter
+ 2645  3310  2668  4788 Tempest_the_Arcane-Archer
+-2146  1110   439  5344 Allen_the_Psychic-Warrior
+-3566 -5973   189   262 Veleny_the_Blackguard
+ 7881  4332  1800  3452 Sir-Robin_the_Medic
+ 5929  -178   444  3830 Malicah_the_Fighter
+ 8727 -5079     3     4 Michael_the_Hunter

@@ -1,0 +1,45 @@
+ 7660 -2673  1785  2842 Urgosa_the_Healing_Shaman
+ 5326  8102  3227  5725 Spinny-McCrazyPants_the_Summoner
+ 7600  4969  4371  7783 Pitbull_the_Shin-Kicker
+-2364 -1090  4001  8044 Orykle_the_Oracle
+-5641   -56  4523  7654 Aldaricht_the_Thug
+-1895  6402  1541  2159 Sweeney_the_Adept
+-1360  6372   412  6739 Ben_the_Druid
+-4129 -2626  1420  1538 Ndomukong_the_Spidermage
+  942  5669   466   711 Ash_the_Basement-Dweller
+-8879 -2472  1943  2954 Tiny_the_Insane
+ 4738 -3058  1932  3076 Gristle-McThornBody_the_Space-Marine
+ 3284 -9131   224  2351 Adam_the_Soulknife
+ 9657  2338  3774  5846 Fluffy_the_Psychic-Warrior
+ 3185 -5550  4253  6273 Sir-Robin_the_Duelist
+ 6759 -3026  1671  4528 Chad_the_Artificer
+ 8202 -2994  1874  3053 Spartacus_the_Legendariously-Brave-hearted
+ 9342 -1771  3246  6185 Thor_the_Death-Knight
+ 8982  8881  5800  6754 Gristle-McThornBody_the_Oracle
+-8632  9524   977  6731 Donald_the_Monk
+ 9203 -2830   413   637 Hector_the_Beastlord
+ 6818  9742   185   255 Bolt-VanderHuge_the_Butler
+-1610  2689   471   565 John_the_Thief
+ 9068 -6474    50   255 Peter_the_Psychic-Warrior
+-7343 -4638  4122  6844 Dylan_the_Psychic-Warrior
+-2361 -1650  4301  9024 Donald_the_Whisperer
+-8794  2376  4543  5579 Smoke-ManMuscle_the_Scourge,-Born-Under-Blood
+ 2397  6276  8793  9939 Spinny-McCrazyPants_the_Battlemage
+ 5320 -9350  4641  6128 Gandia_the_Inquisitor
+ -684 -8038  7530  8480 Paloc_the_Tiny
+-9152 -4001  7161  9390 Hector_the_Scavenger
+-2674 -6405  6179  7911 Big-McLargeHuge_the_Demon
+ 8063  5085  2397  4922 Gorex_the_Cleric
+  770   923  1478  1819 Maelshan_the_Whisperer
+-7680  1153  4270  5862 Urgos_the_Lurk
+-4092 -7975  1067  2532 Varrus_the_Angsty-Teenager
+-1593  4853  2792  6708 Urgos_the_Oracle
+ 9603 -9518    41   681 Gristle-McThornBody_the_Rogue
+-4851 -8046   145   225 Elizabeth_the_Battlerager
+-5877  8007  1071  2575 Beast_the_Paladin
+ 6937  7213    42   435 Danielle_the_Warmage
+-4101  2162  3462  6266 Dylan_the_Thug
+-2505 -8595  3474  4393 Bolt-VanderHuge_the_Ranger
+-2344 -2293  8528  8582 Gristle-McThornBody_the_Necromancer
+-4060  4430  1386  7413 Gandia_the_Warrior
+-7780  8599   881  2905 Big-McLargeHuge_the_Assassin

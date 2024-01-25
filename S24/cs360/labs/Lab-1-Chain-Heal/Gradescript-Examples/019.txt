@@ -1,0 +1,10 @@
+-4817 -4995     7    14 Urgosa_the_Healing_Shaman
+-1575 -5958     3     7 Gorex_the_Goblin
+ 2741  3481    18    25 Peach_the_Demon
+ 8594  4254    11    14 Peach_the_Awesome,-Born-Above-Heaven
+ 6607   527    10    22 Fluffy_the_Priest
+-2425  6207     5    10 Hector_the_Hacker
+-3636  9478     7    25 Peter_the_Basement-Dweller
+ -941   680     7    18 Chad_the_Adept
+ 5325  6363     4    19 Polong_the_Tiny
+ 3063  2176     8    24 Peter_the_Artificer

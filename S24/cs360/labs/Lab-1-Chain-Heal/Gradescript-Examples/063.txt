@@ -1,0 +1,32 @@
+-4774  1341  2230  3753 Urgosa_the_Healing_Shaman
+-3879 -7903  2842  5140 Fluffy_the_Spider-Rider
+-7992  6547  3654  6054 Ciel_the_Librarian
+ 8357 -9937    11    19 Donald_the_Barber
+ 3433  6472  1771  3013 Veleny_the_Ninja
+ 2238  2522  1106  8598 Varrus_the_Mage
+-2775  6857   226   690 Tina_the_Death-Knight
+ 2122 -7040  3415  5065 Gristle-McThornBody_the_Hunter
+-2658  4358  3261  3782 Ndomukong_the_Adept
+ 5741 -7337   510   673 Alok_the_Dragon-Knight
+-5897  2954  2509  3699 Ben_the_Merchant
+-5377 -9668     3    22 Tempest_the_Duelist
+-1944 -7113  9213  9333 Donald_the_Shaman
+-5034  3778   682  2248 Varrus_the_Ranger
+-5749 -7363  2262  5439 Donald_the_Fighter
+ 4441 -8051   346  3620 Tempest_the_Goblin
+  772  4452  6202  6552 Rip-SteakFace_the_Mystic
+ 3913 -8151   765  3145 Alvin_the_Ninja
+-6447  4567  4382  6794 Sir-Robin_the_Destroyer,-Born-Under-Chaos
+-9857 -5801   361  2148 Pitbull_the_Worst
+ 3987  4781  1119  3326 Sabastian_the_Angsty-Teenager
+-9875  9290   709  1180 Tempest_the_Wizard
+  226 -4789  5011  7518 Doll_the_Merchant
+-4182  6072    18    35 Peter_the_Psyblade
+-5891 -8947  5309  5855 Hector_the_Well-Endowed
+-8058  6205   629  3570 Buff-HardBack_the_Tiny
+ 6302 -2287   395   466 Mario_the_Alchemist
+-1143 -3107   650  5559 Urgos_the_Princess
+ 9982  6735  1269  4399 Gorex_the_Weak-Minded
+-2953 -8906   215  1653 John_the_Cavalier
+-2124 -6433  4559  5798 Michael_the_Worst
+-9716 -5823  6919  8481 Tina_the_Divine-Born

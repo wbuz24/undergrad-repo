@@ -1,0 +1,10 @@
+-1477 -9685    16    23 Urgosa_the_Healing_Shaman
+ 6582    50    14    20 Michael_the_Senile
+ 8159 -7547     4     6 Beast_the_Barber
+-9339 -8047    18    25 Dasha_the_Heavy-footed
+ 5785  8499     7    25 Buck-PlankChest_the_Insane
+-6994   527     8     9 Spinny-McCrazyPants_the_Librarian
+ 7564 -4057     0    12 Veleny_the_Thug
+-7695 -1892    10    24 Chad_the_Illusionist
+-8347  8731     3    11 Buff-HardBack_the_Hunter
+ 7592 -9100     5    18 Peter_the_Battlemage

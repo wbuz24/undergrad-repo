@@ -1,0 +1,17 @@
+-3364 -4364  1363  7590 Urgosa_the_Healing_Shaman
+-3280  6864  1515  5609 Gandia_the_Reaper
+ 6244  5336  2907  3267 Rock-Party_the_Lurk
+ 6162 -3095  3805  8152 Dirk-HardPec_the_Heavy-footed
+-4326  7130  5626  8146 Ash_the_Oracle
+ 3241 -9119  5609  8267 Dirk-HardPec_the_Assassin
+ 3923 -2328  4040  4415 Ash_the_Smelly
+-9891   624  8649  9342 Buff-HardBack_the_Mage
+ 5242  7614  2174  3187 Spinny-McCrazyPants_the_Scout
+-6501 -7806   238  8230 Gorex_the_Awesome,-Born-Above-Heaven
+ 6443  2772   114   560 Fist-RockBone_the_Swashbuckler
+-4813 -3897  1048  4267 Alvin_the_Dead
+-8861 -7631  5483  5970 Paloc_the_Angel
+ 9524 -6537  4129  6861 Blast-ThickNeck_the_Twelve-Fingered,-Son-of-Herman-Li
+-9542  7451  8643  8908 Ben_the_Worst
+ 1700 -7550   192   249 Parappa_the_Bard
+  399 -8542  3408  7157 Thick-McRunFast_the_Hunter

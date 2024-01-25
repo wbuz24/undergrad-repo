@@ -1,0 +1,20 @@
+ 8747  5108   476  9009 Urgosa_the_Healing_Shaman
+ 4463  3268  2024  2300 Gandia_the_Thug
+-4255 -4682   653  5486 Doll_the_Witchhunter
+-4973  9003  1127  6699 Gristle-McThornBody_the_Goblin
+-2486 -8871  5379  7277 Shawn_the_Goblin
+ 1424 -3358  3586  9598 Adam_the_Delver
+ 7467 -2583   292  2586 Fist-RockBone_the_Necromancer
+-5045  6731  5231  9329 Thor_the_Priest
+ 1069  9770   999  5406 Joker_the_Adept
+ -222 -6085  2720  9785 Fluffy_the_Demon
+ 1708  3004   289  7979 Veleny_the_Ugly
+ 4801   172  1034  4558 Riyuu_the_Warmage
+ 4682 -4441    53    93 Moon-Moon_the_Shaman
+-5857  7401  6747  7360 Wendy_the_Warlord
+ 3432  -432  2590  9319 Rip-SteakFace_the_Battlemage
+ 6990  3005  2594  7932 Rob_the_Healer
+-7908 -7288  5235  9728 Thor_the_Catpurse
+ 7676 -4445  3027  8689 Donald_the_Blackguard
+-2442  8344   409  3474 Gorex_the_Gladiator
+ 5331 -3727  8412  8604 Alvin_the_Angsty-Teenager

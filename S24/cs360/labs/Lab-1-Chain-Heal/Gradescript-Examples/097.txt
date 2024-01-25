@@ -1,0 +1,17 @@
+ 9157 -9967   135   155 Urgosa_the_Healing_Shaman
+ 2221  9403    13  1011 Beavis_the_Insane
+ 7427 -2268  1394  8881 Ciel_the_Shin-Kicker
+ -177 -6758  8422  9034 Michael_the_Doctor
+ -454  9178   583  3080 Orykle_the_Arcane-Archer
+ 8341  1082   477  1716 Moon-Moon_the_Bard
+-3011 -1335  4033  8621 Spinny-McCrazyPants_the_Cleric
+-9665 -2822    56    79 Mario_the_Priest
+-9864  2942   314   696 Michael_the_Librarian
+ 8163 -4418   816  3455 Fyzix_the_Alchemist
+ 4387  9368   738  2477 Peter_the_Soulknife
+ 6187  3950  3626  5581 Gorex_the_Reaper
+-5055 -7960  2885  9608 Blast-ThickNeck_the_Space-Marine
+ 9157 -7594   207  2758 Gristle-McThornBody_the_Druid
+ 7686  2556    27  1706 Danielle_the_Binder
+-8932 -1301   521  2874 Polong_the_Battlerager
+-9591  3767  1725  3323 Moon-Moon_the_Insane

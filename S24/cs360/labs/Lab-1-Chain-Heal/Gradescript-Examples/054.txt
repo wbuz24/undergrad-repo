@@ -1,0 +1,26 @@
+-3686 -3787  6787  8797 Urgosa_the_Healing_Shaman
+ 4837  6699  4391  5621 Buck-PlankChest_the_Healer
+-9850 -3084  5856  5859 Ash_the_Demon
+ 4409  6831   840  1244 Mario_the_Gladiator
+-1858 -6913   338  1258 Sir-Robin_the_Death-Knight
+-5429 -1877  2328  5270 Beavis_the_Swashbuckler
+ 6126  5256   721  3695 Sir-Robin_the_Scout
+-5175  4734  2202  4097 Eric_the_Demon
+-5718  3322  5928  5930 Spinny-McCrazyPants_the_Healer
+-5289  7002   524  1665 Thor_the_Illusionist
+-7225  6754  3444  6383 Parappa_the_Healer
+ 8644  2405  2954  4863 Dylan_the_Scavenger
+ 2629 -3974   567  9466 Thor_the_Legendariously-Brave-hearted
+-6476   259  1838  6984 Shawn_the_Alchemist
+-3203 -3495  4167  8044 Paloc_the_Ginormous
+-3859 -4080  2249  3036 Polong_the_Ugly
+-2035 -4646   569   893 Buff-HardBack_the_Thief
+-4672 -7707  3081  6746 Danielle_the_Hacker
+ 9231 -6237    77   566 Doll_the_Inquisitor
+ 4581  -708  1752  9980 Doll_the_Librarian
+ 6144  4943  1602  2626 Tempest_the_Dragonslayer
+ 3191  8316  6527  7404 Literally_the_Ginormous
+-1124 -1366   483   778 Chad_the_Beastlord
+ 4774  5270  2704  9851 Spartacus_the_Barber
+ 5154   372  5501  5700 Buck-PlankChest_the_Jester
+ 1345  2946  2224  2498 Literally_the_Dragon-Rider

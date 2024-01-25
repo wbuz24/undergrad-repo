@@ -1,0 +1,10 @@
+-6606  -610    11    16 Urgosa_the_Healing_Shaman
+-4438  4718     4     4 Rob_the_Heavy-footed
+ 3921 -6315    12    17 Beast_the_Paladin
+-8484 -8213     7    11 Rip-SteakFace_the_Mage
+ 5097  -451     3    13 Big-McLargeHuge_the_Monster-Hunter
+ 1017 -6194     2    22 Jumbo_the_Angsty-Teenager
+-2780  8760    15    19 Big-McLargeHuge_the_Lurk
+-2064 -7140     4    14 Ben_the_Glam-Rocker
+ 4289   337     4    12 Ash_the_Beastlord
+-3575  9322    16    23 Wendy_the_Psion

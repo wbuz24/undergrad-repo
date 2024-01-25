@@ -1,0 +1,22 @@
+ 6020 -4149  1487  3025 Urgosa_the_Healing_Shaman
+-5844  5450   121  2745 Veleny_the_Barber
+-7146 -8204   332   647 Alvin_the_Assassin
+ 2162  9511  6161  8160 Tempest_the_Awesome,-Born-Above-Heaven
+-7808  8946  3803  4494 Urgos_the_Time-Lord
+  986 -3478  1298  4378 Dylan_the_Warlock
+-1421  -765  2853  2867 Catherine_the_Mystic
+  -68 -6791  2352  2709 Tempest_the_Demon
+-2460 -3274  7203  9694 Spartacus_the_Artificer
+ 7356  8904   328  1557 Sweeney_the_Scavenger
+ 7424  -512   536   627 Chunkhead_the_Battlerager
+ -252  3297  1922  1939 Paloc_the_Worst
+   71  2767  1178  3838 Fyzix_the_Whisperer
+ -602 -9579  1512  1900 Literally_the_Destroyer,-Born-Under-Chaos
+ 6668 -1634  1146  3696 Doll_the_Arcane-Archer
+ 9731  7644  2212  3312 Ndomukong_the_Catpurse
+ 8330  6626  2227  2833 Parappa_the_Bounty-Hunter
+-3677   493  1782  2030 Fluffy_the_Necromancer
+-6603  4002   626   778 Gorex_the_Spider-Rider
+ 5108  1187   952  2064 Conam_the_Reaper
+ 8281 -1687  1262  8294 Sir-Robin_the_Angel
+    7  4191    86  6528 Parappa_the_Dragon-Knight

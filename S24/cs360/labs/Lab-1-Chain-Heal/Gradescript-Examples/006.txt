@@ -1,0 +1,10 @@
+ -449 -7171   120  4967 Urgosa_the_Healing_Shaman
+ 5759 -6053  7565  9298 Danielle_the_Hacker
+-5906 -3526  4799  6100 Ben_the_Healer
+ 8153 -3901  3933  5553 Grell_the_Mystic
+ 5650  5419   673  1939 Peach_the_Dragon-Rider
+ 4147 -2154  2731  5044 Conam_the_Archer
+ 5387  2150   902  5520 Beavis_the_Adept
+  -80   783   777  3687 Moon-Moon_the_Whisperer
+-7211  -509  1233  3028 Beavis_the_Divine-Born
+ -435  1205  4346  9935 Peter_the_Rogue

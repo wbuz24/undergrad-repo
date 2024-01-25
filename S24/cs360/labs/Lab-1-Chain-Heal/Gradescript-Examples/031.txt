@@ -1,0 +1,12 @@
+ -206  -220    39    60 Urgosa_the_Healing_Shaman
+ -237   206    71   423 Braeor_the_Ninja
+  -25   116   395   493 Eric_the_Medic
+ -246   230    46   522 Eric_the_Hacker
+  142   277     9   248 Ben_the_Monk
+ -176  -154   149   345 Ben_the_Dragonslayer
+  -57  -239    52   109 John_the_Blind
+ -271    67   330   608 Orykle_the_Psyblade
+ -272   -82   274   325 Michael_the_Scavenger
+   -3    16    56    88 Braeor_the_Ninja
+   15  -237   237   450 Eric_the_Bladesinger
+ -241    -9    44    45 Rock-Party_the_Severly-Flawed

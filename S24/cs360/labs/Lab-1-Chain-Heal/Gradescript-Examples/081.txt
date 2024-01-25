@@ -1,0 +1,25 @@
+ 8687  -158   751  1308 Urgosa_the_Healing_Shaman
+ 4502  2000  2067  5404 Spinny-McCrazyPants_the_Lurk
+-6466  8989  6316  7378 Fyzix_the_Battlerager
+-4872  6776  2400  6323 Sir-Robin_the_Spider-Rider
+-5775 -6856   839  1369 Spartacus_the_Reaper
+ 5526  7443  2990  8493 Conam_the_Mystic
+  183 -3700  3194  4046 Tiny_the_Grumpy-Pants
+ 3487    50  4547  7752 Alok_the_Doctor
+-1644 -3570  4591  8777 Varrus_the_Weak-Minded
+ 3096  7832  4328  9720 Urgos_the_Barbarian
+-5153 -6386  3674  7758 Michael_the_Rogue
+ 5999 -2160  2753  4166 Urgos_the_Rogue
+ 5158   120  1519  1945 Elizabeth_the_Artificer
+ 9731  7938   241   319 Veleny_the_Thug
+-8570  4285   339  2667 Mario_the_Warlord
+ 6556  5199  7141  8547 Cher_the_Monster-Trainer
+ -319 -9422  2720  9788 Maelshan_the_Cavalier
+ -627  1609  1506  5649 Adam_the_Destroyer,-Born-Under-Chaos
+ 3580 -4704  2352  6149 Shawn_the_Well-Endowed
+-5964 -2821  2274  9875 Parappa_the_Whisperer
+ 4360 -5686  3200  5713 Fist-RockBone_the_Warrior
+-5992 -5537    27   371 Conam_the_Spidermage
+-5129 -3375  1119  5465 Polong_the_Knight
+-2446 -6010  3668  5314 Bolt-VanderHuge_the_Necromancer
+ -714 -9568  5811  7779 Peach_the_Dragon-Rider

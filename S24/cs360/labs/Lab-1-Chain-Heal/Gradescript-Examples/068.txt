@@ -1,0 +1,34 @@
+ 4318 -1353  1593  4105 Urgosa_the_Healing_Shaman
+ 7590  2660  4207  5057 Joker_the_Warlord
+-4095 -4025  5180  7551 Hector_the_Grumpy-Pants
+-3092  4535   690  5464 Moon-Moon_the_Scout
+ 7349 -3457   201  1830 Thick-McRunFast_the_Warlock
+-6340 -9558  1848  3378 Hector_the_Weak-Minded
+ 7366    -5  2777  5195 Cher_the_Hero,-Born-Under-Justice
+ 9007 -2470   338   765 Pitbull_the_Grumpy-Pants
+-5922  8439   751   790 Shawn_the_Artificer
+ 6280 -9149  2566  8125 Chunkhead_the_Artificer
+ 7287  4610  9568  9691 Literally_the_Ninja
+-7597  7853  3026  9515 Eric_the_Druid
+ 4425  7922  4673  8262 Rob_the_Bladesinger
+ -280  3589  9073  9540 Smoke-ManMuscle_the_Librarian
+ 2830  5648  3131  4232 Peach_the_Whisperer
+ 5001   810   414  1464 Rip-SteakFace_the_Archer
+ 9743    50  2711  4297 Hector_the_Mage
+ 9920  6900   215   934 Catherine_the_Binder
+ 6194  4680   500  3442 Shawn_the_Shadowdancer
+  542  6689  1975  4088 Danielle_the_Summoner
+-8842 -6914  5348  6622 Dirk-HardPec_the_Warlock
+ 5757  2393  5914  6712 Dylan_the_Computer-Scientist
+-8741  9291  1443  5638 Michael_the_Bladesinger
+ 2821 -5334  3540  8535 Conam_the_Cleric
+ 6658 -1745  8158  9200 Buff-HardBack_the_Monk
+ 2832 -9530  2120  8142 Alvin_the_Catpurse
+ 6115 -2764   270   922 Beast_the_Inquisitor
+-6335  5129   113  4203 Eric_the_Barbarian
+ 6830   497  3340  7295 Chunkhead_the_Big-boned
+   51   878  4618  6978 Paloc_the_Reaper
+-8809 -5537  4976  5710 Tiny_the_Summoner
+-5727  9636  3985  7093 Luigi_the_Butler
+-5151 -8072  4048  8427 Bolt-VanderHuge_the_Soulknife
+ 9674 -2778  1128  1306 Dirk-HardPec_the_Spidermage

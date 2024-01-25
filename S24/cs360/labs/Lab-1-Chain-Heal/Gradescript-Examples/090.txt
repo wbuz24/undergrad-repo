@@ -1,0 +1,40 @@
+ -316  8038   912  6014 Urgosa_the_Healing_Shaman
+-1091  1127  1179  1505 Bolt-VanderHuge_the_Soulknife
+ 5227 -2724   727  1867 Gandia_the_Rogue
+-6661  6471  5227  9952 Tiny_the_Twelve-Fingered,-Son-of-Herman-Li
+-1471  7078  3561  7818 Buff-HardBack_the_Monster-Trainer
+-3930  7482  2517  6483 Braeor_the_Scourge,-Born-Under-Blood
+-5673  8272   288  1207 Smoke-ManMuscle_the_Thief
+  418 -6243  1116  1206 Dylan_the_Blackguard
+-3992  4950  9166  9803 Catherine_the_Basement-Dweller
+ 8432  6119  5011  9374 Jumbo_the_Dragon-Rider
+-9326  2305   245  2088 Spinny-McCrazyPants_the_Angel
+ 3062 -9602  1576  2643 Bolt-VanderHuge_the_Soulknife
+ 4262  5225  1799  2378 Dirk-HardPec_the_Death-Knight
+  269  3648   721  2197 Chunkhead_the_Inquisitor
+-2836  -403  1306  5396 Paloc_the_Severly-Flawed
+ 4517  8062  1058  2081 Ash_the_Legendariously-Brave-hearted
+ 6595 -6350  4980  6669 Smoke-ManMuscle_the_Angel
+-2609 -9522  1730  5366 Braeor_the_Twelve-Fingered,-Son-of-Herman-Li
+-2222 -4363  3121  9743 Rip-SteakFace_the_Fighter
+-5933 -9076   199  2993 Veleny_the_Heavy-footed
+ 2152  2954  9173  9251 Cher_the_Ginormous
+ 4625  6334   509  3321 Dirk-HardPec_the_Ninja
+ 7974 -8577  3206  3475 Bolt-VanderHuge_the_Glam-Rocker
+ 2281 -7666  3190  8112 Grell_the_Death-Knight
+ 4375 -4244  3632  7812 Smoke-ManMuscle_the_Assassin
+-4083  5102  8279  8671 Polong_the_Adept
+-3361  4224   741  9927 Donald_the_Fighter
+ 2001 -1432   528   548 Big-McLargeHuge_the_Monster-Trainer
+-9702 -3462  1643  6948 Ash_the_Spidermage
+-6349 -2047   612  9842 Buff-HardBack_the_Goblin
+-5046   -11  6295  6363 Alok_the_Arcane-Archer
+ 4902 -9155  5435  9854 Spartacus_the_Artificer
+-1359  7559  1350  7087 Blast-ThickNeck_the_Bard
+ 9663 -3185   147   778 Tiny_the_Rogue
+ 3723  7544   540  2488 Bolt-VanderHuge_the_Delver
+ 9629 -8253  1881  7544 Ash_the_Bladesinger
+-5457   771   347   829 Jumbo_the_Hacker
+ 7507 -3613  2513  2837 Beast_the_Goblin
+ 2643 -8829  1039  5011 Dirk-HardPec_the_Catpurse
+ 7543  3456   314  4199 Smoke-ManMuscle_the_Computer-Scientist

@@ -1,0 +1,10 @@
+ 5445  3596     7    11 Urgosa_the_Healing_Shaman
+ -377  3575    17    22 Buff-HardBack_the_Catpurse
+-8789 -2662     2     3 Polong_the_Cavalier
+  483 -2063     1     5 Tiny_the_Warlord
+ 3648  9285     6    13 Thick-McRunFast_the_Monster-Trainer
+ 3302  6647    21    23 Hector_the_Inquisitor
+-6520  7388     1    25 Wendy_the_Blackguard
+-8687 -7714    14    24 Varrus_the_Binder
+-2597  9154     1     2 Buck-PlankChest_the_Falsely-Accused
+ 6022  4959     4    11 John_the_Psyblade

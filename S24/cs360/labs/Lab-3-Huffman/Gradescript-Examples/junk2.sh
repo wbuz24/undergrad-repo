@@ -1,0 +1,10 @@
+cp 040-clear.txt 070-clear.txt
+cp 041-clear.txt 071-clear.txt
+cp 042-clear.txt 072-clear.txt
+cp 043-clear.txt 073-clear.txt
+cp 044-clear.txt 074-clear.txt
+cp 045-clear.txt 075-clear.txt
+cp 046-clear.txt 076-clear.txt
+cp 047-clear.txt 077-clear.txt
+cp 048-clear.txt 078-clear.txt
+cp 049-clear.txt 079-clear.txt
