@@ -12,7 +12,7 @@
 typedef struct node {
   char *Name;
   int X, Y;
-  int Curr_pp, Max_pp;
+  int Curr_pp, Max_pp, Healing;
   int Adj_size, Visited;
   struct node *Prev;
   struct node **Adj;
@@ -24,7 +24,10 @@ typedef struct info {
   int num_jumps;
   int initial_power;
   int ux, uy; /* Urgosa's position */
+  int best_healing, best_path_length;
   double power_reduction;
+  int *healing;
+  Node **best_path;
 } Info;
 
 double Findrange(int x1, int y1, int x2, int y2) {
@@ -39,7 +42,7 @@ double Findrange(int x1, int y1, int x2, int y2) {
   return sqrt(r);
 }
 
-void DFS(Node *n, int hops, Info *g) {
+void DFS(Node *n, Node *from, int hops, int power, double total_healing, Info *g) {
   int i;
 
   /* Base Case */
@@ -47,10 +50,21 @@ void DFS(Node *n, int hops, Info *g) {
   if (hops > g->num_jumps) return;
 
   n->Visited++;
-  printf("node: %s Hops %d\n", n->Name, hops);
+  n->Prev = from;
+
+  if (power + n->Curr_pp > n->Max_pp) n->Healing = n->Max_pp - n->Curr_pp;
+  else n->Healing = power;
+
+  total_healing += n->Healing;
+  if (total_healing > g->best_healing) {
+    g->best_healing = total_healing;
+    g->best_path[g->best_path_length] = n->Prev;
+    g->healing[g->best_path_length] = n->Healing;
+    g->best_path_length++;
+  }
 
   for (i = 0; i < n->Adj_size; i++) {
-    DFS(n->Adj[i], hops+1, g);
+      DFS(n->Adj[i], n, hops+1, rint(power * (1 - g->power_reduction)), total_healing, g);
   }
 
   n->Visited--;
@@ -141,10 +155,22 @@ int main(int argc, char **argv) {
     }
 
     /* DFS */
+    g->best_healing = 0;
+    g->best_path_length = 0;
+    g->best_path = (Node **) malloc (sizeof(Node) * g->num_jumps);
+    g->healing = (int *) malloc (sizeof(int) * g->num_jumps);
     for (i = n - 1; i >= 0; i--) {
-      if (Findrange(g->ux, g->uy, players[i]->X, players[i]->Y) <= g->initial_range) DFS(players[i], 1, g);
-      
+      if (Findrange(g->ux, g->uy, players[i]->X, players[i]->Y) <= g->initial_range) DFS(players[i], players[n-1], 1, 500, 0, g); 
     }
+
+    /* Print the optimal path */
+    for (i = 0; i < g->best_path_length; i++) {
+      printf("%s %d\n", g->best_path[i]->Name, g->healing[i]);
+    }
+
+    /* Print the total healing */
+    printf("Total_Healing %d\n", g->best_healing);
+    
     return 1;
   }
 
