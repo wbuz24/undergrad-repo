@@ -12,7 +12,7 @@
 typedef struct node {
   char *Name;
   int X, Y;
-  int Curr_pp, Max_pp, Healing;
+  int Curr_pp, Max_pp, Healing, Bheal;
   int Adj_size, Visited;
   struct node *Prev;
   struct node **Adj;
@@ -26,45 +26,56 @@ typedef struct info {
   int ux, uy; /* Urgosa's position */
   int best_healing, best_path_length;
   double power_reduction;
-  int *healing;
   Node **best_path;
 } Info;
 
+/* Calculate the distance between two nodes using pythagorean theorem */
 double Findrange(int x1, int y1, int x2, int y2) {
   int xr, yr;
   double r;
 
+  /* Difference between the x and y */
   xr = x2 - x1;
   yr = y2 - y1;
 
+  /* Find r^2 */
   r = (double) (xr * xr + yr * yr);
 
   return sqrt(r);
 }
 
-void DFS(Node *n, Node *from, int hops, int power, double total_healing, Info *g) {
-  int i;
+void DFS(Node *n, Node *from, int hops, double power, double total_healing, Info *g) {
+  int i, heal;
+  Node *p = (Node *) malloc(sizeof(Node));
 
   /* Base Case */
   if (n->Visited) return;
-  if (hops > g->num_jumps) return;
+  if (hops > g->num_jumps || power == 0) return;
 
   n->Visited++;
   n->Prev = from;
 
-  if (power + n->Curr_pp > n->Max_pp) n->Healing = n->Max_pp - n->Curr_pp;
-  else n->Healing = power;
-
+  heal = rint(power);
+  if (heal + n->Curr_pp > n->Max_pp) n->Healing = n->Max_pp - n->Curr_pp;
+  else n->Healing = heal;
+  
+  /* Find the best healing path */
   total_healing += n->Healing;
+  p = n;
   if (total_healing > g->best_healing) {
+    /* Check if I am starting a new path by comparing my previous name with what is in the best path */
     g->best_healing = total_healing;
-    g->best_path[g->best_path_length] = n->Prev;
-    g->healing[g->best_path_length] = n->Healing;
-    g->best_path_length++;
+    g->best_path_length = hops;
+    for (i = g->best_path_length - 1; i >= 0; i--) {
+      g->best_path[i] = p;
+      if (p->Prev != NULL) p = p->Prev;
+    }
+    n->Bheal = n->Healing;
   }
 
+  /* Recursive call */
   for (i = 0; i < n->Adj_size; i++) {
-      DFS(n->Adj[i], n, hops+1, rint(power * (1 - g->power_reduction)), total_healing, g);
+      DFS(n->Adj[i], n, hops+1, power * (1 - g->power_reduction), total_healing, g);
   }
 
   n->Visited--;
@@ -74,7 +85,7 @@ void DFS(Node *n, Node *from, int hops, int power, double total_healing, Info *g
 
 int main(int argc, char **argv) {
   int x, y, cpp, mpp; /* Temporary values for reading */
-  int i, j, n, in, jn;
+  int i, j, n;
   char name[101];
   Node *player, *previous;
   Info *g;
@@ -106,6 +117,7 @@ int main(int argc, char **argv) {
       player->Max_pp = mpp;
       player->Adj_size = 0;
       player->Visited = 0;
+      player->Healing = 0;
 
       /* Set the previous pointer */
       if (strcmp("Urgosa_the_Healing_Shaman", name) == 0) {
@@ -138,7 +150,7 @@ int main(int argc, char **argv) {
 
     /* Allocate each adjacency list to the correct size */
     for (i = 0; i < n; i++) {
-      players[i]->Adj = (Node **) malloc(sizeof(Node) * players[i]->Adj_size);
+      players[i]->Adj = (Node **) malloc(sizeof(Node *) * players[i]->Adj_size);
       players[i]->Adj_size = 0; /* This is now an index */
     }
 
@@ -155,18 +167,16 @@ int main(int argc, char **argv) {
     }
 
     /* DFS */
-    g->best_healing = 0;
+    g->best_healing = -1;
+    g->best_path = (Node **) malloc(sizeof(Node *) * g->num_jumps);
     g->best_path_length = 0;
-    g->best_path = (Node **) malloc (sizeof(Node) * g->num_jumps);
-    g->healing = (int *) malloc (sizeof(int) * g->num_jumps);
     for (i = n - 1; i >= 0; i--) {
-      if (Findrange(g->ux, g->uy, players[i]->X, players[i]->Y) <= g->initial_range) DFS(players[i], players[n-1], 1, 500, 0, g); 
+      if (Findrange(g->ux, g->uy, players[i]->X, players[i]->Y) <= g->initial_range) DFS(players[i], players[n-1], 1, g->initial_power, 0, g); 
     }
 
     /* Print the optimal path */
-    for (i = 0; i < g->best_path_length; i++) {
-      printf("%s %d\n", g->best_path[i]->Name, g->healing[i]);
-    }
+
+    for (i = 0; i < g->best_path_length; i++) printf("%s %d\n", g->best_path[i]->Name, g->best_path[i]->Bheal);
 
     /* Print the total healing */
     printf("Total_Healing %d\n", g->best_healing);
