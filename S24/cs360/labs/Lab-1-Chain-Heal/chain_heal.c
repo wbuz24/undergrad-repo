@@ -55,10 +55,11 @@ void DFS(Node *n, Node *from, int hops, double power, double total_healing, Info
   n->Visited++;
   n->Prev = from;
 
+  /* Calculate the healing done to each player */
   heal = rint(power);
   if (heal + n->Curr_pp > n->Max_pp) n->Healing = n->Max_pp - n->Curr_pp;
   else n->Healing = heal;
-  
+
   /* Find the best healing path */
   total_healing += n->Healing;
   p = n;
@@ -66,11 +67,12 @@ void DFS(Node *n, Node *from, int hops, double power, double total_healing, Info
     /* Check if I am starting a new path by comparing my previous name with what is in the best path */
     g->best_healing = total_healing;
     g->best_path_length = hops;
+    /* Set the best path each time you find a new best */
     for (i = g->best_path_length - 1; i >= 0; i--) {
       g->best_path[i] = p;
+      p->Bheal = p->Healing;
       if (p->Prev != NULL) p = p->Prev;
     }
-    n->Bheal = n->Healing;
   }
 
   /* Recursive call */
@@ -78,6 +80,7 @@ void DFS(Node *n, Node *from, int hops, double power, double total_healing, Info
       DFS(n->Adj[i], n, hops+1, power * (1 - g->power_reduction), total_healing, g);
   }
 
+  /* DFS decrements the visited field */
   n->Visited--;
 
   return;
@@ -130,8 +133,9 @@ int main(int argc, char **argv) {
       n++;
       previous = player;
     }
-
-    Node *players[n]; /* declare array of node pointers */
+    
+    /* Statically declared array of node pointers */
+    Node *players[n]; 
 
     for (i = 0; i < n; i++) { /* Traverse the nodes and store in the array */
       players[i] = player;
