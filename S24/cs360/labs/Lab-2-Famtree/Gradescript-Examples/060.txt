@@ -1,0 +1,43 @@
+PERSON Matthew Razor
+  SEX M
+  FATHER_OF Jayden Holst
+
+PERSON Jack Handstand
+  FATHER_OF Sofia Scold
+
+PERSON Layla Sic
+  MOTHER_OF Ellie Diva
+
+PERSON Sofia Scold
+  SEX F
+  MOTHER Lauren Kaylee Waldo
+
+PERSON Aiden Smaller
+  FATHER_OF Olivia Lily Marksman
+  MOTHER Sofia Scold
+  SEX M
+
+PERSON Cole Intellect
+  MOTHER Olivia Lily Marksman
+  SEX M
+
+PERSON Austin Gown
+  SEX M
+  MOTHER Lauren Kaylee Waldo
+
+PERSON Kayla Dis
+  SEX F
+
+PERSON Isabella Hamster
+  FATHER Aiden Smaller
+
+PERSON Jayden Holst
+  MOTHER Lauren Kaylee Waldo
+
+PERSON Ellie Diva
+  SEX F
+
+PERSON Lauren Kaylee Waldo
+  MOTHER_OF Jack Handstand
+  MOTHER_OF Matthew Razor
+

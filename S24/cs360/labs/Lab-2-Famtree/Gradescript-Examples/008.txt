@@ -1,0 +1,24 @@
+PERSON James Aborigine
+  SEX M
+
+PERSON Chloe Pipe
+  SEX F
+
+PERSON Zachary Athena
+  SEX M
+
+PERSON Cole Ethos
+  SEX M
+
+PERSON Taylor Resorcinol
+  SEX F
+
+PERSON Ellie Constance MD
+  SEX F
+
+PERSON Cole Citizen
+  SEX M
+
+PERSON Emily Failsafe Esq
+  SEX F
+

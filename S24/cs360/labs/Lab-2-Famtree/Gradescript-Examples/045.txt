@@ -1,0 +1,52 @@
+PERSON Sydney Weaken
+  MOTHER_OF Aiden Isaac Headstone MD
+
+PERSON Madeline Blackball
+  MOTHER_OF Sydney Weaken
+  MOTHER_OF Leah Prof
+  MOTHER_OF Allison Thiamin
+  MOTHER_OF Austin Our
+  SEX F
+
+PERSON Isaiah Marina
+
+PERSON Alex Deodorant
+  FATHER_OF Isaiah Marina
+  MOTHER Sydney Weaken
+
+PERSON Riley Sofia Astraddle
+
+PERSON Peyton Cairo PhD
+  FATHER Alex Deodorant
+  MOTHER Leah Prof
+
+PERSON Blake Cart
+
+PERSON Owen Innocent
+  SEX M
+  FATHER Blake Cart
+
+PERSON Arianna Whichever
+  SEX F
+
+PERSON Allison Thiamin
+
+PERSON Austin Our
+  FATHER_OF Joseph Cairo
+  SEX M
+  FATHER Blake Cart
+
+PERSON Elijah Cooper Finicky
+  FATHER_OF Arianna Spain PhD
+
+PERSON Layla Rectangular
+
+PERSON Aiden Isaac Headstone MD
+  FATHER Alex Deodorant
+
+PERSON Paige Sanatoria
+  MOTHER_OF Arianna Whichever
+
+PERSON Arianna Spain PhD
+  MOTHER Leah Prof
+

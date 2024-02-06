@@ -1,0 +1,28 @@
+PERSON Jasper Pennington
+  SEX M
+  FATHER Donald Pennington
+  MOTHER Patricia Pennington
+  FATHER_OF Katherine Pennington
+
+PERSON Hannah Pennington
+  MOTHER_OF Katherine Pennington
+
+PERSON Katherine Pennington
+  FATHER Jasper Pennington
+  MOTHER Hannah Pennington
+  SEX F
+  
+PERSON Donald Pennington
+  FATHER_OF Theresa Pennington
+  FATHER_OF Carol Oppenheim
+
+PERSON Hester Oppenheim
+  FATHER Jacob Oppenheim
+  MOTHER Carol Oppenheim
+
+PERSON George Ackerman
+  SEX M
+
+PERSON Patricia Pennington
+  MOTHER_OF Theresa Pennington
+  MOTHER_OF Carol Oppenheim

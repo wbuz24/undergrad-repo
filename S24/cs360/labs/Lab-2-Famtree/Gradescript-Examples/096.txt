@@ -1,0 +1,34 @@
+PERSON Hunter Conrad
+  FATHER Christian Konrad
+  FATHER_OF Parker Companionway
+
+PERSON Oliver Jack Douglas
+  FATHER Dylan Bruise III
+
+PERSON Dylan Bruise III
+  SEX M
+  FATHER Jack Ritter
+  FATHER_OF Christian Konrad
+
+PERSON Jack Ritter
+  MOTHER Bailey Jorge
+  SEX M
+  FATHER Hunter Conrad
+
+PERSON Christian Konrad
+
+PERSON Claire Companionway
+  MOTHER_OF William Silent
+  SEX F
+
+PERSON Layla Razor
+  MOTHER_OF Christian Konrad
+  FATHER Oliver Jack Douglas
+
+PERSON William Silent
+
+PERSON Bailey Jorge
+  MOTHER_OF Oliver Jack Douglas
+  SEX F
+  FATHER Parker Companionway
+

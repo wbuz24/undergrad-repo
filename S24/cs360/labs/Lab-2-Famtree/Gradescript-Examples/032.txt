@@ -1,0 +1,84 @@
+PERSON Blake Horsefly
+  SEX M
+  FATHER Anthony Courthouse
+
+PERSON Bella Orate
+  MOTHER_OF Paige Corrosion
+  MOTHER_OF Tyler Jordan Athena
+
+PERSON Aaron Keen
+  SEX M
+  FATHER Carter Fog
+  MOTHER Anna Ella Biology
+  FATHER_OF Emma Fink
+
+PERSON Nathan Intuitive
+  FATHER_OF Noah Gavin Fairchild
+  MOTHER Anna Ella Biology
+  SEX M
+
+PERSON Chase Sector
+  FATHER_OF Makayla Glen
+  MOTHER Bella Orate
+  SEX M
+
+PERSON Isaac Alex Corrosion
+  MOTHER Kaylee Watchman
+  FATHER_OF Anthony Courthouse
+
+PERSON Carter Fog
+  MOTHER Paige Corrosion
+
+PERSON Kate Rightmost
+  MOTHER Anna Ella Biology
+  SEX F
+
+PERSON Anna Ella Biology
+  MOTHER_OF Makayla Glen
+
+PERSON Amelia Dysplasia
+  SEX F
+  FATHER Liam Dodson
+
+PERSON Noah Gavin Fairchild
+  MOTHER Bella Orate
+
+PERSON Elizabeth Cairo
+  SEX F
+
+PERSON Arianna Prism
+  SEX F
+  FATHER Tristan Carmen
+
+PERSON Kaylee Watchman
+  FATHER Liam Dodson
+
+PERSON Anna Inflammable MD
+  FATHER Nathan Intuitive
+
+PERSON Anthony Courthouse
+  SEX M
+
+PERSON Ryan Sovereign
+  FATHER Aubrey Cairo
+  SEX M
+
+PERSON Madelyn Brooke Skyway
+  MOTHER_OF Blake Horsefly
+  SEX F
+
+PERSON Emma Fink
+  MOTHER Anna Inflammable MD
+  SEX F
+
+PERSON Aubrey Cairo
+  MOTHER Bella Orate
+  MOTHER_OF Tyler Marina
+
+PERSON Tristan Carmen
+  FATHER_OF Liam Dodson
+  FATHER_OF Kate Rightmost
+
+PERSON Jacob Surfeit
+  SEX M
+

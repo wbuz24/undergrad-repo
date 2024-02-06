@@ -1,0 +1,204 @@
+PERSON Cole Zeus
+  SEX M
+  MOTHER Zoe Ostrander
+  FATHER_OF Zoey Wack
+  FATHER_OF Max Rightmost
+
+PERSON Hunter Leeuwenhoek
+  SEX M
+
+PERSON Jayden Interest
+  SEX M
+
+PERSON Wyatt Hamster
+  FATHER Wyatt Marina
+
+PERSON Henry Compromise
+  SEX M
+  FATHER Logan Buttercup
+
+PERSON Zoe Brianna Insert
+  SEX F
+
+PERSON Dontonio Wisecrack
+  FATHER_OF Cole Zeus
+  SEX M
+  FATHER Joshua Liam Spheric
+
+PERSON Madeline Fluorescein
+
+PERSON Joshua Liam Spheric
+  SEX M
+  FATHER_OF Jonathan Exhortation
+
+PERSON Brandon Hitch
+  FATHER Logan Buttercup
+
+PERSON Alexandra Versatile
+  SEX F
+  MOTHER Julia Bronchial
+
+PERSON Jonathan Exhortation
+  FATHER_OF Alexis Sofia Exothermic
+  MOTHER Zoe Ostrander
+
+PERSON Julia Bronchial
+  FATHER Wyatt Marina
+
+PERSON Zoe Ostrander
+  MOTHER Alexis Sofia Exothermic
+  SEX F
+  FATHER Evan Muskox
+
+PERSON Evan Muskox
+  FATHER_OF Lucy Biology
+  MOTHER Alexis Propel
+  SEX M
+
+PERSON Henry Buttercup
+
+PERSON Amelia Mathewson
+  MOTHER_OF Max Rightmost
+  MOTHER Lucy Biology
+  SEX F
+
+PERSON Austin Found
+  MOTHER Amelia Mathewson
+
+PERSON Claire Cried
+
+PERSON Tyler Turnery Jr
+
+PERSON Elijah Companionway
+
+PERSON Cole Jorge
+  MOTHER Ella Cancel
+  SEX M
+
+PERSON Daniel Wyatt Tort III
+  SEX M
+
+PERSON Addison Halide
+
+PERSON Anna Natalie Phonetic
+  SEX F
+
+PERSON Olivia Juxtaposition
+  SEX F
+
+PERSON Samantha Roxbury
+  MOTHER_OF Zoe Brianna Insert
+  MOTHER Evelyn April
+  SEX F
+
+PERSON Brooklyn Intellect
+  SEX F
+  FATHER Jayden Interest
+  MOTHER_OF Claire Cried
+  MOTHER_OF Dontonio Wisecrack
+
+PERSON Kylie Makayla Fossiliferous
+  SEX F
+  FATHER Jacob Ostrander
+  MOTHER_OF Joshua Liam Spheric
+
+PERSON Samantha Riley Rutland
+  SEX F
+  FATHER Jayden Interest
+  MOTHER_OF Brandon Hitch
+
+PERSON Alexandra Guilford
+  SEX F
+
+PERSON Gabriel Mayfair
+  FATHER_OF Natalie Aerobic
+  FATHER_OF Savannah Portal
+  FATHER Elijah Companionway
+
+PERSON Samuel Reminiscent
+  FATHER Jonathan Exhortation
+
+PERSON Zoey Wack
+
+PERSON Luke Constance
+  FATHER_OF Evelyn April
+  FATHER_OF Amelia Mathewson
+
+PERSON Logan Buttercup
+  MOTHER Lucy Biology
+
+PERSON Tyler Propel
+  SEX M
+
+PERSON Noah
+
+PERSON Samuel Cavalier
+  MOTHER Ava Finch
+
+PERSON Claire Babe
+  FATHER Samuel Reminiscent
+
+PERSON Alyssa Tycoon
+
+PERSON Sarah Presentation
+  FATHER Joshua Liam Spheric
+
+PERSON Chloe Sneer
+  SEX F
+
+PERSON Ryan Michael Functionary
+  FATHER Daniel Wyatt Tort III
+  FATHER_OF Charlotte
+
+PERSON Elijah Carbonyl
+  SEX M
+  FATHER Gabriel Mayfair
+
+PERSON Julian Deane
+
+PERSON Christian Childlike
+  FATHER_OF Addison Halide
+  SEX M
+
+PERSON Wyatt Marina
+  SEX M
+  FATHER Julian Deane
+  FATHER_OF Tyler Turnery Jr
+
+PERSON Alexis Sofia Exothermic
+  MOTHER_OF Gabriel Mayfair
+
+PERSON Charlotte
+  MOTHER Olivia Juxtaposition
+  MOTHER_OF Jacob Ostrander
+
+PERSON Dontonio Cowbell
+  FATHER_OF Tyler Blunt
+
+PERSON Ella Cancel
+
+PERSON Evelyn April
+  MOTHER_OF Charlie Bruise
+  MOTHER Samantha Roxbury
+
+PERSON Alexis Propel
+  SEX F
+  FATHER Tyler Turnery Jr
+
+PERSON Joshua Whichever
+  FATHER_OF Cole Jorge
+  SEX M
+
+PERSON Lucy Fault
+  SEX F
+
+PERSON Savannah Portal
+  MOTHER Kylie Makayla Fossiliferous
+
+PERSON Isaac Tort
+  SEX M
+
+PERSON Brianna Ambulatory
+  MOTHER_OF Adam Enable
+  MOTHER_OF Joseph Hath
+

@@ -1,0 +1,8 @@
+PERSON Fred Smith
+  FATHER_OF Joe Smith
+  SEX M
+
+PERSON Joe Smith
+  SEX M
+  FATHER Fred Smith
+

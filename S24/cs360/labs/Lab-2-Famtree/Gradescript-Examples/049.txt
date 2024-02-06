@@ -1,0 +1,137 @@
+PERSON Nicholas Athena
+
+PERSON Brooklyn Fault
+  SEX F
+  MOTHER Sophia Tollhouse
+
+PERSON Kylie Insert
+  FATHER Jack Intellect
+
+PERSON Andrew Prof
+  SEX M
+
+PERSON Julian Proscribe
+  SEX M
+
+PERSON Grace Ella Proscribe
+  SEX F
+  FATHER Mason Hilbert
+  MOTHER_OF Cameron
+
+PERSON Max Incomplete
+  SEX M
+
+PERSON Sophie Poultice
+  MOTHER_OF Kylie Insert
+
+PERSON Christopher Halide
+  MOTHER Ellie Cavalier
+
+PERSON Mason Hilbert
+
+PERSON Natalie Chinamen
+  MOTHER Savannah Amelia Tedious
+  SEX F
+
+PERSON Alexander Intuitive
+  SEX M
+  MOTHER Ellie Cavalier
+
+PERSON Lillian Avery Amide
+
+PERSON Lillian Accumulate
+  MOTHER_OF Alexis Prong
+
+PERSON Aiden Dervish
+  SEX M
+
+PERSON Aaron Tedious
+  SEX M
+  FATHER_OF Makayla Babylonian
+
+PERSON Anthony Marina
+
+PERSON Katelyn Scavenge
+  MOTHER Lillian Accumulate
+  SEX F
+
+PERSON Alexis Prong
+  SEX F
+  FATHER Brandon Michael Flipflop
+
+PERSON Savannah Amelia Tedious
+  FATHER Mason Hilbert
+
+PERSON Hunter Together
+  FATHER_OF Isabelle Hannah Turnery
+  FATHER Isaac Celeste III
+
+PERSON Cole Inventive
+
+PERSON Cole Lasso
+  SEX M
+
+PERSON Madeline Disney
+  MOTHER_OF Grace Ella Proscribe
+
+PERSON Brandon Michael Flipflop
+  FATHER_OF Alexander Intuitive
+  MOTHER Bailey Large
+
+PERSON Jack Intellect
+  FATHER Cameron
+
+PERSON Caleb Finicky
+  SEX M
+  FATHER Cole Lasso
+
+PERSON Ella Decontrolled
+
+PERSON Carson Trinidad
+  MOTHER Isabelle Hannah Turnery
+  SEX M
+
+PERSON Ella Shopkeep
+  SEX F
+  FATHER Brandon Michael Flipflop
+  MOTHER Savannah Amelia Tedious
+
+PERSON Isaac Celeste III
+  FATHER_OF Aiden Minerva
+  SEX M
+  FATHER Aiden Minerva
+
+PERSON Cole Esq
+  FATHER Cole Lasso
+  FATHER_OF Cameron
+  FATHER_OF Julian Proscribe
+  FATHER_OF Brooklyn Fault
+
+PERSON Aiden Minerva
+  FATHER_OF Zoey Antagonism
+  FATHER_OF Ellie Cavalier
+  SEX M
+
+PERSON Oliver Dignify
+  SEX M
+  MOTHER Zoey Antagonism
+
+PERSON Gavin Benefice
+  MOTHER Makayla Babylonian
+  FATHER_OF Gabriella Horsefly
+
+PERSON Sophia Tollhouse
+  SEX F
+  MOTHER_OF Mason Hilbert
+
+PERSON Alex Together Jr
+
+PERSON Zoey Antagonism
+  MOTHER_OF Caleb Finicky
+  SEX F
+
+PERSON Gabriella Horsefly
+
+PERSON Aiden Amid
+  FATHER_OF Aiden Dervish
+

@@ -1,0 +1,32 @@
+PERSON Samantha Angeline
+  SEX F
+
+PERSON Connor Ideology
+  FATHER_OF Isaiah Delude
+
+PERSON Brooke Bruise
+  SEX F
+
+PERSON Benjamin Biology
+  SEX M
+  FATHER Isaiah Delude
+  FATHER_OF Riley Jinx
+
+PERSON Brooke Sovereignty
+  MOTHER Brooke Bruise
+
+PERSON Jake Juicy
+  SEX M
+  FATHER Benjamin Biology
+  MOTHER Mackenzie Jinx
+
+PERSON Isaiah Delude
+
+PERSON Riley Jinx
+
+PERSON Isabella Maelstrom
+  MOTHER_OF Mackenzie Jinx
+  MOTHER_OF Riley Jinx
+  MOTHER_OF Isaiah Delude
+  MOTHER Riley Jinx
+

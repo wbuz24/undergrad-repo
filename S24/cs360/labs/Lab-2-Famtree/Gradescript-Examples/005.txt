@@ -1,0 +1,15 @@
+PERSON Arianna Large
+  SEX F
+
+PERSON Caroline Resorcinol
+  SEX F
+
+PERSON Lilly Wisecrack
+  SEX F
+
+PERSON Noah Constance
+  SEX M
+
+PERSON Connor Combustion
+  SEX M
+

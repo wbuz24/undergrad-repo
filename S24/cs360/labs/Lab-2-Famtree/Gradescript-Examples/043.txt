@@ -1,0 +1,67 @@
+PERSON Alyssa Escutcheon
+  SEX F
+  MOTHER_OF Brandon Cart
+
+PERSON Samantha
+  MOTHER_OF Kaitlyn Rightmost
+
+PERSON Savannah Posterior
+
+PERSON Austin Escutcheon
+  FATHER Jack Headstone
+
+PERSON Jake Hellenic
+  SEX M
+  FATHER Brandon Cart
+  MOTHER Paige Squatted
+  FATHER_OF Brandon Trinidad
+
+PERSON John Cancel
+  SEX M
+  FATHER Brandon Trinidad
+  FATHER_OF Paige Squatted
+
+PERSON Luke Rutland
+
+PERSON Brandon Trinidad
+
+PERSON Nathan Proud
+  MOTHER Paige Rove
+  FATHER_OF Mason Figure
+
+PERSON Nicholas Helmsman
+  SEX M
+  FATHER_OF Oliver Housekeep
+
+PERSON Jack Headstone
+  FATHER Luke Rutland
+
+PERSON Grace Constance
+  SEX F
+
+PERSON Molly Blunt
+  MOTHER_OF Austin Escutcheon
+  FATHER Jackson Prof MD
+
+PERSON Olivia Angeline
+  MOTHER_OF John Cancel
+  MOTHER_OF Paige Squatted
+
+PERSON Lucas Lasso
+  FATHER_OF Luke Rutland
+  SEX M
+
+PERSON Mason Figure
+  SEX M
+
+PERSON Paige Rove
+  SEX F
+  FATHER Brandon Trinidad
+  MOTHER_OF Luke Rutland
+  MOTHER_OF Carson Fossiliferous
+
+PERSON Kaitlyn Rightmost
+
+PERSON Jackson Prof MD
+  FATHER_OF Savannah Posterior
+

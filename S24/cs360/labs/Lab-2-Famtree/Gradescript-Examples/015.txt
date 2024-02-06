@@ -1,0 +1,64 @@
+PERSON Anna Professional
+  MOTHER_OF Joshua Successor
+
+PERSON Dontonio Luke Univalent
+  SEX M
+  FATHER_OF Dylan Large
+
+PERSON Emma Tuscany
+  SEX F
+  MOTHER_OF Owen Battleground
+
+PERSON Tristan Pius PhD
+  SEX M
+  FATHER_OF Tyler Tristan Antagonism PhD
+
+PERSON Joshua Successor
+  FATHER_OF Nicholas Compendium
+
+PERSON Paige College
+  SEX F
+  MOTHER_OF Alexis Exothermic
+
+PERSON Alexander Soccer
+  FATHER_OF Tristan Pius PhD
+
+PERSON Alexis Exothermic
+  SEX F
+  MOTHER_OF Emma Tuscany
+
+PERSON Mia Einstein
+  MOTHER_OF Morgan Winnie
+
+PERSON Lucy Ride
+  MOTHER_OF Dontonio Luke Univalent
+
+PERSON Natalie Conjunct
+  SEX F
+  MOTHER_OF Alexander Soccer
+
+PERSON Tyler Tristan Antagonism PhD
+  SEX M
+  FATHER_OF Mia Einstein
+
+PERSON Emily Sunflower
+  MOTHER_OF Evan Diem
+
+PERSON Nicholas Compendium
+  FATHER_OF Lucy Ride
+
+PERSON Mackenzie Supplant
+  SEX F
+  MOTHER_OF Emily Sunflower
+
+PERSON Morgan Winnie
+  MOTHER_OF Mackenzie Supplant
+
+PERSON Owen Battleground
+  SEX M
+  FATHER_OF Anna Professional
+
+
+PERSON Evan Diem
+  FATHER_OF Paige College
+

@@ -1,0 +1,8 @@
+PERSON Joe Oddfamily
+  FATHER_OF Frank Oddfamily
+
+PERSON Frank Oddfamily
+  FATHER_OF Lester Oddfamily
+
+PERSON Lester Oddfamily
+  FATHER_OF Joe Oddfamily

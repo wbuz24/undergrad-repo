@@ -1,0 +1,66 @@
+PERSON Brooklyn Expanse
+  MOTHER_OF Elijah Schlesinger III
+  SEX F
+
+PERSON John Corrosion
+  FATHER_OF Thomas Proscribe
+
+PERSON Brooklyn Arrogant
+  MOTHER_OF Katelyn Alveolus
+  MOTHER_OF Cooper Benjamin Jorge
+  MOTHER_OF Jacob Mayfair
+
+PERSON Logan Fault
+  SEX M
+  FATHER Xavier Lasso
+
+PERSON Claire Operon
+
+PERSON Katelyn Alveolus
+  SEX F
+  FATHER Samuel Decadent
+
+PERSON Thomas Proscribe
+  SEX M
+  FATHER_OF Brooklyn Expanse
+
+PERSON Andrew Noise
+  SEX M
+
+PERSON Elijah Schlesinger III
+  FATHER Samuel Decadent
+
+PERSON Kayla Mysterious
+
+PERSON Xavier Lasso
+  FATHER Cooper Benjamin Jorge
+  FATHER_OF Kayla Mysterious
+
+PERSON Samuel Decadent
+  FATHER_OF Cooper Benjamin Jorge
+  FATHER_OF John Corrosion
+  FATHER_OF Avery Isabella Tycoon
+  MOTHER Brooklyn Arrogant
+
+PERSON Natalie Weaken
+  SEX F
+
+PERSON Sophia Systemwide
+  SEX F
+  FATHER Cooper Benjamin Jorge
+  MOTHER Brooklyn Arrogant
+
+PERSON Jacob Mayfair
+
+PERSON Jordan Leeuwenhoek
+  FATHER Samuel Decadent
+
+PERSON Cooper Benjamin Jorge
+  FATHER_OF Jacob Mayfair
+  FATHER_OF Andrew Noise
+
+PERSON Jordan Guilford
+  SEX M
+  FATHER Samuel Decadent
+  MOTHER Brooklyn Arrogant
+

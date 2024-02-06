@@ -1,0 +1,13 @@
+PERSON Caroline Ride
+  SEX F
+  MOTHER_OF Isabelle Mackenzie Faustus
+
+PERSON Isabelle Mackenzie Faustus
+  MOTHER_OF Ava Joan
+
+PERSON Ava Joan
+  MOTHER_OF Alexander Decadent
+
+PERSON Alexander Decadent
+  FATHER_OF Leah Madeline Dervish
+

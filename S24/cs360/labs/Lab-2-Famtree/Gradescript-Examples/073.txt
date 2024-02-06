@@ -1,0 +1,53 @@
+PERSON Brooklyn Angeline
+  SEX F
+  MOTHER Grace Pious
+
+PERSON Gabriel Ranier
+  SEX M
+  FATHER Max Max Beard
+
+PERSON Grace Pious
+  FATHER Gabriel Ranier
+
+PERSON Mason Prof
+  SEX M
+  MOTHER Gabriella Dervish
+
+PERSON Thomas Cart Jr
+  FATHER Xavier Ambulatory
+
+PERSON Lilly Curl
+  SEX F
+  MOTHER Ava Demented
+
+PERSON Gabriella Dervish
+  SEX F
+  FATHER Aiden Prism
+
+PERSON William Benefice IV
+  SEX M
+  FATHER Mason Prof
+
+PERSON Alexander Danielson
+  SEX M
+  FATHER Thomas Cart Jr
+
+PERSON Ava Demented
+  SEX F
+  FATHER Alexander Danielson
+
+PERSON Nicholas Total
+  SEX M
+  FATHER William Benefice IV
+
+PERSON Aiden Prism
+  MOTHER Lilly Curl
+
+PERSON Nicholas Hillel
+  SEX M
+  MOTHER Brooklyn Angeline
+
+PERSON Xavier Ambulatory
+  SEX M
+  FATHER Nicholas Hillel
+

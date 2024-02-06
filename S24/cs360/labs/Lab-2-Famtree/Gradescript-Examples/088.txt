@@ -1,0 +1,88 @@
+PERSON Lucas Amorphous
+  SEX M
+  MOTHER Savannah Danielson
+
+PERSON Jacob Gate
+  FATHER David Weaken
+  FATHER_OF Cooper Bloodstain
+
+PERSON Benjamin Taught
+  SEX M
+  FATHER_OF Jacob Bridegroom
+
+PERSON David Weaken
+  MOTHER Savannah Danielson
+
+PERSON Gabriella Aborigine
+  SEX F
+
+PERSON Alexander Juicy
+  FATHER_OF Savannah Danielson
+
+PERSON Matthew Cheshire
+  FATHER Joshua Mason Amorphous
+
+PERSON Jack Konrad
+  FATHER_OF Joshua Mason Amorphous
+  FATHER_OF Tristan Silent
+
+PERSON Paige Bruise
+  SEX F
+  FATHER Joseph Gabriel Sioux
+
+PERSON Jayden Jake Muscular
+  MOTHER Sophia Mia Tadpole
+  SEX M
+  FATHER Alexander Juicy
+
+PERSON Natalie Shuck
+
+PERSON Tristan Silent
+  SEX M
+
+PERSON Brooklyn Volleyball
+  SEX F
+
+PERSON Joseph Gabriel Sioux
+  SEX M
+  FATHER Aidan Improvident
+
+PERSON Tyler Megaton
+  SEX M
+  FATHER Aidan Improvident
+
+PERSON Sophia Mia Tadpole
+  FATHER Joseph Gabriel Sioux
+  MOTHER_OF Matthew Cheshire
+
+PERSON Adam Omitting Jr
+  MOTHER Brooklyn Volleyball
+
+PERSON Jacob Bridegroom
+  SEX M
+
+PERSON Christopher Charlie Headstone
+  SEX M
+
+PERSON Mackenzie Leeuwenhoek
+  MOTHER_OF Jacob Gate
+
+PERSON Sydney Curl
+
+PERSON Cooper Bloodstain
+  FATHER_OF Avery Biology
+  FATHER_OF Lucas Amorphous
+
+PERSON Joshua Mason Amorphous
+  SEX M
+
+PERSON Aidan Improvident
+  SEX M
+  FATHER Matthew Cheshire
+
+PERSON Arianna Exhortation
+  MOTHER_OF Joseph Gabriel Sioux
+
+PERSON Savannah Danielson
+  SEX F
+

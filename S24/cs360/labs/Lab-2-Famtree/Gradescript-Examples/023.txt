@@ -1,0 +1,78 @@
+PERSON Peyton Sailfish
+  SEX F
+  FATHER Austin Rutland
+
+PERSON Logan Ouzo
+  FATHER Cameron Conn
+
+PERSON Cooper Intuitive
+  FATHER Cole Aiden Decontrolled
+
+PERSON Charlotte Supplant
+  MOTHER_OF Jonathan Roadster
+  MOTHER Madeline Hurwitz
+  SEX F
+
+PERSON Cole Aiden Decontrolled
+  SEX F
+  FATHER Austin Rutland
+  MOTHER Bailey Compendium
+
+PERSON Madeline Hurwitz
+  MOTHER_OF Cameron Conn
+  SEX F
+
+PERSON Kylie Proud
+  FATHER Christian Guiding
+
+PERSON Lucas Athena
+  SEX M
+  FATHER Xavier Cancel
+
+PERSON Zachary Douglas
+  FATHER Alex Ambulatory Jr
+  FATHER_OF Aidan Recompense
+
+PERSON Connor Hereto
+  FATHER_OF Nicholas Reave
+  SEX M
+  FATHER Austin Rutland
+
+PERSON Aidan Recompense
+  MOTHER Madeline Hurwitz
+  SEX M
+
+PERSON Hailey Guiding
+  MOTHER_OF Kylie Proud
+  FATHER Cooper Intuitive
+
+PERSON Austin Rutland
+  FATHER Alex Ambulatory Jr
+
+PERSON Xavier Cancel
+  FATHER_OF Madeline Hurwitz
+  FATHER_OF Charlotte Supplant
+  FATHER_OF Lillian Blunt
+  SEX M
+
+PERSON Cameron Conn
+
+PERSON Max Bronchial
+  MOTHER Charlotte Supplant
+
+PERSON Bailey Compendium
+  SEX F
+  FATHER Alex Ambulatory Jr
+
+PERSON Alex Ambulatory Jr
+  FATHER_OF Cameron Conn
+  FATHER_OF Austin Convivial
+  FATHER_OF Jonathan Roadster
+  SEX M
+  FATHER Xavier Cancel
+
+PERSON Max Pandemic
+  FATHER_OF Christian Guiding
+
+PERSON Nicholas Reave
+

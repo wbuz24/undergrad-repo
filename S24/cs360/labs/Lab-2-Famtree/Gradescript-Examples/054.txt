@@ -1,0 +1,94 @@
+PERSON Madeline Pandemic
+
+PERSON Tristan Squatted
+  FATHER Jacob Dis
+
+PERSON Joseph Shopkeep
+  SEX M
+  FATHER Tristan Squatted
+
+PERSON Ian Battleground
+  SEX M
+
+PERSON Zachary Exothermic
+  FATHER Brandon Babe
+  FATHER_OF Grace Bruise
+
+PERSON Brooklyn Fairchild
+  SEX F
+
+PERSON Tyler Abash
+  MOTHER Evelyn Dervish
+
+PERSON Grace Danielson
+
+PERSON Brayden Miltonic
+  FATHER Adam Operon
+  FATHER_OF Grace Playground
+
+PERSON Evan Argument
+  SEX M
+  MOTHER Evelyn Aborigine
+  FATHER_OF Mason Shagging
+
+PERSON Alexis Bailey Deject
+  MOTHER_OF Mia Tuscany
+  MOTHER_OF Grace Playground
+
+PERSON Adam Operon
+  FATHER_OF Parker Pool
+  FATHER_OF Tristan Dichotomize
+  MOTHER Grace Playground
+
+PERSON Mia Tuscany
+  MOTHER_OF Eva Ouzo
+
+PERSON Parker Pool
+  SEX M
+  MOTHER Arianna Lookout
+  FATHER_OF Madison Katelyn Bridegroom
+  FATHER_OF Brandon Babe
+  FATHER_OF Natalie Natalie
+
+PERSON Tristan Dichotomize
+  FATHER_OF Jacob Dis
+  MOTHER Peyton Cohesive
+  SEX M
+
+PERSON Evelyn Dervish
+  MOTHER_OF Mason Shagging
+
+PERSON Zoe Aphelion
+  MOTHER Madison Katelyn Bridegroom
+  SEX F
+  FATHER Jacob Dis
+
+PERSON Eva Ouzo
+  MOTHER_OF Kayla Helmsman
+  SEX F
+  FATHER Jacob Dis
+
+PERSON Arianna Lookout
+  SEX F
+  FATHER Cooper Tadpole
+  MOTHER_OF Adam Shape
+
+PERSON Evelyn Aborigine
+  MOTHER_OF Grace Bruise
+
+PERSON Cooper Tadpole
+  FATHER_OF Adam Shape
+  FATHER Jacob Dis
+
+PERSON Maya Blunt
+  FATHER Joseph Shopkeep
+
+PERSON Kayla Helmsman
+  SEX F
+  FATHER Jacob Dis
+  MOTHER_OF Cooper Tadpole
+
+PERSON Peyton Cohesive
+  MOTHER_OF Andrew Inexorable
+  MOTHER_OF Evelyn Aborigine
+

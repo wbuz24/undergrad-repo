@@ -1,0 +1,34 @@
+PERSON Alexis Courthouse
+  MOTHER_OF Mason Hierarchal
+  MOTHER_OF Thomas Alliance
+  SEX F
+
+PERSON Ian Marathon
+
+PERSON Lauren Constance
+  MOTHER Sophie Ranier
+  SEX F
+
+PERSON Andrew Jinx
+  MOTHER Alexis Courthouse
+  SEX M
+
+PERSON Aaron Horsefly
+  MOTHER Alexis Courthouse
+
+PERSON Cameron Sanitary
+  FATHER_OF Thomas Alliance
+  FATHER_OF Sophie Ranier
+  FATHER_OF Aaron Horsefly
+
+PERSON Joshua Hereto
+  FATHER_OF Lauren Constance
+  SEX M
+  FATHER Thomas Alliance
+
+PERSON Max Bartlett Esq
+  FATHER_OF Ian Marathon
+  FATHER Mason Hierarchal
+
+PERSON Thomas Alliance
+

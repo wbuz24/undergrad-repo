@@ -1,0 +1,67 @@
+PERSON Gianna Dragnet
+  FATHER Tyler Epicycle
+  MOTHER Bailey Horsefly
+  MOTHER_OF Mackenzie Sanatoria
+  MOTHER_OF Eli Horsefly
+  MOTHER_OF Anna Layla Diphthong
+
+PERSON Emma Cairo
+  SEX F
+  MOTHER_OF Alex Taught
+
+PERSON Landon Sanitary
+  SEX M
+
+PERSON Eli Miltonic
+
+PERSON Mackenzie Sanatoria
+  FATHER Tyler Epicycle
+  MOTHER_OF Sydney Pool MD
+
+PERSON Austin Ouzo
+  SEX M
+  FATHER_OF Gabriella Bartlett PhD
+  FATHER_OF Landon Sanitary
+
+PERSON Tyler Epicycle
+  SEX F
+
+PERSON Alex Taught
+
+PERSON Aubrey Muscular
+
+PERSON Bailey Horsefly
+  MOTHER_OF Christopher Wyatt Blockade
+  MOTHER_OF Landon Sanitary
+
+PERSON Joseph Cairo
+  SEX M
+  MOTHER Bailey Horsefly
+  FATHER_OF Austin Ouzo
+  FATHER_OF Emma Cairo
+  FATHER_OF Aubrey Muscular
+
+PERSON Christopher Wyatt Blockade
+  SEX M
+
+PERSON Sofia Tuscany
+  MOTHER_OF Gabriella Bartlett PhD
+  SEX F
+
+PERSON Aidan Armload
+  FATHER Tyler Epicycle
+  MOTHER Bailey Horsefly
+  FATHER_OF Anna Layla Diphthong
+  FATHER_OF Alex Taught
+
+PERSON Hunter Underclassmen IV
+  SEX M
+  FATHER Austin Ouzo
+  MOTHER Bailey Horsefly
+  FATHER_OF Nicholas Taught
+  FATHER_OF John Halide
+
+PERSON Layla Madrigal
+
+PERSON Brandon Bronchial
+

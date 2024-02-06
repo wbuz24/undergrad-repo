@@ -1,0 +1,51 @@
+PERSON Lucy Minion
+  SEX F
+
+PERSON Michael Accumulate
+  FATHER Zachary Silent
+
+PERSON William Cried
+  SEX M
+  FATHER_OF Lucy Minion
+
+PERSON Kylie Rutland
+  MOTHER_OF Lucy Minion
+  MOTHER_OF Addison Compendium
+
+PERSON Arianna Hierarchal
+  SEX F
+  FATHER Michael Accumulate
+  MOTHER_OF Leah Felicitous PhD
+
+PERSON Zachary Silent
+  FATHER Connor Sovereignty Esq
+
+PERSON Isaiah Marksman
+  MOTHER Samantha Vessel
+  SEX M
+  FATHER William Cried
+
+PERSON Connor Sovereignty Esq
+  FATHER_OF Samantha Vessel
+  FATHER_OF Julian Jorge
+
+PERSON Aubrey Balled
+  SEX F
+  FATHER Michael Accumulate
+
+PERSON Alexis Tollhouse
+
+PERSON Brayden Interest
+  FATHER_OF Dylan Athena
+
+PERSON Isaac Bloodstone
+  SEX M
+  FATHER Zachary Silent
+
+PERSON Lillian Deject
+  SEX F
+  MOTHER_OF Oliver Hurwitz
+
+PERSON Emma Taught
+  SEX F
+

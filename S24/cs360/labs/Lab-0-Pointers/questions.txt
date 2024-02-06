@@ -1,0 +1,67 @@
+Lab Zero.  Questions file for key wbuziak:
+
+For these questions, I have declared:
+
+  unsigned char *cp;
+  unsigned int *ip;
+  unsigned int x, y;
+  unsigned char w, z;
+
+Assume that you are running on a little-endian machine with 4-byte pointers.
+
+In the following questions, give me the exact output of the printf() statements,
+The 12 integers starting at address 0x55f23130 are:
+
+     0x4c52556b
+     0x6e664b55
+     0x4f6c6565
+     0x4e614673
+     0x566e7148
+     0x724c784e
+     0x72617600
+     0x55f23140
+     0x77464869
+     0x57764c48
+     0x62524f52
+     0x004d5845
+
+Question 0: printf("0x%08x\n", ip[9]);
+Question 1: printf("0x%08x\n", ip[11]);
+Question 2: printf("0x%02x\n", cp[1]);
+Question 3: printf("0x%02x\n", cp[19]);
+Question 4: printf("0x%02x\n", cp[35]);
+Question 5: printf("0x%02x\n", cp[41]);
+
+Question 6: printf("0x%08lx\n", (unsigned long) (ip+3));
+Question 7: printf("0x%08lx\n", (unsigned long) (ip+8));
+Question 8: printf("0x%08lx\n", (unsigned long) (cp+19));
+Question 9: printf("0x%08lx\n", (unsigned long) (cp+31));
+
+Question 10: printf("%s\n", cp+18);
+Question 11: printf("%s\n", cp+41);
+
+Question 12: w = 0x1f; z = 0x9a; printf("0x%02x\n", (w & z));
+Question 13: w = 0x1f; z = 0x9a; printf("0x%02x\n", (w | z));
+Question 14: w = 0xdf; z = 0x7f; printf("0x%02x\n", (w ^ z));
+Question 15: w = 0x92; z = 0x99; z = ~z; printf("0x%02x\n", (w ^ z));
+
+Question 16: w = 0xa5; z = (w << 3); printf("0x%02x\n", z);
+Question 17: w = 0xc5; z = (w >> 3); printf("0x%02x\n", z);
+
+Question 18: x = 0x34204d23; y = (x >> 12); printf("0x%08x\n", y);
+Question 19: x = 0xe759ed6b; y = (x << 12); printf("0x%08x\n", y);
+
+Question 20: x = 0x2e953168; y = 0xf00f0f0f; printf("0x%08x\n", x | y);
+Question 21: x = 0x2e953168; y = 0xf00f0f0f; printf("0x%08x\n", x & y);
+Question 22: x = 0x2e953168; y = 0xf00f0f0f; printf("0x%08x\n", x & (~y));
+Question 23: x = 0x2e953168; y = 0xf00f0f0f; printf("0x%08x\n", x ^ y);
+
+Question 24: ip = (unsigned int *) ip[7]; printf("0x%08x\n", *ip);
+
+For your convenience, here are tables of characters to their ASCII codes in hex:
+
+Character:     A  B  C  D  E  F  G  H  I  J  K  L  M  N  O  P  Q  R  S  T  U  V  W  X  Y  Z
+ASCII in hex: 41 42 43 44 45 46 47 48 49 4a 4b 4c 4d 4e 4f 50 51 52 53 54 55 56 57 58 59 5a
+
+Character:     a  b  c  d  e  f  g  h  i  j  k  l  m  n  o  p  q  r  s  t  u  v  w  x  y  z
+ASCII in hex: 61 62 63 64 65 66 67 68 69 6a 6b 6c 6d 6e 6f 70 71 72 73 74 75 76 77 78 79 7a

@@ -1,0 +1,46 @@
+PERSON Charlotte Dendrite
+  SEX F
+  MOTHER_OF Aidan Scavenge
+
+PERSON Lily Konrad
+  MOTHER_OF Owen Biology
+
+PERSON Julian Diphthong
+  FATHER_OF Caleb Sanitary
+
+
+PERSON Matthew Epicycle
+  SEX M
+  FATHER_OF Charlotte Dendrite
+
+PERSON Zoe Douglas
+  MOTHER_OF Julian Diphthong
+
+PERSON Zoe Amid
+  MOTHER_OF Parker Lucas Dignify
+
+PERSON Owen Biology
+  FATHER_OF Zoe Amid
+
+PERSON Arianna Terramycin
+  SEX F
+  MOTHER_OF Lily Konrad
+
+PERSON Zoe Mysterious
+  MOTHER_OF Xavier Procyon
+
+PERSON Aidan Scavenge
+  FATHER_OF Arianna Terramycin
+
+PERSON Caleb Sanitary
+  SEX M
+  FATHER_OF Gabriella Joan
+
+PERSON Gabriella Joan
+  SEX F
+  MOTHER_OF Zoe Mysterious
+
+PERSON Xavier Procyon
+  SEX M
+  FATHER_OF Matthew Epicycle
+

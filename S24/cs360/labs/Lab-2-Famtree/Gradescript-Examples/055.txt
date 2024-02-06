@@ -1,0 +1,27 @@
+PERSON Kate Felicitous
+  MOTHER Avery Morgan Salaam
+  MOTHER_OF Zoe April
+
+PERSON Nathan Cayenne
+  MOTHER Taylor Arianna Rutland
+  SEX M
+
+PERSON Caroline Tallahassee
+  SEX F
+
+PERSON Connor Compromise
+  FATHER Nathan Cayenne
+  MOTHER Zoe April
+  FATHER_OF Layla Terrestrial
+
+PERSON Zoe April
+
+PERSON Aaron Muskox
+
+PERSON Layla Terrestrial
+  MOTHER Lily Lasso
+
+PERSON Taylor Arianna Rutland
+  SEX F
+  MOTHER_OF Avery Morgan Salaam
+

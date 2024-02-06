@@ -1,0 +1,29 @@
+PERSON Ava Tort
+  MOTHER_OF Jayden Decontrolled
+  MOTHER Katelyn Serpent
+  SEX F
+
+PERSON Hunter Conrad
+
+PERSON Julia Inventive
+  FATHER Logan Lookout
+
+PERSON Madeline Joan
+  SEX F
+  MOTHER Ava Tort
+
+PERSON Abigail Sydney Balled
+  SEX F
+  FATHER Logan Lookout
+  MOTHER Katelyn Serpent
+
+PERSON Olivia Aerobic
+  MOTHER Katelyn Serpent
+  MOTHER_OF Hunter Conrad
+
+PERSON Logan Lookout
+  FATHER_OF Madeline Joan
+
+PERSON Katelyn Serpent
+  MOTHER_OF Julia Inventive
+

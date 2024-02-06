@@ -1,0 +1,34 @@
+PERSON Isabella Found
+  SEX F
+  FATHER Dylan Marksman
+
+PERSON Gabriella Wisecrack
+  MOTHER_OF Ian Wisecrack
+
+PERSON Isaac Ritter
+  FATHER Lucas Invariable
+  MOTHER Sophie Gubernatorial
+
+PERSON Owen Abash
+  MOTHER Isabella Found
+  SEX M
+
+PERSON Lucas Invariable
+
+PERSON Evelyn Sovereignty
+
+PERSON William Generous
+  SEX M
+  MOTHER Isabella Found
+
+PERSON Sophie Gubernatorial
+  SEX F
+  MOTHER Mackenzie Ambulatory
+
+PERSON Mackenzie Ambulatory
+  FATHER Lucas Invariable
+
+PERSON Dylan Marksman
+  SEX M
+  FATHER_OF William Generous
+

@@ -1,0 +1,19 @@
+PERSON Bob
+  FATHER_OF Frank
+  FATHER_OF Lester
+  FATHER_OF Diana
+
+PERSON Nancy
+  MOTHER_OF Frank
+  MOTHER_OF Lester
+  MOTHER_OF Diana
+
+PERSON Diana
+  SEX F
+
+PERSON Frank
+  SEX M
+
+PERSON Lester
+  SEX M
+

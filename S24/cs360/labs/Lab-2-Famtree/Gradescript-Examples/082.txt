@@ -1,0 +1,64 @@
+PERSON Emma Salaam
+  SEX F
+  FATHER Chase Courthouse
+
+PERSON Sydney Vial
+  MOTHER Sydney
+
+PERSON James Shagging
+  SEX M
+  MOTHER Sydney Vial
+
+PERSON Samantha Explode
+  SEX F
+  MOTHER Maya Intellect
+
+PERSON Addison Weaken PhD
+  SEX F
+  MOTHER Charlotte Deodorant
+
+PERSON Chase Courthouse
+  FATHER James Shagging
+
+PERSON Maya Intellect
+  SEX F
+  MOTHER Gabriella Poseur PhD
+
+PERSON Cole Expanse
+  MOTHER Addison Weaken PhD
+
+PERSON Gianna Razor
+  SEX F
+  MOTHER Samantha Explode
+
+PERSON Amelia Successor
+  MOTHER Sarah Grace Alveolus
+
+PERSON Matthew Chinamen
+  MOTHER Gianna Razor
+
+PERSON Charlotte Deodorant
+  SEX F
+  MOTHER Victoria Ava Tycoon
+
+PERSON Kaitlyn Bob
+  SEX F
+  FATHER Cole Expanse
+
+PERSON Oliver Turnery
+  MOTHER Grace Noise
+
+PERSON Sarah Grace Alveolus
+  FATHER Oliver Turnery
+
+PERSON Victoria Ava Tycoon
+  SEX F
+  MOTHER Amelia Successor
+
+PERSON Gabriella Poseur PhD
+  MOTHER Kaitlyn Bob
+
+PERSON Sydney
+  SEX F
+  FATHER Matthew Chinamen
+

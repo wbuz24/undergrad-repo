@@ -1,0 +1,51 @@
+PERSON Samuel Inflammable
+  SEX M
+  MOTHER Alyssa Pharmacology
+
+PERSON Claire Hath
+  SEX F
+  MOTHER Gianna Dietary
+
+PERSON Peyton Pinion
+  MOTHER Mackenzie Citizen
+
+PERSON Jack Attendee
+  MOTHER Arianna Decontrolled
+
+PERSON Leah Pastel
+  FATHER Zachary Topologize
+
+PERSON Alyssa Pharmacology
+  MOTHER Peyton Pinion
+
+PERSON Landon Juicy
+  SEX M
+  MOTHER Kaylee Reginald
+
+PERSON Zachary Topologize
+  SEX M
+  MOTHER Claire Hath
+
+PERSON Ella Sow
+  FATHER Samuel Inflammable
+
+PERSON Blake Matthew Curl
+  SEX M
+  MOTHER Leah Pastel
+
+PERSON Kaylee Reginald
+  MOTHER Leah Delude
+
+PERSON Charlie Morse
+  FATHER Jack Attendee
+
+PERSON Leah Delude
+  FATHER Blake Matthew Curl
+
+PERSON Mackenzie Citizen
+  SEX F
+  FATHER Charlie Morse
+
+PERSON Gianna Dietary
+  MOTHER Ella Sow
+

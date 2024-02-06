@@ -1,0 +1,8 @@
+PERSON Max Weaken
+  SEX M
+  FATHER_OF Oliver Ethos
+
+PERSON Oliver Ethos
+  SEX M
+  FATHER_OF Carson Prod
+

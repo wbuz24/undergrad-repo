@@ -1,0 +1,64 @@
+PERSON Claire Cruelty
+  MOTHER Eva Inventive
+  MOTHER_OF Eva Inventive
+
+PERSON Nicholas Exhortation Esq
+
+PERSON Zachary Posterior
+  MOTHER Hannah Weinstein
+  SEX M
+
+PERSON Mason Ride
+  SEX M
+
+PERSON Emily Mysterious
+  MOTHER Sophie Gordian
+
+PERSON Eva Inventive
+  MOTHER_OF Thomas Gate MD
+  MOTHER_OF Elizabeth Deject
+  FATHER Austin Omitting
+
+PERSON Hannah Weinstein
+  FATHER Christopher Recompense
+
+PERSON Alexander College
+  SEX M
+  FATHER_OF Samuel Windshield
+
+PERSON Logan Konrad
+
+PERSON Elizabeth Deject
+  SEX F
+
+PERSON Dylan Dietary
+  FATHER_OF Lillian Deane
+  FATHER_OF Elizabeth Deject
+  MOTHER Sophie Gordian
+
+PERSON Ellie Faustus
+  FATHER Isaac Aborigine
+
+PERSON Maya Aborigine
+  SEX F
+  MOTHER_OF Samuel Windshield
+
+PERSON Isaac Aborigine
+
+PERSON Andrew Theseus
+
+PERSON Emma Info
+
+PERSON Andrew Tournament
+  FATHER_OF Sophie Gordian
+  FATHER Logan Konrad
+
+PERSON Austin Omitting
+  FATHER Andrew Tournament
+
+PERSON Thomas Gate MD
+  FATHER_OF Dylan Dietary
+
+PERSON Oliver Bruise
+  FATHER_OF Christopher Recompense
+

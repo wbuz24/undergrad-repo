@@ -1,0 +1,66 @@
+PERSON Ava Ambulatory
+  SEX F
+  FATHER Nathan Finch
+
+PERSON Gabriella Deject
+  SEX F
+
+PERSON Evelyn Commensurable
+  SEX F
+  MOTHER Ellie Tempestuous
+  MOTHER_OF Samuel Cancel
+
+PERSON Nathan Finch
+  SEX M
+
+PERSON Evan
+
+PERSON Samuel Cancel
+
+PERSON David
+  SEX M
+
+PERSON Jackson Operon
+  FATHER_OF Gabriella Deject
+  FATHER_OF Brooke Boise
+  MOTHER Ava Ambulatory
+
+PERSON Ellie Tempestuous
+  MOTHER_OF Alexis Morgan Crosshatch
+  MOTHER Evelyn Commensurable
+  SEX F
+
+PERSON Carson Failsafe
+  SEX M
+  MOTHER Victoria Interest
+
+PERSON Olivia Fault
+  SEX F
+
+PERSON Samantha Underclassmen
+  SEX F
+  MOTHER_OF Ava Ambulatory
+
+PERSON Sydney Prof
+  SEX F
+
+PERSON Victoria Interest
+
+PERSON Alexis Morgan Crosshatch
+
+PERSON Aidan Accumulate
+  FATHER_OF Victoria Interest
+  FATHER_OF Ellie Tempestuous
+  MOTHER Ella Overture
+
+PERSON Chase Dignify
+  FATHER_OF Aidan Accumulate
+  SEX M
+
+PERSON Ella Overture
+  MOTHER Ava Ambulatory
+  SEX F
+
+PERSON Brayden Lace
+  SEX M
+

@@ -1,0 +1,80 @@
+PERSON Brody Pharmacology
+
+PERSON Samuel Bruise
+  SEX M
+  MOTHER Chloe Hereto
+  FATHER_OF Samuel Rachmaninoff III
+
+PERSON William Keen
+  FATHER_OF Nicholas April
+  FATHER_OF Eva Carmen
+  FATHER_OF Julia Crosshatch
+  SEX M
+
+PERSON Chloe Hereto
+  SEX F
+  MOTHER_OF William Keen
+  MOTHER_OF Evelyn Anastomosis
+
+PERSON Samuel Rachmaninoff III
+  FATHER_OF Grace Judge
+
+PERSON Nicholas April
+  SEX M
+  FATHER_OF Samuel Hesperus
+
+PERSON Samuel Hesperus
+  MOTHER Avery Airborne
+  FATHER_OF Lucas Interstitial
+  FATHER_OF Kate Guilford
+
+PERSON Alex Sovereignty
+
+PERSON Avery Airborne
+  SEX F
+
+PERSON Lucas Interstitial
+  MOTHER Chloe Smaller
+  SEX M
+
+PERSON Emily Diva
+  SEX F
+  FATHER Alex Sovereignty
+
+PERSON Abigail Carbonyl
+  MOTHER_OF Grace Judge
+  MOTHER_OF Emily Diva
+  SEX F
+
+PERSON Mackenzie Exhortation
+
+PERSON Henry Resorcinol
+  MOTHER Alyssa Hellenic
+
+PERSON Grace Judge
+
+PERSON Aaron Companionway
+  FATHER_OF Victoria Humane
+  FATHER_OF Alyssa Hellenic
+  FATHER_OF Henry Resorcinol
+  SEX M
+
+PERSON Jayden Playground
+  FATHER_OF Thomas Danielson
+  FATHER_OF Leah Marina
+
+PERSON Thomas Danielson
+  SEX M
+
+PERSON Katelyn Casbah
+  FATHER Samuel Rachmaninoff III
+  MOTHER_OF Alex Sovereignty
+
+PERSON Sophie Sic
+  SEX F
+  FATHER William Keen
+
+PERSON Victoria Humane
+  MOTHER Julia Crosshatch
+  SEX F
+

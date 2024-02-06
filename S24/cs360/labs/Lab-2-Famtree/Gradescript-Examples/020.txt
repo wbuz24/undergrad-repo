@@ -1,0 +1,53 @@
+PERSON Avery Juxtaposition
+  SEX F
+  MOTHER Isabelle Windshield
+
+PERSON Aiden Chummy
+  SEX M
+  FATHER Joshua Incomplete
+
+PERSON Owen Sluice
+  MOTHER Hailey Intuitive
+
+PERSON Hailey Intuitive
+  SEX F
+  MOTHER Avery Juxtaposition
+
+PERSON Isabelle Windshield
+  FATHER Aiden Chummy
+
+PERSON Aiden Total
+  SEX M
+  FATHER Brayden Jordan Fuse
+
+PERSON Joshua Incomplete
+  SEX M
+  MOTHER Arianna Hereto
+
+PERSON Gabriel Christopher Inflammable
+  SEX M
+  FATHER Aiden Total
+
+PERSON Logan Inexplicit
+  SEX M
+  FATHER Owen Sluice
+
+PERSON William Jack Fossiliferous
+  SEX M
+  FATHER Hunter Shoemake
+
+PERSON Arianna Hereto
+  SEX F
+  FATHER William Jack Fossiliferous
+
+PERSON Logan Tollhouse
+  FATHER Gabriel Christopher Inflammable
+
+PERSON Hunter Shoemake
+  SEX M
+  FATHER Logan Tollhouse
+
+PERSON Julian Value
+  SEX M
+  FATHER Logan Inexplicit
+

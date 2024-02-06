@@ -1,0 +1,26 @@
+PERSON Olivia Ablaze
+
+PERSON Paige Ama
+  SEX F
+
+PERSON Kylie Decadent
+  SEX F
+
+PERSON Joseph Mysterious
+  SEX M
+
+PERSON Zachary Sluice
+  SEX M
+
+PERSON Olivia Disney
+  SEX F
+
+PERSON Ellie Ritter
+  SEX F
+
+PERSON Jacob Infinitude
+  SEX M
+
+PERSON Taylor Dodson
+  SEX F
+

@@ -1,0 +1,33 @@
+PERSON Isaiah Battleground
+  MOTHER Ella Mackenzie Wisecrack
+
+PERSON Molly Fairchild
+  SEX F
+  FATHER Isaiah Battleground
+
+PERSON Victoria Madrigal
+  MOTHER Alyssa Transmittance
+
+PERSON Alyssa Transmittance
+  MOTHER Molly Fairchild
+
+PERSON Kate Valiant
+  FATHER Cooper Compendium
+
+PERSON Madelyn Tournament
+  MOTHER Kate Valiant
+
+PERSON Cooper Compendium
+  MOTHER Victoria Madrigal
+
+PERSON Kayla Molly Antagonism
+  FATHER Oliver Innocent
+
+PERSON Oliver Innocent
+  SEX M
+  MOTHER Madelyn Tournament
+
+PERSON Luke Leafy
+  SEX M
+  MOTHER Kayla Molly Antagonism
+

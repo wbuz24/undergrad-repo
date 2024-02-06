@@ -1,0 +1,22 @@
+PERSON Aaron "Big Papa" Henderson
+  FATHER_OF Bob Henderson 
+
+PERSON James "The Little One" White
+     SEX M
+  FATHER Ira White
+
+PERSON Danielle Fulton
+  FATHER Chet Henderson
+  MOTHER_OF Ethan Fulton
+
+PERSON Hester White
+  MOTHER_OF Ira White
+   MOTHER           Geraldine Clinton
+
+PERSON Bob Henderson
+  FATHER_OF Chet Henderson
+
+PERSON Frank Fulton
+  FATHER_OF Geraldine Clinton
+  FATHER Ethan Fulton
+

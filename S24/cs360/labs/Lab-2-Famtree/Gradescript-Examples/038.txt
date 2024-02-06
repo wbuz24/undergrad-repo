@@ -1,0 +1,81 @@
+PERSON Sydney Amide
+  FATHER Thomas Tallahassee IV
+  MOTHER_OF Brandon Einstein
+
+PERSON Oliver Argument
+
+PERSON Elijah Epicycle
+
+PERSON Gabriel Juxtaposition
+  SEX M
+  FATHER Jackson Amide
+
+PERSON Katelyn Ostrander
+  SEX F
+  FATHER Tristan Rightmost
+
+PERSON Sophie Intuitive
+  MOTHER Madelyn Prof
+  MOTHER_OF Elizabeth Innocent
+
+PERSON John Icebox
+  FATHER Isaiah Explode
+  FATHER_OF Jayden Inventive
+
+PERSON Alexander Deject
+  FATHER_OF Xavier Deodorant
+  MOTHER Katelyn Kayla Topologize Esq
+  SEX M
+
+PERSON Henry Ama
+  SEX M
+  FATHER Dylan Carter Commensurable
+
+PERSON Riley Paige Inventive
+  MOTHER_OF Liam Horsefly
+  SEX F
+  FATHER Liam Horsefly
+
+PERSON Jackson Amide
+  FATHER Elijah Epicycle
+  MOTHER Madelyn Prof
+
+PERSON Jayden Inventive
+  SEX M
+
+PERSON William Together
+  FATHER_OF Savannah Patient
+  SEX M
+
+PERSON Ellie Cried
+  MOTHER_OF Luke Headstone
+  MOTHER_OF Dylan Daniel Immiscible MD
+  FATHER Jayden Inventive
+
+PERSON Olivia Armload
+  SEX F
+
+PERSON Luke Headstone
+
+PERSON Madelyn Prof
+  FATHER William Together
+  MOTHER_OF Sydney Amide
+  MOTHER_OF Samantha Watchman
+
+PERSON Brandon Einstein
+  SEX M
+  FATHER Isaiah Explode
+
+PERSON Liam Horsefly
+  FATHER Dylan Carter Commensurable
+  FATHER_OF Isaiah Explode
+
+PERSON Thomas Tallahassee IV
+  FATHER Isaiah Explode
+
+PERSON Katelyn Kayla Topologize Esq
+  SEX F
+
+PERSON Dylan Carter Commensurable
+  MOTHER Sophie Intuitive
+

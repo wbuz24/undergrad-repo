@@ -1,0 +1,113 @@
+PERSON Allison Humane
+  SEX F
+  FATHER Daniel Commensurable
+  MOTHER_OF Lucy Recompense
+
+PERSON Emma Angeline
+  MOTHER_OF Max Casbah
+
+PERSON Riley Carmen
+  SEX F
+
+PERSON Maya Star
+  MOTHER_OF Riley Carmen
+  MOTHER Isabelle Dignify
+
+PERSON Charlie Propel
+  SEX M
+  FATHER Wyatt Plover
+
+PERSON Daniel Commensurable
+  MOTHER Lucy Recompense
+  SEX M
+
+PERSON Charlie Flick
+  FATHER Joseph Shagging III
+  MOTHER Lucy Recompense
+  FATHER_OF Jacob Konrad
+
+PERSON Max Casbah
+  SEX M
+
+PERSON Christian Hillel
+  FATHER_OF Thomas Pastel
+  SEX M
+
+PERSON Wyatt Plover
+  MOTHER Isabelle Dignify
+
+PERSON Hunter Pool
+  FATHER_OF Ella Dodson
+  MOTHER Isabelle Dignify
+  SEX M
+  FATHER Charlie Propel
+
+PERSON Henry Blunt
+  SEX M
+  FATHER David Posterior
+
+PERSON Taylor Patient
+  SEX F
+  FATHER Christian Hillel
+
+PERSON Lucy Recompense
+  FATHER Jordan Tyler Silent
+
+PERSON Kayla Hilbert
+  SEX F
+
+PERSON Dylan Joseph Jinx
+
+PERSON Paige Conrad
+  MOTHER Olivia Victoria Vial
+
+PERSON Chase Exhortation Esq
+  SEX M
+
+PERSON Chloe Ouzo
+  SEX F
+  FATHER Charlie Propel
+  MOTHER_OF Jacob Helmsman
+
+PERSON Jacob Konrad
+  SEX M
+  FATHER_OF Riley Carmen
+
+PERSON Jordan Tyler Silent
+  SEX M
+  MOTHER Riley Dignify
+
+PERSON Isabelle Dignify
+  MOTHER_OF Joseph Shagging III
+  MOTHER_OF Taylor Patient
+
+PERSON Olivia Victoria Vial
+  SEX F
+  MOTHER_OF Dylan Joseph Jinx
+
+PERSON Tyler Amide IV
+  SEX M
+  FATHER_OF Olivia Victoria Vial
+
+PERSON Ella Dodson
+
+PERSON Charlotte Dodson
+
+PERSON Morgan Elute
+  SEX F
+
+PERSON Lucas Guiding
+  FATHER Jacob Konrad
+  MOTHER Maya Star
+  FATHER_OF Kayla Hilbert
+
+PERSON Riley Dignify
+  SEX F
+  MOTHER_OF Kayla Hilbert
+
+PERSON David Posterior
+
+PERSON Elijah Thiamin
+  FATHER_OF Christian Awoke
+  SEX M
+

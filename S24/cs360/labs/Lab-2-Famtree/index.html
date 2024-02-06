@@ -1,0 +1,199 @@
+<title>CS360 -- Lab 2 - Libfdr Primer - "Famtree"</title>
+
+<body bgcolor=FFFFFF>
+<h2>CS360 -- Lab 2 - Libfdr Primer - "Famtree"</h2>
+
+<UL>
+<LI> <a href=http://web.eecs.utk.edu/~jplank>James S. Plank</a>
+<LI> <a href=http://web.eecs.utk.edu/~jplank/plank/classes/cs360/>CS360</a>
+<LI> Url: <a href=http://web.eecs.utk.edu/~jplank/plank/classes/cs360/360/labs/Lab-2-Famtree/index.html>
+                  http://web.eecs.utk.edu/~jplank/plank/classes/cs360/360/labs/Lab-2-Famtree/index.html</a>
+</UL>
+
+
+<hr>
+<b>Note:</b> When you do this lab, make directories for yourself called <b>src</b> and <b>bin</b>.
+Put your <b>famtree.c</b> program into <b>src</b>, and the <b>makefile</b> in this directory
+will compile the executable into <b>bin/famtree</b>.  The gradescripts assume that you have
+this directory structure.
+<p>
+I've made a short video on compilation for this lab:
+<a href=https://youtu.be/1isdrGmgs6Q>https://youtu.be/1isdrGmgs6Q</a>.
+<hr>
+<h3>What you submit</h3>
+
+You are to submit the file <b>famtree.c</b>.  The TA will copy this into his/her <b>src</b>
+directory, and will use the <b>makefile</b> in the lab directory to create the executable
+<b>bin/famtree</b>.
+
+<hr>
+<h3>Famtree</h3>
+This is a lab that makes sure that you have red-black trees, dlists and 
+fields down.  
+<p>
+Your job in this lab is to write the program <b>bin/famtree</b>.  This program
+takes a description of people and their relationships to one another
+on standard input.  The descriptions must be in a special format, 
+which will be described below.  An example is in the file
+<a href=data/fam1.txt><b>data/fam1txt</b></a>, which represents a family composed of
+Bob and Nancy, and their three chidren Frank, Lester and 
+Diana.
+<p>
+<b>bin/famtree</b> takes such a description, and prints out complete
+information on all of the people in the file.  This consists of, for
+each person, their sex (if known), their father, mother and children.
+Therefore 
+<a href=data/fam1output><b>data/fam1output.txt</b></a> contains valid output of
+<b>bin/famtree</b> on <a href=data/fam1.txt><b>data/fam1.txt</b></a>.
+<p>
+The format of the input file is as follows.  Lines must either 
+be blank, or have one of following first words:
+<UL>
+<LI> <b>PERSON</b>: This specifies a person.  Following <b>PERSON</b>
+     is the person's name, which may be any number of words.
+     <b>Famtree</b> should assume that names consist of words with
+     single spaces between them.
+<LI> <b>SEX</b>: This specifies the person's sex.  It can be
+     either <b>M</b> or <b>F</b>.
+<LI> <b>FATHER</b>: This specifies the person's father.  
+     Following <b>FATHER</b>
+     is the father's name, which may be any number of words.
+     It implies that the father is male.
+     A person may only have one father.
+<LI> <b>MOTHER</b>: This specifies the person's mother.  
+     Following <b>MOTHER</b>
+     is the mother's name, which may be any number of words.
+     It implies that the mother is female.
+     A person may only have one mother.
+<LI> <b>FATHER_OF</b>: This specifies that the person is male,
+     and that the specified person is one of the person's children.
+     A person may have any number of children.
+<LI> <b>MOTHER_OF</b>: This specifies that the person is female,
+     and that the specified person is one of the person's children.
+</UL>
+People may be specified in any order in the input file.
+<p>
+
+<b>bin/famtree</b> has two other features.  First, it prints out the 
+people in a structured order.  That is, no person can be printed out
+until both of their parents have been printed out.  If this is impossible
+(as, for example, in 
+<a href=data/cyclefam.txt><b>data/cyclefam.txt</b></a>), then <b>bin/famtree</b> identifies 
+this fact before it prints out people.
+Beyond this one rule, people may be printed in any order.  
+<p>
+The second feature of <b>bin/famtree</b> is that it allows for redundancy, 
+but it infers as much as it can.  For example, 
+<a href=data/redundant.txt><b>data/redundant.txt</b></a> has a few lines that are 
+redundant.  Line 3 is redundant because Fred must be
+male by virtue of being Joe's father.  Moreover, line 7 is redundant
+because line 2 already specified Fred as Joe's father.  The file
+<a href=data/nonredundant.txt><b>data/nonredundant.txt</b></a> is the minimal file specifying
+the same family.
+<h3>Specifically -- the output should look as follows:</h3>
+Each person should have the following information printed, each on a different line.
+<UL>
+<LI> Their name.
+<LI> The word <b>Sex:</b> and the person's sex: <b>Male</b>, <b>Female</b> or <b>Unknown</b>
+<LI> The word <b>Father:</b> and name of the person's father.  If that is unknown, print <b>Unknown</b> for the father's name.
+<LI> The word <b>Mother:</b> and name of the person's mother.  If that is unknown, print <b>Unknown</b> for the mother's name.
+<LI> The word <b>Children:</b> and if the person has no children, then <b>None</b>.
+<LI> If the person does have children then print the name of each child on its own line.
+<LI> End the person with a blank line.
+<LI> My output does some indentation.  I don't care if yours does.
+</ul>
+You should check for the following errors and print error messages on standard error that match mine:
+<UL>
+<LI> Specifying two fathers or two mothers.
+<LI> Specifying a father when the person is female.
+<LI> Specifying a mother when the person is male.
+<LI> Specifying that a person is female when the person is already known to be male.
+<LI> Specifying that a person is male when the person is already known to be female.
+<LI> Having a cycle in the specification.
+</UL>
+
+<p>
+The cycle detection should be performed after the other checks.  The other checkss should be 
+flagged as they are read in.
+
+<hr>
+<h2>Working example</h2>
+A working example of <b>bin/famtree</b> is in 
+<b>~jplank/cs360/labs/Lab-2-Famtree/bin/famtree</b>.  Try it out on the input files in 
+this directory.  Other input files are:
+<UL>
+<LI><a href=data/fam2.txt><b>data/fam2.txt</b></a> a more complex family.
+<LI><a href=data/fam3.txt><b>data/fam3.txt</b></a> A family with 10 generations of single parents.
+<LI><a href=data/fam4.txt><b>data/fam4.txt</b></a> A file with an error in it.
+<LI><a href=data/fam5.txt><b>data/fam5.txt</b></a> A file with another error in it.
+</UL>
+You should make your output work exactly like <b>bin/famtree</b>'s.
+
+<hr>
+<h2>Grading</h2>
+
+There is a standard <b>gradescript</b> and <b>gradeall</b> in the lab directory.
+The gradescript makes use of the program <b>bin/grader</b> in the lab directory.
+
+
+<hr>
+<h2>Help</h2>
+You should have a <b>struct</b> for a person (mine is called a <b>Person</b>).
+That struct will have the following fields: 
+<UL>
+<LI> Name
+<LI> Sex
+<LI> Father
+<LI> Mother
+<LI> List of children
+<LI> Some stuff for depth first search and topological sort (e.g. a visited field and/or
+number of unprinted parents).
+</UL>
+<p>
+Your program will work in three phases:
+<OL>
+<LI> <b>Reading the information into the structs.</b>  You should have 
+     a red-black tree (mine is called <b>people</b>) that contains all
+     the people.  It is keyed on each person's name, and the <b>val</b>
+     fields are the person's <b>Person</b> structs.  You use an
+     <b>IS</b> to read standard input.  
+
+     <p>
+     Each time you read a line that has a name (i.e. <b>PERSON</b>, 
+     <b>FATHER</b>, <b>MOTHER</b>, <b>FATHER_OF</b> and <b>MOTHER_OF</b>)
+     you test to see if the person with that name 
+     is in the <b>people</b> tree.
+     If not, you create the struct and insert it.  
+
+     <p>
+     Whenever you process a line that needs to create some links 
+     (i.e. <b>FATHER</b>, <b>MOTHER</b>, <b>FATHER_OF</b> and 
+     <b>MOTHER_OF</b>), you first check to see if the link exists and
+     is correct.  If incorrect, you flag an error.  If correct, you do
+     nothing.  If the link doesn't exist, you should create it in both
+     the parent and the child.
+   
+     <p>
+     When you're done with this phase, you'll have a red-black tree with
+     all people in it, and all the people will have the correct links to
+     their parents and children.
+     
+<LI> <b>Testing the graph for cycles.</b>
+     The graph is messed up if there is a cycle in it.  In other words,
+     if a person can be his/her own ancestor or descendant, then there
+     is a problem.  Testing for cycles is a simple depth-first search, 
+     which you should have learned in CS302.   (Lecture notes in
+     are in <a href=http://web.eecs.utk.edu/~jplank/plank/classes/cs302/Notes/DFS/>http://web.eecs.utk.edu/~jplank/plank/classes/cs302/Notes/DFS/</a>).
+
+<p>
+<LI> <b>Printing out the graph.</b>
+     This is a topological sort, because you are not allowed to print a node
+     until you have printed nodes that are incident to it.  Topological sort
+     is described in the CS302 lecture notes: <a href=http://web.eecs.utk.edu/~jplank/plank/classes/cs302/Notes/Topological/>http://web.eecs.utk.edu/~jplank/plank/classes/cs302/Notes/Topological/</a>.
+</OL>
+
+Enjoy!
+
+<hr>
+There is a makefile for this lab  
+<a href=makefile>here</a>.

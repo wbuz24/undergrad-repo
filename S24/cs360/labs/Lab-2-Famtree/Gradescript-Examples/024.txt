@@ -1,0 +1,44 @@
+PERSON Alexandra Scavenge
+  FATHER Liam Argument
+
+PERSON Madelyn Shuck
+  FATHER Dylan Inexplicit
+
+PERSON Hannah Hitch
+  SEX F
+  MOTHER Lilly Desperado
+
+PERSON Carson Mysterious
+  MOTHER Emily Sow
+
+PERSON Mackenzie Hellenic
+  MOTHER Ava Muskox
+
+PERSON Ava Muskox
+  MOTHER Hannah Hitch
+
+PERSON Logan Jacob Large Jr
+  SEX M
+  MOTHER Layla Pen
+
+PERSON Liam Argument
+  FATHER Carson Mysterious
+
+PERSON Eva Mathewson
+  FATHER Logan Jacob Large Jr
+
+PERSON Dylan Inexplicit
+  SEX M
+  FATHER Xavier Noise
+
+PERSON Layla Pen
+  SEX F
+  MOTHER Mackenzie Hellenic
+
+PERSON Lilly Desperado
+  SEX F
+  MOTHER Madelyn Shuck
+
+PERSON Emily Sow
+  MOTHER Eva Mathewson
+

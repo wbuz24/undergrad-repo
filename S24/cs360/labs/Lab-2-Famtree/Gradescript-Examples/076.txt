@@ -1,0 +1,186 @@
+PERSON Riley Gown
+  SEX F
+  MOTHER_OF Kaylee Dichotomize
+  MOTHER_OF Alex Successor
+
+PERSON Gianna Minerva
+
+PERSON Arianna Tempestuous
+  SEX F
+  FATHER Matthew Finch
+
+PERSON Eli Underclassmen
+  FATHER Chase Deane
+
+PERSON Zachary Winnie
+
+PERSON William Savoyard
+  SEX M
+  FATHER William Sovereignty
+  MOTHER Alexandra Handstand
+
+PERSON Daniel Logan Reginald
+  MOTHER Ellie Thiamin
+
+PERSON Alex Windshield
+  FATHER_OF Sydney Courtney
+  FATHER_OF Chase Deane
+  MOTHER Molly Zeus
+  SEX M
+
+PERSON Audrey Escutcheon
+  MOTHER_OF Sydney Courtney
+  MOTHER_OF Zachary Winnie
+  MOTHER Ella Lace
+  SEX F
+
+PERSON Chase Felicitous
+  FATHER_OF Kaylee Dichotomize
+  SEX M
+  FATHER Eli Reave
+
+PERSON Brianna Cancel
+  MOTHER Zoey Cart
+  SEX F
+
+PERSON Caleb Aiden Hooves
+  SEX M
+
+PERSON Brianna Letitia
+  MOTHER Ellie Thiamin
+  SEX F
+
+PERSON Matthew Finch
+  FATHER William Savoyard
+
+PERSON Kayla Shoemake
+  MOTHER Molly Zeus
+
+PERSON Aaron Orate
+  FATHER_OF Brianna Cancel
+
+PERSON Landon Improvident
+  SEX M
+
+PERSON Jordan Huggins
+  FATHER Daniel Logan Reginald
+  FATHER_OF Katelyn Armload
+  FATHER_OF Mackenzie Together
+
+PERSON Lucy Alveolus
+
+PERSON Sarah Vial
+  MOTHER_OF Eli Underclassmen
+  SEX F
+  FATHER Chase Felicitous
+
+PERSON Layla Humane
+
+PERSON Chloe Hath MD
+  SEX F
+
+PERSON Alexandra Handstand
+  MOTHER_OF Matthew Finch
+
+PERSON Ava Silent
+  SEX F
+  MOTHER Madeline Pilferage
+  MOTHER_OF Sarah Vial
+
+PERSON Lucy Info
+  SEX F
+  MOTHER_OF Jake Bridegroom
+
+PERSON Ellie Thiamin
+  MOTHER Brianna Letitia
+
+PERSON Oliver Exothermic
+  FATHER_OF Daniel Logan Reginald
+  FATHER_OF William Sovereignty
+
+PERSON Mia Claire Vial
+  SEX F
+
+PERSON Lucy Bloodstain
+  MOTHER_OF Chase Felicitous
+
+PERSON Madeline Pilferage
+
+PERSON Sophia Fuse
+  MOTHER_OF Zoey Cart
+
+PERSON Isabelle Ambulatory
+  SEX F
+  FATHER Cameron Companionway
+  MOTHER Sophie Scavenge
+
+PERSON Cameron Companionway
+  MOTHER Sarah Vial
+  SEX M
+
+PERSON Ava Tournament
+  MOTHER_OF Lucy Info
+  MOTHER_OF Noah Hooves
+
+PERSON Matthew Lace
+  FATHER_OF Ella Lace
+  SEX M
+  FATHER Brayden Brandon Silent IV
+
+PERSON Katelyn Armload
+  MOTHER_OF Oliver Exothermic
+  SEX F
+
+PERSON Hailey Surfeit
+  MOTHER_OF Chase Deane
+
+PERSON Kaylee Dichotomize
+  SEX F
+
+PERSON Kate Reminiscent
+  SEX F
+
+PERSON Maya Lilly Winnie
+
+PERSON Eli Reave
+  MOTHER Sophia Fuse
+  FATHER William Sovereignty
+
+PERSON Xavier Jinx
+  MOTHER Lucy Bloodstain
+  SEX M
+
+PERSON Aiden College
+  SEX M
+  FATHER_OF Ellie Thiamin
+
+PERSON Sydney Courtney
+  SEX F
+
+PERSON Zoey Cart
+  SEX F
+
+PERSON Benjamin Astraddle
+
+PERSON Julian Airborne
+  FATHER Aaron Orate
+  MOTHER Maya Lilly Winnie
+
+PERSON Sophie Scavenge
+
+PERSON Maya Domesday
+  SEX F
+
+PERSON Molly Zeus
+  SEX F
+
+PERSON Alyssa Sluice
+  SEX F
+  MOTHER_OF Benjamin Astraddle
+  MOTHER_OF Molly Zeus
+  MOTHER_OF Emily Vial
+
+PERSON Chase Deane
+  SEX M
+  FATHER_OF Xavier Jinx
+

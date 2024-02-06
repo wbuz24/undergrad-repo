@@ -1,0 +1,56 @@
+PERSON Madeline Reginald
+  MOTHER Sophia Gate
+  SEX F
+
+PERSON Hannah Carmen
+
+PERSON Maya Astraddle
+  SEX F
+
+PERSON Aubrey Hath
+  SEX F
+  MOTHER_OF Molly Joan Esq
+
+PERSON Isabelle Mayfair
+  MOTHER_OF Hannah Carmen
+  MOTHER_OF Sophia Gate
+  MOTHER_OF Mia Tollhouse
+  FATHER Michael Zoom
+
+PERSON Molly Joan Esq
+  SEX F
+  FATHER Aidan Madrigal
+
+PERSON Jack Transverse
+  FATHER_OF Maya Astraddle
+  MOTHER Isabelle Mayfair
+  SEX M
+  FATHER Michael Zoom
+
+PERSON Austin Muon
+
+PERSON Zoe Silent
+  SEX F
+
+PERSON Kayla Vessel
+  MOTHER_OF Aubrey Isabelle Apostolic
+  SEX F
+
+PERSON Michael Zoom
+  MOTHER Aubrey Isabelle Apostolic
+
+PERSON Aidan Madrigal
+  FATHER_OF Aubrey Hath
+  FATHER_OF Hannah Carmen
+
+PERSON Connor Jaime MD
+  SEX M
+
+PERSON Sophia Gate
+  SEX M
+
+PERSON Aubrey Isabelle Apostolic
+  SEX F
+  MOTHER_OF Abigail Benefice
+  MOTHER_OF Brooke Fairchild
+

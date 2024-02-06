@@ -1,0 +1,57 @@
+PERSON William David Gubernatorial
+  SEX M
+  FATHER_OF Gavin Failsafe
+
+PERSON Isaiah Astraddle
+  FATHER_OF Hunter Skyway
+
+PERSON Gavin Failsafe
+  FATHER_OF Liam Muskox
+
+PERSON Isaiah Poultry
+  FATHER_OF Charlie Hilbert
+
+PERSON Owen Insecure
+  SEX M
+  FATHER_OF William David Gubernatorial
+
+PERSON Cooper Christopher Deane
+  FATHER_OF Owen Insecure
+
+PERSON Liam Muskox
+  FATHER_OF Peyton Miltonic
+
+PERSON Peyton Miltonic
+  SEX F
+  MOTHER_OF Anthony Joan
+
+PERSON Charlie Hilbert
+  FATHER_OF Katelyn Rectangular
+
+PERSON Hunter Skyway
+  SEX M
+  FATHER_OF Isaiah Poultry
+
+PERSON Evan Eli Value
+  SEX M
+  FATHER_OF David Jinx
+
+PERSON Anthony Joan
+  SEX M
+  FATHER_OF Liam Sector
+
+PERSON Liam Sector
+  SEX M
+  FATHER_OF Isaiah Astraddle
+
+
+PERSON Katelyn Rectangular
+  MOTHER_OF Hailey Resorcinol
+
+PERSON Chase Helmsman
+  FATHER_OF Evan Eli Value
+
+PERSON Hailey Resorcinol
+  SEX F
+  MOTHER_OF Chase Helmsman
+

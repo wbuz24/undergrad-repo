@@ -1,0 +1,184 @@
+PERSON Carter Blake Successor
+  MOTHER Madeline Leafy
+  FATHER_OF Jacob Ablaze
+
+PERSON Wyatt Cowbell
+  SEX M
+  FATHER Adam Noah Headstone
+  MOTHER Bailey Hamster
+
+PERSON Savannah Diffusible PhD
+  FATHER Tyler Brody Aspartic
+
+PERSON Kaylee Theseus
+  SEX F
+  MOTHER Sophie Pipe
+
+PERSON Owen Carson Fuse
+  FATHER Eli Pastel
+
+PERSON Peyton
+
+PERSON Luke Juxtaposition
+
+PERSON Peyton Leeuwenhoek
+  MOTHER Paige Escutcheon PhD
+
+PERSON Sophie Pipe
+  FATHER Brandon Transmittance
+
+PERSON Paige Escutcheon PhD
+  MOTHER_OF Isabelle Operon
+  SEX F
+
+PERSON Sydney Pollutant
+  SEX F
+
+PERSON Allison Hilbert PhD
+  SEX F
+  MOTHER Madeline Impediment
+  MOTHER_OF Jayden Corrosion
+
+PERSON Carson Orate
+  SEX M
+  FATHER_OF Julia Fairchild
+
+PERSON Xavier Marksman
+  SEX M
+  FATHER Tyler Brody Aspartic
+  FATHER_OF Ian Serpent
+  FATHER_OF Isabelle Operon
+  FATHER_OF Allison Underclassmen
+
+PERSON Alexandra Citizen
+  MOTHER_OF Kylie Aerobic
+  MOTHER Samantha Angeline
+  SEX F
+
+PERSON Christopher Earthy
+  FATHER_OF Adam Noah Headstone
+
+PERSON Zoey Innocent
+  SEX F
+  FATHER Ian Serpent
+  MOTHER_OF Savannah Diffusible PhD
+
+PERSON Carson Alliance
+  FATHER Isaiah Huggins
+
+PERSON Adam Noah Headstone
+
+PERSON Mackenzie Minerva
+  MOTHER Sophie Pipe
+
+PERSON Jonathan Konrad
+
+PERSON Gabriella Value
+  MOTHER Kate Forrest
+  MOTHER_OF Madeline Impediment
+
+PERSON Julian Invariable
+  SEX M
+
+PERSON Tyler Brody Aspartic
+
+PERSON Jackson Valiant
+  FATHER Gavin Demented
+
+PERSON Katelyn Ida
+  MOTHER_OF Sydney Aspartic
+  FATHER Caleb Pilferage
+
+PERSON Julia Embroil
+  MOTHER_OF Carson Orate
+
+PERSON Anthony Shuck
+  SEX M
+  FATHER Aidan Dodson
+
+PERSON Eli Pastel
+  MOTHER Katelyn Ida
+  SEX M
+
+PERSON Bailey Ella Astraddle
+  MOTHER Olivia Pharmacology
+
+PERSON Oliver Bloodstain
+
+PERSON Samantha Angeline
+
+PERSON Mia Megaton
+  MOTHER_OF Jacob Ablaze
+  SEX F
+
+PERSON Brandon Transmittance
+
+PERSON Evan Hotbox
+  SEX M
+
+PERSON Nicholas Fossiliferous
+  FATHER_OF Evan Hotbox
+
+PERSON Evelyn Schlesinger
+  SEX F
+  MOTHER_OF Christopher Earthy
+
+PERSON Madeline Leafy
+  MOTHER Peyton Leeuwenhoek
+
+PERSON Chloe Avery Spain
+  FATHER Nicholas Fossiliferous
+  MOTHER Mia Megaton
+  MOTHER_OF Owen Flipflop
+
+PERSON Olivia Pharmacology
+  MOTHER_OF Michael Nathan Tempestuous
+  MOTHER_OF Isaiah Huggins
+  SEX F
+  FATHER Michael Nathan Tempestuous
+
+PERSON Aidan Dodson
+  MOTHER Katelyn Ida
+
+PERSON Caleb Pilferage
+  FATHER_OF Carson Orate
+  MOTHER Madeline Impediment
+  FATHER Wyatt Cowbell
+
+PERSON Sydney Aspartic
+  FATHER Jacob Ablaze
+
+PERSON Jordan Sanitary
+  MOTHER Evelyn Schlesinger
+  SEX M
+
+PERSON Bailey Hamster
+  MOTHER_OF Gavin Demented
+  SEX F
+
+PERSON Ian Serpent
+  FATHER_OF Peyton Leeuwenhoek
+  SEX M
+
+PERSON Jayden Corrosion
+  SEX M
+  FATHER_OF Aidan Underclassmen
+
+PERSON Kate Forrest
+  SEX F
+
+PERSON Allison Underclassmen
+  MOTHER Katelyn Pilferage
+  SEX F
+
+PERSON Jayden Battleground
+
+PERSON Kayla Proud
+  SEX F
+
+PERSON Katelyn Pilferage
+  MOTHER_OF Luke Juxtaposition
+  MOTHER_OF Bailey Hamster
+
+PERSON William Rove
+

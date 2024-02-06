@@ -1,0 +1,82 @@
+PERSON Gabriel Alexander Weinstein
+  FATHER_OF Zachary Blunt
+
+PERSON Cooper Acumen
+  SEX M
+  FATHER Joseph Flick Jr
+  FATHER_OF Lily Ideology
+
+PERSON Brooke Sector
+  MOTHER Lily Ideology
+  SEX F
+
+PERSON Chase Awoke
+  FATHER Eli Plover
+
+PERSON Lilly Konrad
+  SEX F
+
+PERSON Zoey Portal
+  MOTHER_OF Chase Awoke
+  MOTHER_OF Julian Exhortation
+  SEX F
+  FATHER Jack Zoom IV
+
+PERSON Eli Balled
+
+PERSON Eli Plover
+  FATHER_OF Jack Zoom IV
+  FATHER_OF Alexander Gown
+  SEX M
+  FATHER Jack Zoom IV
+
+PERSON Madison Helmsman
+  FATHER Joseph Flick Jr
+
+PERSON Alex Felicitous
+  SEX M
+  FATHER_OF James Flipflop
+
+PERSON Jack Crime
+  MOTHER Zoey Portal
+  SEX M
+  FATHER Alex Felicitous
+
+PERSON Kylie Ida
+  MOTHER_OF Zoey Portal
+  MOTHER Leah Tournament
+  FATHER Cooper Acumen
+
+PERSON Zachary Blunt
+  FATHER_OF Julian Exhortation
+
+PERSON Parker Lookout
+  FATHER Alex Felicitous
+
+PERSON Xavier Corrosion
+  FATHER_OF Brooke Sector
+
+PERSON Nathan Hierarchal
+
+PERSON James Flipflop
+  FATHER_OF Joseph Flick Jr
+
+PERSON Leah Tournament
+  SEX F
+  FATHER Nathan Hierarchal
+
+PERSON Alexandra Ride
+  SEX F
+  MOTHER Lily Ideology
+  MOTHER_OF Alex Felicitous
+
+PERSON Brandon Charlie Fault
+  FATHER Xavier Corrosion
+
+PERSON David Generous
+  FATHER Alexander Gown
+
+PERSON Owen Wyatt Earthy
+  FATHER_OF Alexandra Ride
+  FATHER James Flipflop
+

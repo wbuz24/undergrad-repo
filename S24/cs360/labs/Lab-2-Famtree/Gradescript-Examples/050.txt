@@ -1,0 +1,56 @@
+PERSON Henry Nimbus
+  FATHER Hunter Poseur
+
+PERSON Hunter Poseur
+  SEX M
+  FATHER Owen Hurwitz PhD
+
+PERSON Anna Lucy Cancel
+  SEX F
+  MOTHER Brooke Combustion
+
+PERSON Max Noise
+  MOTHER Molly Crosshatch Esq
+
+PERSON Anna Ride
+  SEX F
+  FATHER Wyatt Posterior
+
+PERSON Wyatt Posterior
+  SEX M
+  MOTHER Charlotte Athena
+
+PERSON Sophia Rectangular
+  FATHER Max Pen
+
+PERSON Kylie Vandal
+  FATHER Aaron Marathon
+
+PERSON Brooke Combustion
+  SEX F
+  FATHER Max Noise
+
+PERSON Charlotte Athena
+  MOTHER Addison Hitch
+
+PERSON Molly Crosshatch Esq
+  SEX F
+  MOTHER Kaylee Emergent Esq
+
+PERSON Kaylee Emergent Esq
+  MOTHER Sophia Rectangular
+
+PERSON Addison Hitch
+  SEX F
+  MOTHER Kylie Vandal
+
+PERSON Kylie Astraddle
+  MOTHER Anna Lucy Cancel
+
+PERSON Max Pen
+  FATHER Henry Nimbus
+
+PERSON Owen Hurwitz PhD
+  SEX M
+  MOTHER Anna Ride
+

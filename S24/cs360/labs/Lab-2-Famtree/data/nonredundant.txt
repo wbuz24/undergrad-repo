@@ -1,0 +1,4 @@
+PERSON Joe Smith
+  SEX M
+  FATHER Fred Smith
+

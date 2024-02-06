@@ -1,0 +1,33 @@
+PERSON Arianna Madrigal
+  SEX F
+  MOTHER_OF Layla Lynchburg
+
+PERSON Layla Lynchburg
+  SEX F
+  MOTHER_OF Bailey Lundquist
+
+PERSON Bailey Lundquist
+  SEX F
+  MOTHER_OF Christian Cart
+
+PERSON Christian Cart
+  FATHER_OF Logan Hath
+
+PERSON Logan Hath
+  SEX M
+  FATHER_OF Samuel Desperado
+
+PERSON Samuel Desperado
+  FATHER_OF Kaitlyn Patient
+
+PERSON Kaitlyn Patient
+  SEX F
+  MOTHER_OF Mia Babe
+
+PERSON Mia Babe
+  SEX F
+  MOTHER_OF Christian Guidebook
+
+PERSON Christian Guidebook
+  FATHER_OF Elizabeth Hierarchal
+

@@ -1,0 +1,125 @@
+<title> CS494/594 -- Lab 0</title>
+
+<h1> CS494/594 -- Lab 0</h1>
+<UL> <LI> CS494/594
+<LI> <a href=http://web.eecs.utk.edu/~jplank>James S. Plank</a>
+<LI> <a href=http://web.eecs.utk.edu/~jplank/plank/classes/cs494/494/labs/Lab-0/index.html>This file:
+     <b>http://web.eecs.utk.edu/~jplank/plank/classes/cs494/494/labs/Lab-0</b></a>
+<LI> Lab Directory: <b>/home/jplank/cs494/labs/Lab-0</b>
+</UL>
+</h3>
+
+<hr>
+<h3>To be clear on what you should submit:</h3>
+
+You should submit a gzipped tar file which contains two files in it:
+
+<OL>
+<LI> <b>AliceGame.cpp</b>: which defines the <b>AliceGame</b> class and implements the <b>findMinimumValue()</b> method.
+
+<LI> <b>BoardFolding.cpp</b>: which defines the <b>BoardFolding</b> class and implements the <b>howMany()</b> method.
+</OL>
+
+Submit on Canvas.
+
+<hr>
+<h3>Part 1</h3>
+
+Do the 250 point problem from D1 in Topcoder SRM 639 (AliceGame).  
+There is a writeup in: <a href=https://community.topcoder.com/stat?c=problem_statement&pm=13490&rd=16082>https://community.topcoder.com/stat?c=problem_statement&pm=13490&rd=16082</a>.
+However, you need to be able to handle <i>x+y &lt; 2<sup>63</sup></i>.
+To hand this in, submit a file that implements the appropriate class and method.
+The TA will compile this with his own testing <b>main()</b> to grade it.
+<p>
+You can compare your code with the executable <b>Alice</b> in the lab directory,
+which takes the two numbers on the command line.  For example:
+
+<pre>
+UNIX> <font color=darkred><b>cd /home/plank/cs494/labs/Lab-0</b></font>
+UNIX> <font color=darkred><b>Alice 17 8</b></font>
+3
+UNIX> <font color=darkred><b>Alice 5000 5000</b></font>
+30
+UNIX> <font color=darkred><b>Alice 500000000000000000 500000000000000000</b></font>
+292893220
+UNIX> <font color=darkred><b>time Alice 500000000000000000 500000000000000000</b></font>
+292893220
+0.000u 0.000s 0:00.00 0.0%	0+0k 0+0io 0pf+0w
+UNIX> <font color=darkred><b></b></font>
+</pre>
+
+If you'd like some good examples to try, see
+<b><a href=Alice-Test.sh>Alice-Test.sh</a></b>.  <b>Alice-Test.sh</b> should run in 
+well under 1 second (mine runs in about 0.14 seconds).
+<p>
+Also, the PDF of my presentation on this problem is in 
+<a href=http://web.eecs.utk.edu/~jplank/plank/classes/cs494/494/notes/Alice/index.html>
+http://web.eecs.utk.edu/~jplank/plank/classes/cs494/494/notes/Alice/index.html</a>.
+
+<hr>
+<h3>Part 2</h3>
+
+
+Do the 500 point problem from D1 in Topcoder SRM 639 (BoardFolding).  
+There is a writeup in: <a href=https://community.topcoder.com/stat?c=problem_statement&pm=13457&rd=16082>https://community.topcoder.com/stat?c=problem_statement&pm=13457&rd=16082</a>.
+However, you need to be able to handle <i>x+y &lt; 2<sup>63</sup></i>.
+However, the constraints on N and M are now that they are <= 3000.  
+For this to work, you'll need to make sure that <b>StartingPlaces</b> is 
+indeed <i>O(N<sup>2</sup>)</i> in the worst case.
+You should also convert the vector of strings into a vector of integers, as 
+described in the presentation.  Finally, you should make the method return 
+a <b>long long</b> rather than an integer.
+<p>
+I have three executables in the lab directory, <b>Board-Fast</b>, <b>Board-Medium</b> and 
+<b>Board-Slow</b>.  Both take the uncompressed board on standard input.
+The slow version is the one I submitted to topcoder, which doesn't optimize, and
+has <b>StartingPlaces</b> be <i>O(n<sup>3</sup>)</i>.  
+The medium one has <b>StartingPlaces</b> be <i>O(n<sup>2</sup>)</i>, but doesn't convert the
+board to ints.  The fast one works like the medium one, only it now converts the board
+to ints.  
+<p>
+I have some big boards in the files <b>BF*.txt</b>.  
+The most challenging is <b>BF7.txt</b>.
+<p>
+<pre>
+UNIX> <font color=darkred><b>wc BF7.txt</b></font>
+   3000    3000 9003000 BF7.txt
+UNIX> <font color=darkred><b>time Board-Medium < BF7.txt</b></font>
+8994001
+6.920u 0.096s 0:07.03 99.7%	0+0k 17640+0io 1pf+0w
+UNIX> <font color=darkred><b>time Board-Fast < BF7.txt</b></font>
+8994001
+0.780u 0.044s 0:00.83 98.7%	0+0k 72+0io 1pf+0w
+UNIX> <font color=darkred><b></b></font>
+</pre>
+Also, in 2015, Adam Disney, who TA'd the class, created a bunch of example boards.  These
+are in the directory 
+<a href=Disney_Boards><b>/home/jplank/cs494/labs/Lab-0/Disney_Boards</b></a>.
+The files <i>xxx.cli</i> hold <b>N</b> and <b>M</b>, and the files <i>xxx.txt</i> hold
+the compressed board.  
+As Adam said last year, he left some "Easter Eggs" in the boards, so if you're curious, take
+a look, because they are pretty amusing.  
+For example, here's the input board for file 010.cli/010.txt, where I converted the
+0's and 1's into a PGM file, and then to a JPG:
+<p><center><table border=3><td><img src=Disney_Boards/010.jpg></td></table></center><p>
+<p>
+He also wrote the program <a href=compress.cpp><b>compress.cpp</b></a>, which turns 0's and
+1's into the compressed format of the problem.
+<p>
+The PDF of my presentation on this problem is in 
+<a href=http://web.eecs.utk.edu/~jplank/plank/classes/cs494/494/notes/Board-Folding/BoardFolding.pdf>
+http://web.eecs.utk.edu/~jplank/plank/classes/cs494/494/notes/Board-Folding/BoardFolding.pdf</a>.
+
+<hr>
+<h3>Submitting</h3>
+
+You should submit a gzipped tar file with two cpp files
+(AliceGame.cpp and BoardFolding.cpp).   These should <i>not</i> have mains, but just the class/method
+implementations.
+<p>
+Your code should have comments and be written so that it reads easily.
+<p>
+You'll note -- no grading script and no pre-written <b>main()</b>.  
+You'll have to write your own <b>main()</b> for testing, and 
+our TA needs to learn how to write some good shell scripts....
+You can use topcoder to help you test, though.

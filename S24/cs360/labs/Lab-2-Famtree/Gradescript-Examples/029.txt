@@ -1,0 +1,7 @@
+PERSON Jordan Bob
+  MOTHER Allison Boise
+
+PERSON Allison Boise
+  MOTHER_OF Brooke Interstitial
+  SEX F
+

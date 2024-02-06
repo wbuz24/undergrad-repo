@@ -1,0 +1,179 @@
+PERSON Logan Argument
+  FATHER_OF Jordan Jonathan Star
+
+PERSON Lilly Constance
+  MOTHER Mackenzie Ava Shape
+  SEX F
+
+PERSON Emily Flipflop
+  MOTHER_OF David Incomplete
+
+PERSON Lauren Samantha Poseur
+
+PERSON Kaylee Faustus
+  MOTHER Lauren Samantha Poseur
+
+PERSON Samantha Waist
+  SEX F
+  FATHER Logan Argument
+  MOTHER_OF Xavier Compromise
+
+PERSON Chloe Mayfair
+
+PERSON Lily Angeline
+  FATHER Carson Babylonian
+  MOTHER Brooklyn Valiant
+
+PERSON Joseph Ritter
+  MOTHER Mackenzie Humane
+
+PERSON William Demented
+  FATHER_OF Anna Failsafe
+
+PERSON Amelia Handstand
+  SEX F
+  MOTHER Alyssa Angeline
+  MOTHER_OF Mackenzie Ava Shape
+  MOTHER_OF Anna Failsafe
+
+PERSON Arianna Arianna Playa
+
+PERSON Anthony Theseus
+  FATHER_OF Logan Argument
+  FATHER_OF Ella Roxbury
+  FATHER_OF Brooke Patient
+  FATHER_OF Gianna Cohesive
+  MOTHER Amelia Handstand
+  SEX M
+  FATHER Xavier Compromise
+
+PERSON Joseph Professional
+  SEX M
+  FATHER Christian Tollhouse Jr
+  MOTHER Alyssa Angeline
+
+PERSON Sophia Turnery
+  FATHER Jordan Konrad
+  MOTHER_OF Samantha Waist
+
+PERSON Xavier Compromise
+
+PERSON Mackenzie Decadent
+  SEX F
+
+PERSON Austin Topologize
+  SEX M
+
+PERSON Emma Limpkin
+  MOTHER Alexis Fossiliferous
+
+PERSON Alyssa Angeline
+  SEX F
+  FATHER Brandon Flick
+  MOTHER_OF Logan Argument
+
+PERSON Oliver Dispel
+  FATHER_OF Carter Propel
+  MOTHER Brooklyn Valiant
+
+PERSON Julian Weinstein
+  MOTHER Alexis Fossiliferous
+  SEX M
+
+PERSON Nathan Xavier Savoyard
+  SEX M
+  FATHER Gavin Jaime PhD
+
+PERSON Carson Babylonian
+  SEX M
+
+PERSON Landon Chummy
+
+PERSON Carter Propel
+  SEX M
+  MOTHER Zoe Vial
+
+PERSON Cole Dontonio Pius
+  SEX M
+
+PERSON Jordan Konrad
+  FATHER_OF Joseph Ritter
+  FATHER Cole Dontonio Pius
+
+PERSON Alexis Rove
+  SEX F
+  FATHER Gavin Jaime PhD
+
+PERSON Liam Rove
+  FATHER Xavier Vessel
+
+PERSON Audrey Playground
+  SEX F
+
+PERSON Mackenzie Humane
+
+PERSON David Incomplete
+  FATHER_OF Xavier Vessel
+
+PERSON Brooklyn Valiant
+  MOTHER Anna Failsafe
+  SEX F
+  FATHER Jordan Jonathan Star
+
+PERSON Gianna Cohesive
+  SEX F
+
+PERSON David Hitch
+  SEX M
+  FATHER Austin Topologize
+  MOTHER Alyssa Angeline
+
+PERSON Brandon Flick
+  MOTHER Lily Angeline
+  FATHER_OF Amelia Handstand
+
+PERSON Alexis Fossiliferous
+  SEX F
+
+PERSON Parker Pollutant
+  FATHER_OF Kylie Hereto
+  FATHER_OF Cole Dontonio Pius
+  FATHER_OF Gavin Jaime PhD
+  MOTHER Lilly Constance
+  SEX M
+
+PERSON Ella Roxbury
+  SEX F
+
+PERSON Zoe Vial
+  SEX F
+  FATHER Xavier Compromise
+
+PERSON Xavier Vessel
+  SEX M
+  MOTHER Mackenzie Humane
+
+PERSON Claire Armload
+  MOTHER Alexis Rove
+
+PERSON Austin Savoyard
+  SEX M
+
+PERSON Landon Gogh
+  SEX M
+
+PERSON Mackenzie Ava Shape
+  SEX F
+  FATHER William Demented
+
+PERSON Brooke Weinstein
+  MOTHER_OF Nicholas Hitch
+  FATHER Cole Dontonio Pius
+
+PERSON Anna Failsafe
+  MOTHER_OF Jordan Konrad
+
+PERSON Christian Tollhouse Jr
+  SEX M
+  FATHER Nathan Xavier Savoyard
+

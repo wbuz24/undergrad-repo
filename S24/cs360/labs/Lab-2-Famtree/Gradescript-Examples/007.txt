@@ -1,0 +1,19 @@
+PERSON Andrew Airborne
+  SEX M
+
+PERSON Andrew Wack
+  SEX M
+
+PERSON David Sunflower
+
+PERSON Hannah Frequent MD
+  SEX F
+
+PERSON Audrey Third
+  SEX F
+
+PERSON Lucy Propel
+
+PERSON Audrey Cruelty
+  SEX F
+

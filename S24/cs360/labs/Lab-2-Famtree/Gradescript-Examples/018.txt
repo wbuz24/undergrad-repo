@@ -1,0 +1,54 @@
+PERSON Austin Keen
+  SEX M
+  FATHER_OF Joshua Tuscany IV
+
+PERSON Christian Serpent
+  SEX M
+  FATHER_OF Alexander Astraddle
+
+PERSON Chloe Hannah Pollutant
+  MOTHER_OF Lillian Univalent
+
+PERSON Michael Hooves MD
+  SEX M
+  FATHER_OF Gavin Dietary
+
+PERSON Kaitlyn Bob
+  MOTHER_OF Ellie Arrogant
+
+PERSON Joshua Tuscany IV
+  SEX M
+  FATHER_OF Austin Citizen
+
+PERSON Brianna Zeus
+  SEX F
+  MOTHER_OF James Holst
+
+PERSON Lillian Univalent
+  SEX F
+  MOTHER_OF Lilly Topologize
+
+PERSON James Holst
+  SEX M
+  FATHER_OF Victoria Buzzing
+
+PERSON Victoria Buzzing
+  SEX F
+  MOTHER_OF Chloe Hannah Pollutant
+
+PERSON Austin Citizen
+  SEX M
+  FATHER_OF Brianna Zeus
+
+PERSON Lilly Topologize
+  MOTHER_OF Christian Serpent
+
+PERSON Alexander Astraddle
+  SEX M
+  FATHER_OF Kaitlyn Bob
+
+
+PERSON Ellie Arrogant
+  SEX F
+  MOTHER_OF Michael Hooves MD
+

@@ -1,0 +1,41 @@
+PERSON Grace Jaime
+  MOTHER Madelyn Lace
+
+PERSON Owen Info
+  SEX M
+  FATHER Gabriel Aaron
+
+PERSON Charlotte Courthouse
+  FATHER Carson Univalent
+
+PERSON Brooklyn Prong
+  SEX F
+  MOTHER Alexandra Razor
+
+PERSON Lillian Reminiscent MD
+  MOTHER Grace Jaime
+
+PERSON Alexandra Razor
+  MOTHER Charlotte Courthouse
+
+PERSON Madelyn Lace
+  SEX F
+  MOTHER Alexis Allison Insecure
+
+PERSON Carson Univalent
+  FATHER Oliver Pipe
+
+PERSON Benjamin Dragnet
+  SEX M
+  MOTHER Mia Hereto
+
+PERSON Mia Hereto
+  MOTHER Lillian Reminiscent MD
+
+PERSON Oliver Pipe
+  FATHER Benjamin Dragnet
+
+PERSON Alexis Allison Insecure
+  SEX F
+  FATHER Owen Info
+

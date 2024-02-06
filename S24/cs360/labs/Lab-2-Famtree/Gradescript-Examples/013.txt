@@ -1,0 +1,154 @@
+PERSON Nathan Logan Exothermic
+  SEX M
+  FATHER_OF Addison Poultry
+
+PERSON Evan Angeline
+  SEX M
+  FATHER_OF Brandon Einstein
+
+PERSON Xavier Carter Diva
+  SEX M
+  FATHER_OF David Gate
+
+PERSON Nicholas Insecure
+  FATHER_OF Gabriel Functionary
+
+PERSON Eli Muskox
+  FATHER_OF Liam Decontrolled
+
+PERSON Emma Smaller
+  SEX F
+  MOTHER_OF Nathan Logan Exothermic
+
+PERSON Riley Benefice
+  MOTHER_OF Charlie Tadpole
+
+PERSON Amelia Rant
+  MOTHER_OF Aubrey Caroline Marksman
+
+PERSON Isabella Effete
+  SEX F
+  MOTHER_OF Leah Cairo
+
+PERSON Aiden Tempestuous
+  SEX M
+  FATHER_OF Joseph Hamster
+
+PERSON Ian Overture
+  SEX M
+  FATHER_OF Eli Muskox
+
+PERSON Savannah Astraddle
+  MOTHER_OF Madison Felicitous
+
+PERSON Hunter Sanitary
+  FATHER_OF Madison Total
+
+PERSON Brandon Einstein
+  SEX M
+  FATHER_OF Isabella Effete
+
+PERSON Kate Pandemic
+  MOTHER_OF Gabriel Effete
+
+PERSON David Gate
+  SEX M
+  FATHER_OF Hunter Sanitary
+
+
+PERSON Lucas Hesperus
+  SEX M
+  FATHER_OF Ian Overture
+
+PERSON Alyssa Valiant
+  MOTHER_OF Kate Pandemic
+
+PERSON Liam Decontrolled
+  SEX M
+  FATHER_OF Alexandra Muscular
+
+PERSON Cameron Waldo
+  FATHER_OF Layla Impediment
+
+PERSON Carter Letitia
+  SEX M
+  FATHER_OF Tyler Infinitude
+
+PERSON Adam
+  SEX M
+  FATHER_OF Landon Thiamin
+
+PERSON Charlie Tadpole
+  FATHER_OF Carter Letitia
+
+PERSON Anna Resorcinol
+  MOTHER_OF Makayla Conn
+
+PERSON Alexandra Muscular
+  SEX F
+  MOTHER_OF Alyssa Valiant
+
+PERSON Joseph Hamster
+  FATHER_OF Arianna Sovereignty
+
+PERSON Arianna Curl
+  MOTHER_OF Nicholas Insecure
+
+PERSON Landon Thiamin
+  FATHER_OF Riley Benefice
+
+PERSON Gabriel Effete
+  SEX M
+  FATHER_OF Anna Resorcinol
+
+PERSON Madison Total
+  MOTHER_OF Evan Angeline
+
+PERSON Makayla Conn
+  MOTHER_OF Aiden Tempestuous
+
+PERSON Arianna Sovereignty
+  SEX F
+  MOTHER_OF Xavier Carter Diva
+
+PERSON Emma Charlotte Bloodstain
+  MOTHER_OF Lucas Hesperus
+
+PERSON Gabriel Functionary
+  FATHER_OF Cameron Waldo
+
+PERSON Leah Cairo
+  MOTHER_OF Adam
+
+PERSON Leah Poseur
+  SEX F
+  MOTHER_OF Molly Hierarchal
+
+PERSON Aubrey Caroline Marksman
+  SEX F
+  MOTHER_OF Daniel Fluorescein
+
+PERSON Daniel Fluorescein
+  FATHER_OF Emma Charlotte Bloodstain
+
+PERSON Gavin Rove
+  FATHER_OF Leah Poseur
+
+PERSON Addison Poultry
+  MOTHER_OF Amelia Rant
+
+PERSON Madison Felicitous
+  SEX F
+  MOTHER_OF Arianna Curl
+
+PERSON Kylie Acumen
+  MOTHER_OF Gavin Rove
+
+PERSON Molly Hierarchal
+  SEX F
+  MOTHER_OF Emma Smaller
+
+PERSON Layla Impediment
+  SEX F
+  MOTHER_OF Kylie Acumen
+

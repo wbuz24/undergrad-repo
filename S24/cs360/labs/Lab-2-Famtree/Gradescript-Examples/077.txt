@@ -1,0 +1,41 @@
+PERSON Bella Holst
+  SEX F
+  MOTHER Katelyn Procyon
+
+PERSON Jackson Forrest
+  MOTHER Lillian Pipe
+
+PERSON Katelyn Procyon
+  SEX F
+  FATHER Joshua Recompense Esq
+
+PERSON Bella Bruise
+  MOTHER Maya Sioux
+
+PERSON Samuel Tournament
+  FATHER Jackson Forrest
+
+PERSON Emily Felicitous
+  FATHER Dylan Curl
+
+PERSON Dylan Curl
+  SEX M
+  FATHER Carter Successor
+
+PERSON Cole Crosshatch
+  SEX M
+  MOTHER Bella Holst
+
+PERSON Lillian Pipe
+  FATHER Cole Crosshatch
+
+PERSON Maya Sioux
+  FATHER Samuel Tournament
+
+PERSON Carter Successor
+  SEX M
+  MOTHER Bella Bruise
+
+PERSON Joshua Recompense Esq
+  FATHER Jordan Zeus
+

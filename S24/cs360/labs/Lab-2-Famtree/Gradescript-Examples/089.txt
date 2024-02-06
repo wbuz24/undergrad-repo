@@ -1,0 +1,245 @@
+PERSON Madeline Brianna Aspartic MD
+  MOTHER Ella Delude
+  SEX F
+  FATHER Joseph Cruelty
+
+PERSON Nicholas Ouzo
+
+PERSON Lillian Prod
+  SEX F
+  FATHER Julian Infinitude
+  MOTHER_OF Noah Humane
+  MOTHER_OF Joseph Cruelty
+
+PERSON Arianna Ambulatory
+  MOTHER_OF Aubrey Lookout
+
+PERSON Allison Dodson
+  FATHER Mason Omitting
+
+PERSON Ava Cohesive
+  MOTHER_OF Gabriel Babe
+  SEX F
+
+PERSON Thomas Portal
+  FATHER_OF Max Shortfall
+  MOTHER Addison Companionway
+  SEX M
+
+PERSON Liam Aborigine
+  SEX M
+
+PERSON Christian Austin Celeste
+  FATHER_OF Savannah Elegiac
+  SEX M
+  FATHER Cameron Pool
+
+PERSON Logan Savoyard
+  FATHER Chase
+
+PERSON Connor Halide III
+
+PERSON Oliver Taught
+  MOTHER Brooklyn Together
+  FATHER Cameron Pool
+
+PERSON Sophie Danielson
+
+PERSON Isaiah Embroil
+  MOTHER Lillian Prod
+
+PERSON Gavin Sovereign
+  SEX M
+
+PERSON Amelia Biology
+  MOTHER Julia Star
+
+PERSON Aaron Ambulatory
+  SEX M
+
+PERSON Tyler Hierarchal
+  SEX M
+
+PERSON Cameron Pool
+  SEX M
+  FATHER Max Hereto
+
+PERSON Cole Minion
+  FATHER_OF Zachary Bloodstain
+
+PERSON Noah Marksman
+  FATHER Noah Humane
+
+PERSON Lillian Argument
+  MOTHER Aubrey Lookout
+  MOTHER_OF Landon Daniel Constance
+
+PERSON Logan Ilona
+  FATHER_OF Aubrey Fluorescein
+  MOTHER Addison Emergent
+
+PERSON Brooklyn Together
+
+PERSON Connor Felicitous
+  SEX M
+  FATHER_OF Julia Star
+
+PERSON Sarah Commensurable
+  MOTHER Aubrey Transmittance
+  SEX F
+
+PERSON Michael Chase Madrigal
+  FATHER_OF Hunter Jorge III
+  FATHER Tyler Incomplete
+
+PERSON Hunter Jorge III
+  MOTHER Allison Dodson
+
+PERSON Lily Insecure
+  MOTHER Sarah Commensurable
+  MOTHER_OF Blake Rutland IV
+
+PERSON Madeline Commensurable
+  MOTHER Aubrey Lookout
+
+PERSON Ella Delude
+  SEX F
+
+PERSON Evelyn Humane
+
+PERSON William Angeline
+  SEX M
+  FATHER_OF Savannah Minion
+  FATHER_OF Alexis Courthouse Esq
+
+PERSON Eva Buttercup
+  SEX F
+  FATHER Hunter Jorge III
+
+PERSON Sydney Orate
+  MOTHER Savannah Minion
+  SEX F
+  FATHER Max Hereto
+
+PERSON Landon Daniel Constance
+  SEX M
+
+PERSON Gianna Recompense
+  FATHER Jordan Carbonyl
+
+PERSON Mason Omitting Esq
+  FATHER Chase Print
+
+PERSON Addison Emergent
+  MOTHER_OF Mason Omitting
+  MOTHER_OF Aaron Amorphous
+
+PERSON Cooper Cole
+
+PERSON Julia Star
+  SEX F
+
+PERSON Noah Humane
+  FATHER Joseph Cruelty
+
+PERSON Jonathan Generous
+
+PERSON Julia Maelstrom
+
+PERSON Owen Max Amid III
+  SEX M
+  FATHER_OF Anthony Ablaze
+  FATHER_OF Evelyn Humane
+
+PERSON Aubrey Transmittance
+  SEX F
+  FATHER Noah Marksman
+  MOTHER_OF Sarah Dichotomize
+
+PERSON Tyler Incomplete
+  FATHER Logan Ilona
+
+PERSON Chase Print
+  SEX M
+
+PERSON Chase
+  MOTHER Aubrey Lookout
+  FATHER_OF Aubrey Lookout
+
+PERSON Savannah Elegiac
+  SEX F
+
+PERSON Riley Ranier
+  SEX F
+
+PERSON Ava Ablaze MD
+  SEX F
+
+PERSON Anthony Ablaze
+  SEX M
+  FATHER_OF Lauren Gate
+  FATHER_OF Eva Hellenic
+
+PERSON Jordan Carbonyl
+  FATHER_OF Sophie Print
+
+PERSON Aaron Amorphous
+  FATHER_OF Lillian Argument
+  FATHER_OF Brooke Tort
+  SEX M
+  FATHER Christian Austin Celeste
+
+PERSON Sophie Print
+  SEX F
+
+PERSON Eli Turnery
+  FATHER_OF Madeline Commensurable
+  SEX M
+  FATHER Max Hereto
+
+PERSON Audrey Bloodstain
+  MOTHER_OF Alexis Courthouse Esq
+  MOTHER Evelyn Humane
+  SEX F
+
+PERSON Jayden Muscular
+  MOTHER Evelyn Humane
+  SEX M
+
+PERSON Caroline Acumen
+  SEX F
+
+PERSON Max Hereto
+  FATHER_OF Mason Omitting
+  FATHER_OF Audrey Bloodstain
+  SEX M
+  FATHER Chase Print
+
+PERSON Aubrey Lookout
+  SEX F
+  MOTHER_OF Michael Chase Madrigal
+
+PERSON Joseph Cruelty
+  SEX M
+  FATHER_OF Thomas Portal
+
+PERSON Anthony Buttercup
+  FATHER_OF Amelia Biology
+  SEX M
+
+PERSON Sarah Dichotomize
+  MOTHER_OF Tyler Incomplete
+  SEX F
+  FATHER William Angeline
+
+PERSON Lily Balled
+  FATHER Aaron Amorphous
+
+PERSON Addison Companionway
+  FATHER William Angeline
+  MOTHER Sophie Danielson
+
+PERSON Brooke Tort
+  MOTHER Eva Hellenic
+  SEX F
+

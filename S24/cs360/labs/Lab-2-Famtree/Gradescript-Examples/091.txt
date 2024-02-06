@@ -1,0 +1,88 @@
+PERSON Eli Sneer
+
+PERSON Morgan Babe Esq
+  SEX F
+
+PERSON Paige Squatted
+  MOTHER_OF Brandon Miltonic
+  SEX F
+  FATHER William Servicemen
+
+PERSON Aaron Compile
+  SEX M
+
+PERSON Parker Prof
+  FATHER_OF Arianna Decadent
+  FATHER_OF Morgan Babe Esq
+
+PERSON Jordan Tempestuous
+  FATHER_OF Michael Recompense
+  FATHER_OF Ella Cowbell
+
+PERSON Ella Bartlett Esq
+  MOTHER_OF Joshua Anastomosis
+  MOTHER_OF Morgan Babe Esq
+  SEX F
+  FATHER William Servicemen
+
+PERSON Lilly Watchman
+  SEX F
+  FATHER Jacob Pastel
+
+PERSON Peyton Dim
+  FATHER Zachary Enable
+  MOTHER Ella Cowbell
+
+PERSON Zachary Enable
+
+PERSON Paige Rectangular Esq
+  FATHER Logan Gate
+  MOTHER Evelyn Rutland
+
+PERSON Alexander Exhortation
+  SEX M
+
+PERSON Jacob Pastel
+  FATHER Logan Gate
+
+PERSON Evelyn Rutland
+  MOTHER_OF Logan Gate
+  MOTHER_OF Jacob Pastel
+  MOTHER_OF Arianna Decadent
+  SEX F
+  FATHER Joshua Anastomosis
+
+PERSON Sofia Benefice
+
+PERSON Olivia
+  SEX F
+
+PERSON Adam Poseur
+  SEX M
+  FATHER Jordan Tempestuous
+  MOTHER Paige Squatted
+
+PERSON Arianna Decadent
+  SEX F
+
+PERSON Joshua Anastomosis
+  SEX M
+  FATHER Michael Recompense
+  FATHER_OF William Servicemen
+  FATHER_OF Zachary Enable
+
+PERSON Elijah Serpent
+  FATHER William Servicemen
+
+PERSON Gavin Pool
+  SEX M
+
+PERSON William Servicemen
+  FATHER_OF Logan Gate
+  FATHER_OF Max Headstone IV
+  SEX M
+  FATHER Jordan Tempestuous
+
+PERSON Brandon Miltonic
+  SEX M
+
