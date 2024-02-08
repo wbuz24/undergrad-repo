@@ -16,6 +16,7 @@ long long findMinimumValue(long long a, long long b);
 
 long long isSquare(long long a, long long b) {
   double r;
+  /* calls sqrt() which is not entirely trustworthy for long long */
   r = sqrt((double) (a + b));
   if (fmod(r, 1) == 0) return (long long) r;
   return -1;
@@ -27,6 +28,7 @@ long long findMinimumValue(long long a, long long b) {
   if (a == 2 || b  == 2) return -1;
   if (a == 0) return 0;
 
+  /* Find if args are a perfect square */
   r = isSquare(a, b);
 
   if (r <= 0) return -1;
@@ -43,12 +45,13 @@ long long findMinimumValue(long long a, long long b) {
     /* Alice's points cannot be higher than Alice's score */
     if (points > a) high = h - 1;
     else {
-    // Base Cases
+    /* Base Cases */
       if (points == a) return points;
       if (a - points < 2*(r - h) && (a - points) % 2 == 1) return (h + 1);
       if (a - points <=  2*(r - h) && (a - points) % 2 == 0) return (h + 2);
       if (a - points == (2*(r - h) + 1)) return (h + 3);
 
+      /* bottom half */
       low = h + 1;
     }
   }
