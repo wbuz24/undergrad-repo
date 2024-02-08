@@ -38,19 +38,18 @@ long long findMinimumValue(long long a, long long b) {
   low = 0;
   while (low <= high) {
     h = (low + high)/2; 
-    points = r*r - (r - h)*(r-h); // Alice's points for winning h rounds
+    points = r*r - (r-h)*(r-h); // Alice's points for winning h rounds
 
     /* Alice's points cannot be higher than Alice's score */
-    if (points > a) high /= 2;
+    if (points > a) high = h - 1;
     else {
     // Base Cases
-      if (points == a) return h;
-      if (a - points < 2*(r - h) && (a - points) % 2 == 1) return h + 1;
-      if (a - points <=  2*(r - h) && (a - points) % 2 == 0) return h + 2;
-      if (a - points == (2*(r - h) + 1)) return h + 3;
+      if (points == a) return points;
+      if (a - points < 2*(r - h) && (a - points) % 2 == 1) return (h + 1);
+      if (a - points <=  2*(r - h) && (a - points) % 2 == 0) return (h + 2);
+      if (a - points == (2*(r - h) + 1)) return (h + 3);
 
-      low += high/2;
-      high -= high/2;
+      low = h + 1;
     }
   }
 
