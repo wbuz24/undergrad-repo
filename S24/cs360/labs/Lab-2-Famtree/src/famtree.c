@@ -38,7 +38,6 @@ int is_ancestor(Person *mother, Person *child) {
 int DFS(Person *p) {
   Dllist tmp;
 
-  //if (p->Visited == 1) return 0;
   if (p->Visited == 1) return 1;
   p->Visited = 1;
 
@@ -107,7 +106,7 @@ int main(int argc, char **argv) {
 
         /* Create Father links */
         if (strcmp(is->fields[0], "FATHER") == 0) {
-          if (my->Father != NULL && strcmp(p->Name, my->Father->Name) != 0) fprintf(stderr, "Bad input - parent mismatch on line %d\n", is->line);
+          if (my->Father != NULL && strcmp(p->Name, my->Father->Name) != 0) fprintf(stderr, "Bad input -- child with two fathers on line %d\n", is->line);
           else {
             if (strcmp(p->Sex, "Unknown") == 0) strcpy(p->Sex, "Male");
             if (strcmp(p->Sex, "Female") == 0) fprintf(stderr, "Bad input - sex mismatch on line %d\n", is->line);
@@ -124,10 +123,10 @@ int main(int argc, char **argv) {
 
         /* Create mother links */
         if (strcmp(is->fields[0], "MOTHER") == 0) {
-          if (my->Mother != NULL && strcmp(p->Name, my->Mother->Name) != 0) fprintf(stderr, "Bad input - parent %s mismatch on line %d\n", p->Name, is->line);
+          if (my->Mother != NULL && strcmp(p->Name, my->Mother->Name) != 0) fprintf(stderr, "Bad input -- child with two mothers on line %d\n", is->line);
           else {
             if (strcmp(p->Sex, "Unknown") == 0) strcpy(p->Sex, "Female");
-            if (strcmp(p->Sex, "Male") == 0) fprintf(stderr, "Bad input - %s sex mismatch on line %d\n", p->Name, is->line);
+            if (strcmp(p->Sex, "Male") == 0) fprintf(stderr, "Bad input - sex mismatch on line %d\n", is->line);
             else {
               /* Set the Mother's children */
               if (is_ancestor(p, my) <= 0) {
@@ -141,7 +140,7 @@ int main(int argc, char **argv) {
 
         /* Mother or Father of my */
         if (strcmp(is->fields[0], "MOTHER_OF") == 0) {
-          if (p->Mother != NULL && strcmp(p->Mother->Name, my->Name) != 0) fprintf(stderr, "Bad input - parent mismatch on line %d\n", is->line);
+          if (p->Mother != NULL && strcmp(p->Mother->Name, my->Name) != 0) fprintf(stderr, "Bad input -- child with two mothers on line %d\n", is->line);
           else {
             if (strcmp(my->Sex, "Unknown") == 0) strcpy(my->Sex, "Female");
             if (strcmp(my->Sex, "Male") == 0) fprintf(stderr, "Bad input - sex mismatch on line %d\n", is->line);
@@ -157,7 +156,7 @@ int main(int argc, char **argv) {
         }
 
         if (strcmp(is->fields[0], "FATHER_OF") == 0) {
-          if (p->Father != NULL && strcmp(p->Father->Name, my->Name) != 0) fprintf(stderr, "Bad input - parent mismatch on line %d\n", is->line);
+          if (p->Father != NULL && strcmp(p->Father->Name, my->Name) != 0) fprintf(stderr, "Bad input -- child with two fathers on line %d\n", is->line);
           else {
             if (strcmp(my->Sex, "Unknown") == 0) strcpy(my->Sex, "Male");
             if (strcmp(my->Sex, "Female") == 0) fprintf(stderr, "Bad input - sex mismatch on line %d\n", is->line);
@@ -178,7 +177,7 @@ int main(int argc, char **argv) {
         strcpy(sex, is->fields[1]);
         if (strcmp(sex, "F") == 0) sex = strdup("Female");
         if (strcmp(sex, "M") == 0) sex = strdup("Male");
-        if (strcmp(my->Sex, "Unknown") != 0 && strcmp(my->Sex, sex) != 0) fprintf(stderr, "Bad input - sex mismatch on line %d\n", p->Name, is->line, my->Sex, sex);
+        if (strcmp(my->Sex, "Unknown") != 0 && strcmp(my->Sex, sex) != 0) fprintf(stderr, "Bad input - sex mismatch on line %d\n", is->line);
         else {
           if (strcmp(sex, "Male") == 0) strcpy(my->Sex, "Male");
           if (strcmp(sex, "Female") == 0) strcpy(my->Sex, "Female");
@@ -188,8 +187,15 @@ int main(int argc, char **argv) {
   }
 
   /* Check for cycles */
-  if (DFS((Person *) fam->flink->val.v) <= 0) {
-    /* Print the tree with a topological sort */
+  n = 1;
+  jrb_traverse(tmp, fam){
+    p = tmp->val.v;
+    if (DFS((Person *) p)) n = 0;
+  }
+
+  /* Print the tree with a topological sort */
+  if (n) {
+  //if (DFS((Person *) fam->flink->val.v) <= 0) {
     while (!dll_empty(order)) {
       p = (Person *) order->flink->val.v;
      // if (p->Mother != NULL) printf("%s %d\n", p->Mother->Name, p->Mother->Visited);
