@@ -22,16 +22,21 @@ vector <int> invert(vector <int> &v) {
 
 vector <int> starting_places(vector <int> &Grid) {
   vector <int> rv;
-  string w1, w2;
   int i, j;
 
   // First row is always a starting row
 
   rv.resize(Grid.size() + 1, 0);
   rv[0] = 1;
+
+  /* Loop 0 -> n */
   for (i = 1; i < (int) rv.size(); i++) {
-    for (j = 1; j < i; j++) {
-      if (Grid[i-j] == Grid[i+j] && rv[i-j]) rv[i] = 1; 
+    /* Loop 1 -> i */
+    for (j = 1; j <= i; j++) {
+      /* If all squares match*/
+      if (Grid[i-j] == Grid[j+(i-j)]) {
+        if (rv[i-j]) rv[i] = 1;
+      }
       else break;
     }
   }
@@ -40,7 +45,7 @@ vector <int> starting_places(vector <int> &Grid) {
 }
 
 int main() {
-  int i, j, k, r, c, tot;
+  int i, j, k, r, c;
   string row;
   vector <string> grid, cols;
   vector <int> vert, horiz, s, e, iv, ih;
@@ -49,7 +54,6 @@ int main() {
   i = 0;
   j = 0;
   r = 0;
-  c = 0;
   /* Store each string in a map with a unique integer identifier */
   while (cin >> row) {
     if (v.find(row) == v.end()) {
@@ -61,19 +65,17 @@ int main() {
       vert.push_back(v.find(row)->second);
     }
 
-    if (j == 0) {
+    if (r == 0) {
       cols.resize(row.length());
+      c = row.length();
     }
     for (k = 0; k < (int) row.length(); k++) cols[k] += row[k];
 
     r++;
-    j++;
     grid.push_back(row);
   }
 
   /* Build the horizontal vector of integers for comparison */
-  j = 0;
-  c = cols.size();
   for (i = 0; i < c; i++) {
     if (h.find(cols[i]) == h.end()) {
       h.insert(make_pair(cols[i], j));
@@ -86,18 +88,29 @@ int main() {
   }
 
   s = starting_places(vert);
+  /* Reverse, call again and reverse again for the ending places */
   iv = invert(vert);
   ih = starting_places(iv);
   e = invert(ih);
 
-  tot = 0;
+  /* print */
+/*  for (i = 0; i < (int) s.size(); i++) printf("%d", s[i]);
+  printf("\n\n");
+  for (i = 0; i < (int) e.size(); i++) printf("%d", e[i]);
+  printf("\n\n");
+*/
 
+  r = 0;
+  c = 0;
+
+  /* Count the total number of starting and ending places */
   for (i = 0; i < (int) s.size(); i++) {
     if (s[i]) for (j = i + 1; j < (int) s.size(); j++) {
-      if (e[j]) tot++;
+      if (e[j]) r++;
     }
   }
 
+  /* Same process as above, but on the horizontal vector */ 
   s = starting_places(horiz);
   iv = invert(horiz);
   ih = starting_places(iv);
@@ -105,16 +118,9 @@ int main() {
 
   for (i = 0; i < (int) s.size(); i++) {
     if (s[i]) for (j = i+1; j < (int) s.size(); j++) {
-      if (e[j]) tot++;
+      if (e[j]) c++;
     }
   }
 
-
-  /* print */
- // for (i = 0; i < (int) s.size(); i++) printf("%d", s[i]);
-  //printf("\n\n");
-  //for (i = 0; i < (int) e.size(); i++) printf("%d", e[i]);
-  //printf("\n\n");
-
-  printf("%d\n", tot);
+  printf("%d\n", r*c);
 }
