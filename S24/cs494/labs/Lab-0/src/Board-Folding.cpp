@@ -35,6 +35,7 @@ vector <int> starting_places(vector <int> &Grid) {
     for (j = 1; j <= i; j++) {
       /* If all squares match*/
       if (Grid[i-j] == Grid[j+(i-j)]) {
+        //if (rv[j-(i+j)]) rv[i] = 1;
         if (rv[i-j]) rv[i] = 1;
       }
       else break;
@@ -56,6 +57,7 @@ int main() {
   r = 0;
   /* Store each string in a map with a unique integer identifier */
   while (cin >> row) {
+    /* Try to find the string in the map */
     if (v.find(row) == v.end()) {
       v.insert(make_pair(row, i));
       vert.push_back(i);
@@ -65,6 +67,7 @@ int main() {
       vert.push_back(v.find(row)->second);
     }
 
+    /* Initialize the columns vector */
     if (r == 0) {
       cols.resize(row.length());
       c = row.length();
@@ -94,11 +97,11 @@ int main() {
   e = invert(ih);
 
   /* print */
-/*  for (i = 0; i < (int) s.size(); i++) printf("%d", s[i]);
-  printf("\n\n");
-  for (i = 0; i < (int) e.size(); i++) printf("%d", e[i]);
-  printf("\n\n");
-*/
+ // for (i = 0; i < (int) vert.size(); i++) printf("%d", vert[i]);
+ // printf("\n\n");
+ // for (i = 0; i < (int) iv.size(); i++) printf("%d", iv[i]);
+ // printf("\n\n");
+
 
   r = 0;
   c = 0;
