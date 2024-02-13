@@ -30,13 +30,15 @@ vector <int> starting_places(vector <int> &Grid) {
   rv[0] = 1;
 
   /* Loop 0 -> n */
-  for (i = 1; i < (int) rv.size(); i++) {
+  for (i = 0; i < (int) rv.size(); i++) {
     /* Loop 1 -> i */
     for (j = 1; j <= i; j++) {
       /* If all squares match*/
-      if (Grid[i-j] == Grid[j+(i-j)]) {
-        //if (rv[j-(i+j)]) rv[i] = 1;
-        if (rv[i-j]) rv[i] = 1;
+      if (Grid[i-j] == Grid[i+j-1]) {
+        if (rv[i-j]) {
+            rv[i] = 1;
+            break;
+        }
       }
       else break;
     }
@@ -46,7 +48,7 @@ vector <int> starting_places(vector <int> &Grid) {
 }
 
 int main() {
-  int i, j, k, r, c;
+  long long i, j, k, r, c;
   string row;
   vector <string> grid, cols;
   vector <int> vert, horiz, s, e, iv, ih;
@@ -108,7 +110,7 @@ int main() {
 
   /* Count the total number of starting and ending places */
   for (i = 0; i < (int) s.size(); i++) {
-    if (s[i]) for (j = i + 1; j < (int) s.size(); j++) {
+    if (s[i]) for (j = i+1; j < (int) s.size(); j++) {
       if (e[j]) r++;
     }
   }
@@ -125,5 +127,5 @@ int main() {
     }
   }
 
-  printf("%d\n", r*c);
+  printf("%lld\n", r*c);
 }

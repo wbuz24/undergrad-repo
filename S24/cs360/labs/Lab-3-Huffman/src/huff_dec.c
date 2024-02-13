@@ -1,7 +1,7 @@
-// Lab 3 
-// Will Buziak
-// CS360
-// Hex dump
+/* Lab 3 
+   Will Buziak
+   CS360
+   Hex dump */
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -15,6 +15,7 @@ struct huff_node {
 
 int main(int argc, char **argv) {
   FILE *def, *input; // file pointer
+  char *line;
   u_int32_t last, bytes;
 
   if (argc != 3) { // error check args
@@ -29,15 +30,20 @@ int main(int argc, char **argv) {
     exit(0);
   } 
 
-  fseek(input, 4, SEEK_END);
+  fseek(input, -4, SEEK_END);
   last = fgetc(input);
   bytes = (last / 8) + 4;
-  
+  fseek(input, 0, SEEK_SET);
+
   printf("%u\n\n", bytes);
-/*
-  while (fgets(line, 100, filename) != NULL) { // read each independent line
-    printf("%s", line);
-  } */
+
+  if (bytes >= 4) {
+    line = (char *) malloc(sizeof(char) * bytes);
+    while (fread(line, 1, bytes, input) > 0) { // read each independent line
+      printf("%s", line);
+    } 
+  }
+  else printf("Not enough bytes\n");
   return 0;
 
 }
