@@ -5,21 +5,24 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
-struct huff_node {
+typedef struct huff_node {
   struct huff_node *Zero;
   struct huff_node *One;
   char *S_zero;
   char *S_one;
-};
+} Node;
 
 int main(int argc, char **argv) {
   FILE *def, *input; // file pointer
-  char *line;
+  char *line, *word;
+  char c;
+  int l;
   u_int32_t last, bytes;
+  Node *n;
 
   if (argc != 3) { // error check args
-    printf("./bin/huff_dec code_definition.txt input.txt\n");
     return 0;
   }
 
@@ -35,15 +38,53 @@ int main(int argc, char **argv) {
   bytes = (last / 8) + 4;
   fseek(input, 0, SEEK_SET);
 
-  printf("%u\n\n", bytes);
+  // printf("%u\n\n", bytes);
 
   if (bytes >= 4) {
-    line = (char *) malloc(sizeof(char) * bytes);
+    
+    n = (Node *) malloc(sizeof(Node));
+    n->Zero = NULL;
+    n->One = NULL;
+
+    while (fread(&c, 1, 1, def) > 0) {
+
+      if (c != '\0' && c != '0' && c != '1') {
+        /* Find out how long the string is */
+        l = 0;
+        while (c != '\0') {
+          l++;
+          printf("%c", c);
+          fread(&c, 1, 1, def);
+        }
+
+        /* Reset the file pointer */
+        fseek(def, (l * -1), SEEK_CUR);
+        word = (char *) malloc(sizeof(char) * l + 1);
+
+        l = 0;
+       // while (h != '\0') {
+       // }
+
+      }
+
+      if (c == '0') {
+        while (n->Zero != NULL) n = n->Zero;
+        
+//        n->S_zero = strdup(word);
+      } 
+
+
+//      if (c == '\0') printf("\n");
+      //printf("%c", c);
+    }
+
+    free(n);
+
+   /* line = (char *) malloc(sizeof(char) * bytes);
     while (fread(line, 1, bytes, input) > 0) { // read each independent line
       printf("%s", line);
-    } 
+    }*/ 
   }
-  else printf("Not enough bytes\n");
-  return 0;
+  return 1;
 
 }
