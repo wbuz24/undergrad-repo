@@ -16,8 +16,9 @@ typedef struct huff_node {
 
 int main(int argc, char **argv) {
   FILE *def, *input; // file pointer
-  char *line, *word;
+  char *line;
   char c;
+  char word[1000], nums[1000];
   int l;
   u_int32_t last, bytes;
   Node *n;
@@ -48,22 +49,17 @@ int main(int argc, char **argv) {
 
     while (fread(&c, 1, 1, def) > 0) {
 
+      l = 0;
       if (c != '\0' && c != '0' && c != '1') {
         /* Find out how long the string is */
-        l = 0;
         while (c != '\0') {
-          l++;
-          printf("%c", c);
+          word[l] = c;
           fread(&c, 1, 1, def);
+          l++;
         }
+        word[l] = c;
 
-        /* Reset the file pointer */
-        fseek(def, (l * -1), SEEK_CUR);
-        word = (char *) malloc(sizeof(char) * l + 1);
-
-        l = 0;
-       // while (h != '\0') {
-       // }
+        printf("%s\n", word);
 
       }
 
