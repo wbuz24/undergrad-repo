@@ -8,10 +8,8 @@
 #include <string.h>
 
 typedef struct huff_node {
-  struct huff_node *Zero;
-  struct huff_node *One;
-  char *S_zero;
-  char *S_one;
+  struct huff_node *Ptrs[2];
+  char *Strings[2];
 } Node;
 
 int main(int argc, char **argv) {
@@ -21,15 +19,19 @@ int main(int argc, char **argv) {
   char word[1000], nums[1000];
   int l;
   u_int32_t last, bytes;
-  Node *n;
+  Node *n, *p, *prev;
 
-  if (argc != 3) { // error check args
+  /* Check args */
+  if (argc != 3) {
     return 0;
   }
 
-  def = fopen(argv[1], "r"); // try to open file
-  input = fopen(argv[2], "r"); // try to open file
-  if (def == NULL || input == NULL) { // error check noncompatible files
+  /* Try to open the two input files for reading */
+  def = fopen(argv[1], "r");
+  input = fopen(argv[2], "r");
+
+  /* error check files opening */
+  if (def == NULL || input == NULL) {
     printf("File did not open properly\n");
     exit(0);
   } 
@@ -43,38 +45,75 @@ int main(int argc, char **argv) {
 
   if (bytes >= 4) {
     
+    /* Create the bottom node in the tree, n */
     n = (Node *) malloc(sizeof(Node));
-    n->Zero = NULL;
-    n->One = NULL;
+    n->Ptrs[0] = NULL;
+    n->Ptrs[1] = NULL;
 
-    while (fread(&c, 1, 1, def) > 0) {
+    /* p is the node being processed */
+    p = n;
+
+  while (fread(&c, 1, 1, def) > 0) {
 
       l = 0;
       if (c != '\0' && c != '0' && c != '1') {
-        /* Find out how long the string is */
+        /* Insert the string into word */
         while (c != '\0') {
           word[l] = c;
           fread(&c, 1, 1, def);
           l++;
         }
-        word[l] = c;
-
-        printf("%s\n", word);
-
+        word[l] = '\0';
       }
 
+      /* Character is 0 or 1 */
       if (c == '0') {
-        while (n->Zero != NULL) n = n->Zero;
+        l = 0;
+        /* Insert the number into a string */
+        while (c != '\0') {
+          nums[l] = c;
+          l++;
+          fread(&c, 1, 1, def);
+        }
+        nums[l] = '\0';
+        while (p->Ptrs[0] != NULL) p = p->Ptrs[0];
+
+        /* Store the string and create a new node */
+        p->Strings[0] = strdup(word);
+        prev = p;
         
-//        n->S_zero = strdup(word);
+        p = (Node *) malloc(sizeof(Node));
+        p->Ptrs[0] = prev;
+        p->Ptrs[1] = NULL;
+
+        printf("%s\n", nums);
       } 
 
+      if (c == '1') {
+        l = 0;
+        while (c != '\0') {
+          nums[l] = c;
+          l++;
+          fread(&c, 1, 1, def);
+        }
+        nums[l] = '\0';
+        while (p->Ptrs[1] != NULL) p = p->Ptrs[1];
+
+        p->Strings[1] = strdup(word);
+
+        p = (Node *) malloc(sizeof(Node));
+        p->Ptrs[0] = NULL;
+        p->Ptrs[1] = prev;
+
+        printf("%s\n", nums);
+      }
 
 //      if (c == '\0') printf("\n");
-      //printf("%c", c);
+        //printf("%c", c);
     }
 
     free(n);
+
 
    /* line = (char *) malloc(sizeof(char) * bytes);
     while (fread(line, 1, bytes, input) > 0) { // read each independent line
@@ -82,5 +121,4 @@ int main(int argc, char **argv) {
     }*/ 
   }
   return 1;
-
 }
