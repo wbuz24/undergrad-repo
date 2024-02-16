@@ -11,11 +11,11 @@ using namespace std;
 
 int main(int argc, char **argv) {
   long long n, i, j;
-  string filename, line;
+  string filename, line, s, ofile;
   vector <string> lines;
   ifstream fin;
   ofstream fout;
-  char ofile[100], name[200];
+  char name[200];
 
   if (argc != 3) {
     printf("./bin/gen_txt kB file.txt\n");
@@ -47,9 +47,11 @@ int main(int argc, char **argv) {
     if (i > n) break;
   }
 
-  /* Make output file, assumes data will be in shrek folder */
-  sscanf(filename.c_str(), "shrek/%s.txt", ofile);
-  sprintf(name, "data/%lld_%s", (n / 1000), ofile);
+  /* Make output file */
+  j = filename.find_last_of('/');
+  ofile = filename.substr(j+1, filename.length()-1);
+  sprintf(name, "data/%lld_%s", (n / 1000), ofile.c_str());
+  printf("Writing approximately %lld kB of %s to %s\n", n / 1000, filename.c_str(), name);
   fout.open(name);
 
   /* print n bytes of shrek */

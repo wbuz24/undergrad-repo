@@ -6,10 +6,22 @@
 #include <stdlib.h>
 #include <string.h>
 
+char shiftWin(char buff[], int w, FILE *f) {
+  int i;
+  char new[w];
+  char next;
+
+  for (i = 1; i < w; i++) new[i-1] = buff[i];
+  fread(&next, 1, 1, f);
+  new[i] = next;
+
+  return new;
+}
+
+
 int main(int argc, char **argv) {
   FILE *input;
   long long s, w; /* size of the search and look ahead buffer */
-  char *search, *window;
 
   /* Read in files on command line */
   if (argc != 5) {
@@ -24,9 +36,10 @@ int main(int argc, char **argv) {
     printf("Buffer out of bounds\nsearch: %lld\nwindow: %lld\n", s, w);
     return 0;
   }
+  printf("%lld %lld\n\n", s, w);
 
-  search = (char *) malloc(sizeof(char) * s);
-  window = (char *) malloc(sizeof(char) * s);
+  char search[s];
+  char window[w];
 
   input = fopen(argv[3], "r");
   if (input == NULL) {
@@ -34,8 +47,12 @@ int main(int argc, char **argv) {
     return 0;
   }
 
+  /* While reading in a file
+      * Find the longest match from input in the search buffer
+      * read to the file the triple or duple (d, r, c)
+      * move the cursor
+   * */
 
-  printf("%lld %lld\n", s, w);
 
   free(search);
   free(window);

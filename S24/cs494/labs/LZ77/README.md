@@ -11,7 +11,5 @@ I decided to use the script from Shrek the movie, as a .txt file as my experimen
 You can use the .txt file generator to generate a file into the data/ directory with a specified file size on the command line. 
 
 ```
-./bin/shrek_gen n shrek/input.txt
+./bin/bytes_gen bytes shrek/input.txt
 ```
-
-Note: Since I quickly wrote it for this project, it is hard coded to extract data from the shrek folder.

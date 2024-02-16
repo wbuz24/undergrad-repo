@@ -7,16 +7,29 @@
 #include <stdlib.h>
 #include <string.h>
 
+/* recursive free, call on children then free node */
+
 typedef struct huff_node {
   struct huff_node *Ptrs[2];
   char *Strings[2];
 } Node;
 
+void freeNodes(Node *n) {
+
+  if (n->Ptrs[0] != NULL) freeNodes(n->Ptrs[0]);
+  if (n->Ptrs[1] != NULL) freeNodes(n->Ptrs[1]);
+
+  if (n->Strings[0] != NULL) printf("%s\n", n->Strings[0]);
+  if (n->Strings[1] != NULL) printf("%s\n", n->Strings[1]);
+  free(n);
+
+  return;
+}
+
 int main(int argc, char **argv) {
   FILE *def, *input; // file pointer
-  char *line;
-  char c;
-  char word[1000], nums[1000];
+  char c, h;
+  char word[1000];
   int l;
   u_int32_t last, bytes;
   Node *n, *p, *prev;
@@ -49,12 +62,13 @@ int main(int argc, char **argv) {
     n = (Node *) malloc(sizeof(Node));
     n->Ptrs[0] = NULL;
     n->Ptrs[1] = NULL;
+    n->Strings[0] = NULL;
+    n->Strings[1] = NULL;
 
-    /* p is the node being processed */
-    p = n;
 
   while (fread(&c, 1, 1, def) > 0) {
-
+      /* p is the node being processed */
+      p = n;
       l = 0;
       if (c != '\0' && c != '0' && c != '1') {
         /* Insert the string into word */
@@ -67,58 +81,41 @@ int main(int argc, char **argv) {
       }
 
       /* Character is 0 or 1 */
-      if (c == '0') {
-        l = 0;
-        /* Insert the number into a string */
+      if (c == '0' || c == '1') {
+        /* Chase nodes until you find the null character */
         while (c != '\0') {
-          nums[l] = c;
-          l++;
+          h = c; // grab the last character
+          if (c == '0') {
+            /* If the zero pointer is set, chase it, otherwise make a new node */
+            if (p->Ptrs[0] != NULL) p = p->Ptrs[0];
+            if (p->Strings[0] == NULL) {
+              prev = p;
+              p = (Node *) malloc(sizeof(Node));
+              p->Ptrs[0] = prev;
+              p->Ptrs[1] = NULL;
+            }
+          }
+          if (c == '1') {
+            if (p->Ptrs[1] != NULL) p = p->Ptrs[1];
+            if (p->Strings[1] == NULL) {
+              prev = p;
+              p = (Node *) malloc(sizeof(Node));
+              p->Ptrs[0] = NULL;
+              p->Ptrs[1] = prev;
+            }
+          }
           fread(&c, 1, 1, def);
         }
-        nums[l] = '\0';
-        while (p->Ptrs[0] != NULL) p = p->Ptrs[0];
-
-        /* Store the string and create a new node */
-        p->Strings[0] = strdup(word);
-        prev = p;
-        
-        p = (Node *) malloc(sizeof(Node));
-        p->Ptrs[0] = prev;
-        p->Ptrs[1] = NULL;
-
-        printf("%s\n", nums);
+        /* Check the value that got you here and copy the word */
+        if (h == '0') p->Strings[0] = strdup(word);
+        if (h == '1') p->Strings[1] = strdup(word);
       } 
-
-      if (c == '1') {
-        l = 0;
-        while (c != '\0') {
-          nums[l] = c;
-          l++;
-          fread(&c, 1, 1, def);
-        }
-        nums[l] = '\0';
-        while (p->Ptrs[1] != NULL) p = p->Ptrs[1];
-
-        p->Strings[1] = strdup(word);
-
-        p = (Node *) malloc(sizeof(Node));
-        p->Ptrs[0] = NULL;
-        p->Ptrs[1] = prev;
-
-        printf("%s\n", nums);
-      }
-
-//      if (c == '\0') printf("\n");
-        //printf("%c", c);
     }
 
-    free(n);
-
-
-   /* line = (char *) malloc(sizeof(char) * bytes);
-    while (fread(line, 1, bytes, input) > 0) { // read each independent line
-      printf("%s", line);
-    }*/ 
+    /* do a DFS, freeing the nodes from the bottom up */
+    freeNodes(n);
   }
+
+
   return 1;
 }
