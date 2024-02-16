@@ -1,6 +1,8 @@
 # README's are a fantastic way to document your repo
 
-You can have headers, like the one above, [links](https://wbuz24.github.io/personal-site/), images,
+You can have headers, like the one above, [links](https://wbuz24.github.io/personal-site/), 
+
+![images.png](images.png)
 
 ```
 copy fields
