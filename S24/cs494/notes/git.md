@@ -2,7 +2,7 @@
 
 You can have headers, like the one above, [links](https://wbuz24.github.io/personal-site/), 
 
-![images.png](images.png)
+![images/images.png](images/images.png)
 
 ```
 copy fields
