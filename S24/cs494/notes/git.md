@@ -2,7 +2,7 @@
 
 You can have headers, like the one above, [links](https://wbuz24.github.io/personal-site/), 
 
-![/home/shartreuce/repos/undergrad-repo/S24/cs494/notes/images/images.png](/home/shartreuce/repos/undergrad-repo/S24/cs494/notes/images/images.png) 
+![home/shartreuce/repos/undergrad-repo/S24/cs494/notes/images/images.png](home/shartreuce/repos/undergrad-repo/S24/cs494/notes/images/images.png) 
 
 ```
 copy fields
