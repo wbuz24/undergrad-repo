@@ -102,8 +102,8 @@ int main(int argc, char **argv) {
   char c;
   char *d;
   char word[1000], nums[1000];
-  int i, l;
-  u_int32_t last, bytes;
+  long long i, l, bytes;
+  u_int32_t last;
   Node *n, *p;
 
   /* Check args */
@@ -122,9 +122,9 @@ int main(int argc, char **argv) {
   } 
 
   fseek(input, -4, SEEK_END);
-  l = ftell(input); // total
+  l = ftell(input); // total input file size
   
-/*  if (l < 4) {
+/*  if ((l * 8) < 4) {
     fprintf(stderr, "Error: file is not the correct size.\n");
     return 0;
   }*/
@@ -133,9 +133,9 @@ int main(int argc, char **argv) {
 
   bytes = last / 8 + 4; // # of bytes
   
-//  printf("%d %u\n\n", l * 8, last);
+  //printf("%lld %u\n\n", l * 8, last);
 
-  if (l > (int) last) fprintf(stderr, "Error: file is not the correct size.\n");
+  if ((l * 8) < last) fprintf(stderr, "Error: file is not the correct size.\n");
   else {
     
     /* Create the bottom node in the tree, n */
@@ -198,7 +198,7 @@ int main(int argc, char **argv) {
 
 //    printf("\n\n");
 
-    // print_tree(n);
+//     print_tree(n);
 
     /* do a DFS, freeing the nodes from the bottom up */
     free(d);
