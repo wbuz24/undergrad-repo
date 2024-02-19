@@ -48,7 +48,7 @@ void insert_into_tree(Node *root, char *bitstring, char *decoding) {
   /* If this is the last bit, insert the word */
   if (strlen(bitstring) == 1) {
     if (*bitstring == '0') root->Strings[0] = strdup(decoding);
-    if (*bitstring == '1') root->Strings[1] = strdup(decoding);
+    else if (*bitstring == '1') root->Strings[1] = strdup(decoding);
   }
 
   else {
