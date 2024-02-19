@@ -1,0 +1,370 @@
+<TITLE>CS360 Lab 4 -- Fakemake</title>
+
+<body bgcolor=ffffff>
+<h1>CS360 Lab #4 -- Fakemake</h1>
+<UL>
+<LI> <a href=http://web.eecs.utk.edu/~jplank>James S. Plank</a>
+<LI> <a href=http://web.eecs.utk.edu/~jplank/jplank/classes/cs360/>CS360</a>
+<LI> <a href=https://www.youtube.com/watch?v=_bNUGD_y5Po>Here is a helpful video made in 2023 by TA Andrew Mueller (https://www.youtube.com/watch?v=_bNUGD_y5Po)</a>
+</UL>
+<hr>
+<HR><h2>What you submit</b></h2>
+
+You submit the file <b>fakemake.c</b>.  The TA's will copy this to their own directory
+on the lab machines, and then compile with:
+
+<pre>
+UNIX> <font color=darkred><b>make -f /home/jplank/cs360/labs/Lab-4-Fakemake/lab-makefile</b></font>
+</pre>
+
+You may use Libfdr for this assignment.
+
+<HR><h2>Description of <b>fakemake</b></h2>
+
+Now we get to a more fun assignment.  The goal is to write a 
+restricted and pared-down version of <b>make(1)</b>.
+This will give you some practice using <b>stat(2v)</b> and
+<b>system(3)</b>.
+<p>
+
+Your job is to write the program <b>fakemake</b>.  Like <b>make</b>, 
+<b>fakemake</b>'s job is to help you automate compiling.  Unlike
+<b>make</b>, <b>fakemake</b> limits itself to making one executable,
+and assumes that you are using <b>gcc</b> to do your compilation.
+
+<p> The syntax of <b>fakemake</b> is as follows:
+<pre>
+fakemake [ description-file ]
+</pre>
+If no <b>description-file</b> is specified, then it assumes that the 
+description file is the file <b>fmakefile</b>.  Obviously, if the
+description file doesn't exist, then the program should exit with an 
+error.
+
+<p>Each line of the description file may be one of six things:
+<UL>
+<LI> A blank line (i.e. a line containing only white space).
+<p><LI> A specification of C source files that are used to make the executable:
+<pre>
+C list-of-files
+</pre>
+All files thus specified should end with <b>.c</b>.  
+Multiple files can be separated
+by whitespace.  The list may be empty, and there can be multiple lines
+starting with <b>C</b>.
+<p><LI> A specification of C header files that may be included by any source
+file:
+<pre>
+H list-of-files
+</pre>
+The <B>H</b> list is formatted just like the <b>C</b> list, and
+there can be multiple lines starting with <b>H</b>.
+<p><LI> A specification of the name of the executable:
+<pre>
+E name
+</pre>
+There can be only one executable name; thus, there can be only one
+line starting with <b>E</b>.  
+It is an error if there is no <b>E</b> line in
+the entire description file.
+<p><LI> A specification of compilation flags:
+<pre>
+F flags
+</pre>
+These flags
+will be included right after <b>gcc</b> whenever it is called.
+As before, the flags are separated by whitespace, and 
+there can be multiple <b>F</b> lines.
+This can be empty as well.
+<p><LI> A specification of libraries or extra object files for linking
+<pre>
+L list-of-libraries
+</pre>
+As before, multiple files should be separated
+by whitespace.  The list may be empty, and there can be multiple lines
+starting with <b>L</b>.  This list is included at the end of the final
+<b>gcc</b> command that makes the executable.
+</UL>
+
+<p>What <b>fakemake</b> does is compile all the <b>.c</b> files into 
+<b>.o</b> files (using <b>gcc -c</b>), and then compile all the <b>.o</b>
+files into the final executable.  Like <b>make</b>, it doesn't recompile
+a file if it is not necessary.  It uses the following
+algorithm to decide whether or not to compile the <b>.c</b> files: 
+<UL>
+<LI> If there is no <b>.o</b> file corresponding to the <b>.c</b> file,
+then the <b>.c</b> file must be compiled (with <b>-c</b>).
+<LI> If there is a <b>.o</b> file corresponding to the <b>.c</b> file, 
+but the <b>.c</b> file is more recent, then the <b>.c</b> file must
+be compiled (again with <b>-c</b>).
+<LI> If there is a <b>.o</b> file corresponding to the <b>.c</b> file,
+and <i>any</i> of the <b>.h</b> files are more recent than the <b>.o</b>
+file, then the <b>.c</b> file must be compiled.
+</UL>
+If the executable file exists, and is more recent than the <b>.o</b>
+files, and no <b>.c</b> file has been recompiled, then <b>fakemake</b>
+does not remake the executable.  Otherwise, it does remake the executable
+(using <b>gcc -o</b>).
+
+<p>Obviously, if a <b>.c</b> or <b>.h</b> file is specified, and it does not
+exist, <b>fakemake</b> should exit with an error.  If there are any 
+compilation errors mid-stream, <b>fakemake</b> should exit immediately.
+The order of files should be the order specified (this is for compilation and for
+constructing the final executable).
+
+<hr><h2>Example</h2>
+
+For example, get into a clean directory and then type
+<pre>
+UNIX> <font color=darkred><b>cp ~jplank/cs360/labs/Lab-4-Fakemake/* .</b></font>
+UNIX> <font color=darkred><b>ls</b></font>
+f.c             f.h             f2.c            makefile        mysort.fm
+f.fm            f1.c            lab.html        mysort.c
+UNIX> <font color=darkred><b>make</b></font>
+gcc -c -g f.c
+gcc -c -g f1.c
+gcc -c -g f2.c
+gcc -g -o f f.o f1.o f2.o
+gcc -c -g -I/home/jplank/cs360/include mysort.c
+gcc -g -o mysort mysort.o /home/jplank/cs360/objs/libfdr.a 
+UNIX> <font color=darkred><b>f</b></font>
+This is the procedure F1 -- in f1.c
+This is the procedure F2 -- in f2.c
+UNIX> <font color=darkred><b>mysort < f.c</b></font>
+  f1();
+  f2();
+main()
+{
+}
+UNIX> <font color=darkred><b>make clean</b></font>
+rm -f core *.o f mysort
+UNIX> <font color=darkred><b>ls</b></font>
+f.c             f.h             f2.c            makefile        mysort.fm
+f.fm            f1.c            lab.html        mysort.c
+UNIX>
+</pre>
+So, this directory contains source code for two programs.  The first, 
+<b>f</b>, is made up of three C files: 
+<a href=f.c><b>f.c</b></a>, 
+<a href=f1.c><b>f1.c</b></a> and
+<a href=f2.c><b>f2.c</b></a>, 
+and one header file: 
+<a href=f.h><b>f.h</b></a>.
+The second is 
+<a href=mysort.c><b>mysort.c</b></a>
+from the <b>Rbtree-1</b> lecture.  The <b>makefile</b> contains a specification 
+of how to make these programs using <b>make</b>.  The file 
+<a href=f.fm><b>f.fm</b></a> is
+the <b>fakemake</b> file for making <b>f</b>, and 
+<a href=mysort.fm><b>mysort.fm</b></a> is
+the <b>fakemake</b> file for making <b>mysort</b>.  Try it out, using the
+<b>fakemake</b> executable in
+<b>/home/jplank/cs360/labs/Lab-4-Fakemake/fakemake</b>:
+<pre>
+UNIX> <font color=darkred><b>~jplank/cs360/labs/Lab-4-Fakemake/fakemake</b></font>
+fakemake: fmakefile No such file or directory
+UNIX> <font color=darkred><b>~jplank/cs360/labs/Lab-4-Fakemake/fakemake f.fm</b></font>
+gcc -c -g f.c
+gcc -c -g f1.c
+gcc -c -g f2.c
+gcc -o f -g f.o f1.o f2.o
+UNIX> <font color=darkred><b>touch f.c         </b></font>
+UNIX> <font color=darkred><b>~jplank/cs360/labs/Lab-4-Fakemake/fakemake f.fm</b></font>
+gcc -c -g f.c
+gcc -o f -g f.o f1.o f2.o
+UNIX> <font color=darkred><b>rm f</b></font>
+UNIX> <font color=darkred><b>~jplank/cs360/labs/Lab-4-Fakemake/fakemake f.fm</b></font>
+gcc -o f -g f.o f1.o f2.o
+UNIX> <font color=darkred><b>touch f.h</b></font>
+UNIX> <font color=darkred><b>~jplank/cs360/labs/Lab-4-Fakemake/fakemake f.fm</b></font>
+gcc -c -g f.c
+gcc -c -g f1.c
+gcc -c -g f2.c
+gcc -o f -g f.o f1.o f2.o
+UNIX> <font color=darkred><b>touch f.h</b></font>
+UNIX> <font color=darkred><b>touch f.o f1.o</b></font>
+UNIX> <font color=darkred><b>~jplank/cs360/labs/Lab-4-Fakemake/fakemake f.fm</b></font>
+gcc -c -g f2.c
+gcc -o f -g f.o f1.o f2.o
+UNIX> <font color=darkred><b>~jplank/cs360/labs/Lab-4-Fakemake/fakemake f.fm</b></font>
+f up to date
+UNIX> <font color=darkred><b>f</b></font>
+This is the procedure F1 -- in f1.c
+This is the procedure F2 -- in f2.c
+UNIX> <font color=darkred><b>~jplank/cs360/labs/Lab-4-Fakemake/fakemake mysort.fm</b></font>
+gcc -c -g -I/home/jplank/cs360/include mysort.c
+gcc -o mysort -g -I/home/jplank/cs360/include mysort.o /home/jplank/cs360/objs/libfdr.a
+UNIX> <font color=darkred><b>mysort < f.c</b></font>
+  f1();
+  f2();
+main()
+{
+}
+UNIX> <font color=darkred><b>rm f.h</b></font>
+UNIX> <font color=darkred><b>~jplank/cs360/labs/Lab-4-Fakemake/fakemake f.fm</b></font>
+fmakefile: f.h: No such file or directory
+UNIX> <font color=darkred><b></b></font>
+</pre>
+As you can see, <b>fm</b> works according to the above specification.  It only
+recompiles modules when it needs to.  When you're in doubt about what
+your <b>fakemake</b> should do, see what
+<b>/home/jplank/cs360/labs/Lab-4-Fakemake/fakemake</b>
+does and emulate its behavior.
+
+<hr><h2>The Grading Script</h2>
+
+The grading script works by running two scripts -- <b>your-script.sh</b> and 
+<b>correct-script.sh</b>
+Each script copies files to the current directory from the lab
+directory, compiles them, maybe deletes some files or 
+modifies their times, then calls fakemake.  
+<p>
+If your program isn't working like mine, modify <b>your-script.sh</b> 
+to perform a "ls -l --full-time" listing right before the <b>fakemake</b> call.
+Here's an example.  First, I run the gradescript on example number 3.
+It runs correctly, but I still want to see what <b>your-script.sh</b> does:
+
+<pre>
+UNIX> <font color=darkred><b>~jplank/cs360/labs/Lab-4-Fakemake/gradescript 3</b></font>
+Problem 003 is correct.
+
+Test: sh -c 'sh your-script.sh > tmp-003-test-stdout.txt 2> tmp-003-test-stderr.txt'
+
+Correct output generated with : sh -c 'sh correct-script.sh > tmp-003-correct-stdout.txt 2> tmp-003-correct-stderr.txt'
+UNIX> <font color=darkred><b>cat your-script.sh</b></font>
+ge=/home/jplank/cs360/labs/Lab-4-Fakemake/Gradescript-Examples
+cp $ge/onefile.c .
+gcc -c onefile.c
+sleep 1
+touch onefile.c
+rm -f onefile
+cp $ge/001.fm fmakefile
+if ./fakemake; then
+  ./onefile
+fi
+UNIX> <font color=darkred><b>sh your-script.sh</b></font>
+gcc -c onefile.c
+gcc -o onefile onefile.o
+With a taste of your lips 
+I'm on a ride 
+You're toxic 
+I'm slipping under 
+With a taste of poison paradise 
+UNIX> <font color=darkred><b></b></font>
+</pre>
+
+If you can read the script -- it copies <b>/home/jplank/cs360/labs/Lab-4-Fakemake/Gradescript-Examples/onefile.c</b> to the current directory,
+compiles it to <b>onefile.o</b>, then sleeps for a second and makes sure that there
+is no file <b>onefile</b> in the current directory.  It then copies the fake-makefile
+<b>001.fm</b> from <b>/home/jplank/cs360/labs/Lab-4-Fakemake/Gradescript-Examples</b> and runs <b>fakemake</b>.
+Since <b>onefile.c</b> should be one second newer than <b>onefile.o</b>, 
+<b>fakemake</b> should recompile <b>onefile.c</b> to <b>onefile.o</b>, and then
+compile <b>onefile.o</b> to <b>onefile</b>.  It should exit correctly, and then the script
+runs <b>onefile</b>, which, like all the example programs, prints some random lines from 
+<i>Toxic</i> by Britney Spears (a surprisingly good song, if you ask me) in a random order.
+<p>
+Below, I modify <b>your-script</b> so that it does "ls -l --full_time" on the <b>onefile</b>
+programs:
+
+<pre>
+UNIX> <font color=darkred><b>vi your-script.sh</b></font>
+UNIX> <font color=darkred><b>cat your-script.sh</b></font>
+ge=/home/jplank/cs360/labs/Lab-4-Fakemake/Gradescript-Examples
+cp $ge/onefile.c .
+gcc -c onefile.c
+sleep 1
+touch onefile.c
+rm -f onefile
+cp $ge/001.fm fmakefile
+ls -l --full-time onefile*                 # this is the new line
+if ./fakemake; then
+  ./onefile
+fi
+UNIX> <font color=darkred><b>sh your-script.sh</b></font>
+-rw-r--r-- 1 jplank loci  246 2011-02-09 11:05:36.000000000 -0500 onefile.c
+-rw-r--r-- 1 jplank loci 1880 2011-02-09 11:05:35.000000000 -0500 onefile.o
+gcc -c onefile.c
+gcc -o onefile onefile.o
+With a taste of your lips 
+I'm on a ride 
+You're toxic 
+I'm slipping under 
+With a taste of poison paradise 
+UNIX> <font color=darkred><b></b></font>
+</pre>
+
+
+You can see from the long listing that <b>onefile.o</b> is older than <b>oldfile.c</b>
+by one second.  
+<p>
+The test files from 6 through 25 test two-file compilations,
+and the remainder test header files, libraries, etc.
+
+
+<hr><h2>Details</h2>
+
+Obviously, you'll have to use <b>stat()</b> to test the ages of programs.
+The <b>st_mtime</b> field of the <b>struct stat</b> should be used as the
+age of the program.
+
+<p>To execute a string, you use the <b>system()</b> procedure.  It executes
+the given string as if that string is a 
+shell command (<b>sh</b>, not <b>csh</b>, 
+although it shouldn't matter).  If it returns -1, then it couldn't execute the 
+command.  Otherwise, it returns that <b>exit()</b> value of the command.
+You should assume that if a program exits with a non-zero value, then there was
+an error, and you should stop compiling (i.e. your <b>fakemake</b> should exit).
+
+<hr><h2>Strategy</h2>
+
+It's my hope that you don't need these sections on strategy too much, but
+to help you out, here's how I wrote this program.
+
+<UL>
+<LI> Wrote the code to figure out the name of the description file.  Made
+my makefile, and tested the code.
+<LI> Wrote the main loop to read the description file (using the 
+fields library).  This loop just
+calls <b>get_line</b> and prints each line to stdout.
+<LI> Wrote the code to recognize blank lines.
+<LI> Wrote code to recognize the <b>C</b> lines.  All other lines are 
+      ignored.
+<LI> Wrote a subroutine to read the <b>C</b> files into a dllist.  After 
+      reading the entire description file, I print out the contents of this
+      dllist.
+<LI> Wrote code to recognize the <b>H</b> lines, and used the same subroutine
+      as above to read the <b>H</b> files into another dllist.  Tested this
+      code.
+<LI> Wrote code to recognize and read the <b>L</b> lines -- this used the 
+      same subroutine and the filenames went into a third dllist.
+<LI> Wrote code to read in the executable name.  Tested this code.
+<LI> Wrote code to recognize and read in the <b>F</b> lines.  This again
+      used the same subroutine as the <b>C</b>, <b>H</b>, and <b>L</b> lines.
+      The flags are read into another dllist.
+<LI> Wrote code to flag an error for any unprocessed line.  Also flagged
+      an error if there is no <b>E</b> line.
+<LI> Wrote code to process the header files.  This code traverses the 
+      <b>H</b> dllist and calls <b>stat</b> on each file.  It flags an error
+      if the file doesn't exist.  Otherwise, it returns the maximum value
+      of <b>st_mtime</b> to the <b>main()</b> program.
+<LI> Wrote code to start processing the C files.  This code traverses the
+      <b>C</b> dllist and calls <b>stat</b> on each file.  It flags an error
+      if the file doesn't exist.  Otherwise, it looks for the <b>.o</b> file.
+      If that file doesn't exist, or is less recent than the C file or the
+      maximum <b>st_mtime</b> of the header files, then I printed out that
+      I need to remake that file.  I tested this code extensively.
+<LI> Wrote code to actually remake the <b>.o</b> files.  This means
+      creating the ``<b>gcc -c</b>'' string and printing it out.  Once
+      this looked right, I had the program call <b>system()</b> on the 
+      string.
+<LI> Finished up the C file subroutine by having it return whether any
+      files were remade, or if not, the maximum <b>st_mtime</b> of any
+      <b>.o</b> files, to the <b>main()</b> program.
+<LI> Wrote code to test whether or not the executable needed to be made.
+<LI> Finally, I wrote code to make the executable.  First I wrote code
+      to create the ``<b>gcc -o</b>'' string, and then I printed out the
+      string.  After testing that, I had the program call <b>system()</b>
+      on the string.
+<LI> Put finishing touches on the program, and did more testing.
+</UL>
+

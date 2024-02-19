@@ -1,0 +1,8 @@
+F -I/dev/null
+C tf2.c tf3.c
+H s1_header.h
+E testexec
+C testmain.c tf0.c
+C tf1.c
+F -O
+C tf4.c

@@ -1,0 +1,8 @@
+E mysort
+
+C mysort.c
+
+F -g
+F -I/home/jplank/cs360/include
+
+L /home/jplank/cs360/objs/libfdr.a

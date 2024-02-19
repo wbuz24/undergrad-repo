@@ -1,0 +1,5 @@
+E testexec
+L testlib.a
+C testmain.c tf1.c tf2.c
+C tf3.c tf4.c
+L -lm

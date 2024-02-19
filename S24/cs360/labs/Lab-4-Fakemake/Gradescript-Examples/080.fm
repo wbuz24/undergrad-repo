@@ -1,0 +1,5 @@
+E testexec
+C tf0.c tf1.c
+C testmain.c
+C tf3.c tf4.c
+C tf2.c

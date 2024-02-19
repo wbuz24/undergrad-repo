@@ -1,0 +1,8 @@
+C tf4.c
+L testlib.a
+C testmain.c
+E testexec
+H s1_header.h
+L -lm
+C tf2.c tf3.c
+E binky

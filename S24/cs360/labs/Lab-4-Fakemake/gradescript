@@ -1,0 +1,77 @@
+#!/bin/sh 
+
+dir=/home/jplank/cs360/labs/Lab-4-Fakemake
+ge="$dir/Gradescript-Examples"
+
+if [ $# -ne 1 ]; then
+  echo 'usage: gradescript problem_number (1-120)' >&2
+  exit 1
+fi
+
+if [ "$1" -gt 0 -a "$1" -le 120 ]; then
+  enum=`echo $1 | awk '{ printf "%03d\n", $1 }'`
+else
+  echo 'usage: gradescript problem_number (1-120)' >&2
+  exit 1
+fi
+  
+program=fakemake
+
+if [ ! -f $program ]; then
+  echo "Problem $enum is incorrect."
+  echo ""
+  echo "Your program $program does not exist."
+  exit 0
+fi
+
+  rm -f tmp-$enum-test-stdout.txt tmp-$enum-test-stderr.txt tmp-$enum-correct-stdout.txt tmp-$enum-correct-stderr.txt 
+
+scriptfile=$ge/$enum.script
+
+fakemake=$dir/fakemake
+sed "s#FAKEMAKE#$fakemake#" $scriptfile > correct-script.sh
+sh correct-script.sh > tmp-$enum-correct-stdout.txt 2> tmp-$enum-correct-stderr.txt
+correct="sh correct-script.sh > tmp-$enum-correct-stdout.txt 2> tmp-$enum-correct-stderr.txt"
+
+fakemake=./fakemake
+sed "s#FAKEMAKE#$fakemake#" $scriptfile > your-script.sh
+sh your-script.sh > tmp-$enum-test-stdout.txt 2> tmp-$enum-test-stderr.txt
+call="sh your-script.sh > tmp-$enum-test-stdout.txt 2> tmp-$enum-test-stderr.txt"
+
+err=`diff tmp-$enum-correct-stderr.txt tmp-$enum-test-stderr.txt | wc | awk '{ print $1 }'`
+out=`diff tmp-$enum-correct-stdout.txt tmp-$enum-test-stdout.txt | wc | awk '{ print $1 }'`
+
+if [ $out != 0 -o $err != 0 ]; then
+  echo "Problem $enum is incorrect."
+  echo ""
+  if [ $out != 0 ]; then
+    echo "Your standard output does not match the correct one."
+  fi
+  if [ $err != 0 ]; then
+    echo "Your standard error does not match the correct one."
+  fi
+  echo ""
+  echo "TEST:"
+  echo ""
+  echo "sh -c '$call'"
+  echo ""
+  echo "Correct output generated with : sh -c '$correct'" 
+  echo ""
+  echo "FILES:"
+  echo ""
+  echo "Your standard output is in tmp-$enum-test-stdout.txt."
+  echo "Your standard error  is in tmp-$enum-test-stderr.txt."
+  echo ""
+  echo "A correct standard output is in tmp-$enum-correct-stdout.txt."
+  echo "The correct standard error  is in tmp-$enum-correct-stderr.txt."
+  echo ""
+  echo "Look at correct files and your files, perhaps run 'diff -y' on them, and figure out your mistake."
+  echo "Please remember to delete this files when you are finished."
+else 
+  echo "Problem $enum is correct."
+  echo ""
+  echo "Test: sh -c '$call'"
+  echo ""
+  echo "Correct output generated with : sh -c '$correct'" 
+  rm -f tmp-$enum-test-stdout.txt tmp-$enum-test-stderr.txt tmp-$enum-correct-stdout.txt tmp-$enum-correct-stderr.txt
+fi

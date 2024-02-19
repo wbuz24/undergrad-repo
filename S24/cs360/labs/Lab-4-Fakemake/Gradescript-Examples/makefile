@@ -1,0 +1,56 @@
+all:
+
+clean:
+	rm -f allfile.o \
+	britney-does-math.o \
+	fifth.o \
+	first.o \
+	first_three.o \
+	fourfile.o \
+	fourth.o \
+	onefile.o \
+	second.o \
+	second_two.o \
+	third.o \
+	twofile.o \
+	using_s1_1.o \
+	using_s1_2.o \
+	using_s2_1.o \
+	using_s2_2.o \
+	allfile \
+	britney-does-math \
+	fifth \
+	first \
+	first_three \
+	fourfile \
+	fourth \
+	onefile \
+	second \
+	second_two \
+	third \
+	twofile \
+	using_s1_1 \
+	using_s1_2 \
+	using_s2_1 \
+	using_s2_2 \
+	allfile.c \
+	britney-does-math.c \
+	fifth.c \
+	first.c \
+	first_three.c \
+	fourfile.c \
+	fourth.c \
+	null_header.h \
+	onefile.c \
+	s1_header_1.h \
+	s1_header_2.h \
+	s2_header_1.h \
+	s2_header_2.h \
+	second.c \
+	second_two.c \
+	third.c \
+	twofile.c \
+	using_s1_1.c \
+	using_s1_2.c \
+	using_s2_1.c \
+	using_s2_2.c \

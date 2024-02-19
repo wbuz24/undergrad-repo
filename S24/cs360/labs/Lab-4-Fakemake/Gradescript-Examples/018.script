@@ -1,0 +1,15 @@
+ge=/home/jplank/cs360/labs/Lab-4-Fakemake/Gradescript-Examples
+cp $ge/twofile-1.c twofile.c
+cp $ge/first_three-1.c first_three.c
+rm -f twofile.o first_three.o twoexec
+gcc -c twofile.c
+gcc -c first_three.c
+gcc -o twoexec twofile.c first_three.c
+touch -t 01011110.10 twofile.c
+touch -t 01011110.15 first_three.c
+touch -t 01011110.12 twofile.o
+touch -t 01011110.17 first_three.o
+touch -t 01011110.13 twoexec
+if FAKEMAKE $ge/008.fm; then
+  ./twoexec
+fi

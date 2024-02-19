@@ -1,0 +1,7 @@
+C testmain.c
+L testlib.a
+E testexec
+C tf3.c tf4.c
+F -O
+C tf2.c
+H s2_header.h

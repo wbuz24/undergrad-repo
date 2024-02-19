@@ -1,0 +1,8 @@
+C tf1.c
+E testexec
+C tf3.c tf4.c
+F -I/dev/null
+F -O
+C testmain.c
+C tf2.c
+L testlib.a
