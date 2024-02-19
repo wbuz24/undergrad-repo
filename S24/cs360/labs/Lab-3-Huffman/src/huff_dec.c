@@ -1,11 +1,12 @@
 /* Lab 3 
    Will Buziak
    CS360
-   Hex dump */
+   Huffman Decoding */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <assert.h>
 
 typedef struct huff_node {
   struct huff_node *Ptrs[2];
@@ -33,13 +34,30 @@ void freeNodes(Node *n) {
   return;
 }
 
-/* recursive printing for testing */
-void print_tree(Node *root) {
-  if (root->Ptrs[0] != NULL) print_tree(root->Ptrs[0]);
-  if (root->Ptrs[1] != NULL) print_tree(root->Ptrs[1]);
+void print_indent(int indent) {
+  for (int i=0; i<indent; i++) printf("  ");
+}
 
-  if (root->Strings[0] != NULL) printf("%s\n", root->Strings[0]);
-  if (root->Strings[1] != NULL) printf("%s\n", root->Strings[1]);
+/* recursive printing for testing */
+void print_tree(Node *root, int indent) {
+  if (root->Ptrs[0] != NULL) {
+    print_indent(indent);
+    printf("%d\n", 0);
+    print_tree(root->Ptrs[0], indent + 1);
+  }
+  if (root->Strings[0] != NULL) {
+    print_indent(indent);
+    printf("0: %s\n", root->Strings[0]);
+  }
+  if (root->Ptrs[1] != NULL) {
+    print_indent(indent);
+    printf("%d\n", 1);
+    print_tree(root->Ptrs[1], indent + 1);
+  }
+  if (root->Strings[1] != NULL) {
+    print_indent(indent);
+    printf("1: %s\n", root->Strings[1]);
+  }
 }
 
 void insert_into_tree(Node *root, char *bitstring, char *decoding) {
@@ -99,7 +117,7 @@ int get_bit(char *buff, int n) {
 
 int main(int argc, char **argv) {
   FILE *def, *input; // file pointer
-  char c;
+  char c = '?';
   char *d;
   char word[1000], nums[1000];
   long long i, l, bytes;
@@ -117,17 +135,17 @@ int main(int argc, char **argv) {
 
   /* error check files opening */
   if (def == NULL || input == NULL) {
-    printf("File did not open properly\n");
+    fprintf(stderr, "File did not open properly\n");
     exit(0);
   } 
 
   fseek(input, -4, SEEK_END);
   l = ftell(input); // total input file size
   
-/*  if ((l * 8) < 4) {
+  if ((l + 4) < 4) {
     fprintf(stderr, "Error: file is not the correct size.\n");
     return 0;
-  }*/
+  }
   fread(&last, 1, 4, input);
   fseek(input, 0, SEEK_SET);
 
@@ -135,7 +153,7 @@ int main(int argc, char **argv) {
   
   //printf("%lld %u\n\n", l * 8, last);
 
-  if ((l * 8) < last) fprintf(stderr, "Error: file is not the correct size.\n");
+  if ((l * 8) < last) fprintf(stderr, "Error: Total bits = %d, but file's size is %lld\n", last, (l + 4));
   else {
     
     /* Create the bottom node in the tree, n */
@@ -148,7 +166,7 @@ int main(int argc, char **argv) {
     while (fread(&c, 1, 1, def) > 0) {
       /* p is the node being processed */
       l = 0;
-      if (c != '\0' && c != '0' && c != '1') {
+      if (c != '\0') {
         /* Insert the string into word */
         while (c != '\0') {
           word[l] = c;
@@ -159,6 +177,7 @@ int main(int argc, char **argv) {
       }
 
       /* Character is 0 or 1 */
+      fread(&c, 1, 1, def);
       if (c == '0' || c == '1') {
         /* Store the number into a buffer */
         l = 0;
@@ -173,7 +192,9 @@ int main(int argc, char **argv) {
       }
     }
 
-    //print_tree(n);
+//    assert(n->Strings[0] == NULL && n->Strings[1] == NULL);
+
+    //print_tree(n, 0);
     /* Read in bytes from the input file */
 
     d = (char *) malloc(sizeof(char) * bytes + 1);
