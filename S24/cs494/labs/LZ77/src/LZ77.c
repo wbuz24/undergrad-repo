@@ -50,7 +50,7 @@ int main(int argc, char **argv) {
     printf("Buffer out of bounds\nsearch: %lld\nwindow: %lld\n", s, w);
     return 0;
   }
-  printf("Search size: %lld Window size: %lld\n\n", s, w);
+  printf("Search size: %lld\nWindow size: %lld\n\n", s, w);
 
   /* Declare buffer size by calling malloc */
   search = (char *) malloc(sizeof(char) * s);
