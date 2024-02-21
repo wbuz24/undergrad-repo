@@ -1,5 +1,5 @@
-include = /home/shartreuce/repos/undergrad-repo/S24/cs360/notes/Libfdr/include
-lib = /home/shartreuce/repos/undergrad-repo/S24/cs360/notes/Libfdr/lib
+include = /home/jplank/cs360/include
+lib = /home/jplank/cs360/lib
 
 all: fakemake
 
