@@ -2,7 +2,7 @@
  * CS360
  * Fakemake
  * February 2024
- * */
+*/
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -13,12 +13,53 @@
 #include "fields.h"
 #include "dllist.h"
 
+/* Make an executable file */
+void makeExec(char *executable, long ctime) {
+	int exists;
+	long etime;
+	struct stat buf;
+	char filename[1000], cname[1000];
+
+	strcpy(filename, "gcc -o ");
+	strcat(filename, executable);
+	strcat(filename, " ");
+	strcpy(cname, executable);
+	strcat(cname, ".c");
+
+	strcat(filename, cname);
+
+	exists = stat(executable, &buf);
+
+	/* Does not exist, make it */
+	if (exists < 0) system(filename);
+	else {
+		/* Executable already exists, if it is older, remake it */
+		etime = buf.st_mtime;
+
+		if (etime < ctime) system(filename);
+	}
+}
+
+void makeO(char file[]) {
+	/* Make the .o file from the .c file */
+	char oFile[1000];
+
+  /* Create the string */
+	strcpy(oFile, "gcc -c ");
+	strcat(oFile, file);
+
+	system(oFile);
+}
+
+/* Process all C lines */
 long cProcess(Dllist clist, long hmax) {
 	Dllist tmp;
-	struct stat buf;
-	int exists;
+	struct stat buf, buf1;
+	int exists, oex;
+	long ctime, otime, ret;
 	DIR *d;
 	struct dirent *de;
+	char fname[1000];
 
   /* Check and open the directory */
 	d = opendir(".");
@@ -27,18 +68,38 @@ long cProcess(Dllist clist, long hmax) {
 		exit(0);
 	}
 
-	/* Traverse the Dllist and check that each file exists */
+	ret = 0;
+	/* Traverse the Dllist and check that each .c file exists */
 	dll_traverse(tmp, clist) {
 		exists = stat(tmp->val.s, &buf);
-		if (exists < 0) fprintf(stderr, "%s not found\n");
+		if (exists < 0) fprintf(stderr, "%s does not exist\n", tmp->val.s); 
+		/* Process each .o file */
 		else {
-			/* Search for the .o file */
-			
-			/* If .o doesn't exist or less recent than c file, remake it */
+			ctime = buf.st_mtime;
+
+			/* Grab the first part of the name before .o */
+			strcpy(fname, tmp->val.s);
+			fname[strlen(fname) - 1] = 'o';
+			oex = stat(fname, &buf1);
+
+			/* If .o doesn't exist remake it */
+			if (oex < 0) {
+				makeO(tmp->val.s); 
+				ret++;
+			}
+			else {
+				/* If the o file is older than the .c file */
+				otime = buf1.st_mtime;
+				if (otime < ctime || otime < hmax) {
+					makeO(tmp->val.s); 
+					ret++;
+				}
+			}
 		}
 	}
+	if (ret == 0) ret = otime;
 	closedir(d);
-	return 0;
+	return ret;
 }
 
 /* Check that each header exists and return maximum st_mtime */
@@ -51,10 +112,10 @@ long hProcess(Dllist hlist) {
   max = 0;
 	dll_traverse(tmp, hlist) {
 		exists = stat(tmp->val.s, &buf);
-		if (exists < 0) fprintf(stderr, "%s not found\n", tmp->val.s);
+		if (exists < 0) { fprintf(stderr, "%s not found\n", tmp->val.s); exit(0); }
 		else {
 			if (buf.st_mtime > max) max = buf.st_mtime;
-		}	
+		}
 	}
 
   return max;
@@ -71,11 +132,11 @@ Dllist listAppend(Dllist list, IS is) {
 
 int main(int argc, char **argv) {
   IS is;
-  FILE *def, *output;
+  FILE *def;
   Dllist clist, hlist, llist, flist, tmp;
   char *filename, *executable;
   int i, exec;
-	long hmax;
+	long hmax, cmax;
 
   /* Grab definition file from command line */
   if (argc != 2) {
@@ -91,9 +152,6 @@ int main(int argc, char **argv) {
     return 0; 
   }
 
-  /* Open the output makefile */
-  //  output = fopen("makefile", "w");
-
   /* Input struct declaration */
   is = new_inputstruct(filename);
 
@@ -104,7 +162,7 @@ int main(int argc, char **argv) {
 	exec = 0;
   while(get_line(is) >= 0) {
     if (is->NF <= 0) {
-      //      printf("blank line \n");
+      //  printf("blank line \n");
     }
     else {
 			/* E line - Executable name */
@@ -127,21 +185,15 @@ int main(int argc, char **argv) {
   hmax = 0;
   hmax = hProcess(hlist);
 
-	if (exec != 1) printf("Executable error\n"); 
-	else printf("E: %s\n\n", executable);
+	cmax = 0;
+	cmax = cProcess(clist, hmax);
 
-  /* Traverse the dllist */
-  dll_traverse(tmp, clist) printf("C: %s\n", tmp->val.s);
-  printf("\n");
-  dll_traverse(tmp, hlist) printf("H: %s\n", tmp->val.s);
-  printf("Hmax: %li\n\n", hmax);
-  dll_traverse(tmp, llist) printf("L: %s\n", tmp->val.s);
-  printf("\n");
-  dll_traverse(tmp, flist) printf("F: %s\n", tmp->val.s);
-  printf("\n");
+	if (exec != 1) fprintf(stderr, "Executable error\n"); 
+	else makeExec(executable, cmax);
 
   jettison_inputstruct(is);
   //  fclose(output);
   fclose(def);
-
+	free(executable);
+	free(filename);
 }
