@@ -14,30 +14,53 @@
 #include "dllist.h"
 
 /* Make an executable file */
-void makeExec(char *executable, long ctime) {
+void makeExec(char *executable, long ctime, Dllist clist) {
 	int exists;
 	long etime;
+  int exec;
 	struct stat buf;
-	char filename[1000], cname[1000];
+	char command[1000], cname[1000];
+  Dllist tmp;
 
-	strcpy(filename, "gcc -o ");
-	strcat(filename, executable);
-	strcat(filename, " ");
-	strcpy(cname, executable);
-	strcat(cname, ".c");
-
-	strcat(filename, cname);
-
+  /* Check if the executable file exists */
 	exists = stat(executable, &buf);
+  exec = 0;
+
+  /* gcc -o twoexec twofile.o threefile.o */
+
+  /* Create the gcc command and append the executable name */
+	strcpy(command, "gcc -o ");
+	strcat(command, executable);
+
+  dll_traverse(tmp, clist) {
+	  strcat(cname, " ");
+    strcat(cname, tmp->val.s);  
+    cname[strlen(cname) - 1] = 'o';
+  }
+
+  /* append each .o file to the gcc command */
+	strcat(command, cname);
 
 	/* Does not exist, make it */
-	if (exists < 0) system(filename);
+	if (exists < 0) {
+    exec = 1;
+    printf("%s\n", command);
+    system(command);
+  }
 	else {
 		/* Executable already exists, if it is older, remake it */
 		etime = buf.st_mtime;
 
-		if (etime < ctime) system(filename);
+//    printf("e: %lld c: %lld\n", etime, ctime);
+		if (etime < ctime) {
+      exec = 1;
+      printf("%s\n", command);
+      system(command);
+    }
 	}
+
+  /* Executable exists and is up to date */
+  if (!exec) printf("%s up to date\n", executable);
 }
 
 void makeO(char file[]) {
@@ -48,6 +71,8 @@ void makeO(char file[]) {
 	strcpy(oFile, "gcc -c ");
 	strcat(oFile, file);
 
+  printf("%s\n", oFile);
+
 	system(oFile);
 }
 
@@ -56,7 +81,7 @@ long cProcess(Dllist clist, long hmax) {
 	Dllist tmp;
 	struct stat buf, buf1;
 	int exists, oex;
-	long ctime, otime, ret;
+	long ctime, otime, ret, omax;
 	DIR *d;
 	struct dirent *de;
 	char fname[1000];
@@ -65,10 +90,11 @@ long cProcess(Dllist clist, long hmax) {
 	d = opendir(".");
 	if (d == NULL) {
 		fprintf(stderr, "Couldn't open \".\"\n");
-		exit(0);
+    return 0;
 	}
 
 	ret = 0;
+  omax = 0;
 	/* Traverse the Dllist and check that each .c file exists */
 	dll_traverse(tmp, clist) {
 		exists = stat(tmp->val.s, &buf);
@@ -90,6 +116,7 @@ long cProcess(Dllist clist, long hmax) {
 			else {
 				/* If the o file is older than the .c file */
 				otime = buf1.st_mtime;
+        if (otime > omax) omax = otime;
 				if (otime < ctime || otime < hmax) {
 					makeO(tmp->val.s); 
 					ret++;
@@ -97,7 +124,7 @@ long cProcess(Dllist clist, long hmax) {
 			}
 		}
 	}
-	if (ret == 0) ret = otime;
+	if (ret == 0) ret = omax;
 	closedir(d);
 	return ret;
 }
@@ -149,7 +176,7 @@ int main(int argc, char **argv) {
   /* Check existence of definition file */
   if (def == NULL) {
     printf("fakemake: %s No such file or directory\n", filename);
-    return 0; 
+    exit(1); 
   }
 
   /* Input struct declaration */
@@ -181,19 +208,24 @@ int main(int argc, char **argv) {
 			if (strcmp(is->fields[0], "F") == 0) flist = listAppend(flist, is); 
     }
   } 
+	if (!exec) {
+    fprintf(stderr, "No executable specified\n"); 
+    exit(1);
+  }
+	else {
+    hmax = 0;
+    hmax = hProcess(hlist);
 
-  hmax = 0;
-  hmax = hProcess(hlist);
+  	cmax = 0;
+  	cmax = cProcess(clist, hmax);
 
-	cmax = 0;
-	cmax = cProcess(clist, hmax);
+    makeExec(executable, cmax, clist);
 
-	if (exec != 1) fprintf(stderr, "Executable error\n"); 
-	else makeExec(executable, cmax);
+    free(executable);
+  }
 
   jettison_inputstruct(is);
   //  fclose(output);
   fclose(def);
-	free(executable);
 	free(filename);
 }

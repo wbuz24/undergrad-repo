@@ -1,6 +1,6 @@
 #!/bin/sh 
 
-dir=/home/shartreuce/repos/undergrad-repo/S24/cs360/labs/Lab-4-Fakemake
+dir=/home/jplank/cs360/labs/Lab-4-Fakemake
 ge="$dir/Gradescript-Examples"
 
 if [ $# -ne 1 ]; then
