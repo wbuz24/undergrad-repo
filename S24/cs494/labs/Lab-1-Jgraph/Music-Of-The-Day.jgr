@@ -1,0 +1,32 @@
+newgraph
+
+xaxis
+  min 0 max 12
+  label : Decade
+yaxis
+  min 1000 max 2020
+  label : Number of Occurances
+newcurve color 0.6 1.0 0.6 label : 1000
+         pts 1000 2
+newcurve color 0.2 0.1 0.4 label : 1880
+         pts 1880 1
+newcurve color 0.0 0.6 0.3 label : 1900
+         pts 1900 1
+newcurve color 0.1 0.8 0.7 label : 1920
+         pts 1920 1
+newcurve color 0.5 0.3 0.7 label : 1940
+         pts 1940 1
+newcurve color 0.4 0.9 1.0 label : 1950
+         pts 1950 3
+newcurve color 0.2 0.0 1.0 label : 1960
+         pts 1960 10
+newcurve color 0.8 0.5 0.0 label : 1970
+         pts 1970 11
+newcurve color 0.4 0.6 0.0 label : 1980
+         pts 1980 9
+newcurve color 1.0 0.3 1.0 label : 1990
+         pts 1990 3
+newcurve color 1.0 0.7 1.0 label : 2000
+         pts 2000 4
+newcurve color 0.3 0.7 0.9 label : 2010
+         pts 2010 2
