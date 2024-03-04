@@ -56,13 +56,13 @@ void Jgraph::make_jgraph() {
 	ofile.open("Music-Of-The-Day.jgr");
 
 	ofile << "newgraph\n\n";
-	ofile << "xaxis\n  min 0 max 12\n  label : Decade\n";
-	ofile << "yaxis\n  min 1000 max 2020\n  label : Number of Occurances\n";
+	ofile << "xaxis\n  min 1000 max 2020\n  label : Decade\n";
+	ofile << "yaxis\n  min 0 max 12\n  label : Number of Occurances\n";
 
 	for (nit = Decades.begin(); nit != Decades.end(); nit++) {
 		color = color_picker();
 		sprintf(buf, "label : %s", nit->first.c_str());
-		s = buf;
+    s = buf;
 	  ofile << "newcurve " << color << s;	
 		ofile << "\n         pts ";
 		sprintf(buf, "%s %d\n", nit->first.c_str(), nit->second);
