@@ -57,13 +57,13 @@ void Jgraph::make_jgraph() {
 	ofile.open("jgr/Music-Of-The-Day.jgr");
 
 	ofile << "newgraph\n\n";
-	ofile << "xaxis\n  min 1805 max 2020\n  mhash 0\n  hash 10\n shash 0\n  size 6\n  label : Decade\n";
+	ofile << "xaxis\n  min 1805 max 2020\n  mhash 1\n  hash 10\n shash 0\n  size 6\n  label : Decade\n";
 	ofile << "yaxis\n  min 0 max 40\n  grid_lines grid_gray .7\n  size 3.5\n  mhash 2\n  hash 5\n  label : Number of Occurances\n";
 
 	/* Create a bar graph of decades */
 	maxd = 0;
 	ofile << "newline pts 1805 0 2020 0\n";
-	ofile << "newcurve marktype xbar cfill color 0 0 1";	
+	ofile << "newcurve marktype xbar cfill color .024 .5 .278";	
 	ofile << "\n  marksize 8.5\n\n";
 	ofile << "\n         pts";
 	for (nit = Decades.begin(); nit != Decades.end(); nit++) {
@@ -109,7 +109,7 @@ void Jgraph::make_jgraph() {
 
 	/* Legend defaults */
 
-	ofile << "legend defaults x 1970 y 45 font Times-Italic fontsize 18\n\n\n\n";
+	ofile << "legend defaults x 1950 y 45 font Times-Italic fontsize 18\n\n\n\n";
 	ofile.close();
 }
 
