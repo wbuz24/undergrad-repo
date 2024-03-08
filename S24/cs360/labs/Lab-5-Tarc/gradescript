@@ -1,0 +1,95 @@
+#!/bin/sh 
+
+dir=/home/jplank/cs360/labs/Lab-5-Tarc
+ge="$dir/Gradescript-Examples"
+
+if [ $# -ne 1 ]; then
+  echo 'usage: gradescript problem_number (1-100)' >&2
+  exit 1
+fi
+
+if [ "$1" -gt 0 -a "$1" -le 100 ]; then
+  enum=`echo $1 | awk '{ printf "%03d\n", $1 }'`
+else
+  echo 'usage: gradescript problem_number (1-100)' >&2
+  exit 1
+fi
+  
+program=bin/tarc
+
+if [ ! -f $program ]; then
+  echo "Problem $enum is incorrect."
+  echo ""
+  echo "Your program $program does not exist."
+  exit 0
+fi
+
+rm -f tmp-$enum-correct-stderr.txt tmp-$enum-correct-stdout.txt tmp-$enum-correct-tarfile.txt 
+rm -f tmp-$enum-your-stderr.txt tmp-$enum-your-stdout.txt tmp-$enum-your-tarfile.txt 
+
+testdir=$ge/$enum
+
+csh -c "limit descriptors 10 ; $dir/$program $testdir > tmp-$enum-correct-tarfile.txt" 2>tmp-$enum-correct-stderr.txt
+csh -c "limit descriptors 10 ; ./$program $testdir > tmp-$enum-your-tarfile.txt" 2>tmp-$enum-your-stderr.txt
+call="csh -c \"limit descriptors 10 ; ./$program $testdir > tmp-$enum-your-tarfile.txt\""
+
+err=`diff tmp-$enum-correct-stderr.txt tmp-$enum-your-stderr.txt | wc | awk '{ print $1 }'`
+
+if [ $err != 0 ]; then
+  echo "Problem $enum is incorrect."
+  echo ""
+  echo "Your standard error does not match the correct one."
+  echo ""
+  echo "TEST:"
+  echo ""
+  echo "$call"
+  echo ""
+  echo "FILES:"
+  echo ""
+  echo "Your tarfile is in tmp-$enum-your-tarfile.txt."
+  echo "Your standard error  is in tmp-$enum-your-stderr.txt."
+  echo ""
+  echo "A correct tarfile is in tmp-$enum-correct-tarfile.txt."
+  echo "The correct standard error  is in tmp-$enum-correct-stderr.txt."
+  echo ""
+  exit 1
+fi
+
+$dir/bin/tarf < tmp-$enum-correct-tarfile.txt > tmp-$enum-correct-stdout.txt 2>tmp-$enum-correct-stderr.txt
+$dir/bin/tarf < tmp-$enum-your-tarfile.txt > tmp-$enum-your-stdout.txt 2>tmp-$enum-your-stderr.txt
+call="csh -c \"limit descriptors 10 ; ./$program $testdir > tmp-$enum-your-tarfile.txt\" ; $dir/bin/tarf < tmp-$enum-your-tarfile.txt > tmp-$enum-your-stdout.txt"
+
+out=`diff tmp-$enum-correct-stdout.txt tmp-$enum-your-stdout.txt | wc | awk '{ print $1 }'`
+err=`diff tmp-$enum-correct-stderr.txt tmp-$enum-your-stderr.txt | wc | awk '{ print $1 }'`
+
+if [ $out != 0 -o $err != 0 ]; then
+  echo "Problem $enum is incorrect."
+  echo ""
+  if [ $out != 0 ]; then
+    echo "Your standard output does not match the correct one."
+  fi
+  if [ $err != 0 ]; then
+    echo "Your standard error does not match the correct one."
+  fi
+  echo ""
+  echo "TEST:"
+  echo ""
+  echo "$call"
+  echo ""
+  echo "FILES:"
+  echo ""
+  echo "Your tarfile is in tmp-$enum-your-tarfile.txt."
+  echo "Your standard output is in tmp-$enum-your-stdout.txt."
+  echo "Your standard error  is in tmp-$enum-your-stderr.txt."
+  echo ""
+  echo "A correct tarfile is in tmp-$enum-correct-tarfile.txt."
+  echo "The correct standard output is in tmp-$enum-correct-stdout.txt."
+  echo "The correct standard error  is in tmp-$enum-correct-stderr.txt."
+  echo ""
+else 
+  echo "Problem $enum is correct."
+  echo ""
+  echo "Test: $call" 
+  rm -f tmp-$enum-correct-stderr.txt tmp-$enum-correct-stdout.txt tmp-$enum-correct-tarfile.txt 
+  rm -f tmp-$enum-your-stderr.txt tmp-$enum-your-stdout.txt tmp-$enum-your-tarfile.txt 
+fi
