@@ -1,0 +1,5 @@
+#!/bin/sh 
+
+for i in /home/jplank/cs494/labs/Lab-2-FAT/Gradescripts/G* ; do
+  echo $i `sh $i`
+done

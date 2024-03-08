@@ -1,0 +1,85 @@
+Here's another walkthrough to help you think about your program (writing export).
+I don't use <b>read_link()</b> here -- I'm just implementing export.
+here.  
+<p>
+I'm assuming that you have the variable <tt>p</tt>, which is of type <tt>(unsigned short **)</tt>.  This is the variable that holds your FAT.  You also have the variable <tt>f</tt> which is an array of 1024 bytes.  You'll be using <tt>f</tt> to read data from the disk and write it to your file.
+<p>
+Let’s take an example from the lab directory.  Let’s look at t4.jdisk:
+
+<pre>
+UNIX> <font color=darkred><b>ls -l t4.jdisk</b></font>
+-rw-r--r--. 1 jplank jplank 5120000 Jan 30  2016 t4.jdisk
+UNIX> <font color=darkred><b>FAT t4.jdisk report</b></font>
+Total Sectors: 5000.  Data Sectors: 4990.  Fat Sectors: 10.
+Nodes in the free list: 4987
+
+BEGIN FILE INFORMATION
+File Starting Block 10.  (Link 00001)
+UNIX> <font color=darkred><b></b></font>
+</pre>
+
+This is a big disk file, but it only contains one file, which starts at sector 10.  You can calculate that S = 10, which means that the first 10 sectors are the FAT, and the remaining 4990 sectors are data.  Now, suppose you do 
+
+<pre>
+UNIX> <font color=darkred><b>FAT t4.jdisk export 10 ~/junk.txt</b></font>
+UNIX> <font color=darkred><b>ls -l ~/junk.txt</b></font>
+-rw-r--r--. 1 jplank jplank 3029 Oct 20 10:46 /home/jplank/junk.txt
+UNIX>
+</pre>
+
+You see that the file is 3029 bytes.  How did this export work — think of it in terms of your program:
+<p>
+p is an array of 10 (unsigned short *)’s, which you initialize to NULL.  Why 10?  Because there are 10 sectors of FAT entries.  There are 4990 FAT entries in all, and since each entry is a short, the FAT consumes 4901*2 = 9802 bytes.  Why 4901?  Because there are links for 4900 data sectors, and link 0 is the head of the free list.  9802/1024 is 9.57, so you need 10 sectors to hold the FAT.
+<p>
+So, p starts off as { NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL }
+You allocate f to be 1024 bytes. and you open pfile for writing with the file /home/jplank/junk.txt.
+<p>
+First thing you do is read sector 10 into f.  You’ll be writing this to pfile, but you don’t know how many bytes to write yet.  You need to read the FAT to figure that out.
+<p>
+The FAT entry for sector 10 is 10-S+1 = 1.  That will be in sector 0, so you check p[0].  It is NULL, so you allocate it to be 1024 bytes.  Let’s suppose malloc return 0x6100 for that.
+<p>
+p is now { 0x6100 , NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL }
+<p>
+You read sector zero into [0], and then check p[0][1].  Its value is 2. You can confirm that with xxd (I’m reading byte two because the links are shorts, which are two bytes, so p[0][1] will be byte 0*1024+1*2 = 2 of the file.
+
+<pre>
+UNIX> <font color=darkred><b>xxd -s 2 -l 2 -e t4.jdisk</b></font>
+00000002:     0002                             ..
+UNIX> <font color=darkred><b></b></font>
+</pre>
+
+Since the link is not zero or 1, this is not the last sector of the file, so write all of f to pfile.  The next sector is determined by the link: 2 + S - 1 = 11.  So read sector 11 into f.  The link for sector 11 is 11-S+1 = 2, so you want to read FAT entry 2.  That is in sector 0, so you check p[0], and you see that it’s not NULL — it’s already been read, so you simply check it.  p[0][2] is 0x760 — confirm that with xxd:
+
+<pre>
+UNIX> <font color=darkred><b>xxd -s 4 -l 2 -e t4.jdisk</b></font>
+00000004:     0760                             `.
+UNIX> <font color=darkred><b></b></font>
+</pre>
+
+Since this link is not zero or 1, this is not the last sector of the file, so write all of f to pfile.  The next sector is determined by the link.  0x760 is equal to 1888.  1888+S-1 = 1897, so read that sector into f.
+<p>
+Now you need to find the link for sector 1897.  That is link 1888, so figure out its sector:  1888/512 = 3.68, so it’s in sector 3.  p[3] is null, so you need to allocate 1024 bytes for it.  Lets suppose malloc() returned 0x10340.  Now p is:  { 0x6100 , NULL, NULL, 0x10340, NULL, NULL, NULL, NULL, NULL, NULL }.  Read sector 3 into p[3], and you need to look at p[3][1888%512] = p[3][352].  That link’s value is 0x760.  Confirm that with xxd:
+
+<pre>
+UNIX> <font color=darkred><b>xxd -s 3776 -l 2 -e t4.jdisk</b></font>
+00000ec0:     0760                             `.
+UNIX> <font color=darkred><b></b></font>
+</pre>
+
+Since the link’s value equals the link, this is the last sector of the file.  Now we need to determine how many bytes in this sector belong to the file.  This is specified in the lab writeup:
+<p>
+If the value of the link is 0, then the entire sector belongs to the file. Otherwise, only part of the sector belongs to the file, and you need to look at the last byte of the sector to determine how many bytes belong to the file:
+<p>
+If the last byte is 0xff, then 1023 bytes of the sector belong to the file.
+Otherwise, the last byte contains the high order byte of the number of bytes that belong to the file, and then penultimate byte of the sector contains the low order byte.
+So you need to look at the last two bytes of the sector to see how many bytes belong to the file.  To do that — look at the last two bytes of f.  They are 0xd5 and 0x03.  Confirm that with xxd:
+
+<pre>
+UNIX> <font color=darkred><b>xxd -s 1943550 -l 2 -g 1 t4.jdisk</b></font>
+001da7fe: d5 03                                            ..
+UNIX> <font color=darkred><b></b></font>
+</pre>
+
+That means that the last sector of the file contains 0x03d5 = 981 bytes.  So write out 981 bytes from f and you’re done.
+<p>
+Hopefully you see how p is used to hold only the sectors of the FAT that you needed in order to figure out which sectors on the disk held the data of the file.

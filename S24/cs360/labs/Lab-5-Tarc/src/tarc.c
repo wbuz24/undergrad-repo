@@ -25,6 +25,8 @@ void directory_traverse(char *pathname, JRB inodes) {
   struct stat buf;
   FILE *file;
   int exists, fn_size, dir_fn_size, sz;
+  int fname, fmode;
+  long in, mtime, filesize;
   char *dir_fn;
 
   /* Attempt to open the directory */
@@ -49,7 +51,7 @@ void directory_traverse(char *pathname, JRB inodes) {
       dir_fn = realloc(dir_fn, dir_fn_size);
     }
 
-    /* Add the suffix */
+    /* Add the suffix after the / */
     strcpy(dir_fn + fn_size + 1, de->d_name);
 
     /* Attempt to open each file */
@@ -59,8 +61,11 @@ void directory_traverse(char *pathname, JRB inodes) {
     if (strcmp(de->d_name, ".") != 0 && strcmp(de->d_name, "..") != 0) {
 
       /* Print the size of the file's name, as a four-byte integer in little endian */
+      fname = strlen(dir_fn);
+      fwrite(&fname, 4, 1, stdout);
       /* Print the file's name, no null character */
-      printf("%s\n", dir_fn);
+      fwrite(de->d_name, 1, sz,  stdout); 
+      printf("\n"); // for easy reading
       /* Print the file's inode as an eight byte long in little endian */
 
       /* If you haven't seen the inode before */
@@ -80,6 +85,8 @@ void directory_traverse(char *pathname, JRB inodes) {
         /* Open the file and error check */
         file = fopen(dir_fn, "r");
         if (file == NULL) { perror(dir_fn); exit(1); }
+
+        fclose(file);
       }
     }
   }

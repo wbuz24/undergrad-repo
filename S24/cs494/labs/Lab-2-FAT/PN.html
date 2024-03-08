@@ -1,0 +1,136 @@
+<pre>
+- Go over xxd
+- Go over the jdisk interface.
+- Go over jdisk_test, both the code and using it.
+
+UNIX> ./jdisk_test CREATE test.jdisk 10240
+UNIX> ./jdisk_test W test.jdisk string 0 James-Plank
+UNIX> ./jdisk_test R test.jdisk string 0 11
+UNIX> xxd -g 1 test.jdisk | head -n 2
+UNIX> ./jdisk_test W test.jdisk string 5 ABCDEFGHIJKLMNOP
+UNIX> ./jdisk_test R test.jdisk string 0 11
+UNIX> ./jdisk_test R test.jdisk string 2 11
+UNIX> ./jdisk_test R test.jdisk hex 2 11
+UNIX> xxd -g 1 test.jdisk | head -n 2
+
+UNIX> ./jdisk_test W test.jdisk hex 1020 6d65734142434445464748
+UNIX> ./jdisk_test R test.jdisk hex 1023 3
+UNIX> ./jdisk_test R test.jdisk string 1023 3
+UNIX> xxd -s 1020 -l 16 -g 1 test.jdisk
+
+What is a FAT in general.
+
+The exact format of our disks.  
+
+    If you have D data blocks, then your FAT has D+1 links.  Links are unsigned shorts.
+    You FAT is stored in the first S blocks.  You can calculate D and S from the number
+       of blocks on your disk.
+    E.g.  Suppose you have 10 blocks on your disk (and blocks are 1K).
+       Then S = 1 (you need 9 links to the data blocks).
+
+    Link L = sector S+L-1.  Link 0 is NULL.
+    Sector X is link X-S+1
+
+    Do examples with the 10-block disk.
+
+Go over free list and file format, especially the ending byte.
+
+Your job: write FATRW:
+
+       FATRW diskfile import input-file
+       FATRW diskfile export starting-block output-file
+
+The program FAT is a superset, including "format" and "report".
+
+UNIX> ./jdisk_test CREATE t1.jdisk 10240
+UNIX> ./FAT
+UNIX> ./FAT t1.jdisk format
+
+UNIX> ./jdisk_test R t1.jdisk hex 0 20
+UNIX> xxd -l 20 t1.jdisk
+UNIX> xxd -g 1 -l 20 t1.jdisk
+UNIX> xxd -l 20 -g 2 t1.jdisk | sed 's/ \([0-9a-f][0-9a-f]\)\([0-9a-f][0-9a-f]\)/ \2\1/g' | sed 's/  .*//'
+
+      (Or use -e).
+
+UNIX> ls -l File-*
+UNIX> ./FATRW t1.jdisk import File-0010.txt
+UNIX> ./FATRW t1.jdisk import File-2048.txt
+UNIX> ./FATRW t1.jdisk import File-2047.txt
+UNIX> ./FATRW t1.jdisk import File-3029.txt 
+UNIX> ./FATRW t1.jdisk import File-3029.txt (out of space)
+
+Look at the free list (starting with sector 9).
+
+UNIX> cat File-0010.txt
+UNIX> ./jdisk_test R t1.jdisk string 1024 10
+UNIX> xxd -s 1024 -len 10 t1.jdisk
+
+Look at the link field to confirm that the file's size is 10.
+
+Next, work on File-2048 -- confirm that it consumes the entire block.  Use
+jdisk_test to pull out the bytes & diff it.  Then Export using FATRW and diff.
+
+Next, do File-2047.txt and look at the last sector.  
+Next, do File-3029.txt and look at the last sector.    Recreate the file.
+
+Use FATRW to export and double-check.
+
+Larger disk:
+
+UNIX> ./jdisk_test CREATE t4.jdisk 5120000
+UNIX> FAT t4.jdisk format
+UNIX> ./jdisk_test R t4.jdisk hex 0 64
+UNIX> xxd -l 64 t4.jdisk | sed 's/ \([0-9a-f][0-9a-f]\)\([0-9a-f][0-9a-f]\)/ \2\1/g' | sed 's/  .*//'
+
+UNIX> ./FATRW t4.jdisk import File-3029.txt 
+UNIX> ./jdisk_test R t4.jdisk hex 0 64
+UNIX> xxd -l 64 t4.jdisk | sed 's/ \([0-9a-f][0-9a-f]\)\([0-9a-f][0-9a-f]\)/ \2\1/g' | sed 's/  .*//'
+Find the end of the file and confirm that it has the right size.  
+Block 1 = Link 1: "2" = Sector 11.  (2 + 10 - 1)
+Block 2 = Link 2: 0x760 = 1888.  Sector 1897.
+Link 8 starts at byte 1888x2 = 3776 in the FAT.  It should equal 0x760, so we need
+to look at the last two bytes of sector 1897 to find the size (0x03d5).
+
+Recreate the file.
+
+Details of your program:
+
+  - Don't read/write more than you need to -- strategy there.
+
+    unsigned short Read_Link(int link).
+    void Write_Link(int link, unsigned short val).
+    void Flush_Links() (checks the flags and calls jdisk_write()).
+
+Can use C or C++ with no STL.
+
+------------------------------------------------------------
+
+Go over report, digest, grading programs:
+
+- FAT t1.jdisk report
+- FAT t7.jdisk report -- Bigger: 2 FAT sectors
+- FAT t8.jdisk report -- Looks very similar to t1 -- in fact it has the same files
+      but imported in a different order.
+
+Digest-Disk.sh -- run it on t1.jdisk and look at the two files.
+               -- cat the short one, then run it on t8.jdisk.  The sorted hashes are the same.
+               -- And they are the same as File-0010.txt, etc.
+
+Go over Export-Grader.sh from the web page, because it only works on the lab machines.
+
+   - Copies jdisk file, exports given file with my executable.
+   - Copies jdisk file, exports using ./FATRW
+   - Compares the files.
+
+Go over Import-Grader.sh:
+
+   - Copies jdisk file, imports a given file with my executable, calls Digest-Disk.sh
+   - Copies jdisk file, imports a given file with ./FATRW, calls Digest-Disk.sh
+   - Makes sure the hashes are the same.
+   - Also makes sure that your old and new file differ by the specified number of blocks.
+
+Gradescripts: 100 that test importing and 63 that test exporting.
+   - They are shell scripts, so you can just run them.
+   - Gradeall takes quite a while.
+
