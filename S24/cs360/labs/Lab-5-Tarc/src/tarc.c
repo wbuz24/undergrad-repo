@@ -38,7 +38,7 @@ void directory_traverse(char *fn, JRB inodes, char *relative) {
   struct stat buf;          
   FILE *file;
 
-  char *dir_fn, *bytes, *rel_fn; 
+  char *dir_fn, *bytes, *rel_fn, *suffix; 
   int dir_fn_size, sz, fn_size, suff_size, exists, rel_size, fname;
 
   Dllist directories, tmp;  /* Dllist of directory names, for doing recusion after closing. */
@@ -98,6 +98,7 @@ void directory_traverse(char *fn, JRB inodes, char *relative) {
         fprintf(stderr, "Couldn't stat %s\n", dir_fn);
         exit(1);
       } 
+
       /* Print the size of the file's name, as a four-byte integer in little endian */
       fname = strlen(rel_fn);
       fwrite(&fname, 4, 1, stdout);
@@ -108,6 +109,7 @@ void directory_traverse(char *fn, JRB inodes, char *relative) {
       /* Print the file's inode as an eight byte long in little endian */
       fwrite(&buf.st_ino, 8, 1, stdout);
 
+
       /* If you haven't seen the inode before */
       if (jrb_find_gen(inodes, new_jval_l(buf.st_ino), compare) == NULL) {
         jrb_insert_gen(inodes, new_jval_l(buf.st_ino), new_jval_i(0), compare);
@@ -116,26 +118,25 @@ void directory_traverse(char *fn, JRB inodes, char *relative) {
         fwrite(&buf.st_mode, 4, 1, stdout);
         /* Print the file's last modification time, in seconds, as an eight byte long in little endian */
         fwrite(&buf.st_mtime, 8, 1, stdout);
-      }
-      /* Don't make the recursive call, but instead put the directory into the dllist. */
-      if (S_ISDIR(buf.st_mode)) {
-        dll_append(directories, new_jval_s(strdup(dir_fn)));
-      }
-      else {
+         
+        /* Don't make the recursive call, but instead put the directory into the dllist. */
+        if (S_ISDIR(buf.st_mode)) {
+         dll_append(directories, new_jval_s(strdup(dir_fn)));
+        }
+        else {
+          /* Print the file's size as an eight byte long in little endian */ 
+          fwrite(&buf.st_size, 8, 1, stdout);
+          /* Open the file and error check */
+          file = fopen(dir_fn, "r");
+          if (file == NULL) { perror(dir_fn); exit(1); }
+          bytes = (char *) malloc(sizeof(char) * buf.st_size + 10);
+          fread(bytes, 1, buf.st_size, file);
+          fwrite(bytes, 1, buf.st_size, stdout); 
 
-        /* Print the file's size as an eight byte long in little endian */ 
-        fwrite(&buf.st_size, 8, 1, stdout);
-        /* Open the file and error check */
-        file = fopen(dir_fn, "r");
-        if (file == NULL) { perror(dir_fn); exit(1); }
-        bytes = (char *) malloc(sizeof(char) * buf.st_size + 10);
-        fread(bytes, 1, buf.st_size, file);
-        fwrite(bytes, 1, buf.st_size, stdout); 
-
-        fclose(file);
-        free(bytes);
+          fclose(file);
+          free(bytes);
+        }
       }
-
     }
   }
 
@@ -144,8 +145,14 @@ void directory_traverse(char *fn, JRB inodes, char *relative) {
   closedir(d);
 
   dll_traverse(tmp, directories) {
-    /* Reset the null character and concatenate strings */
-    directory_traverse(tmp->val.s, inodes, tmp->val.s);
+    suffix = grab_path(tmp->val.s);
+    sz = strlen(suffix);
+    if (rel_size < suff_size + sz + 2) {
+      rel_size = suff_size + sz + 10;
+      rel_fn = realloc(rel_fn, rel_size);
+    }
+    strcpy(rel_fn + suff_size + 1, suffix); 
+    directory_traverse(tmp->val.s, inodes, rel_fn);
   }
 
   /* Clean up.  You need to free the strings inside the dllist, because you
