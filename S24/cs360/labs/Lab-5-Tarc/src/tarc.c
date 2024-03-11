@@ -19,15 +19,28 @@ int compare(Jval v1, Jval v2) {
   return 0;
 }
 
+char* grab_path(char *absolute) {
+  int i, len;
+
+  /* Find the index of the last / in the absolute
+   * path and return a pointer to it */
+  len = strlen(absolute);
+  for (i = len - 1; i >= 0; i--) {
+    if (absolute[i] == '/') return absolute + i + 1; 
+  } 
+
+  return absolute;
+}
+
 void directory_traverse(char *pathname, JRB inodes) {
   DIR *d;
   struct dirent *de;
   struct stat buf;
   FILE *file;
-  int exists, fn_size, dir_fn_size, sz;
+  int exists, fn_size, dir_fn_size, sz, suff_size;
   int fname, fmode;
   long in, mtime, filesize;
-  char *dir_fn, *bytes, *suffix;
+  char *dir_fn, *bytes, *suffix, *relative;
 
   /* Attempt to open the directory */
   d = opendir(pathname);
@@ -40,6 +53,13 @@ void directory_traverse(char *pathname, JRB inodes) {
   if (dir_fn == NULL) { perror(dir_fn); exit(1); }
   strcpy(dir_fn, pathname);
   strcat(dir_fn + fn_size, "/");
+
+  /* Just a pointer to the suffix of the absolute path */
+  suffix = grab_path(dir_fn);
+  relative = (char *) malloc(sizeof(char) * dir_fn_size + 10);
+  suff_size = strlen(suffix);
+  strcpy(relative, suffix);
+  strcat(relative + suff_size, "/");
 
   /* Run through the entire directory */
   for (de = readdir(d); de != NULL; de = readdir(d)) {
@@ -54,7 +74,7 @@ void directory_traverse(char *pathname, JRB inodes) {
     /* Add the suffix after the / */
     strcpy(dir_fn + fn_size + 1, de->d_name);
 
-    /* Attempt to open each file */
+    /* Check the existence of each file */
     exists = stat(dir_fn, &buf);
     if (exists < 0) { fprintf(stderr, "Could'nt open %s\n", dir_fn); continue; }
     /* We don't care about . and .. */
@@ -63,7 +83,6 @@ void directory_traverse(char *pathname, JRB inodes) {
       /* Print the size of the file's name, as a four-byte integer in little endian */
       fname = strlen(dir_fn);
       fwrite(&fname, 4, 1, stdout);
-      if (fname > 500) printf("%s\n", de->d_name);
       /* Print the file's name, no null character */
       fwrite(dir_fn, 1, fname,  stdout); 
       /* Print the file's inode as an eight byte long in little endian */
@@ -81,7 +100,12 @@ void directory_traverse(char *pathname, JRB inodes) {
       }
 
       /* Attempt to open the sub directory */
-      if (S_ISDIR(buf.st_mode)) directory_traverse(dir_fn, inodes);
+      if (S_ISDIR(buf.st_mode)) {
+        /* Construct the relative path */
+        strcat(relative + suff_size + 1, de->d_name);
+        printf("\n\n\n%s   %s\n\n\n", relative, dir_fn);
+        directory_traverse(relative, inodes);
+      }
       else {
         /* Print the file's size as an eight byte long in little endian */
         fwrite(&buf.st_size, 8, 1, stdout);
@@ -101,6 +125,7 @@ void directory_traverse(char *pathname, JRB inodes) {
 
   /* Free the memory */
   closedir(d);
+  free(relative);
   free(dir_fn);
 }
 
