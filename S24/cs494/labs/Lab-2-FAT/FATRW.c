@@ -12,6 +12,11 @@ int main(int argc, char **argv) {
   char *dfile;
   int starting_block;
   
+  // N - # of sectors is filesize / 1024
+  // N = S + D
+  // L = 512 -> 1024/2 -> links per block
+  // links = D + 1 -> links
+  // S = ceiling((D+1)/ L) 
   
   if (argc != 4 && argc != 5) { printf("FATRW diskfile import input-file\nFATRW diskfile export starting-block output-file\n"); exit(1); } 
 

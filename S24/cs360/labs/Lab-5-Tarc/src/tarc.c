@@ -27,7 +27,7 @@ void directory_traverse(char *pathname, JRB inodes) {
   int exists, fn_size, dir_fn_size, sz;
   int fname, fmode;
   long in, mtime, filesize;
-  char *dir_fn;
+  char *dir_fn, *bytes, *suffix;
 
   /* Attempt to open the directory */
   d = opendir(pathname);
@@ -63,10 +63,11 @@ void directory_traverse(char *pathname, JRB inodes) {
       /* Print the size of the file's name, as a four-byte integer in little endian */
       fname = strlen(dir_fn);
       fwrite(&fname, 4, 1, stdout);
+      if (fname > 500) printf("%s\n", de->d_name);
       /* Print the file's name, no null character */
-      fwrite(de->d_name, 1, sz,  stdout); 
-      printf("\n"); // for easy reading
+      fwrite(dir_fn, 1, fname,  stdout); 
       /* Print the file's inode as an eight byte long in little endian */
+      fwrite(&buf.st_ino, 8, 1, stdout);
 
       /* If you haven't seen the inode before */
       if (jrb_find_gen(inodes, new_jval_l(buf.st_ino), compare) == NULL) {
@@ -74,18 +75,25 @@ void directory_traverse(char *pathname, JRB inodes) {
         jrb_insert_gen(inodes, new_jval_l(buf.st_ino), new_jval_i(0), compare);
 
         /* Print the file's mode as a four byte integer in little endian */
+        fwrite(&buf.st_mode, 4, 1, stdout);
         /* Print the file's lst modification time, in seconds, as an eight byte long in little endian */
+        fwrite(&buf.st_mtime, 8, 1, stdout);
       }
 
       /* Attempt to open the sub directory */
       if (S_ISDIR(buf.st_mode)) directory_traverse(dir_fn, inodes);
       else {
         /* Print the file's size as an eight byte long in little endian */
+        fwrite(&buf.st_size, 8, 1, stdout);
 
         /* Open the file and error check */
         file = fopen(dir_fn, "r");
         if (file == NULL) { perror(dir_fn); exit(1); }
+        bytes = (char *) malloc(sizeof(char) * buf.st_size + 10);
+        fread(bytes, 1, buf.st_size, file);
+        fwrite(bytes, 1, buf.st_size, stdout); 
 
+        free(bytes);
         fclose(file);
       }
     }
