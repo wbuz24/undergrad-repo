@@ -51,12 +51,7 @@ void directory_traverse(char *fn, JRB inodes, char *relative) {
   }
   directories = new_dllist();
 
-  /* Start building the directory + files.   We'll start by setting dir_fn_size to fn_size+10,
-     and we'll make it bigger as we need to.  It will be more efficient to use a number bigger
-     than 10 for this, but 10 will let us debug the code if there's a problem. 
-
-     I'm also setting up dir_fn to hold the directory name and a slash. */
-
+  /* allocate space for the absolute path and the relative path */
   fn_size = strlen(fn);
   dir_fn_size = fn_size + 10;
   dir_fn = (char *) malloc(sizeof(char) * dir_fn_size);
@@ -75,11 +70,9 @@ void directory_traverse(char *fn, JRB inodes, char *relative) {
      keeping track of the total size of all of the files.  */
   for (de = readdir(d); de != NULL; de = readdir(d)) {
 
-    /* First, we need to build dir_fn.  First check to see if it's big enough, and if not,
-       we'll call realloc() to reallocate space.  Then we put the filename after the
-       slash. */
-
+    /* We disregard . & .. */
     if (strcmp(de->d_name, ".") != 0 && strcmp(de->d_name, "..") != 0) {
+      /* Reallocate space for the absolute and relative path to include the filename */
       sz = strlen(de->d_name);
       if (dir_fn_size < fn_size + sz + 2) {    /* The +2 is for the slash and null character. */
         dir_fn_size = fn_size + sz + 10;
@@ -93,6 +86,7 @@ void directory_traverse(char *fn, JRB inodes, char *relative) {
       }
       strcpy(rel_fn + suff_size + 1, de->d_name);
 
+      /* Check the file's existence */
       exists = lstat(dir_fn, &buf);
       if (exists < 0) {
         fprintf(stderr, "Couldn't stat %s\n", dir_fn);
@@ -103,15 +97,15 @@ void directory_traverse(char *fn, JRB inodes, char *relative) {
       fname = strlen(rel_fn);
       fwrite(&fname, 4, 1, stdout);
 
-      /* Print the file's name, no null character */ 
+      /* Print the relative filepath, no null character */ 
       fwrite(rel_fn, 1, fname,  stdout); 
 
       /* Print the file's inode as an eight byte long in little endian */
       fwrite(&buf.st_ino, 8, 1, stdout);
 
-
-      /* If you haven't seen the inode before */
+      /* If you have seen that inode before, do nothing */
       if (jrb_find_gen(inodes, new_jval_l(buf.st_ino), compare) == NULL) {
+        /* Insert into the red-black tree */
         jrb_insert_gen(inodes, new_jval_l(buf.st_ino), new_jval_i(0), compare);
 
         /* Print the file's mode as a four byte integer in little endian */ 
@@ -129,6 +123,8 @@ void directory_traverse(char *fn, JRB inodes, char *relative) {
           /* Open the file and error check */
           file = fopen(dir_fn, "r");
           if (file == NULL) { perror(dir_fn); exit(1); }
+
+          /* Allocate a buffer for the file's bytes, read and write them */
           bytes = (char *) malloc(sizeof(char) * buf.st_size + 10);
           fread(bytes, 1, buf.st_size, file);
           fwrite(bytes, 1, buf.st_size, stdout); 
@@ -144,9 +140,12 @@ void directory_traverse(char *fn, JRB inodes, char *relative) {
 
   closedir(d);
 
+  /* Traverse the directories */
   dll_traverse(tmp, directories) {
+    /* Grab each suffix of absolute path */
     suffix = grab_path(tmp->val.s);
     sz = strlen(suffix);
+    /* Reallocate and copy, using the relative path as the new prefix */
     if (rel_size < suff_size + sz + 2) {
       rel_size = suff_size + sz + 10;
       rel_fn = realloc(rel_fn, rel_size);
@@ -175,18 +174,18 @@ int main(int argc, char** argv) {
   /* Grab the pathname */
   pathname = strdup(argv[1]); 
 
+  /* Print the directories information before first recursive call */
   exists = lstat(pathname, &buf);
   if (exists < 0) {
     fprintf(stderr, "Couldn't stat %s\n", pathname);
     exit(1);
   } 
 
-
   relative = grab_path(pathname);
 
   inodes = make_jrb();
 
-  /* Print the root directory */
+  /* Print the root directory info */
   psize = strlen(relative);
 
   fwrite(&psize, 4, 1, stdout);
@@ -195,6 +194,7 @@ int main(int argc, char** argv) {
   fwrite(&buf.st_mode, 4, 1, stdout);
   fwrite(&buf.st_mtime, 8, 1, stdout);
 
+  /* Insert the inode to the new tree */
   jrb_insert_gen(inodes, new_jval_l(buf.st_ino), new_jval_i(0), compare);
 
   /* Recursively search the directory for files and subdirectories */
