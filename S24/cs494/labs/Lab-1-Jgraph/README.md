@@ -24,7 +24,7 @@ cd into the repo & run the script
 ```
 sh scripts/motd.sh
 ```
-If you have any issues, check that jgraph, for instance, my local jgraph is in my applications folder and I have that command commented out of the shell script
+If you have any issues, check your jgraph location, for instance, my local jgraph is in my applications folder and I have that command commented out of the shell script
 
 Additionally, make sure you have all directories:
  - jgr/
