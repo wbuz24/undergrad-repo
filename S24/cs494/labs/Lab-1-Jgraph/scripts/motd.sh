@@ -29,6 +29,7 @@ fi
 
 make
 
+echo "jgraph -P jgr/Music-Of-The-Day.jgr | ps2pdf - | convert -density 300 - -quality 100 jpg/Music-Of-The-Day.jpg"
 echo ""
 
 # output text and run the script
@@ -38,6 +39,6 @@ echo "Music of the Day Jgraph Generator"
 
 # run and convert the jgraph
 # `~/Applications/jgraph/jgraph -P jgr/Music-Of-The-Day.jgr | ps2pdf - | convert -density 300 - -quality 100 jpg/Music-Of-The-Day.jpg`
-`jgraph -P Music-Of-The-Day.jgr | ps2pdf - | convert -density 300 - -quality 100 Music-Of-The-Day.jpg`
+`jgraph -P jgr/Music-Of-The-Day.jgr | ps2pdf - | convert -density 300 - -quality 100 jpg/Music-Of-The-Day.jpg`
 
 echo "Generated jgr/Music-Of-The-Day.jgr and converted to jpg/Music-Of-The-Day.jpg"
