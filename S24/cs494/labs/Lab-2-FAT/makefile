@@ -3,7 +3,7 @@
 all: jdisk_test  FAT FATRW sectordiff
 
 clean:
-	rm -f jdisk_test FAT FATRW sectordiff 
+	rm -f jdisk_test FAT FATRW sectordiff *.o
 
 LIBS = $(HOME)/$(LIB)/libfdr.a
 INCLUDE = $(HOME)/include
