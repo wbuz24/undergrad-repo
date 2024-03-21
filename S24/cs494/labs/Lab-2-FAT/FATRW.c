@@ -46,6 +46,7 @@ int write_link(unsigned short **p, int link, unsigned short val) {
   return sector;
 }
 
+
 /* Write the FAT sectors back to the jdisk */
 void flush_links(struct Disk *jd, unsigned short **p, int sector) {
   /* You only need to call jdisk_write on two FAT sectors */
@@ -61,13 +62,13 @@ int main(int argc, char **argv) {
   FILE *iofile;
   struct stat buf;
   struct Disk *jd;
-  char *dfile, *ifile;
+  char *dfile, *ifile, *ofile;
   unsigned short **p, *bytes;
   int starting_block, exists, last1, last2;
   double lpb, links;
-  int s, d, n, i, x, sector, flag, newsec; 
+  int s, d, n, i, x, sector, newsec; 
   short unsigned int lba, currlink, nextlink, fin, pen;
-  long filesize, flsize;
+  long filesize, flsize, jdsize;
 
   /* N - # of sectors is filesize / 1024
    N = S + D
@@ -83,18 +84,20 @@ int main(int argc, char **argv) {
 
   jd = (Disk *) jdisk_attach(dfile);
   if (jd == NULL) { fprintf(stderr, "Invalid jdisk\n"); exit(1); }
+  jdsize = jdisk_size(jd);
+
+  if (jdsize % JDISK_SECTOR_SIZE != 0) { fprintf(stderr, "%s is not a proper multiple of 1024\n", dfile); exit(1); }
+
 
   /* Calculate the data sectors */
-
-  if (jdisk_size(jd) % JDISK_SECTOR_SIZE != 0) { fprintf(stderr, "%s is not a proper multiple of 1024\n", dfile); exit(1); }
 
   n = jdisk_size(jd) / JDISK_SECTOR_SIZE; /* Number of blocks */
   lpb = JDISK_SECTOR_SIZE / 2; /* -> 1024/2 # of links per block */
   d = (lpb * n - 1) / 513; /* Data sectors */
   links = d + 1; /* The FAT is comprised of D+1 entries */
   s = ceil(links / lpb); /* FAT sectors */
-  // printf("Total Sectors: %d. Data Sectors: %d. FAT Sectors: %d.\n", n, d, s);
 
+  // printf("Total Sectors: %d. Data Sectors: %d. FAT Sectors: %d.\n", n, d, s);
   /* Allocate the buffer and an array of pointers that will be my FAT table */
   p = (unsigned short **) malloc(sizeof(unsigned short *) * s);
   if (p == NULL) { fprintf(stderr, "malloc FAT buffer\n"); exit(1); }
@@ -105,16 +108,16 @@ int main(int argc, char **argv) {
   /* Allocate and Store the FAT table */
   for (i = 0; i < s; i++) p[i] = NULL;
 
-  /* You only need to start with the first sector */
-  p[0] = (unsigned short *) malloc(sizeof(unsigned short) * lpb);
-  if (p[0] == NULL) { fprintf(stderr, "malloc FAT buffer\n"); exit(1); }
-  jdisk_read(jd, 0, p[0]);
-
-  currlink = read_link(jd, p, 0); /* Start of the free list */  
-  newsec = s + currlink - 1;
-
   /* Import a file on a jdisk */
   if (argc == 4) {
+
+    /* You only need to start with the first sector */
+    p[0] = (unsigned short *) malloc(sizeof(unsigned short) * lpb);
+    if (p[0] == NULL) { fprintf(stderr, "malloc FAT buffer\n"); exit(1); }
+    jdisk_read(jd, 0, p[0]);
+
+    currlink = read_link(jd, p, 0); /* Start of the free list */  
+    newsec = s + currlink - 1; /* For printing */
 
     /* Check the filesize of the input file and whether the disk has enough free blocks to store the file */
     ifile = strdup(argv[3]);
@@ -127,6 +130,9 @@ int main(int argc, char **argv) {
 
     filesize = buf.st_size;
 
+
+    if (jdsize < filesize) { fprintf(stderr, "%s is too big for the disk (%ld vs %ld)\n", ifile, jdsize, filesize); exit(1); } 
+
     /* Determine the number of free blocks */
     flsize = 0;
     while (currlink != 0) {
@@ -138,13 +144,13 @@ int main(int argc, char **argv) {
       currlink = nextlink;
     }
 
-    flsize += 1024;
+    //if (currlink == 0) flsize += 1024;
 
-    if (flsize < filesize) { fprintf(stderr, "Not enough free blocks (%d) for %s, which needs %d\n", ((filesize - flsize) / 1024) + 1, ifile, (filesize / 1024) + 1); exit(1); }
+    //if (flsize < filesize) { fprintf(stderr, "Not enough free blocks (%d) for %s, which needs %d\n", ((filesize - flsize) / 1024) + 1, ifile, (filesize / 1024) + 1); exit(1); }
+    if (flsize < filesize) { fprintf(stderr,  "%s is too big for the disk (%ld vs %ld)\n", ifile, filesize, flsize); exit(1); } 
 
     /* Write blocks back to the jdisk */
 
-    flag = 0;
     currlink = read_link(jd, p, 0); // FAT index 
     while (filesize != 0) {
       lba = currlink + s - 1; // index of the disk you will read
@@ -175,30 +181,71 @@ int main(int argc, char **argv) {
     fclose(iofile);
     free(ifile);
   }
+
+  /* Export the jdisk to an output file */
   if (argc == 5) {
     /* Find the file at the starting block and write to the output file */
+    sscanf(argv[3], "%d", &lba);
 
+    ofile = strdup(argv[4]); 
+    iofile = fopen(ofile, "w");
+    if (iofile == NULL) { perror(ofile); exit(1); }
 
-    /* Last block in the file may not be 1024 bytes */
+    /* Read in the FAT */
+
+    read_link(jd, p, lba - s + 1); 
+
+    /* Pop the first index of the free list off the buffer */
+    currlink = read_link(jd, p, 0); 
+    nextlink = read_link(jd, p, currlink);
+
+    while (currlink != 0 && currlink != nextlink) {
+      /* Read and write the bytes to the output file */
+      jdisk_read(jd, lba, bytes);
+      fwrite(bytes, 1, 1024, iofile);
+
+      /* Update the links and the logical block address */
+      currlink = nextlink;
+      nextlink = read_link(jd, p, currlink);
+      lba = currlink + s - 1;
+    }
+
+    if (currlink == 0) {
+      /* All 1024 bytes belong to the file */
+      flsize = 1024;
+    } 
+    else {
+      /* Last block in the file may not be 1024 bytes */
+      sector = currlink / 512;
+
+      /* You always want the higher sector, i.e. an odd sector */
+      //if (sector % 2 != 1) sector++;
+
       /* Calculate the amount of bytes in the last free block */
-        /* Build the bytes in the sector with the last two bytes */
-    /*
-    if (currlink != 0) {
-      if (p[currlink][1023] == 0xff) flsize += 1023;
+      if (p[sector][511] == 0xff) flsize = 1023;
       else {
-        last1 = (currlink * 1024) - 1;
-        last2 = last1 - 1;
+        fin = p[sector][511];
+        pen = p[sector][510];
 
-        fin = read_link(jd, p, last1);
-        pen = read_link(jd, p, last2);
-        flsize += fin * 256 + pen;
+        /* Build the bytes in the sector with the last two bytes */
+        flsize = fin * 256 + pen;
 //        printf("%hu %hu", pen, fin);
       }
-    }*/
-  
+    }
+
+    /* Only write the number of bytes in the last sector */
+    jdisk_read(jd, lba, bytes);
+    fwrite(bytes, 1, flsize, iofile);
+    
+    /* Print read and writes */
+    printf("Reads: %ld\nWrites: %ld\n", jdisk_reads(jd), jdisk_writes(jd));
+
+    free(ofile);
+    fclose(iofile);
   }
 
   jdisk_unattach(jd);
+  free(bytes);
   free(p);
   free(dfile);
 }
