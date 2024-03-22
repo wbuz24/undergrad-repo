@@ -1,0 +1,129 @@
+#!/bin/sh 
+
+dir=/home/jplank/cs360/labs/Lab-6-Tarx
+dir5=/home/jplank/cs360/labs/Lab-5-Tarc
+ge="$dir/Gradescript-Examples"
+
+if [ $# -ne 1 -a $# -ne 2 ]; then
+  echo 'usage: gradescript problem_number (1-100) [anything]' >&2
+  echo '       If you give a second argument, it will keep temporary files, even on success' >&2
+  exit 1
+fi
+
+if [ "$1" -gt 0 -a "$1" -le 100 ]; then
+  enum=`echo $1 | awk '{ printf "%03d\n", $1 }'`
+else
+  echo 'usage: gradescript problem_number (1-100)' >&2
+  exit 1
+fi
+  
+program=bin/tarx
+
+if [ ! -f $program ]; then
+  echo "Problem $enum is incorrect."
+  echo ""
+  echo "Your program $program does not exist."
+  exit 0
+fi
+
+rm -f tmp-$enum-correct-stderr.txt tmp-$enum-correct-stdout.txt tmp-$enum-correct-tarfile.txt 
+rm -f tmp-$enum-your-stderr.txt tmp-$enum-your-stdout.txt tmp-$enum-your-tarfile.txt 
+rm -f tmp-$enum-tarf-output.txt tmp-$enum-tarc-stderr.txt
+chmod -R 700 $enum 2> /dev/null
+rm -rf $enum
+
+testfile=$ge/$enum.tarc
+
+o=`( $dir5/bin/limit-shell "./$program < $testfile > tmp-$enum-your-stdout.txt 2>tmp-$enum-your-stderr.txt" 2>&1 )`
+call="$dir5/bin/limit-shell './$program < $testfile > tmp-$enum-your-stdout.txt 2>tmp-$enum-your-stderr.txt'"
+
+if [ a"$o" != a ]; then
+  echo "Problem $enum is incorrect."
+  echo ""
+  echo "Your program failed with error: $o"
+  echo ""
+  echo "TEST:"
+  echo ""
+  echo "$call"
+  exit 1
+fi
+  
+sh -c "$dir5/bin/tarf < $testfile | sed 's/^Inode [0-9]* //' > tmp-$enum-correct-stdout.txt" 2> tmp-$enum-correct-stderr.txt 
+
+elines=`wc tmp-$enum-correct-stderr.txt | awk '{ if ($1 > 0) print "yes" ; else print "no" }'`
+ylines=`wc tmp-$enum-your-stderr.txt | awk '{ if ($1 > 0) print "yes" ; else print "no" }'`
+
+if [ $elines != $ylines ]; then
+  echo "Problem $enum is incorrect."
+  echo ""
+  echo "My tarf error on $testfile: $elines"
+  echo "Your tarc error on $testfile: $ylines"
+  echo ""
+  echo "TEST:"
+  echo ""
+  echo "$call"
+  echo ""
+  echo "FILES:"
+  echo ""
+  echo "Your standard output  is in tmp-$enum-your-stdout.txt."
+  echo "Your standard error  is in tmp-$enum-your-stderr.txt."
+  echo ""
+  echo "The correct standard output  is in tmp-$enum-correct-output.txt."
+  echo "The correct standard error  is in tmp-$enum-correct-stderr.txt."
+  echo ""
+  exit 1
+fi
+
+
+if [ $elines = yes ]; then
+  echo "Problem $enum is correct."
+  echo ""
+  echo "Test: $call" 
+  if [ $# = 1 ]; then
+    rm -f tmp-$enum-correct-stderr.txt tmp-$enum-correct-stdout.txt tmp-$enum-correct-tarfile.txt 
+    rm -f tmp-$enum-your-stderr.txt tmp-$enum-your-stdout.txt tmp-$enum-your-tarfile.txt 
+    rm -f tmp-$enum-tarf-output.txt
+    rm -f tmp-$enum-tarf-output.txt tmp-$enum-tarc-stderr.txt
+    chmod -R 700 $enum 2> /dev/null
+    rm -rf $enum
+  fi
+  exit 0
+fi
+
+
+$dir5/bin/tarc $enum > /dev/null 2>tmp-$enum-tarc-stderr.txt
+
+if [ `wc tmp-$enum-tarc-stderr.txt | awk '{ print $1 }'` != 0 ]; then
+  echo "Problem $enum is incorrect."
+  echo ""
+  echo "Something is wrong with your tarx - my tarc failed on directory $enum"
+  echo ""
+  echo "TEST:"
+  echo ""
+  echo "$call"
+  echo ""
+  exit 1
+fi
+  
+$dir5/bin/tarc $enum | $dir5/bin/tarf | sed 's/^Inode [0-9]* //' > tmp-$enum-tarf-output.txt
+
+out=`diff tmp-$enum-correct-stdout.txt tmp-$enum-tarf-output.txt | wc | awk '{ print $1 }'`
+
+if [ $out != 0 ]; then
+  echo "Problem $enum is incorrect."
+  echo ""
+  echo "The output of tarc $enum | tarf does not match tarf on $enum.tarc in the gradescript directory."
+  echo ""
+else 
+  echo "Problem $enum is correct."
+  echo ""
+  echo "Test: $call" 
+  if [ $# = 1 ]; then
+    rm -f tmp-$enum-correct-stderr.txt tmp-$enum-correct-stdout.txt tmp-$enum-correct-tarfile.txt 
+    rm -f tmp-$enum-your-stderr.txt tmp-$enum-your-stdout.txt tmp-$enum-your-tarfile.txt 
+    rm -f tmp-$enum-tarf-output.txt
+    rm -f tmp-$enum-tarf-output.txt tmp-$enum-tarc-stderr.txt
+    chmod -R 700 $enum 2> /dev/null
+    rm -rf $enum
+  fi
+fi

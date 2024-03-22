@@ -1,0 +1,18 @@
+for i in ??? ; do
+  if [ `echo $i | sed 's/.*[08642]$/X/'` = X ]; then
+    $lab3/Lab-5-Tarc/private/tarc-scramble $i > $i.tarc
+  else
+    $clab3/Lab-5-Tarc/bin/tarc $i > $i.tarc
+  fi
+done
+
+xxd 041.tarc | sed '1s/ 0000/ 4500/' | xxd -r > tmp.txt ; mv tmp.txt 041.tarc
+xxd 042.tarc | sed '/0001fc0:/s/ 2600/ 2700/' | xxd -r > tmp.txt ; mv tmp.txt 042.tarc
+xxd 043.tarc | head -n 110 | sed '/00006d0:/s/3000 00.*/3000 00/' | xxd -r > tmp.txt ; mv tmp.txt 043.tarc
+xxd 044.tarc | sed '/0000690:/s/3500 0000/ffff ff7f/' | xxd -r > tmp.txt ; mv tmp.txt 044.tarc
+xxd 045.tarc | head -n 90 | sed '/0000590:/s/e683.*//' | xxd -r > tmp.txt ; mv tmp.txt 045.tarc
+xxd 046.tarc | head -n 337 | sed '/0001500:/s/0000.*/00/' | xxd -r > tmp.txt ; mv tmp.txt 046.tarc
+xxd 047.tarc | head -n 27 | sed '/00001a0:/s/009c.*/00/' | xxd -r > tmp.txt ; mv tmp.txt 047.tarc
+xxd 048.tarc | head -n 91 | sed '/00005a0:/s/4a00.*/00/' | xxd -r > tmp.txt ; mv tmp.txt 048.tarc
+xxd 049.tarc | head -n 89 | sed '/0000580:/s/2f 00.*/2f/' | xxd -r > tmp.txt ; mv tmp.txt 049.tarc
+xxd 050.tarc | head -n 341 | xxd -r > tmp.txt ; mv tmp.txt 050.tarc

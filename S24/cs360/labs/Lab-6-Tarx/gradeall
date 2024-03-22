@@ -1,0 +1,31 @@
+#!/bin/sh 
+
+dir=/home/jplank/cs360/labs/Lab-6-Tarx
+ge="$dir/Gradescript-Examples"
+
+if [ $# -ne 0 ]; then
+  echo 'usage: gradeall' >&2
+  exit 1
+fi
+
+enum=1
+n=0
+while [ $enum -le 100 ]; do
+  out=`$dir/gradescript $enum  | head -n 1`
+  echo $out
+  n=`echo $n $out | awk '{ print $1 + ($NF == "correct.") }'`
+  edir=`echo $enum | awk '{ printf "%03d\n", $1 }'`
+
+  rm -f tmp-$edir-correct-stderr.txt tmp-$edir-correct-stdout.txt tmp-$edir-correct-tarfile.txt
+  rm -f tmp-$edir-your-stderr.txt tmp-$edir-your-stdout.txt tmp-$edir-your-tarfile.txt
+  rm -f tmp-$edir-tarf-output.txt
+  rm -f tmp-$edir-tarf-output.txt tmp-$edir-tarc-stderr.txt
+  chmod -R 700 $edir 2> /dev/null
+  rm -rf $edir
+
+  enum=`echo $enum | awk '{ print $1+1 }'`
+done
+
+echo ""
+
+echo "$n Correct out of 100"
