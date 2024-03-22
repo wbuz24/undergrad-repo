@@ -48,7 +48,6 @@ int set_fat(unsigned short **p, int link, unsigned short val, unsigned short nex
 }
 
 
-/* Write the FAT sectors back to the jdisk */
 void flush_links(struct Disk *jd, unsigned short **p, int sector) {
   /* You only need to call jdisk_write on two FAT sectors */
 
@@ -64,11 +63,12 @@ int main(int argc, char **argv) {
   struct stat buf;
   struct Disk *jd;
   char *dfile, *ifile, *ofile;
-  unsigned short **p, *bytes;
+  unsigned char *bytes, fin, pen;
+  unsigned short **p;
   int starting_block, exists, last1, last2;
   double lpb, links;
   int s, d, n, i, x, sector, newsec; 
-  short unsigned int lba, currlink, nextlink, fin, pen;
+  short unsigned int lba, currlink, nextlink;
   long filesize, flsize, jdsize;
 
   /* N - # of sectors is filesize / 1024
@@ -103,7 +103,7 @@ int main(int argc, char **argv) {
   p = (unsigned short **) malloc(sizeof(unsigned short *) * s);
   if (p == NULL) { fprintf(stderr, "malloc FAT buffer\n"); exit(1); }
 
-  bytes = (unsigned short *) malloc(sizeof(unsigned short) * 512);
+  bytes = (unsigned char *) malloc(sizeof(unsigned char) * 1024);
   if (bytes == NULL) { fprintf(stderr, "malloc fileread buffer\n"); exit(1); }
 
   /* Allocate and Store the FAT table */
@@ -160,12 +160,15 @@ int main(int argc, char **argv) {
         else {
           sector = set_fat(p, currlink, currlink, read_link(jd, p, currlink)); 
           if (filesize == 1023) {
-            bytes[511] = 0xff;
+            bytes[1023] = 0xff;
           }
           else {
             /* Set the last two bytes to equal the remaining filesize */
-            bytes[511] = filesize & ((1ULL << 8) - 1);
-    //        printf("0x%02x\n", bytes[1023]); 
+            pen = ( ( filesize & ( (1ULL << (16 + 1)) - 1) ) >> 8); 
+            fin = filesize & ((1ULL << 8) - 1);
+
+            //bytes[1022] = pen;
+            bytes[1023] = pen;
           }
         }
       }
@@ -208,18 +211,17 @@ int main(int argc, char **argv) {
     nextlink = read_link(jd, p, currlink);
 
     lba = starting_block;
-    while (currlink != 0) {
+    while (currlink != 0 && currlink != nextlink) {
       n = lba;
       /* Read and write the bytes to the output file */
       jdisk_read(jd, lba, bytes);
-      fwrite(bytes, 2, 512, iofile);
+      fwrite(bytes, 1, 1024, iofile);
 
-      if (currlink == nextlink) break;
 
       /* Update the links and the logical block address */
       currlink = nextlink;
       nextlink = read_link(jd, p, currlink);
-      lba = currlink + s - 1;
+      lba = nextlink + s - 1;
     }
 
     /* Read in the last sector to grab the bytes */
@@ -232,14 +234,13 @@ int main(int argc, char **argv) {
     else {
       /* Last block in the file may not be 1024 bytes */
       /* Calculate the amount of bytes in the last free block */
-      pen = bytes[511] & ((1ULL << 8) - 1);
-      if (pen == 0xff) { flsize = 1023; printf("0x%04x\n", bytes[511]);}
+      if (bytes[1023] & 0xff == 0xff) { flsize = 1023; }
       else {
-        fin = bytes[511];
-
+        fin = bytes[1023];
+        pen = bytes[1022];
 
         /* Build the bytes in the sector with the last two bytes */
-        flsize = fin;
+        flsize = fin * 256 + pen;
       }
     }
 
