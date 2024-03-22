@@ -2,7 +2,7 @@
 #define _JDISK_
 
 #define JDISK_SECTOR_SIZE (1024)
-#define JDISK_DELAY (1)
+#define JDISK_DELAY (0)
 
 void *jdisk_create(char *fn, unsigned long size);
 void *jdisk_attach(char *fn);
