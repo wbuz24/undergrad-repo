@@ -160,12 +160,11 @@ int main(int argc, char **argv) {
         else {
           sector = set_fat(p, currlink, currlink, read_link(jd, p, currlink)); 
           if (filesize == 1023) {
-            bytes[1023] = 0xff;
+            bytes[511] = 0xff;
           }
           else {
             /* Set the last two bytes to equal the remaining filesize */
-//            bytes[1022] = filesize & ((1ULL << 8) - 1);
-          //  bytes[1023] = filesize & ((1ULL << 4) - 1);
+            bytes[511] = filesize & ((1ULL << 8) - 1);
     //        printf("0x%02x\n", bytes[1023]); 
           }
         }
@@ -209,11 +208,13 @@ int main(int argc, char **argv) {
     nextlink = read_link(jd, p, currlink);
 
     lba = starting_block;
-    while (currlink != 0 && currlink != nextlink) {
+    while (currlink != 0) {
       n = lba;
       /* Read and write the bytes to the output file */
       jdisk_read(jd, lba, bytes);
-      fwrite(bytes, 1, 1024, iofile);
+      fwrite(bytes, 2, 512, iofile);
+
+      if (currlink == nextlink) break;
 
       /* Update the links and the logical block address */
       currlink = nextlink;
@@ -231,9 +232,11 @@ int main(int argc, char **argv) {
     else {
       /* Last block in the file may not be 1024 bytes */
       /* Calculate the amount of bytes in the last free block */
-      if (bytes[1023] & 0xff == 0xff) flsize = 1023;
+      pen = bytes[511] & ((1ULL << 8) - 1);
+      if (pen == 0xff) { flsize = 1023; printf("0x%04x\n", bytes[511]);}
       else {
         fin = bytes[511];
+
 
         /* Build the bytes in the sector with the last two bytes */
         flsize = fin;
