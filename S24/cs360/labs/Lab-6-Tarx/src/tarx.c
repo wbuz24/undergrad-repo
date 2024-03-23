@@ -7,6 +7,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <sys/stat.h>
+#include <sys/types.h>
+#include <sys/time.h>
 #include <dirent.h>
 #include <string.h>
 #include "jrb.h"
@@ -18,7 +20,7 @@ int compare(Jval v1, Jval v2) {
   return 0;
 }
 
-void build_directory(JRB inodes, JRB modes) {
+void build_directory(JRB inodes, JRB modes, JRB modtimes) {
   int fnsize, flmode, file_size;
   long inode, modtime, flsize;
   char *filename, *bytes;
@@ -53,10 +55,14 @@ void build_directory(JRB inodes, JRB modes) {
     }
     else flmode = tmp->val.i; 
 
+    if (jrb_find_str(modes, filename) == NULL) {
+      jrb_insert_str(modes, filename, new_jval_i(flmode));
+      jrb_insert_str(modtimes, filename, new_jval_l(modtime));
+    }
+
     if (S_ISDIR(flmode)) {
       /* Directory */
       mkdir(filename, 00744);        
-      jrb_insert_str(modes, filename, new_jval_i(flmode));
     }
     else {
       /* This is a file */
@@ -73,23 +79,27 @@ void build_directory(JRB inodes, JRB modes) {
         file_size = flsize;
       }
 
-      /* Read in the bytes */
+      /* Read in the bytes then write them to the new file */
       fread(bytes, 1, flsize, stdin);
       bytes[flsize] = '\0';
 
+      /* Create new file */
       ofile = fopen(filename, "w");
       if (ofile == NULL) { perror(filename); exit(1); }
 
+      /* Write bytes */
       fwrite(bytes, 1, flsize, ofile);
 
+      /* Immediately close file to save on File descriptors */
       fclose(ofile);
+
+      /* Try to check file existence */
       //printf("%d\n", fnsize);
       //printf("%s\n", filename);
       //printf("%ld\n", inode);
 
       //printf("%ld\n", flsize);
       //printf("%s\n", bytes);
-      chmod(filename, flmode);
     }
     /* Adjust mod times and r/w protection at the end */
     //printf("%d\n%ld\n", flmode, modtime);
@@ -100,22 +110,40 @@ void build_directory(JRB inodes, JRB modes) {
 }
 
 int main() {
-  JRB inodes, modes, tmp;
+  JRB inodes, modes, modtimes, tmp;
+  struct stat buf;
+  struct timeval times[2];
+  int exists;
 
   /* File is read on standard input */
 
   inodes = make_jrb();
   modes = make_jrb();
+  modtimes = make_jrb();
 
-  build_directory(inodes, modes);
+  build_directory(inodes, modes, modtimes);
 
+  /* After all is said & done, go through and change all protection modes */
+
+  jrb_traverse(tmp, modtimes) {
+    exists = lstat(tmp->key.s, &buf);
+    if (exists < 0) { fprintf(stderr, "cannot stat %s\n", tmp->key.s); exit(1); }
+
+    /* Change modtime */
+    times[0].tv_sec = buf.st_mtime;
+    times[1].tv_sec = tmp->val.l;
+    times[1].tv_usec = 0; 
+    utimes(tmp->key.s, times);
+  }
   jrb_traverse(tmp, modes) {
-    printf("%s\n", tmp->key.s);
     chmod(tmp->key.s, tmp->val.i);
 
+    free(tmp->key.s);
   }
 
+  jrb_free_tree(modes);
   jrb_free_tree(inodes);
+  jrb_free_tree(modtimes);
 
   return 1;
 }
