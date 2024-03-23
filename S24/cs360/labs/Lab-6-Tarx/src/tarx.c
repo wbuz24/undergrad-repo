@@ -18,84 +18,102 @@ int compare(Jval v1, Jval v2) {
   return 0;
 }
 
-void build_directory(JRB inodes) {
-  int fnsize, flmode, rel_size, file_size;
+void build_directory(JRB inodes, JRB modes) {
+  int fnsize, flmode, file_size;
   long inode, modtime, flsize;
   char *filename, *bytes;
-  DIR *d;
-  struct direct *de;
-
-  /* Only read in the filename size */
-  rel_size = 0;
+  FILE *ofile;
+  JRB tmp;
+  
   file_size = 0;
-  while (fread(&fnsize, 4, 1, stdin)) {
+  /* Only read in the filename size */
+  while (fread(&fnsize, 4, 1, stdin) == 1) {
 
     /* allocate or reallocate space for the filename */
-    if (rel_size == 0) {
-      filename = (char *) malloc(sizeof(char) * fnsize + 10);
-      if (filename == NULL) { perror(filename); exit(1); }
-      rel_size = fnsize + 10;
-    }
-    else if (rel_size < fnsize + 10) {
-      filename = realloc(filename, fnsize + 10);
-      rel_size = fnsize + 10;
-    }
+    filename = (char *) malloc(sizeof(char) * fnsize + 10);
+    if (filename == NULL) { perror(filename); exit(1); }
 
     /* Read in the filename */
     fread(filename, 1, fnsize, stdin);
     fread(&inode, 8, 1, stdin);
 
-    printf("%s\n", filename);
+    /* Set null character for printing */
+    filename[fnsize] = '\0';
 
     /* Check if it is a new inode */
+    tmp = jrb_find_gen(inodes, new_jval_l(inode), compare);
 
-    if (jrb_find_gen(inodes, new_jval_l(inode), compare) == NULL) { 
-
+    if (tmp == NULL) { 
+      /* If it is a new inode, it will include it's mode and modtime */
       fread(&flmode, 4, 1, stdin);
       fread(&modtime, 8, 1, stdin);
 
       /* Insert into the red-black tree */
       jrb_insert_gen(inodes, new_jval_l(inode), new_jval_i(flmode), compare);
-
-      if (S_ISDIR(flmode)) {
-        /* Directory */
-//        build_directory(inodes);
-      }
-      else {
-        /* This is a file */
-        fread(&flsize, 8, 1, stdin);
-
-        /* Allocate or reallocate the files bytes */
-        if (file_size == 0) {
-          bytes = (char *) malloc(sizeof(char) * flsize + 10);
-          if (bytes == NULL) { perror("malloc files bytes\n"); exit(1); }
-          file_size = flsize;
-        }
-        else if (file_size < flsize + 10) {
-          bytes = realloc(bytes, flsize + 10);
-          file_size = flsize;
-        }
-
-        /* Read in the bytes */
-        fread(bytes, 1, flsize, stdin);
-
-      //  printf("%d %s\n", flsize, bytes);
-      }
     }
+    else flmode = tmp->val.i; 
+
+    if (S_ISDIR(flmode)) {
+      /* Directory */
+      mkdir(filename, 00744);        
+      jrb_insert_str(modes, filename, new_jval_i(flmode));
+    }
+    else {
+      /* This is a file */
+      fread(&flsize, 8, 1, stdin);
+
+      /* Allocate or reallocate the files bytes */ 
+      if (file_size == 0) {
+        bytes = (char *) malloc(sizeof(char) * flsize + 10);
+        if (bytes == NULL) { perror("malloc files bytes\n"); exit(1); }
+        file_size = flsize;
+      }
+      else if (file_size < flsize + 10) {
+        bytes = realloc(bytes, flsize + 10);
+        file_size = flsize;
+      }
+
+      /* Read in the bytes */
+      fread(bytes, 1, flsize, stdin);
+      bytes[flsize] = '\0';
+
+      ofile = fopen(filename, "w");
+      if (ofile == NULL) { perror(filename); exit(1); }
+
+      fwrite(bytes, 1, flsize, ofile);
+
+      fclose(ofile);
+      //printf("%d\n", fnsize);
+      //printf("%s\n", filename);
+      //printf("%ld\n", inode);
+
+      //printf("%ld\n", flsize);
+      //printf("%s\n", bytes);
+      chmod(filename, flmode);
+    }
+    /* Adjust mod times and r/w protection at the end */
+    //printf("%d\n%ld\n", flmode, modtime);
+
   }
 
   free(bytes);
-  free(filename);
 }
 
 int main() {
-  JRB inodes;
+  JRB inodes, modes, tmp;
 
   /* File is read on standard input */
 
   inodes = make_jrb();
+  modes = make_jrb();
 
-  build_directory(inodes);
+  build_directory(inodes, modes);
+
+  jrb_traverse(tmp, modes) {
+    printf("%s\n", tmp->key.s);
+    chmod(tmp->key.s, tmp->val.i);
+
+  }
 
   jrb_free_tree(inodes);
 
