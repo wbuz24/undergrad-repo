@@ -55,7 +55,7 @@ void build_directory(JRB inodes, JRB modes, JRB modtimes) {
       /* Insert into the red-black tree */
       jrb_insert_gen(inodes, new_jval_l(inode), new_jval_i(flmode), compare);
     }
-    else flmode = tmp->val.i; 
+    //else flmode = tmp->val.i; 
 
     if (jrb_find_str(modes, filename) == NULL) {
       jrb_insert_str(modes, filename, new_jval_i(flmode));
@@ -70,19 +70,8 @@ void build_directory(JRB inodes, JRB modes, JRB modtimes) {
       /* This is a file */
       if (fread(&flsize, 8, 1, stdin) != 1) { fprintf(stderr, "Bad tarc file at %s, couldn't read file size\n", filename); exit(1); }
 
-      /* Allocate or reallocate the files bytes */ 
-     // if (file_size == 0) {
-//        bytes = (char *) malloc(sizeof(char) * flsize + 10);
-//        if (bytes == NULL) { fprintf(stderr, "malloc %s's bytes\n", filename); exit(1); }
-     // }
-     // else if (file_size < flsize + 10) {
-//        bytes = realloc(bytes, flsize + 10);
-//        file_size = flsize + 10;
-     // }
-
       /* Read in the bytes then write them to the new file */
-      err = fread(bytes, 1, flsize, stdin);
-      if (err != flsize)  { fprintf(stderr, "Bad tarc file at %s, only read %d bytes\n", filename, err); exit(1); }
+      if (fread(bytes, 1, flsize, stdin) != flsize) { fprintf(stderr, "Bad tarc file at %s, couldn't read file size\n", filename); exit(1); }
 
       /* Create new file */
       ofile = fopen(filename, "w");
@@ -101,14 +90,12 @@ void build_directory(JRB inodes, JRB modes, JRB modtimes) {
 
       //printf("%ld\n", flsize);
       //printf("%s\n", bytes);
-  //    free(bytes);
+      //printf("%d\n%ld\n", flmode, modtime);
     }
-    /* Adjust mod times and r/w protection at the end */
-    //printf("%d\n%ld\n", flmode, modtime);
 
     err = fread(&fnsize, 1, 4, stdin);
   }
-  if (!feof(stdin)) { fprintf(stderr, "Bad tarc file at byte  tried to read filename, but only got %d\n", err); exit(1); }
+  if (err > 0 && err < 4) { fprintf(stderr, "Bad tarc file at byte  tried to read filename, but only got %d\n", err); exit(1); }
 
 }
 
