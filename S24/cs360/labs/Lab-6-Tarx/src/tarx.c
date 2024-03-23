@@ -21,25 +21,27 @@ int compare(Jval v1, Jval v2) {
 }
 
 void build_directory(JRB inodes, JRB modes, JRB modtimes) {
-  int fnsize, flmode, file_size;
+  int fnsize, flmode, file_size, err;
   long inode, modtime, flsize;
-  char *filename, *bytes;
+  char *filename, bytes[8000];
   FILE *ofile;
   JRB tmp;
   
   file_size = 0;
   /* Only read in the filename size */
-  while (fread(&fnsize, 4, 1, stdin) == 1) {
+  err = fread(&fnsize, 1, 4, stdin);
+  while (err == 4) {
 
     /* allocate or reallocate space for the filename */
     filename = (char *) malloc(sizeof(char) * fnsize + 10);
     if (filename == NULL) { perror(filename); exit(1); }
 
     /* Read in the filename */
-    fread(filename, 1, fnsize, stdin);
-    fread(&inode, 8, 1, stdin);
+    if (fread(filename, 1, fnsize, stdin) != fnsize) { fprintf(stderr, "Bad tarc file, couldn't read filename\n"); exit(1); }
+    if (fread(&inode, 1, 8, stdin) != 8) { fprintf(stderr, "Bad tarc file at %s, couldn't read inode\n", filename); exit(1); }
 
-    /* Set null character for printing */
+    /* Set null character */
+
     filename[fnsize] = '\0';
 
     /* Check if it is a new inode */
@@ -47,8 +49,8 @@ void build_directory(JRB inodes, JRB modes, JRB modtimes) {
 
     if (tmp == NULL) { 
       /* If it is a new inode, it will include it's mode and modtime */
-      fread(&flmode, 4, 1, stdin);
-      fread(&modtime, 8, 1, stdin);
+      if (fread(&flmode, 1, 4, stdin) != 4) { fprintf(stderr, "Bad tarc file at %s, couldn't read mode\n", filename); exit(1); }
+      if (fread(&modtime, 1, 8, stdin) != 8) { fprintf(stderr, "Bad tarc file at %s, couldn't read modification time\n", filename); exit(1); }
 
       /* Insert into the red-black tree */
       jrb_insert_gen(inodes, new_jval_l(inode), new_jval_i(flmode), compare);
@@ -66,22 +68,21 @@ void build_directory(JRB inodes, JRB modes, JRB modtimes) {
     }
     else {
       /* This is a file */
-      fread(&flsize, 8, 1, stdin);
+      if (fread(&flsize, 8, 1, stdin) != 1) { fprintf(stderr, "Bad tarc file at %s, couldn't read file size\n", filename); exit(1); }
 
       /* Allocate or reallocate the files bytes */ 
-      if (file_size == 0) {
-        bytes = (char *) malloc(sizeof(char) * flsize + 10);
-        if (bytes == NULL) { perror("malloc files bytes\n"); exit(1); }
-        file_size = flsize;
-      }
-      else if (file_size < flsize + 10) {
-        bytes = realloc(bytes, flsize + 10);
-        file_size = flsize;
-      }
+     // if (file_size == 0) {
+//        bytes = (char *) malloc(sizeof(char) * flsize + 10);
+//        if (bytes == NULL) { fprintf(stderr, "malloc %s's bytes\n", filename); exit(1); }
+     // }
+     // else if (file_size < flsize + 10) {
+//        bytes = realloc(bytes, flsize + 10);
+//        file_size = flsize + 10;
+     // }
 
       /* Read in the bytes then write them to the new file */
-      fread(bytes, 1, flsize, stdin);
-      bytes[flsize] = '\0';
+      err = fread(bytes, 1, flsize, stdin);
+      if (err != flsize)  { fprintf(stderr, "Bad tarc file at %s, only read %d bytes\n", filename, err); exit(1); }
 
       /* Create new file */
       ofile = fopen(filename, "w");
@@ -100,13 +101,15 @@ void build_directory(JRB inodes, JRB modes, JRB modtimes) {
 
       //printf("%ld\n", flsize);
       //printf("%s\n", bytes);
+  //    free(bytes);
     }
     /* Adjust mod times and r/w protection at the end */
     //printf("%d\n%ld\n", flmode, modtime);
 
+    err = fread(&fnsize, 1, 4, stdin);
   }
+  if (!feof(stdin)) { fprintf(stderr, "Bad tarc file at byte  tried to read filename, but only got %d\n", err); exit(1); }
 
-  free(bytes);
 }
 
 int main() {
