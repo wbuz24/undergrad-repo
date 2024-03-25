@@ -21,8 +21,9 @@ int compare(Jval v1, Jval v2) {
 }
 
 void build_directory(JRB inodes, JRB modes, JRB modtimes) {
-  int fnsize, flmode, file_size, err;
-  long inode, modtime, flsize;
+  int fnsize, flmode, file_size;
+  long inode, modtime;
+  size_t flsize, err;
   char *filename, bytes[8000];
   FILE *ofile;
   JRB tmp;
@@ -68,10 +69,11 @@ void build_directory(JRB inodes, JRB modes, JRB modtimes) {
     }
     else {
       /* This is a file */
-      if (fread(&flsize, 8, 1, stdin) != 1) { fprintf(stderr, "Bad tarc file at %s, couldn't read file size\n", filename); exit(1); }
+      if (fread(&flsize, 8, 1, stdin) != 1) { fprintf(stderr, "Bad tarc file at %s, couldn't read the file size\n", filename); exit(1); }
 
       /* Read in the bytes then write them to the new file */
-      if (fread(bytes, 1, flsize, stdin) != flsize) { fprintf(stderr, "Bad tarc file at %s, couldn't read file size\n", filename); exit(1); }
+      err = fread(bytes, 1, flsize, stdin);
+      if (err < flsize) { fprintf(stderr, "Bad tarc file at %s, read %d out of %d bytes\n", filename, err, flsize); exit(1); }
 
       /* Create new file */
       ofile = fopen(filename, "w");
@@ -95,6 +97,7 @@ void build_directory(JRB inodes, JRB modes, JRB modtimes) {
 
     err = fread(&fnsize, 1, 4, stdin);
   }
+  //if (!feof(stdin)) { fprintf(stderr, "Bad tarc file at byte  tried to read filename, but only got %d\n", err); exit(1); }
   if (err > 0 && err < 4) { fprintf(stderr, "Bad tarc file at byte  tried to read filename, but only got %d\n", err); exit(1); }
 
 }

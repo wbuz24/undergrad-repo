@@ -1,0 +1,22 @@
+#!/bin/sh 
+
+dir=/home/jplank/cs494/labs/Lab-3-B-Tree
+
+if [ $# -ne 0 ]; then
+  echo 'usage: gradeall' >&2
+  exit 1
+fi
+
+enum=1
+n=0
+while [ $enum -le 100 ]; do
+  out=`sh $dir/grader.sh $enum Y | head -n 1`
+  echo $out
+  n=`echo $n $out | awk '{ print $1 + ($NF == "Correct.") }'`
+
+  enum=`echo $enum | awk '{ print $1+1 }'`
+done
+
+echo ""
+
+echo "$n Correct out of 100"

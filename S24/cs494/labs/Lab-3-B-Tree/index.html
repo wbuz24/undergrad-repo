@@ -1,0 +1,1180 @@
+<title> CS494 -- Lab 3: A realistic B-Tree Lab</title>
+
+<h1> CS494 -- Lab 3: A realistic B-Tree Lab</h1>
+<UL> <LI> CS494
+<LI> Fall, 2022
+<LI> <a href=http://web.eecs.utk.edu/~jplank>James S. Plank</a>
+<LI> <a href=http://web.eecs.utk.edu/~jplank/plank/classes/cs494/Labs/Lab-3-B-Tree/index.html>This file:
+     <b>http://web.eecs.utk.edu/~jplank/plank/classes/cs494/Labs/Lab-3-B-Tree</b></a>
+<LI> Lab Directory: <b>/home/plank/cs494/Labs/Lab-3-B-Tree</b>
+</UL>
+</h3>
+
+<hr>
+<h3>What you submit</h3>
+
+You submit the file <b>b_tree.c</b>.
+
+<hr>
+<h3>Please read this information</h3>
+<b>Please keep this in mind when you are working on the lab.</b>  For grading, you need to 
+compile <b>bin/random_tester_1.cpp</b> and
+<b>bin/random_tester_2.cpp</b> with your implementation of B-trees.  <i>Double-check youself
+and make sure that you are doing it.</i>  In multiple semesters, students have copied my 
+<b>bin/random_tester_1</b> and 
+<b>bin/random_tester_2</b> rather than compile their own.  Of course, mine pass the gradescripts.
+You want to make sure that <i>yours</i> are passing the gradescripts.
+<p>
+<b>This is a three-week lab, and it is every bit of a three week lab.</b>
+It requires attention to detail and disciplined testing.  It is the hardest
+lab that I give, and for that reason, you should allocate time to do it.  <i>Don't think that
+because you are a better programmer than your friends, that you can do this lab in a day or two.
+I have seen too many excellent students flail on this lab because they underestimated the time
+to do it.  I mean really good students!</i>
+<p>
+On the flip side, I think that this is the most rewarding lab that I give.  When you finish,
+and your B-tree is working as it should, it's a really great feeling!
+<p>
+Some completion stats:
+
+<UL>
+<LI> 2015: 15 of 21 students completed (71.4%)
+<LI> 2016: 18 of 23 students completed (78.3%)
+<LI> 2017: 16 of 24 students completed (66.7%)
+<LI> 2018: 17 of 42 students completed (40.5%)
+<LI> 2019: 19 of 30 students completed (64.3%)
+<LI> 2020: 15 of 18 students completed (83.3%)
+<LI> 2021: 28 of 36 students completed (77.8%)
+</UL>
+
+I'd <i>really</i> like to see some high completion stats this year -- please start on it early!
+
+<hr>
+<h3>Differences in what you implement and the reference material</h3>
+The reference material that I use is 
+on <a href=http://cis.stvincent.edu/html/tutorials/swd/btree/btree.html>this web page</a>,
+by David Carlson and Isidore Minerd, which I think is very well done.  I supplement it
+with my own drawings, which I use when I teach the class.  These are in 
+<a href=B-Tree.pdf>this file</a>.
+<p>
+You are going to implement the "B+ Tree" variant, where internal nodes only hold keys and
+pointers to other nodes,
+and external nodes hold keys and pointers to values.  One change from the St.Vincent description is
+that the value of a key in an internal node is going to be held in the largest val pointer
+in the key's predecessor subtree.  Let me show an example, lifted from their notes:
+
+<p><center><table border=3><td><img src=breen.jpg></td></table></center><p>
+
+In their example, the val pointer for J is the pointer to the left of K.  In our trees,
+the val pointer for J will be the pointer to the right of I.  Similarly:
+
+<UL>
+<LI> The val pointer for F is the pointer to the right of E.
+<LI> The val pointer for C is the pointer to the right of B.
+<LI> The val pointer for M is the pointer to the right of L.
+<LI> The val pointer for R is the pointer to the right of P.
+<LI> The val pointer for U is the pointer to the right of T.
+<LI> The val pointer to the right of Z is unused.
+</UL>
+
+(As a corollary to this, when you delete an internal node, you swap it with the previous node in the
+tree, not the subsequent one.  Since we are not doing deletion, that doesn't matter.....).
+<p>
+The last page of 
+<a href=B-Tree.pdf>B-Tree.pdf</a> also has a tree pictured with where its val pointers should
+be pointing.
+
+
+<hr>
+
+<h3>Jdisk: A disk emulator</h3>
+
+We are using the same disk emulator, <b>jdisk</b> as in
+<a href=../Lab-3-B-Tree-FAT/index.html>The FAT lab</a>.
+Please see that lab writeup for information on <b>jdisk.c/jdisk.h/jdisk_tester</b>.
+Please also see that lab for information on how to view and modify binary files in VI and
+using <b>xxd</b>.
+<p>
+
+<h3>To start out</h3>
+
+Please do the following:
+
+<pre>
+UNIX> <font color=darkred><b>cp -r /home/jplank/cs494/labs/Lab-3-B-Tree/src .</b></font>
+UNIX> <font color=darkred><b>cp -r /home/jplank/cs494/labs/Lab-3-B-Tree/include .</b></font>
+UNIX> <font color=darkred><b>cp /home/jplank/cs494/labs/Lab-3-B-Tree/makefile .</b></font>
+UNIX> <font color=darkred><b>cp /home/jplank/cs494/labs/Lab-3-B-Tree/tree* .</b></font>
+UNIX> <font color=darkred><b>mkdir obj</b></font>
+UNIX> <font color=darkred><b>mkdir bin</b></font>
+</pre>
+
+You are now ready to start the lab.
+<hr>
+<h3>What you have to write: src/b_tree.c</h3>
+Your job is to write <b>src/b_tree.c</b>.  Its job is to implement the interface in 
+<b><a href=include/b_tree.h>include/b_tree.h</a></b>:
+
+<p><center><table border=3 cellpadding=3><td><pre>
+#ifndef _BP_TREE_
+#define _BP_TREE_
+
+#include "jdisk.h"
+
+void *b_tree_create(char *filename, long size, int key_size);
+void *b_tree_attach(char *filename);
+
+unsigned int b_tree_insert(void *b_tree, void *key, void *record);
+unsigned int b_tree_find(void *b_tree, void *key);
+
+void *b_tree_disk(void *b_tree);
+int b_tree_key_size(void *b_tree);
+void b_tree_print_tree(void *b_tree);
+#endif
+</pre></td></table></center><p>
+
+What you are going to do is implement B-trees on top of jdisks.  
+The keys will be buffers of exactly <b>key_size</b> bytes, which is defined when you create a 
+btree.  The vals will be buffers of exactly JDISK_SECTOR_SIZE bytes.
+Each node of the tree will fit into a sector of the disk.
+<p>
+The jdisks <i>must</i> have a specific format.  That means that the jdisks that your
+programs create must be readable by my btree programs and vice versa (so long as they 
+have the same sizes for longs and the same endian-ness).  They don't have to 
+be identical to mine.  They just have to work.  Here is the format:
+<p>
+<h3>Sector 0</h3>
+Sector zero can have anything in it, so long as the first 16 (or 12) bytes contain the following:
+<UL>
+<LI> Bytes 0-3: The key size as an integer.
+<LI> Bytes 4-7: The LBA of the sector that holds the root node of the B-tree.
+<LI> Bytes 8-15 (or 8-11 if longs are 4 bytes): The first free LBA on the jdisk.  You are going
+to allocate sectors consecutively from sector 0, and since you never deallocate a sector (our
+B-Trees don't allow deletion), you can keep track of the free sectors with a single number.
+<LI> Yes, the remaining 1008 bytes are wasted.  You can use them, but since your program has
+to be interoperable with mine and others, their values will be ignored.
+</UL>
+
+Let's stop there.  Take a look at a file that is a jdisk for a B-Tree:
+
+<pre>
+UNIX> <font color=darkred><b>ls -l tree-1.jdisk</b></font>
+-rw-r--r--. 1 jplank jplank 2048000 Sep 18 19:46 tree-1.jdisk
+UNIX> <font color=darkred><b>xxd -g 1 -len 16 tree-1.jdisk</b></font>
+0000000: 17 00 00 00 29 00 00 00 f1 01 00 00 00 00 00 00  ....)...........  <font color=blue># Remember, you need to view these groupings of bytes as numbers in little endian.</font>
+UNIX> <font color=darkred><b>xxd -g 4 -e -len 16 tree-1.jdisk</b></font>                                     <font color=blue> # Or if you have -e, that makes life easier.</font>
+00000000: 00000017 00000029 000001f1 00000000  ....)...........
+UNIX> <font color=darkred><b></b></font>
+</pre>
+
+The file is roughly 2MB, composed of 2,000 sectors.  When we look at the first 16 bytes,
+we see the numbers in little endian format (which is the format of our current
+Intel processors).  The key size is 0x17, or 23 
+bytes.  The LBA of the root node is 0x29, and the first free sector is LBA 0x1f1 = 497.  
+<p>
+<h3>Nodes</h3>
+Now, the format of a sector holding a node of the tree is as follows.  
+The first byte is a zero or one, specifying whether the node is external (0) or internal (1).
+The next byte says how many keys are in the node.  How many keys can you fit into a node?
+The answer is (JDISK_SECTOR_SIZE - 6) / (key_size + 4). 
+You'll see why in a minute.
+Let's call that value MAXKEY.
+Keys must be between 4 and 254 bytes (inclusive).  Therefore, even if keys are four bytes,
+you can fit the number of keys into an unsigned char.
+<p>
+The next MAXKEY * key_size bytes are the keys.  Then there can be some wasted bytes.
+The last (MAXKEY+1)*4 bytes are the LBA's, which are the pointers of the B-Trees.  
+If the node is internal, then they are the LBA's of nodes that are pointed to by the node.  
+If the node is external, then they 
+are the LBA's of vals.  If there are <i>nkeys</i> keys in the node, then there are
+<i>nkeys+1</i> LBA's.  
+<p>
+<h3>Data (the vals)</h3>
+
+Data is stored in a sector.  The data *must* be JDISK_SECTOR_SIZE bytes.
+<p>
+<hr><h3>A detailed example</h3>
+Let's explore this a little.  Let's try <b>tree-2.jdisk</b>:
+
+<pre>
+UNIX> <font color=darkred><b>ls -l tree-2.jdisk</b></font>
+-rw-r--r--. 1 jplank jplank 20480 Sep 18 19:46 tree-2.jdisk
+UNIX> <font color=darkred><b>xxd -g 1 -len 16 tree-2.jdisk</b></font>
+0000000: c8 00 00 00 08 00 00 00 0c 00 00 00 00 00 00 00  ................
+UNIX> <font color=darkred><b>xxd -g 4 -e -len 16 tree-2.jdisk</b></font>
+00000000: 000000c8 00000008 0000000c 00000000  ................
+UNIX> 
+</pre>
+
+This is a file with 20 sectors, of which 12 (0x0c) are 
+currently in use.  The key size is 200 (0xc8). 
+The LBA of the root node is 8.  
+Let's take a look at the first 202 bytes of that block:
+
+<pre>
+UNIX> <font color=darkred><b>echo '8 1024 * p' | dc</b></font>
+8192
+UNIX> <font color=darkred><b>xxd -g 1 -s 8192 -len 202 tree-2.jdisk</b></font>
+0002000: 01 01 45 6c 69 00 00 00 00 00 00 00 00 00 00 00  ..Eli...........
+0002010: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+0002020: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+0002030: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+0002040: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+0002050: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+0002060: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+0002070: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+0002080: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+0002090: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+00020a0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+00020b0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+00020c0: 00 00 00 00 00 00 00 00 00 00                    ..........
+UNIX> 
+</pre>
+
+So, this is an internal node, because the first byte is one.  It holds one key, because the 
+second byte is also one.  The first key is in the next 200 bytes -- as you see, they
+are all zeros except for the first three.  I know they hold a string (because I created
+this file), and you can see from the output to <b>xxd</b>, that the string is "Eli."
+
+<p>
+Just a note here about keys that are strings, and the program <b>bin/jdisk_test</b>, if you
+want to use it instead of or in addition to <b>xxd</b>.  Since the strings are null terminated,
+<b>jdisk_test</b> will print the string, regardless of whether you specify 3 characters or
+200.  In the example below, <b>jdisk_test</b> is reading 200 characters, but since the fourth
+character is '\0', it only prints out "Eli".
+
+<pre>
+UNIX> <font color=darkred><b>bin/jdisk_test R tree-2.jdisk string 8194 3</b></font>
+Eli
+UNIX> <font color=darkred><b>bin/jdisk_test R tree-2.jdisk string 8194 200</b></font>
+Eli
+UNIX> <font color=darkred><b></b></font>
+</pre>
+
+<p>
+So, there is one key, which means that there are two pointers out of the node. Each of these
+pointers is an LBA of the sector holding the node to which the pointer points.
+How do we find these LBA's?  Well, first, let's figure out what MAXKEY is:
+(1024 - 6) / (200+4) = 4.99.  That means MAXKEY is four (and there
+is quite a bit of wasted space in our nodes.  So it goes).  Since a 
+node can hold four keys, it can hold 5 LBA pointers.  
+Those are in the last 5*4=20 bytes of the sector.  Let's look at them:
+
+<pre>
+UNIX> <font color=darkred><b>echo 8192+1024-20 | bc</b></font>
+9196
+UNIX> <font color=darkred><b>xxd -g 1 -s 9196 -len 20 tree-2.jdisk</b></font>
+00023ec: 01 00 00 00 07 00 00 00 00 00 00 00 00 00 00 00  ................
+00023fc: 00 00 00 00                                      ....
+UNIX> <font color=darkred><b>xxd -g 4 -e -s 9196 -len 20 tree-2.jdisk</b></font>
+000023ec: 00000001 00000007 00000000 00000000  ................
+000023fc: 00000000                             ....
+UNIX> <font color=darkred><b></b></font>
+</pre>
+
+
+So, the first pointer is to block 1, and then second is to block 7.  Let's look at block 1:
+
+<pre>
+UNIX> <font color=darkred><b>xxd -g 1 -s 1024 -len 32 tree-2.jdisk</b></font>
+0000400: 00 04 41 6c 65 78 69 73 00 00 00 00 00 00 00 00  ..Alexis........
+0000410: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+UNIX> 
+</pre>
+
+It is an external node that holds four keys.  The keys 
+will start at bytes 1026 (1024+2), 1226 (1024+2+200), 1426 (1024+2+400) and 1626 (1024+2+600).
+You can see from <b>xxd</b> that the first key is "Alexsis".  Here are the other three
+keys:
+
+<pre>
+UNIX> <font color=darkred><b>xxd -g 1 -s 1226 -len 16 tree-2.jdisk</b></font>
+00004ca: 41 6c 6c 69 73 6f 6e 00 00 00 00 00 00 00 00 00  Allison.........
+UNIX> <font color=darkred><b>xxd -g 1 -s 1426 -len 16 tree-2.jdisk</b></font>
+0000592: 43 61 6c 65 62 00 00 00 00 00 00 00 00 00 00 00  Caleb...........
+UNIX> <font color=darkred><b>xxd -g 1 -s 1626 -len 16 tree-2.jdisk</b></font>
+000065a: 44 61 6e 69 65 6c 00 00 00 00 00 00 00 00 00 00  Daniel..........
+UNIX> <font color=darkred><b></b></font>
+</pre>
+
+Nice -- this is looking like the keys are all string-based (however, they are still 200
+characters -- it just so happens that all of the characters after a string are byte 0x0).
+<p>
+Now, let's look at the LBA's, which will start 20 bytes from the end of the sector:
+
+<pre>
+UNIX> <font color=darkred><b>xxd -g 1 -s 2028 -len 20 tree-2.jdisk </b></font>
+00007ec: 04 00 00 00 0b 00 00 00 0a 00 00 00 02 00 00 00  ................
+00007fc: 06 00 00 00                                      ....
+UNIX> 
+</pre>
+
+These are the vals:
+<UL>
+<LI> Alexis' val is the sector at LBA 4.
+<LI> Allison's val is the sector at LBA 11.
+<LI> Caleb's val is the sector at LBA 10.
+<LI> Daniel's val is the sector at LBA 2.
+<LI> And Eli's val is the sector at LBA 6.  Remember how vals work for internal nodes!
+</UL>
+If you examine these LBA's, you'll see that they are also strings, where all of the bytes
+after the strings are zero.  Here, I'll prove it for LBA 4, and then we'll look at the
+strings in those five sectors:
+
+<pre>
+UNIX> <font color=darkred><b>xxd -g 1 -s 4096 -len 1024 tree-2.jdisk</b></font>
+0001000: 47 79 72 6f 73 63 6f 70 65 00 00 00 00 00 00 00  Gyroscope.......
+0001010: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+0001020: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+<font color=blue># .....  Lots of lines of zeros</font>
+00013f0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+UNIX> <font color=darkred><b>echo '1024 * 11' | bc</b></font>
+11264
+UNIX> <font color=darkred><b>xxd -s 11264 -len 16 -g 1 tree-2.jdisk </b></font>
+0002c00: 45 6d 62 65 6c 6c 69 73 68 00 00 00 00 00 00 00  Embellish.......
+UNIX> <font color=darkred><b>xxd -s 10240 -len 16 -g 1 tree-2.jdisk</b></font>
+0002800: 53 75 64 61 6e 65 73 65 00 00 00 00 00 00 00 00  Sudanese........
+UNIX> <font color=darkred><b>xxd -s 2048 -len 16 -g 1 tree-2.jdisk</b></font>
+0000800: 53 68 61 64 6f 77 79 00 00 00 00 00 00 00 00 00  Shadowy.........
+UNIX> <font color=darkred><b>echo '1024 * 6' | bc</b></font>
+6144
+UNIX> <font color=darkred><b>xxd -s 6144 -len 16 -g 1 tree-2.jdisk</b></font>
+0001800: 45 69 64 65 72 00 00 00 00 00 00 00 00 00 00 00  Eider...........
+UNIX> <font color=darkred><b></b></font>
+</pre>
+
+So, now we know:
+
+<UL>
+<LI> Key: Alexis - Val: Gyroscope
+<LI> Key: Allison - Val: Embellish
+<LI> Key: Caleb - Val: Sudanese
+<LI> Key: Daniel - Val: Shadowy
+<LI> Key: Eli - Val: Eider
+</UL>
+
+Let's look at LBA 7 to see the keys greater than "Eli" -- as you can see, this block is
+an external node with three keys:
+
+<pre>
+UNIX> <font color=darkred><b>echo '7*1024' | bc</b></font>
+7168
+UNIX> <font color=darkred><b>xxd -g 1 -s 7168 -len 16 tree-2.jdisk</b></font>
+0001c00: 00 03 47 72 61 63 65 00 00 00 00 00 00 00 00 00  ..Grace.........
+UNIX> <font color=darkred><b>xxd -g 4 -e -s 8172 -len 20 tree-2.jdisk</b></font>
+00001fec: 00000005 00000009 00000003 00000000  ................
+00001ffc: 00000000                             ....
+UNIX> <font color=darkred><b>xxd -g 1 -s 7370 -len 16 tree-2.jdisk</b></font>
+0001cca: 4a 61 6d 65 73 00 00 00 00 00 00 00 00 00 00 00  James...........
+UNIX> <font color=darkred><b>xxd -g 1 -s 7570 -len 16 tree-2.jdisk</b></font>
+0001d92: 4c 61 6e 64 6f 6e 00 00 00 00 00 00 00 00 00 00  Landon..........
+UNIX> <font color=darkred><b></b></font>
+</pre>
+
+Let's see the vals, which start 20 bytes from the end of sector 7:
+
+<pre>
+UNIX> <font color=darkred><b>echo 7168+1024-20 | bc</b></font>
+8172
+UNIX> <font color=darkred><b>xxd -g 1 -s 8172 -len 20 tree-2.jdisk</b></font>
+0001fec: 05 00 00 00 09 00 00 00 03 00 00 00 00 00 00 00  ................
+0001ffc: 00 00 00 00                                      ....
+UNIX> <font color=darkred><b>echo '5*1024' | bc</b></font>
+5120
+UNIX> <font color=darkred><b>xxd -g 1 -s 5120 -len 16 tree-2.jdisk</b></font>
+0001400: 50 72 6f 63 74 65 72 00 00 00 00 00 00 00 00 00  Procter.........
+UNIX> <font color=darkred><b>echo '9*1024' | bc</b></font>
+9216
+UNIX> <font color=darkred><b>xxd -g 1 -s 9216 -len 16 tree-2.jdisk</b></font>
+0002400: 43 68 75 67 00 00 00 00 00 00 00 00 00 00 00 00  Chug............
+UNIX> <font color=darkred><b>echo '3*1024' | bc</b></font>
+3072
+UNIX> <font color=darkred><b>xxd -g 1 -s 3072 -len 16 tree-2.jdisk</b></font>
+0000c00: 44 65 6c 69 6e 71 75 65 6e 74 00 00 00 00 00 00  Delinquent......
+UNIX> <font color=darkred><b></b></font>
+</pre>
+
+So, armed with that information, we can draw our B-Tree as follows:
+
+<p><center><table border=3><td><img src=Tree-2.jpg></td></table></center><p>
+
+I have starred that last LBA, because it is unused.  
+
+<hr>
+<h3>The procedures in b_tree.h</h3>
+
+Here is a description of the procedures that you have to write.
+<UL>
+<LI> <b>void *b_tree_create(char *filename, long size, int key_size);</b>  This creates
+an empty btree with the given file size, key_size and filename.  The empty btree will have
+a root node which is external and has zero keys.  It returns a handle to the btree in a void *.
+<p>
+<LI> <b>void *b_tree_attach(char *filename);</b>  This opens the given btree file, which should have
+been created previously with <b>b_tree_create()</b>.  Again, it returns a handle to the btree.
+<p>
+<LI> <b>unsigned int b_tree_insert(void *b_tree, void *key, void *record);</b>  In this procedure,
+<b>key</b> is a pointer to <b>key_size</b> bytes, and <b>record</b> is a pointer to 
+JDISK_SECTOR_SIZE bytes.  If the key is in the btree, then the procedure replaces the val
+with <b>record</b>, and returns the LBA of the val.  If the key is not in the btree, then it
+is inserted, and the val for that key is set to <b>record</b>.  In either case, the LBA of the
+val is returned.  It will return 0 if our file is out of room.  When this returns, the btree
+file is in the proper shape (in other words, <b>jdisk_write()</b> calls need to be made for 
+all of the sectors that have been added or changed).
+<p>
+I want to stress here that even though our examples above used null-terminated strings as keys,
+our btrees can take <i>any</i> keys that are <b>key_size</b> bytes.  Use <b>memcmp()</b> for
+key comparison. (And use <b>memcpy()</b> to copy keys and vals to their respective homes if 
+need be).
+<p>
+<LI> <b>unsigned int b_tree_find(void *b_tree, void *key);</b>  This finds the given key, and
+returns the LBA of the val.  If the key is not in the tree, this returns 0.
+<p>
+<LI> <b>void *b_tree_disk(void *b_tree);</b>  This returns the jdisk pointer for the btree.
+<p>
+<LI> <b>int key_size(void *b_tree);</b>  This returns the key size.
+<p>
+<LI> <b>void *b_tree_print_tree(void *b_tree);</b>  This prints the tree -- see my examples for
+format.  I'm <i>not</i> going to grade you on this.  This can be a very useful procedure for
+debugging.  
+</UL>
+
+<hr>
+<h3>Useful program #1: b_tree_test</h3>
+
+The program 
+<b><a href=src/b_tree_test.c>src/b_tree_test.c</a></b>
+is a nice program to help you debug.  It is called as follows:
+
+<p><center><table border=3 cellpadding=3><td><pre>
+bin/b_tree_test file [CREATE file_size key_size]
+</pre></td></table></center><p>
+
+If you call it with "CREATE", then it creates a btree file with the given size and key size.
+If you don't call it with "CREATE", then it attaches to the preexisting btree file.
+<p>
+Once the file is created, it accepts three commands:
+<UL>
+<LI> "I key val" -- <b>Key</b> must be a string less than or equal to the key size, and <b>val</b>
+must be a string less than or equal to JDISK_SECTOR_SIZE.  The key is padded to be the key size
+with zeros, as is the val, to JDISK_SECTOR_SIZE.  Then, <b>b_tree_insert()</b> is called with this
+key and value.  It prints the LBA of the inserted val.
+<p>
+<LI> "F key" -- Finds the key and returns the LBA.
+<p>
+<LI> "P" calls <b>b_tree_print_tree()</b>.  If the key strings equal the key_size, this will do some
+ugly stuff.  
+</UL>
+
+So, let's create the tree above:
+
+<pre>
+UNIX> <font color=darkred><b>rm tree-2.jdisk</b></font>
+UNIX> <font color=darkred><b>bin/b_tree_test tree-2.jdisk CREATE 20480 200</b></font>
+<font color=darkred><b>I Daniel Shadowy</b></font>
+Insert return value: 2
+<font color=darkred><b>I Landon Delinquent</b></font>
+Insert return value: 3
+<font color=darkred><b>I Alexis Gyroscope</b></font>
+Insert return value: 4
+<font color=darkred><b>I Grace Procter</b></font>
+Insert return value: 5
+<font color=darkred><b>P</b></font>
+LBA 0x00000001.  Internal: 0
+  Entry 0: Key: Alexis                           LBA: 0x00000004
+  Entry 1: Key: Daniel                           LBA: 0x00000002
+  Entry 2: Key: Grace                            LBA: 0x00000005
+  Entry 3: Key: Landon                           LBA: 0x00000003
+  Entry 4:                                       LBA: 0x00000000
+
+<font color=darkred><b>I Eli Eider</b></font>
+Insert return value: 6
+<font color=darkred><b>P</b></font>
+LBA 0x00000008.  Internal: 1
+  Entry 0: Key: Eli                              LBA: 0x00000001
+  Entry 1:                                       LBA: 0x00000007
+
+LBA 0x00000001.  Internal: 0
+  Entry 0: Key: Alexis                           LBA: 0x00000004
+  Entry 1: Key: Daniel                           LBA: 0x00000002
+  Entry 2:                                       LBA: 0x00000006
+
+LBA 0x00000007.  Internal: 0
+  Entry 0: Key: Grace                            LBA: 0x00000005
+  Entry 1: Key: Landon                           LBA: 0x00000003
+  Entry 2:                                       LBA: 0x00000000
+
+<font color=darkred><b>I James Chug</b></font>
+Insert return value: 9
+<font color=darkred><b>I Caleb Sudanese</b></font>
+Insert return value: 10
+<font color=darkred><b>I Allison Embellish</b></font>
+Insert return value: 11
+<font color=darkred><b>P</b></font>
+LBA 0x00000008.  Internal: 1
+  Entry 0: Key: Eli                              LBA: 0x00000001
+  Entry 1:                                       LBA: 0x00000007
+
+LBA 0x00000001.  Internal: 0
+  Entry 0: Key: Alexis                           LBA: 0x00000004
+  Entry 1: Key: Allison                          LBA: 0x0000000b
+  Entry 2: Key: Caleb                            LBA: 0x0000000a
+  Entry 3: Key: Daniel                           LBA: 0x00000002
+  Entry 4:                                       LBA: 0x00000006
+
+LBA 0x00000007.  Internal: 0
+  Entry 0: Key: Grace                            LBA: 0x00000005
+  Entry 1: Key: James                            LBA: 0x00000009
+  Entry 2: Key: Landon                           LBA: 0x00000003
+  Entry 3:                                       LBA: 0x00000000
+
+<font color=darkred><b>&lt;CNTL-D&gt;</b></font>
+Reads: 18
+Writes: 28
+UNIX> <font color=darkred><b></b></font>
+</pre>
+
+<hr>
+<h3>Useful program #2: random_tester_1</h3>
+
+This is a pretty heavyweight testing program:
+
+<p><center><table border=3 cellpadding=3><td><pre>
+bin/random_tester_1 seed nevents key_size val_size tree_file input_file output_file
+</pre></td></table></center><p>
+
+Here are the parameters:
+
+<UL>
+<LI> <b>seed</b> is a seed for <b>srand48()</b> (It's a long).
+<LI> <b>nevents</b> is the number of events that you want to generate.
+<LI> <b>key_size</b> is the size of the key.
+<LI> <b>val_size</b> is the number of characters that you want in the vals.
+<LI> <b>tree_file</b> is the file name.  If it doesn't exist, then it will be created
+   with <b>key_size</b>, and a size of 2*nevents*JDISK_SECTOR_SIZE.
+<LI> <b>input_file</b> is an optional file that tells you what is already in the tree.
+     Use "-" to omit.  
+<LI> <b>output_file</b> is an optional file that stores what's in the tree at the end of the
+    program.  You use this file as input for subsequent calls.
+</UL>
+
+So, <b>random_tester_1</b> randomly generates <b>b_tree_insert()</b> and 
+<b>b_tree_find()</b> calls with a 50/50 probability.  It stores its results internally,
+and double-checks the LBA's and vals of <b>b_tree_find()</b> calls.
+It generates keys which are random strings whose sizes are less than <b>key_size</b>.
+After the strings are null characters.  The vals are random strings whose sizes are 
+less than or equal <b>val_size</b>.  
+All of the characters after the string (up to JDISK_SECTOR_SIZE) are null characters.
+Thus, these guys aren't too disgusting when you print them.
+<p>
+At the end, it prints the number of reads and writes to the jdisk.  Here are some examples:
+
+<pre>
+UNIX> <font color=darkred><b>bin/random_tester_1 0 100 50 30 tree-3.jdisk - tree-3.txt > tmp-output.txt</b></font>
+</pre>
+
+Take a look at the program's output, in 
+<b><a href=tmp-output.txt>tmp-output.txt</a></b>.  Here are the first few lines:
+
+<pre>
+UNIX> <font color=darkred><b>head -n 5 tmp-output.txt</b></font>
+I mjeglqyuapnuiutrwhuvvjmvgglhhapmuclvaynkuh ajujjsdaaeuuuzhqroq
+I xcedrqfnxavvqfguowkwpx jlkrkbpjgahf
+I lgltigobrvwkgathopicmh sxstblhiqfyowhyvefbweptotgp
+I bkcz ybsmyalyricsxgmptjelqds
+F xcedrqfnxavvqfguowkwpx
+UNIX> <font color=darkred><b></b></font>
+</pre>
+
+It inserted four keys/vals, and then it performed a find on "xcedrqfnxavvqfguowkwpx".  After that
+find, it double-checked that the LBA matched the original insert, and
+that the bytes are "jlkrkbpjgahf".  We can double-check that with
+<b>b_tree_test</b> and <b>jdisk_test</b>:
+
+<pre>
+UNIX> <font color=darkred><b>echo F xcedrqfnxavvqfguowkwpx | bin/b_tree_test tree-3.jdisk</b></font>
+Attached to tree-3.jdisk.  FS: 10240000  -  KS: 50
+Find return value: 3
+Reads: 3
+Writes: 0
+UNIX> <font color=darkred><b>echo '3*1024' | bc</b></font>
+3072
+UNIX> <font color=darkred><b>xxd -s 3072 -len 16 -g 1 tree-3.jdisk</b></font>
+0000c00: 6a 6c 6b 72 6b 62 70 6a 67 61 68 66 00 00 00 00  jlkrkbpjgahf....
+UNIX> 
+UNIX> <font color=darkred><b></b></font>
+</pre>
+
+The file 
+<b><a href=tree-3.txt>tree-3.txt</a></b>
+has the output from <b>random_tester_1</b>.  I can use it to make another call to 
+<b>random_tester_1</b> that attaches to the tree that it just created.  The 
+input file tells me what's in the tree (keys, vals and LBA's).  Now it generates
+new events
+(using the old keys and the new keys for finding):
+
+<pre>
+UNIX> <font color=darkred><b>bin/random_tester_1 1 10 50 30 tree-3.jdisk tree-3.txt - </b></font>
+I ndbqtrkuwgsgmilthoqwkhsvhxerjetjbcxzakw ctvztvyrhnbig
+I hwe delscbm
+F auaerduagfi
+F dmkaaoptzhmyszbbybrfzfqyyfshbq
+F yh
+I murekjom mxv
+I epunbavuprsytivhufivhxhpt j
+F jblrqvbhhtssacoxqeksrxosrhnhpeiqmxjjaxrfiue
+F riosrojnkzqcyqgkasvfwybfiqgpvfzacsfbcodp
+I wdxszkdgjxqyakiqlweuah lt
+Reads: 26
+Writes: 17
+UNIX> <font color=darkred><b></b></font>
+</pre>
+
+You'll note, it called <b>b_tree_find()</b> on "yh", which was in the old tree, and made
+sure that the LBA and val for that key is what it was when we inserted it on the first 
+call to <b>random_tester_1</b>.
+<p>
+<b>random_tester_1</b> will be a good way for you to test that your btree programs and mine
+are interoperable.  For example, you can call it once with my version of <b>random_tester_1</b>, and
+then again on your version with the input generated from the first call.  They should both
+work together!
+
+<hr>
+<h3>Life without a net: <b>random_tester_2</b></h3>
+
+The parameters to <b>bin/random_tester_2</b> are similar to 
+<b>random_tester_1</b>:
+
+<p><center><table border=3 cellpadding=3><td><pre>
+random_tester_2 seed nevents key_size tree_file input_file output_file
+</pre></td></table></center><p>
+
+The only parameter that is missing is <b>val_size</b>.  
+<b>random_tester_2</b> now generates random keys that are exactly <b>key_size</b> bytes, and 
+they can be <i>any</i> bytes.  No longer are they strings.  It also generates random vals
+that are exactly JDISK_SECTOR_SIZE bytes.   This is the ultimate test for your programs, because
+you can't debug with nice strings.  You'll have to debug with a little moxy.
+<p>
+The input and output files are now binary.  
+
+<hr>
+<h3>b_tree_dcs</h3>
+
+I have a program called <b>b_tree_dcs</b>, which stands for "B-Tree Double-Checker and Serializer."
+It takes a B-Tree file as its command line argument, and the first thing that it does is double-check
+that it is a valid B-Tree.  You may find that useful for debugging (I did).
+After that, it prints all the keys out in sorted order, and then all the vals in the same order
+as the keys.  If a key or val is a string followed by all null characters to fill out the 
+buffer, then it prints the key or val with "S" and a string.  Otherwise, it prints "H" and all
+of the bytes in hex.  In that way, you can actually look at the trees of <b>random_tester_2</b>
+without resorting completely to <b>jdisk_test</b> or VI:
+
+<pre>
+UNIX> <font color=darkred><b>bin/b_tree_dcs tree-2.jdisk</b></font>
+Key_Size: 200
+Key     0: S Alexis
+Key     1: S Allison
+Key     2: S Caleb
+Key     3: S Daniel
+Key     4: S Eli
+Key     5: S Grace
+Key     6: S James
+Key     7: S Landon
+Val     0: S Gyroscope
+Val     1: S Embellish
+Val     2: S Sudanese
+Val     3: S Shadowy
+Val     4: S Eider
+Val     5: S Procter
+Val     6: S Chug
+Val     7: S Delinquent
+UNIX> <font color=darkred><b>rm -f tmp.jdisk; bin/random_tester_2 0 2 25 tmp.jdisk - - > /dev/null</b></font>
+UNIX> <font color=darkred><b>bin/b_tree_dcs tmp.jdisk</b></font>
+Key_Size: 25
+Key     0: H A95E509709556B8137127CE6160C538C53E4488F4B083ADA9A
+Key     1: H C00A91D0F269AEBAB4483B0B5CEA668381C81552B9297D3A7D
+Val     0: H 7824B141A5586A73755C3CFC645E2F4FC454332A25B44DE8CFCDEC636CC<font color=blue> ...</font>
+Val     1: H 5AD463298B1EBB204624070D8C848B448EE15246053A1B632E59E07A666<font color=blue> ...</font>
+UNIX> <font color=darkred><b></b></font>
+</pre>
+
+
+<hr>
+<h3>The Grading Script, in grader.sh</h3>
+
+You asked for a grading script, so I have provided.  In <b>grader.sh</b>, you specify two command
+line arguments: A number and Y|N.  The second argument says whether the script will delete its files or
+not.  The first number can be any number.  The script will create two jdisk files: <b>test-answer.jdisk</b>
+and <b>test-$USER.jdisk</b>.  The first one is created by the programs in the lab directory.  The second
+one is created using the programs in the current directory.  When the jdisk files are created,
+they are compared with <b>b_tree_dcs</b>, and if the outputs match, the problem is correct.
+<p>
+For example, gradescript number 1 uses <b>b_tree_test</b> to insert one key into the B-tree file:
+
+<pre>
+UNIX> <font color=darkred><b>sh /home/jplank/www-home/cs494/labs/Lab-3-B-Tree/grader.sh 1 N</b></font>
+Problem 1 Correct.
+
+tree-answer.jdisk and tree-jplank.jdisk created as follows:
+----------------------------------------------------------
+rm -f tree-jplank.jdisk tree-answer.jdisk
+/home/jplank/cs494/labs/Lab-3-B-Tree/bin/b_tree_test tree-answer.jdisk CREATE 51200 26 < input.txt > /dev/null
+./bin/b_tree_test tree-jplank.jdisk CREATE 51200 26 < input.txt > /dev/null
+UNIX> <font color=darkred><b>cat input.txt</b></font>
+I Mackenzie Malignant
+UNIX> <font color=darkred><b>bin/b_tree_dcs tree-answer.jdisk</b></font>
+Key_Size: 26
+Key     0: S Mackenzie
+Val     0: S Malignant
+UNIX> <font color=darkred><b>bin/b_tree_dcs tree-jplank.jdisk</b></font>
+Key_Size: 26
+Key     0: S Mackenzie
+Val     0: S Malignant
+UNIX> <font color=darkred><b></b></font>
+</pre>
+
+Gradescript number 2 is a little more complex -- it creates an input file with 161 random insertions (some of which will 
+replace keys).  It calls the <b>b_disk_test</b> program in the lab directory to create <b>tree-answer.jdisk</b>, from 
+the first 137 entries of the input file.  Then it copies <b>tree-answer.jdisk</b> to <b>tree-$USER.jdisk</b>, and 
+processes the remaining 24 insertions using the lab program and your program:
+
+<pre>
+UNIX> <font color=darkred><b>sh /home/jplank/www-home/cs494/labs/Lab-3-B-Tree/grader.sh 2 N</b></font>
+Problem 2 Correct.
+
+tree-answer.jdisk and tree-jplank.jdisk created as follows:
+----------------------------------------------------------
+rm -f tree-jplank.jdisk tree-answer.jdisk
+head -n 137 input.txt | /home/jplank/cs494/labs/Lab-3-B-Tree/bin/b_tree_test tree-answer.jdisk CREATE 614400 129 > /dev/null
+cp tree-answer.jdisk tree-jplank.jdisk
+sed  1,137d input.txt | /home/jplank/cs494/labs/Lab-3-B-Tree/bin/b_tree_test tree-answer.jdisk > /dev/null
+sed  1,137d input.txt | ./bin/b_tree_test tree-jplank.jdisk > /dev/null
+UNIX> <font color=darkred><b>wc input.txt</b></font>
+ 161  483 2807 input.txt
+UNIX> <font color=darkred><b>head input.txt</b></font>
+I Blake Shelter
+I Mackenzie Effluvium
+I Brianna Reluctant
+I Evelyn Vigilantism
+I Mason Drawn
+I Anthony Singlet
+I Anna Microjoule
+I Kate Howell
+I Paige Tinder
+I Xavier Roulette
+UNIX> <font color=darkred><b>tail input.txt</b></font>
+I Peyton Tammany
+I Caleb Abe
+I Landon Knick
+I Makayla Fortescue
+I Brody Repeat
+I Nathan Swizzle
+I Madison Nonetheless
+I Ava Astronautic
+I Zoey Indebted
+I Chloe Smirk
+UNIX> <font color=darkred><b>bin/b_tree_dcs tree-answer.jdisk | head</b></font>
+Key_Size: 129
+Key     0: S Aaron
+Key     1: S Abigail
+Key     2: S Addison
+Key     3: S Aidan
+Key     4: S Aiden
+Key     5: S Alex
+Key     6: S Alexander
+Key     7: S Alexis
+Key     8: S Allison
+UNIX> <font color=darkred><b></b></font>
+</pre>
+
+
+The tests performed by the gradescript are based on the number given mod ten.   The
+tests are as follows:
+
+<UL>
+<LI> <b>Number mod 10 = 1</b>: 1 to 15 random insertions using <b>b_tree_test</b>.  Key size is between 15 and 50.
+<p>
+<LI> <b>Number mod 10 = 2</b>: 1 to 150 random insertions using the lab directory's <b>b_tree_test</b>.  Key size is
+   between 15 and 214.  Then 1 to 150 more random insertions using <b>b_tree_test</b>.
+<p>
+<LI> <b>Number mod 10 = 3</b>: Calling <b>random_tester_1</b> with the gradescript number as the seed.
+   1 to 20 events; Key size between 15 and 214; Val size between 1 and 200.
+<p>
+<LI> <b>Number mod 10 = 4</b>: Calling <b>random_tester_1</b> with the gradescript number as the seed.
+   1 to 500 events; Key size between 15 and 252; Val size between 1 and 1023.
+<p>
+<LI> <b>Number mod 10 = 5</b>: Calling <b>random_tester_2</b> with the gradescript number as the seed.
+   1 to 500 events; Key size between 15 and 252. 
+<p>
+<LI> <b>Number mod 10 = 6</b>: Calling <b>random_tester_2</b> with the gradescript number as the seed.
+   1 to 5000 events; Key size between 4 and 10. 
+<p>
+<LI> <b>Number mod 10 = 7</b>: Calling <b>random_tester_2</b> with the gradescript number as the seed.
+   1 to 5000 events; Key size = 254. 
+<p>
+<LI> <b>Number mod 10 = 8</b>: Calling <b>b_tree_test</b> to create a b-tree of appropriate size.
+    Calling <b>random_tester_2</b> in the lab directory to with up to 5000 events, key size = 254.
+    The resulting tree is then copied to <b>tree-$USER.jdisk</b>, and your <b>random_tester_2</b>
+    is called for another 1 to 5000 events.
+<p>
+<LI> <b>Number mod 10 = 9</b>: Same as test 8, only now the key size is between 4 and 10.
+<p>
+<LI> <b>Number mod 10 = 0</b>: Same as test 9, only now the key size is between 4 and 254.
+</UL>
+Each of these can take a few seconds, because the files can be in the 10's of megabytes.
+<p>
+
+
+
+<hr>
+<h3>Some help</h3>
+
+You don't need this section, but you probably should read it.
+My internal btree struct was as follows:
+
+<p><center><table border=3 cellpadding=3><td><pre>
+typedef struct {
+  int key_size;                 <font color=blue>/* These are the first 16/12 bytes in sector 0 */</font>
+  unsigned int root_lba;
+  unsigned long first_free_block;
+
+  void *disk;                   <font color=blue>/* The jdisk */</font>
+  unsigned long size;           <font color=blue>/* The jdisk's size */</font>
+  unsigned long num_lbas;       <font color=blue>/* size/JDISK_SECTOR_SIZE */</font>
+  int keys_per_block;           <font color=blue>/* MAXKEY */</font>
+  int lbas_per_block;           <font color=blue>/* MAXKEY+1 */</font>
+  Tree_Node *free_list;         <font color=blue>/* Free list of nodes */</font>
+  
+  Tree_Node *tmp_e;             <font color=blue>/* When find() fails, this is a pointer to the external node */</font>
+  int tmp_e_index;              <font color=blue>/* and the index where the key should have gone */</font>
+ 
+  int flush;                    <font color=blue>/* Should I flush sector[0] to disk after b_tree_insert() */</font>
+} B_Tree;
+</pre></td></table></center><p>
+
+Note how the first three fields are such that you can write them to sector 0 (and read them
+from sector 0).  As it turns out, I write the whole struct to sector 0, but the remaining
+bytes are ignored.
+<p>
+A <b>Tree_Node</b> is the internal representation of a node.  Here's its struct:
+
+<p><center><table border=3 cellpadding=3><td><pre>
+typedef struct tnode {
+  unsigned char bytes[JDISK_SECTOR_SIZE+256]; <font color=blue>/* This holds the sector for reading and writing.  
+                                                 It has extra room because your internal representation  
+                                                 will hold an extra key. */</font>
+  unsigned char nkeys;                      <font color=blue>/* Number of keys in the node */</font>
+  unsigned char flush;                      <font color=blue>/* Should I flush this to disk at the end of b_tree_insert()? */</font>
+  unsigned char internal;                   <font color=blue>/* Internal or external node */</font>
+  unsigned int lba;                         <font color=blue>/* LBA when the node is flushed */</font>
+  unsigned char **keys;                     <font color=blue>/* Pointers to the keys.  Size = MAXKEY+1 */</font>
+  unsigned int *lbas;                       <font color=blue>/* Pointer to the array of LBA's.  Size = MAXKEY+2 */</font>
+  struct tnode *parent;                     <font color=blue>/* Pointer to my parent -- useful for splitting */</font>
+  int parent_index;                         <font color=blue>/* My index in my parent */</font>
+  struct tnode *ptr;                        <font color=blue>/* Free list link */</font>
+} Tree_Node;
+</pre></td></table></center><p>
+
+
+I maintain my own free list of <b>Tree_Node</b> structs.  When I allocate one, I do
+three <b>malloc()</b> calls.  One is for the <b>Tree_Node</b> itself, one is 
+for <b>keys</b> and one is for <b>lbas</b>.  I set the values of <b>keys</b> right
+after I allocate them, since they point to fixed locations in <b>bytes</b>.  For example,
+<b>keys[0]</b> will point to <b>bytes+2</b>.
+<b>keys[1]</b> will point to <b>bytes+2+key_size</b>.  Etc.  The size of <b>keys</b>
+is <b>MAXKEY+1</b>.  Moreover, the size of <b>lbas</b> is 
+<b>MAXKEY+2</b>.  The reason is that in my internal representation of a B-Tree node,
+I am allowed to store an extra key and val.  This simplifies the implementation of
+splitting in an <i>enormous</i> way.  If you don't believe me, ask anyone in the 2015
+version of CS494 who tried to implement B-Trees without it.
+
+When I'm done with a <b>Tree_Node</b>,
+I put it onto my free list.  That way, if I need a new <b>Tree_Node</b> later, and 
+there's one on the free list, I don't have to do any <b>malloc()</b> calls -- I simply
+grab it from the free list. <b>Keys</b> and <b>lbas</b> are already
+allocated, and the values of <b>keys</b> are already set correctly.  That's convenient.
+<p>
+
+I have a procedure which 
+reads a <b>Tree_Node</b> from a jdisk.  It reads it into <b>bytes</b>, and then
+it copies the LBA's from the end of the sector into <b>lbas</b> (using <b>memcpy</b>).
+It has to do this, because it uses the end of the sector for that extra key.
+It also reads <b>nkeys</b> and <b>internal</b> from the sector.  A convenient thing
+is that the <b>keys</b> pointers are already pointing to the correct place, so you don't
+need to do anything special with the keys. 
+
+<p>
+I set the <b>flush</b> field whenever I modify a B-Tree node, and the modified node
+needs to be flushed to disk.  I do the final flushing at the end of <b>b_tree_insert()</b>.
+When I flush a node, I need to create the sector.  I do this by copying <b>nkeys</b>
+and <b>internal</b> into their proper place in <b>bytes</b>.  I then copy <b>lbas</b> to 
+their proper place in <b>bytes</b>.  The keys are already in their proper place.  I then
+write <b>bytes</b> using <b>jdisk_write()</b>.
+
+<p>
+What I did for splitting was as follows -- I'd go ahead and insert the key/lba.  Since there's
+room for an extra key and lba in the <b>Tree_Node</b>, this works even when the node is
+full.  I then checked to see if the node needed to be split, and if so, I called a 
+procedure called <b>split_node</b>.  This procedure has to be recursive, BTW.
+<p>
+When I call <b>find()</b>, I have it
+read in all of the nodes on the path to the external node, setting their parent fields, but
+setting <b>flush</b> to 0.  
+The <b>flush</b> field is set by <b>b_tree_insert()</b> when the node changes.  The parent
+fields are used on splitting.  When I'm done with <b>b_tree_insert()</b> or <b>b_tree_find()</b>,
+I call <b>free_and_flush()</b> on every node from the external node up to the root.  This 
+flushes the node if <b>flush</b> is set, and puts the node onto the free list.
+I found <b>free_and_flush</b> super-helpful.  
+<hr>
+<h3>b_tree_instrument.o: Instrumented code.</h3>
+
+In <b>b_tree_instrument.o</b>, I have added code that prints my <b>Tree_Node</b> just after
+reading, and just before flushing.  I have compiled it with <b>b_tree_test</b> to make the
+executable <b>b_tree_test_inst</b>.
+This may help you figure out how my pointers work.
+Here's an example, where I insert a new node into <b>tree-2.jdisk</b>.
+First, here's what I'm doing:
+
+<pre>
+UNIX> <font color=darkred><b>cp tree-2.jdisk tmp.jdisk</b></font>
+UNIX> <font color=darkred><b>echo P | bin/b_tree_test tmp.jdisk</b></font>
+Attached to tmp.jdisk.  FS: 20480  -  KS: 200
+LBA 0x00000008.  Internal: 1
+  Entry 0: Key: Eli                              LBA: 0x00000001
+  Entry 1:                                       LBA: 0x00000007
+
+LBA 0x00000001.  Internal: 0
+  Entry 0: Key: Alexis                           LBA: 0x00000004
+  Entry 1: Key: Allison                          LBA: 0x0000000b
+  Entry 2: Key: Caleb                            LBA: 0x0000000a
+  Entry 3: Key: Daniel                           LBA: 0x00000002
+  Entry 4:                                       LBA: 0x00000006
+
+LBA 0x00000007.  Internal: 0
+  Entry 0: Key: Grace                            LBA: 0x00000005
+  Entry 1: Key: James                            LBA: 0x00000009
+  Entry 2: Key: Landon                           LBA: 0x00000003
+  Entry 3:                                       LBA: 0x00000000
+
+Reads: 4
+Writes: 0
+UNIX> <font color=darkred><b>echo I A-Aron Stoae | bin/b_tree_test tmp.jdisk</b></font>
+Attached to tmp.jdisk.  FS: 20480  -  KS: 200
+Insert return value: 12
+Reads: 3
+Writes: 5
+UNIX> <font color=darkred><b>echo P | bin/b_tree_test tmp.jdisk</b></font>
+Attached to tmp.jdisk.  FS: 20480  -  KS: 200
+LBA 0x00000008.  Internal: 1
+  Entry 0: Key: Allison                          LBA: 0x00000001
+  Entry 1: Key: Eli                              LBA: 0x0000000d
+  Entry 2:                                       LBA: 0x00000007
+
+LBA 0x00000001.  Internal: 0
+  Entry 0: Key: A-Aron                           LBA: 0x0000000c
+  Entry 1: Key: Alexis                           LBA: 0x00000004
+  Entry 2:                                       LBA: 0x0000000b
+
+LBA 0x0000000d.  Internal: 0
+  Entry 0: Key: Caleb                            LBA: 0x0000000a
+  Entry 1: Key: Daniel                           LBA: 0x00000002
+  Entry 2:                                       LBA: 0x00000006
+
+LBA 0x00000007.  Internal: 0
+  Entry 0: Key: Grace                            LBA: 0x00000005
+  Entry 1: Key: James                            LBA: 0x00000009
+  Entry 2: Key: Landon                           LBA: 0x00000003
+  Entry 3:                                       LBA: 0x00000000
+
+Reads: 5
+Writes: 0
+UNIX> <font color=darkred><b></b></font>
+</pre>
+
+Now, here are the tree nodes as they are read in the beginning of the insertion, and
+as they are flushed after the insertion:
+
+<pre>
+UNIX> <font color=darkred><b>cp tree-2.jdisk tmp.jdisk</b></font>
+UNIX> <font color=darkred><b>echo I A-Aron Stoae | bin/b_tree_test_inst tmp.jdisk</b></font>
+Attached to tmp.jdisk.  FS: 20480  -  KS: 200
+Find(): Read -- Tree Node 0x1e840c0
+  Bytes:          0x1e840c0
+  Nkeys Address:  0x1e845c0
+  Nkeys Value:    1
+  Flush Value:    0
+  Internal Value: 1
+  LBA Value:      8
+  Keys:           0x1e84600          <font color=blue>keys is allocated with <b>malloc()</b>.</font>
+  Keys[0]         0x1e840c2 (Eli)    <font color=blue>This is bytes+2</font>
+  Keys[1]         0x1e8418a (Landon) <font color=blue>This is bytes+2+key_size.  Since nkeys equals 1, the contents here are
+                                     meaningless.  They happen to hold "Landon" from a previous time,
+                                     when "Landon" was the second key.  You have to ignore this, because
+                                     Nkeys is one.</font>
+  Keys[2]         0x1e84252 ()       <font color=blue>This is bytes+2+key_size*2</font>
+  Keys[3]         0x1e8431a ()
+  Keys[4]         0x1e843e2 ()       <font color=blue>This is the extra key.</font>
+  Lbas:           0x1e84630          <font color=blue>lbas is allocated with <b>malloc()</b>.</font>
+  Lbas[0]         0x1                <font color=blue>Lba of the internal node before "Eli".</font>
+  Lbas[1]         0x7                <font color=blue>Lba of the internal node after "Eli".</font>
+  Lbas[2]         0x0                <font color=blue>The value of these are meaningless.  They happen to be zero.</font>
+  Lbas[3]         0x0
+  Lbas[4]         0x0
+  Lbas[5]         0x0                <font color=blue>This is the extra lba</font>
+  Parent          0x0  
+  Parent_index    -1
+  &ptr            0x1e845e8          <font color=blue>This is meaningless, because the tree_node isn't on the free list.</font>
+Find(): Read -- Tree Node 0x1e84650
+  Bytes:          0x1e84650
+  Nkeys Address:  0x1e84b50
+  Nkeys Value:    4
+  Flush Value:    0
+  Internal Value: 0
+  LBA Value:      1
+  Keys:           0x1e84b90
+  Keys[0]         0x1e84652 (Alexis)
+  Keys[1]         0x1e8471a (Allison)
+  Keys[2]         0x1e847e2 (Caleb)
+  Keys[3]         0x1e848aa (Daniel)
+  Keys[4]         0x1e84972 ()
+  Lbas:           0x1e84bc0
+  Lbas[0]         0x4
+  Lbas[1]         0xb
+  Lbas[2]         0xa
+  Lbas[3]         0x2
+  Lbas[4]         0x6
+  Lbas[5]         0x0
+  Parent          0x1e840c0
+  Parent_index    0
+  &ptr            0x1e84b78
+Free_and_flush(): Write -- Tree Node 0x1e84be0
+  Bytes:          0x1e84be0
+  Nkeys Address:  0x1e850e0
+  Nkeys Value:    2
+  Flush Value:    1
+  Internal Value: 0
+  LBA Value:      13
+  Keys:           0x1e85120
+  Keys[0]         0x1e84be2 (Caleb)
+  Keys[1]         0x1e84caa (Daniel)
+  Keys[2]         0x1e84d72 ()
+  Keys[3]         0x1e84e3a ()
+  Keys[4]         0x1e84f02 ()
+  Lbas:           0x1e85150
+  Lbas[0]         0xa
+  Lbas[1]         0x2
+  Lbas[2]         0x6
+  Lbas[3]         0x0
+  Lbas[4]         0x0
+  Lbas[5]         0x0
+  Parent          0x0
+  Parent_index    0
+  &ptr            0x1e85108
+Free_and_flush(): Write -- Tree Node 0x1e84650
+  Bytes:          0x1e84650
+  Nkeys Address:  0x1e84b50
+  Nkeys Value:    2
+  Flush Value:    1
+  Internal Value: 0
+  LBA Value:      1
+  Keys:           0x1e84b90
+  Keys[0]         0x1e84652 (A-Aron)
+  Keys[1]         0x1e8471a (Alexis)
+  Keys[2]         0x1e847e2 (Allison) <font color=blue>These are leftover from before the split.  nkeys is 2,</font>
+  Keys[3]         0x1e848aa (Caleb) <font color=blue>  so they are ignored, but they are written to disk.</font>
+  Keys[4]         0x1e84972 (Daniel) <font color=blue> As you can see there is room for 5 keys, which makes splitting easier.</font>
+  Lbas:           0x1e84bc0
+  Lbas[0]         0xc
+  Lbas[1]         0x4
+  Lbas[2]         0xb
+  Lbas[3]         0xa <font color=blue>                Same with these LBA's.</font>
+  Lbas[4]         0x2
+  Lbas[5]         0x6
+  Parent          0x1e840c0
+  Parent_index    0
+  &ptr            0x1e84b78
+Free_and_flush(): Write -- Tree Node 0x1e840c0
+  Bytes:          0x1e840c0
+  Nkeys Address:  0x1e845c0
+  Nkeys Value:    2
+  Flush Value:    1
+  Internal Value: 1
+  LBA Value:      8
+  Keys:           0x1e84600
+  Keys[0]         0x1e840c2 (Allison)
+  Keys[1]         0x1e8418a (Eli)
+  Keys[2]         0x1e84252 ()
+  Keys[3]         0x1e8431a ()
+  Keys[4]         0x1e843e2 ()
+  Lbas:           0x1e84630
+  Lbas[0]         0x1
+  Lbas[1]         0xd
+  Lbas[2]         0x7
+  Lbas[3]         0x0
+  Lbas[4]         0x0
+  Lbas[5]         0x0
+  Parent          0x0
+  Parent_index    -1
+  &ptr            0x1e845e8
+Insert return value: 12
+Reads: 3
+Writes: 5
+UNIX> <font color=darkred><b></b></font>
+</pre>
+<hr>
+<h3>Btree Haikus</h3>
+
+<p><center><table border=3 cellpadding=3><td><pre>
+How hard can it be?
+Inserting keys at random
+Segmentation fault
+</pre>
+<p>
+David C. - 2015</td></table></center><p>
+<p><center><table border=3 cellpadding=3><td><pre>
+Time to start split node.
+I saved the best part for last.
+What day is it now?
+</pre>
+<p>
+Tyler M. - 2016</td></table></center><p>
+
+<p><center><table border=3 cellpadding=3><td><pre>
+Five hundred lines long
+One hundred problems correct
+Please, now can I sleep?
+</pre>
+<p>
+David C. - 2015</td></table></center><p>
+
+<p><center><table border=3 cellpadding=3><td><pre>
+Seg fault on case 5...
+I guess I should try Valgrind.
+Seg fault on case 6...
+</pre>
+<p>
+Tyler M. - 2016</td></table></center><p>
+
+<p><center><table border=3 cellpadding=3><td><pre>
+Passes the gradescript
+Allocates 10 million bytes
+Pattern not found: free()
+</pre>
+<p>
+Elliot G. - 2016</td></table></center><p>
+
+<p><center><table border=3 cellpadding=3><td><pre>
+My data structure
+Does not include a spare key.
+No spring break for me.
+</pre>
+<p>
+Dr. Plank - 2015</td></table></center><p>
+
+<p><center><table border=3 cellpadding=3><td><pre>
+Seven hundred lines?
+I guess I should have used find..
+Insert can find too!
+</pre>
+<p>
+Tyler M. - 2016</td></table></center><p>
+
