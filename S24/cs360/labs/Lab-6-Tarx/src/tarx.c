@@ -6,6 +6,8 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <stdint.h>
+#include <unistd.h>
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <sys/time.h>
@@ -21,10 +23,10 @@ int compare(Jval v1, Jval v2) {
 }
 
 void build_directory(JRB inodes, JRB modes, JRB modtimes) {
-  int fnsize, flmode, file_size;
+  unsigned int fnsize, flmode, file_size;
   long inode, modtime;
-  size_t flsize, err;
-  char *filename, bytes[8000];
+  uint64_t flsize, err;
+  char *filename, *bytes;
   FILE *ofile;
   JRB tmp;
   
@@ -54,52 +56,53 @@ void build_directory(JRB inodes, JRB modes, JRB modtimes) {
       if (fread(&modtime, 1, 8, stdin) != 8) { fprintf(stderr, "Bad tarc file at %s, couldn't read modification time\n", filename); exit(1); }
 
       /* Insert into the red-black tree */
-      jrb_insert_gen(inodes, new_jval_l(inode), new_jval_i(flmode), compare);
-    }
-    //else flmode = tmp->val.i; 
+      jrb_insert_gen(inodes, new_jval_l(inode), new_jval_s(filename), compare);
 
-    if (jrb_find_str(modes, filename) == NULL) {
-      jrb_insert_str(modes, filename, new_jval_i(flmode));
-      jrb_insert_str(modtimes, filename, new_jval_l(modtime));
-    }
+      /* Build the file or directory */
 
-    if (S_ISDIR(flmode)) {
-      /* Directory */
-      mkdir(filename, 00744);        
-    }
+      if (S_ISDIR(flmode)) {
+        /* Directory */
+        mkdir(filename, 766);        
+      }
+      else if (S_ISREG(flmode)) {
+        /* This is a file */
+        if (fread(&flsize, 8, 1, stdin) != 1) { fprintf(stderr, "Bad tarc file at %s, couldn't read the file size\n", filename); exit(1); }
+
+        /* Read in the bytes then write them to the new file */
+        bytes = (char*)malloc((flsize + 10) * sizeof(char));
+        if (bytes == NULL && flsize != 0) {
+          printf("null bytes");
+          exit(1);
+        }
+        err = fread(bytes, 1, flsize, stdin);
+        if (err < flsize) { fprintf(stderr, "Bad tarc file at %s, read %lu out of %lu bytes\n", filename, err, flsize); exit(1); }
+
+        /* Create new file */
+        ofile = fopen(filename, "w");
+        if (ofile == NULL) { perror(filename); exit(1); }
+
+        /* Write bytes */
+        fwrite(bytes, 1, flsize, ofile);
+
+        /* Immediately close file to save on File descriptors */
+        fclose(ofile);
+        free(bytes);
+      }
+    } 
     else {
-      /* This is a file */
-      if (fread(&flsize, 8, 1, stdin) != 1) { fprintf(stderr, "Bad tarc file at %s, couldn't read the file size\n", filename); exit(1); }
+      /* Create a link between the files */
+      link(tmp->val.s, filename);
+      if (link < 0) { perror(filename); exit(1); }
+     }
 
-      /* Read in the bytes then write them to the new file */
-      err = fread(bytes, 1, flsize, stdin);
-      if (err < flsize) { fprintf(stderr, "Bad tarc file at %s, read %d out of %d bytes\n", filename, err, flsize); exit(1); }
+     if (jrb_find_str(modes, filename) == NULL && tmp == NULL) {
+       jrb_insert_str(modes, filename, new_jval_i(flmode));
+       jrb_insert_str(modtimes, filename, new_jval_l(modtime));
+     }
 
-      /* Create new file */
-      ofile = fopen(filename, "w");
-      if (ofile == NULL) { perror(filename); exit(1); }
-
-      /* Write bytes */
-      fwrite(bytes, 1, flsize, ofile);
-
-      /* Immediately close file to save on File descriptors */
-      fclose(ofile);
-
-      /* Try to check file existence */
-      //printf("%d\n", fnsize);
-      //printf("%s\n", filename);
-      //printf("%ld\n", inode);
-
-      //printf("%ld\n", flsize);
-      //printf("%s\n", bytes);
-      //printf("%d\n%ld\n", flmode, modtime);
-    }
-
-    err = fread(&fnsize, 1, 4, stdin);
+     err = fread(&fnsize, 1, 4, stdin);
   }
-  //if (!feof(stdin)) { fprintf(stderr, "Bad tarc file at byte  tried to read filename, but only got %d\n", err); exit(1); }
-  if (err > 0 && err < 4) { fprintf(stderr, "Bad tarc file at byte  tried to read filename, but only got %d\n", err); exit(1); }
-
+  if (err > 0 && err < 4) { fprintf(stderr, "Bad tarc file at byte  tried to read filename, but only got %lu\n", err); exit(1); }
 }
 
 int main() {
@@ -120,7 +123,8 @@ int main() {
 
   jrb_traverse(tmp, modtimes) {
     exists = lstat(tmp->key.s, &buf);
-    if (exists < 0) { fprintf(stderr, "cannot stat %s\n", tmp->key.s); exit(1); }
+    //if (exists < 0) { fprintf(stderr, "cannot stat %s\n", tmp->key.s); exit(1); }
+
 
     /* Change modtime */
     times[0].tv_sec = buf.st_mtime;

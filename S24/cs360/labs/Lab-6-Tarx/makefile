@@ -1,6 +1,7 @@
 CC = gcc 
 INCLUDES = -I/home/jplank/cs360/include
-CFLAGS = $(INCLUDES)
+#CFLAGS = $(INCLUDES) -g -fsanitize=address
+CFLAGS = $(INCLUDES) -g
 LIBDIR = /home/jplank/cs360/lib
 LIBS = $(LIBDIR)/libfdr.a 
 
